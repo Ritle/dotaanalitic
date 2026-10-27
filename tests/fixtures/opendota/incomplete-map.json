@@ -1,0 +1,19 @@
+{
+  "_fixture_notice": "SYNTHETIC. Not real match. Missing players, cannot be used as complete.",
+  "match_id": 123456790,
+  "start_time": 1690001000,
+  "duration": 0,
+  "players": [
+    {
+      "account_id": 10000,
+      "player_slot": 0,
+      "hero_id": 1,
+      "kills": 0,
+      "deaths": 1,
+      "assists": 5,
+      "gold_per_min": 400,
+      "xp_per_min": 500
+    }
+  ],
+  "radiant_win": null
+}

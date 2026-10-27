@@ -1,0 +1,17 @@
+{$SITE_HOST} {
+    encode zstd gzip
+    @api path /api/* /health
+    handle @api {
+        reverse_proxy api:3000
+    }
+    handle {
+        root * /srv
+        try_files {path} /index.html
+        file_server
+    }
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        X-Frame-Options DENY
+    }
+}

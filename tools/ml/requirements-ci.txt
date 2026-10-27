@@ -1,0 +1,12 @@
+# Tested Python 3.13 environment for offline ML bootstrap; no unsafe prediction deployment.
+# Hash-pinned dependency lock for production training must be generated after real dataset exists.
+numpy==2.3.5
+scipy==1.17.0
+scikit-learn==1.8.0
+joblib==1.5.3
+threadpoolctl==3.6.0
+pytest==9.0.2
+packaging==25.0
+iniconfig==2.3.0
+pluggy==1.6.0
+Pygments==2.20.0

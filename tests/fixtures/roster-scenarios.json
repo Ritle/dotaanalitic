@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "cases": [
+    {
+      "id": "unchanged",
+      "before": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "after": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "retainedPlayers": 5,
+      "retainedPairLinks": 10
+    },
+    {
+      "id": "one-standin",
+      "before": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "after": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6"
+      ],
+      "retainedPlayers": 4,
+      "retainedPairLinks": 6
+    },
+    {
+      "id": "new-five",
+      "before": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "after": [
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "retainedPlayers": 0,
+      "retainedPairLinks": 0
+    }
+  ],
+  "history": [
+    {
+      "matchId": "1001",
+      "startedAtMs": 100000,
+      "playerIds": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "side": "radiant",
+      "teamTag": "OLD"
+    },
+    {
+      "matchId": "1002",
+      "startedAtMs": 200000,
+      "playerIds": [
+        "1",
+        "2",
+        "3",
+        "6",
+        "7"
+      ],
+      "side": "dire",
+      "teamTag": "NEW"
+    },
+    {
+      "matchId": "1003",
+      "startedAtMs": 900000,
+      "playerIds": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "side": "radiant",
+      "teamTag": "FUTURE"
+    }
+  ],
+  "cutoffAtMs": 500000,
+  "actual": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+  ],
+  "expectedExactFiveMaps": 1,
+  "expectedPair": "1:2",
+  "expectedPairMaps": 2
+}

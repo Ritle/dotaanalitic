@@ -1,0 +1,91 @@
+name: CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm npm lockfile is committed
+        run: test -s pnpm-lock.yaml || { echo 'Generate real pnpm-lock.yaml with node scripts/bootstrap-lockfile.mjs'; exit 1; }
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.19.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/verify-migrations.mjs
+      - run: node scripts/check-doc-links.mjs
+      - run: node --test tests/node/*.test.mjs
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+
+  postgres-integration:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: dota
+          POSTGRES_PASSWORD: ci_password_only
+          POSTGRES_DB: dota_analytics_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U dota -d dota_analytics_test"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      DATABASE_URL: postgresql://dota:ci_password_only@localhost:5432/dota_analytics_test
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm npm lockfile is committed
+        run: test -s pnpm-lock.yaml || { echo 'Generate real pnpm-lock.yaml with node scripts/bootstrap-lockfile.mjs'; exit 1; }
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.19.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: node scripts/migrate.mjs
+      - run: node scripts/migrate.mjs # must be idempotent
+      - run: pnpm test:integration
+
+  ml-bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m pip install -r tools/ml/requirements-ci.txt
+      - run: python -m pip install --no-deps -e tools/ml
+      - run: python -m pytest tools/ml/tests -q
+      - run: python tools/ml/train.py --dataset tests/fixtures/ml/synthetic_history.jsonl --output /tmp/dota-demo-candidate.json --allow-synthetic
+      - run: python tools/ml/evaluate.py /tmp/dota-demo-candidate.json
+      - run: node scripts/check-ml-parity.mjs /tmp/dota-demo-candidate.json
+
+  e2e-bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm npm lockfile is committed
+        run: test -s pnpm-lock.yaml || { echo 'Generate real pnpm-lock.yaml with node scripts/bootstrap-lockfile.mjs'; exit 1; }
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.19.0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @dota/web exec playwright install --with-deps chromium
+      - run: pnpm test:e2e

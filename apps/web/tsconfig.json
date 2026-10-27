@@ -1,0 +1,5 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": { "types": ["vite/client", "node"], "moduleResolution": "Bundler" },
+  "include": ["src/**/*.ts", "src/**/*.vue", "vite.config.ts"]
+}

@@ -1,0 +1,184 @@
+{
+  "calibration_intercept": 3.6886736508800113,
+  "calibration_slope": 4.60598905700681,
+  "coefficients": [
+    0.9927197789378109,
+    0.3074478233107573,
+    -0.04308059306614437,
+    -0.8782921115124653
+  ],
+  "dataset_sha256": "bbc3a663ee93a35ae7abfbcbabcfe0ecf349a89312791cb1743fc2954c83a7de",
+  "deployable": false,
+  "feature_names": [
+    "elo_delta",
+    "form_delta",
+    "cohesion_delta",
+    "patch_distance"
+  ],
+  "format": "dota2-logistic-v1",
+  "imputer_medians": [
+    0.0,
+    0.0,
+    0.4,
+    1.5
+  ],
+  "intercept": -0.4057515096284375,
+  "metrics": {
+    "calibration": {
+      "brier": 0.03934617830960944,
+      "log_loss": 0.11402376647263669,
+      "n": 16
+    },
+    "test": {
+      "brier": 0.3276295447978498,
+      "log_loss": 1.7101643700371463,
+      "n": 14
+    },
+    "train": {
+      "brier": 0.2186568070592325,
+      "log_loss": 1.124064236121128,
+      "n": 52
+    },
+    "validation": {
+      "brier": 0.3444722118298561,
+      "log_loss": 1.6783511636077453,
+      "n": 14
+    }
+  },
+  "reference_predictions": [
+    {
+      "features": {
+        "cohesion_delta": 0.1,
+        "elo_delta": 0,
+        "form_delta": 0.2857142857142857,
+        "patch_distance": 2
+      },
+      "match_id": "9000082",
+      "probability": 0.8878830956282604
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.2,
+        "elo_delta": 15,
+        "form_delta": 0.42857142857142855,
+        "patch_distance": 3
+      },
+      "match_id": "9000083",
+      "probability": 0.6358042925244327
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.3,
+        "elo_delta": 30,
+        "form_delta": -0.42857142857142855,
+        "patch_distance": 0
+      },
+      "match_id": "9000084",
+      "probability": 0.9998117460209952
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.4,
+        "elo_delta": 45,
+        "form_delta": -0.2857142857142857,
+        "patch_distance": 1
+      },
+      "match_id": "9000085",
+      "probability": 0.9991466028220125
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.5,
+        "elo_delta": 60,
+        "form_delta": -0.14285714285714285,
+        "patch_distance": 2
+      },
+      "match_id": "9000086",
+      "probability": 0.9961404327629372
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.6,
+        "elo_delta": 75,
+        "form_delta": 0.0,
+        "patch_distance": 3
+      },
+      "match_id": "9000087",
+      "probability": 0.9827278123848091
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.7,
+        "elo_delta": -75,
+        "form_delta": 0.14285714285714285,
+        "patch_distance": 0
+      },
+      "match_id": "9000088",
+      "probability": 0.6763407747686544
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.8,
+        "elo_delta": -60,
+        "form_delta": 0.2857142857142857,
+        "patch_distance": 1
+      },
+      "match_id": "9000089",
+      "probability": 0.31537848723589385
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.0,
+        "elo_delta": -45,
+        "form_delta": 0.42857142857142855,
+        "patch_distance": 2
+      },
+      "match_id": "9000090",
+      "probability": 0.17042775296340185
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.1,
+        "elo_delta": -30,
+        "form_delta": -0.42857142857142855,
+        "patch_distance": 3
+      },
+      "match_id": "9000091",
+      "probability": 0.00032364336040633035
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.2,
+        "elo_delta": -15,
+        "form_delta": -0.2857142857142857,
+        "patch_distance": 0
+      },
+      "match_id": "9000092",
+      "probability": 0.9927941745814162
+    },
+    {
+      "features": {
+        "cohesion_delta": 0.3,
+        "elo_delta": 0,
+        "form_delta": -0.14285714285714285,
+        "patch_distance": 1
+      },
+      "match_id": "9000093",
+      "probability": 0.9681248711076915
+    }
+  ],
+  "scaler_mean": [
+    -3.4615384615384617,
+    -0.01648351648351648,
+    0.38653846153846155,
+    1.5
+  ],
+  "scaler_scale": [
+    46.38404132825026,
+    0.2866110188075819,
+    0.25345978755085674,
+    1.118033988749895
+  ],
+  "scikit_learn_version": "1.8.0",
+  "synthetic_only": true
+}

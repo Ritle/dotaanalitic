@@ -1,0 +1,60 @@
+# Use: docker compose --env-file .env.production -f compose.production.yaml up --build -d
+# Personal VPS / one owner / no published database or API ports.
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:?}
+      POSTGRES_USER: ${POSTGRES_USER:?}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?}
+    volumes:
+      - dota_postgres_prod:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    networks: [internal]
+  migrate:
+    build: {context: ., dockerfile: apps/api/Dockerfile}
+    command: ["node", "scripts/migrate.mjs"]
+    environment:
+      DATABASE_URL: ${DATABASE_URL:?}
+    depends_on:
+      postgres: {condition: service_healthy}
+    restart: 'no'
+    networks: [internal]
+  api:
+    build: {context: ., dockerfile: apps/api/Dockerfile}
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      API_PORT: 3000
+      API_HOST: 0.0.0.0
+      WEB_ORIGIN: ${WEB_ORIGIN:?}
+      DATABASE_URL: ${DATABASE_URL:?}
+    depends_on:
+      migrate: {condition: service_completed_successfully}
+    expose: ['3000']
+    networks: [internal]
+  web:
+    build: {context: ., dockerfile: apps/web/Dockerfile}
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    environment:
+      SITE_HOST: ${SITE_HOST:?}
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on: [api]
+    networks: [internal]
+networks:
+  internal: {}
+volumes:
+  dota_postgres_prod: {}
+  caddy_data: {}
+  caddy_config: {}

@@ -1,0 +1,1 @@
+{ "name": "@dota/db", "private": true, "type": "module", "scripts": { "typecheck": "node -e \"console.log('SQL-only package')\"" } }

@@ -1,0 +1,811 @@
+{
+  "_fixture_notice": "SYNTHETIC data only. NOT a recording of the real OpenDota responses and not suitable for ML training.",
+  "proMatches": [
+    {
+      "match_id": 99000001
+    },
+    {
+      "match_id": 99000002
+    },
+    {
+      "match_id": 99000003
+    },
+    {
+      "match_id": 99000004
+    },
+    {
+      "match_id": 99000005
+    },
+    {
+      "match_id": 99000006
+    }
+  ],
+  "details": {
+    "99000001": {
+      "_case": "clean",
+      "match_id": 99000001,
+      "start_time": 1750000001,
+      "radiant_win": true,
+      "radiant_team_id": 500,
+      "dire_team_id": 600,
+      "series_id": 1101,
+      "leagueid": 9999,
+      "patch": 56,
+      "players": [
+        {
+          "player_slot": 0,
+          "account_id": 10000,
+          "hero_id": 1,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 1,
+          "account_id": 10001,
+          "hero_id": 2,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 2,
+          "account_id": 10002,
+          "hero_id": 3,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 3,
+          "account_id": 10003,
+          "hero_id": 4,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 4,
+          "account_id": 10004,
+          "hero_id": 5,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 128,
+          "account_id": 10005,
+          "hero_id": 6,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 129,
+          "account_id": 10006,
+          "hero_id": 7,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 130,
+          "account_id": 10007,
+          "hero_id": 8,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 131,
+          "account_id": 10008,
+          "hero_id": 9,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 132,
+          "account_id": 10009,
+          "hero_id": 10,
+          "lane_role": 1
+        }
+      ],
+      "picks_bans": [
+        {
+          "is_pick": true,
+          "hero_id": 1,
+          "team": 0,
+          "order": 0
+        },
+        {
+          "is_pick": true,
+          "hero_id": 2,
+          "team": 0,
+          "order": 1
+        },
+        {
+          "is_pick": true,
+          "hero_id": 3,
+          "team": 0,
+          "order": 2
+        },
+        {
+          "is_pick": true,
+          "hero_id": 4,
+          "team": 0,
+          "order": 3
+        },
+        {
+          "is_pick": true,
+          "hero_id": 5,
+          "team": 0,
+          "order": 4
+        },
+        {
+          "is_pick": true,
+          "hero_id": 6,
+          "team": 1,
+          "order": 5
+        },
+        {
+          "is_pick": true,
+          "hero_id": 7,
+          "team": 1,
+          "order": 6
+        },
+        {
+          "is_pick": true,
+          "hero_id": 8,
+          "team": 1,
+          "order": 7
+        },
+        {
+          "is_pick": true,
+          "hero_id": 9,
+          "team": 1,
+          "order": 8
+        },
+        {
+          "is_pick": true,
+          "hero_id": 10,
+          "team": 1,
+          "order": 9
+        }
+      ],
+      "game_mode": 2,
+      "lobby_type": 1
+    },
+    "99000002": {
+      "_case": "twelve_picks",
+      "match_id": 99000002,
+      "start_time": 1750000002,
+      "radiant_win": true,
+      "radiant_team_id": 500,
+      "dire_team_id": 600,
+      "series_id": 1102,
+      "leagueid": 9999,
+      "patch": 56,
+      "players": [
+        {
+          "player_slot": 0,
+          "account_id": 10000,
+          "hero_id": 1,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 1,
+          "account_id": 10001,
+          "hero_id": 2,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 2,
+          "account_id": 10002,
+          "hero_id": 3,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 3,
+          "account_id": 10003,
+          "hero_id": 4,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 4,
+          "account_id": 10004,
+          "hero_id": 5,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 128,
+          "account_id": 10005,
+          "hero_id": 6,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 129,
+          "account_id": 10006,
+          "hero_id": 7,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 130,
+          "account_id": 10007,
+          "hero_id": 8,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 131,
+          "account_id": 10008,
+          "hero_id": 9,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 132,
+          "account_id": 10009,
+          "hero_id": 10,
+          "lane_role": 1
+        }
+      ],
+      "picks_bans": [
+        {
+          "is_pick": true,
+          "hero_id": 1,
+          "team": 0,
+          "order": 0
+        },
+        {
+          "is_pick": true,
+          "hero_id": 2,
+          "team": 0,
+          "order": 1
+        },
+        {
+          "is_pick": true,
+          "hero_id": 3,
+          "team": 0,
+          "order": 2
+        },
+        {
+          "is_pick": true,
+          "hero_id": 4,
+          "team": 0,
+          "order": 3
+        },
+        {
+          "is_pick": true,
+          "hero_id": 5,
+          "team": 0,
+          "order": 4
+        },
+        {
+          "is_pick": true,
+          "hero_id": 6,
+          "team": 1,
+          "order": 5
+        },
+        {
+          "is_pick": true,
+          "hero_id": 7,
+          "team": 1,
+          "order": 6
+        },
+        {
+          "is_pick": true,
+          "hero_id": 8,
+          "team": 1,
+          "order": 7
+        },
+        {
+          "is_pick": true,
+          "hero_id": 9,
+          "team": 1,
+          "order": 8
+        },
+        {
+          "is_pick": true,
+          "hero_id": 10,
+          "team": 1,
+          "order": 9
+        },
+        {
+          "is_pick": true,
+          "hero_id": 31,
+          "team": 1,
+          "order": 10
+        },
+        {
+          "is_pick": true,
+          "hero_id": 107,
+          "team": 1,
+          "order": 11
+        }
+      ],
+      "game_mode": 2,
+      "lobby_type": 1
+    },
+    "99000003": {
+      "_case": "eleven_picks",
+      "match_id": 99000003,
+      "start_time": 1750000003,
+      "radiant_win": true,
+      "radiant_team_id": 500,
+      "dire_team_id": 600,
+      "series_id": 1103,
+      "leagueid": 9999,
+      "patch": 56,
+      "players": [
+        {
+          "player_slot": 0,
+          "account_id": 10000,
+          "hero_id": 1,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 1,
+          "account_id": 10001,
+          "hero_id": 2,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 2,
+          "account_id": 10002,
+          "hero_id": 3,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 3,
+          "account_id": 10003,
+          "hero_id": 4,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 4,
+          "account_id": 10004,
+          "hero_id": 5,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 128,
+          "account_id": 10005,
+          "hero_id": 6,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 129,
+          "account_id": 10006,
+          "hero_id": 7,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 130,
+          "account_id": 10007,
+          "hero_id": 8,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 131,
+          "account_id": 10008,
+          "hero_id": 9,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 132,
+          "account_id": 10009,
+          "hero_id": 10,
+          "lane_role": 1
+        }
+      ],
+      "picks_bans": [
+        {
+          "is_pick": true,
+          "hero_id": 1,
+          "team": 0,
+          "order": 0
+        },
+        {
+          "is_pick": true,
+          "hero_id": 2,
+          "team": 0,
+          "order": 1
+        },
+        {
+          "is_pick": true,
+          "hero_id": 3,
+          "team": 0,
+          "order": 2
+        },
+        {
+          "is_pick": true,
+          "hero_id": 4,
+          "team": 0,
+          "order": 3
+        },
+        {
+          "is_pick": true,
+          "hero_id": 5,
+          "team": 0,
+          "order": 4
+        },
+        {
+          "is_pick": true,
+          "hero_id": 6,
+          "team": 1,
+          "order": 5
+        },
+        {
+          "is_pick": true,
+          "hero_id": 7,
+          "team": 1,
+          "order": 6
+        },
+        {
+          "is_pick": true,
+          "hero_id": 8,
+          "team": 1,
+          "order": 7
+        },
+        {
+          "is_pick": true,
+          "hero_id": 9,
+          "team": 1,
+          "order": 8
+        },
+        {
+          "is_pick": true,
+          "hero_id": 10,
+          "team": 1,
+          "order": 9
+        },
+        {
+          "is_pick": true,
+          "hero_id": 31,
+          "team": 1,
+          "order": 10
+        }
+      ],
+      "game_mode": 2,
+      "lobby_type": 1
+    },
+    "99000004": {
+      "_case": "zero_picks",
+      "match_id": 99000004,
+      "start_time": 1750000004,
+      "radiant_win": true,
+      "radiant_team_id": 500,
+      "dire_team_id": 600,
+      "series_id": 1104,
+      "leagueid": 9999,
+      "patch": 56,
+      "players": [
+        {
+          "player_slot": 0,
+          "account_id": 10000,
+          "hero_id": 1,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 1,
+          "account_id": 10001,
+          "hero_id": 2,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 2,
+          "account_id": 10002,
+          "hero_id": 3,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 3,
+          "account_id": 10003,
+          "hero_id": 4,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 4,
+          "account_id": 10004,
+          "hero_id": 5,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 128,
+          "account_id": 10005,
+          "hero_id": 6,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 129,
+          "account_id": 10006,
+          "hero_id": 7,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 130,
+          "account_id": 10007,
+          "hero_id": 8,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 131,
+          "account_id": 10008,
+          "hero_id": 9,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 132,
+          "account_id": 10009,
+          "hero_id": 10,
+          "lane_role": 1
+        }
+      ],
+      "picks_bans": [
+        {
+          "is_pick": false,
+          "hero_id": 45,
+          "team": 0,
+          "order": 0
+        }
+      ],
+      "game_mode": 2,
+      "lobby_type": 1
+    },
+    "99000005": {
+      "_case": "no_team_or_series",
+      "match_id": 99000005,
+      "start_time": 1750000005,
+      "radiant_win": true,
+      "radiant_team_id": null,
+      "dire_team_id": null,
+      "series_id": 0,
+      "leagueid": 9999,
+      "patch": 56,
+      "players": [
+        {
+          "player_slot": 0,
+          "account_id": 10000,
+          "hero_id": 1,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 1,
+          "account_id": 10001,
+          "hero_id": 2,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 2,
+          "account_id": 10002,
+          "hero_id": 3,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 3,
+          "account_id": 10003,
+          "hero_id": 4,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 4,
+          "account_id": 10004,
+          "hero_id": 5,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 128,
+          "account_id": 10005,
+          "hero_id": 6,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 129,
+          "account_id": 10006,
+          "hero_id": 7,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 130,
+          "account_id": 10007,
+          "hero_id": 8,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 131,
+          "account_id": 10008,
+          "hero_id": 9,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 132,
+          "account_id": 10009,
+          "hero_id": 10,
+          "lane_role": 1
+        }
+      ],
+      "picks_bans": [
+        {
+          "is_pick": true,
+          "hero_id": 1,
+          "team": 0,
+          "order": 0
+        },
+        {
+          "is_pick": true,
+          "hero_id": 2,
+          "team": 0,
+          "order": 1
+        },
+        {
+          "is_pick": true,
+          "hero_id": 3,
+          "team": 0,
+          "order": 2
+        },
+        {
+          "is_pick": true,
+          "hero_id": 4,
+          "team": 0,
+          "order": 3
+        },
+        {
+          "is_pick": true,
+          "hero_id": 5,
+          "team": 0,
+          "order": 4
+        },
+        {
+          "is_pick": true,
+          "hero_id": 6,
+          "team": 1,
+          "order": 5
+        },
+        {
+          "is_pick": true,
+          "hero_id": 7,
+          "team": 1,
+          "order": 6
+        },
+        {
+          "is_pick": true,
+          "hero_id": 8,
+          "team": 1,
+          "order": 7
+        },
+        {
+          "is_pick": true,
+          "hero_id": 9,
+          "team": 1,
+          "order": 8
+        },
+        {
+          "is_pick": true,
+          "hero_id": 10,
+          "team": 1,
+          "order": 9
+        }
+      ],
+      "game_mode": 2,
+      "lobby_type": 1
+    },
+    "99000006": {
+      "_case": "wrong_side",
+      "match_id": 99000006,
+      "start_time": 1750000006,
+      "radiant_win": true,
+      "radiant_team_id": 500,
+      "dire_team_id": 600,
+      "series_id": 1106,
+      "leagueid": 9999,
+      "patch": 56,
+      "players": [
+        {
+          "player_slot": 0,
+          "account_id": 10000,
+          "hero_id": 1,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 1,
+          "account_id": 10001,
+          "hero_id": 2,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 2,
+          "account_id": 10002,
+          "hero_id": 3,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 3,
+          "account_id": 10003,
+          "hero_id": 4,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 4,
+          "account_id": 10004,
+          "hero_id": 5,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 128,
+          "account_id": 10005,
+          "hero_id": 6,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 129,
+          "account_id": 10006,
+          "hero_id": 7,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 130,
+          "account_id": 10007,
+          "hero_id": 8,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 131,
+          "account_id": 10008,
+          "hero_id": 9,
+          "lane_role": 1
+        },
+        {
+          "player_slot": 132,
+          "account_id": 10009,
+          "hero_id": 10,
+          "lane_role": 1
+        }
+      ],
+      "picks_bans": [
+        {
+          "is_pick": true,
+          "hero_id": 1,
+          "team": 1,
+          "order": 0
+        },
+        {
+          "is_pick": true,
+          "hero_id": 2,
+          "team": 0,
+          "order": 1
+        },
+        {
+          "is_pick": true,
+          "hero_id": 3,
+          "team": 0,
+          "order": 2
+        },
+        {
+          "is_pick": true,
+          "hero_id": 4,
+          "team": 0,
+          "order": 3
+        },
+        {
+          "is_pick": true,
+          "hero_id": 5,
+          "team": 0,
+          "order": 4
+        },
+        {
+          "is_pick": true,
+          "hero_id": 6,
+          "team": 0,
+          "order": 5
+        },
+        {
+          "is_pick": true,
+          "hero_id": 7,
+          "team": 1,
+          "order": 6
+        },
+        {
+          "is_pick": true,
+          "hero_id": 8,
+          "team": 1,
+          "order": 7
+        },
+        {
+          "is_pick": true,
+          "hero_id": 9,
+          "team": 1,
+          "order": 8
+        },
+        {
+          "is_pick": true,
+          "hero_id": 10,
+          "team": 1,
+          "order": 9
+        }
+      ],
+      "game_mode": 2,
+      "lobby_type": 1
+    }
+  }
+}

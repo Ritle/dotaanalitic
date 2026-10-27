@@ -1,0 +1,9 @@
+{
+  "name": "@dota/contracts",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "typecheck": "tsc --noEmit -p tsconfig.json", "test": "vitest run --passWithNoTests" },
+  "dependencies": { "zod": "^4.1.0" },
+  "devDependencies": { "typescript": "^5.9.0", "@types/node": "^22.0.0", "vitest": "^3.2.0" }
+}

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["pipeline"]
+
+[project]
+name = "dota2-pro-analytics-ml"
+version = "0.1.0"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy>=1.26,<3",
+  "scikit-learn>=1.5,<2",
+]
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]

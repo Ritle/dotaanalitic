@@ -1,0 +1,7 @@
+{
+  "001_initial.sql": "8b1505e143bc200ce1e5ef167e6315557b1c1eb3fc8e0fa2035e59c00d55d4f4",
+  "002_patch_awareness.sql": "2c332db16f6e40212f0c07f06f45918e1566a1158029392776e9eabae4ffa6b2",
+  "003_roster_continuity.sql": "c230707713b8cfe35a55a5a48aa9f81d9c9375ffeb4aed67c315d5235ca0c0fb",
+  "004_context_identity_provenance.sql": "184e24d7e95656e1be115c2010a8946a3d88633ca5d9c554b0b4e7c5cf1f294d",
+  "005_training_pipeline.sql": "b79dc2586d5d3bcbeb8d290045362fe14639a63b409f52da6c6bb3cc6f965f3c"
+}
