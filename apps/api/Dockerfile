@@ -5,7 +5,7 @@ RUN corepack enable
 COPY . .
 RUN test -s pnpm-lock.yaml || (echo 'Generate and commit pnpm-lock.yaml before production build' && exit 1)
 RUN pnpm install --frozen-lockfile
-RUN pnpm --filter @dota/api build
+RUN pnpm --filter @dota/api... --if-present build
 FROM node:22-bookworm-slim
 WORKDIR /app
 ENV NODE_ENV=production

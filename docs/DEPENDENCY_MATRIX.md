@@ -14,8 +14,8 @@
 | api | `@fastify/rate-limit` | Ограничение логинов | S0-03; совместимый Fastify5 plugin major |
 | api | `argon2` | password Argon2id | S0-03; нативная установка на Ubuntu/Windows CI |
 | db | `pg` 8 | SQL driver | Уже в root starter; migrations and pool test |
-| db | `kysely` | Typed select/joins/transactions | S0-02; SQL migration authority remains manually written `.sql` |
-| worker | `pg-boss` | Durable scheduled/import jobs | S0-02; at-least-once, restart, dedup test; own schema lifecycle |
+| db | `kysely` 0.28.18 | Typed select/joins/transactions | Installed/tested S0-02; SQL migration authority remains manually written `.sql` |
+| worker | `pg-boss` 12.38.0 | Durable scheduled/import jobs | Installed/tested S0-02; Node >=22.12; restart/dedup/retry/atomic deferral tested, own schema lifecycle |
 | web | `@tanstack/vue-query` | Cache and async fetch | S1-01; queryKey, invalidate after mutate |
 | web | `echarts`, `vue-echarts` | Timelines/calibration/graphs | On first analytics visualization (S1/S3), lazy load |
 | web | `@vue/test-utils` | Component tests | S1/S2 |

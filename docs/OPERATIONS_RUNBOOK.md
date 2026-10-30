@@ -6,7 +6,7 @@ Ubuntu 24.04+, рекомендация 4 vCPU/8 GB/120 GB NVMe, Docker Compose.
 
 ## First deploy (только после S0-03 и прохода CI)
 
-1. Создать и закоммитить реальный `pnpm-lock.yaml`, выполнить CI, тесты миграций, backup restore drill.
+1. Выполнить frozen install существующего registry lockfile, CI, тесты миграций, backup restore drill.
 2. `cp .env.production.example .env.production`, заменить все пароли/домен и проверить `node scripts/preflight.mjs --production --strict`. Production Compose ожидает `DATABASE_URL` вида `postgresql://user:pass@postgres:5432/db`, не `localhost`.
 3. `docker compose --env-file .env.production -f compose.production.yaml config` проверить **локально** (не публиковать результат со значениями секретов).
 4. `docker compose --env-file .env.production -f compose.production.yaml up -d --build`; `docker compose ... ps`; запрос `https://SITE_HOST/health` → `status=ok`.
@@ -23,10 +23,16 @@ Ubuntu 24.04+, рекомендация 4 vCPU/8 GB/120 GB NVMe, Docker Compose.
 ## Upgrade / rollback
 
 - Перед upgrade — SQL backup и фиксировать git commit/image tag.
-- Миграции `001–005` не редактировать. Любой новый SQL — `006_...`.
+- Применённые миграции `001–007` не редактировать, `001–005` защищены golden. Следующий SQL — `008_...`.
 - Не откатывать SQL физическим `DROP` без отдельного плана; менять приложение вперед-схемой.
 - ML candidate не активируется автоматически; rollback model_version через registry с аудитом по контракту v4.
 
 ## Known deployment blockers v7
 
-Нет проверенного `pnpm-lock.yaml`, не установлен Docker в среде генерации, не реализована Auth/API; production configs существуют, но **не проверены интеграционным запуском**.
+Registry lockfile создан в S0-00 и обновлён/проверен frozen install в S0-02. Docker отсутствует, Auth/API ещё не реализованы; production configs, включая worker, **не проверены контейнерным запуском**. Локальные PG16/Node интеграции не заменяют deploy/restore gate.
+
+## Импорт одной карты (S0-02)
+
+Локально: `pnpm worker:dev`, отдельно `pnpm ingest:enqueue --match-id MATCH_ID`; одноразово — `pnpm ingest:once --match-id MATCH_ID`. В собранном worker используется `node dist/cli.js work`, очередь находится в собственной PostgreSQL schema `pgboss`. Общие minute/day/month budgets задаются переменными OPENDOTA_*_BUDGET. Не обнулять quota row ради обхода лимита.
+
+Failed queue — `opendota-map-import-failed`; причина выдаётся безопасным code. При `completed` с `output.status=deferred` работа перенесена, а не импортирована: следовать `nextJobId`, оставить worker запущенным. После bounded retry/deferral budget проверить причину и enqueue вручную. Conflict требует разбора evidence; старые receipts, outcomes и frozen snapshots не редактировать. [Контракты и live evidence](S0_02_INGESTION.md).

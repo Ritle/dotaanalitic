@@ -5,7 +5,7 @@
 - Base: `https://api.opendota.com/api`
 - Документация: `https://docs.opendota.com/`, `https://opendota.apidocumentation.com/`
 - Основные: `GET /teams`, `/teams/{id}`, `/teams/{id}/players`, `/teams/{id}/matches`, `/proMatches`, `/matches/{id}`, `/heroes`, `/proPlayers`.
-- Старые API-документы публиковали **50 000 запросов/месяц и 60/мин**. На 2026-10-30 актуальный OpenAPI имеет версию 31.1.1; defaults upstream-кода содержат 60/мин без ключа и 3000/день, что не гарантирует deployed-конфигурацию. В live spike получены remaining-minute/day headers, remaining-month отсутствовал. Проверенные ссылки и условия — [S0-01](S0_01_PROVIDER_SPIKE.md). Локальный клиент ограничен 45/мин и 25 попытками на запуск; durable общие дневные/месячные счётчики реализуются в S0-02, `OPENDOTA_MONTHLY_BUDGET` пока только целевой конфиг.
+- Старые API-документы публиковали **50 000 запросов/месяц и 60/мин**. На 2026-10-30 актуальный OpenAPI имеет версию 31.1.1; defaults upstream-кода содержат 60/мин без ключа и 3000/день, что не гарантирует deployed-конфигурацию. В live spike получены remaining-minute/day headers, remaining-month отсутствовал. Проверенные ссылки и условия — [S0-01](S0_01_PROVIDER_SPIKE.md). С S0-02 все live entry points используют shared PostgreSQL quota: defaults 45/мин, 2000/день, 45000/месяц, UTC reset, Retry-After/remaining headers. Дополнительно каждый CLI/job ограничивает число собственных попыток; restart не обнуляет общую квоту.
 - `/players/{id}/matches`, `/players/{id}/heroes`, `/heroStats`, `/heroes/{id}/matchups` могут включать общие выборки: **не являются источником pro-only аналитики без соответствующего подтверждения**.
 
 ## Canonical import contract (checked against actual API responses at S0-01)
@@ -54,4 +54,12 @@ Normalize OpenDota match object into:
 
 ## v8 Prediction data feasibility
 
-Read [PREDICTION_DATA_SPEC.md](PREDICTION_DATA_SPEC.md); before training run `node scripts/audit-prediction-sources.mjs --sample 20 --out reports/opendota-coverage.json` in a networked environment. This audit measures source fields but **cannot** prove historical pre-start roster knowledge.
+Read [PREDICTION_DATA_SPEC.md](PREDICTION_DATA_SPEC.md); before training run `pnpm provider:audit --sample 20 --out reports/opendota-coverage.json` with network, configured DB and migration 007. Offline `--fixture` remains available directly via Node. This audit measures source fields but **cannot** prove historical pre-start roster knowledge.
+
+## S0-02: текущий canonical importer
+
+Provider client/schema теперь находятся в `packages/ingestion/src/opendota`; старые API exports совместимы. `IngestionService` сохраняет immutable receipt перед catalog lookup, минимальную source projection + исходный body SHA, отдельный raw draft и field observations. Полный body/chat/profile не сохраняются. Typed repositories используют `@dota/db`/Kysely, очередь — `apps/worker`/pg-boss.
+
+Профессиональность подтверждается отдельной политикой по `/leagues`: ровно одно совпадение ID, tier `professional`/`premium`; `amateur`/`excluded` false, прочее null. Outcome требует завершения карты. Справочники и политика версионированы; это не historic known-as-of. Player histories объединяются только существующими verified account links, source account хранится отдельно. Missing team/series не уничтожают valid final heroes, patch/roles/first pick остаются unknown без доказательства.
+
+Конфликт известных фактов сохраняет старое canonical значение и новую source revision; карта получает conflict и `is_pro=null`. Raw 0/11/12 picks не обрезаются, `draft_order_valid=null` до historical mode/patch rules. [Отчёт S0-02](S0_02_INGESTION.md) содержит live повтор карты, проверки и CLI. Одна импортированная карта не закрывает исторические S0-08/09 или model gates.

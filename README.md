@@ -19,7 +19,7 @@ pnpm db:migrate
 pnpm dev
 ```
 
-На Windows PowerShell вместо `cp` можно использовать `Copy-Item .env.example .env`. Замените пароль в `POSTGRES_PASSWORD` и `DATABASE_URL` согласованно до запуска БД. API при `dev`/`start`, мигратор и integration-тесты читают корневую `.env`; переменные процесса имеют приоритет. После запуска: web `http://localhost:5173`, API `http://localhost:3000/health`. Запущенный каркас показывает технический статус API; Auth, сбор данных и аналитические страницы реализуются Codex по плану.
+На Windows PowerShell вместо `cp` можно использовать `Copy-Item .env.example .env`. Замените пароль в `POSTGRES_PASSWORD` и `DATABASE_URL` согласованно до запуска БД. API при `dev`/`start`, мигратор и integration-тесты читают корневую `.env`; переменные процесса имеют приоритет. После запуска: web `http://localhost:5173`, API `http://localhost:3000/health`. Каркас показывает технический статус API; импорт одной карты доступен через CLI/worker. Auth и аналитические страницы ещё не реализованы.
 
 Файл `.env` содержит локальные секреты и **не коммитится**. Для установки владельца после реализации задачи S0-03 предусмотрена CLI-команда `pnpm owner:create` (на старте команда намеренно отсутствует, пока не реализован AuthService).
 
@@ -31,8 +31,13 @@ pnpm build               # сборка рабочих пространств
 pnpm typecheck           # проверка типов
 pnpm test                # unit-тесты
 pnpm provider:spike      # ограниченная проверка OpenDota, без записи матчей в БД
+pnpm provider:audit --sample 20 --out reports/opendota-coverage.json # live coverage, нужны БД и сеть
+pnpm worker:dev          # постоянный worker pg-boss, отдельный терминал
+pnpm ingest:enqueue --match-id 9069021061 # поставить карту в durable очередь
+pnpm ingest:once --match-id 9069021061    # поставить и дождаться одной задачи
+pnpm test:ingestion      # импорт/очередь в отдельных временных БД, нужны права CREATEDB
 pnpm db:up               # PostgreSQL
-pnpm db:migrate          # применить все миграции 001→002→003→004→005→006
+pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007
 pnpm db:down             # остановить PostgreSQL, НЕ удалять volume
 ```
 
@@ -43,7 +48,7 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 1. `AGENTS.md` — правила агента и запреты.
 2. `TECHNICAL_SPEC.md` — все утверждённые функциональные требования Personal MVP v2.
 3. `docs/TECHNICAL_ARCHITECTURE_AND_STACK.md`, `docs/DEPENDENCY_MATRIX.md`, `docs/ENGINEERING_PATTERNS.md`, `docs/DATA_PIPELINE_DESIGN.md`, `docs/ML_ENGINEERING_DECISIONS.md`, `docs/DEPLOYMENT_AND_TESTING.md` — нормативные технические решения и паттерны; затем `docs/ARCHITECTURE.md` и `docs/SCREEN_SPECS.md` — компоненты, пользовательские экраны и потоки данных.
-4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..006` — хранение.
+4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..007` — хранение.
 5. `docs/DATA_SOURCES.md` — OpenDota и ограничения.
 6. `docs/API_CONTRACTS.md` — маршруты и форматы.
 7. `docs/PREDICTION_ENGINE.md` и `docs/CONTINUOUS_LEARNING_PIPELINE.md` — антиутечка, backtest, frozen datasets, verified outcomes и безопасная публикация моделей.
@@ -81,7 +86,7 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 
 ### Обновление v5 — инженерный стек, паттерны и сложные случаи
 
-В дополнение к логике v4 добавлены **семь инженерных документов**. Выбран modular monolith + PostgreSQL `pg-boss` queue, SQL-first + типизированный Kysely, Vue Query для async-cache, Argon2id/DB sessions, Python sklearn для offline train и TypeScript для online logistic inference с golden parity тестами. Отдельно разобраны ретроспективное знание lineups, временная утечка, импорт at-least-once, historical series splits, artifact SHA, timeout/Retry-After, lock/транзакции, CSRF и backup/restore. Текущие starter `package.json` **не содержат новые библиотеки**: установка и проверка совместимости являются задачами Codex по этапам. Миграции 001–005 не менялись. См. [TECHNICAL_ARCHITECTURE_AND_STACK.md](docs/TECHNICAL_ARCHITECTURE_AND_STACK.md), [TECH_DECISION_REGISTER.md](docs/TECH_DECISION_REGISTER.md) и [CODEX_V5_TECH_UPDATE_PROMPT.md](CODEX_V5_TECH_UPDATE_PROMPT.md).
+В дополнение к логике v4 добавлены **семь инженерных документов**. Выбран modular monolith + PostgreSQL `pg-boss` queue, SQL-first + типизированный Kysely, Vue Query для async-cache, Argon2id/DB sessions, Python sklearn для offline train и TypeScript для online logistic inference с golden parity тестами. Отдельно разобраны ретроспективное знание lineups, временная утечка, импорт at-least-once, historical series splits, artifact SHA, timeout/Retry-After, lock/транзакции, CSRF и backup/restore. В исходном starter новые библиотеки были planned; в S0-02 установлены и проверены Kysely и pg-boss. Остальные библиотеки внедряются только по своим этапам. Миграции 001–005 не менялись. См. [TECHNICAL_ARCHITECTURE_AND_STACK.md](docs/TECHNICAL_ARCHITECTURE_AND_STACK.md), [TECH_DECISION_REGISTER.md](docs/TECH_DECISION_REGISTER.md) и [CODEX_V5_TECH_UPDATE_PROMPT.md](CODEX_V5_TECH_UPDATE_PROMPT.md).
 
 ### Рекомендации Codex по переключению моделей (v6)
 
@@ -123,4 +128,4 @@ node scripts/audit-prediction-sources.mjs --fixture tests/fixtures/opendota-audi
 node scripts/verify-migrations.mjs
 ```
 
-Новые компоненты пока не означают, что нормализатор/данные БД уже работают: PostgreSQL тесты и реальный повторный аудит остаются обязательными для Codex.
+S0-02 (+ S0-10): нормализатор и durable очередь реализованы; новая миграция 007 применена, повторный импорт реальной карты проверен. Команды выше автоматически собирают shared packages; после правок `packages/db`/`packages/ingestion` перезапускайте worker. Границы, тесты и live evidence: [S0_02_INGESTION.md](docs/S0_02_INGESTION.md). Одна импортированная карта не является готовой обучающей выборкой или проверкой модели.

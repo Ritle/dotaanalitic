@@ -11,6 +11,7 @@
     "provider:spike": "tsx --env-file-if-exists=../../.env src/providers/opendota/spike.ts"
   },
   "dependencies": {
+    "@dota/ingestion": "workspace:*",
     "fastify": "^5.6.0",
     "@fastify/cors": "^11.1.0",
     "zod": "^4.1.0"

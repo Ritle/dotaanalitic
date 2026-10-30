@@ -6,7 +6,7 @@ const errors=[];
 function visit(dir) {
  for (const item of fs.readdirSync(dir,{withFileTypes:true})) {
   const p=path.join(dir,item.name);
-  if (item.isDirectory() && !['node_modules','.git','dist','artifacts'].includes(item.name)) visit(p);
+  if (item.isDirectory() && !['node_modules','.git','dist','artifacts','.tools','.venv','.pytest_cache','test-results','playwright-report'].includes(item.name)) visit(p);
   else if (item.isFile() && p.endsWith('.md')) {
    const src=fs.readFileSync(p,'utf8');
    const links=[...src.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)].map(x=>x[1].split('#')[0]);

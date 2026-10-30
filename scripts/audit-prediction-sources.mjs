@@ -10,39 +10,30 @@ const fixture=arg('--fixture', null);
 const sample=Number(arg('--sample',20));
 const output=arg('--out', null);
 if(!Number.isInteger(sample)||sample<1||sample>50) {console.error('--sample must be 1..50'); process.exit(2);}
-const KEY=process.env.OPENDOTA_API_KEY;
 const FIELDS=['match_id_consistent','start_time','outcome','teams_2','league','series','patch','players_10','identity_10','heroes_10_unique','picks_10','draft_actions','role_hint_10','final_heroes_valid','draft_picks_exact','draft_heroes_match','draft_teams_match','draft_order_integrity','draft_structurally_consistent','draft_order_valid'];
-const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-let lastRequestAt=0;
+let runtime;
 async function get(url) {
-  for(let attempt=0;attempt<3;attempt++) {
-    const delay=Math.max(0,1600-(Date.now()-lastRequestAt));
-    if(delay) await sleep(delay);
-    lastRequestAt=Date.now();
-    const ac=new AbortController(); const timer=setTimeout(()=>ac.abort(),15000);
-    let response;
-    try { response=await fetch(url,{signal:ac.signal}); } finally {clearTimeout(timer);}
-    if(response.ok) return response.json();
-    if((response.status===429||response.status>=500)&&attempt<2) {
-      const raw=response.headers.get('retry-after'); let wait=2500*(attempt+1);
-      if(raw) { const asSec=Number(raw); if(Number.isFinite(asSec)) wait=Math.max(wait,asSec*1000); else {const dt=Date.parse(raw);if(Number.isFinite(dt))wait=Math.max(wait,dt-Date.now());}}
-      await sleep(Math.min(wait,60000)); continue;
-    }
-    throw new Error(`HTTP ${response.status} at ${new URL(url).pathname}`);
-  }
+  const path=new URL(url).pathname;
+  const observation=path==='/api/proMatches'?await runtime.client.getProMatches()
+    :await runtime.client.getMatchSource(path.slice('/api/matches/'.length));
+  return JSON.parse(observation.rawBody);
 }
 function validId(x){return Number.isSafeInteger(x)&&x>0;}
 try {
   let discovered, details;
   if(fixture){const f=JSON.parse(await readFile(fixture,'utf8'));discovered=f.proMatches;details=f.details; if(!Array.isArray(discovered)||typeof details!=='object') throw new Error('fixture requires proMatches and details');}
-  else {const query=KEY?`?api_key=${encodeURIComponent(KEY)}`:''; discovered=await get(`https://api.opendota.com/api/proMatches${query}`);}
+  else {
+    const {createProviderRuntime}=await import('../packages/ingestion/dist/runtime.js');
+    runtime=createProviderRuntime(process.env,Math.min(200,sample*3+3));
+    discovered=await get('https://api.opendota.com/api/proMatches');
+  }
   if(!Array.isArray(discovered))throw new Error('/proMatches did not return array');
   const ids=[...new Set(discovered.map(x=>x?.match_id).filter(validId))].slice(0,sample);
   if(ids.length===0)throw new Error('no valid match IDs in proMatches');
   const rows=[]; const errors=[];
   for(const id of ids){
     try{
-      const m=fixture?details[String(id)]:await get(`https://api.opendota.com/api/matches/${id}${KEY?`?api_key=${encodeURIComponent(KEY)}`:''}`);
+      const m=fixture?details[String(id)]:await get(`https://api.opendota.com/api/matches/${id}`);
       if(!m)throw new Error('missing fixture detail');
       const quality=inspectMatch(m,id);
       rows.push({match_id:String(id),...quality});
@@ -63,4 +54,5 @@ try {
   if(output){await mkdir(dirname(output),{recursive:true});await writeFile(output,JSON.stringify(report,null,2)+'\n');}
   console.log(JSON.stringify(report,null,2));
   if(rows.length===0)process.exitCode=1;
-} catch(e){console.error(`audit failed: ${e.message}`);process.exitCode=1;}
+} catch(e){console.error(`audit failed: ${e.code??'source_unavailable'}`);process.exitCode=1;}
+finally {await runtime?.close();}

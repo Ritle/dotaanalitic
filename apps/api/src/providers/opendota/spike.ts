@@ -2,7 +2,8 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseArgs } from 'node:util';
-import { OpenDotaClient, OpenDotaError, OPENDOTA_ADAPTER_VERSION } from './client.js';
+import { OpenDotaError, OPENDOTA_ADAPTER_VERSION } from './client.js';
+import { createProviderRuntime } from '@dota/ingestion';
 import { ProviderIdSchema, type OpenDotaMatch } from './schemas.js';
 
 const root = fileURLToPath(new URL('../../../../../', import.meta.url));
@@ -95,11 +96,9 @@ async function main() {
     throw new OpenDotaError('invalid_configuration');
   }
   if (requested?.some(id => !ProviderIdSchema.safeParse(id).success)) throw new OpenDotaError('invalid_id');
-  const client = new OpenDotaClient({
-    baseUrl: process.env.OPENDOTA_BASE_URL,
-    apiKey: process.env.OPENDOTA_API_KEY,
-    requestsPerMinute: Number(process.env.OPENDOTA_RPM_BUDGET ?? 45), maxRequests: 25
-  });
+  const runtime=createProviderRuntime(process.env,25);
+  const client=runtime.client;
+  try {
   const discovery = await client.getProMatches();
   const discoveredIds = new Set(discovery.data.map(match => match.match_id));
   const ids = requested ?? [...discoveredIds].slice(0, sample);
@@ -171,6 +170,7 @@ async function main() {
       ? { code: error.code, endpoint: error.endpoint, status: error.status, retryAfterMs: error.retryAfterMs, fields: error.fields }
       : { code: 'source_network_error', endpoint: null, status: null, retryAfterMs: null, fields: [] });
   }
+  } finally { await runtime.close(); }
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

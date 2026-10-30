@@ -1,0 +1,57 @@
+{
+  "mode": "live_import",
+  "generated_at": "2026-10-30T22:24:23.564Z",
+  "adapter_version": "opendota-provider-v2",
+  "normalizer_version": "opendota-map-v1",
+  "first_job_id": "62a8ef72-b3c1-4b37-b00b-cbdb11cf3b62",
+  "repeat_job_id": "440322e8-f879-4dbc-b81f-28fbdc87c018",
+  "first_status": "accepted",
+  "repeat_status": "accepted",
+  "repeat_duplicate": true,
+  "map": {
+    "match_id": "9069021061",
+    "is_pro": true,
+    "ingest_state": "accepted",
+    "data_revision": "1",
+    "started_at": "2026-10-30T19:53:24.000Z",
+    "duration_seconds": 2213,
+    "outcome_present": true,
+    "patch_id": null,
+    "maps": 1,
+    "participant_slots": 10,
+    "canonical_players": 0,
+    "source_snapshots": 1,
+    "raw_draft_observations": 1,
+    "verified_draft_actions": 0,
+    "preknown_facts": 0,
+    "active_models": 0
+  },
+  "quality": {
+    "validator_version": "opendota-quality-v1:6e340383228db41a8efde82a2bf8705c324d43783cd071430e88efc301db065f",
+    "outcome_status": "eligible",
+    "player_status": "unknown",
+    "final_heroes_status": "eligible",
+    "organization_status": "eligible",
+    "series_status": "unknown",
+    "draft_timeline_status": "unknown",
+    "draft_order_valid": null,
+    "anomalies": [
+      "SERIES_REFERENCE_UNRESOLVED",
+      "CANONICAL_IDENTITIES_UNRESOLVED",
+      "PATCH_METADATA_UNVERIFIED",
+      "ROLE_UNVERIFIED",
+      "DRAFT_RULES_UNVERIFIED",
+      "LINEUP_KNOWN_AT_UNKNOWN"
+    ]
+  },
+  "quota": {
+    "minute_used": 3,
+    "day_used": 8,
+    "month_used": 8
+  },
+  "limitations": [
+    "One real map, not a corpus/backtest",
+    "No verified pre-start roster or patch registry",
+    "No active model or numerical prediction"
+  ]
+}

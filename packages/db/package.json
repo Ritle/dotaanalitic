@@ -1,1 +1,7 @@
-{ "name": "@dota/db", "private": true, "type": "module", "scripts": { "typecheck": "node -e \"console.log('SQL-only package')\"" } }
+{
+  "name": "@dota/db", "private": true, "type": "module",
+  "exports": { ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" } },
+  "scripts": { "build": "tsc -p tsconfig.json", "typecheck": "tsc --noEmit -p tsconfig.json" },
+  "dependencies": { "kysely": "0.28.18", "pg": "^8.16.0" },
+  "devDependencies": { "@types/pg": "^8.15.0", "@types/node": "^22.0.0", "typescript": "^5.9.0" }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@dota/worker", "private": true, "type": "module",
+  "scripts": {
+    "dev": "tsx --env-file-if-exists=../../.env src/cli.ts work",
+    "start": "node --env-file-if-exists=../../.env dist/cli.js work",
+    "queue": "tsx --env-file-if-exists=../../.env src/cli.ts enqueue",
+    "once": "tsx --env-file-if-exists=../../.env src/cli.ts once",
+    "build": "tsc -p tsconfig.json", "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run --exclude **/*.integration.test.ts"
+  },
+  "dependencies": { "@dota/db": "workspace:*", "@dota/ingestion": "workspace:*", "pg-boss": "12.38.0", "zod": "^4.1.0" },
+  "devDependencies": { "@types/node": "^22.0.0", "tsx": "^4.20.0", "typescript": "^5.9.0", "vitest": "^3.2.0" }
+}

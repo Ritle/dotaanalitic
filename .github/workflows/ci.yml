@@ -55,6 +55,7 @@ jobs:
       - run: node scripts/migrate.mjs
       - run: node scripts/migrate.mjs # must be idempotent
       - run: pnpm test:integration
+      - run: pnpm test:ingestion
 
   ml-bootstrap:
     runs-on: ubuntu-latest
