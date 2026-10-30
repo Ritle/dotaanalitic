@@ -16,3 +16,9 @@
 | Provider coverage/monitoring contracts | yes | documents written | real importer S0-01+ |
 
 **This is a starter engineering kit, not a complete statistical/ML product.** No marketing of 70% win probability before independently validated training and accurate sources.
+
+## Local bootstrap verification — 2026-10-30
+
+The table above records the original generation environment. S0-00 subsequently executed frozen install, migration checksum checks, typecheck, build, 26 Vitest tests, 10 Node fixture tests, 4 PostgreSQL integration tests, 6 Python tests, 12 Python/JS parity comparisons and 1 Chromium E2E test: all PASS. SQL 001–006 applied to a fresh native PostgreSQL 16.15 database and a second run skipped all six. Preflight with actual DB connectivity and HTTP health smoke passed; the rendered Russian technical shell was visually checked.
+
+Docker/Compose, production images, remote GitHub Actions and restore drills remain unexecuted; native PostgreSQL verification is not container verification. See [S0-00 evidence and restart commands](S0_00_VERIFICATION.md). No production model or provider collector was implemented.

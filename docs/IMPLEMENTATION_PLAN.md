@@ -44,7 +44,7 @@
 
 ## S0 — техническая основа и достоверность источников
 
-- [ ] **S0-00 [P0] Bootstrap** (предыдущий `P0-00`): установить зависимости, lockfile, применить миграции **001→002→003→004→005→006**, поднять PostgreSQL/API/Web, `/health`, CI, `typecheck`, тесты и сборку. Сверить совместимость Zod 4 + Fastify plugin, pin resolved Node/pnpm deps; не устанавливать пакеты следующих этапов до необходимости. **DoD:** воспроизводимый запуск на чистой БД; checksum миграций не меняется.
+- [x] **S0-00 [P0] Bootstrap** (предыдущий `P0-00`): установить зависимости, lockfile, применить миграции **001→002→003→004→005→006**, поднять PostgreSQL/API/Web, `/health`, CI, `typecheck`, тесты и сборку. Сверить совместимость Zod 4 + Fastify plugin, pin resolved Node/pnpm deps; не устанавливать пакеты следующих этапов до необходимости. **DoD:** воспроизводимый запуск на чистой БД; checksum миграций не меняется. Проверено 2026-10-30 на нативной PG16; Docker/remote CI не запускались, см. [отчёт](S0_00_VERIFICATION.md).
 - [ ] **S0-01 [P0] Provider spike** (предыдущий `P0-01`): проверить реальные OpenDota `/proMatches`, `/matches/:id`, `/teams/:id/players`, игрока и состав; 3–5 обезличенных fixtures; проверить nullable/неполные поля, неизвестные side/picks/bans/first pick, выдачу серии, версии адаптеров и ограничения. **DoD:** строгая Zod-валидация и отчёт о покрытии, никакого приписывания данных.
 - [ ] **S0-02 [P0] Идемпотентный импорт и происхождение** (предыдущий `P0-02`): нормализовать одну карту, 10 слотов, is_pro только по доказательству, историю drafts; сохранять `match_source_snapshots`, `match_field_observations`, версии адаптеров, причины missingness и конфликты провайдеров; Retry-After, durable `pg-boss` worker (без Redis), idempotent DB transactions, типизированные `pg`/Kysely repositories (при внедрении), очередь не обещает exactly-once, и временные ошибки. **DoD:** повторный импорт не меняет число карт; спорные факты не перезаписываются молча.
 - [ ] **S0-03 [P0] Личный доступ** (предыдущий `P0-03`): единственный владелец, Argon2id, opaque server-side DB session, Secure/HttpOnly cookie, CSRF, rate-limit, ограничение попыток и CLI установки. **DoD:** нет публичной регистрации, приватные API возвращают 401 без сессии.
@@ -128,7 +128,7 @@
 
 ## v7 — инженерные задачи DX/QA (в порядке выполнения; P0 прежде P1)
 
-- [ ] **DX-00 [P0] Проверка и фиксация окружения**: реальный `pnpm-lock.yaml` через сеть, CI с frozen install, `scripts/preflight.mjs`, `scripts/verify-migrations.mjs`; `pnpm install/typecheck/build` PASS. **Зависит от:** S0-00.
+- [x] **DX-00 [P0] Проверка и фиксация окружения**: реальный `pnpm-lock.yaml` через сеть, CI с frozen install, `scripts/preflight.mjs`, `scripts/verify-migrations.mjs`; `pnpm install/typecheck/build` PASS. **Зависит от:** S0-00. Критерии покрыты bootstrap 2026-10-30; [результаты](S0_00_VERIFICATION.md).
 - [ ] **QA-01 [P0] Golden test fixtures**: синтетические complete/incomplete pro maps, roster stand-in / cross-org / cutoff / magic zero, TypeScript golden metrics tests. Уже подготовлено в v7; закрыть после полного `pnpm test` и проверки сценариев импорта S0-02.
 - [ ] **QA-02 [P0] PostgreSQL integration gate**: PG16 test database, 001–006 twice, проверки frozen dataset/ledger и raw draft/quality, никаких skipped tests. Подготовлены тесты и CI, выполнить на Docker/GitHub Actions.
 - [ ] **ML-00 [P0] Reproducible ML bootstrap**: sklearn, audited cutoff/series chronology, frozen artifact SHA, TS parity, candidate never activated. Синтетический прогон проверен; реальная модель остаётся S3-00..06.

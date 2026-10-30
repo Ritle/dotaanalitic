@@ -2,14 +2,14 @@
 
 ## Подготовка
 
-1. Node.js >=22; Corepack, pnpm **10.19.0**; Docker + Compose; Python 3.11–3.13 для ML-тестов.
-2. На машине с доступом к npm registry: `corepack enable` → `node scripts/bootstrap-lockfile.mjs` → **закоммитить** полученный `pnpm-lock.yaml`. Генерировать lockfile вручную запрещено. В комплекте v7 файл отсутствует: среда сборки не имеет DNS-доступа к npm.
+1. Node.js >=22.12.0; Corepack, pnpm **10.19.0**; PostgreSQL 16 через Docker + Compose или нативно; Python 3.11–3.13 для ML-тестов.
+2. `corepack enable`. Настоящий `pnpm-lock.yaml` уже создан из registry при S0-00. `node scripts/bootstrap-lockfile.mjs` нужен только при отсутствии lockfile; ручная генерация запрещена. Для Windows без прав записи в Program Files см. [локальные shims](S0_00_VERIFICATION.md).
 3. `corepack pnpm install --frozen-lockfile`, `cp .env.example .env` (Windows: `Copy-Item`). Изменить пароль dev DB; `pnpm preflight`.
-4. `pnpm db:up`, `pnpm db:migrate` и повторить последнюю команду для проверки идемпотентности; затем `pnpm test:integration` (не пропускать).
+4. `pnpm db:up` (пропустить при нативном PostgreSQL), `pnpm db:migrate` и повторить последнюю команду для проверки идемпотентности; затем `pnpm test:integration` (не пропускать). Мигратор и тесты читают `.env`; CI может передавать `DATABASE_URL` непосредственно. `pnpm preflight:strict --require-db` проверяет реальное подключение; отсутствие Docker в dev — предупреждение, если доступен нативный сервер.
 5. `pnpm typecheck`, `pnpm test`, `pnpm build`, `pnpm dev`; отдельным терминалом `pnpm smoke`.
-6. `pnpm exec playwright install --with-deps chromium`, затем `pnpm test:e2e` (после `pnpm install`).
+6. `pnpm --filter @dota/web exec playwright install --with-deps chromium`, затем `pnpm test:e2e` (после `pnpm install`). На Windows достаточно `install chromium`. Playwright-тесты выполняются отдельным runner и исключены из Vitest.
 
-## Проверки, работающие без сети/зависимостей
+## Дополнительные проверки (Python требует установленных зависимостей)
 
 ```bash
 node scripts/verify-migrations.mjs

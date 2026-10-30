@@ -8,18 +8,18 @@
 
 ## Быстрый старт
 
-Требования: **Node.js 22+**, Corepack/pnpm 10+, Docker с Compose.
+Требования: **Node.js >=22.12.0**, Corepack/pnpm **10.19.0**, PostgreSQL 16 (обычно Docker с Compose).
 
 ```bash
 corepack enable
 cp .env.example .env
-pnpm install
+pnpm install --frozen-lockfile
 pnpm db:up
 pnpm db:migrate
 pnpm dev
 ```
 
-На Windows PowerShell вместо `cp` можно использовать `Copy-Item .env.example .env`. После запуска: web `http://localhost:5173`, API `http://localhost:3000/health`. Запущенный каркас показывает технический статус API; Auth, сбор данных и аналитические страницы реализуются Codex по плану.
+На Windows PowerShell вместо `cp` можно использовать `Copy-Item .env.example .env`. Замените пароль в `POSTGRES_PASSWORD` и `DATABASE_URL` согласованно до запуска БД. API при `dev`/`start`, мигратор и integration-тесты читают корневую `.env`; переменные процесса имеют приоритет. После запуска: web `http://localhost:5173`, API `http://localhost:3000/health`. Запущенный каркас показывает технический статус API; Auth, сбор данных и аналитические страницы реализуются Codex по плану.
 
 Файл `.env` содержит локальные секреты и **не коммитится**. Для установки владельца после реализации задачи S0-03 предусмотрена CLI-команда `pnpm owner:create` (на старте команда намеренно отсутствует, пока не реализован AuthService).
 
@@ -35,7 +35,7 @@ pnpm db:migrate          # применить все миграции 001→002�
 pnpm db:down             # остановить PostgreSQL, НЕ удалять volume
 ```
 
-Отсутствует lockfile в стартовом архиве: запустите `pnpm install` один раз, затем **закоммитьте `pnpm-lock.yaml`**. На CI использовать `--frozen-lockfile`.
+`pnpm-lock.yaml` создан из registry при S0-00. Локально и в CI используйте `--frozen-lockfile`. Результаты проверок и запуск на Windows без глобальной установки pnpm описаны в [отчёте S0-00](docs/S0_00_VERIFICATION.md). При уже запущенном нативном PostgreSQL шаг `pnpm db:up` не нужен.
 
 ## Документация — порядок чтения Codex
 
@@ -93,13 +93,13 @@ Codex должен кратко оценивать сложность выбра
 
 Добавлены синтетические fixtures и golden tests, отдельный `node --test` suite без зависимостей, PostgreSQL 16 integration tests (после установки), Python scikit-learn demo candidate и JS/TS parity, Playwright bootstrap, CI, производственный Compose + Caddy/Dockerfiles и безопасные скрипты backup/restore.
 
-Ключевое ограничение: **в архиве нет `pnpm-lock.yaml`, так как registry был недоступен во время подготовки**. Его необходимо реально сгенерировать через `node scripts/bootstrap-lockfile.mjs` (или `corepack pnpm install`) и закоммитить до успешного CI/production. Скрипты и Dockerfile преднамеренно не обходят frozen-lockfile gate.
+В исходном архиве v7 lockfile отсутствовал из-за недоступного registry. В S0-00 настоящий `pnpm-lock.yaml` создан и проверен через frozen install; скрипты и Dockerfile сохраняют frozen-lockfile gate. Миграции, integration и браузерный smoke выполнены локально; Docker production build и удалённый GitHub Actions ещё не запускались.
 
 ```bash
 node scripts/verify-migrations.mjs
 node scripts/check-doc-links.mjs
 node --test tests/node/*.test.mjs
-# после npm install:
+# после pnpm install --frozen-lockfile:
 pnpm test:integration
 pnpm test:e2e
 ```

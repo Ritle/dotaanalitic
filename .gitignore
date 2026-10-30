@@ -1,4 +1,7 @@
 node_modules/
+.tools/
+.venv/
+*.egg-info/
 dist/
 coverage/
 .vite/

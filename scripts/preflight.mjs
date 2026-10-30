@@ -13,8 +13,8 @@ const check = (name, ok, detail, mandatory = true) => {
   console.log(`${level.padEnd(4)} ${name}: ${detail}`);
   results.push({ level, name });
 };
-const nodeMajor = Number(process.versions.node.split('.')[0]);
-check('Node', nodeMajor >= 22, `v${process.versions.node}; requires >=22`);
+const [nodeMajor, nodeMinor] = process.versions.node.split('.').map(Number);
+check('Node', nodeMajor > 22 || (nodeMajor === 22 && nodeMinor >= 12), `v${process.versions.node}; requires >=22.12.0`);
 const pm = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8')).packageManager;
 check('Package manager', /^pnpm@\d+/.test(pm), pm);
 const lock = fs.existsSync(path.join(root, 'pnpm-lock.yaml'));
@@ -30,7 +30,7 @@ if (envExists) {
   }
 }
 const docker = spawnSync('docker', ['compose', 'version'], { encoding: 'utf8', timeout: 5000 });
-check('Docker Compose', docker.status === 0, docker.status === 0 ? docker.stdout.trim().split('\n')[0] : 'not installed/available', prod || requireDb);
+check('Docker Compose', docker.status === 0, docker.status === 0 ? docker.stdout.trim().split('\n')[0] : 'not installed/available; a native PostgreSQL server can be used for development', prod);
 if (requireDb) {
   try {
     const { Client } = await import('pg');

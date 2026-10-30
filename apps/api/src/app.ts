@@ -1,10 +1,11 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
+import { readConfig } from './config.js';
 
-export async function buildApp() {
+export async function buildApp(config = readConfig()) {
   const app = Fastify({ logger: true });
   await app.register(cors, {
-    origin: process.env.WEB_ORIGIN ?? 'http://localhost:5173',
+    origin: config.WEB_ORIGIN,
     credentials: true
   });
   app.get('/health', async () => ({ status: 'ok', service: 'dota2-pro-analytics-api' }));

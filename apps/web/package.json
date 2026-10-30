@@ -6,7 +6,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vue-tsc --noEmit && vite build",
     "typecheck": "vue-tsc --noEmit",
-    "test": "vitest run --passWithNoTests",
+    "test": "vitest run --passWithNoTests --exclude tests/e2e/**",
     "test:e2e": "playwright test -c playwright.config.ts"
   },
   "dependencies": {

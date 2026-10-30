@@ -32,7 +32,7 @@ export function rosterOverlap(expected: readonly string[], actual: readonly stri
   const prev = validatedFive(expected);
   const next = validatedFive(actual);
   const retainedPlayers = [...next].filter(x => prev.has(x)).length;
-  const retainedPairLinks = retainedPlayers * (retainedPlayers - 1) / 2;
+  const retainedPairLinks = retainedPlayers < 2 ? 0 : retainedPlayers * (retainedPlayers - 1) / 2;
   return { retainedPlayers, changedPlayers: 5 - retainedPlayers, retainedPairLinks, lostPairLinks: 10 - retainedPairLinks };
 }
 
@@ -54,7 +54,7 @@ export function rosterCoplay(actual: readonly string[], history: readonly Histor
     usableHistoricSides++;
     if (side.playerIds.every(id => target.has(id))) exactFiveMaps++;
     const participants = side.playerIds.filter(id => target.has(id));
-    for (const key of pairKeys(participants)) pairMaps[key]++;
+    for (const key of pairKeys(participants)) pairMaps[key] = (pairMaps[key] ?? 0) + 1;
   }
   return { exactFiveMaps, pairMaps, usableHistoricSides };
 }

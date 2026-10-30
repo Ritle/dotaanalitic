@@ -1,6 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import pg from 'pg';
+import { createHash } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
 
 const URL = process.env.DATABASE_URL;
 if (!URL) throw new Error('DATABASE_URL must be set; refusing to silently skip PostgreSQL integration tests');
@@ -16,7 +18,10 @@ test('all baseline migrations applied with authoritative checksums', async () =>
    '004_context_identity_provenance.sql','005_training_pipeline.sql',
    '006_draft_data_quality.sql'
   ]);
-  for(const {checksum} of rows)assert.match(checksum,/^[a-f0-9]{64}$/);
+  for(const {filename,checksum} of rows) {
+    const sql=await readFile(new globalThis.URL(`../../packages/db/migrations/${filename}`,import.meta.url));
+    assert.equal(checksum,createHash('sha256').update(sql).digest('hex'),filename);
+  }
   const {rows: objects}=await client.query(`SELECT
      to_regclass('public.matches')::text AS matches,
      to_regclass('public.match_players')::text AS players,
@@ -53,6 +58,37 @@ test('frozen training dataset cannot be rewritten',async()=>{
  }
 });
 
+test('map slots, canonical identities and BIGINT values retain database guarantees',async()=>{
+ const client=new pg.Client({connectionString:URL});
+ await client.connect();
+ try {
+  await client.query('BEGIN');
+  const playerId='9007199254740993';
+  await client.query("INSERT INTO players(id,nickname) VALUES ($1,'synthetic-bootstrap')",[playerId]);
+  await client.query("INSERT INTO heroes(id,internal_name,localized_name) VALUES (2000000001,'synthetic-bootstrap','synthetic-bootstrap')");
+  await client.query("INSERT INTO matches(id,started_at) VALUES (999999999002,NOW())");
+  const insert="INSERT INTO match_players(match_id,player_slot,side,player_id,hero_id) VALUES (999999999002,$1,$2,$3,2000000001)";
+  await client.query(insert,[0,'radiant',playerId]);
+  const {rows}=await client.query('SELECT player_id FROM match_players WHERE match_id=999999999002');
+  assert.equal(rows[0].player_id,playerId);
+  const {rows: maps}=await client.query('SELECT is_pro,radiant_win FROM matches WHERE id=999999999002');
+  assert.deepEqual(maps[0],{is_pro:null,radiant_win:null});
+  for(const [slot,side,player,code] of [
+   [0,'radiant',null,'23505'], // duplicate map slot
+   [128,'dire',playerId,'23505'], // same identity on both sides
+   [1,'dire',null,'23514'], // side must agree with native slot
+   [5,'radiant',null,'23514'] // slot outside the allowed ranges
+  ]) {
+   await client.query('SAVEPOINT invalid_slot');
+   await assert.rejects(client.query(insert,[slot,side,player]),{code});
+   await client.query('ROLLBACK TO SAVEPOINT invalid_slot');
+  }
+ } finally {
+  await client.query('ROLLBACK').catch(()=>{});
+  await client.end();
+ }
+});
+
 
 test('raw draft and quality records preserve anomalous provider observations (append-only)',async()=>{
  const client=new pg.Client({connectionString:URL});
@@ -70,6 +106,12 @@ test('raw draft and quality records preserve anomalous provider observations (ap
      'a'.repeat(64)
     ]);
   const draftId=observation.rows[0].id;
+  await client.query('INSERT INTO matches(id,started_at) VALUES (999999999003,NOW())');
+  await client.query('SAVEPOINT cross_map_guard');
+  await assert.rejects(client.query(`INSERT INTO match_quality_assessments
+    (match_id,draft_observation_id,validator_version)
+    VALUES (999999999003,$1,'synthetic-v9')`,[draftId]),{code:'23503'});
+  await client.query('ROLLBACK TO SAVEPOINT cross_map_guard');
   await client.query(`INSERT INTO match_quality_assessments
     (match_id,draft_observation_id,validator_version,organization_status,series_status,
      final_heroes_status,draft_timeline_status,draft_order_valid,anomalies)
