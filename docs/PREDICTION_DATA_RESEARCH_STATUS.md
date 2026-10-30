@@ -1,5 +1,7 @@
 # Prediction data research status — 2026-10-27
 
+**Текущее дополнение:** 2026-10-30 S0-01 выполнил live audit на 20 картах и отдельный typed provider spike; результаты ниже и в [S0_01_PROVIDER_SPIKE](S0_01_PROVIDER_SPIKE.md). Старый BLOCKED далее описывает среду подготовки 2026-10-27.
+
 ## Verified via public documentation and published data
 
 - OpenDota documents `/proMatches`, `/matches/{match_id}`, professional team/player endpoints and a free limit of 60 req/min, 50k/month. Source: https://opendota.apidocumentation.com/
@@ -37,3 +39,12 @@ node scripts/audit-prediction-sources.mjs --sample 50 --out reports/opendota-cov
 ```
 
 В v9 `schema_version=2`; новый отчёт содержит флаги качества, аномалии и отдельный `draft_order_valid=null` до проверки правил патча. Для исторической выборки необходимо отдельно реализовать курсорную стратификацию по патчу/лиге/времени.
+
+## 2026-10-30 — S0-01, непосредственно выполненный live audit
+
+- Существующий audit CLI получил 20/20 detailed maps, failed=0; generated at `2026-10-30T17:07:48.208Z`. [Public evidence JSON](evidence/s0-01-live-coverage.json) сохранён с публичными map IDs и без raw payload/profile data.
+- ID consistency/start/outcome/league/provider patch/native slots/наличие десяти account IDs/финальные уникальные heroes — 20/20. Team IDs и ненулевой series ID — 15/20. Ровно десять пиков и structural consistency — 19/20; непустые raw events и order shape — 20/20. `draft_order_valid` не оценён на всех 20.
+- `9066936100`: 12 picks, дополнительные hero IDs 2,60, обе организации/серия неизвестны; финальные heroes пригодны для отдельной проверки, карта не объявлялась тренировочно допустимой.
+- Новый Zod client отдельно проверил три явные карты и team/team players/player за 7 attempts без retries; пять test projections обезличены и помечены synthetic. У `9063023867` текущий массив draft отсутствует (`null`), в отличие от прежнего пользовательского наблюдения одного события; причина изменения источника не утверждается.
+- Предматчевый known-at roster, исторические patch rules и pro league/tier classification из этих ответов не доказаны. Никакого backtest, training или числового прогноза не выполнялось; S0-08/09 остаются открыты.
+- API limits нельзя фиксировать только по старым 50k/month: новый spike получил remaining-minute/day, а текущие upstream defaults содержат дневной лимит. Источники/точные условия и воспроизводимые команды — [S0-01 report](S0_01_PROVIDER_SPIKE.md).

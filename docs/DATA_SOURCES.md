@@ -5,10 +5,12 @@
 - Base: `https://api.opendota.com/api`
 - Документация: `https://docs.opendota.com/`, `https://opendota.apidocumentation.com/`
 - Основные: `GET /teams`, `/teams/{id}`, `/teams/{id}/players`, `/teams/{id}/matches`, `/proMatches`, `/matches/{id}`, `/heroes`, `/proPlayers`.
-- В документации опубликован бесплатный лимит **50 000 запросов/месяц и 60/мин**. Лимиты могут меняться; конфиг по умолчанию ещё консервативнее: 45 запросов/мин, 45 000/месяц.
+- Старые API-документы публиковали **50 000 запросов/месяц и 60/мин**. На 2026-10-30 актуальный OpenAPI имеет версию 31.1.1; defaults upstream-кода содержат 60/мин без ключа и 3000/день, что не гарантирует deployed-конфигурацию. В live spike получены remaining-minute/day headers, remaining-month отсутствовал. Проверенные ссылки и условия — [S0-01](S0_01_PROVIDER_SPIKE.md). Локальный клиент ограничен 45/мин и 25 попытками на запуск; durable общие дневные/месячные счётчики реализуются в S0-02, `OPENDOTA_MONTHLY_BUDGET` пока только целевой конфиг.
 - `/players/{id}/matches`, `/players/{id}/heroes`, `/heroStats`, `/heroes/{id}/matchups` могут включать общие выборки: **не являются источником pro-only аналитики без соответствующего подтверждения**.
 
 ## Canonical import contract (checked against actual API responses at S0-01)
+
+S0-01 реализует provider boundary и CLI, **не** canonical importer: `apps/api/src/providers/opendota/{schemas,client,spike}.ts`, `pnpm provider:spike`. Consumed fields проходят Zod без coercion строк в булевы/числа; ID преобразуются в десятичные строки только после проверки безопасного integer/decimal string. Нулевые team/series/account sentinel становятся `null` в typed projection; оригинальный UTF-8 body + SHA-256 сохраняются отдельно внутри observation и не попадают в stdout/отчёт. Неизвестные поля верхнего уровня исключены из projection; raw draft action order и дополнительные поля не удаляются из source observation.
 
 Normalize OpenDota match object into:
 `match_id`, `start_time` Unix seconds, `duration`, `radiant_win`, `radiant_team_id`, `dire_team_id`, `leagueid`, `players[]` (0..4,128..132), `picks_bans[]`, `radiant_score`, `dire_score`.
@@ -47,6 +49,8 @@ Normalize OpenDota match object into:
 ## Roster reliability
 
 По официальной документации OpenDota, `GET /teams/{team_id}/players` даёт исторических игроков и `is_current_team_member`, но **не подтверждает реальную пятёрку будущего матча**. Для сыгранности и actual map lineups нужна нормализованная детальная карта `/matches/{match_id}` и 5 валидных известных IDs каждой стороны. `GET /players/{account_id}/matches` сам по себе может содержать не-pro игры. Никнеймы и team tags не являются персональными первичными ключами. Reference: https://docs.opendota.com/ .
+
+В S0-01 реально проверен также `GET /players/{account_id}`: profile — идентификатор источника, не pro-only статистика и не verified canonical merge. Значение membership flag может быть `null`; клиент различает true/false/unknown и не назначает роли/пятёрку. `proMatches` сохраняется как discovery evidence; adapter не выставляет `is_pro=true` и не подтверждает league/tier без отдельной политики.
 
 ## v8 Prediction data feasibility
 

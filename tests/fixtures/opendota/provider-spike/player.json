@@ -1,0 +1,20 @@
+{
+  "_fixture": {
+    "synthetic": true,
+    "origin": "sanitized_live_shape",
+    "adapterVersion": "opendota-provider-v1",
+    "redacted": [
+      "identifiers",
+      "timestamps",
+      "names",
+      "profile personal fields",
+      "statistics values"
+    ],
+    "purpose": "Boundary tests only; never production statistics or training"
+  },
+  "data": {
+    "profile": {
+      "account_id": "100001"
+    }
+  }
+}

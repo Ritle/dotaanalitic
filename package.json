@@ -22,7 +22,8 @@
     "test:integration": "node --env-file-if-exists=.env --test tests/integration/*.test.mjs",
     "test:e2e": "pnpm --filter @dota/web test:e2e",
     "smoke": "node scripts/smoke-test.mjs",
-    "lockfile:bootstrap": "node scripts/bootstrap-lockfile.mjs"
+    "lockfile:bootstrap": "node scripts/bootstrap-lockfile.mjs",
+    "provider:spike": "pnpm --filter @dota/api provider:spike"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

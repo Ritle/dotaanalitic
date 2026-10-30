@@ -1,0 +1,83 @@
+{
+  "_fixture": {
+    "synthetic": true,
+    "origin": "sanitized_live_shape",
+    "adapterVersion": "opendota-provider-v1",
+    "redacted": [
+      "identifiers",
+      "timestamps",
+      "names",
+      "profile personal fields",
+      "statistics values"
+    ],
+    "purpose": "Boundary tests only; never production statistics or training"
+  },
+  "data": {
+    "teamProfile": {
+      "team_id": "90005",
+      "last_match_time": 1735689600
+    },
+    "roster": [
+      {
+        "account_id": "100016",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100017",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100018",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100019",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100020",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100021",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100022",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100023",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100024",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      },
+      {
+        "account_id": "100025",
+        "games_played": 20,
+        "wins": 20,
+        "is_current_team_member": null
+      }
+    ]
+  }
+}

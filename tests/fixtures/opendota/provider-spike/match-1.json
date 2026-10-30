@@ -1,0 +1,201 @@
+{
+  "_fixture": {
+    "synthetic": true,
+    "origin": "sanitized_live_shape",
+    "adapterVersion": "opendota-provider-v1",
+    "redacted": [
+      "identifiers",
+      "timestamps",
+      "names",
+      "profile personal fields",
+      "statistics values"
+    ],
+    "purpose": "Boundary tests only; never production statistics or training"
+  },
+  "data": {
+    "match_id": "900000000004",
+    "start_time": 1735689600,
+    "duration": 1800,
+    "radiant_win": false,
+    "leagueid": "70002",
+    "series_id": null,
+    "series_type": 0,
+    "radiant_score": 20,
+    "dire_score": 10,
+    "patch": 60,
+    "game_mode": 22,
+    "lobby_type": 1,
+    "players": [
+      {
+        "account_id": "100001",
+        "player_slot": 0,
+        "hero_id": 78,
+        "lane_role": 3
+      },
+      {
+        "account_id": "100002",
+        "player_slot": 1,
+        "hero_id": 7,
+        "lane_role": 2
+      },
+      {
+        "account_id": "100003",
+        "player_slot": 2,
+        "hero_id": 19,
+        "lane_role": 1
+      },
+      {
+        "account_id": "100004",
+        "player_slot": 3,
+        "hero_id": 31,
+        "lane_role": 1
+      },
+      {
+        "account_id": "100005",
+        "player_slot": 4,
+        "hero_id": 123,
+        "lane_role": 3
+      },
+      {
+        "account_id": "100006",
+        "player_slot": 128,
+        "hero_id": 61,
+        "lane_role": 1
+      },
+      {
+        "account_id": "100007",
+        "player_slot": 129,
+        "hero_id": 106,
+        "lane_role": 2
+      },
+      {
+        "account_id": "100008",
+        "player_slot": 130,
+        "hero_id": 88,
+        "lane_role": 3
+      },
+      {
+        "account_id": "100009",
+        "player_slot": 131,
+        "hero_id": 29,
+        "lane_role": 3
+      },
+      {
+        "account_id": "100010",
+        "player_slot": 132,
+        "hero_id": 121,
+        "lane_role": 1
+      }
+    ],
+    "picks_bans": [
+      {
+        "is_pick": true,
+        "hero_id": 121,
+        "team": 1,
+        "order": 0
+      },
+      {
+        "is_pick": true,
+        "hero_id": 123,
+        "team": 0,
+        "order": 1
+      },
+      {
+        "is_pick": true,
+        "hero_id": 88,
+        "team": 1,
+        "order": 2
+      },
+      {
+        "is_pick": true,
+        "hero_id": 31,
+        "team": 0,
+        "order": 3
+      },
+      {
+        "is_pick": true,
+        "hero_id": 106,
+        "team": 1,
+        "order": 4
+      },
+      {
+        "is_pick": true,
+        "hero_id": 61,
+        "team": 1,
+        "order": 5
+      },
+      {
+        "is_pick": true,
+        "hero_id": 78,
+        "team": 0,
+        "order": 6
+      },
+      {
+        "is_pick": true,
+        "hero_id": 19,
+        "team": 0,
+        "order": 7
+      },
+      {
+        "is_pick": true,
+        "hero_id": 7,
+        "team": 0,
+        "order": 8
+      },
+      {
+        "is_pick": true,
+        "hero_id": 29,
+        "team": 1,
+        "order": 9
+      },
+      {
+        "is_pick": false,
+        "hero_id": 41,
+        "team": 0,
+        "order": 10
+      },
+      {
+        "is_pick": false,
+        "hero_id": 73,
+        "team": 0,
+        "order": 11
+      },
+      {
+        "is_pick": false,
+        "hero_id": 1,
+        "team": 0,
+        "order": 12
+      },
+      {
+        "is_pick": false,
+        "hero_id": 17,
+        "team": 0,
+        "order": 13
+      },
+      {
+        "is_pick": false,
+        "hero_id": 63,
+        "team": 0,
+        "order": 14
+      },
+      {
+        "is_pick": false,
+        "hero_id": 93,
+        "team": 1,
+        "order": 15
+      },
+      {
+        "is_pick": false,
+        "hero_id": 32,
+        "team": 1,
+        "order": 16
+      },
+      {
+        "is_pick": false,
+        "hero_id": 62,
+        "team": 1,
+        "order": 17
+      }
+    ]
+  }
+}

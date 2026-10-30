@@ -1,3 +1,4 @@
 packages/db/migrations/*.sql text eol=lf
+docs/evidence/*.json text eol=lf
 pnpm-lock.yaml text eol=lf
 *.sh text eol=lf

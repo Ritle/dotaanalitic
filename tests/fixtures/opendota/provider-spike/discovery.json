@@ -1,0 +1,56 @@
+{
+  "_fixture": {
+    "synthetic": true,
+    "origin": "sanitized_live_shape",
+    "adapterVersion": "opendota-provider-v1",
+    "redacted": [
+      "identifiers",
+      "timestamps",
+      "names",
+      "profile personal fields",
+      "statistics values"
+    ],
+    "purpose": "Boundary tests only; never production statistics or training"
+  },
+  "data": [
+    {
+      "match_id": "900000000001",
+      "start_time": 1735689600,
+      "duration": 1800,
+      "radiant_win": true,
+      "radiant_team_id": "90001",
+      "dire_team_id": "90002",
+      "leagueid": "70001",
+      "series_id": "80001",
+      "series_type": 1,
+      "radiant_score": 20,
+      "dire_score": 10
+    },
+    {
+      "match_id": "900000000002",
+      "start_time": 1735689600,
+      "duration": 1800,
+      "radiant_win": false,
+      "radiant_team_id": "90002",
+      "dire_team_id": "90001",
+      "leagueid": "70001",
+      "series_id": "80001",
+      "series_type": 1,
+      "radiant_score": 20,
+      "dire_score": 10
+    },
+    {
+      "match_id": "900000000003",
+      "start_time": 1735689600,
+      "duration": 1800,
+      "radiant_win": false,
+      "radiant_team_id": "90003",
+      "dire_team_id": "90004",
+      "leagueid": "70001",
+      "series_id": "80002",
+      "series_type": 1,
+      "radiant_score": 20,
+      "dire_score": 10
+    }
+  ]
+}

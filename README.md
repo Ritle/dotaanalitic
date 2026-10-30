@@ -30,6 +30,7 @@ pnpm dev                 # web + api в watch-режиме
 pnpm build               # сборка рабочих пространств
 pnpm typecheck           # проверка типов
 pnpm test                # unit-тесты
+pnpm provider:spike      # ограниченная проверка OpenDota, без записи матчей в БД
 pnpm db:up               # PostgreSQL
 pnpm db:migrate          # применить все миграции 001→002→003→004→005→006
 pnpm db:down             # остановить PostgreSQL, НЕ удалять volume
@@ -109,6 +110,8 @@ pnpm test:e2e
 ### v8 Prediction data source specification
 
 [docs/PREDICTION_DATA_SPEC.md](docs/PREDICTION_DATA_SPEC.md) lists concrete Pre-map/Post-draft raw fields, generated features, point-in-time availability rules and the `scripts/audit-prediction-sources.mjs` API audit. Run the audit on a networked machine; `--fixture tests/fixtures/opendota-audit-synthetic.json` verifies the script offline without measuring real data.
+
+S0-01: [live-проверка OpenDota](docs/S0_01_PROVIDER_SPIKE.md), Zod provider boundary, timeout/retry/rate budget и пять обезличенных fixtures. Отчёт по 20 недавним картам сохранён как public coverage evidence; это не исторический backtest и не готовый importer.
 
 ## v9 — Data Integrity: архитектура для аномальных матчей OpenDota
 
