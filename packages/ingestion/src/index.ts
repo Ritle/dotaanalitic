@@ -14,3 +14,4 @@ export * from './valve/registration-evidence.js';
 export * from './valve/team-account-evidence.js';
 export * from './valve/steam-profile-evidence.js';
 export * from './opendota/registry-evidence.js';
+export * from './valve/league-lineup-evidence.js';

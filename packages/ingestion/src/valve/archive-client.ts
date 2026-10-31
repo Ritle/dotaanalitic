@@ -8,6 +8,7 @@ import {retryAfterMilliseconds} from '../opendota/client.js';
 import {teamAccountOriginal} from './team-account-evidence.js';
 import {parseSteamProfileArchiveIndex,steamProfileLocation} from './steam-profile-evidence.js';
 import {PRO_REGISTRY_ORIGINAL,parseProRegistryArchiveIndex,validateProRegistryOriginal} from '../opendota/registry-evidence.js';
+import {leagueRosterOriginal,leagueMapOriginal} from './league-lineup-evidence.js';
 type RawResponse={status:number;headers:Record<string,string|undefined>;bytes:Buffer};
 type RawTransport=(url:URL)=>Promise<RawResponse>;
 function rawHttps(url:URL):Promise<RawResponse>{
@@ -55,6 +56,14 @@ export class ArchiveEvidenceClient{
   }
   async getProRegistrySnapshot(original:string,timestamp:string){
     validateProRegistryOriginal(original);return this.getOriginalSnapshot(original,timestamp);
+  }
+  async findTi12LeagueBefore(beforeAt:string){
+    return this.findOriginalBefore(leagueRosterOriginal('15728'),beforeAt,'2023-10-01T00:00:00.000Z');
+  }
+  async getLeagueRosterSnapshot(leagueId:string,timestamp:string){return this.getOriginalSnapshot(leagueRosterOriginal(leagueId),timestamp);}
+  async getCurrentLeagueMap(leagueId:string,matchId:string){
+    const r=await this.request(new URL(leagueMapOriginal(leagueId,matchId)));
+    return {bytes:r.bytes,encoding:r.headers['content-encoding']??'identity',source:r.source};
   }
   private async findOriginalBefore(original:string,beforeAt:string,fromAt?:string,parseIndex= parseArchiveIndex){
     z.iso.datetime({precision:3}).parse(beforeAt);const url=new URL('https://web.archive.org/cdx/search/cdx');

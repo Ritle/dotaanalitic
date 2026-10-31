@@ -36,6 +36,8 @@ CLI использует фиксированный reviewed batch, провер
 
 ## Следующий шаг
 
+Обновление следующего checkpoint: [lineup audit](S3_01_LINEUP_EVIDENCE.md) подтвердил обе регистрации на турнир и10 canonical participants; strict map lineup known-at ещё не доказан. Текущий точный следующий срез — явный retrospective context / conditional readiness, описанный там. Ниже сохранён исходный handoff этого provision checkpoint.
+
 **Продолжить S3-01: найти и проверить источник состава карты7378530387, доступный до её начала2023-10-12T17:00:44Z, и связать подтверждённые numeric IDs с созданными canonical IDs.** Состав завершённой карты, старый team tag и совпадение ников не заменяют dated lineup evidence. Далее остаются native side/series/patch proofs и широкий frozen cohort с четырьмя временными окнами; post-draft требует датированных hero picks. Для этих десяти IDs identity provisioning завершён, повторять его как незакрытый поиск не требуется.
 
 S3-01, S1-07 и отдельный v8 S1-08 corpus gate открыты. S3-02/features/training/activation автоматически не начинаются. Следующая модель: **GPT-6 Astra · Extra High**, выбор вручную.

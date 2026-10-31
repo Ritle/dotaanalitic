@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "mode": "bounded_exact_url_lineup_source_discovery",
+  "generatedAt": "2026-10-31T23:47:09.549Z",
+  "indexes": [
+    {
+      "name": "valve-map-index",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.dota2.com%2Fwebapi%2FIDOTA2DPC%2FGetLeagueMatchMinimal%2Fv001%3Fleague_id%3D15728%26match_id%3D7378530387&output=json&filter=statuscode%3A200&from=20231001&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T23:40:04.171Z",
+      "status": 200,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "globalAbsenceProven": false
+    },
+    {
+      "name": "valve-league-index",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.dota2.com%2Fwebapi%2FIDOTA2League%2FGetLeagueData%2Fv001%3Fleague_id%3D15728%26delay_seconds%3D0&output=json&filter=statuscode%3A200&from=20231001&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T23:40:07.404Z",
+      "status": 200,
+      "payloadSha256": "bd94ae19996424e608bc75ff267cb5187c211b2ad83ae8b2032192b48e4153bc",
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20231004134345",
+          "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=15728&delay_seconds=0",
+          "SJ6KUCVCY5TJ2Y3S3CR7VZGNWTYDJNK3"
+        ],
+        [
+          "20231007101414",
+          "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=15728&delay_seconds=0",
+          "OZP57QO7XR3HCQZTY5MSYXY25I4DTCWJ"
+        ]
+      ],
+      "globalAbsenceProven": false
+    },
+    {
+      "name": "valve-watch-index",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.dota2.com%2Fesports%2Fti12%2Fwatch&output=json&filter=statuscode%3A200&from=20231001&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T23:40:09.222Z",
+      "status": 200,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "globalAbsenceProven": false
+    },
+    {
+      "name": "opendota-map-index",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fapi.opendota.com%2Fapi%2Fmatches%2F7378530387&output=json&filter=statuscode%3A200&from=20231001&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T23:40:11.999Z",
+      "status": 200,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "globalAbsenceProven": false
+    },
+    {
+      "name": "valve-bulk-index",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.dota2.com%2Fwebapi%2FIDOTA2League%2FGetLeaguesData%2Fv001%3Fleague_ids%3D15728%2C%26delay_seconds%3D0&output=json&filter=statuscode%3A200&from=20231011&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T23:41:49.393Z",
+      "status": 200,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "globalAbsenceProven": false
+    }
+  ],
+  "registration": {
+    "policyVersion": "valve-league-registration-v1",
+    "scope": "tournament_registration_not_map_lineup",
+    "status": "verified_archived_registration",
+    "sourceUrl": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=15728&delay_seconds=0",
+    "capturedAt": "2023-10-07T10:14:14.000Z",
+    "knownByAt": "2023-10-07T10:14:14.000Z",
+    "fetchedAt": "2026-10-31T23:40:36.510Z",
+    "registrationPeriod": 8,
+    "sourceRegisteredPlayers": 100,
+    "groupCount": 8,
+    "leagueId": "15728",
+    "selectedTeams": [
+      "8260983",
+      "8291895"
+    ],
+    "matchId": "7378530387",
+    "members": [
+      {
+        "accountId": "10366616",
+        "teamId": "8291895",
+        "alias": "Sneyking"
+      },
+      {
+        "accountId": "86698277",
+        "teamId": "8291895",
+        "alias": "33"
+      },
+      {
+        "accountId": "94054712",
+        "teamId": "8291895",
+        "alias": "Topson"
+      },
+      {
+        "accountId": "94786276",
+        "teamId": "8291895",
+        "alias": "Nine"
+      },
+      {
+        "accountId": "97658618",
+        "teamId": "8260983",
+        "alias": "Timado"
+      },
+      {
+        "accountId": "100058342",
+        "teamId": "8291895",
+        "alias": "skiter"
+      },
+      {
+        "accountId": "136829091",
+        "teamId": "8260983",
+        "alias": "Whitemon"
+      },
+      {
+        "accountId": "184620877",
+        "teamId": "8260983",
+        "alias": "kasane"
+      },
+      {
+        "accountId": "238239590",
+        "teamId": "8260983",
+        "alias": "Bryle"
+      },
+      {
+        "accountId": "346412363",
+        "teamId": "8260983",
+        "alias": "Ari"
+      }
+    ],
+    "nodeCount": 70,
+    "relevantNodes": [],
+    "payloadSha256": "f405025ee598e1dc09ef520e25ec47cbd9ca6ee1bcd0e61f389adc3c9c594dc8",
+    "decodedSha256": "bb92f714da07f593974bf3345fb1b09cc533552fe7c502f0b0ac192082bad01b",
+    "cdxDigest": "OZP57QO7XR3HCQZTY5MSYXY25I4DTCWJ",
+    "projectionSha256": "10ee405ca0b455acf685f13d3437a7c87aca02b834050f3c64d4ef6c2dc9bcaa",
+    "verifiedMapLineups": 0,
+    "trainingExamples": 0,
+    "deployable": false
+  },
+  "actual": {
+    "policyVersion": "valve-map-participants-v1",
+    "scope": "retrospective_map_participation",
+    "matchId": "7378530387",
+    "leagueId": "15728",
+    "startedAt": "2023-10-12T17:00:44.000Z",
+    "radiantTeamId": "8291895",
+    "direTeamId": "8260983",
+    "players": [
+      {
+        "playerSlot": 0,
+        "accountId": "10366616",
+        "teamNumber": 0
+      },
+      {
+        "playerSlot": 1,
+        "accountId": "100058342",
+        "teamNumber": 0
+      },
+      {
+        "playerSlot": 2,
+        "accountId": "94786276",
+        "teamNumber": 0
+      },
+      {
+        "playerSlot": 3,
+        "accountId": "86698277",
+        "teamNumber": 0
+      },
+      {
+        "playerSlot": 4,
+        "accountId": "94054712",
+        "teamNumber": 0
+      },
+      {
+        "playerSlot": 128,
+        "accountId": "238239590",
+        "teamNumber": 1
+      },
+      {
+        "playerSlot": 129,
+        "accountId": "346412363",
+        "teamNumber": 1
+      },
+      {
+        "playerSlot": 130,
+        "accountId": "136829091",
+        "teamNumber": 1
+      },
+      {
+        "playerSlot": 131,
+        "accountId": "184620877",
+        "teamNumber": 1
+      },
+      {
+        "playerSlot": 132,
+        "accountId": "97658618",
+        "teamNumber": 1
+      }
+    ],
+    "sourceUrl": "https://www.dota2.com/webapi/IDOTA2DPC/GetLeagueMatchMinimal/v001?league_id=15728&match_id=7378530387",
+    "fetchedAt": "2026-10-31T23:40:38.310Z",
+    "knownAt": null,
+    "availability": "retrospective_fact",
+    "payloadSha256": "fa87d39e87d55f335119f6989cfc863d31a6783354109ea87aa28700bc5d9fe6",
+    "decodedSha256": "fa87d39e87d55f335119f6989cfc863d31a6783354109ea87aa28700bc5d9fe6",
+    "projectionSha256": "86e19ba467a690c35ce8f782143b86bbaac1a8ada5f56a9cf7c96b2cd4599e3b",
+    "verifiedMapLineups": 0,
+    "trainingExamples": 0,
+    "deployable": false
+  },
+  "review": {
+    "policyVersion": "league-lineup-scope-audit-v1",
+    "snapshotAt": "2026-10-31T23:46:10.222Z",
+    "matchId": "7378530387",
+    "startedAt": "2023-10-12T17:00:44.000Z",
+    "mapCount": 1,
+    "registeredBeforeCutoff": 10,
+    "providerAgreementRows": 10,
+    "canonicalParticipants": 10,
+    "ledgerRevision": "20",
+    "ledgerObservedAt": "2026-10-31T23:33:37.799Z",
+    "exactRegisteredFives": 2,
+    "archiveNodesReferencingMap": 0,
+    "archiveNodesReferencingTeamPair": 0,
+    "players": [
+      {
+        "playerSlot": 0,
+        "accountId": "10366616",
+        "retrospectiveTeamId": "8291895",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "1"
+      },
+      {
+        "playerSlot": 1,
+        "accountId": "100058342",
+        "retrospectiveTeamId": "8291895",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "6"
+      },
+      {
+        "playerSlot": 2,
+        "accountId": "94786276",
+        "retrospectiveTeamId": "8291895",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "4"
+      },
+      {
+        "playerSlot": 3,
+        "accountId": "86698277",
+        "retrospectiveTeamId": "8291895",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "2"
+      },
+      {
+        "playerSlot": 4,
+        "accountId": "94054712",
+        "retrospectiveTeamId": "8291895",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "3"
+      },
+      {
+        "playerSlot": 128,
+        "accountId": "238239590",
+        "retrospectiveTeamId": "8260983",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "9"
+      },
+      {
+        "playerSlot": 129,
+        "accountId": "346412363",
+        "retrospectiveTeamId": "8260983",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "10"
+      },
+      {
+        "playerSlot": 130,
+        "accountId": "136829091",
+        "retrospectiveTeamId": "8260983",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "7"
+      },
+      {
+        "playerSlot": 131,
+        "accountId": "184620877",
+        "retrospectiveTeamId": "8260983",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "8"
+      },
+      {
+        "playerSlot": 132,
+        "accountId": "97658618",
+        "retrospectiveTeamId": "8260983",
+        "providerAgreement": true,
+        "registeredBeforeCutoff": true,
+        "canonicalPlayerId": "5"
+      }
+    ],
+    "strictMapLineupStatus": "unavailable",
+    "strictReasons": [
+      "REGISTRATION_DOES_NOT_PROVE_MAP_ATTENDANCE",
+      "ACTUAL_NATIVE_SLOTS_KNOWN_AT_UNPROVEN"
+    ],
+    "actualAvailability": "retrospective_fact",
+    "actualKnownAt": null,
+    "verifiedMapLineups": 0,
+    "trainingExamples": 0,
+    "trainingReady": false,
+    "deployable": false,
+    "fingerprint": "affccad6bfd4565aad0794045aac7059fdcf2417bcad6522b91a6e6c0988efc5"
+  },
+  "reviewSnapshotAt": "2026-10-31T23:46:10.222Z",
+  "networkAttempts": 7,
+  "httpStatuses": {
+    "200": 7
+  },
+  "databaseWrites": 0,
+  "selection": "fixed_previous_TI12_map_then_latest_returned_league_capture_before_start",
+  "sourceScope": "registration_and_retrospective_participation_not_prestart_map_attendance",
+  "rawReplayVerified": true,
+  "globalAbsenceProven": false,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

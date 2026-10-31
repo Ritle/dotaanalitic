@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "report": {
+    "file": "docs/evidence/s3-01-ti12-lineup-evidence.json",
+    "sha256": "e6a9e4276523efd57b0ff6095edc2eb6a27a96bb2292efbb1637bb508b8f8a14"
+  },
+  "probes": {
+    "file": "docs/evidence/s3-01-ti12-lineup-probes.json",
+    "sha256": "0e092a035ebe554757fe2b962d924da9e8993ed6480b8e2ac8c3b42e9ed718d3"
+  },
+  "mapObservation": {
+    "file": "docs/evidence/s3-01-ti12-map-accounts.json",
+    "sha256": "edc87be8867d324e639289f6e2ac6ab038dccf2f9bca255d4013e204eaaf40a2"
+  },
+  "identityLedger": {
+    "file": "docs/evidence/s3-01-ti12-identity-applied.json",
+    "jsonPointer": "/identityLedger",
+    "sha256": "e84114af44a5550fc91342108f09071a5bc9603af6164ecf2369e3fa2c17a0fb",
+    "observedAt": "2026-10-31T23:33:37.799Z",
+    "registryRevision": "20"
+  },
+  "sourceRuntimeHashesVerified": 16,
+  "rawReplay": {
+    "registration": {
+      "samePayload": true,
+      "sameProjection": true
+    },
+    "actual": {
+      "samePayload": true,
+      "sameProjection": true
+    }
+  },
+  "networkAttempts": 10,
+  "httpStatuses": {
+    "200": 10
+  },
+  "workingState": {
+    "maps": 1,
+    "owners": 0,
+    "scenarios": 0,
+    "datasets": 0,
+    "active_models": 0,
+    "canonical_players": 10,
+    "account_proofs": 10,
+    "aliases": 10,
+    "legacy_links": 0,
+    "identity_revision": "20",
+    "temporary_databases": 0
+  },
+  "databaseWrites": 0,
+  "canonicalVerifiedAccounts": 10,
+  "exactRegisteredFives": 2,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "strictDatasetStatus": "unavailable",
+  "deployable": false
+}
