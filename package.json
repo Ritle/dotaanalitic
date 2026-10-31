@@ -35,7 +35,8 @@
     "test:auth": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/auth.integration.test.ts",
     "test:temporal": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/context.integration.test.ts",
     "test:identity": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/identity.integration.test.ts",
-    "test:game-context": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/game-context.integration.test.ts"
+    "test:game-context": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/game-context.integration.test.ts",
+    "test:dataset": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/dataset.integration.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

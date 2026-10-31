@@ -109,3 +109,7 @@ interface ModelRegistry { promote(candidateId: string, evaluationId: string, exp
 - Миграцию 005 включить в S0-00 и схему до разработки импортера и training features.
 - S0-07 [P0]: схема, источники labels, feature/label separation, freeze и идемпотентность. `S3-00 [P0]`: DatasetBuilder / offline CLI и тесты. `S3-01..06`: train/evaluate/registry с неизменяемыми manifests. `S3-07 [P1]`: link verified outcome и мониторинг live vs backtest. `S5-06 [P1]`: фоновое расписание и candidate promotion workflow.
 - Все действия P1 не мешают простому хранению и использованию P0 датасетов.
+
+## Реализованный S0-07
+
+Migration 012 и DatasetRepository обеспечивают durable label/source gate, отдельные features, map/version uniqueness, whole-series/chronological split checks и immutable terminal snapshots с reproducible SHA-256. Labels выводятся из completed pro map и immutable OpenDota receipt + league proof; guesses/prediction IDs не принимаются. Полноценные OutcomeVerifier/DatasetBuilder, feature availability и model quality gates остаются S3. [Контракт и ограничения](S0_07_VERIFIED_DATASETS.md).

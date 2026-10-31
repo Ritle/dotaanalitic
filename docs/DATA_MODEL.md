@@ -108,3 +108,7 @@ See [DRAFT_DATA_INTEGRITY.md](DRAFT_DATA_INTEGRITY.md); 001–005 remain immutab
 ## S0-06: game-context registry
 
 Миграция 011 добавляет immutable `patch_release_evidence`, `draft_rule_evidence`, evidence provenance для `hero_availability_rules`, `game_context_registry_state.revision` и расширяет context whitelist полями league/mode/lobby. Legacy rules не становятся verified. GameContextRepository разрешает patch/side/hero eligibility на cutoff в repeatable-read; policy/revisions/proof IDs входят в результат. Исторические SQL 001–010 не менялись. [Контракт](S0_06_GAME_CONTEXT.md).
+
+## S0-07: verified dataset boundary
+
+Миграция 012 добавляет outcome_receipt_id (composite FK к той же карте), match_data_revision и series_id_snapshot в training_dataset_maps. SQL сверяет pro/outcome/orientation с immutable receipt и league reference; building → frozen повторно проверяет источник, хронологию и целую серию. Frozen/rejected защищены от изменения/удаления; header/stage нельзя менять при существующих примерах. PostgreSQL формирует canonical content и SHA-256; Bigint IDs в content — строки, timestamps — UTC. Старые frozen snapshots не переписываются. Это durable architecture, а не feature eligibility или готовый DatasetBuilder. [Контракт](S0_07_VERIFIED_DATASETS.md).

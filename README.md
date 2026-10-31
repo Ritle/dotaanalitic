@@ -42,7 +42,7 @@ pnpm ingest:enqueue --match-id 9069021061 # поставить карту в dur
 pnpm ingest:once --match-id 9069021061    # поставить и дождаться одной задачи
 pnpm test:ingestion      # импорт/очередь в отдельных временных БД, нужны права CREATEDB
 pnpm db:up               # PostgreSQL
-pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007→008→009→010→011
+pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007→008→009→010→011→012
 pnpm db:down             # остановить PostgreSQL, НЕ удалять volume
 ```
 
@@ -53,7 +53,7 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 1. `AGENTS.md` — правила агента и запреты.
 2. `TECHNICAL_SPEC.md` — все утверждённые функциональные требования Personal MVP v2.
 3. `docs/TECHNICAL_ARCHITECTURE_AND_STACK.md`, `docs/DEPENDENCY_MATRIX.md`, `docs/ENGINEERING_PATTERNS.md`, `docs/DATA_PIPELINE_DESIGN.md`, `docs/ML_ENGINEERING_DECISIONS.md`, `docs/DEPLOYMENT_AND_TESTING.md` — нормативные технические решения и паттерны; затем `docs/ARCHITECTURE.md` и `docs/SCREEN_SPECS.md` — компоненты, пользовательские экраны и потоки данных.
-4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..011` — хранение.
+4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..012` — хранение.
 5. `docs/DATA_SOURCES.md` — OpenDota и ограничения.
 6. `docs/API_CONTRACTS.md` — маршруты и форматы.
 7. `docs/PREDICTION_ENGINE.md` и `docs/CONTINUOUS_LEARNING_PIPELINE.md` — антиутечка, backtest, frozen datasets, verified outcomes и безопасная публикация моделей.
@@ -146,3 +146,7 @@ Verified account evidence, aliases, cross-org история участия и l
 ### S0-06 — контекст карты и правила героев
 
 GameContextRepository читает evidence-backed patch/mode/league, стороны и hero eligibility на cutoff. Неизвестные правила остаются null; версия ruleset не подтверждает фактический draft timeline. Требуется миграция 011; проверка: `pnpm test:game-context`. [Контракт и ограничения](docs/S0_06_GAME_CONTEXT.md).
+
+### S0-07 — проверенные метки и заморозка датасетов
+
+DatasetRepository вычисляет label из подтверждённой карты и source receipt, сохраняет отдельные features, защищает terminal snapshots и целые серии. Требуется миграция 012; проверка: `pnpm test:dataset`. Frozen snapshot ещё не означает допустимость признаков для обучения; DatasetBuilder остаётся S3-00. [Контракт](docs/S0_07_VERIFIED_DATASETS.md).

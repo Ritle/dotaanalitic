@@ -31,7 +31,7 @@ node scripts/check-ml-parity.mjs /tmp/dota2-demo.json
 
 ## Правила
 
-Локальная `.env` не коммитится. Никогда не сохранять реальные API ключи, токены или пользовательские Steam данные в test fixtures. Исторические миграции `001–005` защищены checksum-фикстурой; применённые `006–011` также не редактировать, следующие изменения — `012+`.
+Локальная `.env` не коммитится. Никогда не сохранять реальные API ключи, токены или пользовательские Steam данные в test fixtures. Исторические миграции `001–005` защищены checksum-фикстурой; применённые `006–012` также не редактировать, следующие изменения — `013+`.
 
 ## S0-02: importer и очередь
 
@@ -46,3 +46,5 @@ S0-04: `pnpm test:temporal` проверяет as-of evidence в отдельн�
 S0-05: `pnpm test:identity` проверяет immutable identity/alias evidence, историю через организации, точную пятёрку и role gates. Новый normalizer `opendota-map-v2-identity` требует миграцию 010; legacy links не получают known_at автоматически. [Подробности](S0_05_IDENTITY_LINEUP.md).
 
 S0-06: `pnpm test:game-context` проверяет immutable patch/draft/hero evidence и GameContextRepository; требуется миграция 011. Правила не заполняются автоматически. Для одновременного запуска нескольких DB suites на локальной Windows использовать `--no-file-parallelism`: создание/удаление временных БД конкурирует за ресурсы. [Контракт](S0_06_GAME_CONTEXT.md).
+
+S0-07: `pnpm test:dataset` проверяет pro/source/orientation labels, freeze/reject, concurrent append, серии/хронологию и SHA/timezone. DatasetRepository требует migration 012; raw receipt и professional league evidence обязательны. [Контракт](S0_07_VERIFIED_DATASETS.md).

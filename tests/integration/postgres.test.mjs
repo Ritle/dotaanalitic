@@ -12,12 +12,12 @@ test('all baseline migrations applied with authoritative checksums', async () =>
  await client.connect();
  try{
   const {rows}=await client.query('SELECT filename, checksum FROM schema_migrations ORDER BY filename');
-  assert.equal(rows.length,11);
+  assert.equal(rows.length,12);
   assert.deepEqual(rows.map(x=>x.filename),[
    '001_initial.sql','002_patch_awareness.sql','003_roster_continuity.sql',
    '004_context_identity_provenance.sql','005_training_pipeline.sql',
    '006_draft_data_quality.sql','007_idempotent_ingestion.sql','008_owner_auth.sql','009_temporal_context.sql','010_identity_evidence.sql',
-   '011_game_context_registry.sql'
+   '011_game_context_registry.sql','012_verified_dataset_boundary.sql'
   ]);
   for(const {filename,checksum} of rows) {
     const sql=await readFile(new globalThis.URL(`../../packages/db/migrations/${filename}`,import.meta.url));
@@ -34,7 +34,7 @@ test('all baseline migrations applied with authoritative checksums', async () =>
  }finally{await client.end()}
 });
 
-test('frozen training dataset cannot be rewritten',async()=>{
+test('terminal training dataset cannot be rewritten',async()=>{
  const client=new pg.Client({connectionString:URL});
  await client.connect();
  try{
@@ -42,11 +42,13 @@ test('frozen training dataset cannot be rewritten',async()=>{
   const q=`INSERT INTO training_dataset_versions (
    stage,status,feature_schema_version,label_policy_version,cutoff_policy_version,
    patch_registry_revision,data_revision,code_revision,split_policy,dataset_fingerprint,frozen_at
-  ) VALUES ('pre_match','frozen','v1','v1','v1','p1','data1','code1','{}'::jsonb,$1,NOW()) RETURNING id`;
-  const crypto=await import('node:crypto');
-  const digest=crypto.randomBytes(32).toString('hex');
-  const result=await client.query(q,[digest]);
+  ) VALUES ('pre_match','building','v1','verified-map-v1','v1','p1','data1','code1','{}'::jsonb,NULL,NULL) RETURNING id`;
+  const result=await client.query(q);
   const id=result.rows[0].id;
+  await client.query('SAVEPOINT empty_freeze');
+  await assert.rejects(client.query("UPDATE training_dataset_versions SET status='frozen' WHERE id=$1",[id]),/empty/i);
+  await client.query('ROLLBACK TO SAVEPOINT empty_freeze');
+  await client.query("UPDATE training_dataset_versions SET status='rejected' WHERE id=$1",[id]);
   await client.query('SAVEPOINT frozen_guard');
   await assert.rejects(client.query('UPDATE training_dataset_versions SET status=$1 WHERE id=$2',['rejected',id]),/Frozen training dataset|immutable/i);
   await client.query('ROLLBACK TO SAVEPOINT frozen_guard');
