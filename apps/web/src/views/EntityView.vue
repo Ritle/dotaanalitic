@@ -8,6 +8,7 @@ import { ownerAuth } from '../auth';
 import ProMapReport from '../components/ProMapReport.vue';
 import RosterReport from '../components/RosterReport.vue';
 import PlayerHeroReport from '../components/PlayerHeroReport.vue';
+import StrengthReport from '../components/StrengthReport.vue';
 const route=useRoute();
 const kind=computed(()=>route.name==='team'?'teams':'players');
 const id=computed(()=>String(route.params.id));
@@ -57,4 +58,5 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
   <ProMapReport v-if="data" :key="kind+id" :kind="kind" :id="id" />
   <RosterReport v-if="data&&kind==='teams'" :key="id" :id="id" />
   <PlayerHeroReport v-if="data&&kind==='players'" :key="id" :id="id" />
+  <StrengthReport v-if="data&&kind==='teams'" :key="'strength'+id" :id="id" />
 </template>

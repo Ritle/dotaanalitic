@@ -33,3 +33,4 @@ export * from './pro-maps.js';
 export * from './pro-map-repository.js';
 export {RosterRepository,RosterQueryError} from './roster-repository.js';
 export {PlayerHeroRepository,PlayerHeroQueryError} from './player-hero-repository.js';
+export {StrengthRepository,StrengthQueryError} from './strength-repository.js';

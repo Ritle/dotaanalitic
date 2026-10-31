@@ -38,3 +38,7 @@ pro-map-display-v1 показывает только завершённые is_p
 ## Реализованные индивидуальные метрики S1-04
 
 Player×hero×confirmed role использует pro/completion/verified source identity gates и отдельный фактический N каждой численной метрики. Неполная K/D/A тройка не входит в KDA, но доступный GPM/XPM может входить в своё среднее; missing не равно0. Unknown role сохраняется отдельно. Default current patch без reviewed release coverage даёт unavailable, не all-patch fallback. [Контракт и знаменатели](S1_04_PLAYER_HERO.md).
+
+## Рейтинг и историческая доступность S1-05
+
+Elo update требует verified-asof canonical identity на старт и reviewed availability для pro/outcome/actual participation; end не подставляется в known_at. Raw organization WR имеет отдельный denominator. Задержанный исход не меняет prior state до availability; source clocks сохраняют микросекунды. Поздний конфликт останавливает последующие рейтинги, сохраняя ранние. Это reconstructed participation audit, не prospective model gate или published probability. [Алгоритм и ограничения](S1_05_CHRONOLOGICAL_ELO.md).

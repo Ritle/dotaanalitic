@@ -32,3 +32,5 @@ export { playerHeroSample } from './player-hero.js';
 export type { PlayerHeroObservation } from './player-hero.js';
 export { predictLogistic } from './model-inference.js';
 export type { LogisticArtifact } from './model-inference.js';
+export {replayElo,ELO_POLICY} from './elo.js';
+export type {EloMap,EloSide,EloObservation} from './elo.js';

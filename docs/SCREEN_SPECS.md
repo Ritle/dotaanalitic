@@ -17,6 +17,10 @@
 
 S1-01: `/` содержит локальные вкладки teams/players/heroes, поиск и постраничные результаты (25), ID/тег, provider sync если известен и отдельный metadata updated timestamp. `/teams/:id` показывает организацию и последнюю наблюдавшуюся pro-пятёрку с native side, partial warning и явным неизвестным текущим составом. `/players/:id` показывает canonical ID и неприсвоенную проверку catalogue account link; история/статистика остаются следующими задачами. Нет скрытой синхронизации/подстановки состава. [Реализация](S1_01_CATALOGUE.md).
 
+## Реализованный рейтинг S1-05
+
+S1-05: страница команды содержит «Elo и сила соперников»: отдельные raw WR/rated N, before-map opponent rating/delta, prior player counts, applied display period с global warmup, no-evidence/empty/error/stop states. Реконструкция пятёрки не объявляется preknown, рейтинг unvalidated без win probability. Поздний конфликт виден и блокирует поздние значения. [Контракт](S1_05_CHRONOLOGICAL_ELO.md).
+
 ## Реализованные герои игрока S1-04
 
 S1-04: `/players/:id` дополнен блоком «Герой и позиция»: default current patch +90days, явные UTC/patch/hero/role/side filters, отдельные строки позиций и unknown role, KDA/mean K/D/A/GPM/XPM с per-field N, доля героя/last-played/source clocks. Unavailable patch не подменяется all-patch; nullable empty/error/retry состояния и внутренняя прокрутка на360px. [Контракт](S1_04_PLAYER_HERO.md).

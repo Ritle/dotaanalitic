@@ -2,7 +2,7 @@
 
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (auth S0-03 и S1-01..04 реализованы; остальные планируются)
+## Основные маршруты (auth S0-03 и S1-01..05 реализованы; остальные планируются)
 
 | HTTP | Путь | Смысл |
 |---|---|---|
@@ -14,6 +14,7 @@
 | GET | `/teams/:id` | Команда/состав |
 | GET | `/teams/:id/matches` | Карты pro + фильтры |
 | POST | `/teams/:id/roster-cohesion` | Read-only расчёт введённой пятёрки и optional baseline (S1-03) |
+| GET | `/teams/:id/strength` | Chronological player-mean Elo и сила соперника до карты (S1-05) |
 | GET | `/teams/compare?teamA=...&teamB=...` | Сравнение |
 | GET | `/players/:id` | Игрок |
 | GET | `/players?query=...` | Локальный поиск canonical игроков (S1-01) |
@@ -54,6 +55,10 @@ S1-03 `POST /teams/:id/roster-cohesion`: strict `{lineup:[{playerId,rolePos,isSt
 ## Герои и позиции игрока S1-04
 
 S1-04 `/players/:id/heroes`: strict fromAt/cutoffAt, patchScope=current(default)/all/specific (+patchId), heroId/rolePos/side/opponentId/leagueId. Default period90days; current patch unknown и >5000 candidates дают unavailable с reasons, без fallback. Summary/groups hero×role содержат raw N/wins/WR, KDA и mean K/D/A/GPM/XPM с отдельным nMaps, lastPlayedAt и sync; pick-rate denominator — playerMapsInScope до hero filter. maps/proofs/revisions/quality возвращаются с effective filters. [Полный контракт](S1_04_PLAYER_HERO.md).
+
+## Хронологический рейтинг S1-05
+
+S1-05 `/teams/:id/strength`: strict fromAt/cutoffAt UTC milliseconds, limit20/50/100(default20). Default90day display window, global prior-history replay; >5000 global candidates → unavailable/GLOBAL_HISTORY_TOO_LARGE без target-only truncation. Scope=chronological_retrospective_participation, policy parameters/validation=unvalidated, probability=null. Raw/rated denominators раздельны, ratings/prior/fingerprints/source/proofs/global manifest возвращаются; audit `*Us` clocks — **decimal microsecond strings** для точности, в дополнение к UTC display fields. Поздний proof conflict останавливает replay после своего known time, не переписывает более ранние значения; `replayStoppedAtUs` и причины явны. [Контракт](S1_05_CHRONOLOGICAL_ELO.md).
 
 ## DTO: ошибка
 

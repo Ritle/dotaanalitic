@@ -1,0 +1,39 @@
+# S1-05 — хронологический Elo и сила соперников
+
+`GET /api/v1/teams/:id/strength` и блок «Elo и сила соперников» дают воспроизводимый **экспериментальный рейтинг**, raw organization WR и историческую силу соперников. Это `chronological_retrospective_participation`: фактическая пятёрка карты восстанавливается для аудита, её предматчевая известность не предполагается. `model:null`, `predictionEligibility:not_assessed`, `teamAWinProbability:null`; quality/backtest/calibration gate не пройден и не заявляется.
+
+## Алгоритм
+
+- Pure `replayElo` в `@dota/analytics`. Политика `player-mean-elo-v1`: initial1500, K32, scale400, validation=unvalidated. Эти параметры — фиксированная исходная конфигурация для воспроизводимости, не подобранная точность.
+- Сила стороны до карты = средний рейтинг её пяти canonical игроков. Рейтинг организации не передаётся пятёрке; новый игрок приносит свою pro-историю через любые организации, без истории использует явно обозначенный начальный prior1500. Нет stand-in penalty, жесткого коэффициента «за сохранённые пары» или смешанного roster/organization score.
+- Внутреннее ожидаемое значение `E = 1/(1+10^((R_opp-R_own)/400))` используется только в обновлении `delta=32*(outcome-E)`. Оно не сериализуется как прогноз. Каждому из пяти игроков стороны применяется один и тот же delta, противнику — противоположный; средний рейтинг стороны меняется на delta. **Одна карта остаётся одним наблюдением**, а не десятью обучающими примерами.
+- Сначала фиксируются рейтинги на старте; delta вычисляется по замороженным значениям. Применение — только после доказанной доступности результата/классификации/участия. Сортировка по start и numeric bigint ID, очередь обновлений по availability и ID. При одинаковых стартах или перекрывающихся картах ни одна не видит исход другой до его доступности. Доступность ровно на следующем старте допустима при строго более раннем старте исходной карты; микросекунда позже — нет.
+- Запоздалый результат применяется при его known availability с delta, вычисленным на исходном старте. До этого исход не меняет player state. Публичный report не отдаёт pending outcome-derived delta (change=null).
+
+## Доказательства и часы
+
+- Только completed `is_pro IS TRUE`, без canonical ingest conflict, known winner, positive duration. SQL читает start/end и proof clocks в **целых epoch microseconds strings**, чтобы JS Date не округлил будущую микросекунду в прошлое. `started_at < cutoff`, end<=cutoff. Три source времени не заменяют друг друга; end не используется как выдуманный known_at.
+- Все десять native slots 0–4/128–132 должны разрешаться в разные canonical IDs через `resolveIdentity(..., map.started_at)`. Нужны verified ref-linked account proofs с known_at<=start и event_at<=start; current-only/legacy undated links не подходят. Fetch ограничен snapshot. Ники, cached player_id и membership flags не определяют identity.
+- Для обновления обязательны **reviewed accepted verified_asof** ref-linked facts: `pro_classification` с `{value:true}`, `radiant_win` с canonical boolean и `context.lineup`, совпадающий с десятью source-account resolved native slots. Нужны known_at<=fetched_at и event_at<=fetched_at; winner known_at>=end. `known_at:null`, retrospective/user assertions, unreviewed facts не становятся подтверждёнными историческими фактами.
+- Update availability = max(end, effective pro proof, winner proof, participation proof), где effective=max(known_at,event_at если известен). Для нескольких одинаковых доказательств берётся первое действующее; поздний повтор не отодвигает исход. Не нужно, чтобы фактический состав карты был известен до её старта: это retrospective participation audit. `lineupKnownBeforeStart` отдельно требует early-stage evidence и availability<=start; не является самостоятельным model eligibility gate.
+- Позднее противоречие/explicit conflict не переписывает рейтинги, которые были доступны **до** появления противоречия. Расчёт останавливается глобально за микросекунду до первого доказанного конфликта, если он уже наступил к cutoff: `replayStoppedAtUs`, warning, current-five rating=null; более поздние значения недоступны. Автоматического выбора победившего источника/rollback state нет. Это консервативный отказ до review/new revision. Противоречие после запрошенного cutoff не останавливает тот ранний replay.
+- При canonical `ingest_state=conflict` карта исключается целиком как текущий quality-cohort filter. Исходное raw source/canonical исправление требует новой ревизии; этот report не является immutable historical feature dataset. S3 builder должен дополнительно заморозить corpus/availability/cohort и model evaluation provenance, а не использовать текущие review decisions как историческую проспективную выборку.
+
+## API, выборка и знаменатели
+
+Strict query: optional fromAt/cutoffAt UTC milliseconds, limit20/50/100 (default20). Default report interval90days до cutoff; future/reversed query400, missing organization404. Owner session и no-store. История читается repeatable-read, provider calls и запись рейтингов отсутствуют.
+
+`fromAt` и last N ограничивают **отчёт выбранной организации**, но не warmup. Рейтинги строятся по всей доступной локальной истории всех организаций до cutoff; исключение старых карт или ограничение target team исказило бы противников. Текущий bounded replay допускает до5000 global candidates (включая unknown/non-pro для coverage). При превышении — unavailable/GLOBAL_HISTORY_TOO_LARGE, без обрезанной статистики. Это ограничение масштабирования, которое нельзя исправить сужением display fromAt; для широкого корпуса потребуется отдельный checkpoint/incremental design.
+
+- raw N/wins/WR: последние N completed pro/non-conflict organization maps периода, даже если rating proofs неполны. Это **текущие описательные исходы**, не исторически доступные model features; поздно доказанный исход может быть виден здесь, оставаясь pending для рейтинга.
+- ratedMaps: выбранные карты с допустимым и применённым до cutoff (или conflict stop) обновлением. MeanOpponentRatingBefore и meanRatingChange имеют знаменатель ratedMaps; raw WR и rated metrics не притворяются одной coverage cohort.
+- lastObservedFiveRating: средний player state на cutoff для пятёрки **последней выбранной карты**, только если она имеет applied update и replay не остановлен. Если последняя карта неполна/pending или есть stop, null, без fallback к более старой пятёрке. Это не доказательство актуального состава.
+- Global exclusion counters sequential: unknown/non-pro/conflict/unfinished/identity/evidence. GlobalReplayMaps/updatesApplied/pendingUpdates относятся ко всему replay; pendingUpdates включает также блокировку конфликтом. TargetMapsBeforeLimit — raw target period до last-N; opponentPriorMaps — rated target карты с хотя бы одним prior opponent player.
+
+Ответ содержит applied filters/cutoff/snapshot/policy, identity revision, per-map source/sync/dataRevision, native orientation, fingerprints, prior-player counts, proof IDs и global replay manifest. Source IDs immutable; prior и реконструкция состава явно маркированы. Никаких N_eff/весов/patch decay или claims о качестве Elo. Published baseline probabilities и holdout сравнения — S3, smoothing — S1-06, patch policies — S1-07.
+
+## Проверка
+
+Pure tests: same WR/different schedule, transfer/replacement, start-before-result, simultaneous/overlapping/delayed maps, same-microsecond boundaries, orientation, deduplication, unknown facts и later-conflict regression. PG/API проверяют реальные epoch microsecond clocks для completion **и** known_at, source-account attribution, raw/rated cohorts и global limit; Chromium — warmup-preserving period filter, nullable empty/error states и360px. Только synthetic evidence в disposable БД, не live source coverage.
+
+Новых dependencies/lockfile/migrations нет; SQL001–013 сохранены. Следующая задача: **S1-06 — размер выборки и надёжность**.
