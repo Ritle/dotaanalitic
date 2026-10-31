@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "mode": "identity_provision_preview",
+  "generatedAt": "2026-10-31T23:32:06.688Z",
+  "review": {
+    "file": "docs/evidence/s3-01-ti12-reviewed-accounts.json",
+    "sha256": "2092d5a8213ab85cc65054940ce43d62f3b2b4743248467d1152e2f8bf591a95"
+  },
+  "sourceReport": {
+    "file": "docs/evidence/s3-01-ti12-registry-evidence.json",
+    "sha256": "bc8313032457db397f07789e87a7a02b453d1ad158f084579fe1448a9abd7219"
+  },
+  "planInput": null,
+  "plan": {
+    "policyVersion": "reviewed-single-account-v1",
+    "reviewSha256": "7fcdea42b10bc6dc4865e58d1d248c0732128f8ad2cf59df0a283525a5907c86",
+    "identityRevision": "0",
+    "status": "ready",
+    "rows": [
+      {
+        "accountId": "10366616",
+        "steam64": "76561197970632344",
+        "alias": "Sneyking",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "86698277",
+        "steam64": "76561198046964005",
+        "alias": "33",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "94054712",
+        "steam64": "76561198054320440",
+        "alias": "Topson",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "94786276",
+        "steam64": "76561198055052004",
+        "alias": "Nine",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "97658618",
+        "steam64": "76561198057924346",
+        "alias": "Timado",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "100058342",
+        "steam64": "76561198060324070",
+        "alias": "skiter",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "136829091",
+        "steam64": "76561198097094819",
+        "alias": "Whitemon",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "184620877",
+        "steam64": "76561198144886605",
+        "alias": "kasane",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "238239590",
+        "steam64": "76561198198505318",
+        "alias": "Bryle",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "346412363",
+        "steam64": "76561198306678091",
+        "alias": "Ari",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      }
+    ],
+    "fingerprint": "8c7634872b4bfecb6ddf7e3072e4e6285afd40555af1826c564613ce26a38401",
+    "plannedPlayers": 10,
+    "plannedAccountProofs": 10,
+    "plannedAliases": 10
+  },
+  "databaseWrites": 0,
+  "code": [
+    {
+      "file": "scripts/provision-identity.mjs",
+      "sha256": "250c0c330d3f05ab2e276b31156913d6c0ad8b3afee36703759230a64f9374eb"
+    },
+    {
+      "file": "packages/contracts/src/identity-provision.ts",
+      "sha256": "bbd79db615e29e1953b2526debeaad2ed97d33519849cb73a4bcab6010658a58"
+    },
+    {
+      "file": "packages/contracts/dist/identity-provision.js",
+      "sha256": "1e43f888dd6ed7f9d5b0167a6257d47aff3a78e0f60fdf1d8a9ae0c709f27675"
+    },
+    {
+      "file": "packages/db/src/identity-provision.ts",
+      "sha256": "0b2da0bce68c8935fb934834becf18b472c6dc9d0f4c0de990fb6ece3f27b3e2"
+    },
+    {
+      "file": "packages/db/dist/identity-provision.js",
+      "sha256": "4266cbb50684f21ed925a46f837e894eef31fafccef628dfa7370e96473b3d01"
+    },
+    {
+      "file": "packages/db/src/identity-repository.ts",
+      "sha256": "67e054026b14aa23340642cd1efbb607fcad6703a5fc6eb5d5fdd8f78107edd2"
+    },
+    {
+      "file": "packages/db/dist/identity-repository.js",
+      "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+    },
+    {
+      "file": "packages/db/src/identity.ts",
+      "sha256": "80264467afadb04ae257addc12f69fdb68d3262875e77c1f0941ef4cfe046888"
+    },
+    {
+      "file": "packages/db/dist/identity.js",
+      "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/registry-evidence.ts",
+      "sha256": "696a70e2b8714ada11f60193c4bc70011fabfddfde3934e934da203ca3303adf"
+    },
+    {
+      "file": "packages/ingestion/dist/opendota/registry-evidence.js",
+      "sha256": "a862b7d7f3b2f623795d97b73e101fe5f5935bfcf0122f634b4295414db55f5d"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "914424aafc1923c7d021b17dd1fabe4306aaa632756c822ad3eda5fae0edf4d8"
+    }
+  ],
+  "networkRequests": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "strictDatasetStatus": "unavailable",
+  "trainingReady": false,
+  "deployable": false
+}

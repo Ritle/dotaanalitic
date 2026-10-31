@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "reviewed-single-account-v1",
+  "reviewedAt": "2026-10-31T23:31:28.791Z",
+  "source": {
+    "reportSha256": "bc8313032457db397f07789e87a7a02b453d1ad158f084579fe1448a9abd7219",
+    "mapSha256": "edc87be8867d324e639289f6e2ac6ab038dccf2f9bca255d4013e204eaaf40a2",
+    "payloadSha256": "60b72bb589a33f988fb4025ad6856594352c1f23f7a891f60ff7beb02d05d321",
+    "projectionSha256": "1d0ff8828579c409443ca52c77f047f97c722603b5bd76c5e20b31e96633a044",
+    "archiveUrl": "https://web.archive.org/web/20230411210628id_/https://api.opendota.com/api/proPlayers?",
+    "knownAt": "2023-04-11T21:06:28.000Z",
+    "fetchedAt": "2026-10-31T22:57:24.392Z"
+  },
+  "accounts": [
+    {
+      "accountId": "10366616",
+      "steam64": "76561197970632344",
+      "alias": "Sneyking"
+    },
+    {
+      "accountId": "86698277",
+      "steam64": "76561198046964005",
+      "alias": "33"
+    },
+    {
+      "accountId": "94054712",
+      "steam64": "76561198054320440",
+      "alias": "Topson"
+    },
+    {
+      "accountId": "94786276",
+      "steam64": "76561198055052004",
+      "alias": "Nine"
+    },
+    {
+      "accountId": "97658618",
+      "steam64": "76561198057924346",
+      "alias": "Timado"
+    },
+    {
+      "accountId": "100058342",
+      "steam64": "76561198060324070",
+      "alias": "skiter"
+    },
+    {
+      "accountId": "136829091",
+      "steam64": "76561198097094819",
+      "alias": "Whitemon"
+    },
+    {
+      "accountId": "184620877",
+      "steam64": "76561198144886605",
+      "alias": "kasane"
+    },
+    {
+      "accountId": "238239590",
+      "steam64": "76561198198505318",
+      "alias": "Bryle"
+    },
+    {
+      "accountId": "346412363",
+      "steam64": "76561198306678091",
+      "alias": "Ari"
+    }
+  ]
+}

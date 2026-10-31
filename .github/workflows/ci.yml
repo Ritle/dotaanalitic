@@ -59,6 +59,7 @@ jobs:
       - run: pnpm test:auth
       - run: pnpm test:temporal
       - run: pnpm test:identity
+      - run: pnpm test:identity-provision
       - run: pnpm test:game-context
       - run: pnpm test:dataset
       - run: pnpm test:readiness

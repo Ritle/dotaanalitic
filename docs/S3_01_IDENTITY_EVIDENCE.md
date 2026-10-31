@@ -35,6 +35,6 @@ Exit 0 означает полное получение source accounts, **не*
 
 ## Следующий шаг
 
-**Продолжить S3-01: подготовить проверяемые canonical account links для десяти числовых ID из архивного реестра, с проверкой существующих связей и конфликтов.** Отдельная canonical запись для одного подтверждённого аккаунта не требует объединения людей по никам; разные аккаунты нельзя сливать по alias/team tag. Сохранить dated numeric evidence, source/fetch clocks и audit trail через существующий identity boundary. Дополнительные реальные имена/биографии не нужны. Затем подтвердить map-specific lineup known-at, side/series/patch и расширить пригодный cohort; post-draft дополнительно требует dated hero proof.
+Этот шаг выполнен в [identity provision checkpoint](S3_01_IDENTITY_PROVISION.md): созданы10 отдельных canonical players и dated claims/aliases; replay0 inserts, canonical coverage10/10. Приведённый выше ledger revision0 остаётся историческим снимком до записи. **Следующий шаг S3-01 — pre-start lineup evidence карты7378530387**, затем side/series/patch и широкий cohort. Post-draft дополнительно требует dated hero proof; source flags/aliases не подтверждают actual map lineup.
 
 Не продолжать поиск «отсутствующего» 184620877: source observation уже найден. S1-07, v8 S1-08 corpus gate и S3-01 открыты; S3-02 автоматически не начинается. Следующая модель: **GPT-6 Astra · Extra High**, выбор вручную.

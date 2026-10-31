@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "review": {
+    "file": "docs/evidence/s3-01-ti12-reviewed-accounts.json",
+    "sha256": "2092d5a8213ab85cc65054940ce43d62f3b2b4743248467d1152e2f8bf591a95"
+  },
+  "plan": {
+    "file": "docs/evidence/s3-01-ti12-identity-plan.json",
+    "sha256": "baceb58d8f3a5b7be1f63715fec3638f9fc404e51566f1b890dddc8ab8a53c72"
+  },
+  "applied": {
+    "file": "docs/evidence/s3-01-ti12-identity-applied.json",
+    "sha256": "e84114af44a5550fc91342108f09071a5bc9603af6164ecf2369e3fa2c17a0fb"
+  },
+  "replay": {
+    "file": "docs/evidence/s3-01-ti12-identity-reapplied.json",
+    "sha256": "bb1f13ac6205d267fa560f82dbd3fc5e3a3bd742adca14d7fc04524826c1bb6d"
+  },
+  "sourceRuntimeHashesVerified": 12,
+  "workingState": {
+    "maps": 1,
+    "owners": 0,
+    "scenarios": 0,
+    "datasets": 0,
+    "active_models": 0,
+    "canonical_players": 10,
+    "account_proofs": 10,
+    "aliases": 10,
+    "legacy_links": 0,
+    "identity_revision": "20",
+    "temporary_databases": 0
+  },
+  "networkRequests": 0,
+  "canonicalVerifiedAccounts": 10,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

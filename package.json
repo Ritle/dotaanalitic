@@ -7,6 +7,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "identity:provision": "pnpm shared:build && node --env-file-if-exists=.env scripts/provision-identity.mjs",
+    "test:identity-provision": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/identity-provision.integration.test.ts --testTimeout=30000 --maxWorkers=1",
     "cohort:identity": "pnpm shared:build && node scripts/audit-identity-evidence.mjs",
     "cohort:profiles": "pnpm shared:build && node scripts/audit-profile-evidence.mjs",
     "cohort:accounts": "pnpm shared:build && node scripts/audit-account-evidence.mjs",

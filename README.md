@@ -217,7 +217,9 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 
 ### S3-01 — аудит корпуса и временных выборок (частично)
 
-`pnpm cohort:identity --out reports/new-ti12-identity-evidence.json` проверяет архивный реестр OpenDota и отдельно воспроизводит проверку сохранённого identity ledger. Архив 2023-04-11 содержит 10/10 account ID выбранной карты; в локальном ledger на момент снимка 0 canonical links. Exit0 означает полное source coverage; map lineup и training readiness ещё не подтверждены. [Источники и следующий шаг](docs/S3_01_IDENTITY_EVIDENCE.md).
+`pnpm identity:provision preview --out reports/identity-preview.json` готовит проверяемый план канонических связей; `apply --plan ... --sha256 ... --out ...` атомарно применяет его с повторной проверкой конфликтов. Для десяти аккаунтов первой выбранной карты TI2023 уже созданы10 канонических игроков и dated claims; повтор дал0 вставок. Состав, известный до карты, и training readiness ещё не подтверждены. [Применение, воспроизведение и ограничения](docs/S3_01_IDENTITY_PROVISION.md).
+
+`pnpm cohort:identity --out reports/new-ti12-identity-evidence.json` проверяет архивный реестр OpenDota и воспроизводит проверку frozen ledger **до provision**, где было0 canonical links. Архив2023-04-11 содержит10/10 account ID выбранной карты; текущее применение связей описано выше. Exit0 означает полное source coverage; map lineup и training readiness ещё не подтверждены. [Источники](docs/S3_01_IDENTITY_EVIDENCE.md).
 
 `pnpm cohort:evidence --out reports/new-ti12-evidence.json` проверяет архивные метаданные Valve до TI2023. Найден также датированный регистрационный ответ с пятью никами одной команды; account links и фактические составы карт не подтверждены. [Историческое evidence и границы](docs/S3_01_HISTORICAL_EVIDENCE.md).
 

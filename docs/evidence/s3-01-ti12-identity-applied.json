@@ -1,0 +1,652 @@
+{
+  "schemaVersion": 1,
+  "mode": "identity_provision_apply",
+  "generatedAt": "2026-10-31T23:33:37.802Z",
+  "review": {
+    "file": "docs/evidence/s3-01-ti12-reviewed-accounts.json",
+    "sha256": "2092d5a8213ab85cc65054940ce43d62f3b2b4743248467d1152e2f8bf591a95"
+  },
+  "sourceReport": {
+    "file": "docs/evidence/s3-01-ti12-registry-evidence.json",
+    "sha256": "bc8313032457db397f07789e87a7a02b453d1ad158f084579fe1448a9abd7219"
+  },
+  "planInput": {
+    "file": "docs/evidence/s3-01-ti12-identity-plan.json",
+    "sha256": "baceb58d8f3a5b7be1f63715fec3638f9fc404e51566f1b890dddc8ab8a53c72"
+  },
+  "status": "applied",
+  "observedAt": "2026-10-31T23:33:37.792Z",
+  "playersCreated": 10,
+  "accountProofsAdded": 10,
+  "aliasesAdded": 10,
+  "planBefore": {
+    "policyVersion": "reviewed-single-account-v1",
+    "reviewSha256": "7fcdea42b10bc6dc4865e58d1d248c0732128f8ad2cf59df0a283525a5907c86",
+    "identityRevision": "0",
+    "status": "ready",
+    "rows": [
+      {
+        "accountId": "10366616",
+        "steam64": "76561197970632344",
+        "alias": "Sneyking",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "86698277",
+        "steam64": "76561198046964005",
+        "alias": "33",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "94054712",
+        "steam64": "76561198054320440",
+        "alias": "Topson",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "94786276",
+        "steam64": "76561198055052004",
+        "alias": "Nine",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "97658618",
+        "steam64": "76561198057924346",
+        "alias": "Timado",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "100058342",
+        "steam64": "76561198060324070",
+        "alias": "skiter",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "136829091",
+        "steam64": "76561198097094819",
+        "alias": "Whitemon",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "184620877",
+        "steam64": "76561198144886605",
+        "alias": "kasane",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "238239590",
+        "steam64": "76561198198505318",
+        "alias": "Bryle",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "346412363",
+        "steam64": "76561198306678091",
+        "alias": "Ari",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      }
+    ],
+    "fingerprint": "8c7634872b4bfecb6ddf7e3072e4e6285afd40555af1826c564613ce26a38401",
+    "plannedPlayers": 10,
+    "plannedAccountProofs": 10,
+    "plannedAliases": 10
+  },
+  "planAfter": {
+    "policyVersion": "reviewed-single-account-v1",
+    "reviewSha256": "7fcdea42b10bc6dc4865e58d1d248c0732128f8ad2cf59df0a283525a5907c86",
+    "identityRevision": "20",
+    "status": "already_applied",
+    "rows": [
+      {
+        "accountId": "10366616",
+        "steam64": "76561197970632344",
+        "alias": "Sneyking",
+        "playerId": "1",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "86698277",
+        "steam64": "76561198046964005",
+        "alias": "33",
+        "playerId": "2",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "94054712",
+        "steam64": "76561198054320440",
+        "alias": "Topson",
+        "playerId": "3",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "94786276",
+        "steam64": "76561198055052004",
+        "alias": "Nine",
+        "playerId": "4",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "97658618",
+        "steam64": "76561198057924346",
+        "alias": "Timado",
+        "playerId": "5",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "100058342",
+        "steam64": "76561198060324070",
+        "alias": "skiter",
+        "playerId": "6",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "136829091",
+        "steam64": "76561198097094819",
+        "alias": "Whitemon",
+        "playerId": "7",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "184620877",
+        "steam64": "76561198144886605",
+        "alias": "kasane",
+        "playerId": "8",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "238239590",
+        "steam64": "76561198198505318",
+        "alias": "Bryle",
+        "playerId": "9",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      },
+      {
+        "accountId": "346412363",
+        "steam64": "76561198306678091",
+        "alias": "Ari",
+        "playerId": "10",
+        "action": "reuse",
+        "accountEvidencePresent": true,
+        "aliasEvidencePresent": true,
+        "reasons": []
+      }
+    ],
+    "fingerprint": "2d9f5de95d9d9b29fd59fc7a4dfd6bb1d4b84e423cbdcf6abfae5543d571cf69",
+    "plannedPlayers": 0,
+    "plannedAccountProofs": 0,
+    "plannedAliases": 0
+  },
+  "identityLedger": {
+    "schemaVersion": 1,
+    "mode": "read_only_identity_ledger_snapshot",
+    "observedAt": "2026-10-31T23:33:37.799Z",
+    "registryRevision": "20",
+    "accountIds": [
+      "10366616",
+      "86698277",
+      "94054712",
+      "94786276",
+      "97658618",
+      "100058342",
+      "136829091",
+      "184620877",
+      "238239590",
+      "346412363"
+    ],
+    "observations": [
+      {
+        "observationId": "proof:1",
+        "claim": {
+          "playerId": "1",
+          "provider": "opendota",
+          "externalAccountId": "10366616",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:f52fa8af251d493673dc60a330f75aa1a4efdf446c9c44238b5dcf27724cd065",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:10",
+        "claim": {
+          "playerId": "10",
+          "provider": "opendota",
+          "externalAccountId": "346412363",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:b7560d0a40ac1b83339e2cd35838f99de12cdccfe127e72de0db906ab5fc57a3",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:2",
+        "claim": {
+          "playerId": "2",
+          "provider": "opendota",
+          "externalAccountId": "86698277",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:0c4150dde327021830bb9528dadbef04a1ad7126da41af6adc087e71f8d30a05",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:3",
+        "claim": {
+          "playerId": "3",
+          "provider": "opendota",
+          "externalAccountId": "94054712",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:475b9687c399dab678020a1b891836fb881f7e7aaee4ff35b7204f531152e4fa",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:4",
+        "claim": {
+          "playerId": "4",
+          "provider": "opendota",
+          "externalAccountId": "94786276",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:f125600f6f1d427cc585311c154969bfb9e7311ca2722f64009cf86fc9a0ce9b",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:5",
+        "claim": {
+          "playerId": "5",
+          "provider": "opendota",
+          "externalAccountId": "97658618",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:469e674f70838e991a3a9be3646a1a57ce69493a967b8f799f4b5cfdf0eca326",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:6",
+        "claim": {
+          "playerId": "6",
+          "provider": "opendota",
+          "externalAccountId": "100058342",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:ee32528cda89b7149a8882e54da5e483e53e4d596d9a87caff3bcc147f73bc09",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:7",
+        "claim": {
+          "playerId": "7",
+          "provider": "opendota",
+          "externalAccountId": "136829091",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:9790c3c7af976c3b21a519f46af65fa57323fd0845edcec01a27b274a140db08",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:8",
+        "claim": {
+          "playerId": "8",
+          "provider": "opendota",
+          "externalAccountId": "184620877",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:52d385bae6969dc5a0ee6f47ab5d40f92ad4d46f5cd4ccaa4baac52b04039973",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      },
+      {
+        "observationId": "proof:9",
+        "claim": {
+          "playerId": "9",
+          "provider": "opendota",
+          "externalAccountId": "238239590",
+          "status": "verified",
+          "eventAt": null,
+          "knownAt": "2023-04-11T21:06:28.000Z",
+          "fetchedAt": "2026-10-31T22:57:24.392Z",
+          "evidenceRef": "sha256:9daf3e5210fa7837f00070365b5dbf274cfe384e53479dd48d6d5194ac119eff",
+          "source": "sha256:e07fdc5239f815474c7f0bb94aaeafca4b304de96bffdf87293e8c7ff6ff50fc"
+        }
+      }
+    ],
+    "referencesRedactedToSha256": true,
+    "mapObservation": {
+      "file": "docs/evidence/s3-01-ti12-map-accounts.json",
+      "sha256": "edc87be8867d324e639289f6e2ac6ab038dccf2f9bca255d4013e204eaaf40a2"
+    },
+    "originalObservationFingerprint": "19bfed4989531716665ecc4b9552ed1edcabdd0f06a32c75d1c0d34f3907cf2a"
+  },
+  "identityAssessment": {
+    "policyVersion": "registry-identity-suitability-v1",
+    "scope": "source_account_and_existing_ledger_review_only",
+    "snapshotAt": "2026-10-31T23:33:37.800Z",
+    "matchId": "7378530387",
+    "startedAt": "2023-10-12T17:00:44.000Z",
+    "mapCount": 1,
+    "knownMapAccounts": 10,
+    "unknownAccountRows": 0,
+    "registryObservedAccounts": 10,
+    "registryReportedProAccounts": 10,
+    "canonicalVerifiedAccounts": 10,
+    "canonicalConflictingAccounts": 0,
+    "duplicateCanonicalAccounts": 0,
+    "accountsRequiringLinkReview": 0,
+    "registryPayloadSha256": "60b72bb589a33f988fb4025ad6856594352c1f23f7a891f60ff7beb02d05d321",
+    "ledgerObservedAt": "2026-10-31T23:33:37.799Z",
+    "ledgerRevision": "20",
+    "players": [
+      {
+        "playerSlot": 0,
+        "accountId": "10366616",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "Sneyking",
+        "reportedTeamId": "8291895",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "1",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:1"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 1,
+        "accountId": "100058342",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "skiter",
+        "reportedTeamId": "8291895",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "6",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:6"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 2,
+        "accountId": "94786276",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "Nine",
+        "reportedTeamId": "8291895",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "4",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:4"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 3,
+        "accountId": "86698277",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "33",
+        "reportedTeamId": "8291895",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "2",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:2"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 4,
+        "accountId": "94054712",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "Topson",
+        "reportedTeamId": "8944337",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "3",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:3"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 128,
+        "accountId": "238239590",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "Bryle",
+        "reportedTeamId": "8260983",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "9",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:9"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 129,
+        "accountId": "346412363",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "Ari",
+        "reportedTeamId": "8260983",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "10",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:10"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 130,
+        "accountId": "136829091",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "Whitemon",
+        "reportedTeamId": "8260983",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "7",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:7"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 131,
+        "accountId": "184620877",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "kasane",
+        "reportedTeamId": "8260983",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "8",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:8"
+        ],
+        "duplicateCanonicalPlayer": false
+      },
+      {
+        "playerSlot": 132,
+        "accountId": "97658618",
+        "registryObservedBeforeCutoff": true,
+        "registryAlias": "Timado",
+        "reportedTeamId": "8260983",
+        "reportedPro": true,
+        "reportedLocked": true,
+        "canonicalPlayerId": "5",
+        "canonicalStatus": "verified",
+        "observationIds": [
+          "proof:5"
+        ],
+        "duplicateCanonicalPlayer": false
+      }
+    ],
+    "canonicalPlayersCreated": 0,
+    "verifiedMapLineups": 0,
+    "trainingExamples": 0,
+    "strictDatasetStatus": "unavailable",
+    "remainingGates": [
+      "MAP_SPECIFIC_LINEUP_KNOWN_AT",
+      "MAP_SIDE_SERIES_PATCH_EVIDENCE",
+      "MULTI_SERIES_FROZEN_COHORT"
+    ],
+    "trainingReady": false,
+    "deployable": false,
+    "fingerprint": "e1f6fc24e8cf61fac10451c36bf7225b4a960b82dc4910ddf6284a6261e1bfab"
+  },
+  "databaseWrites": 30,
+  "code": [
+    {
+      "file": "scripts/provision-identity.mjs",
+      "sha256": "250c0c330d3f05ab2e276b31156913d6c0ad8b3afee36703759230a64f9374eb"
+    },
+    {
+      "file": "packages/contracts/src/identity-provision.ts",
+      "sha256": "bbd79db615e29e1953b2526debeaad2ed97d33519849cb73a4bcab6010658a58"
+    },
+    {
+      "file": "packages/contracts/dist/identity-provision.js",
+      "sha256": "1e43f888dd6ed7f9d5b0167a6257d47aff3a78e0f60fdf1d8a9ae0c709f27675"
+    },
+    {
+      "file": "packages/db/src/identity-provision.ts",
+      "sha256": "0b2da0bce68c8935fb934834becf18b472c6dc9d0f4c0de990fb6ece3f27b3e2"
+    },
+    {
+      "file": "packages/db/dist/identity-provision.js",
+      "sha256": "4266cbb50684f21ed925a46f837e894eef31fafccef628dfa7370e96473b3d01"
+    },
+    {
+      "file": "packages/db/src/identity-repository.ts",
+      "sha256": "67e054026b14aa23340642cd1efbb607fcad6703a5fc6eb5d5fdd8f78107edd2"
+    },
+    {
+      "file": "packages/db/dist/identity-repository.js",
+      "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+    },
+    {
+      "file": "packages/db/src/identity.ts",
+      "sha256": "80264467afadb04ae257addc12f69fdb68d3262875e77c1f0941ef4cfe046888"
+    },
+    {
+      "file": "packages/db/dist/identity.js",
+      "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/registry-evidence.ts",
+      "sha256": "696a70e2b8714ada11f60193c4bc70011fabfddfde3934e934da203ca3303adf"
+    },
+    {
+      "file": "packages/ingestion/dist/opendota/registry-evidence.js",
+      "sha256": "a862b7d7f3b2f623795d97b73e101fe5f5935bfcf0122f634b4295414db55f5d"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "914424aafc1923c7d021b17dd1fabe4306aaa632756c822ad3eda5fae0edf4d8"
+    }
+  ],
+  "networkRequests": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "strictDatasetStatus": "unavailable",
+  "trainingReady": false,
+  "deployable": false
+}

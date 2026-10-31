@@ -3,7 +3,7 @@ import { sql } from 'kysely';
 import { AccountEvidenceSchema, AliasEvidenceSchema, CanonicalPlayerIdSchema, IdentityTimeSchema,
   PlayerHistoryRequestSchema, type AccountEvidence, type AliasEvidence, type ContextAsOf,
   type PlayerHistoryRequest, type StoredAccountEvidence } from '@dota/contracts';
-import type { Db, Executor } from './index.js';
+import type { Db, Executor, Transaction, Database } from './index.js';
 import { canonicalContextJson } from './temporal.js';
 import { IDENTITY_POLICY_VERSION, resolveIdentity, resolveLineup } from './identity.js';
 import { MatchContextRepository } from './context-repository.js';
@@ -36,32 +36,35 @@ export async function readAccountEvidence(db: Executor, accountIds: readonly str
   }) }));
 }
 
+/** Shared append boundary; callers may provision canonical rows in the same transaction. */
+export async function appendAccountEvidenceInTransaction(tx: Transaction<Database>, input: AccountEvidence) {
+  const row=AccountEvidenceSchema.parse(input),digest=fingerprint(row);
+  await sql`SELECT pg_advisory_xact_lock(hashtextextended(${`identity:${row.externalAccountId}`},0))`.execute(tx);
+  await sql`INSERT INTO player_account_evidence(player_id,provider,external_account_id,link_status,
+    event_at,known_at,fetched_at,evidence_ref,source,evidence_sha256)
+    VALUES (${row.playerId},${row.provider},${row.externalAccountId},${row.status},${row.eventAt},${row.knownAt},
+      ${row.fetchedAt},${row.evidenceRef},${row.source},${digest}) ON CONFLICT (evidence_sha256) DO NOTHING`.execute(tx);
+  const id=(await sql<{id:string}>`SELECT id FROM player_account_evidence WHERE evidence_sha256=${digest}`.execute(tx)).rows[0]!.id;
+  const resolution=resolveIdentity(await readAccountEvidence(tx,[row.externalAccountId]),row.externalAccountId,null);
+  return {observationId:'proof:'+id,resolution};
+}
+export async function appendAliasEvidence(db: Executor,input: AliasEvidence): Promise<string> {
+  const row=AliasEvidenceSchema.parse(input),digest=fingerprint(row);
+  await sql`INSERT INTO player_alias_history(player_id,alias,source,observed_at,event_at,known_at,evidence_ref,evidence_sha256)
+    VALUES (${row.playerId},${row.alias},${row.source},${row.fetchedAt},${row.eventAt},${row.knownAt},${row.evidenceRef},${digest})
+    ON CONFLICT (evidence_sha256) DO NOTHING`.execute(db);
+  return (await sql<{id:string}>`SELECT id FROM player_alias_history WHERE evidence_sha256=${digest}`.execute(db)).rows[0]!.id;
+}
+
 export class IdentityRepository {
   constructor(private readonly db: Db) {}
 
   async appendAccountEvidence(input: AccountEvidence) {
-    const row = AccountEvidenceSchema.parse(input);
-    const digest = fingerprint(row);
-    return this.db.transaction().execute(async tx => {
-      // Serialize both providers in the shared Steam32 namespace, including conflicts.
-      await sql`SELECT pg_advisory_xact_lock(hashtextextended(${`identity:${row.externalAccountId}`},0))`.execute(tx);
-      await sql`INSERT INTO player_account_evidence(player_id,provider,external_account_id,link_status,
-        event_at,known_at,fetched_at,evidence_ref,source,evidence_sha256)
-        VALUES (${row.playerId},${row.provider},${row.externalAccountId},${row.status},${row.eventAt},${row.knownAt},
-          ${row.fetchedAt},${row.evidenceRef},${row.source},${digest}) ON CONFLICT (evidence_sha256) DO NOTHING`.execute(tx);
-      const id = (await sql<{ id: string }>`SELECT id FROM player_account_evidence WHERE evidence_sha256=${digest}`.execute(tx)).rows[0]!.id;
-      const resolution = resolveIdentity(await readAccountEvidence(tx, [row.externalAccountId]), row.externalAccountId, null);
-      return { observationId: 'proof:' + id, resolution };
-    });
+    return this.db.transaction().execute(tx => appendAccountEvidenceInTransaction(tx,input));
   }
 
   async appendAlias(input: AliasEvidence): Promise<string> {
-    const row = AliasEvidenceSchema.parse(input);
-    const digest = fingerprint(row);
-    await sql`INSERT INTO player_alias_history(player_id,alias,source,observed_at,event_at,known_at,evidence_ref,evidence_sha256)
-      VALUES (${row.playerId},${row.alias},${row.source},${row.fetchedAt},${row.eventAt},${row.knownAt},${row.evidenceRef},${digest})
-      ON CONFLICT (evidence_sha256) DO NOTHING`.execute(this.db);
-    return (await sql<{ id: string }>`SELECT id FROM player_alias_history WHERE evidence_sha256=${digest}`.execute(this.db)).rows[0]!.id;
+    return appendAliasEvidence(this.db,input);
   }
 
   async aliasesAsOf(playerId: string, cutoffAt: string) {
@@ -73,7 +76,6 @@ export class IdentityRepository {
     return rows.map(row => ({ id: row.id, playerId, alias: row.alias, source: row.source, evidenceRef: row.evidence_ref,
       knownAt: row.known_at.toISOString(), fetchedAt: row.observed_at.toISOString() }));
   }
-
   async lineupAsOf(input: ContextAsOf) {
     return this.db.transaction().setIsolationLevel('repeatable read').execute(async tx => {
       const result = await new MatchContextRepository(tx).readAsOf(input);
