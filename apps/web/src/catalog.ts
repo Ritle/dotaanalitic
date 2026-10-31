@@ -1,5 +1,8 @@
 import { ownerAuth, AuthRequestError } from './auth';
 import { queryClient } from './query-client';
+export class CatalogRequestError extends Error {
+  constructor(public readonly status:number,message:string){super(message);}
+}
 
 export async function readCatalog<T>(path: string, schema: {parse(value:unknown):T}, signal: AbortSignal, init?:RequestInit): Promise<T> {
   const response = await fetch('/api/v1/'+path, {...init,credentials:'same-origin',cache:'no-store',signal});
@@ -7,8 +10,8 @@ export async function readCatalog<T>(path: string, schema: {parse(value:unknown)
     ownerAuth.value=null; queryClient.clear();
     throw new AuthRequestError(401,'Сессия завершена. Войдите снова.');
   }
-  if (!response.ok) throw new Error(response.status===404?'Запись не найдена в локальной базе.':response.status===400?
-    'Некорректные фильтры. Проверьте ID, временное окно и игрока для выбранной роли.':response.status===403?
+  if (!response.ok) throw new CatalogRequestError(response.status,response.status===409?'Сценарий уже изменён. Ваши правки сохранены в форме; загрузите актуальную редакцию.':response.status===404?'Запись не найдена в локальной базе.':response.status===400?
+    (path.startsWith('scenarios')?'Проверьте ID команд и игроков в каталоге, даты, подтверждение составов и контекст одной карты.':'Некорректные фильтры. Проверьте ID, временное окно и игрока для выбранной роли.'):response.status===403?
     'Проверка сессии устарела. Обновите страницу.':'Не удалось загрузить данные. Повторите запрос.');
   return schema.parse(await response.json());
 }

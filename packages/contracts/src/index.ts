@@ -44,3 +44,4 @@ export * from './strength.js';
 export * from './sample.js';
 export * from './patch-history.js';
 export * from './compare.js';
+export * from './scenario.js';

@@ -8,6 +8,7 @@
 - `/players/:id` — профессиональная история игрока и его герои.
 - `/compare?teamA=&teamB=` — реализован S1-08: описательное сравнение организаций/ручных пятёрок/H2H, период/патч/лига/native sides, независимый Elo cohort. Прогноз пока unavailable.
 - `/scenarios/:id/draft` — Draft Lab, 5+5 слотов и пики/баны.
+- `/scenarios`, `/scenarios/new`, `/scenarios/:id` — реализовано S2-01: список, ручные confirmed5+5, optional expected five и nullable one-map context, immutable revision history и optimistic conflict/reload. Герои и `/draft` остаются S2-02. [Контракт](S2_01_SCENARIOS.md).
 - `/scenarios/:id/report` — статистика персонажей/героев, союзных пар, матрица 5×5 и pre/post prediction.
 - `/predictions` — история прогнозов и версия модели.
 - `/sync` — статусы загрузки и ошибки.

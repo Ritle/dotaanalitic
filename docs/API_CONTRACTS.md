@@ -2,7 +2,7 @@
 
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (auth S0-03, S1-01..06 и S1-08 реализованы; остальные планируются)
+## Основные маршруты (auth S0-03, S1-01..06, S1-08 и S2-01 реализованы; остальные планируются)
 
 S1-08: `POST /teams/compare` — stateless read-only comparison с teamAId/teamBId, manual lineupA/lineupB и optional UTC fromAt/cutoffAt/patchId/leagueId. Требует owner/session/CSRF/no-store. `CompareRequestSchema`/`CompareResponseSchema`: raw organization/recent/current-patch/native-side/opponents, exact-five/cohesion, real H2H и отдельно scoped chronological strength. GET compare из planned API не является вторым реализованным endpoint. [Контракт, denominators и границы](S1_08_TEAM_COMPARE.md).
 
@@ -22,9 +22,12 @@ S1-08: `POST /teams/compare` — stateless read-only comparison с teamAId/teamB
 | GET | `/players?query=...` | Локальный поиск canonical игроков (S1-01) |
 | GET | `/players/:id/matches` | Описательные pro-карты игрока (S1-02) |
 | GET | `/players/:id/heroes` | Pro-only hero×confirmed role + per-metric coverage (S1-04) |
-| POST | `/scenarios` | Сценарий: 2 команды |
+| GET | `/scenarios?offset=0` | Список владельца,20 записей + hasMore (S2-01) |
+| POST | `/scenarios` | Подтверждённый ручной сценарий5+5 с optional baseline/context (S2-01) |
 | GET | `/scenarios/:id` | Данные сценария |
-| PUT | `/scenarios/:id/lineup` | Атомарно 5+5 игроков |
+| PUT | `/scenarios/:id` | `{expectedRevision,input}`, атомарно составы/baseline/context (S2-01) |
+| GET | `/scenarios/:id/history?offset=0` | Неизменяемые снимки редакций,20 записей + hasMore (S2-01) |
+| PUT | `/scenarios/:id/lineup` | Planned; S2-01 использует единый PUT выше |
 | PUT | `/scenarios/:id/draft` | Выбранные герои / баны |
 | POST | `/scenarios/:id/analyses` | Создать расчёт, 202 + id |
 | GET | `/analyses/:id` | polling статуса/отчёта |
@@ -108,6 +111,8 @@ Codes: `UNAUTHORIZED`, `FORBIDDEN`, `NOT_FOUND`, `VALIDATION_ERROR`, `CONFLICT`,
 Выше **пример отсутствия модели**, не mock реального результата. `done` разрешён только после наличия опубликованной модели и пройденного quality gate. Для частичного драфта ответ `422 VALIDATION_ERROR` или `unavailable` с `INCOMPLETE_DRAFT` по зафиксированному контракту; выбрать и закрепить один вариант в коде и тестах (предпочтение: 422 для неполной заявки, unavailable — для валидной заявки без модели).
 
 ## Идемпотентность и редакции
+
+S2-01 реализует `ScenarioInputSchema`, `UpdateScenarioSchema`, `ScenarioSnapshotSchema`. Не принимает knownAt/recordedAt от пользователя. Snapshot имеет server recordedAt/owner-assertion knownAt, manual source, SHA-256, nullable planned eventAt и `predictionEligibility='not_assessed'`; это не подтверждённый исторический lineup fact. PUT409 сохраняет локальные правки до явного reload; старые snapshots не меняются. Неполные 5+5, неизвестный catalog ID/некорректный series context —400; отсутствующий/чужой сценарий —404. [Полный контракт и границы](S2_01_SCENARIOS.md).
 
 Сценарий содержит `revision`; PATCH/PUT модификации должны валидировать expected revision (optimistic lock) и увеличивать её на 1. Прогноз всегда ссылается на revision и хранит входной snapshot. Ранее сохранённые вычисления не изменяются.
 

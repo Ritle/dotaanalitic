@@ -70,7 +70,7 @@
 
 ## S2 — Draft Lab и аналитика карты
 
-- [ ] **S2-01 [P0] Сценарии** (было `P2-01`): manual confirmed 5+5, side optional, карта одной серии, known/unknown context, snapshot, revision/optimistic lock, expected lineup.
+- [x] **S2-01 [P0] Сценарии** (было `P2-01`): manual confirmed 5+5, side optional, карта одной серии, known/unknown context, snapshot, revision/optimistic lock, expected lineup. Выполнено2026-10-31 после продолжения владельцем предложенной ветки: protected list/create/read/full PUT/history, additive015 server-clock immutable snapshots,10 catalog IDs/roles/stand-ins, optional baseline, nullable map context; optimistic concurrent409 без потери формы.4 contract+7 PG/API, full11 Chromium. S1-07 остаётся открытой до prediction. [Контракт](S2_01_SCENARIOS.md).
 - [ ] **S2-02 [P0] Draft Lab** (было `P2-02`): 0–10 назначенных уникальных героев, игрок-роль-герой, optional bans, constraints доступности героев с подтверждённым источником, описание unknown.
 - [ ] **S2-03 [P0] Союзная синергия и контрматчапы** (было `P2-03`): каждая карта один раз на союзную unordered пару, directed hero A vs B, выборка только до cutoff; patch-sensitive weights и shrinkage.
 - [ ] **S2-04 [P0] Репорт и data coverage** (было `P2-04`): raw/adjusted metrics раздельно, позиции, патч, unknown side, временной диапазон, качество подтверждения состава, история версий отчёта.

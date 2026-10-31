@@ -11,6 +11,7 @@
 - `match_players` — один слот 0..4 / 128..132; `player_id` nullable, `hero_id` обязателен только при полноценной строке участия.
 - `match_draft_actions` — исторические picks/bans при доступности.
 - `scenarios` — редактируемый личный сценарий с `revision`, `cutoff_at`, A/B командами, `radiant_slot`.
+- `scenario_input_snapshots` (015, S2-01) — append-only `(scenario_id,revision)`, validated manual input JSONB/hash и server recorded_at; текущие проекции меняются атомарно с новой редакцией. [Контракт](S2_01_SCENARIOS.md).
 - `scenario_lineup` — 5 ролей на каждой стороне, nullable player/hero при частичном сценарии.
 - `scenario_draft_actions` — текущее пользовательское состояние последовательности picks/bans.
 - `analysis_runs` и `prediction_runs` — история immutable вычислений и exact inputs.
