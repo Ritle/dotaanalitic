@@ -1,58 +1,65 @@
 #!/usr/bin/env node
-/** Non-destructive OpenDota field-coverage audit. No model predictions, no raw payload storage. */
-import { readFile, mkdir, writeFile } from 'node:fs/promises';
-import { dirname } from 'node:path';
-import { inspectMatch } from './lib/match-quality.mjs';
-
-const argv = process.argv.slice(2);
-function arg(name, fallback) { const i=argv.indexOf(name); return i===-1?fallback:argv[i+1]; }
-const fixture=arg('--fixture', null);
-const sample=Number(arg('--sample',20));
-const output=arg('--out', null);
-if(!Number.isInteger(sample)||sample<1||sample>50) {console.error('--sample must be 1..50'); process.exit(2);}
-const FIELDS=['match_id_consistent','start_time','outcome','teams_2','league','series','patch','players_10','identity_10','heroes_10_unique','picks_10','draft_actions','role_hint_10','final_heroes_valid','draft_picks_exact','draft_heroes_match','draft_teams_match','draft_order_integrity','draft_structurally_consistent','draft_order_valid'];
-let runtime;
-async function get(url) {
-  const path=new URL(url).pathname;
-  const observation=path==='/api/proMatches'?await runtime.client.getProMatches()
-    :await runtime.client.getMatchSource(path.slice('/api/matches/'.length));
-  return JSON.parse(observation.rawBody);
+/** Bounded source coverage audit; shared durable quotas, no canonical imports or model output. */
+import {readFile,mkdir,writeFile} from 'node:fs/promises';
+import {dirname} from 'node:path';
+import {canonicalId,inspectMatch} from './lib/match-quality.mjs';
+import {selectAuditMaps,safeAuditError,buildAuditReport} from './lib/coverage-audit.mjs';
+const argv=process.argv.slice(2);
+function arg(name,fallback){const i=argv.indexOf(name);return i===-1?fallback:argv[i+1];}
+const fixture=arg('--fixture',null),sample=Number(arg('--sample',20)),output=arg('--out',null),leagueId=arg('--league',null);
+if(!Number.isInteger(sample)||sample<1||sample>50||leagueId!==null&&canonicalId(leagueId)===null){
+  console.error('--sample must be 1..50; --league must be a positive bigint ID');process.exit(2);
 }
-function validId(x){return Number.isSafeInteger(x)&&x>0;}
+let runtime;
+const rows=[],errors=[],sourceEvidence=[];
+let selection={selected:[],candidates:0,duplicates:0,invalid:0,outsideCohort:0,method:'discovery_unavailable'};
+const evidence=source=>({endpoint:source.endpoint,fetched_at:source.fetchedAt,payload_sha256:source.payloadSha256,
+  adapter_version:source.adapterVersion,attempts:source.attempts,rate_limit_remaining:source.rateLimitRemaining});
 try {
-  let discovered, details;
-  if(fixture){const f=JSON.parse(await readFile(fixture,'utf8'));discovered=f.proMatches;details=f.details; if(!Array.isArray(discovered)||typeof details!=='object') throw new Error('fixture requires proMatches and details');}
-  else {
-    const {createProviderRuntime}=await import('../packages/ingestion/dist/runtime.js');
-    runtime=createProviderRuntime(process.env,Math.min(200,sample*3+3));
-    discovered=await get('https://api.opendota.com/api/proMatches');
+  let discovered,details,leagues=[],classifyLeague;
+  if(fixture){
+    const data=JSON.parse(await readFile(fixture,'utf8'));
+    discovered=data.proMatches;details=data.details;leagues=data.leagues??[];
+    if(!Array.isArray(discovered)||!details||typeof details!=='object')throw Object.assign(new Error(),{code:'invalid_fixture'});
+  }else{
+    const ingestion=await import('../packages/ingestion/dist/index.js');classifyLeague=ingestion.classifyLeague;
+    runtime=ingestion.createProviderRuntime(process.env,Math.min(200,sample*3+6));
+    const catalog=await runtime.client.getLeagues();leagues=catalog.data;sourceEvidence.push(evidence(catalog.source));
+    const discovery=leagueId===null?await runtime.client.getProMatches():await runtime.client.getLeagueMatches(leagueId);
+    discovered=discovery.data;sourceEvidence.push(evidence(discovery.source));
   }
-  if(!Array.isArray(discovered))throw new Error('/proMatches did not return array');
-  const ids=[...new Set(discovered.map(x=>x?.match_id).filter(validId))].slice(0,sample);
-  if(ids.length===0)throw new Error('no valid match IDs in proMatches');
-  const rows=[]; const errors=[];
-  for(const id of ids){
+  selection=selectAuditMaps(discovered,sample,leagueId);
+  if(selection.selected.length===0)throw Object.assign(new Error(),{code:'empty_discovery'});
+  for(const candidate of selection.selected){
+    const id=candidate.match_id;
     try{
-      const m=fixture?details[String(id)]:await get(`https://api.opendota.com/api/matches/${id}`);
-      if(!m)throw new Error('missing fixture detail');
-      const quality=inspectMatch(m,id);
-      rows.push({match_id:String(id),...quality});
-    } catch(e){errors.push({match_id:String(id),error:String(e.message).slice(0,150)});}
+      const observation=fixture?null:await runtime.client.getMatchSource(id);
+      const m=fixture?details[id]:JSON.parse(observation.rawBody);
+      if(!m)throw Object.assign(new Error(),{code:'missing_fixture_detail'});
+      const q=inspectMatch(m,id),actualLeague=canonicalId(m.leagueid);
+      const matches=leagues.filter(league=>canonicalId(league.leagueid)===actualLeague);
+      const pro=matches.length===1&&classifyLeague?classifyLeague(matches[0].tier):null;
+      const expectedLeague=leagueId??canonicalId(candidate.leagueid);
+      const cohort=expectedLeague===null||actualLeague===null?null:expectedLeague===actualLeague;
+      const fetchedAt=observation?.source.fetchedAt??null;
+      const start=Number.isSafeInteger(m.start_time)&&m.start_time>0?new Date(m.start_time*1000):null;
+      const startedAt=start&&Number.isFinite(start.getTime())?start.toISOString():null;
+      const completed=fetchedAt!==null&&startedAt!==null&&typeof m.radiant_win==='boolean'&&Number.isSafeInteger(m.duration)&&m.duration>0?
+        start.getTime()+m.duration*1000<=Date.parse(fetchedAt):fetchedAt===null?null:false;
+      rows.push({match_id:id,started_at:startedAt,provider_patch_id:q.flags.patch?m.patch:null,league_id:actualLeague,
+        game_mode:q.diagnostics.game_mode,lobby_type:q.diagnostics.lobby_type,league_tier:matches.length===1?matches[0].tier??null:null,
+        ...q,flags:{...q.flags,confirmed_pro:cohort!==false&&q.flags.match_id_consistent?pro:false,completed_outcome:completed,
+          discovery_cohort_consistent:cohort,game_mode:Number.isSafeInteger(m.game_mode)&&m.game_mode>0,
+          lobby_type:Number.isSafeInteger(m.lobby_type)&&m.lobby_type>=0,canonical_identity_10:null,verified_patch:null,
+          pre_match_lineup_known_at:null,post_draft_heroes_known_at:null},source_evidence:observation?evidence(observation.source):null});
+    }catch(error){errors.push(safeAuditError(error,id));}
   }
-  // Null = unassessed, NOT a failed historical patch-specific draft validation.
-  const coverage=Object.fromEntries(FIELDS.map(k=>{
-    const assessed=rows.filter(x=>x.flags[k]!==null);
-    const good=assessed.filter(x=>x.flags[k]===true);
-    return [k,{count:good.length,of:assessed.length,ratio:assessed.length?Number((good.length/assessed.length).toFixed(4)):null,missing_match_ids:assessed.filter(x=>x.flags[k]===false).map(x=>x.match_id),not_assessed_match_ids:rows.filter(x=>x.flags[k]===null).map(x=>x.match_id)}];
-  }));
-  const anomalyByCode={};
-  for (const row of rows) for(const code of row.anomalies) {
-    if(!anomalyByCode[code])anomalyByCode[code]=[];
-    anomalyByCode[code].push(row.match_id);
-  }
-  const report={schema_version:2,mode:fixture?'synthetic_fixture':'live_opendota',generated_at:new Date().toISOString(),requested:sample,discovered:ids.length,details_received:rows.length,details_failed:errors.length,limitations:['Recent pro match IDs only, not a stratified historical sample','draft_order_valid is NOT assessed without historical rules for mode/patch','Nonempty picks_bans does NOT prove timeline integrity','Final heroes may be known only retrospectively; not guaranteed known at pre/post cutoff','No model trained; no raw payloads saved','Null/unknown role or patch must not be guessed'],coverage,anomalies:anomalyByCode,details:rows.filter(x=>x.anomalies.length>0).map(x=>({match_id:x.match_id,anomalies:x.anomalies,diagnostics:x.diagnostics})),errors};
-  if(output){await mkdir(dirname(output),{recursive:true});await writeFile(output,JSON.stringify(report,null,2)+'\n');}
-  console.log(JSON.stringify(report,null,2));
-  if(rows.length===0)process.exitCode=1;
-} catch(e){console.error(`audit failed: ${e.code??'source_unavailable'}`);process.exitCode=1;}
-finally {await runtime?.close();}
+}catch(error){errors.push(safeAuditError(error));}
+finally{
+  const report=buildAuditReport({mode:fixture?'synthetic_fixture':'live_opendota',requested:sample,selection,rows,errors,
+    requests:runtime?.client.requestStats??{attempts:0,httpStatuses:{},transportErrors:{}},sourceEvidence,leagueId,generatedAt:new Date().toISOString()});
+  try{
+    if(output){await mkdir(dirname(output),{recursive:true});await writeFile(output,JSON.stringify(report,null,2)+'\n');}
+    console.log(JSON.stringify(report,null,2));if(report.status!=='complete')process.exitCode=1;
+  }finally{await runtime?.close();}
+}

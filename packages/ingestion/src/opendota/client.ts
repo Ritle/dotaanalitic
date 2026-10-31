@@ -82,6 +82,8 @@ export class OpenDotaClient {
   private nextRequestAt = 0;
   private retryAt = 0;
   private used = 0;
+  private readonly httpStatuses: Record<string, number> = {};
+  private readonly transportErrors: Record<string, number> = {};
   private readonly budget: ProviderBudget | undefined;
   private readonly signal: AbortSignal | undefined;
 
@@ -98,7 +100,9 @@ export class OpenDotaClient {
   }
 
   get requestsUsed() { return this.used; }
+  get requestStats() { return { attempts: this.used, httpStatuses: { ...this.httpStatuses }, transportErrors: { ...this.transportErrors } }; }
   getProMatches() { return this.request('/proMatches', ProMatchesSchema); }
+  getLeagueMatches(id: string) { return this.request(`/leagues/${this.id(id)}/matches`, ProMatchesSchema); }
   getHeroes() { return this.request('/heroes', HeroesSchema); }
   getLeagues() { return this.request('/leagues', LeaguesSchema); }
   async getMatchSource(id: string) {
@@ -161,6 +165,7 @@ export class OpenDotaClient {
         const response = await this.fetcher(new URL(this.options.baseUrl + endpoint), {
           method: 'GET', headers, signal: this.signal?AbortSignal.any([controller.signal,this.signal]):controller.signal, redirect: 'error'
         });
+        this.httpStatuses[String(response.status)] = (this.httpStatuses[String(response.status)] ?? 0) + 1;
         const remaining = (period: string) => {
           const value = response.headers.get(`x-rate-limit-remaining-${period}`);
           return value !== null && /^\d+$/.test(value) && Number.isSafeInteger(Number(value)) ? Number(value) : null;
@@ -198,7 +203,9 @@ export class OpenDotaClient {
       } catch (error) {
         if (error instanceof OpenDotaError) throw error;
         // Provider/network error text may contain URLs or credentials. Never echo it.
-        retry = new OpenDotaError(controller.signal.aborted ? 'source_timeout' : 'source_network_error', endpoint);
+        const code = controller.signal.aborted ? 'source_timeout' : 'source_network_error';
+        this.transportErrors[code] = (this.transportErrors[code] ?? 0) + 1;
+        retry = new OpenDotaError(code, endpoint);
       } finally { clearTimeout(timer); }
 
       if (retry === null) throw new OpenDotaError('source_network_error', endpoint);

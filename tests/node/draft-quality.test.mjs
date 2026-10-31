@@ -48,3 +48,19 @@ test('wrong draft side invalidates timeline even with matching hero set',()=>{
   assert.equal(q.flags.draft_teams_match,false);
   assert.ok(q.anomalies.includes('DRAFT_SIDE_MISMATCH'));
 });
+
+test('ten account fields must identify ten distinct valid Steam32 accounts',()=>{
+  const m=structuredClone(byTag('clean'));
+  m.players[1].account_id=m.players[0].account_id;
+  assert.equal(inspectMatch(m,m.match_id).flags.identity_10,false);
+  m.players[1].account_id=4294967296;
+  assert.equal(inspectMatch(m,m.match_id).flags.identity_10,false);
+});
+
+test('empty and zero patch metadata remain unknown coverage',()=>{
+  const m=structuredClone(byTag('clean'));
+  for(const patch of [0,'', ' ', null]) {
+    m.patch=patch;
+    assert.equal(inspectMatch(m,m.match_id).flags.patch,false);
+  }
+});

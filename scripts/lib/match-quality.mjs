@@ -1,5 +1,7 @@
 /** Structural source audit only; NOT a patch-specific draft/lineup certification. */
 const validId=x=>Number.isSafeInteger(x)&&x>0;
+export const canonicalId=x=>typeof x==='number' ? validId(x)?String(x):null :
+  typeof x==='string' && /^[1-9]\d{0,18}$/.test(x) && BigInt(x)<=9223372036854775807n ? x : null;
 const sameSet=(a,b)=>a.length===b.length && new Set(a).size===a.length && b.every(x=>a.includes(x));
 const sortedUnique=a=>[...new Set(a)].sort((a,b)=>a-b);
 
@@ -25,15 +27,16 @@ export function inspectMatch(m,expectedId){
   const twoTeams=validId(m?.radiant_team_id)&&validId(m?.dire_team_id)&&m.radiant_team_id!==m.dire_team_id;
   const series=validId(m?.series_id);
   const flags={
-    match_id_consistent:validId(m?.match_id)&&m.match_id===expectedId,
+    match_id_consistent:canonicalId(m?.match_id)!==null&&canonicalId(m?.match_id)===canonicalId(expectedId),
     start_time:validId(m?.start_time),
     outcome:typeof m?.radiant_win==='boolean',
     teams_2:twoTeams,
     league:validId(m?.leagueid),
     series,
-    patch:m?.patch!==null&&m?.patch!==undefined&&(typeof m.patch==='string'||Number.isSafeInteger(m.patch)),
+    patch:validId(m?.patch)||(typeof m?.patch==='string'&&m.patch.length<=32&&/^\d+(?:\.\d+)?[a-z]?$/.test(m.patch)&&m.patch!=='0'),
     players_10:properSlots,
-    identity_10:properSlots&&players.every(p=>validId(p?.account_id)),
+    identity_10:properSlots&&players.every(p=>canonicalId(p?.account_id)!==null&&BigInt(p.account_id)<=4294967295n)
+      &&new Set(players.map(p=>String(p.account_id))).size===10,
     heroes_10_unique:finalHeroesValid,
     picks_10:picksExactlyTen,
     draft_actions:actions!==null&&actions.length>0,
@@ -59,5 +62,5 @@ export function inspectMatch(m,expectedId){
   }
   if(heroSetsMatch&&!sidesMatch) anomalies.push('DRAFT_SIDE_MISMATCH');
   if(actions!==null&&actions.length>0&&!orderIntegrity) anomalies.push('DRAFT_ORDER_INVALID_SHAPE');
-  return {flags,anomalies,diagnostics:{final_heroes_count:finalHeroIds.filter(validId).length,pick_events:picks.length,unique_picked_heroes:new Set(pickedHeroes.filter(validId)).size,draft_events:actions?.length??null,extra_hero_ids:finalHeroesValid?sortedUnique(pickedHeroes.filter(validId).filter(h=>!finalHeroIds.includes(h))):[],missing_hero_ids:finalHeroesValid?sortedUnique(finalHeroIds.filter(h=>!pickedHeroes.includes(h))):[],game_mode:m?.game_mode??null,lobby_type:m?.lobby_type??null}};
+  return {flags,anomalies,diagnostics:{final_heroes_count:finalHeroIds.filter(validId).length,pick_events:picks.length,unique_picked_heroes:new Set(pickedHeroes.filter(validId)).size,draft_events:actions?.length??null,extra_hero_ids:finalHeroesValid?sortedUnique(pickedHeroes.filter(validId).filter(h=>!finalHeroIds.includes(h))):[],missing_hero_ids:finalHeroesValid?sortedUnique(finalHeroIds.filter(h=>!pickedHeroes.includes(h))):[],game_mode:Number.isSafeInteger(m?.game_mode)?m.game_mode:null,lobby_type:Number.isSafeInteger(m?.lobby_type)?m.lobby_type:null}};
 }

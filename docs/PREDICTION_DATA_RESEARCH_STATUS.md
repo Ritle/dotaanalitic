@@ -1,6 +1,6 @@
-# Prediction data research status — 2026-10-27
+# Prediction data research status — актуально 2026-10-31
 
-**Текущее дополнение:** 2026-10-30 S0-01 выполнил live audit на 20 картах и отдельный typed provider spike; результаты ниже и в [S0_01_PROVIDER_SPIKE](S0_01_PROVIDER_SPIKE.md). Старый BLOCKED далее описывает среду подготовки 2026-10-27.
+**Текущий результат:** S0-08 выполнен 2026-10-31: 20 recent + по 5 карт TI leagues 2021/2022/2023/2024, всего 40 unique maps; 50 HTTP attempts, все 200. [Отчёт](S0_08_SOURCE_AUDIT.md), [manifest/evidence](evidence/s0-08-manifest.json). Исторический known-as-of не доказан и остаётся S0-09. Ниже сохранена история подготовки и прежних наблюдений; старый BLOCKED относится к контейнеру 2026-10-27.
 
 ## Verified via public documentation and published data
 
@@ -48,3 +48,7 @@ node scripts/audit-prediction-sources.mjs --sample 50 --out reports/opendota-cov
 - Новый Zod client отдельно проверил три явные карты и team/team players/player за 7 attempts без retries; пять test projections обезличены и помечены synthetic. У `9063023867` текущий массив draft отсутствует (`null`), в отличие от прежнего пользовательского наблюдения одного события; причина изменения источника не утверждается.
 - Предматчевый known-at roster, исторические patch rules и pro league/tier classification из этих ответов не доказаны. Никакого backtest, training или числового прогноза не выполнялось; S0-08/09 остаются открыты.
 - API limits нельзя фиксировать только по старым 50k/month: новый spike получил remaining-minute/day, а текущие upstream defaults содержат дневной лимит. Источники/точные условия и воспроизводимые команды — [S0-01 report](S0_01_PROVIDER_SPIKE.md).
+
+## 2026-10-31 — S0-08, recent + историческая стратификация
+
+Recent 20/20: source accounts, final heroes, provider patch и completed outcome — 20/20; teams/series — 15/20; picks exact/structural consistency — 19/20. Historical 20/20 (5 на лигу, time ranks, provider patch IDs 48/49/51/53/56): эти поля — 20/20. Каноническая идентичность, верифицированный patch release и historical roster/draft known_at не оценены; strict draft_order_valid везде null. Отчёты schema_version=3 сохраняют selection, все per-map flags/source hashes, HTTP counters и ограничения. Game mode 2/22 не преобразуется в guessed draft rules. Ранее owner-reported 50 и S0-01 20 не прибавляются к новой выборке. [Полные доли, аномалии, команды и scope](S0_08_SOURCE_AUDIT.md).

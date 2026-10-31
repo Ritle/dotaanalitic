@@ -150,3 +150,7 @@ GameContextRepository читает evidence-backed patch/mode/league, сторо
 ### S0-07 — проверенные метки и заморозка датасетов
 
 DatasetRepository вычисляет label из подтверждённой карты и source receipt, сохраняет отдельные features, защищает terminal snapshots и целые серии. Требуется миграция 012; проверка: `pnpm test:dataset`. Frozen snapshot ещё не означает допустимость признаков для обучения; DatasetBuilder остаётся S3-00. [Контракт](docs/S0_07_VERIFIED_DATASETS.md).
+
+### S0-08 — live-аудит источника
+
+Проверены 40 карт: 20 recent и по 5 четырёх исторических TI-лиг. Сохранены public flags/source hashes и HTTP counters, без raw payload/profile data. Новый `--league <id>` выбирает time ranks; canonical identity и historic known-at остаются unknown. [Результат и команды](docs/S0_08_SOURCE_AUDIT.md).

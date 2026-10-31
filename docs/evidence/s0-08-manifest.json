@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "audit_schema_version": 3,
+  "mode": "live_opendota",
+  "captured_on": "2026-10-31",
+  "base_commit": "84936c6",
+  "unique_maps": 40,
+  "http_attempts": 50,
+  "http_statuses": {
+    "200": 50
+  },
+  "code_sha256": {
+    "scripts/audit-prediction-sources.mjs": "5065d1d871ba6900a9b55f0bfd1122a785b7972e5c195ac6246b1d5fe267bf8e",
+    "scripts/lib/coverage-audit.mjs": "4e5494511bd89d936a24dd09a6b2b0eb62032a4e4299bbb2fd580fff6dc72dfc",
+    "scripts/lib/match-quality.mjs": "dac488bc7e59c18647fa5ddc0857ebed6d8c26bcee7bd265d57afec41fa5f89b",
+    "packages/ingestion/src/opendota/client.ts": "c614e3ff06bf4cc8f20e934836d4088f43b90d55cf05fc30f48059f1c51d61fd"
+  },
+  "cohorts": [
+    {
+      "cohort": "recent",
+      "report": "s0-08-live-recent.json",
+      "sha256": "d299ad14b6434e739fb4331c885c1e7611f26829bd0ca95a14fdd85e93b31a24",
+      "generated_at": "2026-10-31T12:48:36.043Z",
+      "league_id": null,
+      "requested": 20,
+      "received": 20,
+      "candidates": 100,
+      "selection_method": "first_unique_in_proMatches_order",
+      "provider_patch_distribution": {
+        "60": 20
+      },
+      "started_at_min": "2026-10-29T12:09:09.000Z",
+      "started_at_max": "2026-10-30T19:53:24.000Z"
+    },
+    {
+      "cohort": "ti2021",
+      "report": "s0-08-live-ti2021.json",
+      "sha256": "be9b273926eb31a8f4ba4d816671aabe4945b7fd50681ce6d6f9fb9687cc6164",
+      "generated_at": "2026-10-31T12:48:46.035Z",
+      "league_id": "13256",
+      "requested": 5,
+      "received": 5,
+      "candidates": 487,
+      "selection_method": "uniform_rank_by_start_then_match_id_in_league",
+      "provider_patch_distribution": {
+        "48": 3,
+        "49": 2
+      },
+      "started_at_min": "2021-06-23T08:00:33.000Z",
+      "started_at_max": "2021-10-17T16:56:26.000Z"
+    },
+    {
+      "cohort": "ti2022",
+      "report": "s0-08-live-ti2022.json",
+      "sha256": "f7c8f4ffa2a09c3bd9e60fe70c901fec8bc21428ec4f80943ac8a1a7c146e37a",
+      "generated_at": "2026-10-31T12:48:55.999Z",
+      "league_id": "14268",
+      "requested": 5,
+      "received": 5,
+      "candidates": 231,
+      "selection_method": "uniform_rank_by_start_then_match_id_in_league",
+      "provider_patch_distribution": {
+        "51": 5
+      },
+      "started_at_min": "2022-10-15T02:27:57.000Z",
+      "started_at_max": "2022-10-30T11:49:25.000Z"
+    },
+    {
+      "cohort": "ti2023",
+      "report": "s0-08-live-ti2023.json",
+      "sha256": "c0b07df71f8bc2427994a9fa9bf0178992df20b514351488c0c92375483537bb",
+      "generated_at": "2026-10-31T12:49:07.163Z",
+      "league_id": "15728",
+      "requested": 5,
+      "received": 5,
+      "candidates": 151,
+      "selection_method": "uniform_rank_by_start_then_match_id_in_league",
+      "provider_patch_distribution": {
+        "53": 5
+      },
+      "started_at_min": "2023-10-12T17:00:44.000Z",
+      "started_at_max": "2023-10-29T23:13:43.000Z"
+    },
+    {
+      "cohort": "ti2024",
+      "report": "s0-08-live-ti2024.json",
+      "sha256": "cc99a0186cfaa403654a25dd3e95793ef35554b0391df8809e4fa03b246a27f4",
+      "generated_at": "2026-10-31T12:49:17.355Z",
+      "league_id": "16935",
+      "requested": 5,
+      "received": 5,
+      "candidates": 121,
+      "selection_method": "uniform_rank_by_start_then_match_id_in_league",
+      "provider_patch_distribution": {
+        "56": 5
+      },
+      "started_at_min": "2024-09-04T08:10:41.000Z",
+      "started_at_max": "2024-09-15T15:59:50.000Z"
+    }
+  ],
+  "limitations": [
+    "Bounded time-rank sample of four TI leagues plus latest discovery; not a representative corpus benchmark",
+    "Provider patch IDs are coverage hints, not verified release dates",
+    "No verified historical lineup/draft availability or canonical identity proof",
+    "Earlier 20-map and owner-reported 50-map audits overlap/selection unknown; do not add their counts to this sample"
+  ]
+}

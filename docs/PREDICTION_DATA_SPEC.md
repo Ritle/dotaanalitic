@@ -1,6 +1,6 @@
 # Prediction Engine — источники, обучающие поля и аудит пригодности данных (v8)
 
-**Статус:** проверен контракт публичных API и опубликованных источников; **эмпирические доли заполнения полей на актуальных pro-картах ещё не измерены**. Не выдавать этот документ за проведённый live benchmark. Завершить `S0-08` на сетевом компьютере до массового импорта.
+**Статус на 2026-10-31:** S0-08 выполнил ограниченный live-аудит 20 recent + 20 historical карт четырёх TI-лиг, с разбиением по наблюдённым provider patch IDs. [Результаты и evidence](S0_08_SOURCE_AUDIT.md). Это не репрезентативный benchmark, не доказательство historic known-as-of и не model eligibility. S0-09/S1-08 остаются обязательными до S3.
 
 ## 1. Задача и target
 
@@ -29,7 +29,7 @@
 
 `match_id`, `start_time`, `radiant_team_id`, `dire_team_id`, `radiant_win`, `leagueid`, `series_id` (nullable), `patch` (nullable), `players[10]` с `account_id|null`, `player_slot`, `hero_id`; `picks_bans[]|null` с `is_pick`, `hero_id`, `team`, `order`; source, `fetched_at`, `raw_hash`, `pro_source_evidence`.
 
-- Pro статус подтверждается `proMatches` или другим проверенным pro источником, не флагом на произвольной `/matches/{id}`.
+- `proMatches` служит discovery. В действующей политике pro статус требует отдельного совпадения league ID и professional/premium tier из сохранённого источника; одного leagueid или наличия героев недостаточно. Текущий tier не становится исторически известным до cutoff автоматически.
 - Для стороны обязательны уникальные слоты 0..4 и 128..132 (не массивный индекс).
 - Для показателя сыгранности нужны **канонически определённые 10 игроков**; неизвестные учётные записи остаются `null`.
 - Для модели драфта 10 различных `hero_id`; полные bans и точный `first_pick` для P0 не обязательны.
@@ -134,3 +134,7 @@
 Post-draft `hero_id_by_side_slot[10]` и модель по **финальному драфту** не требуют полной последовательности банов, однако требуют доказательства, что все 10 героев были доступны в post-draft cutoff. Любая dataset eligibility определяется индивидуально для stage/feature policy и as-of; retrodictive карты с конечными героями без known-at — **отдельный conditional cohort**, не настоящий prospective quality result.
 
 Аудитор v9 расширен: `draft_structurally_consistent` + причинные коды и `draft_order_valid=null` до исторического patch/mode validator. `schema_version=2` — обновить downstream consumers v8, не путать `null` (не проверено) и `false` (не прошло).
+
+## S0-08: измеренный source audit v3
+
+40 unique maps, capture 2026-10-31, 50 HTTP 200 attempts без 429/5xx в этом ограниченном запуске. Source identities/final heroes/provider patch — 40/40; обе команды и series — 35/40; ровно десять picks/structural consistency — 39/40. Canonical identities, verified release patch и known-at roster/draft не оценены; ratio null. Schema 3 добавляет --league, all-row evidence, selection/HTTP counters, confirmed-pro subset и safe blocked/partial report. Legacy role_hint_10 означает присутствие integer lane_role, не подтверждённые Pos 1–5. [Подробности](S0_08_SOURCE_AUDIT.md).

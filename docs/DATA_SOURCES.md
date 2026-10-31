@@ -63,3 +63,7 @@ Provider client/schema теперь находятся в `packages/ingestion/sr
 Профессиональность подтверждается отдельной политикой по `/leagues`: ровно одно совпадение ID, tier `professional`/`premium`; `amateur`/`excluded` false, прочее null. Outcome требует завершения карты. Справочники и политика версионированы; это не historic known-as-of. Player histories объединяются только существующими verified account links, source account хранится отдельно. Missing team/series не уничтожают valid final heroes, patch/roles/first pick остаются unknown без доказательства.
 
 Конфликт известных фактов сохраняет старое canonical значение и новую source revision; карта получает conflict и `is_pro=null`. Raw 0/11/12 picks не обрезаются, `draft_order_valid=null` до historical mode/patch rules. [Отчёт S0-02](S0_02_INGESTION.md) содержит live повтор карты, проверки и CLI. Одна импортированная карта не закрывает исторические S0-08/09 или model gates.
+
+## S0-08 — bounded source coverage
+
+2026-10-31 выполнены 20 recent и 20 исторических карт TI-лиг 2021–2024 через --league. Клиент использует typed /leagues/{id}/matches, те же quota/timeout/retry ограничения; requestStats считает все HTTP attempts, включая recovered 429/5xx. Audit schema 3 публикует observability, source hashes и отдельную coverage для confirmed-pro subset; historic known-at остаётся неоценённым. [Evidence и ограничения](S0_08_SOURCE_AUDIT.md).

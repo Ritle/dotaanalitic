@@ -22,3 +22,7 @@ Collector должен возвращать JSON summary per ingestion batch: `r
 - Сохранять JSONB raw `picks_bans` со снапшотом и SHA, аномалии по кодам, версию validator и источник; не исправлять дополнительные picks отбрасыванием событий.
 - В сводках сегментировать по патчам, датам, лигам, играм с/без team IDs; оспоренные команды/серии НЕ исключать из всех других метрик.
 - Подробные acceptance tests перечислены в [DRAFT_DATA_INTEGRITY.md](DRAFT_DATA_INTEGRITY.md).
+
+## Измерение S0-08 (2026-10-31)
+
+[Ограниченный source audit](S0_08_SOURCE_AUDIT.md): 40 unique maps, six observed provider patch IDs, 50 HTTP 200 attempts. Покрытие полей не является training/prediction gate. Unknown canonical identity/verified patch/historic lineup/draft timing остаётся unassessed/null. На recent five maps отсутствуют teams/series, одна имеет 12 raw picks при десяти final heroes. Пороги моделей по этим наблюдениям не устанавливаются; readiness cohorts — S0-09, corpus — S1-08.
