@@ -49,7 +49,8 @@
     "patch:sources": "pnpm shared:build && node scripts/audit-patch-sources.mjs",
     "patch:archive": "pnpm shared:build && node scripts/audit-patch-archive.mjs",
     "test:compare": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/compare.integration.test.ts",
-    "test:scenarios": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/scenarios.integration.test.ts"
+    "test:scenarios": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/scenarios.integration.test.ts",
+    "test:draft": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/draft.integration.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

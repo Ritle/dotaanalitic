@@ -14,6 +14,7 @@
 - `scenario_input_snapshots` (015, S2-01) — append-only `(scenario_id,revision)`, validated manual input JSONB/hash и server recorded_at; текущие проекции меняются атомарно с новой редакцией. [Контракт](S2_01_SCENARIOS.md).
 - `scenario_lineup` — 5 ролей на каждой стороне, nullable player/hero при частичном сценарии.
 - `scenario_draft_actions` — текущее пользовательское состояние последовательности picks/bans.
+- S2-02/016: unordered `scenario_bans` отдельно от timeline; assignments в scenario_lineup.hero_id, scenarios.league_id optional, immutable snapshots.draft_assessment nullable без backfill старых входов. [Контракт](S2_02_DRAFT_LAB.md).
 - `analysis_runs` и `prediction_runs` — история immutable вычислений и exact inputs.
 - `prediction_model_versions` — модель и проверенные offline метрики.
 - `sync_jobs` — долговременные состояния фоновых задач.

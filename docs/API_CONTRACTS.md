@@ -2,7 +2,7 @@
 
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (auth S0-03, S1-01..06, S1-08 и S2-01 реализованы; остальные планируются)
+## Основные маршруты (auth S0-03, S1-01..06, S1-08 и S2-01/02 реализованы; остальные планируются)
 
 S1-08: `POST /teams/compare` — stateless read-only comparison с teamAId/teamBId, manual lineupA/lineupB и optional UTC fromAt/cutoffAt/patchId/leagueId. Требует owner/session/CSRF/no-store. `CompareRequestSchema`/`CompareResponseSchema`: raw organization/recent/current-patch/native-side/opponents, exact-five/cohesion, real H2H и отдельно scoped chronological strength. GET compare из planned API не является вторым реализованным endpoint. [Контракт, denominators и границы](S1_08_TEAM_COMPARE.md).
 
@@ -28,7 +28,8 @@ S1-08: `POST /teams/compare` — stateless read-only comparison с teamAId/teamB
 | PUT | `/scenarios/:id` | `{expectedRevision,input}`, атомарно составы/baseline/context (S2-01) |
 | GET | `/scenarios/:id/history?offset=0` | Неизменяемые снимки редакций,20 записей + hasMore (S2-01) |
 | PUT | `/scenarios/:id/lineup` | Planned; S2-01 использует единый PUT выше |
-| PUT | `/scenarios/:id/draft` | Выбранные герои / баны |
+| POST | `/scenarios/draft-check` | Stateless evidence preview полного ввода, без записи (S2-02) |
+| PUT | `/scenarios/:id/draft` | Planned; S2-02 сохраняет героев/баны через единый full PUT |
 | POST | `/scenarios/:id/analyses` | Создать расчёт, 202 + id |
 | GET | `/analyses/:id` | polling статуса/отчёта |
 | POST | `/scenarios/:id/predictions/pre-match` | Предматчевый расчёт |
@@ -113,6 +114,8 @@ Codes: `UNAUTHORIZED`, `FORBIDDEN`, `NOT_FOUND`, `VALIDATION_ERROR`, `CONFLICT`,
 ## Идемпотентность и редакции
 
 S2-01 реализует `ScenarioInputSchema`, `UpdateScenarioSchema`, `ScenarioSnapshotSchema`. Не принимает knownAt/recordedAt от пользователя. Snapshot имеет server recordedAt/owner-assertion knownAt, manual source, SHA-256, nullable planned eventAt и `predictionEligibility='not_assessed'`; это не подтверждённый исторический lineup fact. PUT409 сохраняет локальные правки до явного reload; старые snapshots не меняются. Неполные 5+5, неизвестный catalog ID/некорректный series context —400; отсутствующий/чужой сценарий —404. [Полный контракт и границы](S2_01_SCENARIOS.md).
+
+S2-02 добавляет optional `input.draft={assignments:[{teamSlot,rolePos,heroId}],bans:[{teamSlot,heroId}]}` и optional nullable context.leagueId, без defaults в legacy snapshots. Уникальны0–10 hero assignments/slots и все picks+bans; SQL int32 hero IDs, остальные bigint IDs строки. Preview200 возвращает available/unknown/blocked, nullable decisions, proof clocks/refs, registry revision и null probability; сохранение с доказанным запретом —422 DRAFT_UNAVAILABLE без новой revision. Unknown/conflict не подменяются разрешением и явно предупреждают. Frozen `draftAssessment` хранится с input; старые редакции не пересчитываются. Old-client PUT без draft при существующих героях/банах —409; явный пустой draft очищает его новой редакцией. [Контракт](S2_02_DRAFT_LAB.md).
 
 Сценарий содержит `revision`; PATCH/PUT модификации должны валидировать expected revision (optimistic lock) и увеличивать её на 1. Прогноз всегда ссылается на revision и хранит входной snapshot. Ранее сохранённые вычисления не изменяются.
 

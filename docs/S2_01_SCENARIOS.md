@@ -20,7 +20,7 @@ Migration015 добавляет `scenario_input_snapshots`: PK `(scenario_id, re
 
 Response содержит source `manual`, server `recordedAt`, `knownAt=recordedAt` исключительно для утверждения владельца, `predictionEligibility='not_assessed'` и `OWNER_ASSERTION_ONLY`. При записи после cutoff добавляется `RECORDED_AFTER_CUTOFF`. Нельзя использовать это как verified historic lineup proof или backdate knownAt до пользовательского cutoff. Snapshot не добавляет receipt/context fact, не меняет match_players и не запускает training/inference. Времена HTTP имеют миллисекундную точность; PostgreSQL сохраняет исходную серверную точность. Для будущего as-of reader сравнивать исходный SQL timestamp, не выводить historic eligibility из rounded transport timestamp.
 
-Все операции owner-scoped; mutations требуют existing Origin/CSRF guard; ответы no-store. Ранее сохранённые predictions/reports не изменяются. Существующий hero draft временно блокирует PUT409, чтобы S2-01 не потеряла его при пересоздании current lineup; S2-02 должна расширить общий snapshot contract и согласованное сохранение героев.
+Все операции owner-scoped; mutations требуют existing Origin/CSRF guard; ответы no-store. Ранее сохранённые predictions/reports не изменяются. Последующая S2-02 расширила общий snapshot contract для героев: old-client PUT без draft при существующих героях/банах блокируется409; явный full draft меняется атомарно. [Текущий draft contract](S2_02_DRAFT_LAB.md).
 
 Списки/история возвращают20 строк и `hasMore`; offset0–10000. Legacy scenario без snapshot не выдаётся как подтверждённый новый сценарий. Delete/clone, контекстные evidence proofs и durable analytics cache не входят в этот ticket.
 

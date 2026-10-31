@@ -2,7 +2,9 @@
 import {computed,reactive,ref,watch} from 'vue';
 import {useRoute,useRouter} from 'vue-router';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
-import {ScenarioInputSchema,ScenarioSnapshotSchema,ScenarioListSchema,ScenarioHistorySchema,type ScenarioInput,type ScenarioSnapshot} from '@dota/contracts';
+import {ScenarioInputSchema,ScenarioSnapshotSchema,ScenarioListSchema,ScenarioHistorySchema,DraftAssessmentSchema,type ScenarioInput,type ScenarioSnapshot,type DraftInput,type DraftAssessment as Assessment} from '@dota/contracts';
+import DraftEditor from '../components/DraftEditor.vue';
+import DraftAssessment from '../components/DraftAssessment.vue';
 import {readCatalog,dateLabel,CatalogRequestError} from '../catalog';
 import {ownerAuth} from '../auth';
 const route=useRoute(),router=useRouter(),cache=useQueryClient();
@@ -12,6 +14,7 @@ const blank=():ScenarioInput=>({title:'',teamAId:'',teamBId:'',cutoffAt:new Date
   lineupA:five(),lineupB:five(),expectedLineupA:null,expectedLineupB:null,confirmedByOwner:true,
   context:{seriesId:null,mapNumber:null,teamASeriesWinsBefore:null,teamBSeriesWinsBefore:null,radiantSlot:null,firstPickSlot:null,venueKind:null,tournamentStage:null}});
 const form=reactive(blank()),expectedA=ref(five()),expectedB=ref(five()),baselineA=ref(false),baselineB=ref(false),confirmed=ref(false);
+const draft=ref<DraftInput>({assignments:[],bans:[]}),preview=ref<Assessment|null>(null);let editGeneration=0;
 const error=ref(''),busy=ref(false),conflict=ref(false),revision=ref<number|null>(null),loadedId=ref(''),saved=ref<ScenarioSnapshot|null>(null),dirty=ref(false);
 const list=useQuery({queryKey:computed(()=>['scenarios',offset.value]),queryFn:({signal})=>readCatalog(`scenarios?offset=${offset.value}`,ScenarioListSchema,signal)});
 const current=useQuery({queryKey:computed(()=>['scenario',id.value]),enabled:computed(()=>!!id.value&&!isNew.value),
@@ -22,35 +25,46 @@ const utc=(key:'cutoffAt'|'scheduledAt')=>computed({get:()=>form[key]?.replace(/
   const time=v?new Date(v+'Z').toISOString():null;if(key==='cutoffAt')form.cutoffAt=time??'';else form.scheduledAt=time;
 }});
 const cutoff=utc('cutoffAt'),scheduled=utc('scheduledAt');
-watch([form,expectedA,expectedB,baselineA,baselineB],()=>{confirmed.value=false;dirty.value=true;},{deep:true,flush:'sync'});
+watch([form,expectedA,expectedB,baselineA,baselineB,draft],()=>{confirmed.value=false;dirty.value=true;preview.value=null;editGeneration++;},{deep:true,flush:'sync'});
 function hydrate(s:ScenarioSnapshot){
   const copy:ScenarioInput=JSON.parse(JSON.stringify(s.input));
   Object.assign(form,copy);expectedA.value=copy.expectedLineupA??five();expectedB.value=copy.expectedLineupB??five();
+  draft.value=copy.draft??{assignments:[],bans:[]};
   baselineA.value=s.input.expectedLineupA!==null;baselineB.value=s.input.expectedLineupB!==null;revision.value=s.revision;saved.value=s;
   confirmed.value=false;dirty.value=false;loadedId.value=s.id;
 }
 watch(()=>current.data.value,s=>{if(s&&loadedId.value!==s.id)hydrate(s);},{immediate:true});
 watch(id,()=>{error.value='';conflict.value=false;revision.value=null;loadedId.value='';saved.value=null;historyOffset.value=0;
   Object.assign(form,blank());expectedA.value=five();expectedB.value=five();baselineA.value=false;baselineB.value=false;confirmed.value=false;dirty.value=false;
+  draft.value={assignments:[],bans:[]};dirty.value=false;
   if(current.data.value)hydrate(current.data.value);
 });
 async function reload(){
   error.value='';const r=await current.refetch();if(r.data){hydrate(r.data);conflict.value=false;}else error.value='Не удалось загрузить редакцию.';
 }
-async function save(){
-  error.value='';conflict.value=false;
-  const raw=JSON.parse(JSON.stringify(form));raw.confirmedByOwner=confirmed.value;
+function collect(requireConfirmation=true){
+  const raw=JSON.parse(JSON.stringify(form));raw.confirmedByOwner=requireConfirmation?confirmed.value:true;raw.draft=JSON.parse(JSON.stringify(draft.value));
   const normalize=(rows:ReturnType<typeof five>)=>rows.map(p=>({...p,playerId:p.playerId||null}));
   raw.lineupA=normalize(form.lineupA);raw.lineupB=normalize(form.lineupB);
   raw.expectedLineupA=baselineA.value?normalize(expectedA.value):null;raw.expectedLineupB=baselineB.value?normalize(expectedB.value):null;
   for(const key of Object.keys(raw.context))if(raw.context[key]==='')raw.context[key]=null;
   const parsed=ScenarioInputSchema.safeParse(raw);
-  if(!parsed.success){error.value='Укажите название, две разные команды, 10 разных игроков из каталога, корректный контекст карты и подтвердите составы.';return;}
+  if(!parsed.success){error.value='Проверьте название, две команды, 10 разных игроков, контекст и подтверждение. Герой может быть назначен или забанен только один раз.';return null;}
+  return parsed.data;
+}
+async function checkDraft(){
+  error.value='';const input=collect(false);if(!input)return;busy.value=true;const generation=editGeneration;
+  try{const assessment=await readCatalog('scenarios/draft-check',DraftAssessmentSchema,new AbortController().signal,{method:'POST',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},body:JSON.stringify(input)});
+    if(editGeneration===generation)preview.value=assessment;
+  }catch(e){error.value=e instanceof Error?e.message:'Не удалось проверить доступность.';}finally{busy.value=false;}
+}
+async function save(){
+  error.value='';conflict.value=false;const input=collect();if(!input)return;
   busy.value=true;
   try{
     const s=await readCatalog(isNew.value?'scenarios':`scenarios/${id.value}`,ScenarioSnapshotSchema,new AbortController().signal,
       {method:isNew.value?'POST':'PUT',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},
-        body:JSON.stringify(isNew.value?parsed.data:{expectedRevision:revision.value,input:parsed.data})});
+        body:JSON.stringify(isNew.value?input:{expectedRevision:revision.value,input})});
     cache.setQueryData(['scenario',s.id],s);await cache.invalidateQueries({queryKey:['scenarios']});
     if(isNew.value)await router.replace(`/scenarios/${s.id}`);
     hydrate(s);await cache.invalidateQueries({queryKey:['scenario-history',s.id]});
@@ -71,6 +85,7 @@ async function save(){
     </section>
     <section v-if="id" class="panel" aria-label="Редактор сценария">
       <h2>{{isNew?'Новый сценарий':`Сценарий · редакция ${revision??'…'}`}}</h2>
+      <RouterLink v-if="!isNew&&revision" :to="`/scenarios/${id}/draft#draftlab`">Открыть Draft Lab →</RouterLink>
       <p v-if="!isNew&&current.isPending.value" role="status">Загрузка редакции…</p><p v-else-if="!isNew&&current.error.value" role="alert" class="error">{{current.error.value.message}}</p>
       <form v-if="isNew||revision" @submit.prevent="save">
         <fieldset :disabled="busy" class="scenario-fieldset">
@@ -94,7 +109,7 @@ async function save(){
             </fieldset>
           </div>
           <fieldset><legend>Контекст одной карты · пустое поле означает «неизвестно»</legend><div class="scenario-grid">
-            <label>ID серии · если известен<input v-model="form.context.seriesId" /></label><label>Номер карты<input v-model.number="form.context.mapNumber" type="number" min="1" max="5" /></label>
+            <label>ID серии · если известен<input v-model="form.context.seriesId" /></label><label>ID лиги · если известен<input v-model="form.context.leagueId" inputmode="numeric" /></label><label>Номер карты<input v-model.number="form.context.mapNumber" type="number" min="1" max="5" /></label>
             <label>Победы A до карты<input v-model.number="form.context.teamASeriesWinsBefore" type="number" min="0" max="4" /></label>
             <label>Победы B до карты<input v-model.number="form.context.teamBSeriesWinsBefore" type="number" min="0" max="4" /></label>
             <label>Radiant<select v-model="form.context.radiantSlot"><option :value="null">Неизвестно</option><option>A</option><option>B</option></select></label>
@@ -102,6 +117,9 @@ async function save(){
             <label>Формат проведения<select v-model="form.context.venueKind"><option :value="null">Неизвестно</option><option value="lan">LAN</option><option value="online">Онлайн</option><option value="hybrid">Смешанный</option></select></label>
             <label>Стадия турнира<input v-model="form.context.tournamentStage" maxlength="120" /></label>
           </div></fieldset>
+          <DraftEditor v-model="draft" :lineup-a="form.lineupA" :lineup-b="form.lineupB" />
+          <button type="button" @click="checkDraft">Проверить доступность героев</button>
+          <DraftAssessment v-if="preview" :assessment="preview" />
           <label class="check-row"><input v-model="confirmed" type="checkbox" required />Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы</label>
           <p class="hint">Время записи ставит сервер. Сохранение сегодня не доказывает доступность состава до исторического среза.</p>
           <p v-if="dirty" role="status">Есть несохранённые изменения.</p>
@@ -113,6 +131,7 @@ async function save(){
         <p v-if="saved.warnings.includes('RECORDED_AFTER_CUTOFF')" class="warning">Записано после среза. Этот состав не подтверждён как известный до карты.</p>
         <p>Срез: {{dateLabel(saved.input.cutoffAt)}}. Официальная доступность и пригодность для прогноза не проверены.</p>
       </div>
+      <DraftAssessment v-if="saved?.draftAssessment" :assessment="saved.draftAssessment" saved />
     </section>
     <section v-if="id&&!isNew" class="panel" aria-label="История сценария"><h2>Сохранённые редакции</h2>
       <p v-if="history.isPending.value">Загрузка истории…</p><p v-if="history.error.value" class="error" role="alert">{{history.error.value.message}}</p>
@@ -121,6 +140,12 @@ async function save(){
         <div v-for="slot in (['A','B'] as const)" :key="slot"><h3>Состав {{slot}}</h3><p v-for="p in (slot==='A'?s.input.lineupA:s.input.lineupB)" :key="p.rolePos">Роль {{p.rolePos}} · {{p.playerId}}{{p.isStandin?' · замена':''}}</p></div>
         <p>Плановое начало: {{dateLabel(s.input.scheduledAt)}}. Серия: {{s.input.context.seriesId??'неизвестно'}}; карта: {{s.input.context.mapNumber??'неизвестно'}}; счёт до карты A / B: {{s.input.context.teamASeriesWinsBefore??'неизвестно'}} / {{s.input.context.teamBSeriesWinsBefore??'неизвестно'}}.</p>
         <p>Формат: {{s.input.context.venueKind==='lan'?'LAN':s.input.context.venueKind==='online'?'Онлайн':s.input.context.venueKind==='hybrid'?'Смешанный':'неизвестно'}}; стадия: {{s.input.context.tournamentStage??'неизвестно'}}.</p>
+        <p v-if="!s.input.draft">Драфт не входил в эту редакцию.</p>
+        <div v-else><p>Лига: {{s.input.context.leagueId??'неизвестно'}}. Назначено героев: {{s.input.draft.assignments.length}} / 10.</p>
+          <p v-for="h in s.input.draft.assignments" :key="h.teamSlot+h.rolePos">{{h.teamSlot}} · роль {{h.rolePos}} · герой #{{h.heroId}}</p>
+          <p v-for="h in s.input.draft.bans" :key="h.heroId">Бан {{h.teamSlot}} · герой #{{h.heroId}}</p>
+          <DraftAssessment v-if="s.draftAssessment" :assessment="s.draftAssessment" saved />
+        </div>
         <div v-for="slot in (['A','B'] as const)" :key="`expected-${slot}`"><h3>Ожидаемый состав {{slot}}</h3>
           <p v-if="!(slot==='A'?s.input.expectedLineupA:s.input.expectedLineupB)">Не задан</p>
           <p v-for="p in (slot==='A'?s.input.expectedLineupA:s.input.expectedLineupB)" :key="p.rolePos">Роль {{p.rolePos}} · {{p.playerId}}</p>

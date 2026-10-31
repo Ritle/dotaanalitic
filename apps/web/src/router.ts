@@ -14,10 +14,12 @@ export const router = createRouter({
     { path: '/compare', name: 'compare', component: CompareView, meta: { requiresAuth: true } },
     { path: '/scenarios', component: ScenariosView, meta: { requiresAuth: true } },
     { path: '/scenarios/:id', component: ScenariosView, meta: { requiresAuth: true } },
+    { path: '/scenarios/:id/draft', component: ScenariosView, meta: { requiresAuth: true } },
     { path: '/teams/:id', name: 'team', component: EntityView, meta: { requiresAuth: true } },
     { path: '/players/:id', name: 'player', component: EntityView, meta: { requiresAuth: true } },
     { path: '/:pathMatch(.*)*', redirect: '/' }
-  ]
+  ],
+  scrollBehavior(to){return to.hash?{el:to.hash}:undefined;}
 });
 let restored = false;
 router.beforeEach(async to => {

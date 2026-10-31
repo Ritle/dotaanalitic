@@ -12,12 +12,12 @@ test('all baseline migrations applied with authoritative checksums', async () =>
  await client.connect();
  try{
   const {rows}=await client.query('SELECT filename, checksum FROM schema_migrations ORDER BY filename');
-  assert.equal(rows.length,15);
+  assert.equal(rows.length,16);
   assert.deepEqual(rows.map(x=>x.filename),[
    '001_initial.sql','002_patch_awareness.sql','003_roster_continuity.sql',
    '004_context_identity_provenance.sql','005_training_pipeline.sql',
    '006_draft_data_quality.sql','007_idempotent_ingestion.sql','008_owner_auth.sql','009_temporal_context.sql','010_identity_evidence.sql',
-   '011_game_context_registry.sql','012_verified_dataset_boundary.sql','013_context_recorded_time.sql','014_patch_transfer_evidence.sql','015_scenario_snapshots.sql'
+   '011_game_context_registry.sql','012_verified_dataset_boundary.sql','013_context_recorded_time.sql','014_patch_transfer_evidence.sql','015_scenario_snapshots.sql','016_scenario_draft.sql'
   ]);
   for(const {filename,checksum} of rows) {
     const sql=await readFile(new globalThis.URL(`../../packages/db/migrations/${filename}`,import.meta.url));
