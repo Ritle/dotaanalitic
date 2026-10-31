@@ -51,7 +51,8 @@
     "test:compare": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/compare.integration.test.ts",
     "test:scenarios": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/scenarios.integration.test.ts",
     "test:draft": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/draft.integration.test.ts",
-    "test:hero-matchups": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/hero-matchups.integration.test.ts"
+    "test:hero-matchups": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/hero-matchups.integration.test.ts",
+    "test:reports": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/reports.integration.test.ts --testTimeout=30000 --maxWorkers=1"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

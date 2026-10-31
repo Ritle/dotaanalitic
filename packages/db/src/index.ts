@@ -41,3 +41,4 @@ export {CompareRepository,CompareQueryError} from './compare-repository.js';
 export {ScenarioRepository,ScenarioError} from './scenario-repository.js';
 export {assessScenarioDraft} from './scenario-draft.js';
 export {HeroMatchupRepository} from './hero-matchup-repository.js';
+export {ScenarioReportRepository} from './scenario-report-repository.js';

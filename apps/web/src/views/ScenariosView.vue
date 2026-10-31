@@ -133,6 +133,7 @@ async function save(){
         <p>Срез: {{dateLabel(saved.input.cutoffAt)}}. Официальная доступность и пригодность для прогноза не проверены.</p>
       </div>
       <DraftAssessment v-if="saved?.draftAssessment" :assessment="saved.draftAssessment" saved />
+      <RouterLink v-if="saved" :to="`/scenarios/${saved.id}/report`">Открыть отчёты сценария</RouterLink>
     </section>
     <HeroMatchups v-if="saved&&!dirty" :key="saved.id+':'+saved.revision" :scenario="saved" />
     <section v-if="id&&!isNew" class="panel" aria-label="История сценария"><h2>Сохранённые редакции</h2>

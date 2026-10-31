@@ -31,8 +31,9 @@ S1-08: `POST /teams/compare` — stateless read-only comparison с teamAId/teamB
 | POST | `/scenarios/draft-check` | Stateless evidence preview полного ввода, без записи (S2-02) |
 | PUT | `/scenarios/:id/draft` | Planned; S2-02 сохраняет героев/баны через единый full PUT |
 | POST | `/scenarios/:id/hero-matchups` | S2-03 read-only пары/матрица сохранённой revision; owner/CSRF, raw/prior/candidate weights раздельно |
-| POST | `/scenarios/:id/analyses` | Создать расчёт, 202 + id |
-| GET | `/analyses/:id` | polling статуса/отчёта |
+| POST | `/scenarios/:id/analyses` | S2-04 synchronous snapshot:201 + immutable report;200 unavailable,409 stale revision |
+| GET | `/scenarios/:id/analyses` | S2-04 history summaries, offset/20 + hasMore |
+| GET | `/analyses/:id` | S2-04 immutable full report, owner scoped |
 | POST | `/scenarios/:id/predictions/pre-match` | Предматчевый расчёт |
 | POST | `/scenarios/:id/predictions/post-draft` | Расчёт по полному драфту |
 | GET | `/scenarios/:id/predictions` | История |
@@ -42,6 +43,8 @@ S1-08: `POST /teams/compare` — stateless read-only comparison с teamAId/teamB
 | GET | `/jobs/:id` | Статус импорта |
 
 S2-03 `hero-matchups`: `{expectedRevision,fromAt?,patchScope?:'all'|'current'|'specific',patchId?,leagueId?,weights?}`. Saved scenario supplies cutoff and selected heroes; stale revision409, invalid filters400, absent/foreign scenario404. Report200 has per-pair raw N/nullable WR, earlier same-patch reference counts, optional explicit unvalidated draft weights/Kish N_eff, coverage/provenance/fingerprint and null probability. Insufficient draft/unknown current patch/>5000 candidate maps return explicit unavailable; reference overflow disables smoothing only. No snapshot or training writes. [Полный контракт](S2_03_HERO_PAIRS.md).
+
+S2-04 analyses принимает такой же strict query с expectedRevision; full saved scenario supplies manual inputs/cutoff. Atomic report version stores full results, source/revisions/fingerprints and null prediction. One repeatable-read snapshot composes existing organization/roster/player-role-hero/pair/strength readers plus selected hero meta; raw/adjusted cohorts remain explicit.201 response `{id,version,createdAt,resultHash,report}`; unavailable windows/unknown current patch do not persist a row. GET never recomputes. [Контракт и схема017](S2_04_SCENARIO_REPORTS.md).
 
 S0-03: login принимает strict JSON `{login,password}`; unknown fields — 400. Успех login/me: `{owner:{id:uuid,login},expiresAt:ISO,csrfToken:string}`. Session token передаётся только HttpOnly cookie. Logout — 204, revoke и очистка cookies. Ошибки: 401 credentials/session, 403 Origin/CSRF, 429 + Retry-After. API ответы: Cache-Control: no-store.
 

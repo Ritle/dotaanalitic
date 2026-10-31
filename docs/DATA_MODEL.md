@@ -16,6 +16,7 @@
 - `scenario_draft_actions` — текущее пользовательское состояние последовательности picks/bans.
 - S2-02/016: unordered `scenario_bans` отдельно от timeline; assignments в scenario_lineup.hero_id, scenarios.league_id optional, immutable snapshots.draft_assessment nullable без backfill старых входов. [Контракт](S2_02_DRAFT_LAB.md).
 - `analysis_runs` и `prediction_runs` — история immutable вычислений и exact inputs.
+- S2-04/017: versioned analysis_runs имеют scenario_revision FK, per-scenario report_version/counter, terminal full result и SHA-256. DB запрещает UPDATE/DELETE, проверяет frozen input; legacy unversioned jobs сохраняют свой lifecycle. [Контракт](S2_04_SCENARIO_REPORTS.md).
 - `prediction_model_versions` — модель и проверенные offline метрики.
 - `sync_jobs` — долговременные состояния фоновых задач.
 - `app_users`, `auth_sessions` — единственный владелец, без регистрации.

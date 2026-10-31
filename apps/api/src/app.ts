@@ -12,6 +12,8 @@ import { registerStrength } from './modules/catalog/strength-http.js';
 import { registerCompare } from './modules/catalog/compare-http.js';
 import { registerScenarios } from './modules/scenarios/http.js';
 import { registerHeroMatchups } from './modules/scenarios/hero-matchups-http.js';
+import { registerReports } from './modules/scenarios/reports-http.js';
+import {ScenarioReportRepository} from '@dota/db';
 import type { FastifyServerOptions } from 'fastify';
 
 export async function buildApp(config = readConfig(), options: { db?: Db; logger?: FastifyServerOptions['logger'] } = {}) {
@@ -56,6 +58,7 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   registerCompare(app, new CompareRepository(db));
   registerScenarios(app, new ScenarioRepository(db));
   registerHeroMatchups(app, new HeroMatchupRepository(db));
+  registerReports(app,new ScenarioReportRepository(db));
   app.setNotFoundHandler((request, reply) => reply.code(404).send({ error: { code: 'NOT_FOUND', message: 'Маршрут не найден.', requestId: request.id } }));
   return app;
 }

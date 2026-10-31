@@ -4,6 +4,7 @@ import HomeView from './views/HomeView.vue';
 import EntityView from './views/EntityView.vue';
 import CompareView from './views/CompareView.vue';
 import ScenariosView from './views/ScenariosView.vue';
+import ScenarioReportView from './views/ScenarioReportView.vue';
 import { ownerAuth, restoreAuth } from './auth';
 
 export const router = createRouter({
@@ -15,6 +16,7 @@ export const router = createRouter({
     { path: '/scenarios', component: ScenariosView, meta: { requiresAuth: true } },
     { path: '/scenarios/:id', component: ScenariosView, meta: { requiresAuth: true } },
     { path: '/scenarios/:id/draft', component: ScenariosView, meta: { requiresAuth: true } },
+    { path: '/scenarios/:id/report', component: ScenarioReportView, meta: { requiresAuth: true } },
     { path: '/teams/:id', name: 'team', component: EntityView, meta: { requiresAuth: true } },
     { path: '/players/:id', name: 'player', component: EntityView, meta: { requiresAuth: true } },
     { path: '/:pathMatch(.*)*', redirect: '/' }

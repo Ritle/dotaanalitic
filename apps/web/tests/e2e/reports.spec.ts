@@ -1,0 +1,36 @@
+import {test,expect} from '@playwright/test';
+import {randomBytes} from 'node:crypto';
+import type {FastifyInstance} from 'fastify';
+import {testDatabase} from '../../../../tests/helpers/postgres';
+import {seedScenarioReports,reportInput} from '../../../../tests/helpers/scenario-report';
+import {ScenarioRepository,sql} from '../../../../packages/db/src/index';
+import {buildApp} from '../../../api/src/app';import {readConfig} from '../../../api/src/config';import {AuthService} from '../../../api/src/modules/auth/service';
+let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string,id:string,ownerId:string;
+test.beforeAll(async()=>{
+  database=await testDatabase();await seedScenarioReports(database.db);password=randomBytes(24).toString('base64url');
+  ownerId=(await new AuthService(database.db).provision('synthetic-reports-browser',password)).id;
+  id=(await new ScenarioRepository(database.db).save(ownerId,reportInput())).id;
+  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179'}),{db:database.db,logger:false});await api.listen({host:'127.0.0.1',port:3151});
+});
+test.afterAll(async()=>{await api?.close();await database?.close();});
+test('saved report versions preserve source/input snapshots, coverage and independent cohorts at desktop and 360px',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-reports-browser');await page.getByLabel('Пароль').fill(password);await page.getByRole('button',{name:'Войти',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Справочники',exact:true})).toBeVisible();await page.goto(`/scenarios/${id}`);await page.getByRole('link',{name:'Открыть отчёты сценария',exact:true}).click();
+  const history=page.getByRole('region',{name:'История отчётов',exact:true}),report=page.getByRole('article',{name:'Сохранённый отчёт',exact:true});
+  await expect(history).toContainText('Сохранённых отчётов пока нет');await page.getByLabel('Отчёт: начало периода UTC').fill('2024-01-01T00:00');
+  await page.getByRole('button',{name:'Рассчитать и сохранить отчёт',exact:true}).click();await expect(report.getByRole('heading',{name:'Отчёт · версия 1',exact:true})).toBeVisible();
+  await expect(report).toContainText('Прогноз недоступен');await expect(report.getByRole('region',{name:'Контекст и качество состава',exact:true})).toContainText('неизвестно');
+  await expect(report.getByRole('region',{name:'Покрытие данных отчёта',exact:true})).toContainText('Завершённых pro-карт после фильтров: 2');
+  await expect(report.getByLabel('Таблица игроков по ролям')).toContainText('N=2');await expect(report.getByRole('region',{name:'Скорректированные показатели',exact:true})).toContainText('Политика весов не задана');
+  await expect(report.getByRole('region',{name:'Meta назначенных героев',exact:true})).toContainText('2 / 2 полных драфтов');
+  const firstUrl=page.url();await report.screenshot({path:'test-results/report-desktop.png'});await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await report.screenshot({path:'test-results/report-mobile.png'});
+  await sql`UPDATE matches SET radiant_win=false,data_revision=data_revision+1 WHERE id=8001`.execute(database.db);
+  const q=reportInput();q.title='Synthetic updated report input';q.context.radiantSlot='B';await new ScenarioRepository(database.db).save(ownerId,q,{id,expectedRevision:1});
+  await page.reload();await expect(page.getByText('Текущая редакция сценария 2.',{exact:false})).toBeVisible();await expect(report).toContainText('Synthetic single map');
+  await page.getByRole('button',{name:'Рассчитать и сохранить отчёт',exact:true}).click();await expect(report.getByRole('heading',{name:'Отчёт · версия 2',exact:true})).toBeVisible();await expect(report).toContainText('Synthetic updated report input');
+  await expect(history.getByRole('link')).toHaveCount(2);await page.goto(firstUrl);await expect(report.getByRole('heading',{name:'Отчёт · версия 1',exact:true})).toBeVisible();await expect(report).toContainText('Synthetic single map');
+  await page.getByLabel('Отчёт: начало периода UTC').fill('2024-01-03T00:00');await page.getByRole('button',{name:'Рассчитать и сохранить отчёт',exact:true}).click();await expect(page.getByRole('alert')).toContainText('Проверьте период');await expect(report).toContainText('Отчёт · версия 1');
+  await expect(history.getByRole('link')).toHaveCount(2);expect(errors).toEqual([]);
+});
