@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "reportFile": "reports/s1-07-valve-source-capture.json",
+  "reportSha256": "72063340a6d81b5f0a51318eaf3f413f9f370c025acfc12331a947dc9e28e93d",
+  "generatedAt": "2026-10-31T19:48:57.915Z",
+  "mode": "live_valve_primary_sources",
+  "requestedPatches": [
+    "7.34c",
+    "7.34d",
+    "7.34e"
+  ],
+  "httpAttempts": 7,
+  "uniqueMaps": 40,
+  "verifiedPatchMaps": 0,
+  "scoredMaps": 0,
+  "autoRegistryEligible": false,
+  "deployable": false
+}

@@ -1,0 +1,1738 @@
+{
+  "schemaVersion": 1,
+  "mode": "live_valve_primary_sources",
+  "generatedAt": "2026-10-31T19:48:57.915Z",
+  "captureStatus": "complete",
+  "status": "requires_manual_review",
+  "requestedPatches": [
+    "7.34c",
+    "7.34d",
+    "7.34e"
+  ],
+  "requests": {
+    "attempts": 7,
+    "httpStatuses": {
+      "200": 7
+    }
+  },
+  "code": [
+    {
+      "file": "scripts/audit-patch-sources.mjs",
+      "sha256": "ae0ef3addb8b0a6c2abe0dbfe7d8d929a2aa85ac942f6474d5bda652a99a9355"
+    },
+    {
+      "file": "packages/ingestion/src/valve/patch-client.ts",
+      "sha256": "39917a93db14070636887597ef640d4fd82bb41530a95cb921fe14a207329b64"
+    },
+    {
+      "file": "packages/ingestion/src/valve/patch-audit.ts",
+      "sha256": "48ee6d30e89ad62e4de294f52f38e1456468735216ba53563117a31f79075424"
+    }
+  ],
+  "sourceEvidence": [
+    {
+      "url": "https://www.dota2.com/datafeed/patchnoteslist?language=english",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-10-31T19:48:52.415Z",
+      "knownAt": null,
+      "payloadSha256": "9ec57bde0c37aee9b782bd7190cc0c18b68310d90b6cba0b9f9dd3b196bd29ea",
+      "attempts": 1
+    },
+    {
+      "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.34c",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-10-31T19:48:53.084Z",
+      "knownAt": null,
+      "payloadSha256": "0542f75c22292664b23100224b7a7faa5c70f4393027602222d471c5fa4c795f",
+      "attempts": 1
+    },
+    {
+      "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1694761200&feeds=steam_community_announcements",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-10-31T19:48:54.154Z",
+      "knownAt": null,
+      "payloadSha256": "6442cc53068edabb6dff45a2c5cebf69ff3b4c7e5d9b91a8bcc6e997fad0a838",
+      "attempts": 1
+    },
+    {
+      "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.34d",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-10-31T19:48:55.071Z",
+      "knownAt": null,
+      "payloadSha256": "8e853acf3905d256de83d83f0c6cda49f90d8af8eba409e628d6f7511f0bee7d",
+      "attempts": 1
+    },
+    {
+      "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1697007600&feeds=steam_community_announcements",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-10-31T19:48:56.274Z",
+      "knownAt": null,
+      "payloadSha256": "c145be6282c47fcf990e8e9d6218872a7b9aa4296e0a02b07c73adc71665a75e",
+      "attempts": 1
+    },
+    {
+      "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.34e",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-10-31T19:48:57.110Z",
+      "knownAt": null,
+      "payloadSha256": "fb1bd65f0127db19668726f667613c7333c5be03264f365aa38a5b98d239c733",
+      "attempts": 1
+    },
+    {
+      "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1701072000&feeds=steam_community_announcements",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-10-31T19:48:57.913Z",
+      "knownAt": null,
+      "payloadSha256": "a5b875c287e2b1073956c4415cd66816ca3ea01820c71685ff413ce5f401a247",
+      "attempts": 1
+    }
+  ],
+  "captureEvidence": [
+    {
+      "file": "reports/s0-08-recent.json",
+      "sha256": "d299ad14b6434e739fb4331c885c1e7611f26829bd0ca95a14fdd85e93b31a24"
+    },
+    {
+      "file": "reports/s0-08-ti2021.json",
+      "sha256": "be9b273926eb31a8f4ba4d816671aabe4945b7fd50681ce6d6f9fb9687cc6164"
+    },
+    {
+      "file": "reports/s0-08-ti2022.json",
+      "sha256": "f7c8f4ffa2a09c3bd9e60fe70c901fec8bc21428ec4f80943ac8a1a7c146e37a"
+    },
+    {
+      "file": "reports/s0-08-ti2023.json",
+      "sha256": "c0b07df71f8bc2427994a9fa9bf0178992df20b514351488c0c92375483537bb"
+    },
+    {
+      "file": "reports/s0-08-ti2024.json",
+      "sha256": "cc99a0186cfaa403654a25dd3e95793ef35554b0391df8809e4fa03b246a27f4"
+    }
+  ],
+  "comparisons": [
+    {
+      "patchLabel": "7.34c",
+      "status": "requires_manual_review",
+      "datafeed": {
+        "listTimestamp": 1694156400,
+        "listAt": "2023-09-08T07:00:00.000Z",
+        "notesTimestamp": 1694156400,
+        "notesAt": "2023-09-08T07:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "5159491482914490455",
+          "title": "7.34c Gameplay Patch",
+          "publishedAt": "2023-09-09T01:51:09.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1694761200&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 67869,
+      "firstAnnouncementDeltaSeconds": 67869,
+      "heroNotes": [
+        {
+          "heroId": 2,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 3,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 5,
+          "directNotes": 2,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 7,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 16,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 18,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 20,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 21,
+          "directNotes": 2,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 22,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 26,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 27,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 30,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 32,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 35,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 36,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 37,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 38,
+          "directNotes": 2,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 45,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 50,
+          "directNotes": 2,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 53,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 55,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 56,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 57,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 61,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 62,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 63,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 64,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 69,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 71,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 72,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 74,
+          "directNotes": 1,
+          "abilityNotes": 4,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 78,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 80,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 82,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 83,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 84,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 85,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 86,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 88,
+          "directNotes": null,
+          "abilityNotes": 4,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 89,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 96,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 97,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 99,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 101,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 102,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 104,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 106,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 107,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 109,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 110,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 112,
+          "directNotes": 2,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 113,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 120,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 123,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 135,
+          "directNotes": 2,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 137,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 138,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        }
+      ],
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null,
+      "autoRegistryEligible": false,
+      "reasons": [
+        "PUBLICATION_TIMESTAMP_IS_NOT_VERIFIED_EFFECTIVE_TIME",
+        "HISTORICAL_KNOWN_AT_UNPROVEN",
+        "HERO_IMPACT_REQUIRES_REVIEW",
+        "HERO_AVAILABILITY_UNASSESSED",
+        "RELEASE_COVERAGE_UNPROVEN",
+        "FEED_ANNOUNCEMENT_TIMESTAMP_DISAGREEMENT"
+      ],
+      "sourceEvidence": [
+        {
+          "url": "https://www.dota2.com/datafeed/patchnoteslist?language=english",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:52.415Z",
+          "knownAt": null,
+          "payloadSha256": "9ec57bde0c37aee9b782bd7190cc0c18b68310d90b6cba0b9f9dd3b196bd29ea",
+          "attempts": 1
+        },
+        {
+          "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.34c",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:53.084Z",
+          "knownAt": null,
+          "payloadSha256": "0542f75c22292664b23100224b7a7faa5c70f4393027602222d471c5fa4c795f",
+          "attempts": 1
+        },
+        {
+          "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1694761200&feeds=steam_community_announcements",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:54.154Z",
+          "knownAt": null,
+          "payloadSha256": "6442cc53068edabb6dff45a2c5cebf69ff3b4c7e5d9b91a8bcc6e997fad0a838",
+          "attempts": 1
+        }
+      ]
+    },
+    {
+      "patchLabel": "7.34d",
+      "status": "requires_manual_review",
+      "datafeed": {
+        "listTimestamp": 1696402800,
+        "listAt": "2023-10-04T07:00:00.000Z",
+        "notesTimestamp": 1696402800,
+        "notesAt": "2023-10-04T07:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "5220292521182246432",
+          "title": "7.34d Gameplay Patch",
+          "publishedAt": "2023-10-05T23:40:41.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1697007600&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 146441,
+      "firstAnnouncementDeltaSeconds": 146441,
+      "heroNotes": [
+        {
+          "heroId": 1,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 5,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 6,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 7,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 16,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 18,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 20,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 21,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 23,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 28,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 30,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 31,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 32,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 33,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 37,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 38,
+          "directNotes": 2,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 42,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 43,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 44,
+          "directNotes": null,
+          "abilityNotes": 4,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 45,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 48,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 53,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 54,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 59,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 62,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 63,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 67,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 71,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 72,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 74,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 78,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 79,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 81,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 82,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 83,
+          "directNotes": 2,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 84,
+          "directNotes": null,
+          "abilityNotes": 4,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 92,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 93,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 97,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 98,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 102,
+          "directNotes": 2,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 104,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 105,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 107,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 112,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 113,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 119,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 120,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 121,
+          "directNotes": null,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 123,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 135,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 136,
+          "directNotes": 2,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 137,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        }
+      ],
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null,
+      "autoRegistryEligible": false,
+      "reasons": [
+        "PUBLICATION_TIMESTAMP_IS_NOT_VERIFIED_EFFECTIVE_TIME",
+        "HISTORICAL_KNOWN_AT_UNPROVEN",
+        "HERO_IMPACT_REQUIRES_REVIEW",
+        "HERO_AVAILABILITY_UNASSESSED",
+        "RELEASE_COVERAGE_UNPROVEN",
+        "FEED_ANNOUNCEMENT_TIMESTAMP_DISAGREEMENT"
+      ],
+      "sourceEvidence": [
+        {
+          "url": "https://www.dota2.com/datafeed/patchnoteslist?language=english",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:52.415Z",
+          "knownAt": null,
+          "payloadSha256": "9ec57bde0c37aee9b782bd7190cc0c18b68310d90b6cba0b9f9dd3b196bd29ea",
+          "attempts": 1
+        },
+        {
+          "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.34d",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:55.071Z",
+          "knownAt": null,
+          "payloadSha256": "8e853acf3905d256de83d83f0c6cda49f90d8af8eba409e628d6f7511f0bee7d",
+          "attempts": 1
+        },
+        {
+          "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1697007600&feeds=steam_community_announcements",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:56.274Z",
+          "knownAt": null,
+          "payloadSha256": "c145be6282c47fcf990e8e9d6218872a7b9aa4296e0a02b07c73adc71665a75e",
+          "attempts": 1
+        }
+      ]
+    },
+    {
+      "patchLabel": "7.34e",
+      "status": "requires_manual_review",
+      "datafeed": {
+        "listTimestamp": 1700467200,
+        "listAt": "2023-11-20T08:00:00.000Z",
+        "notesTimestamp": 1700467200,
+        "notesAt": "2023-11-20T08:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "5382426458968208242",
+          "title": "Gameplay Update 7.34e and What’s Up Next",
+          "publishedAt": "2023-11-21T01:58:14.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1701072000&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 64694,
+      "firstAnnouncementDeltaSeconds": 64694,
+      "heroNotes": [
+        {
+          "heroId": 6,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 8,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 19,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 23,
+          "directNotes": null,
+          "abilityNotes": 4,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 26,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 27,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 30,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 33,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 36,
+          "directNotes": null,
+          "abilityNotes": 4,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 42,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 50,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 52,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 63,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 67,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 68,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 71,
+          "directNotes": null,
+          "abilityNotes": 3,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 72,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 77,
+          "directNotes": 2,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 81,
+          "directNotes": 1,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 83,
+          "directNotes": 1,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 98,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 99,
+          "directNotes": null,
+          "abilityNotes": 4,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 107,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 112,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 119,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 121,
+          "directNotes": null,
+          "abilityNotes": 1,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 136,
+          "directNotes": 1,
+          "abilityNotes": null,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 137,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        },
+        {
+          "heroId": 138,
+          "directNotes": null,
+          "abilityNotes": 2,
+          "impactLevel": null,
+          "availability": null
+        }
+      ],
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null,
+      "autoRegistryEligible": false,
+      "reasons": [
+        "PUBLICATION_TIMESTAMP_IS_NOT_VERIFIED_EFFECTIVE_TIME",
+        "HISTORICAL_KNOWN_AT_UNPROVEN",
+        "HERO_IMPACT_REQUIRES_REVIEW",
+        "HERO_AVAILABILITY_UNASSESSED",
+        "RELEASE_COVERAGE_UNPROVEN",
+        "FEED_ANNOUNCEMENT_TIMESTAMP_DISAGREEMENT"
+      ],
+      "sourceEvidence": [
+        {
+          "url": "https://www.dota2.com/datafeed/patchnoteslist?language=english",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:52.415Z",
+          "knownAt": null,
+          "payloadSha256": "9ec57bde0c37aee9b782bd7190cc0c18b68310d90b6cba0b9f9dd3b196bd29ea",
+          "attempts": 1
+        },
+        {
+          "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.34e",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:57.110Z",
+          "knownAt": null,
+          "payloadSha256": "fb1bd65f0127db19668726f667613c7333c5be03264f365aa38a5b98d239c733",
+          "attempts": 1
+        },
+        {
+          "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1701072000&feeds=steam_community_announcements",
+          "adapterVersion": "valve-patch-audit-v1",
+          "fetchedAt": "2026-10-31T19:48:57.913Z",
+          "knownAt": null,
+          "payloadSha256": "a5b875c287e2b1073956c4415cd66816ca3ea01820c71685ff413ce5f401a247",
+          "attempts": 1
+        }
+      ]
+    }
+  ],
+  "mapCoverage": {
+    "observations": 40,
+    "uniqueMaps": 40,
+    "duplicateObservations": 0,
+    "verifiedPatchMaps": 0,
+    "historicalAvailabilityAssessed": false,
+    "maps": [
+      {
+        "matchId": "6054718020",
+        "startedAt": "2021-06-23T08:00:33.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.29d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6067239305",
+        "startedAt": "2021-06-30T21:07:36.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.29d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6079100944",
+        "startedAt": "2021-07-08T13:39:51.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.29d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6214131970",
+        "startedAt": "2021-10-08T15:33:56.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.30d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6227492909",
+        "startedAt": "2021-10-17T16:56:26.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.30d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6806047579",
+        "startedAt": "2022-10-15T02:27:57.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.32c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6807772726",
+        "startedAt": "2022-10-16T03:14:40.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.32c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6809522859",
+        "startedAt": "2022-10-17T05:02:37.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.32c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6811000638",
+        "startedAt": "2022-10-18T07:02:41.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.32c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "6832287527",
+        "startedAt": "2022-10-30T11:49:25.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.32c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7378530387",
+        "startedAt": "2023-10-12T17:00:44.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.34d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7378939289",
+        "startedAt": "2023-10-13T01:24:09.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.34d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7380403482",
+        "startedAt": "2023-10-13T22:51:24.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.34d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7393133836",
+        "startedAt": "2023-10-21T19:37:36.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.34d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7406531302",
+        "startedAt": "2023-10-29T23:13:43.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.34d",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7927665228",
+        "startedAt": "2024-09-04T08:10:41.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.37c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7928915377",
+        "startedAt": "2024-09-05T08:02:32.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.37c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7931106306",
+        "startedAt": "2024-09-06T18:59:50.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.37c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7936520519",
+        "startedAt": "2024-09-10T10:36:00.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.37c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "7944311818",
+        "startedAt": "2024-09-15T15:59:50.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": "7.37c",
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      {
+        "matchId": "9066936100",
+        "startedAt": "2026-10-29T12:09:09.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067007060",
+        "startedAt": "2026-10-29T13:03:23.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067019772",
+        "startedAt": "2026-10-29T13:14:58.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067078024",
+        "startedAt": "2026-10-29T13:52:13.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067149165",
+        "startedAt": "2026-10-29T14:38:42.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067177642",
+        "startedAt": "2026-10-29T15:08:28.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067217876",
+        "startedAt": "2026-10-29T15:23:16.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067346550",
+        "startedAt": "2026-10-29T16:54:12.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067412106",
+        "startedAt": "2026-10-29T17:39:37.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067529830",
+        "startedAt": "2026-10-29T18:56:11.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9067617648",
+        "startedAt": "2026-10-29T20:05:54.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9068183471",
+        "startedAt": "2026-10-30T10:04:13.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9068257334",
+        "startedAt": "2026-10-30T11:17:29.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9068332041",
+        "startedAt": "2026-10-30T12:23:15.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9068455299",
+        "startedAt": "2026-10-30T13:48:26.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9068605888",
+        "startedAt": "2026-10-30T15:25:46.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9068795274",
+        "startedAt": "2026-10-30T17:23:31.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9068883958",
+        "startedAt": "2026-10-30T18:17:16.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9068910292",
+        "startedAt": "2026-10-30T18:37:56.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      {
+        "matchId": "9069021061",
+        "startedAt": "2026-10-30T19:53:24.000Z",
+        "observations": 1,
+        "nominalPatchCandidate": null,
+        "verifiedPatchId": null,
+        "historicalKnownAt": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      }
+    ]
+  },
+  "errors": [],
+  "empiricalEvaluation": {
+    "status": "unavailable",
+    "scoredMaps": 0,
+    "brier": null,
+    "logLoss": null,
+    "ece": null,
+    "reasons": [
+      "VERIFIED_EFFECTIVE_RELEASE_AND_AVAILABILITY_UNPROVEN",
+      "HISTORICAL_COHORT_NOT_VERIFIED"
+    ]
+  },
+  "databaseWrites": 0,
+  "autoRegistryEligible": false,
+  "deployable": false,
+  "limitations": [
+    "TIMESTAMPS_ARE_DISTINCT_SOURCE_CLAIMS",
+    "PUBLICATION_IS_NOT_EFFECTIVE_TIME",
+    "HERO_ABSENCE_IS_NOT_UNCHANGED",
+    "NO_AUTOMATIC_HERO_IMPACT_CLASSIFICATION",
+    "EXISTING_MAP_CAPTURES_ARE_NOT_FROZEN_TRAINING_DATA"
+  ]
+}

@@ -186,3 +186,5 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 ### S1-07 — patch transfer foundation (P0 gate ещё открыт)
 
 После `pnpm db:migrate` доступен внутренний реестр подтверждённых переходов патчей/изменений героев и экспериментальный расчёт раздельных весов draft/strength. `pnpm patch:history readiness` показывает реальные metadata/data prerequisites; `weights input.json` рассчитывает веса, `evaluate input.json` сравнивает три политики на явном temporal cohort. Production defaults отсутствуют, raw UI не меняется. Проверки: `pnpm test:patch-history`; synthetic результаты не доказывают реальное качество. До реального source/as-of coverage и chronological ablation S1-07 остаётся открытой. [Контракт и формат](docs/S1_07_PATCH_TRANSFER.md).
+
+`pnpm patch:sources --patch '7.34c,7.34d,7.34e' --out reports/new-capture.json` выполняет bounded read-only аудит первичных Valve/Steam источников. Реальный capture выявил расхождения timestamps: их нельзя автоматически переносить в verified release registry. [Результат, SHA и ограничения](docs/S1_07_SOURCE_EVIDENCE.md).

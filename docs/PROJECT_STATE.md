@@ -4,6 +4,8 @@
 
 **S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket остаётся unchecked; S1-08 не начинать.
 
+**Source checkpoint:** live capture Valve/Steam7.34c/d/e выполнен:7 HTTP200, SHA-256 manifest, timestamp disagreements67869/146441/64694s,40 map IDs сопоставлены. Effective release/coverage/knownAt не доказаны, registry auto promotion запрещён. [Факты](S1_07_SOURCE_EVIDENCE.md).
+
 ## Реально присутствует
 
 - Vue login/logout/router guard; Fastify health/auth, CLI owner provisioning/reset, Argon2id, opaque sessions/CSRF/rate limits. Owner в рабочей БД автоматически не создавался. [S0-03](S0_03_OWNER_AUTH.md).
@@ -25,6 +27,9 @@
 - Node 22.15.0 / pnpm 10.19.0, Kysely 0.28.18, pg-boss 12.38.0; Vue Query 5.105.0 установлен в S1-01, lockfile сгенерирован pnpm из registry и проверен frozen install. Shared packages compiled dist/declarations.
 
 ## Проверено
+
+- S1-07 source continuation PASS: frozen install/typecheck/build, **236 unit** (новые11 Valve/source cases), **20 Node tests** (2 новых immutable evidence guards), **17 PG ingestion/queue integration**. Verifier14/golden, docs/diff и capture byte hash проверены перед коммитом. E2E/UI/Python/deep auth/patch DB suites в этом source-only изменении не повторялись. No dependencies/lockfile/SQL changes.
+- Live final report7 successful attempts, source/code hashes сохранены;40 prior map IDs без новых OpenDota requests/imports. Nominal candidates:7.29d3/7.30d2/7.32c5/7.34d5/7.37c5/unknown20; verifiedPatchMaps0/scoredMaps0, rates/quality metrics null. Working DB revision0/pro_maps1/frozen_datasets0/active_models0 без новых facts/owner/models. Сохранён только review capture; empirical S1-07 gate не закрыт.
 
 - S1-07 foundation PASS: frozen install/typecheck/build, **225 unit**, **50 DB/API/integration** (patch5/game6/readiness9 + auth11/player-hero8/sample7 + baseline4), **18 Node tests**. Final evaluator leakage assertion5 PASS. Failing permutation regression воспроизвёл различие0.006/0.006000000000000001 при одинаковом cache key; герои сортируются до арифметики, regression PASS. Verifier14/golden, docs/diff PASS; dependencies/lockfile неизменны. UI не менялся, E2E/Python не повторялись.
 - S1-07 working-DB read-only CLI readiness: revision0/reviewed releases0/transitions0/heroImpacts0/availability0, pro_maps1/frozen_datasets0/active_models0, empiricalEvaluation=unavailable. Новая схема не создаёт evidence/owner/fixtures/models. Synthetic temporal metrics не являются реальным backtest; **S1-07 acceptance не закрыт**.
@@ -71,4 +76,4 @@
 
 ## Следующая задача
 
-**Продолжить S1-07 [P0]: real source/as-of coverage и temporal evaluation.** Foundation находится в PatchMetaRepository/resolveHistoryWeights/evaluatePatchWeightPolicies, запуск `pnpm patch:history readiness`. Нужны проверенные release coverage/transition/hero-impact/availability proofs по первичным источникам и достаточный real pro cohort с доказанными label availability/series/hero-role identity. Из completed match нельзя приписывать ранние knownAt; caller-supplied dataset reference не сертифицирует frozen cohort. Выполнить воспроизводимый chronological ablation, зафиксировать policy до validation/test и оценить patch cold-start/coverage; при недостатке данных оставлять unavailable. S3 DatasetBuilder, training/promotion не реализовывать в обход порядка. **S1-08 не начинать**, S1-07 остаётся unchecked. Рекомендуемая модель: **GPT-6 Astra · High**.
+**Продолжить S1-07 [P0]: проверяемые effective boundaries/as-of cohort.** Начать с [реального source evidence](S1_07_SOURCE_EVIDENCE.md) и `pnpm patch:history readiness`. Valve patch_timestamp и Steam date расходятся, ни один нельзя автоматически назначить releasedAt/knownAt. Нужны архивные/иные проверяемые факты deployment/coverage, hero availability/impact и достаточный real pro cohort с доказанной label availability/series/hero-role identity. Publication date, coarse provider patch code и completed/backfilled lineup не заменяют эти proof. Затем воспроизвести chronological ablation с policy frozen before validation/test; до этого unavailable, не synthetic accuracy. S3 DatasetBuilder/training/promotion не реализовывать в обход порядка. **S1-08 не начинать**, S1-07 unchecked. Рекомендуемая модель: **GPT-6 Astra · High**.

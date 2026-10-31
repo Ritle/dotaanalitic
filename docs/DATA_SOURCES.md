@@ -42,6 +42,8 @@ Normalize OpenDota match object into:
 - Для матчей на временной границе патча сохранять неизвестное значение, если нельзя доказать фактическую игровую версию. Иметь audit coverage таких матчей.
 - При новом патче помечать derived features stale, обновлять registry и предупреждать об отсутствии репрезентативных pro-данных; prediction engine должен работать по договору `docs/PATCH_AWARE_ANALYTICS.md`.
 
+S1-07 live primary audit: официальный `/datafeed/patchnoteslist` и `/datafeed/patchnotes` не согласованы по времени с Steam app570 announcements для7.34c/d/e. **Не считать patch_timestamp или news.date verified effective release.** `pnpm patch:sources` сохраняет bounded projection/SHA, не принимает severity/availability/knownAt автоматически; нет NLP или DB writes. [Факты и ограничения](S1_07_SOURCE_EVIDENCE.md).
+
 ## S0-01: обязательный API spike
 
 Проверить несколько реальных pro матчей (включая неполный), отобразить в `docs/PROGRESS.md` реальные поля, их nullability, достаточность данных для статистики и ingestion strategy, оценить бюджет запросов и пригодность patch metadata. Только после этого писать массовый importer. Никаких придуманных данных.

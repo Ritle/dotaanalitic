@@ -47,3 +47,5 @@ CLI читает local registry/JSON и пишет JSON в stdout, не запи
 ## Оставшийся P0 gate
 
 Механика проверяется synthetic math/patch/temporal fixtures и PostgreSQL. **Это не эмпирическая проверка качества на реальных картах.** Пока нет проверенных реальных patch/impact/availability metadata и достаточного исторически доступного pro cohort, реальный temporal backtest недоступен, коэффициенты не утверждены. S1-07 нельзя объявлять полностью закрытой по acceptance: она остаётся unchecked. Следующий шаг — источник и as-of coverage, затем воспроизводимый real chronological ablation и решение по policy; synthetic метрики не заменяют этот gate.
+
+Продолжение2026-10-31: выполнен реальный primary-source audit трёх патчей и сопоставлены40 map IDs. Valve feed и Steam announcements расходятся на67869/146441/64694 секунд; publication timestamp не подтверждает effective release. Никаких accepted proofs автоматически не создано. [Сохранённое evidence и следующий gate](S1_07_SOURCE_EVIDENCE.md).

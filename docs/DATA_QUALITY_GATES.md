@@ -50,3 +50,5 @@ Raw N и nullable rate не заменяются N+prior mass. Prior берёт�
 ## Patch transfer S1-07: открытый P0 gate
 
 Отсутствующий impact не равен unchanged, отсутствие availability не означает allow. Только reviewed as-of metadata и непрерывная release/transition chain допускают candidate weight; late knowledge не переписывает ранний результат. Ключ включает policy configuration и registry revision. Synthetic same-cohort temporal ablation проверяет механику, но **не закрывает** real chronological quality gate. В рабочей БД metadata proofs0/frozen datasets0: empirical validation unavailable, S1-07 unchecked. См. [реализацию и границы](S1_07_PATCH_TRANSFER.md).
+
+Первичные feed/news timestamps также не допускаются к registry автоматически: live audit7.34c/d/e обнаружил расхождения, а среди40 ранее полученных map IDs verified patch/as-of coverage не установлена. Даты не усреднять, не выбирать min/max как deployment. Notes rows не доказывают unchanged/hero eligibility; отсутствующие blocks остаются null. [Live evidence](S1_07_SOURCE_EVIDENCE.md).

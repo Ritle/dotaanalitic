@@ -45,7 +45,8 @@
     "test:strength": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/strength.integration.test.ts",
     "test:sample": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/sample.integration.test.ts",
     "test:patch-history": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/patch-history.integration.test.ts",
-    "patch:history": "pnpm shared:build && node --env-file-if-exists=.env scripts/patch-history.mjs"
+    "patch:history": "pnpm shared:build && node --env-file-if-exists=.env scripts/patch-history.mjs",
+    "patch:sources": "pnpm shared:build && node scripts/audit-patch-sources.mjs"
   },
   "devDependencies": {
     "typescript": "^5.9.0",
