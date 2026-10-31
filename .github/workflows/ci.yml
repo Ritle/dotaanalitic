@@ -63,6 +63,7 @@ jobs:
       - run: pnpm test:dataset
       - run: pnpm test:readiness
       - run: pnpm test:catalog
+      - run: pnpm test:pro-maps
 
   ml-bootstrap:
     runs-on: ubuntu-latest

@@ -30,3 +30,7 @@ Collector должен возвращать JSON summary per ingestion batch: `r
 ## Context readiness S0-09
 
 context-availability-v1 разделяет strict_verified_asof, owner_asserted_asof и conditional_lineup_reconstructed. Unavailable/unknown факты имеют null value; ready означает только достаточность явно запрошенного контекста, не разрешение обучать/показывать вероятность. Подтверждённые Pos1–5 отдельно от оценок; source account coverage не подменяет canonical lineup proof. [Правила и тесты](S0_09_DATA_READINESS.md).
+
+## Описательные выборки S1-02
+
+pro-map-display-v1 показывает только завершённые is_pro=true карты, независимо учитывая missing canonical roster/patch/opponent/series. Cutoff ограничивает map events; late backfill остаётся текущим retrospective_descriptive чтением, predictionEligibility=not_assessed. Raw filters не используют model weights. Coverage denominators и отказ при >5000 кандидатах закреплены в [S1_02_PRO_MAPS](S1_02_PRO_MAPS.md); частота побед не становится win probability.

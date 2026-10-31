@@ -7,7 +7,8 @@ export async function readCatalog<T>(path: string, schema: {parse(value:unknown)
     ownerAuth.value=null; queryClient.clear();
     throw new AuthRequestError(401,'Сессия завершена. Войдите снова.');
   }
-  if (!response.ok) throw new Error(response.status===404?'Запись не найдена в локальной базе.':'Не удалось загрузить данные. Повторите запрос.');
+  if (!response.ok) throw new Error(response.status===404?'Запись не найдена в локальной базе.':response.status===400?
+    'Некорректные фильтры. Проверьте ID, временное окно и игрока для выбранной роли.':'Не удалось загрузить данные. Повторите запрос.');
   return schema.parse(await response.json());
 }
 export const dateLabel = (value: string | null) => value ? new Intl.DateTimeFormat('ru-RU',{

@@ -106,3 +106,22 @@ test('catalogue empty/error/retry states and expired session remove private view
   await page.getByRole('button',{name:'Перечитать базу',exact:true}).click();
   await expect(page).toHaveURL(/\/login$/);await expect(page.getByRole('heading',{name:'Справочники',exact:true})).toHaveCount(0);
 });
+
+test('pro-map filters show raw map counts, native side, unknown coverage and nullable empty rates',async({page})=>{
+  await enter(page);await page.goto('/teams/'+catalogTeamId);
+  await expect(page.getByRole('heading',{name:'Профессиональные карты',exact:true})).toBeVisible();
+  await expect(page.getByRole('group',{name:'Показатели выборки'})).toContainText('N = 2');
+  await expect(page.getByRole('group',{name:'Показатели выборки'})).toContainText('50');
+  await page.getByLabel('Сторона карты').selectOption('dire');await page.getByRole('button',{name:'Применить фильтры',exact:true}).click();
+  await expect(page.getByRole('group',{name:'Показатели выборки'})).toContainText('N = 1');
+  await expect(page.getByRole('table',{name:'Выбранные профессиональные карты'})).toContainText('Dire · Поражение');
+  await page.screenshot({path:'test-results/pro-maps-desktop.png',fullPage:true});
+  await page.setViewportSize({width:360,height:800});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:'test-results/pro-maps-mobile.png',fullPage:true});
+  await page.getByLabel('ID проверенного патча').fill('999');await page.getByRole('button',{name:'Применить фильтры',exact:true}).click();
+  await expect(page.getByRole('group',{name:'Показатели выборки'})).toContainText('N = 0');
+  await expect(page.getByText('При N = 0 частота побед неизвестна.',{exact:false})).toBeVisible();
+  await page.getByLabel('Подтверждённая роль').selectOption('1');await page.getByRole('button',{name:'Применить фильтры',exact:true}).click();
+  await expect(page.getByRole('alert')).toContainText('Некорректные фильтры');
+});

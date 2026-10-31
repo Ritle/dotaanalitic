@@ -29,3 +29,5 @@ export * from './dataset-repository.js';
 export * from './readiness.js';
 export * from './readiness-repository.js';
 export * from './catalog-repository.js';
+export * from './pro-maps.js';
+export * from './pro-map-repository.js';

@@ -38,7 +38,8 @@
     "test:game-context": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/game-context.integration.test.ts",
     "test:dataset": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/dataset.integration.test.ts",
     "test:readiness": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/readiness.integration.test.ts",
-    "test:catalog": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/catalog.integration.test.ts"
+    "test:catalog": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/catalog.integration.test.ts",
+    "test:pro-maps": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/pro-maps.integration.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.0",
