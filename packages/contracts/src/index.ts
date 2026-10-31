@@ -41,3 +41,4 @@ export type AuthResponse = z.infer<typeof AuthResponseSchema>;
 export * from './roster.js';
 export * from './player-hero.js';
 export * from './strength.js';
+export * from './sample.js';

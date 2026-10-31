@@ -4,6 +4,7 @@ import {useQuery} from '@tanstack/vue-query';
 import {ProMapResponseSchema} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
+import SampleNote from './SampleNote.vue';
 const props=defineProps<{kind:'teams'|'players';id:string}>();
 const from=ref(''),cutoff=ref(''),patch=ref(''),opponent=ref(''),player=ref(''),role=ref(''),side=ref(''),league=ref(''),limit=ref('20');
 const applied=ref('limit=20');
@@ -54,6 +55,7 @@ const activeFilters=computed(()=>{
         <p><strong>N = {{report.summary.nRaw}}</strong><span>карт</span></p><p><strong>{{report.summary.wins}} / {{report.summary.losses}}</strong><span>побед / поражений</span></p>
         <p><strong>{{rate(report.summary.winRate)}}</strong><span>наблюдаемый win rate</span></p><p><strong>{{report.summary.meanDurationSeconds===null?'—':(report.summary.meanDurationSeconds/60).toFixed(1)}}</strong><span>средняя длительность, мин.</span></p>
       </div>
+      <SampleNote :evidence="report.summary.sampleEvidence" />
       <p v-if="report.status==='insufficient_data'">Нет подходящих завершённых pro-карт. При N = 0 частота побед неизвестна.</p>
       <p class="hint">Источник: нормализованные локальные карты · Обновление данных: {{dateLabel(report.summary.dataUpdatedAt)}} · Расчёт: {{dateLabel(report.computedAt)}} · Политика {{report.policyVersion}}</p>
       <p class="warning">{{kind==='teams'?'История организации не описывает автоматически текущую пятёрку. ':''}}Полный подтверждённый состав: {{report.coverage.completeCanonicalRosters}}/{{report.summary.nRaw}}; проверенный патч: {{report.coverage.knownPatch}}/{{report.summary.nRaw}}; проверенная серия: {{report.coverage.knownSeries}}/{{report.summary.nRaw}}; известный соперник: {{report.coverage.knownOpponent}}/{{report.summary.nRaw}}.</p>

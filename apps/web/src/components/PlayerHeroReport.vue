@@ -4,6 +4,8 @@ import {useQuery} from '@tanstack/vue-query';
 import {PlayerHeroResponseSchema} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
+import SampleNote from './SampleNote.vue';
+import SmoothingNote from './SmoothingNote.vue';
 const props=defineProps<{id:string}>();
 const from=ref(''),cutoff=ref(''),patchScope=ref('current'),patch=ref(''),hero=ref(''),role=ref(''),side=ref('');
 const applied=ref('patchScope=current');
@@ -48,18 +50,29 @@ function apply(){
         <p><strong>{{number(report.summary.kda.value)}}</strong><span>KDA · N {{report.summary.kda.nMaps}}/{{report.summary.nRaw}}</span></p>
         <p><strong>{{rate(report.selectedHeroShare)}}</strong><span>Доля выбранных героев среди {{report.playerMapsInScope}} pro-карт тех же фильтров</span></p>
       </div>
-      <p v-if="report.status==='insufficient_data'">Нет подтверждённых профессиональных игр на герое за выбранный период. При N = 0 показатели неизвестны.</p>
+      <SampleNote :evidence="report.summary.sampleEvidence" />
+      <SmoothingNote :data="report.smoothing" />
+      <p v-if="report.status==='insufficient_data'">Нет подтверждённых профессиональных игр на герое за выбранный период. При N = 0 наблюдаемые показатели неизвестны; отдельная исходная оценка пула возможна только с указанным prior.</p>
       <p class="hint">Средние K / D / A: {{metric(report.summary.meanKills,report.summary.nRaw)}} / {{metric(report.summary.meanDeaths,report.summary.nRaw)}} / {{metric(report.summary.meanAssists,report.summary.nRaw)}}.</p>
       <p class="hint">GPM: {{metric(report.summary.meanGpm,report.summary.nRaw)}}. XPM: {{metric(report.summary.meanXpm,report.summary.nRaw)}}.</p>
       <p class="hint">Последняя игра: {{dateLabel(report.summary.lastPlayedAt)}} · синхронизация: {{dateLabel(report.summary.dataUpdatedAt)}} · расчёт: {{dateLabel(report.snapshotAt)}} · источник: локальные карты.</p>
       <p class="warning">Позиция подтверждена в {{report.coverage.confirmedRole}}/{{report.summary.nRaw}} карт; герой известен в {{report.coverage.knownHero}}/{{report.summary.nRaw}}; патч в {{report.coverage.knownPatch}}/{{report.summary.nRaw}}. Это наблюдаемая история локальной БД; её полнота не гарантирована.</p>
       <p class="hint">KDA = (сумма K + сумма A) / max(1, сумма D) только по полным тройкам K/D/A. Средние K/D/A, GPM и XPM используют собственные доступные поля. Перестановки позиций сохраняются в отдельных строках; неподтверждённые роли не угадываются.</p>
       <div v-if="report.groups.length" class="table-scroll"><table class="player-hero-table"><caption class="sr-only">Игрок, герой и подтверждённая позиция</caption>
-        <thead><tr><th scope="col">Герой / роль</th><th scope="col">N / победы / WR</th><th scope="col">Средние K / D / A (N)</th><th scope="col">KDA (N)</th><th scope="col">GPM / XPM (N)</th><th scope="col">Доля героя</th><th scope="col">Последняя карта</th></tr></thead>
+        <thead><tr><th scope="col">Герой / роль</th><th scope="col">N / победы / WR</th><th scope="col">Сглаженная частота / prior</th><th scope="col">Средние K / D / A (N)</th><th scope="col">KDA (N)</th><th scope="col">GPM / XPM (N)</th><th scope="col">Доля героя</th><th scope="col">Последняя карта</th></tr></thead>
         <tbody><tr v-for="g in report.groups" :key="`${g.heroId}:${g.rolePos}`"><td>{{g.heroName??(g.heroId?'Название неизвестно':'Герой неизвестен')}}<span class="catalog-id">ID {{g.heroId??'неизвестен'}} · роль {{g.rolePos??'не подтверждена'}}</span></td>
-          <td>{{g.nRaw}} / {{g.wins}} / {{rate(g.winRate)}}</td><td>{{metric(g.meanKills,g.nRaw)}}<br />{{metric(g.meanDeaths,g.nRaw)}}<br />{{metric(g.meanAssists,g.nRaw)}}</td>
+          <td>{{g.nRaw}} / {{g.wins}} / {{rate(g.winRate)}}<span v-if="g.sampleEvidence.smallSample" class="catalog-id warning">Малая выборка: менее 30 карт</span></td><td><SmoothingNote :data="g.smoothing" compact /></td><td>{{metric(g.meanKills,g.nRaw)}}<br />{{metric(g.meanDeaths,g.nRaw)}}<br />{{metric(g.meanAssists,g.nRaw)}}</td>
           <td>{{metric(g.kda,g.nRaw)}}</td><td>{{metric(g.meanGpm,g.nRaw)}}<br />{{metric(g.meanXpm,g.nRaw)}}</td><td>{{rate(g.heroPickRate)}}<span class="catalog-id">{{g.heroMaps}}/{{report.playerMapsInScope}} карт, все роли применённых фильтров</span></td><td>{{dateLabel(g.lastPlayedAt)}}</td></tr></tbody>
       </table></div>
+      <details><summary>Ранний pro-пул и prior</summary>
+        <p>Состояние: {{report.referencePool.status==='ready'?'прочитан':'недоступен'}}. Только карты до {{dateLabel(report.referencePool.beforeAt)}}. Карт {{number(report.referencePool.coverage.eligibleMaps)}}; строк герой×позиция {{number(report.referencePool.coverage.heroObservations)}} — это не число независимых матчей.</p>
+        <p class="hint">Сглаживание использует тот же герой, подтверждённую позицию и проверенный патч; серии выбранной выборки исключаются. Неизвестные серии и односторонний пул не создают prior. Все патчи ниже показаны отдельной глобальной справкой, без подмешивания в патчевую оценку.</p>
+        <div class="table-scroll"><table aria-label="Глобальные и патчевые reference показатели"><thead><tr><th>Герой / позиция</th><th>Все патчи: N / победы / WR</th><th>Отдельные патчи (N / победы)</th></tr></thead><tbody>
+          <tr v-for="g in report.referencePool.globalBuckets" :key="`${g.heroId}:${g.rolePos}`"><td>ID {{g.heroId}} / {{g.rolePos??'не подтверждена'}}</td><td>{{g.nRaw}} / {{g.wins}} / {{rate(g.winRate)}}</td><td>{{report.referencePool.buckets.filter(b=>b.heroId===g.heroId&&b.rolePos===g.rolePos).map(b=>`${b.patchId??'неизвестен'}: ${b.nRaw} / ${b.wins}`).join('; ')}}</td></tr>
+        </tbody></table></div>
+        <p class="hint">{{report.referencePool.policyVersion}}. Параметры alpha=победы, beta=поражения раннего пула; текущие исходы не подбирают prior. Сглаживание не является обученной вероятностью победы.</p>
+        <p v-for="m in report.referencePool.provenance" :key="m.matchId">Ранняя карта {{m.matchId}} · {{dateLabel(m.startedAt)}} · {{m.source}} · ревизия {{m.dataRevision}} · синхронизация {{dateLabel(m.syncedAt)}}</p>
+      </details>
       <details><summary>Покрытие и карты расчёта</summary>
         <p>Кандидатов {{report.coverage.candidates}}. Исключено: pro неизвестен {{report.coverage.unknownPro}}, не pro {{report.coverage.nonPro}}, конфликт {{report.coverage.conflict}}, незавершённые {{report.coverage.unfinished}}, игрок не подтверждён {{report.coverage.identityUnresolved}}, основные фильтры {{report.coverage.filterMismatch}}, другой герой {{report.coverage.heroFilterMismatch}}.</p>
         <p>Получено после среза: {{report.coverage.lateFetchedMaps}} карт; дата получения неизвестна: {{report.coverage.sourceFetchUnknown}}. Поздняя загрузка не подтверждает предматчевую доступность данных.</p>

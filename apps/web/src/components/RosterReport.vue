@@ -4,6 +4,7 @@ import {useQuery} from '@tanstack/vue-query';
 import {RosterRequestSchema,RosterResponseSchema,type RosterRequest} from '@dota/contracts';
 import {ownerAuth} from '../auth';
 import {readCatalog,dateLabel} from '../catalog';
+import SampleNote from './SampleNote.vue';
 const props=defineProps<{id:string}>();
 const five=()=>Array.from({length:5},(_,i)=>({playerId:'',rolePos:i+1,isStandin:false}));
 const lineup=ref(five()),expected=ref(five()),hasExpected=ref(false),fromAt=ref(''),cutoffAt=ref(''),validation=ref('');
@@ -64,6 +65,7 @@ function submit(){
         <p><strong>{{value(report.actual.exactFiveOrganizationMaps)}}</strong><span>В этой организации</span></p>
         <p><strong>{{rate(report.actual.exactFive.winRate)}}</strong><span>Наблюдаемая частота побед · не прогноз</span></p>
       </div>
+      <SampleNote :evidence="report.actual.exactFive.sampleEvidence" />
       <p>Первая совместная карта: {{dateLabel(report.actual.exactFive.firstAt)}}. Последняя: {{dateLabel(report.actual.exactFive.lastAt)}}.</p>
       <p v-if="report.comparison" role="group" aria-label="Сравнение составов">{{report.comparison.changedPlayers?'Замена':'Состав сохранён'}}:
         сохранено {{report.comparison.retainedPlayers}} из 5 игроков и {{report.comparison.retainedPairLinks}} из 10 пар;

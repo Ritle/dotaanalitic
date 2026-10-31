@@ -17,6 +17,10 @@
 
 S1-01: `/` содержит локальные вкладки teams/players/heroes, поиск и постраничные результаты (25), ID/тег, provider sync если известен и отдельный metadata updated timestamp. `/teams/:id` показывает организацию и последнюю наблюдавшуюся pro-пятёрку с native side, partial warning и явным неизвестным текущим составом. `/players/:id` показывает canonical ID и неприсвоенную проверку catalogue account link; история/статистика остаются следующими задачами. Нет скрытой синхронизации/подстановки состава. [Реализация](S1_01_CATALOGUE.md).
 
+## Размер выборки S1-06
+
+S1-06: sample категории N и cold-start добавлены в карты/пятёрку/player hero; player hero показывает raw vs experimental smoothed frequency с prior mean/mass/context и отдельный earlier reference global/pro-patch disclosure. N0 raw остаётся неизвестным, prior-only помечен, unknown context/series не подменяются estimate. Невзвешенные отчёты явно не показывают выдуманный N_eff. [Контракт](S1_06_SAMPLE_EVIDENCE.md).
+
 ## Реализованный рейтинг S1-05
 
 S1-05: страница команды содержит «Elo и сила соперников»: отдельные raw WR/rated N, before-map opponent rating/delta, prior player counts, applied display period с global warmup, no-evidence/empty/error/stop states. Реконструкция пятёрки не объявляется preknown, рейтинг unvalidated без win probability. Поздний конфликт виден и блокирует поздние значения. [Контракт](S1_05_CHRONOLOGICAL_ELO.md).

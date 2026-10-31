@@ -3,6 +3,7 @@ import {CatalogIdSchema,PlayerHeroQuerySchema,type PlayerHeroQuery} from '@dota/
 import type {Db} from './index.js';
 import {readProMapInventory} from './pro-map-reader.js';
 import {buildPlayerHeroReport,playerHeroMetadata} from './player-hero-report.js';
+import {resolvePatchAt} from './game-context.js';
 export class PlayerHeroQueryError extends Error {}
 export class PlayerHeroRepository{
   constructor(private readonly db:Db){}
@@ -21,7 +22,12 @@ export class PlayerHeroRepository{
       if(!inventory)return {...playerHeroMetadata(playerId,query,snapshotAt),status:'unavailable' as const,reason:'WINDOW_TOO_LARGE' as const,
         message:'В окне больше 5000 карт. Уточните начальную дату.'};
       const heroes=(await sql<{id:string;localized_name:string}>`SELECT id::text,localized_name FROM heroes WHERE id=ANY(${[...new Set(inventory.candidates.flatMap(m=>m.players.flatMap(p=>p.heroId??[])))]}::int[])`.execute(trx)).rows;
-      return buildPlayerHeroReport(playerId,query,snapshotAt,inventory.candidates,inventory.evidence,inventory.registry,inventory.identityRevision,new Map(heroes.map(h=>[h.id,h.localized_name])));
+      const heroNames=new Map(heroes.map(h=>[h.id,h.localized_name]));
+      if(query.patchScope==='current'&&resolvePatchAt(inventory.registry.patches,query.cutoffAt,snapshotAt).value===null)
+        return buildPlayerHeroReport(playerId,query,snapshotAt,inventory.candidates,inventory.evidence,inventory.registry,inventory.identityRevision,heroNames);
+      const reference=await readProMapInventory(trx,sql`TRUE`,undefined,fromAt,snapshotAt);
+      return buildPlayerHeroReport(playerId,query,snapshotAt,inventory.candidates,inventory.evidence,inventory.registry,inventory.identityRevision,heroNames,
+        reference?{candidates:reference.candidates,evidence:reference.evidence}:null,'GLOBAL_REFERENCE_TOO_LARGE');
     });
   }
 }

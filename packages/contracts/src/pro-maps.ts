@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {CatalogIdSchema} from './catalog.js';
+import {SampleEvidenceSchema} from './sample.js';
 const Time=z.iso.datetime({precision:3});
 export const ProMapQuerySchema=z.object({
   fromAt:Time.optional(),cutoffAt:Time.optional(),patchId:CatalogIdSchema.optional(),
@@ -21,7 +22,7 @@ export const ProMapReportSchema=z.object({
   filters:ProMapQuerySchema.safeExtend({cutoffAt:Time}),snapshotAt:Time,computedAt:Time,source:z.literal('normalized_local_maps'),
   identityRevision:z.string(),registryRevision:z.string(),model:z.null(),predictionEligibility:z.literal('not_assessed'),
   summary:z.object({nRaw:z.number().int().nonnegative(),wins:z.number().int().nonnegative(),losses:z.number().int().nonnegative(),
-    winRate:z.number().min(0).max(1).nullable(),meanDurationSeconds:z.number().nonnegative().nullable(),dataUpdatedAt:Time.nullable()}).strict(),
+    winRate:z.number().min(0).max(1).nullable(),meanDurationSeconds:z.number().nonnegative().nullable(),dataUpdatedAt:Time.nullable(),sampleEvidence:SampleEvidenceSchema}).strict(),
   coverage:z.object({candidates:z.number().int().nonnegative(),unknownPro:z.number().int().nonnegative(),nonPro:z.number().int().nonnegative(),
     conflict:z.number().int().nonnegative(),unfinished:z.number().int().nonnegative(),identityUnresolved:z.number().int().nonnegative(),
     filterMismatch:z.number().int().nonnegative(),eligibleBeforeLimit:z.number().int().nonnegative(),

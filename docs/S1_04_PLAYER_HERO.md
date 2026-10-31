@@ -1,5 +1,7 @@
 # S1-04 — игрок × герой × подтверждённая позиция
 
+**Расширение S1-06:** raw selection/metrics этого среза сохранены; sampleEvidence, earlier reference и отдельно помеченные smoothing/prior-only поля добавлены по [контракту S1-06](S1_06_SAMPLE_EVIDENCE.md). Указание ниже «не вводятся» описывает исходную границу S1-04, а не отсутствие более позднего расширения.
+
 Реализован срез метрик FR-04/FR-08: `GET /api/v1/players/:id/heroes` и блок «Герой и позиция» на странице canonical игрока. Только локальная нормализованная БД, owner session, `Cache-Control:no-store`. Запрос не вызывает провайдера и не пишет данные. Это current `retrospective_descriptive`, `policyVersion:player-hero-display-v1`, `model:null`, `predictionEligibility:not_assessed`.
 
 ## Выборка

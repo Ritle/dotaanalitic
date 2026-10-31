@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {CatalogIdSchema} from './catalog.js';
+import {SampleEvidenceSchema} from './sample.js';
 const Time=z.iso.datetime({precision:3}),Count=z.number().int().nonnegative();
 export const RosterMemberSchema=z.object({playerId:CatalogIdSchema.nullable(),rolePos:z.number().int().min(1).max(5),isStandin:z.boolean().default(false)}).strict();
 export const RosterLineupSchema=z.array(RosterMemberSchema).length(5).refine(rows=>new Set(rows.map(p=>p.rolePos)).size===5&&
@@ -8,7 +9,7 @@ export const RosterRequestSchema=z.object({lineup:RosterLineupSchema,expectedLin
   fromAt:Time.optional(),cutoffAt:Time.optional()}).strict().refine(q=>!q.fromAt||!q.cutoffAt||q.fromAt<q.cutoffAt);
 export type RosterRequest=z.infer<typeof RosterRequestSchema>;
 const Sample=z.object({nRaw:Count.nullable(),wins:Count.nullable(),winRate:z.number().min(0).max(1).nullable(),recentMaps:Count.nullable(),
-  firstAt:Time.nullable(),lastAt:Time.nullable(),dataUpdatedAt:Time.nullable(),patchDistribution:z.array(z.object({patchId:CatalogIdSchema.nullable(),maps:Count}).strict())}).strict();
+  firstAt:Time.nullable(),lastAt:Time.nullable(),dataUpdatedAt:Time.nullable(),patchDistribution:z.array(z.object({patchId:CatalogIdSchema.nullable(),maps:Count}).strict()),sampleEvidence:SampleEvidenceSchema}).strict();
 const Description=z.object({lineup:RosterLineupSchema,fingerprint:z.string().nullable(),exactFive:Sample,exactFiveOrganizationMaps:Count.nullable(),
   pairs:z.array(Sample.extend({playerIds:z.array(CatalogIdSchema.nullable()).length(2),organizationMaps:Count.nullable()})).length(10),
   players:z.array(Sample.extend({playerId:CatalogIdSchema.nullable(),rolePos:z.number().int().min(1).max(5),isStandin:z.boolean(),identityStatus:z.enum(['verified','unknown']),

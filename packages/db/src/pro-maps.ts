@@ -2,6 +2,7 @@ import {ContextObservationSchema,ProMapReportSchema,type GameRegistry,type ProMa
 import {resolveIdentity} from './identity.js';
 import {resolvePatchAt} from './game-context.js';
 import {canonicalContextJson} from './temporal.js';
+import {sampleEvidence} from '@dota/analytics';
 
 export type ProMapCandidate={matchId:string;startedAt:string;isPro:boolean|null;conflict:boolean;completed:boolean;
   radiantWin:boolean|null;durationSeconds:number|null;radiantTeamId:string|null;direTeamId:string|null;
@@ -96,6 +97,6 @@ export function selectProMaps(kind:'teams'|'players',id:string,query:ProMapQuery
     entityType:kind==='teams'?'organization':'canonical_player',entityId:id,filters:query,snapshotAt,computedAt:snapshotAt,
     source:'normalized_local_maps',identityRevision,registryRevision:registry.revision,model:null,predictionEligibility:'not_assessed',
     summary:{nRaw,wins,losses:nRaw-wins,winRate:nRaw?wins/nRaw:null,meanDurationSeconds:nRaw?maps.reduce((n,m)=>n+m.durationSeconds,0)/nRaw:null,
-      dataUpdatedAt:maps.length?maps.map(m=>m.syncedAt).sort().at(-1):null},coverage,
+      dataUpdatedAt:maps.length?maps.map(m=>m.syncedAt).sort().at(-1):null,sampleEvidence:sampleEvidence(nRaw)},coverage,
     patchDistribution:[...distribution].map(([patchId,maps])=>({patchId,maps})),maps,warnings});
 }

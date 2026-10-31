@@ -42,3 +42,7 @@ Player×hero×confirmed role использует pro/completion/verified source
 ## Рейтинг и историческая доступность S1-05
 
 Elo update требует verified-asof canonical identity на старт и reviewed availability для pro/outcome/actual participation; end не подставляется в known_at. Raw organization WR имеет отдельный denominator. Задержанный исход не меняет prior state до availability; source clocks сохраняют микросекунды. Поздний конфликт останавливает последующие рейтинги, сохраняя ранние. Это reconstructed participation audit, не prospective model gate или published probability. [Алгоритм и ограничения](S1_05_CHRONOLOGICAL_ELO.md).
+
+## Sample/prior S1-06
+
+Raw N и nullable rate не заменяются N+prior mass. Prior берётся из отдельного более раннего same hero-role-patch reference, исключает серии target observations и требует двух типов исхода. Unknown context/series, overflow и degenerate reference дают null estimate с reason. Band10/30 — продуктовая категория, не confidence. Kish N_eff доступен только для явно заданных весов; unweighted HTTP reports оставляют его null. См. [контракт и ограничения](S1_06_SAMPLE_EVIDENCE.md).

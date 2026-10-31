@@ -42,7 +42,8 @@
     "test:pro-maps": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/pro-maps.integration.test.ts",
     "test:roster": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/roster.integration.test.ts",
     "test:player-hero": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/player-hero.integration.test.ts",
-    "test:strength": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/strength.integration.test.ts"
+    "test:strength": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/strength.integration.test.ts",
+    "test:sample": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/sample.integration.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

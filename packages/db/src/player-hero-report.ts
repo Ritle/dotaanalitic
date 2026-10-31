@@ -2,13 +2,14 @@ import {playerHeroSample,type PlayerHeroObservation} from '@dota/analytics';
 import {PlayerHeroReportSchema,type PlayerHeroQuery,type StoredAccountEvidence,type GameRegistry} from '@dota/contracts';
 import {collectProMaps,type ProMapCandidate} from './pro-maps.js';
 import {resolvePatchAt} from './game-context.js';
+import {buildReferencePool,referenceSmoothing,type ReferenceInput} from './reference-pool.js';
 export type EffectivePlayerHeroQuery=PlayerHeroQuery & {fromAt:string;cutoffAt:string};
 export function playerHeroMetadata(playerId:string,filters:EffectivePlayerHeroQuery,snapshotAt:string){
   return {playerId,filters,fromAt:filters.fromAt,cutoffAt:filters.cutoffAt,snapshotAt,source:'normalized_local_maps' as const,
     policyVersion:'player-hero-display-v1' as const,scope:'retrospective_descriptive' as const,model:null,predictionEligibility:'not_assessed' as const};
 }
 export function buildPlayerHeroReport(playerId:string,query:EffectivePlayerHeroQuery,snapshotAt:string,candidates:readonly ProMapCandidate[],
-  evidence:readonly StoredAccountEvidence[],registry:GameRegistry,identityRevision:string,heroNames:ReadonlyMap<string,string>){
+  evidence:readonly StoredAccountEvidence[],registry:GameRegistry,identityRevision:string,heroNames:ReadonlyMap<string,string>,referenceInput:ReferenceInput=null,referenceReason='REFERENCE_NOT_LOADED'){
   const metadata=playerHeroMetadata(playerId,query,snapshotAt);
   const current=query.patchScope==='current'?resolvePatchAt(registry.patches.filter(p=>p.fetchedAt<=snapshotAt),query.cutoffAt,snapshotAt).value:null;
   if(query.patchScope==='current'&&current===null)return {...metadata,status:'unavailable' as const,reason:'CURRENT_PATCH_UNKNOWN' as const,
@@ -25,6 +26,12 @@ export function buildPlayerHeroReport(playerId:string,query:EffectivePlayerHeroQ
   const maps=base.filter(m=>!query.heroId||m.heroId===query.heroId);
   const observations:PlayerHeroObservation[]=maps.map(m=>({matchId:m.matchId,heroId:m.heroId,rolePos:m.rolePos,won:m.won,startedAt:m.startedAt,syncedAt:m.syncedAt,...m.stats}));
   const summary=playerHeroSample(observations),groups=new Map<string,PlayerHeroObservation[]>(),distribution=new Map<string|null,number>();
+  const reference=buildReferencePool(query.fromAt,snapshotAt,referenceInput,registry,query,referenceReason);
+  const unique=<T>(values:T[],fallback:T):T=>values.length?new Set(values).size===1?values[0]!:fallback:fallback;
+  const exactPatch=(values:(string|null)[],fallback:string|null)=>values.length&&new Set(values).size!==1?null:unique(values,fallback);
+  const series=(rows:typeof maps)=>[...rows.map(m=>m.seriesStatus==='verified'?m.seriesId:null),...base.filter(m=>m.seriesStatus==='verified').map(m=>m.seriesId)];
+  const smoothing=referenceSmoothing(maps.length,summary.wins,unique(maps.map(m=>m.heroId),query.heroId??null),
+    unique(maps.map(m=>m.rolePos),query.rolePos??null),exactPatch(maps.map(m=>m.patchId),effectivePatchId),series(maps),reference);
   for(const m of observations){const key=`${m.heroId??'unknown'}:${m.rolePos??'unknown'}`,group=groups.get(key)??[];group.push(m);groups.set(key,group);}
   for(const m of maps)distribution.set(m.patchId,(distribution.get(m.patchId)??0)+1);
   const warnings=[...new Set(['RETROSPECTIVE_NOT_HISTORICAL_FEATURES','LOCAL_HISTORY_NOT_EXHAUSTIVE',...maps.flatMap(m=>m.warnings)])];
@@ -33,9 +40,11 @@ export function buildPlayerHeroReport(playerId:string,query:EffectivePlayerHeroQ
   if(coverage.identityUnresolved)warnings.push('UNRESOLVED_PLAYER_MAPS');
   if(!maps.length)warnings.push('NO_ELIGIBLE_PLAYER_HERO_MAPS');
   return PlayerHeroReportSchema.parse({...metadata,status:maps.length?'ready':'insufficient_data',identityRevision,registryRevision:registry.revision,effectivePatchId,
-    summary,playerMapsInScope:base.length,selectedHeroShare:base.length?maps.length/base.length:null,
+    summary,smoothing,referencePool:reference.report,playerMapsInScope:base.length,selectedHeroShare:base.length?maps.length/base.length:null,
     groups:[...groups.values()].map(rows=>{const {heroId,rolePos}=rows[0]!,heroMaps=base.filter(m=>m.heroId===heroId).length;
-      return {...playerHeroSample(rows),heroId,heroName:heroId===null?null:heroNames.get(heroId)??null,rolePos,heroMaps,heroPickRate:base.length?heroMaps/base.length:null};
+      const selected=maps.filter(m=>m.heroId===heroId&&m.rolePos===rolePos),wins=rows.filter(r=>r.won).length;
+      return {...playerHeroSample(rows),heroId,heroName:heroId===null?null:heroNames.get(heroId)??null,rolePos,heroMaps,heroPickRate:base.length?heroMaps/base.length:null,
+        smoothing:referenceSmoothing(rows.length,wins,heroId,rolePos,exactPatch(selected.map(m=>m.patchId),effectivePatchId),series(selected),reference)};
     }).sort((a,b)=>b.nRaw-a.nRaw||(a.heroId===b.heroId?(a.rolePos??6)-(b.rolePos??6):a.heroId===null?1:b.heroId===null?-1:BigInt(a.heroId)<BigInt(b.heroId)?-1:1)),
     coverage:{candidates:coverage.candidates,unknownPro:coverage.unknownPro,nonPro:coverage.nonPro,conflict:coverage.conflict,unfinished:coverage.unfinished,
       identityUnresolved:coverage.identityUnresolved,filterMismatch:coverage.filterMismatch,heroFilterMismatch:base.length-maps.length,

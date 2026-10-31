@@ -2,7 +2,7 @@
 
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (auth S0-03 и S1-01..05 реализованы; остальные планируются)
+## Основные маршруты (auth S0-03 и S1-01..06 реализованы; остальные планируются)
 
 | HTTP | Путь | Смысл |
 |---|---|---|
@@ -59,6 +59,10 @@ S1-04 `/players/:id/heroes`: strict fromAt/cutoffAt, patchScope=current(default)
 ## Хронологический рейтинг S1-05
 
 S1-05 `/teams/:id/strength`: strict fromAt/cutoffAt UTC milliseconds, limit20/50/100(default20). Default90day display window, global prior-history replay; >5000 global candidates → unavailable/GLOBAL_HISTORY_TOO_LARGE без target-only truncation. Scope=chronological_retrospective_participation, policy parameters/validation=unvalidated, probability=null. Raw/rated denominators раздельны, ratings/prior/fingerprints/source/proofs/global manifest возвращаются; audit `*Us` clocks — **decimal microsecond strings** для точности, в дополнение к UTC display fields. Поздний proof conflict останавливает replay после своего known time, не переписывает более ранние значения; `replayStoppedAtUs` и причины явны. [Контракт](S1_05_CHRONOLOGICAL_ELO.md).
+
+## Размер выборки и сглаживание S1-06
+
+S1-06 добавляет sampleEvidence (raw N/категория/cold-start, nEff=null для unweighted) в pro-map, roster и player-hero samples. Player hero report дополнен `referencePool` и отдельно названным `smoothing` per-summary/group: earlier same hero×role×patch count prior, same-series exclusion, unavailable reasons, prior-only marker при N0. Reference >5000 отключает smoothing, не raw report; prior stats не являются модельной вероятностью. [Точный контракт](S1_06_SAMPLE_EVIDENCE.md).
 
 ## DTO: ошибка
 

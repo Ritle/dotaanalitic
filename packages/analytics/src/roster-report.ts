@@ -1,4 +1,5 @@
 import {rosterOverlap} from './roster.js';
+import {sampleEvidence} from './sample.js';
 /** Descriptive, unweighted observations. Callers establish pro/completion and identity evidence. */
 export type RosterMember = {playerId:string|null;rolePos:number;isStandin:boolean};
 export type RosterSide = {matchId:string;startedAt:string;side:'radiant'|'dire';organizationId:string|null;
@@ -6,13 +7,13 @@ export type RosterSide = {matchId:string;startedAt:string;side:'radiant'|'dire';
 const key=(ids:readonly string[])=>[...ids].sort((a,b)=>BigInt(a)<BigInt(b)?-1:BigInt(a)>BigInt(b)?1:0).join(':');
 const complete=(s:RosterSide)=>s.players.length===5&&s.players.every(p=>p.playerId!==null)&&new Set(s.players.map(p=>p.playerId)).size===5;
 function sample(sides:readonly RosterSide[],known:boolean,recentFrom:string){
-  if(!known)return {nRaw:null,wins:null,winRate:null,recentMaps:null,firstAt:null,lastAt:null,dataUpdatedAt:null,patchDistribution:[]};
+  if(!known)return {nRaw:null,wins:null,winRate:null,recentMaps:null,firstAt:null,lastAt:null,dataUpdatedAt:null,patchDistribution:[],sampleEvidence:sampleEvidence(null)};
   const unique=[...new Map(sides.map(s=>[s.matchId,s])).values()];
   const wins=unique.filter(s=>s.won).length,dates=unique.map(s=>s.startedAt).sort();
   const patches=new Map<string|null,number>();for(const s of unique)patches.set(s.patchId,(patches.get(s.patchId)??0)+1);
   return {nRaw:unique.length,wins,winRate:unique.length?wins/unique.length:null,recentMaps:unique.filter(s=>s.startedAt>=recentFrom).length,
     firstAt:dates[0]??null,lastAt:dates.at(-1)??null,dataUpdatedAt:unique.map(s=>s.syncedAt).sort().at(-1)??null,
-    patchDistribution:[...patches].sort(([a],[b])=>(a??'').localeCompare(b??'')).map(([patchId,maps])=>({patchId,maps}))};
+    patchDistribution:[...patches].sort(([a],[b])=>(a??'').localeCompare(b??'')).map(([patchId,maps])=>({patchId,maps})),sampleEvidence:sampleEvidence(unique.length)};
 }
 export function describeRoster(lineup:readonly RosterMember[],history:readonly RosterSide[],verifiedIds:ReadonlySet<string>,recentFrom:string,organizationId:string){
   const known=(id:string|null):id is string=>id!==null&&verifiedIds.has(id);
