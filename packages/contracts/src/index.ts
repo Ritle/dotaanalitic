@@ -38,3 +38,4 @@ export const AuthResponseSchema = z.object({
   csrfToken: z.string().min(1).max(512)
 });
 export type AuthResponse = z.infer<typeof AuthResponseSchema>;
+export * from './roster.js';

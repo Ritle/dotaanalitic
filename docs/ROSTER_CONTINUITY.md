@@ -88,6 +88,10 @@
 9. Замена между Team A/B не должна давать duplicate player; 5+5 unique.
 10. Оффлайн тест сравнивает модели `team-only Elo`, `Elo+individual players`, `+roster-cohesion/churn`; метрики на идентичном temporal holdout, включая участки массовых решафлов. Новая модель активируется только при прохождении gate.
 
+## Реализованный описательный срез S1-03
+
+`POST /api/v1/teams/:id/roster-cohesion` читает текущую ретроспективную evidence для введённой пятёрки и optional baseline: exact-five, десять cross-org пар, роли/личная история, churn и freshness. Сохранение сценария и scenario endpoints из раздела 6 остаются S2-01; они не заявляются выполненными. Исторически доступный feature reader не заменяется текущей описательной статистикой. [Точный контракт и ограничения](S1_03_ROSTER_COHESION.md).
+
 ## Реализованный foundation S0-05
 
 `IdentityRepository.historyForPlayers` читает completed pro participation через проверенные identity links на cutoff, независимо от организации; complete sides пригодны как вход существующей descriptive `rosterCoplay`. `lineupAsOf` отдельно читает доказанный состав и роли на дату. Retrospective participation не подтверждает pre-known roster. Сценарные endpoints и UI выше пока planned. [Контракт S0-05](S0_05_IDENTITY_LINEUP.md).

@@ -163,6 +163,9 @@ importers:
 
   packages/db:
     dependencies:
+      '@dota/analytics':
+        specifier: workspace:*
+        version: link:../analytics
       '@dota/contracts':
         specifier: workspace:*
         version: link:../contracts

@@ -2,7 +2,7 @@
 
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (auth S0-03, справочники S1-01 и pro-map выборки S1-02 реализованы; остальные планируются)
+## Основные маршруты (auth S0-03 и S1-01..03 реализованы; остальные планируются)
 
 | HTTP | Путь | Смысл |
 |---|---|---|
@@ -13,6 +13,7 @@
 | GET | `/teams?query=...` | Поиск команд |
 | GET | `/teams/:id` | Команда/состав |
 | GET | `/teams/:id/matches` | Карты pro + фильтры |
+| POST | `/teams/:id/roster-cohesion` | Read-only расчёт введённой пятёрки и optional baseline (S1-03) |
 | GET | `/teams/compare?teamA=...&teamB=...` | Сравнение |
 | GET | `/players/:id` | Игрок |
 | GET | `/players?query=...` | Локальный поиск canonical игроков (S1-01) |
@@ -45,6 +46,10 @@ List DTO: `{kind,items:[{id,name,secondary,syncedAt,metadataUpdatedAt}],hasMore,
 ## Pro-map выборки S1-02
 
 S1-02 реализует `/teams/:id/matches` и `/players/:id/matches`: optional fromAt/cutoffAt UTC milliseconds, patchId/opponentId/leagueId, side, rolePos, limit=10/20/50/100 (default20). Team role filter требует явный playerId; player route берёт target из URL. Ответ scope=retrospective_descriptive, summary raw N/wins/losses/nullable WR/duration, coverage, patchDistribution, maps/proof IDs/revisions/effective filters. started_at<cutoff и end<=cutoff проверяются до JS timestamp rounding. Данные читаются сейчас, не выдаются за historical-asof features. Свыше 5000 кандидатов — 200 status=unavailable/WINDOW_TOO_LARGE, без статистики; invalid query — 400, отсутствующая entity — 404. [Контракт/деноминаторы](S1_02_PRO_MAPS.md).
+
+## Сыгранность и замены S1-03
+
+S1-03 `POST /teams/:id/roster-cohesion`: strict `{lineup:[{playerId,rolePos,isStandin?}]×5,expectedLineup?:five|null,fromAt?,cutoffAt?}`. Read-only, но требует Origin/CSRF как все authenticated POST. Response: actual/expected exact-five, 10 pairs, player/role history, structural comparison, organization churn, coverage/provenance. Current retrospective evidence, не historical feature snapshot; null identity/history и observed zero различаются. Полный [контракт S1-03](S1_03_ROSTER_COHESION.md). Scenario persistence/endpoints остаются S2-01.
 
 ## DTO: ошибка
 

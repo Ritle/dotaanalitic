@@ -26,5 +26,7 @@ export function enemyMatchupKey(heroA: number, heroB: number): string {
 
 export { rosterOverlap, rosterCoplay } from './roster.js';
 export type { HistoricProSide } from './roster.js';
+export { describeRoster, compareRosters, describeChurn } from './roster-report.js';
+export type { RosterMember, RosterSide } from './roster-report.js';
 export { predictLogistic } from './model-inference.js';
 export type { LogisticArtifact } from './model-inference.js';

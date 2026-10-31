@@ -6,6 +6,7 @@ import { TeamOverviewSchema, PlayerOverviewSchema, type TeamOverview, type Playe
 import { readCatalog, dateLabel } from '../catalog';
 import { ownerAuth } from '../auth';
 import ProMapReport from '../components/ProMapReport.vue';
+import RosterReport from '../components/RosterReport.vue';
 const route=useRoute();
 const kind=computed(()=>route.name==='team'?'teams':'players');
 const id=computed(()=>String(route.params.id));
@@ -53,4 +54,5 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
     </template>
   </section>
   <ProMapReport v-if="data" :key="kind+id" :kind="kind" :id="id" />
+  <RosterReport v-if="data&&kind==='teams'" :key="id" :id="id" />
 </template>

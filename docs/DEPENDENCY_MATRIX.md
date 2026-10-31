@@ -42,3 +42,5 @@
 - https://pgboss.io/introduction
 - https://www.npmjs.com/package/%40fastify%2Ftype-provider-zod
 S0-04: `@dota/db` зависит от compiled `@dota/contracts` для temporal Zod boundaries и использует существующий Vitest 3.2.7 для pure/PG tests. Lockfile обновлён pnpm; новых внешних библиотек/версий не добавлено.
+
+S1-03: `@dota/db` использует workspace `@dota/analytics` для чистых roster descriptors. Analytics экспортирует compiled ESM/declarations, собирается перед db в shared:build. pnpm обновил локальную workspace-связь из существующего registry-resolved lockfile; новых внешних пакетов/версий нет.

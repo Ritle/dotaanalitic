@@ -31,3 +31,4 @@ export * from './readiness-repository.js';
 export * from './catalog-repository.js';
 export * from './pro-maps.js';
 export * from './pro-map-repository.js';
+export {RosterRepository,RosterQueryError} from './roster-repository.js';
