@@ -40,3 +40,4 @@ export * from './patch-weight-evaluation.js';
 export {CompareRepository,CompareQueryError} from './compare-repository.js';
 export {ScenarioRepository,ScenarioError} from './scenario-repository.js';
 export {assessScenarioDraft} from './scenario-draft.js';
+export {HeroMatchupRepository} from './hero-matchup-repository.js';

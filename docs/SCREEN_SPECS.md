@@ -7,7 +7,7 @@
 - `/teams/:id` — команда, состав, pro-карты, форма и герои.
 - `/players/:id` — профессиональная история игрока и его герои.
 - `/compare?teamA=&teamB=` — реализован S1-08: описательное сравнение организаций/ручных пятёрок/H2H, период/патч/лига/native sides, независимый Elo cohort. Прогноз пока unavailable.
-- `/scenarios/:id/draft` — S2-02 Draft Lab:0–10 героев по ролям/игрокам, local catalogue search, unordered optional bans, evidence availability preview/frozen saved check, unknown/denial/source clocks. Полный timeline остаётся S2-05; pair/matchup/report stats — S2-03/04. [Контракт](S2_02_DRAFT_LAB.md).
+- `/scenarios/:id/draft` — S2-02 Draft Lab:0–10 героев по ролям/игрокам, local catalogue search, unordered optional bans, evidence availability preview/frozen saved check, unknown/denial/source clocks. S2-03 добавляет read-only пары/матрицу сохранённой редакции, отдельные raw N/WR, раннее сглаживание и disabled-by-default candidate weights; old results скрываются при правках. [Драфт](S2_02_DRAFT_LAB.md), [пары](S2_03_HERO_PAIRS.md). Полный timeline остаётся S2-05; версии полного отчёта — S2-04.
 - `/scenarios`, `/scenarios/new`, `/scenarios/:id` — реализовано S2-01: список, ручные confirmed5+5, optional expected five и nullable one-map context, immutable revision history и optimistic conflict/reload. Герои добавлены S2-02 в тот же атомарный редактор. [Контракт](S2_01_SCENARIOS.md).
 - `/scenarios/:id/report` — статистика персонажей/героев, союзных пар, матрица 5×5 и pre/post prediction.
 - `/predictions` — история прогнозов и версия модели.

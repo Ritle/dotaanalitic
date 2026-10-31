@@ -5,6 +5,7 @@ import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {ScenarioInputSchema,ScenarioSnapshotSchema,ScenarioListSchema,ScenarioHistorySchema,DraftAssessmentSchema,type ScenarioInput,type ScenarioSnapshot,type DraftInput,type DraftAssessment as Assessment} from '@dota/contracts';
 import DraftEditor from '../components/DraftEditor.vue';
 import DraftAssessment from '../components/DraftAssessment.vue';
+import HeroMatchups from '../components/HeroMatchups.vue';
 import {readCatalog,dateLabel,CatalogRequestError} from '../catalog';
 import {ownerAuth} from '../auth';
 const route=useRoute(),router=useRouter(),cache=useQueryClient();
@@ -133,6 +134,7 @@ async function save(){
       </div>
       <DraftAssessment v-if="saved?.draftAssessment" :assessment="saved.draftAssessment" saved />
     </section>
+    <HeroMatchups v-if="saved&&!dirty" :key="saved.id+':'+saved.revision" :scenario="saved" />
     <section v-if="id&&!isNew" class="panel" aria-label="История сценария"><h2>Сохранённые редакции</h2>
       <p v-if="history.isPending.value">Загрузка истории…</p><p v-if="history.error.value" class="error" role="alert">{{history.error.value.message}}</p>
       <details v-for="s in history.data.value?.items" :key="s.revision"><summary>Редакция {{s.revision}} · {{s.input.title}} · {{dateLabel(s.recordedAt)}}</summary>

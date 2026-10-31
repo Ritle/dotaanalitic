@@ -1,14 +1,21 @@
 import {createHash} from 'node:crypto';
 import {historyWeight,historyWeightSummary} from '@dota/analytics';
-import {PatchHistoryRequestSchema,PatchTransitionEvidenceSchema,HeroImpactEvidenceSchema,
-  type PatchHistoryRequest,type PatchTransitionEvidence,type HeroImpactEvidence,type GameRegistry} from '@dota/contracts';
+import {PatchHistoryRequestSchema,DraftHistoryRequestSchema,PatchTransitionEvidenceSchema,HeroImpactEvidenceSchema,
+  type PatchHistoryRequest,type DraftHistoryRequest,type PatchTransitionEvidence,type HeroImpactEvidence,type GameRegistry} from '@dota/contracts';
 import {resolvePatchAt,resolveHeroAt} from './game-context.js';
 import {canonicalContextJson} from './temporal.js';
 export type PatchMetaRegistry=GameRegistry&{transitions:(PatchTransitionEvidence&{id:string})[];heroImpacts:(HeroImpactEvidence&{id:string})[]};
 
 /** Assigns weights to caller-supplied map IDs, never certifies map/lineup/label eligibility. */
 export function resolveHistoryWeights(input:PatchHistoryRequest,registry:PatchMetaRegistry){
-  const q=PatchHistoryRequestSchema.parse(input);q.heroIds.sort((a,b)=>a-b);
+  return resolveWeights(PatchHistoryRequestSchema.parse(input),registry);
+}
+/** Draft-only caller supplies no unused strength policy or implicit coefficients. */
+export function resolveDraftHistoryWeights(input:DraftHistoryRequest,registry:PatchMetaRegistry){
+  return resolveWeights(DraftHistoryRequestSchema.parse(input),registry);
+}
+function resolveWeights(q:PatchHistoryRequest|DraftHistoryRequest,registry:PatchMetaRegistry){
+  q.heroIds.sort((a,b)=>a-b);
   const target=resolvePatchAt(registry.patches,q.cutoffAt,q.cutoffAt);
   const eligible=(r:{knownAt:string;eventAt:string;reviewState:string})=>r.knownAt<=q.cutoffAt&&r.eventAt<=q.cutoffAt&&['accepted','conflict'].includes(r.reviewState);
   const transitions=registry.transitions.map(({id,...r})=>({id,...PatchTransitionEvidenceSchema.parse(r)})).filter(eligible);

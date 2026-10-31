@@ -1,7 +1,7 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { readConfig } from './config.js';
-import { createDatabase, CatalogRepository, ProMapRepository, RosterRepository, PlayerHeroRepository, StrengthRepository, CompareRepository, ScenarioRepository, type Db } from '@dota/db';
+import { createDatabase, CatalogRepository, ProMapRepository, RosterRepository, PlayerHeroRepository, StrengthRepository, CompareRepository, ScenarioRepository, HeroMatchupRepository, type Db } from '@dota/db';
 import { AuthError, AuthService } from './modules/auth/service.js';
 import { registerAuth } from './modules/auth/http.js';
 import { registerCatalog } from './modules/catalog/http.js';
@@ -11,6 +11,7 @@ import { registerPlayerHeroes } from './modules/catalog/player-hero-http.js';
 import { registerStrength } from './modules/catalog/strength-http.js';
 import { registerCompare } from './modules/catalog/compare-http.js';
 import { registerScenarios } from './modules/scenarios/http.js';
+import { registerHeroMatchups } from './modules/scenarios/hero-matchups-http.js';
 import type { FastifyServerOptions } from 'fastify';
 
 export async function buildApp(config = readConfig(), options: { db?: Db; logger?: FastifyServerOptions['logger'] } = {}) {
@@ -54,6 +55,7 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   registerStrength(app, new StrengthRepository(db));
   registerCompare(app, new CompareRepository(db));
   registerScenarios(app, new ScenarioRepository(db));
+  registerHeroMatchups(app, new HeroMatchupRepository(db));
   app.setNotFoundHandler((request, reply) => reply.code(404).send({ error: { code: 'NOT_FOUND', message: 'Маршрут не найден.', requestId: request.id } }));
   return app;
 }

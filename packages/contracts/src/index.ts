@@ -46,3 +46,4 @@ export * from './patch-history.js';
 export * from './compare.js';
 export * from './scenario.js';
 export * from './draft.js';
+export * from './hero-matchups.js';

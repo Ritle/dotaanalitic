@@ -1,0 +1,35 @@
+import {test,expect} from '@playwright/test';
+import {randomBytes} from 'node:crypto';
+import type {FastifyInstance} from 'fastify';
+import {testDatabase} from '../../../../tests/helpers/postgres';
+import {seedHeroPairs,pairInput} from '../../../../tests/helpers/hero-matchups';
+import {ScenarioRepository} from '../../../../packages/db/src/index';
+import {buildApp} from '../../../api/src/app';import {readConfig} from '../../../api/src/config';import {AuthService} from '../../../api/src/modules/auth/service';
+let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string,id:string;
+test.beforeAll(async()=>{
+  database=await testDatabase();await seedHeroPairs(database.db);password=randomBytes(24).toString('base64url');
+  const owner=await new AuthService(database.db).provision('synthetic-pairs-browser',password);
+  id=(await new ScenarioRepository(database.db).save(owner.id,pairInput())).id;
+  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179'}),{db:database.db,logger:false});await api.listen({host:'127.0.0.1',port:3151});
+});
+test.afterAll(async()=>{await api?.close();await database?.close();});
+test('pair tables and directed matrix keep filters, raw/prior/weight states and saved revisions distinct',async({page})=>{
+  const pageErrors:string[]=[];page.on('pageerror',e=>pageErrors.push(e.message));
+  await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-pairs-browser');await page.getByLabel('Пароль').fill(password);await page.getByRole('button',{name:'Войти',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Справочники',exact:true})).toBeVisible();await page.goto(`/scenarios/${id}`);
+  const section=page.getByRole('region',{name:'Пары героев',exact:true}),report=section.getByTestId('pair-report'),run=section.getByRole('button',{name:'Рассчитать пары',exact:true});
+  await section.getByLabel('Пары: начало периода UTC').fill('2024-01-01T00:00');await run.click();await expect(report).toBeVisible();
+  await expect(section.getByRole('table')).toHaveCount(3);
+  await expect(section.getByLabel('Матрица контрматчапов')).toContainText('WR 50.0%');await expect(report).toContainText('N=2');await expect(section).toContainText('Прогноз недоступен');
+  await section.screenshot({path:'test-results/pairs-desktop.png'});await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await section.screenshot({path:'test-results/pairs-mobile.png'});
+  await section.getByLabel('Пары: начало периода UTC').fill('2024-01-02T23:00');await expect(report).toHaveCount(0);await run.click();await expect(report).toContainText('N=0; наблюдаемый WR неизвестен');
+  await section.getByLabel('Эксперимент с весами',{exact:true}).check();await run.click();await expect(section.getByRole('alert')).toContainText('заполните все коэффициенты');
+  await section.getByLabel('Название политики',{exact:true}).fill('synthetic-browser');await section.getByLabel('Полупериод, дней',{exact:true}).fill('30');
+  for(const label of ['Штраф minor','Штраф moderate','Штраф major'])await section.getByLabel(label,{exact:true}).fill('0.1');
+  for(const label of ['Фактор minor','Фактор moderate','Фактор major','Фактор rework'])await section.getByLabel(label,{exact:true}).fill('0.5');
+  await section.getByLabel('Пары: начало периода UTC').fill('2024-01-01T00:00');await run.click();await expect(report).toContainText('Недостаточно подтверждений для весов');
+  await page.getByRole('combobox',{name:'A: герой роли 1',exact:true}).selectOption('3');await expect(section).toHaveCount(0);
+  await page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true}).check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
+  await expect(section).toContainText('редакция 2');await expect(report).toHaveCount(0);expect(pageErrors).toEqual([]);
+});
