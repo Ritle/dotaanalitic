@@ -1,0 +1,305 @@
+{
+  "schemaVersion": 1,
+  "mode": "bounded_account_source_review",
+  "generatedAt": "2026-10-31T22:28:39.982Z",
+  "scope": "source_account_associations_only",
+  "preliminaryRequests": {
+    "attempts": 14,
+    "http200": 14,
+    "timeouts": 0,
+    "archiveIndexes": 10,
+    "archiveSnapshots": 2,
+    "currentValveResponse": 1,
+    "opendotaMapResponse": 1
+  },
+  "finalCliRequests": {
+    "attempts": 4,
+    "httpStatuses": {
+      "200": 4
+    }
+  },
+  "totalDirectAttempts": 18,
+  "totalHttp200": 18,
+  "webSearchExcludedFromCounters": true,
+  "indexes": [
+    {
+      "kind": "team_info_2023",
+      "id": "8291895",
+      "queryParameters": {
+        "url": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8291895&get_dpc_info=true",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5",
+        "from": "20230101"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "localFileSavedAt": "2026-10-31T22:15:49.110Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "team_info_2023",
+      "id": "8260983",
+      "queryParameters": {
+        "url": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8260983&get_dpc_info=true",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5",
+        "from": "20230101"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "localFileSavedAt": "2026-10-31T22:16:02.258Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "team_page_2023",
+      "id": "8291895",
+      "queryParameters": {
+        "url": "https://www.dota2.com/teamdetailsv2/8291895",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5",
+        "from": "20230101"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "localFileSavedAt": "2026-10-31T22:17:11.075Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "team_page_2023",
+      "id": "8260983",
+      "queryParameters": {
+        "url": "https://www.dota2.com/teamdetailsv2/8260983",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5",
+        "from": "20230101"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "localFileSavedAt": "2026-10-31T22:18:22.883Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "team_info_all_history",
+      "id": "8291895",
+      "queryParameters": {
+        "url": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8291895&get_dpc_info=true",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "4706795559e990a77fe2327008a4da82e3bfe32dbb2d124cd71e9d46cdab7e7a",
+      "localFileSavedAt": "2026-10-31T22:19:03.817Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20220816121930",
+          "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8291895&get_dpc_info=true",
+          "FH5DPJJU2FA3DD7LKHD2DX3O5UAGFY5I"
+        ]
+      ],
+      "status": "indexed_snapshot_found",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "team_info_all_history",
+      "id": "8260983",
+      "queryParameters": {
+        "url": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8260983&get_dpc_info=true",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "215b1719640cf7fb7a47d285854598f26585f19aa1403156a16c5546613541d9",
+      "localFileSavedAt": "2026-10-31T22:19:55.726Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20220805020435",
+          "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8260983&get_dpc_info=true",
+          "KGIVFU7XYXD5UU34O26ANUT2PYAVCJBD"
+        ]
+      ],
+      "status": "indexed_snapshot_found",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "player_info_all_history",
+      "id": "94054712",
+      "queryParameters": {
+        "url": "https://www.dota2.com/webapi/IDOTA2DPC/GetPlayerInfo/v001?account_id=94054712",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "localFileSavedAt": "2026-10-31T22:23:39.056Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "player_info_all_history",
+      "id": "346412363",
+      "queryParameters": {
+        "url": "https://www.dota2.com/webapi/IDOTA2DPC/GetPlayerInfo/v001?account_id=346412363",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "localFileSavedAt": "2026-10-31T22:23:45.480Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "player_info_all_history",
+      "id": "136829091",
+      "queryParameters": {
+        "url": "https://www.dota2.com/webapi/IDOTA2DPC/GetPlayerInfo/v001?account_id=136829091",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "localFileSavedAt": "2026-10-31T22:23:50.502Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "kind": "player_info_all_history",
+      "id": "184620877",
+      "queryParameters": {
+        "url": "https://www.dota2.com/webapi/IDOTA2DPC/GetPlayerInfo/v001?account_id=184620877",
+        "output": "json",
+        "filter": "statuscode:200",
+        "to": "20231012170043",
+        "collapse": "timestamp:8",
+        "fl": "timestamp,original,digest",
+        "limit": "5"
+      },
+      "parametersReconstructedFromExecutedRequest": true,
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "localFileSavedAt": "2026-10-31T22:23:58.240Z",
+      "localFileTimeIsKnownAt": false,
+      "httpStatus": 200,
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    }
+  ],
+  "rawReplay": [
+    {
+      "teamId": "8291895",
+      "payloadSha256": "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0",
+      "projectionSha256": "6ccf1bbcbda5793d82508d78aeeac15fc958570165a59b7ecf42704c90ac4c4e",
+      "knownByAt": "2022-08-16T12:19:30.000Z",
+      "localFileSavedAt": "2026-10-31T22:20:18.930Z",
+      "downloadClockBasis": "local_file_mtime_only",
+      "digestVerified": true,
+      "originalAndMementoVerified": true,
+      "agreesWithIndependentCliCapture": true
+    },
+    {
+      "teamId": "8260983",
+      "payloadSha256": "f092d2e5bd54d262258edd3d1b7b6d1d5d0218f00bae06d14e35cbdaa43b9d9f",
+      "projectionSha256": "76022065d74c8c981d00e45f202921cdcecbdd95bebf54c472d1ed3b2554198c",
+      "knownByAt": "2022-08-05T02:04:35.000Z",
+      "localFileSavedAt": "2026-10-31T22:21:44.274Z",
+      "downloadClockBasis": "local_file_mtime_only",
+      "digestVerified": true,
+      "originalAndMementoVerified": true,
+      "agreesWithIndependentCliCapture": true
+    }
+  ],
+  "currentTeamResponse": {
+    "url": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8291895&get_dpc_info=true",
+    "payloadSha256": "c29325de3b24262828e0c31e12c978d4a77cc6319a096cf7deac8ae9970eb1f4",
+    "memberRows": 1,
+    "registeredIdsFieldPresent": false,
+    "knownAt": null,
+    "usedAsHistoricalProof": false
+  },
+  "missingAccountIds": [
+    "94054712",
+    "346412363",
+    "136829091",
+    "184620877"
+  ],
+  "canonicalPlayersCreated": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false
+}

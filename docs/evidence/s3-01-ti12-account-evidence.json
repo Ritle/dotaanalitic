@@ -1,0 +1,407 @@
+{
+  "schemaVersion": 1,
+  "mode": "live_archived_team_account_associations",
+  "generatedAt": "2026-10-31T22:26:38.231Z",
+  "captureStatus": "complete",
+  "selectionPolicy": "first_existing_TI2023_map_native_teams_earliest_returned_archive_before_start_no_year_lower_bound_limit_5",
+  "mapObservation": {
+    "file": "docs/evidence/s3-01-ti12-map-accounts.json",
+    "sha256": "edc87be8867d324e639289f6e2ac6ab038dccf2f9bca255d4013e204eaaf40a2"
+  },
+  "sources": [
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.dota2.com%2Fwebapi%2FIDOTA2Teams%2FGetSingleTeamInfo%2Fv001%3Fteam_id%3D8291895%26get_dpc_info%3Dtrue&output=json&filter=statuscode%3A200&to=20231012170044&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:26:35.027Z",
+      "payloadSha256": "4706795559e990a77fe2327008a4da82e3bfe32dbb2d124cd71e9d46cdab7e7a",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/web/20220816121930id_/https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8291895&get_dpc_info=true",
+      "fetchedAt": "2026-10-31T22:26:36.174Z",
+      "payloadSha256": "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fwww.dota2.com%2Fwebapi%2FIDOTA2Teams%2FGetSingleTeamInfo%2Fv001%3Fteam_id%3D8260983%26get_dpc_info%3Dtrue&output=json&filter=statuscode%3A200&to=20231012170044&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:26:37.503Z",
+      "payloadSha256": "215b1719640cf7fb7a47d285854598f26585f19aa1403156a16c5546613541d9",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/web/20220805020435id_/https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8260983&get_dpc_info=true",
+      "fetchedAt": "2026-10-31T22:26:38.229Z",
+      "payloadSha256": "f092d2e5bd54d262258edd3d1b7b6d1d5d0218f00bae06d14e35cbdaa43b9d9f",
+      "attempts": 1
+    }
+  ],
+  "lookups": [
+    {
+      "teamId": "8291895",
+      "original": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8291895&get_dpc_info=true",
+      "records": [
+        {
+          "timestamp": "20220816121930",
+          "original": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8291895&get_dpc_info=true",
+          "digest": "FH5DPJJU2FA3DD7LKHD2DX3O5UAGFY5I",
+          "capturedAt": "2022-08-16T12:19:30.000Z"
+        }
+      ],
+      "status": "indexed_snapshot_found"
+    },
+    {
+      "teamId": "8260983",
+      "original": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8260983&get_dpc_info=true",
+      "records": [
+        {
+          "timestamp": "20220805020435",
+          "original": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8260983&get_dpc_info=true",
+          "digest": "KGIVFU7XYXD5UU34O26ANUT2PYAVCJBD",
+          "capturedAt": "2022-08-05T02:04:35.000Z"
+        }
+      ],
+      "status": "indexed_snapshot_found"
+    }
+  ],
+  "proofs": [
+    {
+      "policyVersion": "archived-steam32-associations-v1",
+      "status": "verified_archived_accounts",
+      "scope": "source_account_alias_associations_only",
+      "accountNamespace": "steam32",
+      "teamId": "8291895",
+      "sourceUrl": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8291895&get_dpc_info=true",
+      "capturedAt": "2022-08-16T12:19:30.000Z",
+      "knownByAt": "2022-08-16T12:19:30.000Z",
+      "fetchedAt": "2026-10-31T22:26:36.174Z",
+      "members": [
+        {
+          "accountId": "10366616",
+          "alias": "Sneyking",
+          "sourceJoinedAt": "2021-04-13T16:20:23.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "40547474",
+          "alias": null,
+          "sourceJoinedAt": "2021-11-30T13:51:49.000Z",
+          "registered": false,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "83117467",
+          "alias": null,
+          "sourceJoinedAt": "2021-11-18T13:42:51.000Z",
+          "registered": false,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "86698277",
+          "alias": "33",
+          "sourceJoinedAt": "2021-02-02T20:08:00.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "94786276",
+          "alias": "Nine",
+          "sourceJoinedAt": "2021-02-02T20:08:00.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "100058342",
+          "alias": "skiter",
+          "sourceJoinedAt": "2021-02-02T20:08:00.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "103735745",
+          "alias": "Saksa",
+          "sourceJoinedAt": "2022-03-02T10:00:01.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        }
+      ],
+      "registeredAccountIds": [
+        "10366616",
+        "86698277",
+        "94786276",
+        "100058342",
+        "103735745"
+      ],
+      "payloadSha256": "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0",
+      "decodedSha256": "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0",
+      "cdxDigest": "FH5DPJJU2FA3DD7LKHD2DX3O5UAGFY5I",
+      "projectionSha256": "6ccf1bbcbda5793d82508d78aeeac15fc958570165a59b7ecf42704c90ac4c4e",
+      "sourceJoinedAtIsKnownAt": false,
+      "canonicalPlayersCreated": 0,
+      "verifiedMapLineups": 0,
+      "roles": null,
+      "autoIdentityMergeEligible": false,
+      "trainingReady": false,
+      "deployable": false
+    },
+    {
+      "policyVersion": "archived-steam32-associations-v1",
+      "status": "verified_archived_accounts",
+      "scope": "source_account_alias_associations_only",
+      "accountNamespace": "steam32",
+      "teamId": "8260983",
+      "sourceUrl": "https://www.dota2.com/webapi/IDOTA2Teams/GetSingleTeamInfo/v001?team_id=8260983&get_dpc_info=true",
+      "capturedAt": "2022-08-05T02:04:35.000Z",
+      "knownByAt": "2022-08-05T02:04:35.000Z",
+      "fetchedAt": "2026-10-31T22:26:38.229Z",
+      "members": [
+        {
+          "accountId": "38628747",
+          "alias": "MoonMeander",
+          "sourceJoinedAt": "2021-01-07T20:02:28.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "97658618",
+          "alias": "Timado",
+          "sourceJoinedAt": "2021-01-07T20:02:28.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "126212866",
+          "alias": "SabeRLighT-",
+          "sourceJoinedAt": "2021-01-07T20:02:28.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "145550466",
+          "alias": "DuBu",
+          "sourceJoinedAt": "2021-01-07T20:02:28.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "202408664",
+          "alias": null,
+          "sourceJoinedAt": "2021-11-04T21:41:34.000Z",
+          "registered": false,
+          "canonicalPlayerId": null
+        },
+        {
+          "accountId": "238239590",
+          "alias": "Bryle",
+          "sourceJoinedAt": "2021-01-07T20:02:28.000Z",
+          "registered": true,
+          "canonicalPlayerId": null
+        }
+      ],
+      "registeredAccountIds": [
+        "38628747",
+        "97658618",
+        "126212866",
+        "145550466",
+        "238239590"
+      ],
+      "payloadSha256": "f092d2e5bd54d262258edd3d1b7b6d1d5d0218f00bae06d14e35cbdaa43b9d9f",
+      "decodedSha256": "f092d2e5bd54d262258edd3d1b7b6d1d5d0218f00bae06d14e35cbdaa43b9d9f",
+      "cdxDigest": "KGIVFU7XYXD5UU34O26ANUT2PYAVCJBD",
+      "projectionSha256": "76022065d74c8c981d00e45f202921cdcecbdd95bebf54c472d1ed3b2554198c",
+      "sourceJoinedAtIsKnownAt": false,
+      "canonicalPlayersCreated": 0,
+      "verifiedMapLineups": 0,
+      "roles": null,
+      "autoIdentityMergeEligible": false,
+      "trainingReady": false,
+      "deployable": false
+    }
+  ],
+  "coverage": {
+    "policyVersion": "historical-account-coverage-v1",
+    "scope": "account_id_evidence_not_lineup",
+    "matchId": "7378530387",
+    "startedAt": "2023-10-12T17:00:44.000Z",
+    "snapshotAt": "2026-10-31T22:26:38.231Z",
+    "mapObservationSha256": "9659fc4b985438730667435575bd5b279a32c1db9d58b503e5dbf98991cdee53",
+    "mapCount": 1,
+    "observedPlayerRows": 10,
+    "knownMapAccounts": 10,
+    "accountsObservedBeforeCutoff": 6,
+    "accountsWithoutMatchingArchive": 4,
+    "unknownAccountRows": 0,
+    "eligibleProofs": 2,
+    "players": [
+      {
+        "playerSlot": 0,
+        "accountId": "10366616",
+        "accountEvidenceStatus": "observed_before_cutoff",
+        "earliestProvenByAt": "2022-08-16T12:19:30.000Z",
+        "sourceTeamIds": [
+          "8291895"
+        ],
+        "proofPayloadHashes": [
+          "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0"
+        ],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 1,
+        "accountId": "100058342",
+        "accountEvidenceStatus": "observed_before_cutoff",
+        "earliestProvenByAt": "2022-08-16T12:19:30.000Z",
+        "sourceTeamIds": [
+          "8291895"
+        ],
+        "proofPayloadHashes": [
+          "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0"
+        ],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 2,
+        "accountId": "94786276",
+        "accountEvidenceStatus": "observed_before_cutoff",
+        "earliestProvenByAt": "2022-08-16T12:19:30.000Z",
+        "sourceTeamIds": [
+          "8291895"
+        ],
+        "proofPayloadHashes": [
+          "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0"
+        ],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 3,
+        "accountId": "86698277",
+        "accountEvidenceStatus": "observed_before_cutoff",
+        "earliestProvenByAt": "2022-08-16T12:19:30.000Z",
+        "sourceTeamIds": [
+          "8291895"
+        ],
+        "proofPayloadHashes": [
+          "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0"
+        ],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 4,
+        "accountId": "94054712",
+        "accountEvidenceStatus": "no_matching_archive",
+        "earliestProvenByAt": null,
+        "sourceTeamIds": [],
+        "proofPayloadHashes": [],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 128,
+        "accountId": "238239590",
+        "accountEvidenceStatus": "observed_before_cutoff",
+        "earliestProvenByAt": "2022-08-05T02:04:35.000Z",
+        "sourceTeamIds": [
+          "8260983"
+        ],
+        "proofPayloadHashes": [
+          "f092d2e5bd54d262258edd3d1b7b6d1d5d0218f00bae06d14e35cbdaa43b9d9f"
+        ],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 129,
+        "accountId": "346412363",
+        "accountEvidenceStatus": "no_matching_archive",
+        "earliestProvenByAt": null,
+        "sourceTeamIds": [],
+        "proofPayloadHashes": [],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 130,
+        "accountId": "136829091",
+        "accountEvidenceStatus": "no_matching_archive",
+        "earliestProvenByAt": null,
+        "sourceTeamIds": [],
+        "proofPayloadHashes": [],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 131,
+        "accountId": "184620877",
+        "accountEvidenceStatus": "no_matching_archive",
+        "earliestProvenByAt": null,
+        "sourceTeamIds": [],
+        "proofPayloadHashes": [],
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 132,
+        "accountId": "97658618",
+        "accountEvidenceStatus": "observed_before_cutoff",
+        "earliestProvenByAt": "2022-08-05T02:04:35.000Z",
+        "sourceTeamIds": [
+          "8260983"
+        ],
+        "proofPayloadHashes": [
+          "f092d2e5bd54d262258edd3d1b7b6d1d5d0218f00bae06d14e35cbdaa43b9d9f"
+        ],
+        "canonicalPlayerId": null
+      }
+    ],
+    "canonicalPlayersCreated": 0,
+    "verifiedMapLineups": 0,
+    "trainingExamples": 0,
+    "strictDatasetStatus": "unavailable",
+    "trainingReady": false,
+    "deployable": false,
+    "fingerprint": "6e27b8e11e1b7ac2f8dcc1d73beac8a407b4ce4d1f9a442ebe6448a10b8a9fe2"
+  },
+  "code": [
+    {
+      "file": "scripts/audit-account-evidence.mjs",
+      "sha256": "095a533f6b90451c8fb002828dc602c59b87644942f88b7759fcad74017b2cb9"
+    },
+    {
+      "file": "packages/ingestion/src/valve/team-account-evidence.ts",
+      "sha256": "35b7bafc0324d599f4859e03da5854cbe13466b321014ba4d8c8c7848232cd67"
+    },
+    {
+      "file": "packages/ingestion/src/valve/archive-client.ts",
+      "sha256": "83cc8fed30096eb2f9d58ce035b51eb02dc0941f0e233a3f7b79140f1cde32c2"
+    },
+    {
+      "file": "packages/ingestion/src/valve/archive-evidence.ts",
+      "sha256": "4b912e505f1b085cec0504acff698617abb25047bb2ff90178f0a5c9e7363c02"
+    },
+    {
+      "file": "packages/contracts/src/identity.ts",
+      "sha256": "3eb127a0d86c56f9489474590ee9ec231d07aa320532b11a766b116c3f5fa6ec"
+    },
+    {
+      "file": "packages/ingestion/dist/valve/team-account-evidence.js",
+      "sha256": "d136e440c68fbf412ea5a1a0168e165208000745e020b8967f68ae7ca3ef8eff"
+    },
+    {
+      "file": "packages/ingestion/dist/valve/archive-client.js",
+      "sha256": "359d3b1a9b0fd444d8408fb5dbde8d0aa8b76f3fbbe364d89da5abba9280914c"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "914424aafc1923c7d021b17dd1fabe4306aaa632756c822ad3eda5fae0edf4d8"
+    }
+  ],
+  "requests": {
+    "attempts": 4,
+    "httpStatuses": {
+      "200": 4
+    }
+  },
+  "errors": [],
+  "scope": "source_account_alias_associations_only",
+  "databaseWrites": 0,
+  "canonicalPlayersCreated": 0,
+  "verifiedMapLineups": 0,
+  "strictDatasetStatus": "unavailable",
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false
+}

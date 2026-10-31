@@ -191,6 +191,9 @@ importers:
 
   packages/ingestion:
     dependencies:
+      '@dota/contracts':
+        specifier: workspace:*
+        version: link:../contracts
       '@dota/db':
         specifier: workspace:*
         version: link:../db

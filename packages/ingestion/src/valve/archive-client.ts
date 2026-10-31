@@ -5,6 +5,7 @@ import {z} from 'zod';
 import {ValvePatchError} from './patch-client.js';
 import {parseArchiveIndex,archiveStampAt} from './archive-evidence.js';
 import {retryAfterMilliseconds} from '../opendota/client.js';
+import {teamAccountOriginal} from './team-account-evidence.js';
 type RawResponse={status:number;headers:Record<string,string|undefined>;bytes:Buffer};
 type RawTransport=(url:URL)=>Promise<RawResponse>;
 function rawHttps(url:URL):Promise<RawResponse>{
@@ -31,6 +32,12 @@ export class ArchiveEvidenceClient{
   }
   async findTi12Before(beforeAt:string){
     return this.findOriginalBefore('https://www.dota2.com/esports/ti12',beforeAt,'2023-10-01T00:00:00.000Z');
+  }
+  async findTeamAccountsBefore(teamId:string,beforeAt:string){
+    return this.findOriginalBefore(teamAccountOriginal(teamId),beforeAt);
+  }
+  async getTeamAccountsSnapshot(teamId:string,timestamp:string){
+    return this.getOriginalSnapshot(teamAccountOriginal(teamId),timestamp);
   }
   private async findOriginalBefore(original:string,beforeAt:string,fromAt?:string){
     z.iso.datetime({precision:3}).parse(beforeAt);const url=new URL('https://web.archive.org/cdx/search/cdx');

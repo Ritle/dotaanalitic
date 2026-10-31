@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "mode": "live_opendota_map_account_observation",
+  "matchId": "7378530387",
+  "leagueId": "15728",
+  "startedAt": "2023-10-12T17:00:44.000Z",
+  "fetchedAt": "2026-10-31T22:23:00.419Z",
+  "knownAt": null,
+  "players": [
+    {
+      "playerSlot": 0,
+      "accountId": "10366616"
+    },
+    {
+      "playerSlot": 1,
+      "accountId": "100058342"
+    },
+    {
+      "playerSlot": 2,
+      "accountId": "94786276"
+    },
+    {
+      "playerSlot": 3,
+      "accountId": "86698277"
+    },
+    {
+      "playerSlot": 4,
+      "accountId": "94054712"
+    },
+    {
+      "playerSlot": 128,
+      "accountId": "238239590"
+    },
+    {
+      "playerSlot": 129,
+      "accountId": "346412363"
+    },
+    {
+      "playerSlot": 130,
+      "accountId": "136829091"
+    },
+    {
+      "playerSlot": 131,
+      "accountId": "184620877"
+    },
+    {
+      "playerSlot": 132,
+      "accountId": "97658618"
+    }
+  ],
+  "source": {
+    "endpoint": "/matches/7378530387",
+    "payloadSha256": "9659fc4b985438730667435575bd5b279a32c1db9d58b503e5dbf98991cdee53",
+    "adapterVersion": "opendota-provider-v2"
+  },
+  "selectionEvidence": {
+    "file": "docs/evidence/s3-01-ti12-registration.json",
+    "sha256": "6a5754465eada4b0e98477cbfac9d21587a95401c7760dd1c38012790aa17a98"
+  },
+  "teamIds": {
+    "radiant": "8291895",
+    "dire": "8260983"
+  },
+  "requests": {
+    "attempts": 1,
+    "httpStatuses": {
+      "200": 1
+    },
+    "transportErrors": {}
+  },
+  "scope": "retrospective_account_lookup_only",
+  "canonicalImports": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

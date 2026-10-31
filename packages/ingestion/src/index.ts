@@ -11,3 +11,4 @@ export * from './valve/archive-evidence.js';
 export * from './valve/archive-client.js';
 export * from './valve/tournament-evidence.js';
 export * from './valve/registration-evidence.js';
+export * from './valve/team-account-evidence.js';
