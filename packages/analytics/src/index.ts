@@ -28,5 +28,7 @@ export { rosterOverlap, rosterCoplay } from './roster.js';
 export type { HistoricProSide } from './roster.js';
 export { describeRoster, compareRosters, describeChurn } from './roster-report.js';
 export type { RosterMember, RosterSide } from './roster-report.js';
+export { playerHeroSample } from './player-hero.js';
+export type { PlayerHeroObservation } from './player-hero.js';
 export { predictLogistic } from './model-inference.js';
 export type { LogisticArtifact } from './model-inference.js';

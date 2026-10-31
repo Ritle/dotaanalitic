@@ -6,15 +6,15 @@ import {canonicalContextJson} from './temporal.js';
 export type ProMapCandidate={matchId:string;startedAt:string;isPro:boolean|null;conflict:boolean;completed:boolean;
   radiantWin:boolean|null;durationSeconds:number|null;radiantTeamId:string|null;direTeamId:string|null;
   leagueId:string|null;seriesId:string|null;source:string;syncedAt:string;sourceFetchedAt:string|null;dataRevision:string;
-  players:{playerSlot:number;sourceAccountId:string|null}[];observations:StoredContextObservation[]};
+  players:{playerSlot:number;sourceAccountId:string|null;heroId?:number|null;kills?:number|null;deaths?:number|null;assists?:number|null;gpm?:number|null;xpm?:number|null}[];observations:StoredContextObservation[]};
 
 /** Current retrospective display only; NEVER used as historical training/inference feature reader. */
-export function selectProMaps(kind:'teams'|'players',id:string,query:ProMapQuery & {cutoffAt:string},snapshotAt:string,
-  candidates:readonly ProMapCandidate[],registry:GameRegistry,evidence:readonly StoredAccountEvidence[],identityRevision:string,unattributed:number) {
+export function collectProMaps(kind:'teams'|'players',id:string,query:ProMapQuery & {cutoffAt:string},snapshotAt:string,
+  candidates:readonly ProMapCandidate[],registry:GameRegistry,evidence:readonly StoredAccountEvidence[]) {
   const coverage={candidates:candidates.length,unknownPro:0,nonPro:0,conflict:0,unfinished:0,identityUnresolved:0,filterMismatch:0,
     eligibleBeforeLimit:0,knownPatch:0,completeCanonicalRosters:0,knownSeries:0,knownOpponent:0,confirmedTargetRole:0,lateFetchedMaps:0,
-    unattributedOrganizationMapsInWindow:unattributed};
-  const eligible:ProMapItem[]=[];
+    unattributedOrganizationMapsInWindow:0};
+  const eligible:(ProMapItem & {targetPlayerSlot:number|null})[]=[];
   const accounts=new Map<string,ReturnType<typeof resolveIdentity>>();
   const currentEvidence=evidence.filter(p=>p.fetchedAt<=snapshotAt && (p.eventAt===null||p.eventAt<=snapshotAt) && (p.knownAt===null||p.knownAt<=snapshotAt));
   const byAccount=new Map<string,StoredAccountEvidence[]>();
@@ -67,15 +67,22 @@ export function selectProMaps(kind:'teams'|'players',id:string,query:ProMapQuery
     if(targetPlayer && rolePos===null)warnings.push('ROLE_UNVERIFIED');
     if(map.sourceFetchedAt===null)warnings.push('SOURCE_FETCH_UNKNOWN');
     if(map.sourceFetchedAt!==null && map.sourceFetchedAt>query.cutoffAt)warnings.push('SOURCE_FETCHED_AFTER_CUTOFF');
-    eligible.push({matchId:map.matchId,startedAt:map.startedAt,side,won:side==='radiant'?map.radiantWin:!map.radiantWin,
+    eligible.push({matchId:map.matchId,targetPlayerSlot:target[0]?.playerSlot??null,startedAt:map.startedAt,side,won:side==='radiant'?map.radiantWin:!map.radiantWin,
       durationSeconds:map.durationSeconds,organizationId:org,opponentId:opponent,leagueId:map.leagueId,seriesId:map.seriesId,
       patchId:patch.value,seriesStatus,rolePos:rolePos??null,completeCanonicalRoster:complete,source:map.source,syncedAt:map.syncedAt,
       sourceFetchedAt:map.sourceFetchedAt,dataRevision:map.dataRevision,identityProofIds:[...new Set(players.flatMap(p=>p.identity?.observationIds??[]))].sort(),
       roleProofIds:rolePos!==null?rows.map(r=>r.id):[],patchProofIds:patch.evidenceIds,seriesProofIds:seriesFacts.map(r=>r.id),warnings});
   }
   eligible.sort((a,b)=>b.startedAt.localeCompare(a.startedAt)||(BigInt(a.matchId)>BigInt(b.matchId)?-1:1));
+  return {eligible,coverage};
+}
+
+export function selectProMaps(kind:'teams'|'players',id:string,query:ProMapQuery & {cutoffAt:string},snapshotAt:string,
+  candidates:readonly ProMapCandidate[],registry:GameRegistry,evidence:readonly StoredAccountEvidence[],identityRevision:string,unattributed:number) {
+  const {eligible,coverage}=collectProMaps(kind,id,query,snapshotAt,candidates,registry,evidence);
+  coverage.unattributedOrganizationMapsInWindow=unattributed;
   coverage.eligibleBeforeLimit=eligible.length;
-  const maps=eligible.slice(0,query.limit),nRaw=maps.length,wins=maps.filter(m=>m.won).length;
+  const maps=eligible.slice(0,query.limit).map(({targetPlayerSlot:_slot,...map})=>map),nRaw=maps.length,wins=maps.filter(m=>m.won).length;
   const distribution=new Map<string|null,number>();
   for(const map of maps){
     if(map.patchId!==null)coverage.knownPatch++;if(map.completeCanonicalRoster)coverage.completeCanonicalRosters++;

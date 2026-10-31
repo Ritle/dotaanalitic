@@ -1,7 +1,7 @@
 import {IdentityRepository,MatchContextRepository,GameRegistryRepository,sql,type Db} from '../../packages/db/src/index.js';
 import {seedCatalog,catalogPlayerId} from './catalog.js';
 /** Synthetic current descriptive identity/role/release proofs, never real source evidence. */
-export async function seedProMaps(db:Db){
+export async function seedProMaps(db:Db,options:{swapSecondRoles?:boolean}={}){
   await seedCatalog(db);
   const identity=new IdentityRepository(db),context=new MatchContextRepository(db);
   const fetchedAt='2026-10-31T00:00:00.000Z';
@@ -16,7 +16,7 @@ export async function seedProMaps(db:Db){
     for(let i=0;i<5;i++)await sql`INSERT INTO match_players(match_id,player_slot,side,hero_id,source_account_id)
       VALUES(${matchId},${matchId==='8001'?128+i:i},${matchId==='8001'?'dire':'radiant'},1,${1005+i})`.execute(db);
     await context.append({matchId,fact:{field:'roles',value:Array.from({length:5},(_,i)=>({playerSlot:matchId==='8001'?i:128+i,
-      playerId:String(BigInt(catalogPlayerId)+BigInt(i)),rolePos:i+1,basis:'confirmed',confidence:1}))},
+      playerId:String(BigInt(catalogPlayerId)+BigInt(i)),rolePos:options.swapSecondRoles&&matchId==='8002'&&i<2?2-i:i+1,basis:'confirmed',confidence:1}))},
       eventAt:null,knownAt:null,fetchedAt,availability:'retrospective_fact',earliestStage:'post_match',provider:'synthetic',
       providerRecordId:null,evidenceRef:'synthetic:observed-roles',adapterVersion:'synthetic-v1',reviewState:'accepted'});
   }

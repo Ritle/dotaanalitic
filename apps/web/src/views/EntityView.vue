@@ -7,6 +7,7 @@ import { readCatalog, dateLabel } from '../catalog';
 import { ownerAuth } from '../auth';
 import ProMapReport from '../components/ProMapReport.vue';
 import RosterReport from '../components/RosterReport.vue';
+import PlayerHeroReport from '../components/PlayerHeroReport.vue';
 const route=useRoute();
 const kind=computed(()=>route.name==='team'?'teams':'players');
 const id=computed(()=>String(route.params.id));
@@ -48,11 +49,12 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
         <p>Canonical player ID: {{data.entity.id}}. Ник не используется для объединения личностей.</p>
         <p>Steam32 из каталога: {{data.catalogAccountId || 'неизвестно'}}. Проверка связи с личностью этим справочником не выполнялась.</p>
         <p class="warning">Текущая команда неизвестна. Профессиональная история игрока следует подтверждённой личности через переходы между организациями.</p>
-        <p>История карт ниже использует проверенные связи аккаунтов. Подробные показатели по героям появятся на следующем этапе.</p>
+        <p>История карт и показатели по героям ниже используют проверенные связи аккаунтов и показывают покрытие подтверждённых позиций.</p>
       </template>
       <button type="button" :disabled="isFetching" @click="refetch()">{{isFetching?'Обновление…':'Перечитать базу'}}</button>
     </template>
   </section>
   <ProMapReport v-if="data" :key="kind+id" :kind="kind" :id="id" />
   <RosterReport v-if="data&&kind==='teams'" :key="id" :id="id" />
+  <PlayerHeroReport v-if="data&&kind==='players'" :key="id" :id="id" />
 </template>

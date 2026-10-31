@@ -18,7 +18,7 @@ export async function readProMapInventory(trx:Db,target:RawBuilder<unknown>,from
     ORDER BY m.started_at DESC,m.id DESC LIMIT 5001`.execute(trx)).rows;
   if(rows.length>5000)return null;
   const ids=rows.map(m=>m.id);
-  const players=(await sql<{match_id:string;player_slot:number;source_account_id:string|null}>`SELECT match_id,player_slot,source_account_id
+  const players=(await sql<{match_id:string;player_slot:number;source_account_id:string|null;hero_id:number;kills:number|null;deaths:number|null;assists:number|null;gpm:number|null;xpm:number|null}>`SELECT match_id,player_slot,source_account_id,hero_id,kills,deaths,assists,gpm,xpm
     FROM match_players WHERE match_id=ANY(${ids}::bigint[]) ORDER BY match_id,player_slot`.execute(trx)).rows;
   const facts=(await sql<{id:string;match_id:string;field:string;value:ContextFact['value'];event_at:Date|null;known_at:Date|null;fetched_at:Date;
     provider:string;provider_record_id:string|null;evidence_ref:string|null;adapter_version:string;review_state:string;availability_class:string;earliest_stage:string}>`
@@ -31,7 +31,8 @@ export async function readProMapInventory(trx:Db,target:RawBuilder<unknown>,from
     fetchedAt:row.fetched_at.toISOString(),provider:row.provider,providerRecordId:row.provider_record_id,evidenceRef:row.evidence_ref,
     adapterVersion:row.adapter_version,reviewState:row.review_state,availability:row.availability_class,earliestStage:row.earliest_stage})});byMap.set(row.match_id,group);}
   const playersByMap=new Map<string,ProMapCandidate['players']>();
-  for(const p of players){const group=playersByMap.get(p.match_id)??[];group.push({playerSlot:p.player_slot,sourceAccountId:p.source_account_id});playersByMap.set(p.match_id,group);}
+  for(const p of players){const group=playersByMap.get(p.match_id)??[];group.push({playerSlot:p.player_slot,sourceAccountId:p.source_account_id,
+    heroId:p.hero_id,kills:p.kills,deaths:p.deaths,assists:p.assists,gpm:p.gpm,xpm:p.xpm});playersByMap.set(p.match_id,group);}
   const evidence=await readAccountEvidence(trx,[...new Set(players.flatMap(p=>p.source_account_id??[]))]);
   const registry=await new GameRegistryRepository(trx).snapshot();
   const revision=(await sql<{revision:string}>`SELECT revision FROM identity_registry_state WHERE singleton`.execute(trx)).rows[0]!.revision;

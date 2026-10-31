@@ -65,6 +65,7 @@ jobs:
       - run: pnpm test:catalog
       - run: pnpm test:pro-maps
       - run: pnpm test:roster
+      - run: pnpm test:player-hero
 
   ml-bootstrap:
     runs-on: ubuntu-latest

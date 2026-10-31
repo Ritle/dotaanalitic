@@ -39,3 +39,4 @@ export const AuthResponseSchema = z.object({
 });
 export type AuthResponse = z.infer<typeof AuthResponseSchema>;
 export * from './roster.js';
+export * from './player-hero.js';

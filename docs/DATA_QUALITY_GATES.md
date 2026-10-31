@@ -34,3 +34,7 @@ context-availability-v1 разделяет strict_verified_asof, owner_asserted_
 ## Описательные выборки S1-02
 
 pro-map-display-v1 показывает только завершённые is_pro=true карты, независимо учитывая missing canonical roster/patch/opponent/series. Cutoff ограничивает map events; late backfill остаётся текущим retrospective_descriptive чтением, predictionEligibility=not_assessed. Raw filters не используют model weights. Coverage denominators и отказ при >5000 кандидатах закреплены в [S1_02_PRO_MAPS](S1_02_PRO_MAPS.md); частота побед не становится win probability.
+
+## Реализованные индивидуальные метрики S1-04
+
+Player×hero×confirmed role использует pro/completion/verified source identity gates и отдельный фактический N каждой численной метрики. Неполная K/D/A тройка не входит в KDA, но доступный GPM/XPM может входить в своё среднее; missing не равно0. Unknown role сохраняется отдельно. Default current patch без reviewed release coverage даёт unavailable, не all-patch fallback. [Контракт и знаменатели](S1_04_PLAYER_HERO.md).

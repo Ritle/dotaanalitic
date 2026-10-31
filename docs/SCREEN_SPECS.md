@@ -17,6 +17,10 @@
 
 S1-01: `/` содержит локальные вкладки teams/players/heroes, поиск и постраничные результаты (25), ID/тег, provider sync если известен и отдельный metadata updated timestamp. `/teams/:id` показывает организацию и последнюю наблюдавшуюся pro-пятёрку с native side, partial warning и явным неизвестным текущим составом. `/players/:id` показывает canonical ID и неприсвоенную проверку catalogue account link; история/статистика остаются следующими задачами. Нет скрытой синхронизации/подстановки состава. [Реализация](S1_01_CATALOGUE.md).
 
+## Реализованные герои игрока S1-04
+
+S1-04: `/players/:id` дополнен блоком «Герой и позиция»: default current patch +90days, явные UTC/patch/hero/role/side filters, отдельные строки позиций и unknown role, KDA/mean K/D/A/GPM/XPM с per-field N, доля героя/last-played/source clocks. Unavailable patch не подменяется all-patch; nullable empty/error/retry состояния и внутренняя прокрутка на360px. [Контракт](S1_04_PLAYER_HERO.md).
+
 ## Реализованный состав S1-03
 
 Страница организации дополнена ручной пятёркой с ролями 1–5 и stand-in, optional baseline и временным окном. Показаны точная пятёрка, 10 cross-org пар, личная история/подтверждённые роли и churn организации. Замена скрывает предыдущий расчёт, неизвестная baseline не создаёт delta, фиксированного штрафа и вероятностей нет. Сохранение сценариев остаётся S2-01. [Контракт](S1_03_ROSTER_COHESION.md).

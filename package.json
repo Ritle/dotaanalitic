@@ -40,7 +40,8 @@
     "test:readiness": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/readiness.integration.test.ts",
     "test:catalog": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/catalog.integration.test.ts",
     "test:pro-maps": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/pro-maps.integration.test.ts",
-    "test:roster": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/roster.integration.test.ts"
+    "test:roster": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/roster.integration.test.ts",
+    "test:player-hero": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/player-hero.integration.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

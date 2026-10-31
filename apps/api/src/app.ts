@@ -1,12 +1,13 @@
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import { readConfig } from './config.js';
-import { createDatabase, CatalogRepository, ProMapRepository, RosterRepository, type Db } from '@dota/db';
+import { createDatabase, CatalogRepository, ProMapRepository, RosterRepository, PlayerHeroRepository, type Db } from '@dota/db';
 import { AuthError, AuthService } from './modules/auth/service.js';
 import { registerAuth } from './modules/auth/http.js';
 import { registerCatalog } from './modules/catalog/http.js';
 import { registerProMaps } from './modules/catalog/pro-maps-http.js';
 import { registerRoster } from './modules/catalog/roster-http.js';
+import { registerPlayerHeroes } from './modules/catalog/player-hero-http.js';
 import type { FastifyServerOptions } from 'fastify';
 
 export async function buildApp(config = readConfig(), options: { db?: Db; logger?: FastifyServerOptions['logger'] } = {}) {
@@ -46,6 +47,7 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   registerCatalog(app, new CatalogRepository(db));
   registerProMaps(app, new ProMapRepository(db));
   registerRoster(app, new RosterRepository(db));
+  registerPlayerHeroes(app, new PlayerHeroRepository(db));
   app.setNotFoundHandler((request, reply) => reply.code(404).send({ error: { code: 'NOT_FOUND', message: 'Маршрут не найден.', requestId: request.id } }));
   return app;
 }

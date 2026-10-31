@@ -2,7 +2,7 @@
 
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (auth S0-03 и S1-01..03 реализованы; остальные планируются)
+## Основные маршруты (auth S0-03 и S1-01..04 реализованы; остальные планируются)
 
 | HTTP | Путь | Смысл |
 |---|---|---|
@@ -18,7 +18,7 @@
 | GET | `/players/:id` | Игрок |
 | GET | `/players?query=...` | Локальный поиск canonical игроков (S1-01) |
 | GET | `/players/:id/matches` | Описательные pro-карты игрока (S1-02) |
-| GET | `/players/:id/heroes` | Pro-only статистика по героям |
+| GET | `/players/:id/heroes` | Pro-only hero×confirmed role + per-metric coverage (S1-04) |
 | POST | `/scenarios` | Сценарий: 2 команды |
 | GET | `/scenarios/:id` | Данные сценария |
 | PUT | `/scenarios/:id/lineup` | Атомарно 5+5 игроков |
@@ -50,6 +50,10 @@ S1-02 реализует `/teams/:id/matches` и `/players/:id/matches`: optiona
 ## Сыгранность и замены S1-03
 
 S1-03 `POST /teams/:id/roster-cohesion`: strict `{lineup:[{playerId,rolePos,isStandin?}]×5,expectedLineup?:five|null,fromAt?,cutoffAt?}`. Read-only, но требует Origin/CSRF как все authenticated POST. Response: actual/expected exact-five, 10 pairs, player/role history, structural comparison, organization churn, coverage/provenance. Current retrospective evidence, не historical feature snapshot; null identity/history и observed zero различаются. Полный [контракт S1-03](S1_03_ROSTER_COHESION.md). Scenario persistence/endpoints остаются S2-01.
+
+## Герои и позиции игрока S1-04
+
+S1-04 `/players/:id/heroes`: strict fromAt/cutoffAt, patchScope=current(default)/all/specific (+patchId), heroId/rolePos/side/opponentId/leagueId. Default period90days; current patch unknown и >5000 candidates дают unavailable с reasons, без fallback. Summary/groups hero×role содержат raw N/wins/WR, KDA и mean K/D/A/GPM/XPM с отдельным nMaps, lastPlayedAt и sync; pick-rate denominator — playerMapsInScope до hero filter. maps/proofs/revisions/quality возвращаются с effective filters. [Полный контракт](S1_04_PLAYER_HERO.md).
 
 ## DTO: ошибка
 
