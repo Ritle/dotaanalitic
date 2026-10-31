@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "report": {
+    "file": "docs/evidence/s3-01-ti12-registry-evidence.json",
+    "sha256": "bc8313032457db397f07789e87a7a02b453d1ad158f084579fe1448a9abd7219"
+  },
+  "probes": {
+    "file": "docs/evidence/s3-01-ti12-registry-probes.json",
+    "sha256": "d12db017f721758a77fa0349033d2a03f46594f0f8ef2cc009f1bd3167be9af7"
+  },
+  "identityLedger": {
+    "file": "docs/evidence/s3-01-ti12-identity-ledger.json",
+    "sha256": "22b5c0a43a96428031d0017e7b4eab71bc2f353c035f4c63474ddf712c9677ee"
+  },
+  "mapObservation": {
+    "file": "docs/evidence/s3-01-ti12-map-accounts.json",
+    "sha256": "edc87be8867d324e639289f6e2ac6ab038dccf2f9bca255d4013e204eaaf40a2"
+  },
+  "finalRawReplay": {
+    "payloadSha256": "60b72bb589a33f988fb4025ad6856594352c1f23f7a891f60ff7beb02d05d321",
+    "projectionSha256": "1d0ff8828579c409443ca52c77f047f97c722603b5bd76c5e20b31e96633a044",
+    "samePayload": true,
+    "sameProjection": true,
+    "digestAndMementoVerified": true
+  },
+  "networkAttempts": 7,
+  "httpStatuses": {
+    "200": 7
+  },
+  "webToolRequestsExcluded": true,
+  "databaseWrites": 0,
+  "sourceRegistryAccounts": 10,
+  "canonicalVerifiedAccounts": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

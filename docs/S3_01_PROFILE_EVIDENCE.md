@@ -47,6 +47,6 @@ CLI читает [фиксированный lookup plan](evidence/s3-01-ti12-pr
 
 ## Следующий шаг
 
-**Продолжить S3-01: датированное официальное account/roster evidence для184620877 и отдельная проверка пригодности identity evidence.** Numeric HTML/XML и найденный current vanity path уже проверены; не повторять их без новой причины. Следующий источник должен содержать явный account ID и подтверждаемое время доступности, а не только ник. Затем actual map lineup/side/series и patch coverage, для post-draft — dated hero proof. Историческое наблюдение аккаунта не снимает остальные gates.
+Поиск продолжен в [registry/identity checkpoint](S3_01_IDENTITY_EVIDENCE.md): архив OpenDota2023-04-11 содержит10/10 account IDs, включая184620877. Этот профильный отчёт остаётся историческим результатом9/10; его artifacts не переписываются. **Следующий шаг S3-01 — подготовить проверяемые canonical account links для десяти ID с проверкой конфликтов.** Затем actual map lineup/side/series и patch coverage; post-draft требует dated hero proof. Повторять прежние пустые exact profile queries не требуется.
 
 S3-01, S1-07 и отдельный v8 S1-08 corpus gate открыты; S3-02 автоматически не начинается. Следующая модель: **GPT-6 Astra · Extra High**, переключение вручную.

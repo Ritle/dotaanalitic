@@ -44,6 +44,6 @@ Node-тесты воспроизводят coverage из сохранённых 
 
 ## Следующий точный шаг
 
-Этот поиск продолжен в [Steam-profile checkpoint](S3_01_PROFILE_EVIDENCE.md): три дополнительных exact account ID найдены в архивных self-published profiles, source observations9/10 с раздельной маркировкой качества. **Следующий шаг S3-01: датированное официальное account/roster evidence для184620877 и отдельная проверка пригодности identity evidence.** Уже пустые exact GetPlayerInfo, numeric/XML/current-vanity profile queries и broad prefix queries не повторять без нового основания. Затем проверять actual map lineup/side/series и patch coverage; post-draft дополнительно требует dated hero proof. Ники регистрации не использовать как identity join.
+Поиск продолжен в [Steam-profile checkpoint](S3_01_PROFILE_EVIDENCE.md) до9/10, затем в [registry/identity checkpoint](S3_01_IDENTITY_EVIDENCE.md) до10/10 source accounts. Архив OpenDota2023-04-11 включает184620877; frozen local identity ledger пока пуст. **Следующий шаг S3-01 — подготовить проверяемые canonical account links для десяти ID с проверкой конфликтов.** Затем actual map lineup/side/series и patch coverage; post-draft требует dated hero proof. Ники регистрации не использовать как identity join; прежние пустые exact queries не повторять без нового основания.
 
 Real frozen cohort и четыре непустых временных окна ещё не получены. S1-07 и отдельный v8 S1-08 corpus gate открыты; S3-02 автоматически не начинается. Рекомендуемая модель следующего шага: **GPT-6 Astra · Extra High**, переключение вручную.

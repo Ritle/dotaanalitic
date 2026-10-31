@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "mode": "read_only_identity_ledger_snapshot",
+  "observedAt": "2026-10-31T22:54:20.903Z",
+  "registryRevision": "0",
+  "accountIds": [
+    "10366616",
+    "86698277",
+    "94054712",
+    "94786276",
+    "97658618",
+    "100058342",
+    "136829091",
+    "184620877",
+    "238239590",
+    "346412363"
+  ],
+  "observations": [],
+  "referencesRedactedToSha256": true,
+  "originalObservationFingerprint": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "mapObservation": {
+    "file": "docs/evidence/s3-01-ti12-map-accounts.json",
+    "sha256": "edc87be8867d324e639289f6e2ac6ab038dccf2f9bca255d4013e204eaaf40a2"
+  },
+  "databaseCounts": {
+    "canonicalPlayers": 0,
+    "accountClaims": 0,
+    "legacyLinks": 0
+  },
+  "databaseWrites": 0
+}

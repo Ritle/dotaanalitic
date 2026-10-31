@@ -217,6 +217,8 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 
 ### S3-01 — аудит корпуса и временных выборок (частично)
 
+`pnpm cohort:identity --out reports/new-ti12-identity-evidence.json` проверяет архивный реестр OpenDota и отдельно воспроизводит проверку сохранённого identity ledger. Архив 2023-04-11 содержит 10/10 account ID выбранной карты; в локальном ledger на момент снимка 0 canonical links. Exit0 означает полное source coverage; map lineup и training readiness ещё не подтверждены. [Источники и следующий шаг](docs/S3_01_IDENTITY_EVIDENCE.md).
+
 `pnpm cohort:evidence --out reports/new-ti12-evidence.json` проверяет архивные метаданные Valve до TI2023. Найден также датированный регистрационный ответ с пятью никами одной команды; account links и фактические составы карт не подтверждены. [Историческое evidence и границы](docs/S3_01_HISTORICAL_EVIDENCE.md).
 
 `pnpm cohort:accounts --out reports/new-ti12-account-evidence.json` проверяет архивные team-info responses и совпадения по Steam32 ID. Архивы2022 года подтверждают source associations для6/10 account ID первой карты TI2023; canonical links и actual lineup known-at ещё не подтверждены, training examples0. [Account evidence, команды и ограничения](docs/S3_01_ACCOUNT_EVIDENCE.md).
