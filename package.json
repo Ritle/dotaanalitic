@@ -7,6 +7,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "cohort:profiles": "pnpm shared:build && node scripts/audit-profile-evidence.mjs",
     "cohort:accounts": "pnpm shared:build && node scripts/audit-account-evidence.mjs",
     "cohort:evidence": "pnpm shared:build && node scripts/audit-cohort-evidence.mjs",
     "corpus:audit": "pnpm shared:build && node scripts/analyze-corpus.mjs",

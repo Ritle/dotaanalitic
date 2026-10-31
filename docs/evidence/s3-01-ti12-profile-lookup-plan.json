@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "previousEvidence": {
+    "file": "docs/evidence/s3-01-ti12-account-evidence.json",
+    "sha256": "124765ca66bb405781a2230560ca4ed8f05ae13eb07d3fe7687a1d42cebfb65f"
+  },
+  "selectionPolicy": "only_previous_missing_account_ids_current_redirect_is_discovery_only_archived_embedded_steamid_required",
+  "targets": [
+    {
+      "accountId": "94054712",
+      "original": "https://steamcommunity.com/profiles/76561198054320440/",
+      "discovery": "documented_numeric_profile_format"
+    },
+    {
+      "accountId": "346412363",
+      "original": "https://steamcommunity.com/profiles/76561198306678091/",
+      "discovery": "documented_numeric_profile_format"
+    },
+    {
+      "accountId": "136829091",
+      "original": "https://steamcommunity.com/id/whitemon/",
+      "discovery": "current_official_numeric_profile_redirect"
+    },
+    {
+      "accountId": "184620877",
+      "original": "https://steamcommunity.com/id/1523123512351235/",
+      "discovery": "current_official_numeric_profile_redirect"
+    }
+  ],
+  "canonicalIdentityImportAllowed": false
+}

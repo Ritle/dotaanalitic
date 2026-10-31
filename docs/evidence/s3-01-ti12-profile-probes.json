@@ -1,0 +1,263 @@
+{
+  "schemaVersion": 1,
+  "mode": "bounded_steam_profile_source_review",
+  "generatedAt": "2026-10-31T22:37:14.584Z",
+  "preliminaryRequests": {
+    "attempts": 13,
+    "httpStatuses": {
+      "200": 11,
+      "302": 2
+    },
+    "timeouts": 0
+  },
+  "webToolRequestsExcluded": true,
+  "sourceDocumentation": [
+    "https://partner.steamgames.com/documentation/community_data",
+    "https://raw.githubusercontent.com/ValveSoftware/GameNetworkingSockets/master/include/steam/steamclientpublic.h"
+  ],
+  "indexes": [
+    {
+      "accountId": "94054712",
+      "kind": "html",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fprofiles%2F76561198054320440%2F&output=json&filter=statuscode%3A200&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:32:50.435Z",
+      "payloadSha256": "7e393184908296f9e0aff0dcf29287cb235888ffec69dc8f7dcca70614e80659",
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20131219081742",
+          "http://steamcommunity.com:80/profiles/76561198054320440",
+          "3VGQCDL6TH52S6FOSEOCMMYKPLEGCTJ3"
+        ]
+      ],
+      "status": "indexed_snapshot_found",
+      "globalAbsenceProven": false
+    },
+    {
+      "accountId": "346412363",
+      "kind": "html",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fprofiles%2F76561198306678091%2F&output=json&filter=statuscode%3A200&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:32:52.054Z",
+      "payloadSha256": "90f9c20788fcc3e7dc4a6a3317ab8f0ac5a9f82ff4cd75d4470a146b954fe334",
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20220914110606",
+          "https://steamcommunity.com/profiles/76561198306678091",
+          "FY6EN5RMBPMROIXDLBD7W3KZPUVJEC7C"
+        ]
+      ],
+      "status": "indexed_snapshot_found",
+      "globalAbsenceProven": false
+    },
+    {
+      "accountId": "136829091",
+      "kind": "html",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fprofiles%2F76561198097094819%2F&output=json&filter=statuscode%3A200&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:32:54.206Z",
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "accountId": "184620877",
+      "kind": "html",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fprofiles%2F76561198144886605%2F&output=json&filter=statuscode%3A200&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:32:56.136Z",
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "accountId": "136829091",
+      "kind": "xml",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fprofiles%2F76561198097094819%2F%3Fxml%3D1&output=json&filter=statuscode%3A200&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:33:29.530Z",
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "accountId": "184620877",
+      "kind": "xml",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fprofiles%2F76561198144886605%2F%3Fxml%3D1&output=json&filter=statuscode%3A200&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:33:31.051Z",
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    },
+    {
+      "accountId": "136829091",
+      "kind": "vanity",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fid%2Fwhitemon%2F&output=json&filter=statuscode%3A200&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:34:44.475Z",
+      "payloadSha256": "870b15eaece772d2750f15f0a7fe6c343b28c2f1f073a3939040c1126060896e",
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20191014144109",
+          "https://steamcommunity.com/id/whitemon/",
+          "3RPX4KL24YWB272MGIFMO54LZIBID56E"
+        ],
+        [
+          "20200904133359",
+          "https://steamcommunity.com/id/whitemon/",
+          "QAVHEEPDY5PB6JES3IZP46TEFU733C7N"
+        ],
+        [
+          "20201019050330",
+          "https://steamcommunity.com/id/whitemon/",
+          "57T2Q2IJ7VNP7DKYPECHWR22WQV37OGU"
+        ],
+        [
+          "20210429115616",
+          "https://steamcommunity.com/id/whitemon/",
+          "OB7KO6BCXVQVVHFQ5BNL5F7B6HJPC53V"
+        ],
+        [
+          "20210529221221",
+          "https://steamcommunity.com/id/whitemon/",
+          "OSBJLFF6FDG4PEB77SVVBIXECFGHS6OQ"
+        ]
+      ],
+      "status": "indexed_snapshot_found",
+      "globalAbsenceProven": false
+    },
+    {
+      "accountId": "184620877",
+      "kind": "vanity",
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fid%2F1523123512351235%2F&output=json&filter=statuscode%3A200&to=20231012170043&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:34:45.964Z",
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "rows": [],
+      "status": "no_snapshot_in_this_exact_query",
+      "globalAbsenceProven": false
+    }
+  ],
+  "redirects": [
+    {
+      "accountId": "136829091",
+      "url": "https://steamcommunity.com/profiles/76561198097094819/",
+      "location": "https://steamcommunity.com/id/whitemon/",
+      "fetchedAt": "2026-10-31T22:34:29.294Z",
+      "payloadSha256": "59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2",
+      "httpStatus": 302,
+      "knownAt": null,
+      "role": "lookup_candidate_only",
+      "historicalIdentityProven": false
+    },
+    {
+      "accountId": "184620877",
+      "url": "https://steamcommunity.com/profiles/76561198144886605/",
+      "location": "https://steamcommunity.com/id/1523123512351235/",
+      "fetchedAt": "2026-10-31T22:34:30.876Z",
+      "payloadSha256": "59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2",
+      "httpStatus": 302,
+      "knownAt": null,
+      "role": "lookup_candidate_only",
+      "historicalIdentityProven": false
+    }
+  ],
+  "preliminaryProofs": [
+    {
+      "policyVersion": "steam-profile-account-observation-v1",
+      "status": "verified_archived_profile",
+      "scope": "self_published_profile_account_alias_only",
+      "accountNamespace": "steam32",
+      "accountId": "94054712",
+      "steam64": "76561198054320440",
+      "alias": "Topson",
+      "sourceUrl": "http://steamcommunity.com:80/profiles/76561198054320440",
+      "capturedAt": "2013-12-19T08:17:42.000Z",
+      "knownByAt": "2013-12-19T08:17:42.000Z",
+      "fetchedAt": "2026-10-31T22:33:05.426Z",
+      "cdxDigest": "3VGQCDL6TH52S6FOSEOCMMYKPLEGCTJ3",
+      "payloadSha256": "2f446504f48a7572270436befe5c7100f1fc22d606ecbffbf62e002aab4d3ff0",
+      "decodedSha256": "2f446504f48a7572270436befe5c7100f1fc22d606ecbffbf62e002aab4d3ff0",
+      "projectionSha256": "748781303f414f944a2d78e303ddb9b8a2a17b0b93dd46359b6b893955884311",
+      "canonicalPlayerId": null,
+      "verifiedPersonIdentity": false,
+      "teamId": null,
+      "proStatus": null,
+      "autoIdentityMergeEligible": false,
+      "verifiedMapLineups": 0,
+      "trainingExamples": 0,
+      "trainingReady": false,
+      "deployable": false
+    },
+    {
+      "policyVersion": "steam-profile-account-observation-v1",
+      "status": "verified_archived_profile",
+      "scope": "self_published_profile_account_alias_only",
+      "accountNamespace": "steam32",
+      "accountId": "346412363",
+      "steam64": "76561198306678091",
+      "alias": "Ari",
+      "sourceUrl": "https://steamcommunity.com/profiles/76561198306678091",
+      "capturedAt": "2022-09-14T11:06:06.000Z",
+      "knownByAt": "2022-09-14T11:06:06.000Z",
+      "fetchedAt": "2026-10-31T22:33:08.072Z",
+      "cdxDigest": "FY6EN5RMBPMROIXDLBD7W3KZPUVJEC7C",
+      "payloadSha256": "37c8b944bbb184be264971f2b760a6219f1b1d43153531a2dad1d696a92a46f1",
+      "decodedSha256": "f6280745271334daddc492ffd5bccb43236e8b15e8734b164f5456940688653e",
+      "projectionSha256": "a04fb874370c9b8b7ab80496013ca0cf1162efd62645decdfcfa5789fe854ce7",
+      "canonicalPlayerId": null,
+      "verifiedPersonIdentity": false,
+      "teamId": null,
+      "proStatus": null,
+      "autoIdentityMergeEligible": false,
+      "verifiedMapLineups": 0,
+      "trainingExamples": 0,
+      "trainingReady": false,
+      "deployable": false
+    },
+    {
+      "policyVersion": "steam-profile-account-observation-v1",
+      "status": "verified_archived_profile",
+      "scope": "self_published_profile_account_alias_only",
+      "accountNamespace": "steam32",
+      "accountId": "136829091",
+      "steam64": "76561198097094819",
+      "alias": "Whi†emon",
+      "sourceUrl": "https://steamcommunity.com/id/whitemon/",
+      "capturedAt": "2019-10-14T14:41:09.000Z",
+      "knownByAt": "2019-10-14T14:41:09.000Z",
+      "fetchedAt": "2026-10-31T22:34:51.690Z",
+      "cdxDigest": "3RPX4KL24YWB272MGIFMO54LZIBID56E",
+      "payloadSha256": "13c7af87a503d79aa0d7a33ddf9f9efa5b31e8f48aded0ff36ae47838ff72e45",
+      "decodedSha256": "13c7af87a503d79aa0d7a33ddf9f9efa5b31e8f48aded0ff36ae47838ff72e45",
+      "projectionSha256": "311adebce5d2a563e9b216fc6387e612fe4f2e62304b6452af0515645785b773",
+      "canonicalPlayerId": null,
+      "verifiedPersonIdentity": false,
+      "teamId": null,
+      "proStatus": null,
+      "autoIdentityMergeEligible": false,
+      "verifiedMapLineups": 0,
+      "trainingExamples": 0,
+      "trainingReady": false,
+      "deployable": false
+    }
+  ],
+  "scope": "source_account_observations_not_canonical_identity",
+  "canonicalPlayersCreated": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false
+}

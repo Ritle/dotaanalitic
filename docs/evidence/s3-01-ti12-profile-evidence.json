@@ -1,0 +1,506 @@
+{
+  "schemaVersion": 1,
+  "mode": "live_archived_steam_profile_observations",
+  "generatedAt": "2026-10-31T22:39:36.521Z",
+  "captureStatus": "partial_or_blocked",
+  "lookupPlan": {
+    "file": "docs/evidence/s3-01-ti12-profile-lookup-plan.json",
+    "sha256": "6ff4f95f22932f45e49df244690e4126b074dea40947226ae8e78eb682063d8a"
+  },
+  "previousEvidence": {
+    "file": "docs/evidence/s3-01-ti12-account-evidence.json",
+    "sha256": "124765ca66bb405781a2230560ca4ed8f05ae13eb07d3fe7687a1d42cebfb65f"
+  },
+  "mapObservation": {
+    "file": "docs/evidence/s3-01-ti12-map-accounts.json",
+    "sha256": "edc87be8867d324e639289f6e2ac6ab038dccf2f9bca255d4013e204eaaf40a2"
+  },
+  "sources": [
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fprofiles%2F76561198054320440%2F&output=json&filter=statuscode%3A200&to=20231012170044&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:39:22.034Z",
+      "payloadSha256": "7e393184908296f9e0aff0dcf29287cb235888ffec69dc8f7dcca70614e80659",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/web/20131219081742id_/http://steamcommunity.com:80/profiles/76561198054320440",
+      "fetchedAt": "2026-10-31T22:39:23.709Z",
+      "payloadSha256": "2f446504f48a7572270436befe5c7100f1fc22d606ecbffbf62e002aab4d3ff0",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fprofiles%2F76561198306678091%2F&output=json&filter=statuscode%3A200&to=20231012170044&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:39:24.322Z",
+      "payloadSha256": "90f9c20788fcc3e7dc4a6a3317ab8f0ac5a9f82ff4cd75d4470a146b954fe334",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fid%2Fwhitemon%2F&output=json&filter=statuscode%3A200&to=20231012170044&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:39:34.260Z",
+      "payloadSha256": "870b15eaece772d2750f15f0a7fe6c343b28c2f1f073a3939040c1126060896e",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/web/20191014144109id_/https://steamcommunity.com/id/whitemon/",
+      "fetchedAt": "2026-10-31T22:39:35.859Z",
+      "payloadSha256": "13c7af87a503d79aa0d7a33ddf9f9efa5b31e8f48aded0ff36ae47838ff72e45",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fsteamcommunity.com%2Fid%2F1523123512351235%2F&output=json&filter=statuscode%3A200&to=20231012170044&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T22:39:36.521Z",
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "attempts": 1
+    }
+  ],
+  "lookups": [
+    {
+      "accountId": "94054712",
+      "original": "https://steamcommunity.com/profiles/76561198054320440/",
+      "records": [
+        {
+          "timestamp": "20131219081742",
+          "original": "http://steamcommunity.com:80/profiles/76561198054320440",
+          "digest": "3VGQCDL6TH52S6FOSEOCMMYKPLEGCTJ3",
+          "capturedAt": "2013-12-19T08:17:42.000Z"
+        }
+      ],
+      "status": "indexed_snapshot_found"
+    },
+    {
+      "accountId": "346412363",
+      "original": "https://steamcommunity.com/profiles/76561198306678091/",
+      "records": [
+        {
+          "timestamp": "20220914110606",
+          "original": "https://steamcommunity.com/profiles/76561198306678091",
+          "digest": "FY6EN5RMBPMROIXDLBD7W3KZPUVJEC7C",
+          "capturedAt": "2022-09-14T11:06:06.000Z"
+        }
+      ],
+      "status": "indexed_snapshot_found"
+    },
+    {
+      "accountId": "136829091",
+      "original": "https://steamcommunity.com/id/whitemon/",
+      "records": [
+        {
+          "timestamp": "20191014144109",
+          "original": "https://steamcommunity.com/id/whitemon/",
+          "digest": "3RPX4KL24YWB272MGIFMO54LZIBID56E",
+          "capturedAt": "2019-10-14T14:41:09.000Z"
+        },
+        {
+          "timestamp": "20200904133359",
+          "original": "https://steamcommunity.com/id/whitemon/",
+          "digest": "QAVHEEPDY5PB6JES3IZP46TEFU733C7N",
+          "capturedAt": "2020-09-04T13:33:59.000Z"
+        },
+        {
+          "timestamp": "20201019050330",
+          "original": "https://steamcommunity.com/id/whitemon/",
+          "digest": "57T2Q2IJ7VNP7DKYPECHWR22WQV37OGU",
+          "capturedAt": "2020-10-19T05:03:30.000Z"
+        },
+        {
+          "timestamp": "20210429115616",
+          "original": "https://steamcommunity.com/id/whitemon/",
+          "digest": "OB7KO6BCXVQVVHFQ5BNL5F7B6HJPC53V",
+          "capturedAt": "2021-04-29T11:56:16.000Z"
+        },
+        {
+          "timestamp": "20210529221221",
+          "original": "https://steamcommunity.com/id/whitemon/",
+          "digest": "OSBJLFF6FDG4PEB77SVVBIXECFGHS6OQ",
+          "capturedAt": "2021-05-29T22:12:21.000Z"
+        }
+      ],
+      "status": "indexed_snapshot_found"
+    },
+    {
+      "accountId": "184620877",
+      "original": "https://steamcommunity.com/id/1523123512351235/",
+      "records": [],
+      "status": "no_snapshot_in_this_exact_query"
+    }
+  ],
+  "proofs": [
+    {
+      "policyVersion": "steam-profile-account-observation-v1",
+      "status": "verified_archived_profile",
+      "scope": "self_published_profile_account_alias_only",
+      "accountNamespace": "steam32",
+      "accountId": "94054712",
+      "steam64": "76561198054320440",
+      "alias": "Topson",
+      "sourceUrl": "http://steamcommunity.com:80/profiles/76561198054320440",
+      "capturedAt": "2013-12-19T08:17:42.000Z",
+      "knownByAt": "2013-12-19T08:17:42.000Z",
+      "fetchedAt": "2026-10-31T22:39:23.709Z",
+      "cdxDigest": "3VGQCDL6TH52S6FOSEOCMMYKPLEGCTJ3",
+      "payloadSha256": "2f446504f48a7572270436befe5c7100f1fc22d606ecbffbf62e002aab4d3ff0",
+      "decodedSha256": "2f446504f48a7572270436befe5c7100f1fc22d606ecbffbf62e002aab4d3ff0",
+      "projectionSha256": "748781303f414f944a2d78e303ddb9b8a2a17b0b93dd46359b6b893955884311",
+      "canonicalPlayerId": null,
+      "verifiedPersonIdentity": false,
+      "teamId": null,
+      "proStatus": null,
+      "autoIdentityMergeEligible": false,
+      "verifiedMapLineups": 0,
+      "trainingExamples": 0,
+      "trainingReady": false,
+      "deployable": false
+    },
+    {
+      "policyVersion": "steam-profile-account-observation-v1",
+      "status": "verified_archived_profile",
+      "scope": "self_published_profile_account_alias_only",
+      "accountNamespace": "steam32",
+      "accountId": "136829091",
+      "steam64": "76561198097094819",
+      "alias": "Whi†emon",
+      "sourceUrl": "https://steamcommunity.com/id/whitemon/",
+      "capturedAt": "2019-10-14T14:41:09.000Z",
+      "knownByAt": "2019-10-14T14:41:09.000Z",
+      "fetchedAt": "2026-10-31T22:39:35.859Z",
+      "cdxDigest": "3RPX4KL24YWB272MGIFMO54LZIBID56E",
+      "payloadSha256": "13c7af87a503d79aa0d7a33ddf9f9efa5b31e8f48aded0ff36ae47838ff72e45",
+      "decodedSha256": "13c7af87a503d79aa0d7a33ddf9f9efa5b31e8f48aded0ff36ae47838ff72e45",
+      "projectionSha256": "311adebce5d2a563e9b216fc6387e612fe4f2e62304b6452af0515645785b773",
+      "canonicalPlayerId": null,
+      "verifiedPersonIdentity": false,
+      "teamId": null,
+      "proStatus": null,
+      "autoIdentityMergeEligible": false,
+      "verifiedMapLineups": 0,
+      "trainingExamples": 0,
+      "trainingReady": false,
+      "deployable": false
+    }
+  ],
+  "coverage": {
+    "policyVersion": "historical-account-sources-v1",
+    "scope": "source_account_observations_not_canonical_identity",
+    "matchId": "7378530387",
+    "snapshotAt": "2026-10-31T22:39:36.521Z",
+    "teamCoverage": {
+      "policyVersion": "historical-account-coverage-v1",
+      "scope": "account_id_evidence_not_lineup",
+      "matchId": "7378530387",
+      "startedAt": "2023-10-12T17:00:44.000Z",
+      "snapshotAt": "2026-10-31T22:39:36.521Z",
+      "mapObservationSha256": "9659fc4b985438730667435575bd5b279a32c1db9d58b503e5dbf98991cdee53",
+      "mapCount": 1,
+      "observedPlayerRows": 10,
+      "knownMapAccounts": 10,
+      "accountsObservedBeforeCutoff": 6,
+      "accountsWithoutMatchingArchive": 4,
+      "unknownAccountRows": 0,
+      "eligibleProofs": 2,
+      "players": [
+        {
+          "playerSlot": 0,
+          "accountId": "10366616",
+          "accountEvidenceStatus": "observed_before_cutoff",
+          "earliestProvenByAt": "2022-08-16T12:19:30.000Z",
+          "sourceTeamIds": [
+            "8291895"
+          ],
+          "proofPayloadHashes": [
+            "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0"
+          ],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 1,
+          "accountId": "100058342",
+          "accountEvidenceStatus": "observed_before_cutoff",
+          "earliestProvenByAt": "2022-08-16T12:19:30.000Z",
+          "sourceTeamIds": [
+            "8291895"
+          ],
+          "proofPayloadHashes": [
+            "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0"
+          ],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 2,
+          "accountId": "94786276",
+          "accountEvidenceStatus": "observed_before_cutoff",
+          "earliestProvenByAt": "2022-08-16T12:19:30.000Z",
+          "sourceTeamIds": [
+            "8291895"
+          ],
+          "proofPayloadHashes": [
+            "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0"
+          ],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 3,
+          "accountId": "86698277",
+          "accountEvidenceStatus": "observed_before_cutoff",
+          "earliestProvenByAt": "2022-08-16T12:19:30.000Z",
+          "sourceTeamIds": [
+            "8291895"
+          ],
+          "proofPayloadHashes": [
+            "8cdb47337b2bd3876f05b7dc53a17977054cbcb355ecc1d8a1bd587af300bdc0"
+          ],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 4,
+          "accountId": "94054712",
+          "accountEvidenceStatus": "no_matching_archive",
+          "earliestProvenByAt": null,
+          "sourceTeamIds": [],
+          "proofPayloadHashes": [],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 128,
+          "accountId": "238239590",
+          "accountEvidenceStatus": "observed_before_cutoff",
+          "earliestProvenByAt": "2022-08-05T02:04:35.000Z",
+          "sourceTeamIds": [
+            "8260983"
+          ],
+          "proofPayloadHashes": [
+            "f092d2e5bd54d262258edd3d1b7b6d1d5d0218f00bae06d14e35cbdaa43b9d9f"
+          ],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 129,
+          "accountId": "346412363",
+          "accountEvidenceStatus": "no_matching_archive",
+          "earliestProvenByAt": null,
+          "sourceTeamIds": [],
+          "proofPayloadHashes": [],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 130,
+          "accountId": "136829091",
+          "accountEvidenceStatus": "no_matching_archive",
+          "earliestProvenByAt": null,
+          "sourceTeamIds": [],
+          "proofPayloadHashes": [],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 131,
+          "accountId": "184620877",
+          "accountEvidenceStatus": "no_matching_archive",
+          "earliestProvenByAt": null,
+          "sourceTeamIds": [],
+          "proofPayloadHashes": [],
+          "canonicalPlayerId": null
+        },
+        {
+          "playerSlot": 132,
+          "accountId": "97658618",
+          "accountEvidenceStatus": "observed_before_cutoff",
+          "earliestProvenByAt": "2022-08-05T02:04:35.000Z",
+          "sourceTeamIds": [
+            "8260983"
+          ],
+          "proofPayloadHashes": [
+            "f092d2e5bd54d262258edd3d1b7b6d1d5d0218f00bae06d14e35cbdaa43b9d9f"
+          ],
+          "canonicalPlayerId": null
+        }
+      ],
+      "canonicalPlayersCreated": 0,
+      "verifiedMapLineups": 0,
+      "trainingExamples": 0,
+      "strictDatasetStatus": "unavailable",
+      "trainingReady": false,
+      "deployable": false,
+      "fingerprint": "339aa0b545d79203f9e034785d4f88cd8223dec27e10579be2b7b28327687438"
+    },
+    "players": [
+      {
+        "playerSlot": 0,
+        "accountId": "10366616",
+        "organizationObserved": true,
+        "profileObserved": false,
+        "observedBeforeCutoff": true,
+        "profilePayloadHashes": [],
+        "profileKnownByAt": null,
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 1,
+        "accountId": "100058342",
+        "organizationObserved": true,
+        "profileObserved": false,
+        "observedBeforeCutoff": true,
+        "profilePayloadHashes": [],
+        "profileKnownByAt": null,
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 2,
+        "accountId": "94786276",
+        "organizationObserved": true,
+        "profileObserved": false,
+        "observedBeforeCutoff": true,
+        "profilePayloadHashes": [],
+        "profileKnownByAt": null,
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 3,
+        "accountId": "86698277",
+        "organizationObserved": true,
+        "profileObserved": false,
+        "observedBeforeCutoff": true,
+        "profilePayloadHashes": [],
+        "profileKnownByAt": null,
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 4,
+        "accountId": "94054712",
+        "organizationObserved": false,
+        "profileObserved": true,
+        "observedBeforeCutoff": true,
+        "profilePayloadHashes": [
+          "2f446504f48a7572270436befe5c7100f1fc22d606ecbffbf62e002aab4d3ff0"
+        ],
+        "profileKnownByAt": "2013-12-19T08:17:42.000Z",
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 128,
+        "accountId": "238239590",
+        "organizationObserved": true,
+        "profileObserved": false,
+        "observedBeforeCutoff": true,
+        "profilePayloadHashes": [],
+        "profileKnownByAt": null,
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 129,
+        "accountId": "346412363",
+        "organizationObserved": false,
+        "profileObserved": false,
+        "observedBeforeCutoff": false,
+        "profilePayloadHashes": [],
+        "profileKnownByAt": null,
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 130,
+        "accountId": "136829091",
+        "organizationObserved": false,
+        "profileObserved": true,
+        "observedBeforeCutoff": true,
+        "profilePayloadHashes": [
+          "13c7af87a503d79aa0d7a33ddf9f9efa5b31e8f48aded0ff36ae47838ff72e45"
+        ],
+        "profileKnownByAt": "2019-10-14T14:41:09.000Z",
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 131,
+        "accountId": "184620877",
+        "organizationObserved": false,
+        "profileObserved": false,
+        "observedBeforeCutoff": false,
+        "profilePayloadHashes": [],
+        "profileKnownByAt": null,
+        "canonicalPlayerId": null
+      },
+      {
+        "playerSlot": 132,
+        "accountId": "97658618",
+        "organizationObserved": true,
+        "profileObserved": false,
+        "observedBeforeCutoff": true,
+        "profilePayloadHashes": [],
+        "profileKnownByAt": null,
+        "canonicalPlayerId": null
+      }
+    ],
+    "mapCount": 1,
+    "knownMapAccounts": 10,
+    "organizationObservedAccounts": 6,
+    "profileObservedAccounts": 2,
+    "profileOnlyAccounts": 2,
+    "accountsObservedBeforeCutoff": 8,
+    "accountsWithoutMatchingArchive": 2,
+    "unknownAccountRows": 0,
+    "canonicalPlayersCreated": 0,
+    "verifiedMapLineups": 0,
+    "trainingExamples": 0,
+    "strictDatasetStatus": "unavailable",
+    "trainingReady": false,
+    "deployable": false,
+    "fingerprint": "7a03e2dfbe179d4ce6fcdea29b4adf7e19f0fa3b0707aaf225ba0793da099674"
+  },
+  "code": [
+    {
+      "file": "scripts/audit-profile-evidence.mjs",
+      "sha256": "54b301b98b40e6f2435997ee2fa7966bd204a5f1a250ffecbb69971bca125e76"
+    },
+    {
+      "file": "packages/ingestion/src/valve/steam-profile-evidence.ts",
+      "sha256": "b703b418e5300b7dd40562702e57822e04be8c9d07a06f9ae6737c65a9b7701f"
+    },
+    {
+      "file": "packages/ingestion/src/valve/team-account-evidence.ts",
+      "sha256": "35b7bafc0324d599f4859e03da5854cbe13466b321014ba4d8c8c7848232cd67"
+    },
+    {
+      "file": "packages/ingestion/src/valve/archive-client.ts",
+      "sha256": "4da5e645163aab14792aa3c27c3cf3440975c5317bfeb7aefdd8b00ddbda1abd"
+    },
+    {
+      "file": "packages/ingestion/src/valve/archive-evidence.ts",
+      "sha256": "4b912e505f1b085cec0504acff698617abb25047bb2ff90178f0a5c9e7363c02"
+    },
+    {
+      "file": "packages/contracts/src/identity.ts",
+      "sha256": "3eb127a0d86c56f9489474590ee9ec231d07aa320532b11a766b116c3f5fa6ec"
+    },
+    {
+      "file": "packages/ingestion/dist/valve/steam-profile-evidence.js",
+      "sha256": "febf6c52e46d648d496bba8c35874939b762e831e5943579d9d3f959269d54ed"
+    },
+    {
+      "file": "packages/ingestion/dist/valve/archive-client.js",
+      "sha256": "fd6ef69e9f19608e5e35ee3765bb76446125d5ea7c9a5f6208f5e8ee749c975f"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "914424aafc1923c7d021b17dd1fabe4306aaa632756c822ad3eda5fae0edf4d8"
+    }
+  ],
+  "requests": {
+    "attempts": 7,
+    "httpStatuses": {
+      "200": 6,
+      "302": 1
+    }
+  },
+  "errors": [
+    {
+      "accountId": "346412363",
+      "code": "archive_http_error",
+      "status": 302
+    }
+  ],
+  "scope": "source_account_observations_not_canonical_identity",
+  "databaseWrites": 0,
+  "canonicalPlayersCreated": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "strictDatasetStatus": "unavailable",
+  "trainingReady": false,
+  "deployable": false
+}

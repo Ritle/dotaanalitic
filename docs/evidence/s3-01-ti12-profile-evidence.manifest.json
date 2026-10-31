@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "report": {
+    "file": "docs/evidence/s3-01-ti12-profile-replay.json",
+    "sha256": "6ff38e03d044598456506b1f8a51f416170879f8d285f8d484cf83581dfa86c6"
+  },
+  "liveCapture": {
+    "file": "docs/evidence/s3-01-ti12-profile-evidence.json",
+    "sha256": "7c6d11229309bb4ab660f77e803e8aea4aa70c3a3163c0e5bf8c1c45082526d5"
+  },
+  "probes": {
+    "file": "docs/evidence/s3-01-ti12-profile-probes.json",
+    "sha256": "4bcc5627072cfb6b91ee939e85b44eb3a3edb73ad028144c87b9dc1f5da153eb"
+  },
+  "lookupPlan": {
+    "file": "docs/evidence/s3-01-ti12-profile-lookup-plan.json",
+    "sha256": "6ff4f95f22932f45e49df244690e4126b074dea40947226ae8e78eb682063d8a"
+  },
+  "previousEvidence": {
+    "file": "docs/evidence/s3-01-ti12-account-evidence.json",
+    "sha256": "124765ca66bb405781a2230560ca4ed8f05ae13eb07d3fe7687a1d42cebfb65f"
+  },
+  "mapObservation": {
+    "file": "docs/evidence/s3-01-ti12-map-accounts.json",
+    "sha256": "edc87be8867d324e639289f6e2ac6ab038dccf2f9bca255d4013e204eaaf40a2"
+  },
+  "finalRawReplay": [
+    {
+      "accountId": "94054712",
+      "payloadSha256": "2f446504f48a7572270436befe5c7100f1fc22d606ecbffbf62e002aab4d3ff0",
+      "projectionSha256": "748781303f414f944a2d78e303ddb9b8a2a17b0b93dd46359b6b893955884311",
+      "samePayload": true,
+      "sameProjection": true,
+      "digestAndMementoVerified": true
+    },
+    {
+      "accountId": "346412363",
+      "payloadSha256": "37c8b944bbb184be264971f2b760a6219f1b1d43153531a2dad1d696a92a46f1",
+      "projectionSha256": "a04fb874370c9b8b7ab80496013ca0cf1162efd62645decdfcfa5789fe854ce7",
+      "samePayload": true,
+      "sameProjection": true,
+      "digestAndMementoVerified": true
+    },
+    {
+      "accountId": "136829091",
+      "payloadSha256": "13c7af87a503d79aa0d7a33ddf9f9efa5b31e8f48aded0ff36ae47838ff72e45",
+      "projectionSha256": "311adebce5d2a563e9b216fc6387e612fe4f2e62304b6452af0515645785b773",
+      "samePayload": true,
+      "sameProjection": true,
+      "digestAndMementoVerified": true
+    }
+  ],
+  "initialDevelopmentCapture": {
+    "sha256": "afaa4b971b0210d15038f8d5edd37e72a783fc23a207d583295385351fb6d98a",
+    "retainedLocally": true,
+    "requests": {
+      "attempts": 7,
+      "httpStatuses": {
+        "200": 7
+      }
+    },
+    "captureStatus": "partial_archive_coverage",
+    "parserAmbiguityFixedBeforeFinalReplay": true
+  },
+  "networkAttempts": 27,
+  "httpStatuses": {
+    "200": 24,
+    "302": 3
+  },
+  "webToolRequestsExcluded": true,
+  "observedSavedAccounts": 9,
+  "latestLiveObservedAccounts": 8,
+  "verifiedPersonIdentities": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}
