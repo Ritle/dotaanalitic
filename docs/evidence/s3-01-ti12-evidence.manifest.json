@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "report": {
+    "file": "docs/evidence/s3-01-ti12-evidence.json",
+    "sha256": "85fe9629cb80c9795cfbc8faad2845d609c10126e25f45352bfa84c2471e0c9c"
+  },
+  "probes": {
+    "file": "docs/evidence/s3-01-ti12-probes.json",
+    "sha256": "e1579201bc5fb320ced8e5bda00a7036fa655ba8bb0b5598188156ffe0122f73"
+  },
+  "knownByAt": "2023-10-07T10:14:10.000Z",
+  "metadataSha256": "77154c3ea80cc142e557fff841c51db2867e1051570a616f48eb83112c7c6c75",
+  "localRawMetadataReplayMatches": true,
+  "scope": "event_league_registration_metadata_only",
+  "mapsWithMatchingLeagueReference": 5,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

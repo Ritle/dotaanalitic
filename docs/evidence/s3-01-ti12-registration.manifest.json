@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "file": "docs/evidence/s3-01-ti12-registration.json",
+  "sha256": "6a5754465eada4b0e98477cbfac9d21587a95401c7760dd1c38012790aa17a98",
+  "teamId": "8291895",
+  "knownByAt": "2023-10-01T08:39:37.000Z",
+  "scope": "registered_nicknames_for_organization_only",
+  "registeredRows": 5,
+  "verifiedCanonicalPlayers": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

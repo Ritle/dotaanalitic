@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "mode": "live_archived_registration_response",
+  "generatedAt": "2026-10-31T22:10:59.119Z",
+  "selectionPolicy": "first_map_in_existing_TI2023_cohort_then_exact_native_team_ids_without_outcome_selection",
+  "retrospectiveLookupSelection": {
+    "schemaVersion": 1,
+    "mode": "live_opendota_exact_archive_lookup_selection",
+    "matchId": "7378530387",
+    "leagueId": "15728",
+    "startedAt": "2023-10-12T17:00:44.000Z",
+    "seriesId": "815175",
+    "radiantTeamId": "8291895",
+    "direTeamId": "8260983",
+    "source": {
+      "endpoint": "/matches/7378530387",
+      "fetchedAt": "2026-10-31T22:09:02.240Z",
+      "payloadSha256": "9659fc4b985438730667435575bd5b279a32c1db9d58b503e5dbf98991cdee53"
+    },
+    "requestStats": {
+      "attempts": 1,
+      "httpStatuses": {
+        "200": 1
+      },
+      "transportErrors": {}
+    },
+    "knownAt": null,
+    "scope": "post_match_ids_for_archive_lookup_only",
+    "canonicalImports": 0,
+    "trainingExamples": 0,
+    "deployable": false
+  },
+  "indexes": [
+    {
+      "teamId": "8291895",
+      "original": "https://www.dota2.com/majorsregistration/teammembers?team_id=8291895",
+      "beforeAt": "2023-10-12T17:00:44.000Z",
+      "fromAt": "2023-01-01T00:00:00.000Z",
+      "retrievedFileMtime": "2026-10-31T22:09:10.621Z",
+      "payloadSha256": "1fe726ceca765e56c5430fa977251f087d4e995e94dcce77c891349319260216",
+      "records": [
+        {
+          "timestamp": "20231001083937",
+          "original": "https://www.dota2.com/majorsregistration/teammembers?team_id=8291895",
+          "digest": "WTAXYLCVGB5LINPRBEOKBRPHVEXNSJ4Y",
+          "capturedAt": "2023-10-01T08:39:37.000Z"
+        }
+      ],
+      "status": "indexed_snapshot_found"
+    },
+    {
+      "teamId": "8260983",
+      "original": "https://www.dota2.com/majorsregistration/teammembers?team_id=8260983",
+      "beforeAt": "2023-10-12T17:00:44.000Z",
+      "fromAt": "2023-01-01T00:00:00.000Z",
+      "retrievedFileMtime": "2026-10-31T22:09:16.082Z",
+      "payloadSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "records": [],
+      "status": "no_snapshot_in_this_exact_query"
+    }
+  ],
+  "proof": {
+    "policyVersion": "archived-registration-nicknames-v1",
+    "status": "verified_archived_response",
+    "scope": "registered_nicknames_for_organization_only",
+    "teamId": "8291895",
+    "sourceUrl": "https://www.dota2.com/majorsregistration/teammembers?team_id=8291895",
+    "capturedAt": "2023-10-01T08:39:37.000Z",
+    "knownByAt": "2023-10-01T08:39:37.000Z",
+    "fetchedAt": "2026-10-31T22:09:30.537Z",
+    "registeredRows": 5,
+    "distinctNicknames": 5,
+    "entries": [
+      {
+        "nickname": "Topson",
+        "sourceConfirmationAt": "2023-09-12T17:47:07.000Z",
+        "canonicalPlayerId": null,
+        "externalAccountId": null
+      },
+      {
+        "nickname": "Sneyking",
+        "sourceConfirmationAt": "2022-11-30T19:39:07.000Z",
+        "canonicalPlayerId": null,
+        "externalAccountId": null
+      },
+      {
+        "nickname": "Nine",
+        "sourceConfirmationAt": "2022-11-30T18:31:18.000Z",
+        "canonicalPlayerId": null,
+        "externalAccountId": null
+      },
+      {
+        "nickname": "skiter",
+        "sourceConfirmationAt": "2022-11-30T17:47:54.000Z",
+        "canonicalPlayerId": null,
+        "externalAccountId": null
+      },
+      {
+        "nickname": "33",
+        "sourceConfirmationAt": "2022-11-30T17:37:08.000Z",
+        "canonicalPlayerId": null,
+        "externalAccountId": null
+      }
+    ],
+    "cdxDigest": "WTAXYLCVGB5LINPRBEOKBRPHVEXNSJ4Y",
+    "payloadSha256": "1f9c8f006f782f939bef5296b57371a6ec47f4d93c35695d76d99274553e0253",
+    "decodedSha256": "120aaa03f2e5f9f77d097ff25d4e8a866e1c9676a04b7e8fb43aa2464370125a",
+    "projectionSha256": "f7412d9c66aea87f495faa77a624420d651c3e2ce76761db2e247e720efe1dc8",
+    "verifiedCanonicalPlayers": 0,
+    "verifiedMapLineups": 0,
+    "mapId": null,
+    "mapSide": null,
+    "roles": null,
+    "sourceConfirmationIsKnownAt": false,
+    "autoIdentityMergeEligible": false,
+    "trainingReady": false,
+    "deployable": false
+  },
+  "code": [
+    {
+      "file": "packages/ingestion/src/valve/registration-evidence.ts",
+      "sha256": "75f757e7cea8ead286864e41556ee05f46794c177a8a291761d1116cd81a9c34"
+    },
+    {
+      "file": "packages/ingestion/dist/valve/registration-evidence.js",
+      "sha256": "445346b1726190092fe57ccf2a25446fda4d043d6f90b14c6a082f73fbf6d6e6"
+    },
+    {
+      "file": "packages/ingestion/src/valve/archive-evidence.ts",
+      "sha256": "4b912e505f1b085cec0504acff698617abb25047bb2ff90178f0a5c9e7363c02"
+    }
+  ],
+  "requests": {
+    "opendota": {
+      "attempts": 1,
+      "httpStatuses": {
+        "200": 1
+      },
+      "transportErrors": {}
+    },
+    "archive": {
+      "attempts": 3,
+      "httpStatuses": {
+        "200": 3
+      }
+    }
+  },
+  "limitations": [
+    "Registered nickname rows are not canonical account links.",
+    "A registered organization roster does not prove the actual five or native side of a particular map.",
+    "Confirmation timestamps are source assertions; knownByAt is the verified archive time.",
+    "The second team query returned no indexed snapshot for this exact URL/window, not proof of no archived data.",
+    "No patch release, hero availability or post-draft timestamp is established."
+  ],
+  "canonicalImports": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "strictDatasetStatus": "unavailable",
+  "deployable": false
+}

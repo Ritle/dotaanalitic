@@ -27,13 +27,29 @@ export class ArchiveEvidenceClient{
   private now(){return this.dependencies.now?.()??Date.now();}
   private original(eventId:string){if(!/^[1-9]\d{0,19}$/.test(eventId))throw new ValvePatchError('invalid_event_id');return `https://store.steampowered.com/news/app/570/view/${eventId}`;}
   async findBefore(eventId:string,beforeAt:string){
-    z.iso.datetime({precision:3}).parse(beforeAt);const original=this.original(eventId),url=new URL('https://web.archive.org/cdx/search/cdx');
+    return this.findOriginalBefore(this.original(eventId),beforeAt);
+  }
+  async findTi12Before(beforeAt:string){
+    return this.findOriginalBefore('https://www.dota2.com/esports/ti12',beforeAt,'2023-10-01T00:00:00.000Z');
+  }
+  private async findOriginalBefore(original:string,beforeAt:string,fromAt?:string){
+    z.iso.datetime({precision:3}).parse(beforeAt);const url=new URL('https://web.archive.org/cdx/search/cdx');
+    if(fromAt!==undefined&&beforeAt<=fromAt)throw new ValvePatchError('invalid_archive_window');
     url.search=new URLSearchParams({url:original,output:'json',filter:'statuscode:200',to:beforeAt.replace(/[-:TZ.]/g,'').slice(0,14),collapse:'timestamp:8',fl:'timestamp,original,digest',limit:'5'}).toString();
+    if(fromAt!==undefined)url.searchParams.set('from',fromAt.replace(/[-:TZ.]/g,'').slice(0,14));
     const r=await this.request(url),bytes=r.headers['content-encoding']==='gzip'?gunzipSync(r.bytes,{maxOutputLength:4*1024*1024}):r.bytes;
-    return {records:parseArchiveIndex(JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes)),original,beforeAt),source:r.source};
+    const records=parseArchiveIndex(JSON.parse(new TextDecoder('utf-8',{fatal:true}).decode(bytes)),original,beforeAt);
+    if(fromAt!==undefined&&records.some(row=>row.capturedAt<fromAt))throw new ValvePatchError('archive_record_outside_window');
+    return {records,source:r.source};
   }
   async getSnapshot(eventId:string,timestamp:string){
-    archiveStampAt(timestamp);const original=this.original(eventId),url=new URL(`https://web.archive.org/web/${timestamp}id_/${original}`),r=await this.request(url);
+    return this.getOriginalSnapshot(this.original(eventId),timestamp);
+  }
+  async getTi12Snapshot(timestamp:string){
+    return this.getOriginalSnapshot('https://www.dota2.com/esports/ti12',timestamp);
+  }
+  private async getOriginalSnapshot(original:string,timestamp:string){
+    archiveStampAt(timestamp);const url=new URL(`https://web.archive.org/web/${timestamp}id_/${original}`),r=await this.request(url);
     const links=r.headers.link??'',originalLinks=[...links.matchAll(/<([^>]+)>;\s*rel="original"/g)];
     if(originalLinks.length!==1)throw new ValvePatchError('archive_original_link_missing_or_ambiguous');
     return {timestamp,original,originalLink:originalLinks[0]![1]!,mementoDatetime:r.headers['memento-datetime']??'',encoding:r.headers['content-encoding']??'identity',bytes:r.bytes,source:r.source};

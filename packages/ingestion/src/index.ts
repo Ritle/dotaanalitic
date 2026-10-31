@@ -9,3 +9,5 @@ export * from './valve/patch-audit.js';
 export * from './valve/steam-event.js';
 export * from './valve/archive-evidence.js';
 export * from './valve/archive-client.js';
+export * from './valve/tournament-evidence.js';
+export * from './valve/registration-evidence.js';

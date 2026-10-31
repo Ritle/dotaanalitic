@@ -57,6 +57,8 @@ Source report file SHA и logical corpus fingerprint различаются по
 
 ## Что остаётся
 
+Дополнительный [исторический checkpoint TI2023](S3_01_HISTORICAL_EVIDENCE.md) подтвердил archived event/league metadata и пять зарегистрированных ников одной организации. Это не canonical account links и не actual pre-known map lineup; trainingExamples остаётся0.
+
 В рабочей PostgreSQL по-прежнему одна каноническая карта, нет frozen dataset или активной модели. Эти HTTP captures не импортируются автоматически и не создают verified identity/series/patch/lineup proofs. Массовое повторение тех же постматчевых полей не устранит отсутствие раннего known-at.
 
 **Следующий шаг остаётся S3-01:** собрать проверяемый evidence пакет для одного исторического multi-series cohort — canonical account links, series membership, dated lineup/side и patch release coverage; для post-draft также dated hero proof. Затем подготовить реальный frozen dataset через S3-00/v2 и выполнить независимый audit четырёх окон. При отсутствии такого evidence строгое обучение остаётся unavailable. Рекомендуемая модель — **GPT-6 Astra · Extra High** по проектному routing guide.

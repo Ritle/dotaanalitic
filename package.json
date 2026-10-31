@@ -7,6 +7,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "cohort:evidence": "pnpm shared:build && node scripts/audit-cohort-evidence.mjs",
     "corpus:audit": "pnpm shared:build && node scripts/analyze-corpus.mjs",
     "dataset:audit": "pnpm shared:build && node --env-file-if-exists=.env scripts/audit-dataset.mjs",
     "test:dataset-splits": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/dataset-series.integration.test.ts packages/db/tests/dataset-audit.integration.test.ts packages/db/tests/dataset-builder.integration.test.ts --testTimeout=30000 --maxWorkers=1",

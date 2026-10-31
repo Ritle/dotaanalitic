@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "mode": "bounded_public_source_review",
+  "generatedAt": "2026-10-31T22:07:40.307Z",
+  "directNetworkAttempts": 10,
+  "http200": 8,
+  "timeoutAttempts": 2,
+  "sandboxConnectionDeniedBeforeDirectRun": 1,
+  "currentTi12Page": {
+    "url": "https://www.dota2.com/esports/ti12",
+    "sha256": "6c9dcad8864c2fa37513502b5b9eb17d63ec1066956c177436acd5a5ab0b1b0e",
+    "knownAt": null
+  },
+  "indexes": [
+    {
+      "file": "index.json",
+      "sha256": "ad45efdb02c27df21f454cce7a197dca922415a9be497375bc0961a6e2615aec",
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20230101143416",
+          "https://www.dota2.com/esports/ti12",
+          "DS73EIGDKT5TKTTN4KIARFATMH5EBJEB"
+        ],
+        [
+          "20230408195519",
+          "https://www.dota2.com/esports/ti12",
+          "YEXQIGV7MPL3JY3MBHJBKHJK77EOTTOB"
+        ],
+        [
+          "20230708043909",
+          "https://www.dota2.com/esports/ti12",
+          "GRDWF4OSBHRNJGICK424APGHQZS5Q325"
+        ],
+        [
+          "20230807091901",
+          "https://www.dota2.com/esports/ti12",
+          "C4E77X2CRKFC6PQBZKZZOUDE3CWGVRJW"
+        ],
+        [
+          "20230906170410",
+          "https://www.dota2.com/esports/ti12",
+          "BM75DDLDRZE3XC2FZNDTU542M74MA7Y5"
+        ]
+      ]
+    },
+    {
+      "file": "index-late.json",
+      "sha256": "f03b7295300485fdf58075c41fe1ab0a1b58c4d0da60c9617fbf4944c3d2f096",
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20231007101410",
+          "https://www.dota2.com/esports/ti12",
+          "SP6XJDSWPR56RV5LDDVAPJZ6QD5S44LR"
+        ]
+      ]
+    },
+    {
+      "file": "js-index.json",
+      "sha256": "82c3d904cf761351c6e7d62b6a8023cb719206585091b72efc035610a27f3e4c",
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20231007101412",
+          "https://www.dota2.com/public/javascript/dota_react/main.js?v=A6ZSqGmgBZZi&l=english&_cdn=cloudflare",
+          "WXB2P2SKU65KSNGBRHUGZAR66JWC32ZV"
+        ],
+        [
+          "20231008185258",
+          "https://www.dota2.com/public/javascript/dota_react/main.js?v=A6ZSqGmgBZZi&l=english&_cdn=cloudflare",
+          "WXB2P2SKU65KSNGBRHUGZAR66JWC32ZV"
+        ],
+        [
+          "20231010075835",
+          "https://www.dota2.com/public/javascript/dota_react/main.js?v=A6ZSqGmgBZZi&l=english&_cdn=cloudflare",
+          "2C3LRVTRXSCRHO6RZOVP7H3F24QWLSCH"
+        ],
+        [
+          "20231010130216",
+          "https://www.dota2.com/public/javascript/dota_react/main.js?v=A6ZSqGmgBZZi&l=english&_cdn=cloudflare",
+          "2C3LRVTRXSCRHO6RZOVP7H3F24QWLSCH"
+        ],
+        [
+          "20231011015313",
+          "https://www.dota2.com/public/javascript/dota_react/main.js?v=A6ZSqGmgBZZi&l=english&_cdn=cloudflare",
+          "WXB2P2SKU65KSNGBRHUGZAR66JWC32ZV"
+        ]
+      ]
+    },
+    {
+      "file": "rosters-index.json",
+      "sha256": "90aefdf3f0a7e380aa96dc38d5d66d3d664a4a6dc72099f86011037e98898097",
+      "rows": [
+        [
+          "timestamp",
+          "original",
+          "digest"
+        ],
+        [
+          "20230927115904",
+          "https://www.dota2.com/majorsregistration/rosters",
+          "SCGRUOXE32F7G4WJYFLNUX3IJZHSZ43M"
+        ],
+        [
+          "20231004154852",
+          "https://www.dota2.com/majorsregistration/rosters",
+          "I2TQKFTIBCGHVAXOD62ZONQK2VZN7C7P"
+        ]
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "ti12_page",
+      "original": "https://www.dota2.com/esports/ti12",
+      "archiveUrl": "https://web.archive.org/web/20231007101410id_/https://www.dota2.com/esports/ti12",
+      "capturedAt": "2023-10-07T10:14:10.000Z",
+      "retrievedFileMtime": "2026-10-31T22:00:51.193Z",
+      "cdxDigest": "SP6XJDSWPR56RV5LDDVAPJZ6QD5S44LR",
+      "payloadSha256": "8aa7c972a25c01963655ea9198a70c2686c929197253275f00c6d988a7edea38",
+      "decodedSha256": "c0ee5547daf3b98f9062208694cea012d15151756050adff82570b50c775c407",
+      "digestVerified": true,
+      "originalAndMementoVerified": true,
+      "scope": "event_league_registration_metadata_only",
+      "metadataSha256": "77154c3ea80cc142e557fff841c51db2867e1051570a616f48eb83112c7c6c75"
+    },
+    {
+      "id": "ti12_script",
+      "original": "https://www.dota2.com/public/javascript/dota_react/main.js?v=A6ZSqGmgBZZi&l=english&_cdn=cloudflare",
+      "archiveUrl": "https://web.archive.org/web/20231007101412id_/https://www.dota2.com/public/javascript/dota_react/main.js?v=A6ZSqGmgBZZi&l=english&_cdn=cloudflare",
+      "capturedAt": "2023-10-07T10:14:12.000Z",
+      "retrievedFileMtime": "2026-10-31T22:03:10.089Z",
+      "cdxDigest": "WXB2P2SKU65KSNGBRHUGZAR66JWC32ZV",
+      "payloadSha256": "c23285e71b30931f200a1bf1a7b9dae122c7822b73b16656f912ff2ef31978f7",
+      "decodedSha256": "02fc3156dd747d17247a03c0da93cd569be997a1f099160b8ab8b71656d2902f",
+      "digestVerified": true,
+      "originalAndMementoVerified": true,
+      "scope": "public_application_code_only"
+    },
+    {
+      "id": "registration_page",
+      "original": "https://www.dota2.com/majorsregistration/rosters",
+      "archiveUrl": "https://web.archive.org/web/20230927115904id_/https://www.dota2.com/majorsregistration/rosters",
+      "capturedAt": "2023-09-27T11:59:04.000Z",
+      "retrievedFileMtime": "2026-10-31T22:03:24.715Z",
+      "cdxDigest": "SCGRUOXE32F7G4WJYFLNUX3IJZHSZ43M",
+      "payloadSha256": "da9414d19ea15f43f6755c57bc00e3235d247cfff6cc6aedc187877cc07359a4",
+      "decodedSha256": "da9414d19ea15f43f6755c57bc00e3235d247cfff6cc6aedc187877cc07359a4",
+      "digestVerified": true,
+      "originalAndMementoVerified": true,
+      "scope": "registration_search_interface_only",
+      "renderedNicknameSlots": 5,
+      "nonemptyNicknameSlots": 0,
+      "linkedEndpoints": [
+        "https://www.dota2.com/majorsregistration/teamlist?substr=",
+        "https://www.dota2.com/majorsregistration/teammembers?team_id="
+      ]
+    }
+  ],
+  "unresolvedArchiveQueries": [
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=www.dota2.com%2Fmajorsregistration%2Fteammembers%3Fteam_id%3D*&matchType=prefix&output=json&filter=statuscode%3A200&from=20230101&to=20231012170043&fl=timestamp,original,digest&limit=5",
+      "status": "timeout",
+      "curlExit": 28,
+      "timeoutMs": 25000
+    },
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=www.dota2.com%2Fwebapi%2FIDOTA2Teams%2FGetSingleTeamInfo%2Fv001*&matchType=prefix&output=json&filter=statuscode%3A200&from=20230101&to=20231012170043&fl=timestamp,original,digest&limit=5",
+      "status": "timeout",
+      "curlExit": 28,
+      "timeoutMs": 25000
+    }
+  ],
+  "limitations": [
+    "File mtime is local retrieval bookkeeping, not historical availability.",
+    "Empty registration UI does not prove absence of registered players.",
+    "Referenced JavaScript/API URL does not prove the content of a separately fetched response.",
+    "Timeout is not an empty index or proof that no historical capture exists."
+  ],
+  "verifiedMapLineups": 0,
+  "canonicalAccountLinksCreated": 0,
+  "databaseWrites": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

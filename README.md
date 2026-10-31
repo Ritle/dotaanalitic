@@ -217,6 +217,8 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 
 ### S3-01 — аудит корпуса и временных выборок (частично)
 
+`pnpm cohort:evidence --out reports/new-ti12-evidence.json` проверяет архивные метаданные Valve до TI2023. Найден также датированный регистрационный ответ с пятью никами одной команды; account links и фактические составы карт не подтверждены. [Историческое evidence и границы](docs/S3_01_HISTORICAL_EVIDENCE.md).
+
 `pnpm corpus:audit docs/evidence/s3-01-corpus-config.json reports/new-corpus-analysis.json` воспроизводит offline diagnostic сохранённых live captures: SHA, дедупликация карт, конфликты, покрытие и явные временные окна. Итог —1287 уникальных ID и87 подробно проверенных карт; пригодность для исторического обучения не установлена. Output должен быть новым файлом.
 
 `pnpm dataset:audit stored <dataset-uuid>` или `pnpm dataset:audit file reports/export.json <expected-sha256>` независимо проверяет неизменяемый dataset, четыре окна и целые provider-серии, включая несколько canonical aliases. Проверки: `pnpm test:dataset-splits`, `pnpm test:fixtures`. Политика подготовки теперь v2; legacy snapshots не переписываются. Структурный PASS не разрешает training/deployment. S3-01 остаётся открытой до реального as-of evidence cohort. [Контракт и replay](docs/S3_01_SPLIT_AUDIT.md), [новый live audit](docs/S3_01_SOURCE_AUDIT.md).
