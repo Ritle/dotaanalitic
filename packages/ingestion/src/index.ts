@@ -6,3 +6,6 @@ export * from './opendota/client.js';
 export * from './opendota/schemas.js';
 export * from './valve/patch-client.js';
 export * from './valve/patch-audit.js';
+export * from './valve/steam-event.js';
+export * from './valve/archive-evidence.js';
+export * from './valve/archive-client.js';

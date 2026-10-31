@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import {z} from 'zod';
 import {retryAfterMilliseconds} from '../opendota/client.js';
+import {SteamEventResponseSchema} from './steam-event.js';
 export const VALVE_PATCH_ADAPTER='valve-patch-audit-v1';
 export const PatchLabelSchema=z.string().regex(/^\d{1,2}\.\d{1,2}[a-z]?$/);
 const Seconds=z.number().int().min(1).max(253402300799);
@@ -30,6 +31,11 @@ export class ValvePatchClient{
   }
   get requestStats(){return {attempts:this.used,httpStatuses:{...this.statuses}};}
   getPatchList(){return this.request('https://www.dota2.com/datafeed/patchnoteslist?language=english',List);}
+  async getSteamEvent(eventId:string){
+    if(!/^[1-9]\d{0,19}$/.test(eventId))throw new ValvePatchError('invalid_event_id');
+    const result=await this.request(`https://store.steampowered.com/events/ajaxgetpartnerevent?clan_accountid=3703047&event_gid=${eventId}`,SteamEventResponseSchema);
+    if(result.data.event.gid!==eventId)throw new ValvePatchError('source_id_mismatch');return result;
+  }
   async getPatchNotes(label:string){
     if(!PatchLabelSchema.safeParse(label).success)throw new ValvePatchError('invalid_patch_label');
     const result=await this.request(`https://www.dota2.com/datafeed/patchnotes?language=english&version=${label}`,Notes);

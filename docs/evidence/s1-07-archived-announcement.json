@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "mode": "live_archived_steam_announcement",
+  "generatedAt": "2026-10-31T20:01:09.107Z",
+  "captureStatus": "complete",
+  "eventId": "3735230544064408127",
+  "beforeAt": "2023-10-12T17:00:44.000Z",
+  "cohort": {
+    "file": "reports/s0-08-ti2023.json",
+    "sha256": "c0b07df71f8bc2427994a9fa9bf0178992df20b514351488c0c92375483537bb"
+  },
+  "requests": {
+    "valve": {
+      "attempts": 1,
+      "httpStatuses": {
+        "200": 1
+      }
+    },
+    "archive": {
+      "attempts": 2,
+      "httpStatuses": {
+        "200": 2
+      }
+    }
+  },
+  "sources": [
+    {
+      "url": "https://store.steampowered.com/events/ajaxgetpartnerevent?clan_accountid=3703047&event_gid=3735230544064408127",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-10-31T20:01:06.971Z",
+      "knownAt": null,
+      "payloadSha256": "b0cea5d7ce8f48cbda555106f0699d2298483b8f29a7c650804b2fa1dfcce520",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=https%3A%2F%2Fstore.steampowered.com%2Fnews%2Fapp%2F570%2Fview%2F3735230544064408127&output=json&filter=statuscode%3A200&to=20231012170044&collapse=timestamp%3A8&fl=timestamp%2Coriginal%2Cdigest&limit=5",
+      "fetchedAt": "2026-10-31T20:01:08.059Z",
+      "payloadSha256": "9b6dae7e7695effb2067e920f63ece994e1f4ec32e48518bc7f55847c034d180",
+      "attempts": 1
+    },
+    {
+      "url": "https://web.archive.org/web/20231012155512id_/https://store.steampowered.com/news/app/570/view/3735230544064408127",
+      "fetchedAt": "2026-10-31T20:01:09.101Z",
+      "payloadSha256": "245bf382ad0660bdc80650c93e3d3fca1ba1698bb25fb1ce9ef3f8c01e834927",
+      "attempts": 1
+    }
+  ],
+  "indexRecords": [
+    {
+      "timestamp": "20231012155512",
+      "original": "https://store.steampowered.com/news/app/570/view/3735230544064408127",
+      "digest": "NCRMATL7YMOOIOOAGGIEQJ2YKYHPFEEE",
+      "capturedAt": "2023-10-12T15:55:12.000Z"
+    }
+  ],
+  "code": [
+    {
+      "file": "scripts/audit-patch-archive.mjs",
+      "sha256": "c062c10941d05bf00e15c5d39d71f33d4a123ee36ad849298d8287f3f6f152b8"
+    },
+    {
+      "file": "packages/ingestion/src/valve/archive-client.ts",
+      "sha256": "06087e3efe830eb414b60f71ae2d6f69efeb65b4ca7dd551dd938063f903e473"
+    },
+    {
+      "file": "packages/ingestion/src/valve/archive-evidence.ts",
+      "sha256": "4b912e505f1b085cec0504acff698617abb25047bb2ff90178f0a5c9e7363c02"
+    },
+    {
+      "file": "packages/ingestion/src/valve/steam-event.ts",
+      "sha256": "f75c171516ff33478bf31e89b66081168e425805190048bd080455cecebc2b23"
+    },
+    {
+      "file": "packages/ingestion/src/valve/patch-client.ts",
+      "sha256": "297572033e9f825f84e3844d6369f3e6ef5a6e384ae4c27a628a4acaade86748"
+    }
+  ],
+  "proof": {
+    "scope": "announcement_body_only",
+    "status": "verified_archived_body",
+    "capturedAt": "2023-10-12T15:55:12.000Z",
+    "archived": {
+      "eventId": "3735230544064408127",
+      "announcementId": "3735230544064408128",
+      "title": "7.34d Gameplay Patch",
+      "published": true,
+      "hidden": false,
+      "eventStartsAt": "2023-10-05T23:40:00.000Z",
+      "eventModifiedAt": "2023-10-12T15:39:23.000Z",
+      "bodyPostedAt": "2023-10-05T23:40:41.000Z",
+      "bodyModifiedAt": "2023-10-06T14:41:05.000Z",
+      "buildId": null,
+      "bodySha256": "cbb1bb70b4ac6598a4ad641577feaa5d130a6f698d9fb2159d0e4ef9898831d7"
+    },
+    "current": {
+      "eventId": "3735230544064408127",
+      "announcementId": "3735230544064408128",
+      "title": "7.34d Gameplay Patch",
+      "published": true,
+      "hidden": false,
+      "eventStartsAt": "2023-10-05T23:40:00.000Z",
+      "eventModifiedAt": "2026-10-18T14:28:43.000Z",
+      "bodyPostedAt": "2023-10-05T23:40:41.000Z",
+      "bodyModifiedAt": "2023-10-06T14:41:05.000Z",
+      "buildId": null,
+      "bodySha256": "cbb1bb70b4ac6598a4ad641577feaa5d130a6f698d9fb2159d0e4ef9898831d7"
+    },
+    "sameBodyAsCurrent": true,
+    "bodyKnownByAt": "2023-10-12T15:55:12.000Z",
+    "currentBodyKnownByAt": "2023-10-12T15:55:12.000Z",
+    "bodySha256": "cbb1bb70b4ac6598a4ad641577feaa5d130a6f698d9fb2159d0e4ef9898831d7",
+    "payloadSha256": "245bf382ad0660bdc80650c93e3d3fca1ba1698bb25fb1ce9ef3f8c01e834927",
+    "decodedSha256": "2e6a704c1d8123f7643348d9b532e35857cfba844d83371e8d13a078f7e37038",
+    "cdxDigest": "NCRMATL7YMOOIOOAGGIEQJ2YKYHPFEEE",
+    "reasons": [],
+    "verifiedReleasedAt": null,
+    "releaseCoverageUntil": null,
+    "heroNotesKnownAt": null,
+    "modelEligibility": "not_assessed",
+    "autoRegistryEligible": false,
+    "limitations": [
+      "ANNOUNCEMENT_BODY_ONLY",
+      "EXTERNAL_PATCH_NOTES_NOT_ARCHIVED_BY_LINK",
+      "NO_EXACT_DEPLOYMENT_TIME",
+      "NO_HERO_AVAILABILITY_OR_MATCH_OUTCOME_PROOF"
+    ]
+  },
+  "coverage": {
+    "scope": "announcement_body_only",
+    "observations": 5,
+    "uniqueMaps": 5,
+    "sourceBodyVerifiedMaps": 5,
+    "verifiedPatchMaps": 0,
+    "trainingExamples": 0,
+    "maps": [
+      {
+        "matchId": "7378530387",
+        "startedAt": "2023-10-12T17:00:44.000Z",
+        "archiveProofPrecedesStart": true,
+        "announcementBodyAvailability": "verified_by_archive",
+        "announcementBodyKnownByAt": "2023-10-12T15:55:12.000Z",
+        "verifiedPatchId": null,
+        "heroNotesKnownAt": null,
+        "trainingEligible": false
+      },
+      {
+        "matchId": "7378939289",
+        "startedAt": "2023-10-13T01:24:09.000Z",
+        "archiveProofPrecedesStart": true,
+        "announcementBodyAvailability": "verified_by_archive",
+        "announcementBodyKnownByAt": "2023-10-12T15:55:12.000Z",
+        "verifiedPatchId": null,
+        "heroNotesKnownAt": null,
+        "trainingEligible": false
+      },
+      {
+        "matchId": "7380403482",
+        "startedAt": "2023-10-13T22:51:24.000Z",
+        "archiveProofPrecedesStart": true,
+        "announcementBodyAvailability": "verified_by_archive",
+        "announcementBodyKnownByAt": "2023-10-12T15:55:12.000Z",
+        "verifiedPatchId": null,
+        "heroNotesKnownAt": null,
+        "trainingEligible": false
+      },
+      {
+        "matchId": "7393133836",
+        "startedAt": "2023-10-21T19:37:36.000Z",
+        "archiveProofPrecedesStart": true,
+        "announcementBodyAvailability": "verified_by_archive",
+        "announcementBodyKnownByAt": "2023-10-12T15:55:12.000Z",
+        "verifiedPatchId": null,
+        "heroNotesKnownAt": null,
+        "trainingEligible": false
+      },
+      {
+        "matchId": "7406531302",
+        "startedAt": "2023-10-29T23:13:43.000Z",
+        "archiveProofPrecedesStart": true,
+        "announcementBodyAvailability": "verified_by_archive",
+        "announcementBodyKnownByAt": "2023-10-12T15:55:12.000Z",
+        "verifiedPatchId": null,
+        "heroNotesKnownAt": null,
+        "trainingEligible": false
+      }
+    ]
+  },
+  "errors": [],
+  "scope": "announcement_body_only",
+  "databaseWrites": 0,
+  "verifiedPatchMaps": 0,
+  "trainingExamples": 0,
+  "empiricalEvaluation": {
+    "status": "unavailable",
+    "brier": null,
+    "logLoss": null,
+    "ece": null
+  },
+  "autoRegistryEligible": false,
+  "deployable": false
+}

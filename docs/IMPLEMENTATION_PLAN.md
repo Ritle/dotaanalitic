@@ -66,6 +66,7 @@
   - Частично реализовано 2026-10-31: migration014 immutable transition/hero-impact proofs, общий availability resolver, explicit candidate weights/coverage/cache revision, offline same-cohort temporal ablation и CLI. Проверки механики synthetic/PG пройдены. **Не закрыто:** реальное reviewed metadata/as-of coverage и воспроизводимая оценка на достаточном real pro cohort; рабочая БД имеет1 pro map,0 metadata proofs/0 frozen datasets. До этого не переходить к S1-08 и не утверждать качество коэффициентов. [Реализация и оставшийся gate](S1_07_PATCH_TRANSFER.md).
   - Source checkpoint2026-10-31: live7 HTTP200 Valve/Steam для7.34c/d/e, timestamp disagreements67869/146441/64694s;40 audited map IDs сопоставлены без verified patch/as-of proof. Добавлены bounded source client/auditor, immutable capture/manifest и fail-closed tests. **Gate остаётся открыт:** не назначать release/availability по этим claims. [Реальные источники](S1_07_SOURCE_EVIDENCE.md).
 - [ ] **S1-08 [P0] Team compare / H2H** (было `P1-05`): учёт реальных lineup identity, ранга оппонента, корректных team A/B vs Radiant/Dire и даты анализа. **DoD:** сравнение команд не использует статистику 5-летнего состава как текущего.
+  - Владелец явно выбрал S1-08 после archival checkpoint2026-10-31 (AGENTS§10). S1-07 остаётся unchecked и P0 перед prediction; описательное сравнение разрешено. [Решение и scope](S1_07_NEXT_STEP_DECISION.md).
 
 ## S2 — Draft Lab и аналитика карты
 

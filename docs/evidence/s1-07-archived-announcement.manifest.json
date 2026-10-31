@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "file": "docs/evidence/s1-07-archived-announcement.json",
+  "sha256": "b8f2509cfd0f0dd9de7000f6a4a5d810cad7beb70267305807c56b7c2f4f6b18",
+  "eventId": "3735230544064408127",
+  "beforeAt": "2023-10-12T17:00:44.000Z",
+  "bodyKnownByAt": "2023-10-12T15:55:12.000Z",
+  "sourceBodyVerifiedMaps": 5,
+  "scope": "announcement_body_only",
+  "autoRegistryEligible": false,
+  "deployable": false
+}

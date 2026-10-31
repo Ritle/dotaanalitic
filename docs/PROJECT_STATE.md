@@ -2,9 +2,11 @@
 
 **Обновлено:** 2026-10-31. S0-00/DX-00, S0-01, S0-02 + S0-10, S0-03, S0-04, S0-05, S0-06, S0-07, S0-08, S0-09, S1-01, S1-02, S1-03, S1-04, S1-05 и **S1-06** выполнены локально. **Функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
 
-**S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket остаётся unchecked; S1-08 не начинать.
+**S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket unchecked, но владелец явно выбрал **S1-08** после archival checkpoint (AGENTS§10). Повторного подтверждения не требуется; prediction gates не обходить.
 
 **Source checkpoint:** live capture Valve/Steam7.34c/d/e выполнен:7 HTTP200, SHA-256 manifest, timestamp disagreements67869/146441/64694s,40 map IDs сопоставлены. Effective release/coverage/knownAt не доказаны, registry auto promotion запрещён. [Факты](S1_07_SOURCE_EVIDENCE.md).
+
+**Archive checkpoint:** CDX/Memento подтвердили body анонса7.34d к2023-10-12T15:55:12Z, SHA совпадает с нынешним body; раньше5 TI2023 maps. Narrow source-body proof не подтверждает deployment/hero/outcome. [Evidence](S1_07_ARCHIVED_BODY.md).
 
 ## Реально присутствует
 
@@ -27,6 +29,8 @@
 - Node 22.15.0 / pnpm 10.19.0, Kysely 0.28.18, pg-boss 12.38.0; Vue Query 5.105.0 установлен в S1-01, lockfile сгенерирован pnpm из registry и проверен frozen install. Shared packages compiled dist/declarations.
 
 ## Проверено
+
+- Archive checkpoint PASS: frozen install/typecheck/build, **246 unit** (+10 archive), **22 Node tests** (+2 archive integrity), **17 PG ingestion/queue**. Final live3 HTTP200, no DB writes; CDX digest оригинального gzip/Memento/original/event identity/body SHA проверены. UI/E2E/Python/deep DB suites неизменны и не повторялись; migrations001–014/lockfile/dependencies без изменений.
 
 - S1-07 source continuation PASS: frozen install/typecheck/build, **236 unit** (новые11 Valve/source cases), **20 Node tests** (2 новых immutable evidence guards), **17 PG ingestion/queue integration**. Verifier14/golden, docs/diff и capture byte hash проверены перед коммитом. E2E/UI/Python/deep auth/patch DB suites в этом source-only изменении не повторялись. No dependencies/lockfile/SQL changes.
 - Live final report7 successful attempts, source/code hashes сохранены;40 prior map IDs без новых OpenDota requests/imports. Nominal candidates:7.29d3/7.30d2/7.32c5/7.34d5/7.37c5/unknown20; verifiedPatchMaps0/scoredMaps0, rates/quality metrics null. Working DB revision0/pro_maps1/frozen_datasets0/active_models0 без новых facts/owner/models. Сохранён только review capture; empirical S1-07 gate не закрыт.
@@ -76,4 +80,4 @@
 
 ## Следующая задача
 
-**Продолжить S1-07 [P0]: проверяемые effective boundaries/as-of cohort.** Начать с [реального source evidence](S1_07_SOURCE_EVIDENCE.md) и `pnpm patch:history readiness`. Valve patch_timestamp и Steam date расходятся, ни один нельзя автоматически назначить releasedAt/knownAt. Нужны архивные/иные проверяемые факты deployment/coverage, hero availability/impact и достаточный real pro cohort с доказанной label availability/series/hero-role identity. Publication date, coarse provider patch code и completed/backfilled lineup не заменяют эти proof. Затем воспроизвести chronological ablation с policy frozen before validation/test; до этого unavailable, не synthetic accuracy. S3 DatasetBuilder/training/promotion не реализовывать в обход порядка. **S1-08 не начинать**, S1-07 unchecked. Рекомендуемая модель: **GPT-6 Astra · High**.
+**S1-08 [P0] Team compare/H2H — явно выбран владельцем.** [Решение и scope](S1_07_NEXT_STEP_DECISION.md). Сравнивать организации отдельно от ручных/наблюдённых пятёрок, native sides отдельно от A/B, pro-only/current retrospective evidence/strict cutoff с raw N/null/coverage и отдельным opponent strength. Начать с collectProMaps/buildRosterReport/buildStrengthReport и existing owner/CSRF/Vue Query boundaries; сценарии не сохранять (S2-01), неподтверждённые веса/вероятности не показывать. S1-07 остаётся unchecked и P0 перед prediction, архивный body proof не расширять на hero/outcome facts. Рекомендуемая модель: **GPT-6.1 Sol · High**.

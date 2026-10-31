@@ -22,3 +22,20 @@ test('audited maps stay deduplicated with unknown verified patches and no scored
   assert.equal(report.empiricalEvaluation.status,'unavailable');assert.equal(report.empiricalEvaluation.scoredMaps,0);
   assert.equal(report.empiricalEvaluation.brier,null);assert.equal(report.empiricalEvaluation.logLoss,null);assert.equal(report.empiricalEvaluation.ece,null);
 });
+const archiveManifest=JSON.parse(await readFile(new URL('../../docs/evidence/s1-07-archived-announcement.manifest.json',import.meta.url),'utf8'));
+const archiveBytes=await readFile(new URL('../../'+archiveManifest.file,import.meta.url)),archived=JSON.parse(archiveBytes);
+test('actual archived announcement is byte-bound to its manifest and CDX/Memento identity',()=>{
+  assert.equal(createHash('sha256').update(archiveBytes).digest('hex'),archiveManifest.sha256);
+  assert.equal(archived.captureStatus,'complete');assert.deepEqual(archived.errors,[]);assert.equal(archived.proof.scope,'announcement_body_only');
+  assert.equal(archived.proof.cdxDigest,archived.indexRecords[0].digest);assert.equal(archived.proof.capturedAt,archived.indexRecords[0].capturedAt);
+  assert.equal(archived.proof.currentBodyKnownByAt,archiveManifest.bodyKnownByAt);assert.equal(archived.proof.sameBodyAsCurrent,true);
+  assert.equal(archived.proof.archived.bodySha256,archived.proof.current.bodySha256);
+  assert.equal(archived.proof.payloadSha256,archived.sources.at(-1).payloadSha256);
+  assert.ok(!archiveBytes.includes(Buffer.from('"body":')));assert.ok(!archiveBytes.includes(Buffer.from('server_password')));
+});
+test('five archived text observations never become five verified patch or training examples',()=>{
+  assert.equal(archived.coverage.sourceBodyVerifiedMaps,5);assert.equal(archived.coverage.uniqueMaps,5);
+  for(const m of archived.coverage.maps){assert.ok(m.announcementBodyKnownByAt<m.startedAt);assert.equal(m.verifiedPatchId,null);assert.equal(m.trainingEligible,false);}
+  assert.equal(archived.proof.verifiedReleasedAt,null);assert.equal(archived.proof.heroNotesKnownAt,null);assert.equal(archived.proof.archived.buildId,null);
+  assert.equal(archived.verifiedPatchMaps,0);assert.equal(archived.trainingExamples,0);assert.equal(archived.autoRegistryEligible,false);assert.equal(archived.deployable,false);
+});
