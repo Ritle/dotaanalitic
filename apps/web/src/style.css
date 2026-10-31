@@ -59,6 +59,15 @@ fieldset { min-width: 0; border: 1px solid var(--color-border); border-radius: v
 .player-hero-table td { min-width: 110px; }
 .smoothing-note p { margin: var(--space-2) 0; }
 .strength-table { min-width: 950px; }
+.compare-columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: var(--space-4); }
+.compare-columns article { min-width: 0; overflow-wrap: anywhere; }
+.compare-filters { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
+.compare-table { min-width: 760px; table-layout: fixed; }
+.compare-table th:first-child { width: 180px; position: sticky; left: 0; z-index: 1; background: var(--color-surface); }
+.compare-h2h { min-width: 1100px; }
+.compare-h2h td { min-width: 130px; overflow-wrap: anywhere; }
+@media(max-width:680px) { .compare-columns { grid-template-columns: 1fr; } }
+@media(max-width:480px) { .compare-table th:first-child { width: 140px; } }
 details { margin-top: var(--space-4); }
 summary { cursor: pointer; color: var(--color-accent); }
 @media(max-width:480px) { .metadata { grid-template-columns: 1fr; } .metadata dd { margin-bottom: var(--space-2); } }

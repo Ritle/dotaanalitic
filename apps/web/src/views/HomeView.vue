@@ -25,7 +25,7 @@ async function signOut() {
     </div>
     <p>Владелец: <strong>{{ ownerAuth?.owner.login }}</strong></p>
     <p v-if="error" role="alert" class="error">{{ error }}</p>
-    <p>Справочники доступны ниже. Фильтры профессиональной статистики и работа с драфтом появятся на следующих этапах.</p>
+    <p>Справочники и профессиональная история доступны ниже.</p><RouterLink to="/compare">Сравнить две команды →</RouterLink>
     <p class="hint">Прогноз недоступен: проверенные модели ещё не опубликованы.</p>
   </section>
   <CatalogSearch />

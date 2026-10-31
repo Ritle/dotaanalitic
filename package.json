@@ -47,7 +47,8 @@
     "test:patch-history": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/patch-history.integration.test.ts",
     "patch:history": "pnpm shared:build && node --env-file-if-exists=.env scripts/patch-history.mjs",
     "patch:sources": "pnpm shared:build && node scripts/audit-patch-sources.mjs",
-    "patch:archive": "pnpm shared:build && node scripts/audit-patch-archive.mjs"
+    "patch:archive": "pnpm shared:build && node scripts/audit-patch-archive.mjs",
+    "test:compare": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/compare.integration.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

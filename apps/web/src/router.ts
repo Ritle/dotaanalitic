@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import LoginView from './views/LoginView.vue';
 import HomeView from './views/HomeView.vue';
 import EntityView from './views/EntityView.vue';
+import CompareView from './views/CompareView.vue';
 import { ownerAuth, restoreAuth } from './auth';
 
 export const router = createRouter({
@@ -9,6 +10,7 @@ export const router = createRouter({
   routes: [
     { path: '/login', component: LoginView },
     { path: '/', component: HomeView, meta: { requiresAuth: true } },
+    { path: '/compare', name: 'compare', component: CompareView, meta: { requiresAuth: true } },
     { path: '/teams/:id', name: 'team', component: EntityView, meta: { requiresAuth: true } },
     { path: '/players/:id', name: 'player', component: EntityView, meta: { requiresAuth: true } },
     { path: '/:pathMatch(.*)*', redirect: '/' }

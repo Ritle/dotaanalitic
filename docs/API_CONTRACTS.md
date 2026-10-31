@@ -2,7 +2,9 @@
 
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (auth S0-03 и S1-01..06 реализованы; остальные планируются)
+## Основные маршруты (auth S0-03, S1-01..06 и S1-08 реализованы; остальные планируются)
+
+S1-08: `POST /teams/compare` — stateless read-only comparison с teamAId/teamBId, manual lineupA/lineupB и optional UTC fromAt/cutoffAt/patchId/leagueId. Требует owner/session/CSRF/no-store. `CompareRequestSchema`/`CompareResponseSchema`: raw organization/recent/current-patch/native-side/opponents, exact-five/cohesion, real H2H и отдельно scoped chronological strength. GET compare из planned API не является вторым реализованным endpoint. [Контракт, denominators и границы](S1_08_TEAM_COMPARE.md).
 
 | HTTP | Путь | Смысл |
 |---|---|---|

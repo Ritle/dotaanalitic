@@ -1,6 +1,6 @@
 # Текущее состояние репозитория — Codex handoff
 
-**Обновлено:** 2026-10-31. S0-00/DX-00, S0-01, S0-02 + S0-10, S0-03, S0-04, S0-05, S0-06, S0-07, S0-08, S0-09, S1-01, S1-02, S1-03, S1-04, S1-05 и **S1-06** выполнены локально. **Функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
+**Обновлено:** 2026-10-31. S0-00/DX-00, S0-01, S0-02 + S0-10, S0-03, S0-04, S0-05, S0-06, S0-07, S0-08, S0-09, S1-01..06 и **S1-08** выполнены локально. **S1-07 остаётся частичной; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
 
 **S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket unchecked, но владелец явно выбрал **S1-08** после archival checkpoint (AGENTS§10). Повторного подтверждения не требуется; prediction gates не обходить.
 
@@ -9,6 +9,8 @@
 **Archive checkpoint:** CDX/Memento подтвердили body анонса7.34d к2023-10-12T15:55:12Z, SHA совпадает с нынешним body; раньше5 TI2023 maps. Narrow source-body proof не подтверждает deployment/hero/outcome. [Evidence](S1_07_ARCHIVED_BODY.md).
 
 ## Реально присутствует
+
+- **S1-08:** `/compare?teamA=&teamB=` и owner/CSRF/no-store `POST /teams/compare`, explicit manual5+5/period/patch/league. Organization/recent/current-patch/native sides/opponents, exact-five here/cross-org co-play, actual H2H и две выбранные пятёрки отдельно; unknown N vs0/nullable WR. Shared global strength reader выделен без изменения S1-05, Elo имеет отдельный last20/no patch-league cohort. One repeatable-read snapshot, bounded raw/history5000, no probabilities/persistence. [Контракт](S1_08_TEAM_COMPARE.md).
 
 - Vue login/logout/router guard; Fastify health/auth, CLI owner provisioning/reset, Argon2id, opaque sessions/CSRF/rate limits. Owner в рабочей БД автоматически не создавался. [S0-03](S0_03_OWNER_AUTH.md).
 - Import одной карты через pg-boss: quotas/retries, idempotency, immutable receipts/raw/quality. Raw 0/11/12 picks сохраняются; historical known_at/roles/patch не угадываются. [S0-02](S0_02_INGESTION.md).
@@ -29,6 +31,9 @@
 - Node 22.15.0 / pnpm 10.19.0, Kysely 0.28.18, pg-boss 12.38.0; Vue Query 5.105.0 установлен в S1-01, lockfile сгенерирован pnpm из registry и проверен frozen install. Shared packages compiled dist/declarations.
 
 ## Проверено
+
+- S1-08 PASS: frozen install/typecheck/build, **252 unit**, **45 DB/API/integration** (compare7/strength8 + auth11/roster8/pro-map7 + baseline4), **22 Node tests**, **10 Chromium E2E**. Final focused compare Chromium1 и build повторены после mobile table/sticky-label/copy correction. Desktop/360px screenshots просмотрены: A data visible, labels retained on scroll, no page overflow; fingerprint replaced by readable identity status. Verifier14/golden/docs/diff PASS; SQL/dependencies/lockfile unchanged.
+- Working DB comparison read-only smoke: organization N1/N1, H2H N1, selectedFives/currentPatch/probability null. Maps1/canonical_players0/datasets0/active_models0/tempDB0. No owner/fixture/proof/model writes or provider calls; test API/Vite stopped, native PG retained. Real unknowns не подменены synthetic examples.
 
 - Archive checkpoint PASS: frozen install/typecheck/build, **246 unit** (+10 archive), **22 Node tests** (+2 archive integrity), **17 PG ingestion/queue**. Final live3 HTTP200, no DB writes; CDX digest оригинального gzip/Memento/original/event identity/body SHA проверены. UI/E2E/Python/deep DB suites неизменны и не повторялись; migrations001–014/lockfile/dependencies без изменений.
 
@@ -80,4 +85,4 @@
 
 ## Следующая задача
 
-**S1-08 [P0] Team compare/H2H — явно выбран владельцем.** [Решение и scope](S1_07_NEXT_STEP_DECISION.md). Сравнивать организации отдельно от ручных/наблюдённых пятёрок, native sides отдельно от A/B, pro-only/current retrospective evidence/strict cutoff с raw N/null/coverage и отдельным opponent strength. Начать с collectProMaps/buildRosterReport/buildStrengthReport и existing owner/CSRF/Vue Query boundaries; сценарии не сохранять (S2-01), неподтверждённые веса/вероятности не показывать. S1-07 остаётся unchecked и P0 перед prediction, архивный body proof не расширять на hero/outcome facts. Рекомендуемая модель: **GPT-6.1 Sol · High**.
+**Предлагаемый следующий ticket — S2-01 [P0] Сценарии**, если владелец продолжает выбранную descriptive ветку после S1-08: manual5+5/expected baseline, side optional, one-map context, immutable input snapshot и revision/optimistic lock. Читать scenario/data/temporal contracts и SQL001–014 до additive015+, no guesses of knownAt/roles/hero availability. S1-07 не закрыта: без дальнейшего выбора владельца она остаётся первой unchecked задачей по AGENTS§5.1, но не должна объявляться пройденным prediction gate. [Решение о S1-08](S1_07_NEXT_STEP_DECISION.md). Рекомендуемая модель для S2-01 — **GPT-6.1 Sol · High**; при возврате к S1-07 research — Astra High.

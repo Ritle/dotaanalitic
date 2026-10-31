@@ -190,3 +190,7 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 `pnpm patch:sources --patch '7.34c,7.34d,7.34e' --out reports/new-capture.json` выполняет bounded read-only аудит первичных Valve/Steam источников. Реальный capture выявил расхождения timestamps: их нельзя автоматически переносить в verified release registry. [Результат, SHA и ограничения](docs/S1_07_SOURCE_EVIDENCE.md).
 
 `pnpm patch:archive --event '3735230544064408127' --out docs/evidence/new-announcement.json` проверяет CDX/Memento и содержимое архивного анонса. Для5 TI2023 map IDs подтверждена ранняя доступность текста, без подмены release/hero/outcome proof. [Архивный checkpoint](docs/S1_07_ARCHIVED_BODY.md).
+
+### S1-08 — сравнение двух команд
+
+Откройте «Сравнить две команды» из кабинета или организации, задайте два ID, период и при необходимости две пятёрки. Raw WR организаций, точные составы через любые теги, стороны и реальные H2H показаны отдельно; экспериментальный Elo соперников имеет собственный явно обозначенный cohort. Пустые личности/патчи остаются неизвестными, старые победы не присваиваются новой пятёрке, прогнозов нет. Проверки: `pnpm test:compare`, `pnpm test:e2e`. [Контракт и пределы](docs/S1_08_TEAM_COMPARE.md).

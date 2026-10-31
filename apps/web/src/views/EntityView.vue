@@ -31,6 +31,7 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
       <dl class="metadata"><dt>Источник</dt><dd>Локальный справочник</dd><dt>Синхронизация</dt><dd>{{dateLabel(data.entity.syncedAt)}}</dd>
         <dt>Изменение записи</dt><dd>{{dateLabel(data.entity.metadataUpdatedAt)}}</dd><dt>Прочитано</dt><dd>{{dateLabel(data.computedAt)}}</dd></dl>
       <template v-if="data.entityType==='organization'">
+        <RouterLink :to="{path:'/compare',query:{teamA:id}}">Сравнить эту организацию с другой →</RouterLink>
         <p class="warning">Организация — не постоянная пятёрка. Актуальный состав неизвестен; его нужно подтвердить для конкретной карты.</p>
         <h3>Последний наблюдавшийся состав</h3>
         <p class="hint">Это участники завершённой pro-карты, а не доказательство предматчевой известности или текущего состава. Роли не назначаются автоматически.</p>

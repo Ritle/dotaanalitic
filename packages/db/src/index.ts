@@ -37,3 +37,4 @@ export {StrengthRepository,StrengthQueryError} from './strength-repository.js';
 export * from './patch-history.js';
 export * from './patch-meta-repository.js';
 export * from './patch-weight-evaluation.js';
+export {CompareRepository,CompareQueryError} from './compare-repository.js';
