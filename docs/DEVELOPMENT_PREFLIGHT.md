@@ -31,7 +31,7 @@ node scripts/check-ml-parity.mjs /tmp/dota2-demo.json
 
 ## Правила
 
-Локальная `.env` не коммитится. Никогда не сохранять реальные API ключи, токены или пользовательские Steam данные в test fixtures. Исторические миграции `001–005` защищены checksum-фикстурой; применённые `006–012` также не редактировать, следующие изменения — `013+`.
+Локальная `.env` не коммитится. Никогда не сохранять реальные API ключи, токены или пользовательские Steam данные в test fixtures. Исторические миграции `001–005` защищены checksum-фикстурой; применённые `006–013` также не редактировать, следующие изменения — `014+`.
 
 ## S0-02: importer и очередь
 
@@ -48,3 +48,5 @@ S0-05: `pnpm test:identity` проверяет immutable identity/alias evidence
 S0-06: `pnpm test:game-context` проверяет immutable patch/draft/hero evidence и GameContextRepository; требуется миграция 011. Правила не заполняются автоматически. Для одновременного запуска нескольких DB suites на локальной Windows использовать `--no-file-parallelism`: создание/удаление временных БД конкурирует за ресурсы. [Контракт](S0_06_GAME_CONTEXT.md).
 
 S0-07: `pnpm test:dataset` проверяет pro/source/orientation labels, freeze/reject, concurrent append, серии/хронологию и SHA/timezone. DatasetRepository требует migration 012; raw receipt и professional league evidence обязательны. [Контракт](S0_07_VERIFIED_DATASETS.md).
+
+S0-09: `pnpm test:readiness` проверяет availability/cohort boundaries в реальной PostgreSQL. Reader требует миграцию 013 с серверным recorded_at; legacy NULL не доказывает ранний owner input. Новых dependencies нет, SQL 001–012 сохраняются, следующая миграция 014+. `DataReadinessRepository.assess` — read-only inventory; conditional mode требует явных assumptions, automatic backfill не выполняется. [Контракт](S0_09_DATA_READINESS.md).

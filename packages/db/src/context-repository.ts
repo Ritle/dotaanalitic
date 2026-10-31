@@ -29,7 +29,8 @@ export class MatchContextRepository {
     return rows[0].id;
   }
 
-  async readAsOf(input: ContextAsOf) {
+  /** Internal evidence inventory; callers must apply their explicit availability/cohort policy. */
+  async readObservations(input: ContextAsOf) {
     const query = ContextAsOfSchema.parse(input);
     // One SQL snapshot for start bound, conflict state and observations. No outcome/stats projection.
     const { rows } = await sql<{ started_at: Date; ingest_state: string; data_revision: string; observations: StoredContextObservation[] }>`
@@ -39,6 +40,7 @@ export class MatchContextRepository {
         'eventAt',to_char(o.event_at AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'),
         'knownAt',to_char(o.known_at AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'),
         'fetchedAt',to_char(o.fetched_at AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'),
+        'recordedAt',to_char(o.recorded_at AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"'),
         'availability',o.availability_class,'earliestStage',o.earliest_stage,'provider',o.provider,
         'providerRecordId',o.provider_record_id,'evidenceRef',o.evidence_ref,'adapterVersion',o.adapter_version,
         'reviewState',o.review_state) ORDER BY o.id) FROM match_field_observations o
@@ -50,6 +52,14 @@ export class MatchContextRepository {
     if (Date.parse(query.cutoffAt) > map.started_at.getTime())
       return { status: 'unavailable' as const, reason: 'CUTOFF_AFTER_MAP_START' as const, context: null };
     return { status: 'resolved' as const, reason: null,
-      context: { ...resolveContextAsOf(map.observations, query), dataRevision: map.data_revision } };
+      context: { ...query, startedAt: map.started_at.toISOString(), observations: map.observations, dataRevision: map.data_revision } };
+  }
+
+  async readAsOf(input: ContextAsOf) {
+    const result = await this.readObservations(input);
+    if (result.context === null) return result;
+    const { observations, dataRevision, matchId, cutoffAt, stage } = result.context;
+    return { status: 'resolved' as const, reason: null,
+      context: { ...resolveContextAsOf(observations, { matchId, cutoffAt, stage }), dataRevision } };
   }
 }

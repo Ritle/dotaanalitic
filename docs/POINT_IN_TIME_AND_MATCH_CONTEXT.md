@@ -46,4 +46,8 @@ MVP prediction target = победа **на одной карте**. Серий�
 
 ## Реализация S0-04
 
-`@dota/db` предоставляет `MatchContextRepository` и чистую `resolveContextAsOf`; миграция 009 добавляет типизированный provenance, не переинтерпретируя старые наблюдения. [Контракт, границы и тесты](S0_04_TEMPORAL_CONTEXT.md). S0-06 расширяет policy до `strict-asof-v2` (league/mode/lobby) и добавляет `GameContextRepository`/`resolveGameContext` с immutable registry proof для патчей, версий draft rules и hero eligibility: [контракт](S0_06_GAME_CONTEXT.md). Draft timeline validation — P1 S2-05; conditional cohorts — S0-09, feature builder — S3-02.
+`@dota/db` предоставляет `MatchContextRepository` и чистую `resolveContextAsOf`; миграция 009 добавляет типизированный provenance, не переинтерпретируя старые наблюдения. [Контракт, границы и тесты](S0_04_TEMPORAL_CONTEXT.md). S0-06 расширяет policy до `strict-asof-v2` (league/mode/lobby) и добавляет `GameContextRepository`/`resolveGameContext` с immutable registry proof для патчей, версий draft rules и hero eligibility: [контракт](S0_06_GAME_CONTEXT.md). Draft timeline validation — P1 S2-05; cohort readiness реализована в S0-09; feature builder — S3-02.
+
+## Реализация S0-09
+
+DataReadinessRepository/assessContextReadiness используют context-availability-v1: strict_verified_asof, owner_asserted_asof и conditional_lineup_reconstructed с обязательными requiredFacts и явными assumptions. Постматчевый canonical roster/raw players не служат fallback. Три исходных времени и availability каждого proof сохраняются; conditional не становится prospective. Миграция 013 независимо фиксирует серверный recorded_at: для owner assertion он обязателен и не позже cutoff, legacy NULL не доказывает раннюю запись. Список готовых map IDs допускает один policyKey и запрещает противоречащие снимки. Ни target label, ни статистическая/model eligibility в scope readiness не входят. [Контракт](S0_09_DATA_READINESS.md).

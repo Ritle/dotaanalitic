@@ -42,7 +42,7 @@ pnpm ingest:enqueue --match-id 9069021061 # поставить карту в dur
 pnpm ingest:once --match-id 9069021061    # поставить и дождаться одной задачи
 pnpm test:ingestion      # импорт/очередь в отдельных временных БД, нужны права CREATEDB
 pnpm db:up               # PostgreSQL
-pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007→008→009→010→011→012
+pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007→008→009→010→011→012→013
 pnpm db:down             # остановить PostgreSQL, НЕ удалять volume
 ```
 
@@ -53,7 +53,7 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 1. `AGENTS.md` — правила агента и запреты.
 2. `TECHNICAL_SPEC.md` — все утверждённые функциональные требования Personal MVP v2.
 3. `docs/TECHNICAL_ARCHITECTURE_AND_STACK.md`, `docs/DEPENDENCY_MATRIX.md`, `docs/ENGINEERING_PATTERNS.md`, `docs/DATA_PIPELINE_DESIGN.md`, `docs/ML_ENGINEERING_DECISIONS.md`, `docs/DEPLOYMENT_AND_TESTING.md` — нормативные технические решения и паттерны; затем `docs/ARCHITECTURE.md` и `docs/SCREEN_SPECS.md` — компоненты, пользовательские экраны и потоки данных.
-4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..012` — хранение.
+4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..013` — хранение.
 5. `docs/DATA_SOURCES.md` — OpenDota и ограничения.
 6. `docs/API_CONTRACTS.md` — маршруты и форматы.
 7. `docs/PREDICTION_ENGINE.md` и `docs/CONTINUOUS_LEARNING_PIPELINE.md` — антиутечка, backtest, frozen datasets, verified outcomes и безопасная публикация моделей.
@@ -154,3 +154,7 @@ DatasetRepository вычисляет label из подтверждённой к�
 ### S0-08 — live-аудит источника
 
 Проверены 40 карт: 20 recent и по 5 четырёх исторических TI-лиг. Сохранены public flags/source hashes и HTTP counters, без raw payload/profile data. Новый `--league <id>` выбирает time ranks; canonical identity и historic known-at остаются unknown. [Результат и команды](docs/S0_08_SOURCE_AUDIT.md).
+
+### S0-09 — готовность контекста на cutoff
+
+DataReadinessRepository оценивает strict, owner-asserted и conditional-lineup cohorts с явными required/assumed facts. Завершённый roster не подставляется автоматически; ready относится только к контексту, training/prediction eligibility не оцениваются. Требуется миграция 013: серверный recorded_at защищает owner assertions от датирования задним числом. Проверка: `pnpm test:readiness`. [Контракт](docs/S0_09_DATA_READINESS.md).

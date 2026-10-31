@@ -26,3 +26,7 @@ Collector должен возвращать JSON summary per ingestion batch: `r
 ## Измерение S0-08 (2026-10-31)
 
 [Ограниченный source audit](S0_08_SOURCE_AUDIT.md): 40 unique maps, six observed provider patch IDs, 50 HTTP 200 attempts. Покрытие полей не является training/prediction gate. Unknown canonical identity/verified patch/historic lineup/draft timing остаётся unassessed/null. На recent five maps отсутствуют teams/series, одна имеет 12 raw picks при десяти final heroes. Пороги моделей по этим наблюдениям не устанавливаются; readiness cohorts — S0-09, corpus — S1-08.
+
+## Context readiness S0-09
+
+context-availability-v1 разделяет strict_verified_asof, owner_asserted_asof и conditional_lineup_reconstructed. Unavailable/unknown факты имеют null value; ready означает только достаточность явно запрошенного контекста, не разрешение обучать/показывать вероятность. Подтверждённые Pos1–5 отдельно от оценок; source account coverage не подменяет canonical lineup proof. [Правила и тесты](S0_09_DATA_READINESS.md).

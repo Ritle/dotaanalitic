@@ -28,18 +28,7 @@ export function resolveGameContext(context: Context, startedAt: string, input: G
     const item = context.fields.find(item => item.field === field && item.status === 'available');
     return (item?.fact?.value ?? null) as FactValues[F];
   };
-  const patches = registry.patches.map(({ id, ...row }) => ({ id, ...PatchReleaseEvidenceSchema.parse(row) }))
-    .filter(row => eligible(row) && row.releasedAt <= mapTime);
-  // A newer uncovered release must never fall back to an older, longer coverage interval.
-  const latest = patches.reduce<string | null>((date, row) => date === null || row.releasedAt > date ? row.releasedAt : date, null);
-  const latestRows = patches.filter(row => row.releasedAt === latest);
-  const samePatchRows = patches.filter(row => latestRows.some(latestRow => latestRow.patchId === row.patchId));
-  const conflictingIds = new Set(samePatchRows.map(row => row.releasedAt)).size > 1;
-  let patch = decision(latestRows, latestRows.map(row => row.patchId), 'PATCH_UNKNOWN');
-  if (conflictingIds) patch = { ...decision(samePatchRows, samePatchRows.map(row => row.patchId), 'PATCH_UNKNOWN'),
-    value: null, reason: 'CONFLICT' };
-  if (patch.value !== null && !latestRows.some(row => row.coverageUntil > mapTime))
-    patch = { ...patch, value: null, reason: 'PATCH_COVERAGE_GAP' };
+  const patch = resolvePatchAt(registry.patches, mapTime, request.cutoffAt);
 
   const teams = fact('teams');
   const radiantSlot = teams?.radiantTeamId === request.teamAId && teams.direTeamId === request.teamBId ? 'A' :
@@ -79,4 +68,20 @@ export function resolveGameContext(context: Context, startedAt: string, input: G
     // Series score is intentionally unavailable: no between-map prediction in MVP.
     seriesScoreBefore: null, radiantSlot, firstPickSide, firstPickSlot: sideToScenarioSlot(firstPickSide, radiantSlot),
     draftRule, draftOrderVersion, draftOrderValid: null, heroEligibility, warnings: [...warnings].sort() };
+}
+
+/** Knowledge time is explicit; retrospective callers must never relabel it as map cutoff. */
+export function resolvePatchAt(input: GameRegistry['patches'], mapTime: string, knowledgeAt: string) {
+  const patches = input.map(({ id, ...row }) => ({ id, ...PatchReleaseEvidenceSchema.parse(row) }))
+    .filter(row => row.knownAt <= knowledgeAt && (row.eventAt === null || row.eventAt <= knowledgeAt) &&
+      ['accepted','conflict'].includes(row.reviewState) && row.releasedAt <= mapTime);
+  const latest = patches.reduce<string | null>((date, row) => date === null || row.releasedAt > date ? row.releasedAt : date, null);
+  const latestRows = patches.filter(row => row.releasedAt === latest);
+  const samePatchRows = patches.filter(row => latestRows.some(latestRow => latestRow.patchId === row.patchId));
+  let patch = decision(latestRows, latestRows.map(row => row.patchId), 'PATCH_UNKNOWN');
+  if (new Set(samePatchRows.map(row => row.releasedAt)).size > 1)
+    patch = { ...decision(samePatchRows, samePatchRows.map(row => row.patchId), 'PATCH_UNKNOWN'), value: null, reason: 'CONFLICT' };
+  if (patch.value !== null && !latestRows.some(row => row.coverageUntil > mapTime))
+    patch = { ...patch, value: null, reason: 'PATCH_COVERAGE_GAP' };
+  return patch;
 }

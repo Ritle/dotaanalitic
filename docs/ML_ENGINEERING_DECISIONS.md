@@ -101,3 +101,7 @@ created -> trained -> evaluated -> approved -> active -> retired
 - https://scikit-learn.org/stable/modules/cross_validation.html#time-series-split
 - https://scikit-learn.org/stable/modules/model_evaluation.html
 - https://catboost.ai/docs/en/features/categorical-features
+
+## Availability boundary S0-09
+
+Концепт truly_pre_known соответствует runtime cohort strict_verified_asof; conditional_lineup_reconstructed остаётся отдельным исследовательским режимом с перечисленными assumptions. owner_asserted_asof — отдельный provenance режим и не public historical proof. DataReadinessRepository подтверждает только запрошенные context facts; model/feature eligibility остаётся not_assessed. Для frozen DatasetBuilder S3 закрепить policyKey, stage, required/assumed facts и source revisions, не объединять разные cohorts в одной метрике. [Контракт](S0_09_DATA_READINESS.md).

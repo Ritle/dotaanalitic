@@ -112,3 +112,9 @@ See [DRAFT_DATA_INTEGRITY.md](DRAFT_DATA_INTEGRITY.md); 001–005 remain immutab
 ## S0-07: verified dataset boundary
 
 Миграция 012 добавляет outcome_receipt_id (composite FK к той же карте), match_data_revision и series_id_snapshot в training_dataset_maps. SQL сверяет pro/outcome/orientation с immutable receipt и league reference; building → frozen повторно проверяет источник, хронологию и целую серию. Frozen/rejected защищены от изменения/удаления; header/stage нельзя менять при существующих примерах. PostgreSQL формирует canonical content и SHA-256; Bigint IDs в content — строки, timestamps — UTC. Старые frozen snapshots не переписываются. Это durable architecture, а не feature eligibility или готовый DatasetBuilder. [Контракт](S0_07_VERIFIED_DATASETS.md).
+
+## S0-09: readiness и серверное время записи
+
+Миграция 013 добавляет nullable recorded_at в match_field_observations. BEFORE INSERT trigger устанавливает верхнюю миллисекундную границу clock_timestamp независимо от входного значения; immutable guard запрещает изменение. Legacy строки остаются NULL. Это независимая отметка сервера, не event_at/known_at/fetched_at источника. Owner assertions допускаются только при recorded_at и fetched_at не позже cutoff; публичный датированный архив может быть получен позднее.
+
+DataReadinessRepository читает observations, map bounds и release registry в repeatable-read; отдельные strict/owner/conditional policies требуют явного профиля. Завершённые match_players не служат неявным источником состава. Ready означает только запрошенную доступность контекста, eligibility для обучения и прогноза не оценивается. Снимки не записываются этим reader; будущий DatasetBuilder обязан заморозить выбранную cohort/policy/assumptions. SQL 001–012 не изменены. [Контракт](S0_09_DATA_READINESS.md).

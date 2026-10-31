@@ -1,6 +1,6 @@
 # Prediction data research status — актуально 2026-10-31
 
-**Текущий результат:** S0-08 выполнен 2026-10-31: 20 recent + по 5 карт TI leagues 2021/2022/2023/2024, всего 40 unique maps; 50 HTTP attempts, все 200. [Отчёт](S0_08_SOURCE_AUDIT.md), [manifest/evidence](evidence/s0-08-manifest.json). Исторический known-as-of не доказан и остаётся S0-09. Ниже сохранена история подготовки и прежних наблюдений; старый BLOCKED относится к контейнеру 2026-10-27.
+**Текущий результат:** S0-08 выполнен 2026-10-31: 20 recent + по 5 карт TI leagues 2021/2022/2023/2024, всего 40 unique maps; 50 HTTP attempts, все 200. [Отчёт](S0_08_SOURCE_AUDIT.md), [manifest/evidence](evidence/s0-08-manifest.json). Исторический known-as-of не доказан; S0-09 реализовала его явные cohort gates, но не создала отсутствующее source evidence. Ниже сохранена история подготовки и прежних наблюдений; старый BLOCKED относится к контейнеру 2026-10-27.
 
 ## Verified via public documentation and published data
 
@@ -52,3 +52,7 @@ node scripts/audit-prediction-sources.mjs --sample 50 --out reports/opendota-cov
 ## 2026-10-31 — S0-08, recent + историческая стратификация
 
 Recent 20/20: source accounts, final heroes, provider patch и completed outcome — 20/20; teams/series — 15/20; picks exact/structural consistency — 19/20. Historical 20/20 (5 на лигу, time ranks, provider patch IDs 48/49/51/53/56): эти поля — 20/20. Каноническая идентичность, верифицированный patch release и historical roster/draft known_at не оценены; strict draft_order_valid везде null. Отчёты schema_version=3 сохраняют selection, все per-map flags/source hashes, HTTP counters и ограничения. Game mode 2/22 не преобразуется в guessed draft rules. Ранее owner-reported 50 и S0-01 20 не прибавляются к новой выборке. [Полные доли, аномалии, команды и scope](S0_08_SOURCE_AUDIT.md).
+
+## 2026-10-31 — S0-09 readiness policy
+
+Реализованы strict/owner/conditional context assessment и отдельный policyKey выборки. Working-DB smoke на единственной импортированной карте: оба strict и conditional профиля incomplete, selected facts=0; typed roster/role/side/patch evidence отсутствует. Это n=1 локальный smoke, не измерение readiness всех 40 audit maps. Полные canonical rows не получают invented known_at; дальнейшая conditional projection — явная работа DatasetBuilder. [Контракт](S0_09_DATA_READINESS.md).

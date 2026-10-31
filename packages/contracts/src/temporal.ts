@@ -74,4 +74,5 @@ export type ContextFact = z.infer<typeof ContextFactSchema>;
 export type ContextField = ContextFact['field'];
 export type ContextObservation = z.infer<typeof ContextObservationSchema>;
 export type ContextAsOf = z.infer<typeof ContextAsOfSchema>;
-export type StoredContextObservation = ContextObservation & { id: string };
+// recordedAt is server-owned metadata, deliberately excluded from the append DTO.
+export type StoredContextObservation = ContextObservation & { id: string; recordedAt?: string | null };

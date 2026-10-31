@@ -29,7 +29,7 @@ export function canonicalContextJson(value: unknown): string {
 /** Strict evidence policy only. No conditional/user-asserted cohort is silently enabled. */
 export function resolveContextAsOf(observations: readonly StoredContextObservation[], request: ContextAsOf) {
   const query = ContextAsOfSchema.parse(request);
-  const parsed = observations.map(({ id, ...row }) => ({ id, ...ContextObservationSchema.parse(row) }));
+  const parsed = observations.map(({ id, recordedAt: _recordedAt, ...row }) => ({ id, ...ContextObservationSchema.parse(row) }));
   const relevant = parsed.filter(row => row.matchId === query.matchId);
   const fields = CONTEXT_FIELDS.map<ContextResolution>(field => {
     const rows = relevant.filter(row => row.fact.field === field);

@@ -1,6 +1,6 @@
 # Prediction Engine — источники, обучающие поля и аудит пригодности данных (v8)
 
-**Статус на 2026-10-31:** S0-08 выполнил ограниченный live-аудит 20 recent + 20 historical карт четырёх TI-лиг, с разбиением по наблюдённым provider patch IDs. [Результаты и evidence](S0_08_SOURCE_AUDIT.md). Это не репрезентативный benchmark, не доказательство historic known-as-of и не model eligibility. S0-09/S1-08 остаются обязательными до S3.
+**Статус на 2026-10-31:** S0-08 выполнил ограниченный live-аудит 20 recent + 20 historical карт четырёх TI-лиг, с разбиением по наблюдённым provider patch IDs. [Результаты и evidence](S0_08_SOURCE_AUDIT.md). Это не репрезентативный benchmark, не доказательство historic known-as-of и не model eligibility. Правила readiness/cohorts S0-09 реализованы; реальное historic evidence всё ещё не доказано, corpus gate S1-08 и S3 feature/model gates остаются обязательными.
 
 ## 1. Задача и target
 
@@ -138,3 +138,7 @@ Post-draft `hero_id_by_side_slot[10]` и модель по **финальном�
 ## S0-08: измеренный source audit v3
 
 40 unique maps, capture 2026-10-31, 50 HTTP 200 attempts без 429/5xx в этом ограниченном запуске. Source identities/final heroes/provider patch — 40/40; обе команды и series — 35/40; ровно десять picks/structural consistency — 39/40. Canonical identities, verified release patch и known-at roster/draft не оценены; ratio null. Schema 3 добавляет --league, all-row evidence, selection/HTTP counters, confirmed-pro subset и safe blocked/partial report. Legacy role_hint_10 означает присутствие integer lane_role, не подтверждённые Pos 1–5. [Подробности](S0_08_SOURCE_AUDIT.md).
+
+## S0-09: explicit readiness cohorts
+
+Доступность проверяет DataReadinessRepository: strict public evidence, owner assertions, retrospective conditional assumptions раздельны; обязательные поля задаются явно, неизвестный source class не повышается по полноте данных. Pre-match не получает draft facts; post-draft reconstructed heroes требуют отдельного assumption. Profile policyKey фиксирует stage/cohort/required/assumed facts; будущий DatasetBuilder обязан записать его в frozen manifest и дополнительно проверить label/history/model gates. [Контракт](S0_09_DATA_READINESS.md).
