@@ -16,7 +16,7 @@
 | db | `pg` 8 | SQL driver | Уже в root starter; migrations and pool test |
 | db | `kysely` 0.28.18 | Typed select/joins/transactions | Installed/tested S0-02; SQL migration authority remains manually written `.sql` |
 | worker | `pg-boss` 12.38.0 | Durable scheduled/import jobs | Installed/tested S0-02; Node >=22.12; restart/dedup/retry/atomic deferral tested, own schema lifecycle |
-| web | `@tanstack/vue-query` | Cache and async fetch | S1-01; queryKey, invalidate after mutate |
+| web | `@tanstack/vue-query` 5.105.0 | Cache and async fetch | Installed S1-01; query keys by resource/query/page/ID, AbortSignal, cache cleared on logout/401; Chromium E2E |
 | web | `echarts`, `vue-echarts` | Timelines/calibration/graphs | On first analytics visualization (S1/S3), lazy load |
 | web | `@vue/test-utils` | Component tests | S1/S2 |
 | root e2e | `@playwright/test` | E2E scenario | S4-02 |

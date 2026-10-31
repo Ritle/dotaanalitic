@@ -28,3 +28,4 @@ export * from './game-context-repository.js';
 export * from './dataset-repository.js';
 export * from './readiness.js';
 export * from './readiness-repository.js';
+export * from './catalog-repository.js';

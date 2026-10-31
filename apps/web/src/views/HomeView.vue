@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { ownerAuth, logout } from '../auth';
+import CatalogSearch from '../components/CatalogSearch.vue';
 const router = useRouter();
 const busy = ref(false);
 const error = ref('');
@@ -24,7 +25,8 @@ async function signOut() {
     </div>
     <p>Владелец: <strong>{{ ownerAuth?.owner.login }}</strong></p>
     <p v-if="error" role="alert" class="error">{{ error }}</p>
-    <p>Профессиональная статистика и работа с драфтом появятся на следующих этапах.</p>
+    <p>Справочники доступны ниже. Фильтры профессиональной статистики и работа с драфтом появятся на следующих этапах.</p>
     <p class="hint">Прогноз недоступен: проверенные модели ещё не опубликованы.</p>
   </section>
+  <CatalogSearch />
 </template>

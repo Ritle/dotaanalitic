@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
+import { ownerAuth } from './auth';
+const router=useRouter();
+watch(ownerAuth,(owner,previous)=>{if(previous && !owner) void router.replace('/login');});
 const apiState = ref<'loading' | 'online' | 'offline'>('loading');
 onMounted(async () => {
   try {

@@ -3,4 +3,6 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import './style.css';
 import { router } from './router';
-createApp(App).use(router).mount('#app');
+import { VueQueryPlugin } from '@tanstack/vue-query';
+import { queryClient } from './query-client';
+createApp(App).use(VueQueryPlugin,{queryClient}).use(router).mount('#app');

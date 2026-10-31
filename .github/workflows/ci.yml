@@ -62,6 +62,7 @@ jobs:
       - run: pnpm test:game-context
       - run: pnpm test:dataset
       - run: pnpm test:readiness
+      - run: pnpm test:catalog
 
   ml-bootstrap:
     runs-on: ubuntu-latest

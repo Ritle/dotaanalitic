@@ -56,7 +56,7 @@
 
 ## S1 — базовая статистика и оценка силы
 
-- [ ] **S1-01 [P0] Справочники и обзоры** (было `P1-01`): поиск teams/players/heroes; история организация vs current five vs player; freshness.
+- [x] **S1-01 [P0] Справочники и обзоры** (было `P1-01`): поиск teams/players/heroes; история организация vs current five vs player; freshness. Выполнено 2026-10-31: local authenticated catalogue API/UI, organization/player overview, observed native-side lineup и unknown current five, sync/metadata clocks; Vue Query 5.105.0, 2 contract + 7 PG/API tests, 4 Chromium E2E. Статистические фильтры остаются S1-02. [Контракт](S1_01_CATALOGUE.md).
 - [ ] **S1-02 [P0] Качественные pro-map выборки** (было `P1-02`): патч/дата/оппонент/роль/сторона, raw `n`, покрытие, nullable показатели, отдельно неизвестные pro и неточные roster/series.
 - [ ] **S1-03 [P0] Состав и замены** (было `P1-03`): exact-five, 10 исторических пар через любые организации, роль 1–5, churn и свежесть; сравнение ожидаемой и выбранной пятёрки без фиксированного штрафа. **DoD:** замена игрока изменяет нужные признаки, но не переносит старые победы организации в новую пятёрку.
 - [ ] **S1-04 [P0] Игрок × герой × позиция** (было `P1-04`): карты/победы/KDA/GPM/XPM с coverage и подтверждением позиции; перемена ролей не игнорируется.

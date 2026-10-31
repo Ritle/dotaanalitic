@@ -2,7 +2,7 @@
 
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (auth реализован в S0-03; остальные планируются)
+## Основные маршруты (auth S0-03 и справочники S1-01 реализованы; остальные планируются)
 
 | HTTP | Путь | Смысл |
 |---|---|---|
@@ -15,6 +15,7 @@
 | GET | `/teams/:id/matches` | Карты pro + фильтры |
 | GET | `/teams/compare?teamA=...&teamB=...` | Сравнение |
 | GET | `/players/:id` | Игрок |
+| GET | `/players?query=...` | Локальный поиск canonical игроков (S1-01) |
 | GET | `/players/:id/heroes` | Pro-only статистика по героям |
 | POST | `/scenarios` | Сценарий: 2 команды |
 | GET | `/scenarios/:id` | Данные сценария |
@@ -33,6 +34,12 @@
 S0-03: login принимает strict JSON `{login,password}`; unknown fields — 400. Успех login/me: `{owner:{id:uuid,login},expiresAt:ISO,csrfToken:string}`. Session token передаётся только HttpOnly cookie. Logout — 204, revoke и очистка cookies. Ошибки: 401 credentials/session, 403 Origin/CSRF, 429 + Retry-After. API ответы: Cache-Control: no-store.
 
 Login требует Origin, точно совпадающий с WEB_ORIGIN; изменяющие авторизованные запросы также требуют `X-CSRF-Token` из login/me и signed CSRF cookie. CSRF связан с сессией, GET me обновляет token после reload. Scripts/curl должны передавать Origin явно. Production: `__Host-session`/`__Host-csrf`, Secure/HttpOnly/SameSite=Lax/Path=/ без Domain; localhost HTTP: `dota_session`/`dota_csrf`. [Подробно](S0_03_OWNER_AUTH.md).
+
+## Справочники S1-01
+
+S1-01 реализует `GET /heroes`, `/teams`, `/players` и `/teams/:id`, `/players/:id`. Списки принимают strict query `{query?:string<=80,limit?:1..100,offset?:0..10000}`, defaults `""/25/0`. Поиск нечувствителен к регистру, по подстроке имени/тега/internal hero name или точному canonical ID; `%`/`_` — обычный текст. Порядок lower(name), numeric ID, limit+1 даёт hasMore. ID — положительная decimal string в пределах SQL bigint. 400 — invalid query/ID, 404 — неизвестная запись. Все маршруты требуют owner cookie, Cache-Control:no-store.
+
+List DTO: `{kind,items:[{id,name,secondary,syncedAt,metadataUpdatedAt}],hasMore,filters,source:'local_catalog',computedAt,warnings}`. `syncedAt:null` — неизвестная синхронизация; heroes.updated_at возвращается только как metadataUpdatedAt. `GET /teams/:id` возвращает entityType=organization, currentLineup=null, latestObservedLineup из последней завершённой non-conflict pro-карты до cutoff (native side, members/status/source/sync); это не заранее известный/текущий состав. `/players/:id`: entityType=canonical_player, catalogAccountId, accountVerification=not_assessed, currentTeam=null; нет public totals и автоматического объединения по нику. [Полный срез и ограничения](S1_01_CATALOGUE.md).
 
 ## DTO: ошибка
 

@@ -1,6 +1,6 @@
 # Текущее состояние репозитория — Codex handoff
 
-**Обновлено:** 2026-10-31. S0-00/DX-00, S0-01, S0-02 + S0-10, S0-03, S0-04, S0-05, S0-06, S0-07, S0-08 и **S0-09** выполнены локально. **Функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
+**Обновлено:** 2026-10-31. S0-00/DX-00, S0-01, S0-02 + S0-10, S0-03, S0-04, S0-05, S0-06, S0-07, S0-08, S0-09 и **S1-01** выполнены локально. **Функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
 
 ## Реально присутствует
 
@@ -12,10 +12,15 @@
 - **S0-07:** DatasetRepository + typed manifest/example contracts, SQL source/pro/outcome/orientation gate, immutable frozen/rejected snapshots, whole-series/chronological checks, reproducible SHA-256. Это durable boundary, не DatasetBuilder или доказательство feature eligibility. [Контракт](S0_07_VERIFIED_DATASETS.md).
 - **S0-08:** audit schema 3, typed league discovery + safe request counters; live 20 recent + 20 historical карт четырёх TI-лиг, 6 observed source patch IDs, 50 HTTP 200 attempts. Evidence/selection/source/code SHA сохранены; historic known-at и canonical identities unassessed. [Отчёт](S0_08_SOURCE_AUDIT.md).
 - **S0-09:** DataReadinessRepository + pure assessContextReadiness: strict/owner/conditional cohorts, required/assumed facts, policyKey и map dedupe. Никакого implicit completed-roster fallback; готовность контекста не означает training/prediction eligibility. Миграция 013 фиксирует серверный recorded_at отдельно от source clocks, legacy NULL не допускается как ранний owner input. [Контракт](S0_09_DATA_READINESS.md).
-- PostgreSQL 16.15 native localhost/SCRAM; **001–013 применены**, повтор 13 SKIP. SQL 001–012 в этой задаче не менялись; golden 001–005 совпадают. Следующая миграция **014+**.
-- Node 22.15.0 / pnpm 10.19.0, Kysely 0.28.18, pg-boss 12.38.0; shared packages compiled dist/declarations. В S0-09 зависимости и lockfile не менялись.
+- **S1-01:** authenticated catalogue API, local search teams/players/heroes и Vue UI, organization/player overview с freshness. Последняя завершённая pro-карта даёт только observed lineup; current five/account verification не выдумываются. Vue Query cache очищается при logout/401. [Контракт](S1_01_CATALOGUE.md).
+- PostgreSQL 16.15 native localhost/SCRAM; **001–013 применены**, повтор ранее 13 SKIP. SQL 001–013 в S1-01 не менялись; golden 001–005 совпадают. Следующая миграция **014+**.
+- Node 22.15.0 / pnpm 10.19.0, Kysely 0.28.18, pg-boss 12.38.0; Vue Query 5.105.0 установлен в S1-01, lockfile сгенерирован pnpm из registry и проверен frozen install. Shared packages compiled dist/declarations.
 
 ## Проверено
+
+- S1-01 PASS: frozen install, typecheck, build, **141 unit**, **22 DB/integration** (catalogue 7, auth/CLI 11, baseline 4), **18 Node tests**, **4 Chromium E2E** и visual QA desktop/360px. Verifier 13/golden, docs links/git diff. Unchanged temporal/identity/game/dataset/ingestion/queue/Python suites не повторялись, их прежние результаты ниже.
+- Catalogue regression сначала выявил 500 на ID `1e3` из-за BigInt внутри Zod refine; исправлен safe validation, test теперь 400. Первый browser run не нашёл default cache; повтор с PLAYWRIGHT_BROWSERS_PATH=.tools/playwright прошёл без скачивания браузера. Auth/logout, empty/error/retry/expired-session flow проверены в реальном browser; synthetic failures только в тесте.
+- S1-01 working-DB read-only smoke: teams=2 (обе sync dates известны), players=0, heroes первая страница 100/hasMore=true без source sync dates. Maps=1, datasets=0, active_models=0, временных DB=0. Owner/fixtures в рабочей БД не создавались; provider calls не выполнялись.
 
 - S0-09 PASS: frozen install/typecheck/build; **139 unit + 71 DB/integration** (readiness 9, temporal/identity/game/dataset/ingestion/queue 58, baseline 4), **18 Node tests**, verifier 13/golden, docs links/git diff. Auth/E2E/Python неизменны и не повторялись. Новые pure/PG suites проверяют clocks/cohorts, conflicts, completeness, patch assumptions и completion microsecond boundary.
 - Regression tests сначала воспроизвели зависимость map dedupe от порядка снимков и допуск позднего owner input с подставленным fetchedAt. Исправлены: snapshots сравниваются независимо от ready, owner gate требует server recordedAt <= cutoff. SQL test проверяет принудительную серверную отметку и её immutable защиту.
@@ -32,8 +37,8 @@
 - HTTPS production требует AUTH_COOKIE_SECRET >=32 random characters. Dev loopback без него использует process-local CSRF signing key; reload/me обновляет CSRF.
 - Windows sandbox блокирует некоторые child processes; проверки выполнялись с разрешённым запуском вне песочницы. Docker/Compose отсутствуют: containers/TLS/restore/remote CI не проверены. Push/deploy не выполнялись.
 - Registry/account evidence append — внутренний доверенный boundary, не автоматическая верификация provider payload. Legacy mutable links/rules не становятся as-of evidence. Conflicts не разрешаются last-write-wins; manual review/supersession UI остаётся S5-03.
-- Нет аналитических страниц/API, полного draft timeline validator, DatasetBuilder/production training/activation. Реальные patch/draft/hero rules не seed-ились. Resolution контекста не означает prediction eligibility. Derived caches включают identityRevision, game registryRevision, map dataRevision, policy versions и effective inputs.
+- Есть catalogue pages/API; фильтрованной статистики, полного draft timeline validator, DatasetBuilder/production training/activation пока нет. Реальные patch/draft/hero rules не seed-ились. Resolution контекста не означает prediction eligibility. Derived analytics caches должны включать identityRevision, game registryRevision, map dataRevision, policy versions и effective inputs; текущий catalogue cache хранит только metadata reads.
 
 ## Следующая задача
 
-**S1-01 [P0] Справочники и обзоры.** Читать SCREEN_SPECS, API_CONTRACTS, UI_DESIGN_SYSTEM и соответствующие разделы DATA_MODEL/IDENTITY_AND_DATA_QUALITY/ROSTER_CONTINUITY. Реализовать поиск teams/players/heroes и freshness; организация, actual five и личность игрока различаются. Не подменять pro-history public totals или current-members flags. Рекомендуемая модель: **GPT-6.1 Sol · High**.
+**S1-02 [P0] Качественные pro-map выборки.** Читать API_CONTRACTS/SCREEN_SPECS, DATA_QUALITY_GATES, POINT_IN_TIME_AND_MATCH_CONTEXT, PATCH_AWARE_ANALYTICS, ROSTER_CONTINUITY и DRAFT_DATA_INTEGRITY. Добавить фильтры дата/патч/оппонент/роль/сторона, raw N и nullable показатели, отдельно unknown pro/roster/series; только started_at<cutoff и корректная доступность метрик завершённой карты. Рекомендуемая модель: **GPT-6.1 Sol · High**.

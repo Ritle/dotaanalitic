@@ -1,5 +1,6 @@
 import { AuthResponseSchema, type AuthResponse } from '@dota/contracts';
 import { ref } from 'vue';
+import { queryClient } from './query-client';
 
 // Only the CSRF token and display state live in memory. Session tokens stay in
 // HttpOnly cookies; no credentials/session storage in localStorage or Pinia.
@@ -10,7 +11,7 @@ export class AuthRequestError extends Error {
 async function call(path: string, init?: RequestInit) {
   const response = await fetch('/api/v1/auth/' + path, { ...init, credentials: 'same-origin', cache: 'no-store' });
   if (!response.ok) {
-    if (response.status === 401) ownerAuth.value = null;
+    if (response.status === 401) { ownerAuth.value = null; queryClient.clear(); }
     const message = response.status === 401 ? 'Неверный логин или пароль. Войдите снова.'
       : response.status === 429 ? 'Слишком много попыток. Повторите вход позже.'
       : response.status === 403 ? 'Сессия проверки безопасности устарела. Обновите страницу.'
@@ -31,4 +32,5 @@ export async function logout() {
   if (!ownerAuth.value) return;
   await call('logout', { method: 'POST', headers: { 'x-csrf-token': ownerAuth.value.csrfToken } });
   ownerAuth.value = null;
+  queryClient.clear();
 }

@@ -158,3 +158,7 @@ DatasetRepository вычисляет label из подтверждённой к�
 ### S0-09 — готовность контекста на cutoff
 
 DataReadinessRepository оценивает strict, owner-asserted и conditional-lineup cohorts с явными required/assumed facts. Завершённый roster не подставляется автоматически; ready относится только к контексту, training/prediction eligibility не оцениваются. Требуется миграция 013: серверный recorded_at защищает owner assertions от датирования задним числом. Проверка: `pnpm test:readiness`. [Контракт](docs/S0_09_DATA_READINESS.md).
+
+### S1-01 — локальные справочники и обзоры
+
+После входа главная страница ищет teams/players/heroes по имени, тегу или ID и показывает известную дату синхронизации. Обзоры `/teams/:id` и `/players/:id` различают организацию, исторический фактический состав карты и личность игрока; актуальный состав не угадывается. Поиск читает только локальную БД, новые данные загружаются отдельным importer/queue workflow; кнопка «Перечитать базу» не вызывает OpenDota. Vue Query установлен, cache очищается при выходе/401. Проверки: `pnpm test:catalog`, `pnpm test:e2e`. [Контракт и границы](docs/S1_01_CATALOGUE.md).
