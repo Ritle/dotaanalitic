@@ -17,6 +17,7 @@ export const DatasetManifestSchema = z.object({
 export const DatasetMapInputSchema = z.object({
   datasetId: z.uuid(), matchId: Id, outcomeReceiptId: Id, teamAId: Id, teamBId: Id,
   cutoffAt: z.iso.datetime({ precision: 3 }), split: z.enum(['train','calibration','validation','test']),
+  labelVerifiedAt: z.iso.datetime({ precision: 3 }).optional(),
   features: DatasetFeaturesSchema
 }).strict().refine(row => row.teamAId !== row.teamBId);
 export type DatasetManifest = z.infer<typeof DatasetManifestSchema>;

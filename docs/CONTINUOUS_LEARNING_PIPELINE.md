@@ -112,4 +112,4 @@ interface ModelRegistry { promote(candidateId: string, evaluationId: string, exp
 
 ## Реализованный S0-07
 
-Migration 012 и DatasetRepository обеспечивают durable label/source gate, отдельные features, map/version uniqueness, whole-series/chronological split checks и immutable terminal snapshots с reproducible SHA-256. Labels выводятся из completed pro map и immutable OpenDota receipt + league proof; guesses/prediction IDs не принимаются. Полноценные OutcomeVerifier/DatasetBuilder, feature availability и model quality gates остаются S3. [Контракт и ограничения](S0_07_VERIFIED_DATASETS.md).
+Migration 012 и DatasetRepository обеспечивают durable label/source gate, отдельные features, map/version uniqueness, whole-series/chronological split checks и immutable terminal snapshots с reproducible SHA-256. Labels выводятся из completed pro map и immutable OpenDota receipt + league proof; guesses/prediction IDs не принимаются. S3-00 добавил strict OutcomeVerifier/DatasetBuilder preparation и CLI; numeric features/history и model quality gates остаются S3-02..06. См. [контракт S3-00](S3_00_DATASET_BUILDER.md). [Контракт и ограничения](S0_07_VERIFIED_DATASETS.md).

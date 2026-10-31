@@ -48,3 +48,4 @@ export * from './scenario.js';
 export * from './draft.js';
 export * from './hero-matchups.js';
 export * from './scenario-report.js';
+export * from './dataset-build.js';

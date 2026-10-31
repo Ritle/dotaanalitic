@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "audit_schema_version": 3,
+  "mode": "live_opendota",
+  "base_commit": "721250fbd839dfb527c26416d925cac4648297a2",
+  "capture_started_at": "2026-10-31T21:27:37.269Z",
+  "capture_finished_at": "2026-10-31T21:27:51.782Z",
+  "command": "node --env-file-if-exists=.env scripts/audit-prediction-sources.mjs --sample 10 --out docs/evidence/s3-00-live-recent.json",
+  "report": "s3-00-live-recent.json",
+  "report_sha256": "d12a2ab03ebbfb441585f17377933650d7fff69d680d21f5b9dc9af8490a9cf3",
+  "code_sha256": {
+    "scripts/audit-prediction-sources.mjs": "5065d1d871ba6900a9b55f0bfd1122a785b7972e5c195ac6246b1d5fe267bf8e",
+    "scripts/lib/coverage-audit.mjs": "4e5494511bd89d936a24dd09a6b2b0eb62032a4e4299bbb2fd580fff6dc72dfc",
+    "scripts/lib/match-quality.mjs": "dac488bc7e59c18647fa5ddc0857ebed6d8c26bcee7bd265d57afec41fa5f89b",
+    "packages/ingestion/src/opendota/client.ts": "c614e3ff06bf4cc8f20e934836d4088f43b90d55cf05fc30f48059f1c51d61fd",
+    "packages/ingestion/src/runtime.ts": "491313766a326bf69be35b44fe6d6fa5bbfb300bfc4ff9031ebc58fe470ba4ef",
+    "packages/ingestion/src/quota.ts": "2250f733522cb3643ec0ebd1574104001a898878384ecea2a91c750a2f226093"
+  },
+  "runtime_sha256": {
+    "packages/ingestion/dist/opendota/client.js": "ac345d910f47c07009cc5b9ec8a35f82a2002b4939bd11c592db14fe4bcea04c",
+    "packages/ingestion/dist/runtime.js": "ef585018a654880ce4d486f711cbff07396cadf0ad977c697cd110f2796024a0",
+    "packages/ingestion/dist/quota.js": "9b5f6f942eccca00c3400ea9fc03ca3ea0b2c30f6460ccd584ab2454ae0ffe79"
+  },
+  "requested": 10,
+  "received": 10,
+  "unique_maps": 10,
+  "requests": {
+    "attempts": 12,
+    "httpStatuses": {
+      "200": 12
+    },
+    "transportErrors": {}
+  },
+  "selection": {
+    "method": "first_unique_in_proMatches_order",
+    "league_id": null,
+    "selected_match_ids": [
+      "9070527945",
+      "9070392472",
+      "9070122200",
+      "9070062078",
+      "9070048037",
+      "9069995494",
+      "9069952836",
+      "9069021061",
+      "9068910292",
+      "9068883958"
+    ],
+    "duplicate_ids": 0,
+    "invalid_ids": 0,
+    "outside_cohort": 0
+  },
+  "strata": {
+    "provider_patch": {
+      "60": 10
+    },
+    "league": {
+      "16251": 1,
+      "18631": 3,
+      "20395": 6
+    },
+    "game_mode": {
+      "2": 7,
+      "22": 3
+    },
+    "lobby_type": {
+      "1": 10
+    },
+    "started_at_min": "2026-10-30T18:17:16.000Z",
+    "started_at_max": "2026-10-31T18:51:31.000Z"
+  },
+  "prior_capture": {
+    "manifest": "s0-08-manifest.json",
+    "manifest_sha256": "b55fad9eb8789ec6c8809313a6b066a261c9d4f95ad96a82dcb50cfc936db272",
+    "unique_maps": 40,
+    "overlapping_match_ids": [
+      "9069021061",
+      "9068910292",
+      "9068883958"
+    ],
+    "note": "Separate observational captures; no pooled accuracy or field-coverage claim."
+  },
+  "database_effects": "Only durable provider quotas; no canonical imports, evidence registry, datasets or models."
+}

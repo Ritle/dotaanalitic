@@ -7,6 +7,8 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "dataset:prepare": "pnpm shared:build && node --env-file-if-exists=.env scripts/prepare-dataset.mjs",
+    "test:dataset-builder": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/dataset-builder.integration.test.ts packages/db/tests/outcome-verifier.integration.test.ts packages/db/tests/dataset.integration.test.ts --testTimeout=30000 --maxWorkers=1",
     "dev": "pnpm shared:build && pnpm --parallel --filter @dota/api --filter @dota/web dev",
     "shared:build": "pnpm --filter @dota/ingestion... --filter @dota/contracts --if-present build",
     "worker:dev": "pnpm shared:build && pnpm --filter @dota/worker dev",
