@@ -27,6 +27,8 @@ export * from './game-context.js';
 export * from './game-context-repository.js';
 export * from './dataset-repository.js';
 export * from './dataset-builder.js';
+export * from './corpus-audit.js';
+export * from './dataset-audit.js';
 export * from './dataset-splits.js';
 export * from './outcome-verifier.js';
 export * from './readiness.js';

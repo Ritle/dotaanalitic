@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "audit_schema_version": 3,
+  "mode": "live_opendota",
+  "base_commit": "000a8dd4ce493619347f3a07b94f4fc6b2079a1f",
+  "generated_at": "2026-10-31T21:42:44.683Z",
+  "capture_started_at": "2026-10-31T21:39:55.376Z",
+  "capture_finished_at": "2026-10-31T21:41:50.857Z",
+  "command_template": "node --env-file-if-exists=.env scripts/audit-prediction-sources.mjs --league <league_id> --sample 8 --out docs/evidence/s3-01-live-<cohort>.json",
+  "selection_policy": "Five non-TI current professional/premium catalog leagues spanning distinct years; eight evenly spaced chronological ranks per league, including first/last, no quality-based reselection",
+  "source_code_sha256": {
+    "scripts/audit-prediction-sources.mjs": "5065d1d871ba6900a9b55f0bfd1122a785b7972e5c195ac6246b1d5fe267bf8e",
+    "scripts/lib/coverage-audit.mjs": "4e5494511bd89d936a24dd09a6b2b0eb62032a4e4299bbb2fd580fff6dc72dfc",
+    "scripts/lib/match-quality.mjs": "dac488bc7e59c18647fa5ddc0857ebed6d8c26bcee7bd265d57afec41fa5f89b",
+    "packages/ingestion/src/opendota/client.ts": "c614e3ff06bf4cc8f20e934836d4088f43b90d55cf05fc30f48059f1c51d61fd",
+    "packages/ingestion/src/opendota/schemas.ts": "d3e960ac2032fc86a7c2aa66da120811d47b220e4fa1e79c1075e61ba3cbea14",
+    "packages/ingestion/src/runtime.ts": "491313766a326bf69be35b44fe6d6fa5bbfb300bfc4ff9031ebc58fe470ba4ef",
+    "packages/ingestion/src/quota.ts": "2250f733522cb3643ec0ebd1574104001a898878384ecea2a91c750a2f226093"
+  },
+  "runtime_sha256": {
+    "packages/ingestion/dist/opendota/client.js": "ac345d910f47c07009cc5b9ec8a35f82a2002b4939bd11c592db14fe4bcea04c",
+    "packages/ingestion/dist/opendota/schemas.js": "dceadfdbe4cb7c4770107716e196a994840938b000d8c4093952a6a12d0ecbcb",
+    "packages/ingestion/dist/runtime.js": "ef585018a654880ce4d486f711cbff07396cadf0ad977c697cd110f2796024a0",
+    "packages/ingestion/dist/quota.js": "9b5f6f942eccca00c3400ea9fc03ca3ea0b2c30f6460ccd584ab2454ae0ffe79"
+  },
+  "reports": [
+    {
+      "cohort": "frankfurt2016",
+      "report": "s3-01-live-frankfurt2016.json",
+      "sha256": "711393f36d3ecbd815a32dc2d1e209a8b0edbb330d0e1bd429996fdf63a12485",
+      "generated_at": "2026-10-31T21:40:35.647Z",
+      "league_id": "4554",
+      "requested": 8,
+      "received": 8,
+      "discovery_candidates": 232,
+      "selection": {
+        "method": "uniform_rank_by_start_then_match_id_in_league",
+        "league_id": "4554",
+        "selected_match_ids": [
+          "2272572379",
+          "2283132676",
+          "2292700992",
+          "2359616795",
+          "2364898513",
+          "2443279779",
+          "2754001919",
+          "2786109986"
+        ],
+        "duplicate_ids": 0,
+        "invalid_ids": 0,
+        "outside_cohort": 0
+      },
+      "requests": {
+        "attempts": 10,
+        "httpStatuses": {
+          "200": 10
+        },
+        "transportErrors": {}
+      },
+      "strata": {
+        "provider_patch": {
+          "16": 3,
+          "17": 2,
+          "18": 3
+        },
+        "league": {
+          "4554": 8
+        },
+        "game_mode": {
+          "2": 8
+        },
+        "lobby_type": {
+          "1": 8
+        },
+        "started_at_min": "2016-04-04T15:04:21.000Z",
+        "started_at_max": "2016-11-18T10:01:19.000Z"
+      }
+    },
+    {
+      "cohort": "birmingham2018",
+      "report": "s3-01-live-birmingham2018.json",
+      "sha256": "506678765a49548a8593904d3149fa4637082c2d73182b3b8eccc7f84cbf022e",
+      "generated_at": "2026-10-31T21:40:49.694Z",
+      "league_id": "9880",
+      "requested": 8,
+      "received": 8,
+      "discovery_candidates": 108,
+      "selection": {
+        "method": "uniform_rank_by_start_then_match_id_in_league",
+        "league_id": "9880",
+        "selected_match_ids": [
+          "3841665963",
+          "3842787669",
+          "3843926586",
+          "3845488608",
+          "3908954812",
+          "3909857306",
+          "3911695865",
+          "3917861323"
+        ],
+        "duplicate_ids": 0,
+        "invalid_ids": 0,
+        "outside_cohort": 0
+      },
+      "requests": {
+        "attempts": 10,
+        "httpStatuses": {
+          "200": 10
+        },
+        "transportErrors": {}
+      },
+      "strata": {
+        "provider_patch": {
+          "32": 4,
+          "34": 3,
+          "35": 1
+        },
+        "league": {
+          "9880": 8
+        },
+        "game_mode": {
+          "2": 8
+        },
+        "lobby_type": {
+          "1": 8
+        },
+        "started_at_min": "2018-04-20T09:01:45.000Z",
+        "started_at_max": "2018-05-27T16:39:32.000Z"
+      }
+    },
+    {
+      "cohort": "omega",
+      "report": "s3-01-live-omega.json",
+      "sha256": "e102e62f1f92cc4848467bc9e2a14e7f6e83d10bb605c046f0f2d4afc9db33f5",
+      "generated_at": "2026-10-31T21:41:04.378Z",
+      "league_id": "12245",
+      "requested": 8,
+      "received": 8,
+      "discovery_candidates": 510,
+      "selection": {
+        "method": "uniform_rank_by_start_then_match_id_in_league",
+        "league_id": "12245",
+        "selected_match_ids": [
+          "5546340176",
+          "5555638512",
+          "5564838141",
+          "5573521274",
+          "5578804444",
+          "5586298502",
+          "5594556747",
+          "5603193389"
+        ],
+        "duplicate_ids": 0,
+        "invalid_ids": 0,
+        "outside_cohort": 0
+      },
+      "requests": {
+        "attempts": 10,
+        "httpStatuses": {
+          "200": 10
+        },
+        "transportErrors": {}
+      },
+      "strata": {
+        "provider_patch": {
+          "46": 8
+        },
+        "league": {
+          "12245": 8
+        },
+        "game_mode": {
+          "2": 8
+        },
+        "lobby_type": {
+          "1": 8
+        },
+        "started_at_min": "2020-08-01T04:38:45.000Z",
+        "started_at_max": "2020-09-06T19:28:07.000Z"
+      }
+    },
+    {
+      "cohort": "dreamleague19",
+      "report": "s3-01-live-dreamleague19.json",
+      "sha256": "b01fd257e48073701b5e6dfae62d0b23e1f2ab7863deb9e7b755795be1b07910",
+      "generated_at": "2026-10-31T21:41:18.663Z",
+      "league_id": "15196",
+      "requested": 8,
+      "received": 8,
+      "discovery_candidates": 194,
+      "selection": {
+        "method": "uniform_rank_by_start_then_match_id_in_league",
+        "league_id": "15196",
+        "selected_match_ids": [
+          "7099351056",
+          "7100109847",
+          "7101416940",
+          "7102641360",
+          "7103908970",
+          "7109718393",
+          "7114102687",
+          "7122259749"
+        ],
+        "duplicate_ids": 0,
+        "invalid_ids": 0,
+        "outside_cohort": 0
+      },
+      "requests": {
+        "attempts": 10,
+        "httpStatuses": {
+          "200": 10
+        },
+        "transportErrors": {}
+      },
+      "strata": {
+        "provider_patch": {
+          "51": 7,
+          "52": 1
+        },
+        "league": {
+          "15196": 8
+        },
+        "game_mode": {
+          "2": 8
+        },
+        "lobby_type": {
+          "1": 8
+        },
+        "started_at_min": "2023-04-09T09:55:06.000Z",
+        "started_at_max": "2023-04-23T19:31:43.000Z"
+      }
+    },
+    {
+      "cohort": "dreamleague25",
+      "report": "s3-01-live-dreamleague25.json",
+      "sha256": "37f5f960c7c322e83412cf8cafd9d740f8c66a22b43e086e15761c20468a9cb7",
+      "generated_at": "2026-10-31T21:41:32.991Z",
+      "league_id": "17765",
+      "requested": 8,
+      "received": 8,
+      "discovery_candidates": 196,
+      "selection": {
+        "method": "uniform_rank_by_start_then_match_id_in_league",
+        "league_id": "17765",
+        "selected_match_ids": [
+          "8176324556",
+          "8177094101",
+          "8178331701",
+          "8179632650",
+          "8181545391",
+          "8187522475",
+          "8191660167",
+          "8200463236"
+        ],
+        "duplicate_ids": 0,
+        "invalid_ids": 0,
+        "outside_cohort": 0
+      },
+      "requests": {
+        "attempts": 10,
+        "httpStatuses": {
+          "200": 10
+        },
+        "transportErrors": {}
+      },
+      "strata": {
+        "provider_patch": {
+          "56": 4,
+          "57": 4
+        },
+        "league": {
+          "17765": 8
+        },
+        "game_mode": {
+          "2": 8
+        },
+        "lobby_type": {
+          "1": 8
+        },
+        "started_at_min": "2025-02-16T10:55:02.000Z",
+        "started_at_max": "2025-03-04T16:06:00.000Z"
+      }
+    }
+  ],
+  "discovery": {
+    "file": "s3-01-league-discovery.json",
+    "sha256": "ff2fcda0080602e0f0691032083d750c05e52c06386e40fba282acacf544af87",
+    "projection_policy": "typed-league-inventory-v1",
+    "source": "Existing getLeagueMatches with shared PostgreSQL quota; all returned typed rows projected to nine explicit nullable scalar fields",
+    "rows": 1240,
+    "unique_map_ids": 1240,
+    "requests": {
+      "attempts": 5,
+      "httpStatuses": {
+        "200": 5
+      },
+      "transportErrors": {}
+    },
+    "catalog_selection_requests": {
+      "attempts": 1,
+      "httpStatuses": {
+        "200": 1
+      },
+      "transportErrors": {}
+    },
+    "cohorts": [
+      {
+        "league_id": "4554",
+        "rows": 232,
+        "unique_map_ids": 232,
+        "known_series_groups": 89,
+        "unknown_series_maps": [
+          "2781961417",
+          "2781867606",
+          "2372098666",
+          "2371937804",
+          "2371795691",
+          "2360043285",
+          "2272930153",
+          "2272856426",
+          "2272572379"
+        ],
+        "missing_team_maps": [
+          "2372098666",
+          "2371937804",
+          "2371795691",
+          "2360043285"
+        ],
+        "provider_series_group_size_distribution": {
+          "1": 5,
+          "2": 41,
+          "3": 38,
+          "4": 3,
+          "5": 2
+        },
+        "endpoint_completeness": "unknown",
+        "series_membership_completeness": "unknown"
+      },
+      {
+        "league_id": "9880",
+        "rows": 108,
+        "unique_map_ids": 108,
+        "known_series_groups": 38,
+        "unknown_series_maps": [
+          "3911032684",
+          "3910932361",
+          "3910845348",
+          "3909251237",
+          "3909169351",
+          "3909090113",
+          "3909047737",
+          "3908965592",
+          "3908954812"
+        ],
+        "missing_team_maps": [],
+        "provider_series_group_size_distribution": {
+          "2": 17,
+          "3": 20,
+          "5": 1
+        },
+        "endpoint_completeness": "unknown",
+        "series_membership_completeness": "unknown"
+      },
+      {
+        "league_id": "12245",
+        "rows": 510,
+        "unique_map_ids": 510,
+        "known_series_groups": 222,
+        "unknown_series_maps": [],
+        "missing_team_maps": [],
+        "provider_series_group_size_distribution": {
+          "1": 23,
+          "2": 112,
+          "3": 85,
+          "4": 2
+        },
+        "endpoint_completeness": "unknown",
+        "series_membership_completeness": "unknown"
+      },
+      {
+        "league_id": "15196",
+        "rows": 194,
+        "unique_map_ids": 194,
+        "known_series_groups": 93,
+        "unknown_series_maps": [],
+        "missing_team_maps": [],
+        "provider_series_group_size_distribution": {
+          "1": 5,
+          "2": 77,
+          "3": 10,
+          "5": 1
+        },
+        "endpoint_completeness": "unknown",
+        "series_membership_completeness": "unknown"
+      },
+      {
+        "league_id": "17765",
+        "rows": 196,
+        "unique_map_ids": 196,
+        "known_series_groups": 94,
+        "unknown_series_maps": [],
+        "missing_team_maps": [],
+        "provider_series_group_size_distribution": {
+          "1": 6,
+          "2": 75,
+          "3": 12,
+          "4": 1
+        },
+        "endpoint_completeness": "unknown",
+        "series_membership_completeness": "unknown"
+      }
+    ]
+  },
+  "requests": {
+    "attempts": 56,
+    "httpStatuses": {
+      "200": 56
+    },
+    "transportErrors": {}
+  },
+  "detailed_sample": {
+    "observations": 40,
+    "unique_maps": 40,
+    "confirmed_pro": 40,
+    "teams_2": 40,
+    "series_known": 38,
+    "source_accounts_10": 40,
+    "final_heroes_10": 40,
+    "provider_patch_codes": [
+      16,
+      17,
+      18,
+      32,
+      34,
+      35,
+      46,
+      51,
+      52,
+      56,
+      57
+    ],
+    "canonical_identity_and_known_at": "unassessed",
+    "deployable": false
+  },
+  "prior_captures": {
+    "manifests": [
+      {
+        "manifest": "s0-08-manifest.json",
+        "sha256": "b55fad9eb8789ec6c8809313a6b066a261c9d4f95ad96a82dcb50cfc936db272"
+      },
+      {
+        "manifest": "s3-00-source-manifest.json",
+        "sha256": "e40aa91ddb88d9a579440a3b32184942f10abb17e4a7016cc4d702b1fda6cdc5"
+      }
+    ],
+    "reports": [
+      {
+        "report": "s0-08-live-recent.json",
+        "sha256": "d299ad14b6434e739fb4331c885c1e7611f26829bd0ca95a14fdd85e93b31a24",
+        "observations": 20
+      },
+      {
+        "report": "s0-08-live-ti2021.json",
+        "sha256": "be9b273926eb31a8f4ba4d816671aabe4945b7fd50681ce6d6f9fb9687cc6164",
+        "observations": 5
+      },
+      {
+        "report": "s0-08-live-ti2022.json",
+        "sha256": "f7c8f4ffa2a09c3bd9e60fe70c901fec8bc21428ec4f80943ac8a1a7c146e37a",
+        "observations": 5
+      },
+      {
+        "report": "s0-08-live-ti2023.json",
+        "sha256": "c0b07df71f8bc2427994a9fa9bf0178992df20b514351488c0c92375483537bb",
+        "observations": 5
+      },
+      {
+        "report": "s0-08-live-ti2024.json",
+        "sha256": "cc99a0186cfaa403654a25dd3e95793ef35554b0391df8809e4fa03b246a27f4",
+        "observations": 5
+      },
+      {
+        "report": "s3-00-live-recent.json",
+        "sha256": "d12a2ab03ebbfb441585f17377933650d7fff69d680d21f5b9dc9af8490a9cf3",
+        "observations": 10
+      }
+    ],
+    "observations": 50,
+    "unique_maps": 47,
+    "new_detailed_overlap": [],
+    "deduplicated_detailed_union_size": 87,
+    "pooled_coverage": "not_computed"
+  },
+  "database_effects": "Only provider quota counters; no canonical imports, identity/patch/context proofs, datasets or models",
+  "limitations": [
+    "Not a representative or complete professional corpus; fixed five league choices and uniform ranks are an observational selection",
+    "Returned discovery series groups can be incomplete and do not prove BO format or historical membership availability",
+    "Discovery outcomes are unverified source values, not frozen canonical target labels",
+    "Verified historical lineups, canonical identities, patch release/eligibility and post-draft availability remain unassessed",
+    "Raw payloads, source account IDs, profiles and credentials are not saved"
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "mode": "offline_live_capture_diagnostic",
+  "generated_at": "2026-10-31T21:54:52.901Z",
+  "base_commit": "000a8dd4ce493619347f3a07b94f4fc6b2079a1f",
+  "command": "node scripts/analyze-corpus.mjs docs/evidence/s3-01-corpus-config.json NEW-output.json",
+  "node_version": "v22.15.0",
+  "config": {
+    "path": "docs/evidence/s3-01-corpus-config.json",
+    "sha256": "b682c3142f038bd69a10587bbecc8ab2dcf89f119892a4fca3ac3034817e01b6"
+  },
+  "report": {
+    "path": "docs/evidence/s3-01-corpus-analysis.json",
+    "sha256": "033a5fa967b452e71e1d351c311940ec6bad0233189480b073ff9d82bce0fd0f",
+    "fingerprint": "02c53ac830469d99864271e6a518877408b76f7c909378823282c39e5c07c566"
+  },
+  "captures": [
+    {
+      "kind": "discovery",
+      "path": "s3-01-league-discovery.json",
+      "sha256": "ff2fcda0080602e0f0691032083d750c05e52c06386e40fba282acacf544af87"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-recent.json",
+      "sha256": "d299ad14b6434e739fb4331c885c1e7611f26829bd0ca95a14fdd85e93b31a24"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-ti2021.json",
+      "sha256": "be9b273926eb31a8f4ba4d816671aabe4945b7fd50681ce6d6f9fb9687cc6164"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-ti2022.json",
+      "sha256": "f7c8f4ffa2a09c3bd9e60fe70c901fec8bc21428ec4f80943ac8a1a7c146e37a"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-ti2023.json",
+      "sha256": "c0b07df71f8bc2427994a9fa9bf0178992df20b514351488c0c92375483537bb"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-ti2024.json",
+      "sha256": "cc99a0186cfaa403654a25dd3e95793ef35554b0391df8809e4fa03b246a27f4"
+    },
+    {
+      "kind": "details",
+      "path": "s3-00-live-recent.json",
+      "sha256": "d12a2ab03ebbfb441585f17377933650d7fff69d680d21f5b9dc9af8490a9cf3"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-frankfurt2016.json",
+      "sha256": "711393f36d3ecbd815a32dc2d1e209a8b0edbb330d0e1bd429996fdf63a12485"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-birmingham2018.json",
+      "sha256": "506678765a49548a8593904d3149fa4637082c2d73182b3b8eccc7f84cbf022e"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-omega.json",
+      "sha256": "e102e62f1f92cc4848467bc9e2a14e7f6e83d10bb605c046f0f2d4afc9db33f5"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-dreamleague19.json",
+      "sha256": "b01fd257e48073701b5e6dfae62d0b23e1f2ab7863deb9e7b755795be1b07910"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-dreamleague25.json",
+      "sha256": "37f5f960c7c322e83412cf8cafd9d740f8c66a22b43e086e15761c20468a9cb7"
+    }
+  ],
+  "source_code_sha256": {
+    "scripts/analyze-corpus.mjs": "d89f7d2dad52129217ee8da68953f4528eb79a8fe95c2f02b638db77021f6ffe",
+    "packages/contracts/src/corpus-audit.ts": "4c8603ae5e6158861aebd736d649c7f533ca5f80b272e3e8166ada602a7bb8c8",
+    "packages/contracts/src/dataset-build.ts": "b5f5b36b86c4f80a52dea2826db2aca72a43126d16866985ba10bb5157e592e6",
+    "packages/db/src/corpus-audit.ts": "e3440d404707ea34c22372a20aee321d54e2b6ca82721a726b1eb77f08f2d802",
+    "packages/db/src/dataset-splits.ts": "39773fed521b5ca9e72319b92d97ec731a186bd551af1933c7446688debda9da",
+    "packages/db/src/temporal.ts": "a5ab4962f410eb4db2b54f1ab97949fe5bba161bcd2e9c2dd89a8760e134a5ca",
+    "pnpm-lock.yaml": "4152014cceaabcae50fe75cf1ceaa24153f962ec674b6c1f14a7a34bc9a31aa4"
+  },
+  "runtime_sha256": {
+    "packages/contracts/dist/corpus-audit.js": "4b2d9aa123128092b41125f8d43ecb232e2b9d0cea62d3daf7420b004b57fdb2",
+    "packages/contracts/dist/dataset-build.js": "3043a55feaccaabe0f8aa8ff7996144e04d920372d32d731ad566fe7265355de",
+    "packages/db/dist/corpus-audit.js": "1c0b9d1f3f0d24aa1902121f0b45ee365b44bf984d6876822ce6a8ca0b3d6375",
+    "packages/db/dist/dataset-splits.js": "3875e37729e5827c4b3a2e304565f0ee89eba4a7b341ae32527bcde5914a081a",
+    "packages/db/dist/temporal.js": "c37f882da18ecc5694d168cdd146c4905cb001cab3829bed13947215fbb92bcb"
+  },
+  "replay": {
+    "byte_identical": true,
+    "sha256": "033a5fa967b452e71e1d351c311940ec6bad0233189480b073ff9d82bce0fd0f",
+    "database_access": false,
+    "network_access": false
+  },
+  "strict_historical_eligibility": "not_assessed",
+  "training_ready": false,
+  "deployable": false,
+  "limitations": [
+    "Observed source captures only; not verified training labels or historical as-of proofs.",
+    "Remote league/series completeness and representativeness remain unknown.",
+    "Explicit diagnostic windows are not an approved training/holdout design."
+  ]
+}

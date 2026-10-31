@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "request": {
+    "stage": "pre_match",
+    "teamASide": "radiant",
+    "fromAt": "2016-01-01T00:00:00.000Z",
+    "trainUntil": "2019-01-01T00:00:00.000Z",
+    "calibrationUntil": "2021-01-01T00:00:00.000Z",
+    "validationUntil": "2024-01-01T00:00:00.000Z",
+    "toAt": "2026-10-31T20:00:00.000Z",
+    "snapshotAt": "2026-10-31T21:45:48.372Z",
+    "maxMaps": 5000
+  },
+  "captures": [
+    {
+      "kind": "discovery",
+      "path": "s3-01-league-discovery.json",
+      "sha256": "ff2fcda0080602e0f0691032083d750c05e52c06386e40fba282acacf544af87"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-recent.json",
+      "sha256": "d299ad14b6434e739fb4331c885c1e7611f26829bd0ca95a14fdd85e93b31a24"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-ti2021.json",
+      "sha256": "be9b273926eb31a8f4ba4d816671aabe4945b7fd50681ce6d6f9fb9687cc6164"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-ti2022.json",
+      "sha256": "f7c8f4ffa2a09c3bd9e60fe70c901fec8bc21428ec4f80943ac8a1a7c146e37a"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-ti2023.json",
+      "sha256": "c0b07df71f8bc2427994a9fa9bf0178992df20b514351488c0c92375483537bb"
+    },
+    {
+      "kind": "details",
+      "path": "s0-08-live-ti2024.json",
+      "sha256": "cc99a0186cfaa403654a25dd3e95793ef35554b0391df8809e4fa03b246a27f4"
+    },
+    {
+      "kind": "details",
+      "path": "s3-00-live-recent.json",
+      "sha256": "d12a2ab03ebbfb441585f17377933650d7fff69d680d21f5b9dc9af8490a9cf3"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-frankfurt2016.json",
+      "sha256": "711393f36d3ecbd815a32dc2d1e209a8b0edbb330d0e1bd429996fdf63a12485"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-birmingham2018.json",
+      "sha256": "506678765a49548a8593904d3149fa4637082c2d73182b3b8eccc7f84cbf022e"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-omega.json",
+      "sha256": "e102e62f1f92cc4848467bc9e2a14e7f6e83d10bb605c046f0f2d4afc9db33f5"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-dreamleague19.json",
+      "sha256": "b01fd257e48073701b5e6dfae62d0b23e1f2ab7863deb9e7b755795be1b07910"
+    },
+    {
+      "kind": "details",
+      "path": "s3-01-live-dreamleague25.json",
+      "sha256": "37f5f960c7c322e83412cf8cafd9d740f8c66a22b43e086e15761c20468a9cb7"
+    }
+  ]
+}

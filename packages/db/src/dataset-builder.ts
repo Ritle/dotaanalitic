@@ -11,9 +11,9 @@ import { assessContextReadiness } from './readiness.js';
 import { readAccountEvidence } from './identity-repository.js';
 import { resolveIdentity, IDENTITY_POLICY_VERSION } from './identity.js';
 import { canonicalContextJson } from './temporal.js';
-import { assignDatasetSplits, type SplitMember } from './dataset-splits.js';
+import { assessProviderSeriesAliases, assignDatasetSplits, type ProviderSeriesAlias, type SplitMember } from './dataset-splits.js';
 
-export const DATASET_PREPARATION_POLICY='strict-context-preparation-v1';
+export const DATASET_PREPARATION_POLICY='strict-context-preparation-v2';
 const hash=(value:unknown)=>createHash('sha256').update(canonicalContextJson(value)).digest('hex');
 const synthetic=(value:unknown)=>/synthetic|fixture|demo/i.test(canonicalContextJson(value));
 type MapAssessment={matchId:string;reasons:string[];split:string|null;patchId:string|null};
@@ -48,11 +48,24 @@ export class DatasetBuilder {
         ORDER BY started_at,id LIMIT ${request.maxMaps+1}`.execute(trx)).rows;
       if(candidates.length>request.maxMaps) return {status:'unavailable' as const,reason:'CANDIDATE_LIMIT_EXCEEDED',datasetId:null};
       const seriesIds=[...new Set(candidates.flatMap(row=>row.seriesId??[]))];
+      // Canonical UUID aliases may name the same external series. Expand aliases before reading members;
+      // filtering by canonical UUID alone could leak one provider series across chronological folds.
+      const rawAliases=(await sql<ProviderSeriesAlias>`SELECT s.id AS "seriesId",s.provider,
+          s.provider_series_id AS "providerSeriesId",s.team_a_id::text AS "teamAId",s.team_b_id::text AS "teamBId"
+        FROM series s WHERE s.id=ANY(${seriesIds}::uuid[]) OR EXISTS (SELECT 1 FROM series selected
+          WHERE selected.id=ANY(${seriesIds}::uuid[]) AND selected.provider=s.provider AND selected.provider_series_id=s.provider_series_id)
+        ORDER BY s.id LIMIT ${request.maxMaps+1}`.execute(trx)).rows;
+      if(rawAliases.length>request.maxMaps) return {status:'unavailable' as const,reason:'SERIES_ALIAS_LIMIT_EXCEEDED',datasetId:null};
+      const seriesAliases=assessProviderSeriesAliases(rawAliases), aliasById=new Map(seriesAliases.map(row=>[row.seriesId,row]));
       const siblings=(await sql<SplitMember>`SELECT id::text AS "matchId",series_id AS "seriesId",
           to_char(started_at AT TIME ZONE 'UTC','YYYY-MM-DD"T"HH24:MI:SS.MS"Z"') AS "startedAt"
-        FROM matches WHERE series_id=ANY(${seriesIds}::uuid[]) ORDER BY started_at,id LIMIT ${request.maxMaps+1}`.execute(trx)).rows;
+        FROM matches WHERE series_id=ANY(${seriesAliases.map(row=>row.seriesId)}::uuid[]) ORDER BY started_at,id LIMIT ${request.maxMaps+1}`.execute(trx)).rows;
       if(siblings.length>request.maxMaps) return {status:'unavailable' as const,reason:'SERIES_INVENTORY_LIMIT_EXCEEDED',datasetId:null};
-      const members=new Map([...candidates,...siblings].map(row=>[row.matchId,row]));
+      const members=new Map([...candidates,...siblings].map(row=>{
+        const alias=row.seriesId===null?undefined:aliasById.get(row.seriesId);
+        return [row.matchId,{...row,providerSeriesKey:alias?.providerSeriesKey??null,
+          seriesConflict:alias?.seriesConflict??false,seriesOrganizationsKnown:alias?.seriesOrganizationsKnown??false}];
+      }));
       const assignments=new Map(assignDatasetSplits([...members.values()],request).map(row=>[row.matchId,row]));
       const registry=await new GameRegistryRepository(trx).snapshot();
       const identityRevision=(await sql<{revision:string}>`SELECT revision FROM identity_registry_state WHERE singleton`.execute(trx)).rows[0]!.revision;
@@ -131,16 +144,16 @@ export class DatasetBuilder {
         cohort:'strict_verified_asof',requiredFacts,assumedFacts:[],identityRevision,registryRevision:registry.revision,
         trainingReady:false,deployable:false,syntheticOnly:this.options.syntheticOnly??false,
         featureState:'not_built',historyState:'not_built',modelGates:['S1_07_EMPIRICAL_GATE_OPEN','CORPUS_GATE_OPEN','S3_FEATURE_MODEL_GATES_OPEN'],
-        seriesInventory:[...members.values()],
+        seriesInventory:[...members.values()],seriesAliases,
         inputs:prepared.map(p=>({matchId:p.outcome.matchId,inputSnapshot:p.inputSnapshot,inputSnapshotHash:p.inputSnapshotHash,
           seriesProof:p.seriesProof,sourceEvidence:p.outcome.sourceEvidence,dataRevision:p.outcome.dataRevision,
           actualParticipants:p.actualParticipants,quality:p.quality,qualityFingerprint:p.qualityFingerprint}))};
       const manifest=DatasetManifestSchema.parse({stage:request.stage,featureSchemaVersion:'prepared-context-v1',
         labelPolicyVersion:'verified-map-v1',cutoffPolicyVersion:DATASET_PREPARATION_POLICY,
         patchRegistryRevision:registry.revision,dataRevision:hash(sourceManifest),codeRevision,
-        splitPolicy:{version:'explicit-windows-whole-series-v1',fromAt:request.fromAt,trainUntil:request.trainUntil,
+        splitPolicy:{version:'explicit-windows-provider-series-v2',fromAt:request.fromAt,trainUntil:request.trainUntil,
           calibrationUntil:request.calibrationUntil,validationUntil:request.validationUntil,toAt:request.toAt,
-          unknownSeries:'exclude',boundarySeries:'exclude',membership:'all_locally_known_maps'},sourceManifest});
+          unknownSeries:'exclude',boundarySeries:'exclude',membership:'all_locally_known_provider_series_aliases'},sourceManifest});
       await sql`SAVEPOINT dataset_write`.execute(trx);
       const repository=new DatasetRepository(trx), datasetId=await repository.create(manifest);
       for(const row of prepared) await repository.append({datasetId,matchId:row.outcome.matchId,

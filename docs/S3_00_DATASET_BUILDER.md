@@ -1,5 +1,7 @@
 # S3-00 — offline подготовка неизменяемых датасетов
 
+**Дополнение S3-01:** текущая preparation policy — `strict-context-preparation-v2`, split policy — `explicit-windows-provider-series-v2`. Все canonical aliases одного provider series ID проверяются вместе, включая aliases без карт и siblings вне окна. Старые frozen snapshots сохраняются; новый независимый audit сообщает ограничение legacy v1. Формат input остаётся `prepared-context-v1`. Подробности, CLI аудита и открытый empirical gate: [S3-01](S3_01_SPLIT_AUDIT.md).
+
 `OutcomeVerifier` и `DatasetBuilder` подготавливают контекст **одной профессиональной карты**, отдельную проверенную метку и воспроизводимый manifest. Формат `prepared-context-v1`: `input_features={}`, `featureState/historyState=not_built`, `trainingReady:false`, `deployable:false`. Числовой feature builder остаётся S3-02, обучение и выпуск моделей — S3-03..06. Сценарии, отчёты, прогнозы и пользовательские оценки не читаются как источник примеров.
 
 ## Источник и время

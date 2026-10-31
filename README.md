@@ -214,3 +214,9 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 ### S3-00 — подготовка датасетов
 
 После `pnpm db:migrate` (текущая018) используйте `pnpm dataset:prepare preview config.json`, затем `build config.json`. Strict as-of context и проверенный исход сохраняются отдельно; неизвестные составы/патчи/серии исключаются. Пустая выборка даёт unavailable без новых записей. Повтор одинакового build использует прежний frozen ID; `export <dataset-uuid> output.json` проверяет SHA и сохраняет точные bytes без перезаписи файла. Это prepared-context-v1, ещё без numeric features/training; прогнозы недоступны. Проверки: `pnpm test:dataset-builder`. [Config, gates и ограничения](docs/S3_00_DATASET_BUILDER.md), [свежий live audit](docs/S3_00_SOURCE_AUDIT.md).
+
+### S3-01 — аудит корпуса и временных выборок (частично)
+
+`pnpm corpus:audit docs/evidence/s3-01-corpus-config.json reports/new-corpus-analysis.json` воспроизводит offline diagnostic сохранённых live captures: SHA, дедупликация карт, конфликты, покрытие и явные временные окна. Итог —1287 уникальных ID и87 подробно проверенных карт; пригодность для исторического обучения не установлена. Output должен быть новым файлом.
+
+`pnpm dataset:audit stored <dataset-uuid>` или `pnpm dataset:audit file reports/export.json <expected-sha256>` независимо проверяет неизменяемый dataset, четыре окна и целые provider-серии, включая несколько canonical aliases. Проверки: `pnpm test:dataset-splits`, `pnpm test:fixtures`. Политика подготовки теперь v2; legacy snapshots не переписываются. Структурный PASS не разрешает training/deployment. S3-01 остаётся открытой до реального as-of evidence cohort. [Контракт и replay](docs/S3_01_SPLIT_AUDIT.md), [новый live audit](docs/S3_01_SOURCE_AUDIT.md).
