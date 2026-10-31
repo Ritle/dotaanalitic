@@ -34,3 +34,6 @@ export * from './pro-map-repository.js';
 export {RosterRepository,RosterQueryError} from './roster-repository.js';
 export {PlayerHeroRepository,PlayerHeroQueryError} from './player-hero-repository.js';
 export {StrengthRepository,StrengthQueryError} from './strength-repository.js';
+export * from './patch-history.js';
+export * from './patch-meta-repository.js';
+export * from './patch-weight-evaluation.js';

@@ -101,3 +101,7 @@ n_eff         = (sum(w_i)^2) / sum(w_i^2), if sum(w_i^2) > 0
 ## Реализация registry в S0-06
 
 `GameRegistryRepository` сохраняет immutable release evidence с подтверждённым coverageUntil; `resolveGameContext` выбирает patch по timestamp и as-of proof, без fallback к последнему известному label. Пробел покрытия или конфликт оставляет patch null. Новая evidence повышает registryRevision для инвалидирования derived cache; сама таблица patches не является историческим proof. Реальные release metadata в этом этапе не seed-ятся. [Контракт и границы](S0_06_GAME_CONTEXT.md).
+
+## Реализация S1-07: кандидат, ещё не валидированная policy
+
+Migration014 хранит append-only transition и hero-impact evidence (включая явно reviewed unchanged). `PatchHistoryRepository` использует as-of metadata и раздельные caller-supplied draft/strength coefficients, выдаёт components/nullable weights/raw N/Kish/patch breakdown/proof IDs/cache key. Отсутствие impact блокирует перенос, не считается unchanged. `evaluatePatchWeightPolicies`/offline CLI проверяют три абляции на общем temporal/whole-series cohort, но не заменяют upstream frozen-data verification или model gate. Реальных reviewed metadata/cohort в рабочей БД недостаточно: empirical validation недоступна, S1-07 остаётся открытой. [Точные границы](S1_07_PATCH_TRANSFER.md).

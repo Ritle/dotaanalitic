@@ -68,6 +68,7 @@ jobs:
       - run: pnpm test:player-hero
       - run: pnpm test:strength
       - run: pnpm test:sample
+      - run: pnpm test:patch-history
 
   ml-bootstrap:
     runs-on: ubuntu-latest

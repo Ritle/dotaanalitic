@@ -42,15 +42,8 @@ export function resolveGameContext(context: Context, startedAt: string, input: G
   const draftRule = decision(drafts, drafts.map(row => row.version), 'DRAFT_RULE_UNKNOWN');
   const claimedVersion = postDraft ? fact('draft_order_version') : null;
   const draftOrderVersion = claimedVersion !== null && claimedVersion === draftRule.value ? claimedVersion : null;
-  const heroRules = registry.heroRules.map(({ id, ...row }) => ({ id, ...HeroRuleEvidenceSchema.parse(row) }));
   const heroes = postDraft ? fact('heroes') : null;
-  const heroEligibility = heroes?.map(hero => {
-    const applicable = heroRules.filter(row => patch.value !== null && leagueId !== null && eligible(row) &&
-      row.heroId === hero.heroId && (row.patchId === null || row.patchId === patch.value) &&
-      (row.leagueId === null || row.leagueId === leagueId) && row.validFrom <= mapTime &&
-      (row.validTo === null || mapTime < row.validTo));
-    return { ...hero, ...decision(applicable, applicable.map(row => row.allowed), 'HERO_ELIGIBILITY_UNKNOWN') };
-  }) ?? null;
+  const heroEligibility = heroes?.map(hero => ({...hero,...resolveHeroAt(registry.heroRules,hero.heroId,patch.value,leagueId,mapTime,request.cutoffAt)})) ?? null;
   const warnings = new Set<string>();
   if (patch.reason) warnings.add(patch.reason === 'CONFLICT' ? 'PATCH_CONFLICT' : patch.reason);
   if (radiantSlot === null) warnings.add('TEAM_ORIENTATION_UNKNOWN');
@@ -84,4 +77,12 @@ export function resolvePatchAt(input: GameRegistry['patches'], mapTime: string, 
   if (patch.value !== null && !latestRows.some(row => row.coverageUntil > mapTime))
     patch = { ...patch, value: null, reason: 'PATCH_COVERAGE_GAP' };
   return patch;
+}
+
+/** Shared source-backed availability boundary for scenario and history diagnostics. */
+export function resolveHeroAt(input:GameRegistry['heroRules'],heroId:number,patchId:string|null,leagueId:string|null,mapTime:string,knowledgeAt:string){
+  const applicable=input.map(({id,...r})=>({id,...HeroRuleEvidenceSchema.parse(r)})).filter(r=>patchId!==null&&leagueId!==null&&
+    r.knownAt<=knowledgeAt&&(r.eventAt===null||r.eventAt<=knowledgeAt)&&['accepted','conflict'].includes(r.reviewState)&&
+    r.heroId===heroId&&(r.patchId===null||r.patchId===patchId)&&(r.leagueId===null||r.leagueId===leagueId)&&r.validFrom<=mapTime&&(r.validTo===null||mapTime<r.validTo));
+  return decision(applicable,applicable.map(r=>r.allowed),'HERO_ELIGIBILITY_UNKNOWN');
 }

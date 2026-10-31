@@ -182,3 +182,7 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 ### S1-06 — размер выборки и сглаживание
 
 Отчёты показывают категории raw N и холодный старт без процентов достоверности. В player×hero×role отдельно выводятся raw WR, экспериментальная сглаженная частота и объём/источник prior из раннего сопоставимого pro-пула. Unknown context/series и недостаточный reference не создают скрытого50/50. Текущие отчёты не взвешены; Kish N_eff реализован для явно заданных весов. Проверки: `pnpm test:sample`, `pnpm test:e2e`. [Формулы, границы и ограничения](docs/S1_06_SAMPLE_EVIDENCE.md).
+
+### S1-07 — patch transfer foundation (P0 gate ещё открыт)
+
+После `pnpm db:migrate` доступен внутренний реестр подтверждённых переходов патчей/изменений героев и экспериментальный расчёт раздельных весов draft/strength. `pnpm patch:history readiness` показывает реальные metadata/data prerequisites; `weights input.json` рассчитывает веса, `evaluate input.json` сравнивает три политики на явном temporal cohort. Production defaults отсутствуют, raw UI не меняется. Проверки: `pnpm test:patch-history`; synthetic результаты не доказывают реальное качество. До реального source/as-of coverage и chronological ablation S1-07 остаётся открытой. [Контракт и формат](docs/S1_07_PATCH_TRANSFER.md).

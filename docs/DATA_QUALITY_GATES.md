@@ -46,3 +46,7 @@ Elo update требует verified-asof canonical identity на старт и re
 ## Sample/prior S1-06
 
 Raw N и nullable rate не заменяются N+prior mass. Prior берётся из отдельного более раннего same hero-role-patch reference, исключает серии target observations и требует двух типов исхода. Unknown context/series, overflow и degenerate reference дают null estimate с reason. Band10/30 — продуктовая категория, не confidence. Kish N_eff доступен только для явно заданных весов; unweighted HTTP reports оставляют его null. См. [контракт и ограничения](S1_06_SAMPLE_EVIDENCE.md).
+
+## Patch transfer S1-07: открытый P0 gate
+
+Отсутствующий impact не равен unchanged, отсутствие availability не означает allow. Только reviewed as-of metadata и непрерывная release/transition chain допускают candidate weight; late knowledge не переписывает ранний результат. Ключ включает policy configuration и registry revision. Synthetic same-cohort temporal ablation проверяет механику, но **не закрывает** real chronological quality gate. В рабочей БД metadata proofs0/frozen datasets0: empirical validation unavailable, S1-07 unchecked. См. [реализацию и границы](S1_07_PATCH_TRANSFER.md).

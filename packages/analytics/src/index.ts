@@ -35,3 +35,4 @@ export type { LogisticArtifact } from './model-inference.js';
 export {replayElo,ELO_POLICY} from './elo.js';
 export type {EloMap,EloSide,EloObservation} from './elo.js';
 export {sampleEvidence,weightedSample,shrinkObservedRate} from './sample.js';
+export {historyWeight,historyWeightSummary} from './history-weight.js';
