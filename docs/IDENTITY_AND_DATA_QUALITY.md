@@ -33,3 +33,7 @@ Data coverage по модулю: `maps_eligible`, `maps_with_outcome`, `lineup_p
 - Нулевые карты => `null` observed rate; малая выборка даёт shrinkage, но raw count сохраняется.
 - Импорт второй раз с идентичным fingerprint — не создаёт повторных карт, прогнозов, pair-counts.
 - Неизвестное `known_at` не считается исторически достоверным объявлением состава.
+
+## Реализация S0-05
+
+`IdentityRepository`, pure `resolveIdentity/resolveLineup`, SQL 010 и importer normalizer v2 реализуют внутренний evidence/reader срез. Aliases не входят в identity matching; конфликтующие доказательства не заменяют друг друга. Role estimates остаются неизвестными для confirmed role, с сохранением оригинальной оценки. История участия помечается retrospective, published lineup читается отдельно через S0-04. [Контракт и проверки](S0_05_IDENTITY_LINEUP.md); review UI/supersession и corpus/predictive gates остаются следующими этапами.

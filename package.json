@@ -33,7 +33,8 @@
     "owner:create": "pnpm shared:build && pnpm --filter @dota/api owner:create",
     "owner:reset": "pnpm shared:build && pnpm --filter @dota/api owner:reset",
     "test:auth": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/auth.integration.test.ts",
-    "test:temporal": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/context.integration.test.ts"
+    "test:temporal": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/context.integration.test.ts",
+    "test:identity": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/identity.integration.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

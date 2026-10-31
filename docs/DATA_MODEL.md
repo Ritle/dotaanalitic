@@ -100,3 +100,7 @@ See [DRAFT_DATA_INTEGRITY.md](DRAFT_DATA_INTEGRITY.md); 001–005 remain immutab
 ## S0-04: типизированные temporal observations
 
 Миграция 009 расширяет immutable `match_field_observations` event/availability/stage/fingerprint. `context.*` — отдельные проверяемые typed facts; старые raw observations не получают историческую известность автоматически. `MatchContextRepository` сохраняет доказательства идемпотентно и читает только доступные на cutoff/stage поля; карта/серия, side/A-B и роль/slot остаются разными понятиями. [Подробный контракт](S0_04_TEMPORAL_CONTEXT.md). `started_at` означает фактический старт карты, а не known_at.
+
+## S0-05: account evidence и состав
+
+Миграция 010 добавляет immutable `player_account_evidence`, alias provenance и `identity_registry_state.revision`. Общий resolver различает current identity и verified-asof; importer сохраняет proof IDs/status, retrospective history пересчитывает identity по source accounts на cutoff без фильтра организации. Canonical `match_players.player_id` не является достаточным as-of gate. `lineupAsOf` использует S0-04 context evidence, отдельно проверяет роли и не читает current-members flags. [Контракт](S0_05_IDENTITY_LINEUP.md).

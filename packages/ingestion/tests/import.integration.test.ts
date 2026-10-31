@@ -1,5 +1,5 @@
 import {afterAll,beforeAll,test,expect} from 'vitest';
-import {sql} from '@dota/db';
+import {sql,IdentityRepository} from '@dota/db';
 import {OpenDotaClient,PostgresProviderBudget,IngestionService} from '../src/index.js';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 
@@ -81,6 +81,22 @@ test('non-pro/unknown leagues cannot enter confirmed pro statistics',async()=>{
     await importer(base(id),tier).ingest(id);
     expect((await sql<{is_pro:boolean|null}>`SELECT is_pro FROM matches WHERE id=${id}`.execute(fixture.db)).rows[0]!.is_pro).toBe(tier===null?null:false);
   }
+});
+
+test('verified account evidence resolves new imports; provider disagreement stays unresolved',async()=>{
+  const identity=new IdentityRepository(fixture.db);
+  await sql`INSERT INTO players(id,nickname) VALUES (80001,'Synthetic shared alias'),(80002,'Synthetic shared alias')`.execute(fixture.db);
+  const proof={playerId:'80001',provider:'opendota' as const,externalAccountId:'880001',status:'verified' as const,
+    eventAt:null,knownAt:null,fetchedAt:'2026-10-31T00:00:00.000Z',evidenceRef:'synthetic:account-proof',source:'synthetic'};
+  await identity.appendAccountEvidence(proof);
+  const first=base('900000000051');first.players[0]!.account_id=880001;
+  await importer(first).ingest(first.match_id);
+  expect((await sql<{player_id:string|null}>`SELECT player_id FROM match_players WHERE match_id=${first.match_id} AND player_slot=0`.execute(fixture.db)).rows[0]!.player_id).toBe('80001');
+  const conflict=await identity.appendAccountEvidence({...proof,provider:'stratz',playerId:'80002',evidenceRef:'synthetic:contradiction'});
+  expect(conflict.resolution.status).toBe('conflict');
+  const second=base('900000000052');second.players[0]!.account_id=880001;
+  await importer(second).ingest(second.match_id);
+  expect((await sql<{player_id:string|null}>`SELECT player_id FROM match_players WHERE match_id=${second.match_id} AND player_slot=0`.execute(fixture.db)).rows[0]!.player_id).toBeNull();
 });
 test('transaction rollback preserves received source evidence but never a half-written canonical map',async()=>{
   await sql`CREATE FUNCTION fail_test_quality() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'synthetic injected failure'; END $$` .execute(fixture.db);

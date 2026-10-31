@@ -21,3 +21,5 @@ export type Db = ReturnType<typeof createDatabase>;
 export type Executor = Db | import('kysely').Transaction<Database>;
 export * from './temporal.js';
 export * from './context-repository.js';
+export * from './identity.js';
+export * from './identity-repository.js';

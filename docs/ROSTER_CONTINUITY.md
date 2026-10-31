@@ -87,3 +87,7 @@
 8. Одни и те же пять на разных ролях: fingerprints совпадают, role stability/features могут отличаться.
 9. Замена между Team A/B не должна давать duplicate player; 5+5 unique.
 10. Оффлайн тест сравнивает модели `team-only Elo`, `Elo+individual players`, `+roster-cohesion/churn`; метрики на идентичном temporal holdout, включая участки массовых решафлов. Новая модель активируется только при прохождении gate.
+
+## Реализованный foundation S0-05
+
+`IdentityRepository.historyForPlayers` читает completed pro participation через проверенные identity links на cutoff, независимо от организации; complete sides пригодны как вход существующей descriptive `rosterCoplay`. `lineupAsOf` отдельно читает доказанный состав и роли на дату. Retrospective participation не подтверждает pre-known roster. Сценарные endpoints и UI выше пока planned. [Контракт S0-05](S0_05_IDENTITY_LINEUP.md).

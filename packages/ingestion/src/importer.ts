@@ -1,4 +1,4 @@
-import { sql, type Db, type Executor } from '@dota/db';
+import { sql, readAccountEvidence, resolveIdentity, type Db, type Executor } from '@dota/db';
 import type { OpenDotaClient } from './opendota/client.js';
 import { assess, classifyLeague, completedObservation, hash, matchEventAt, NORMALIZER_VERSION, parseSource, QUALITY_POLICY, sideOf } from './quality.js';
 
@@ -77,9 +77,9 @@ export class IngestionService {
       const knownHeroes=new Set((await tx.selectFrom('heroes').select('id').execute()).map(hero=>hero.id));
       for(const id of [...knownHeroes])if(!heroes.data.some(hero=>hero.id===id))knownHeroes.delete(id);
       const participantAccounts=(match.players??[]).flatMap(player=>player.account_id?[player.account_id]:[]);
-      const links=(await sql<{external_account_id:string;player_id:string}>`SELECT external_account_id,player_id FROM player_external_accounts
-        WHERE provider='opendota' AND link_status='verified' AND external_account_id=ANY(${participantAccounts}::text[])`.execute(tx)).rows;
-      const players=new Map(links.map(link=>[link.external_account_id,link.player_id]));
+      const identityEvidence=await readAccountEvidence(tx,participantAccounts);
+      const identityResolutions=[...new Set(participantAccounts)].sort().map(accountId=>({accountId,...resolveIdentity(identityEvidence,accountId,null)}));
+      const players=new Map(identityResolutions.flatMap(identity=>identity.playerId===null?[]:[[identity.accountId,identity.playerId] as const]));
       const resolved=(match.players??[]).map(player=>player.account_id?players.get(player.account_id):undefined).filter(id=>id!==undefined);
       for(const [account,id] of players)if(resolved.filter(other=>other===id).length>1)players.delete(account);
 
@@ -103,7 +103,7 @@ export class IngestionService {
         AND provider_series_id=${match.series_id} AND
         ((team_a_id=${radiantTeamId} AND team_b_id=${direTeamId}) OR (team_b_id=${radiantTeamId} AND team_a_id=${direTeamId}))`.execute(tx)).rows:[];
       const seriesId=series.length===1?series[0]!.id:null;
-      const contextHash=hash({pro,heroReference,leagueReference,players:[...players].sort(),radiantTeamId,direTeamId,seriesId});
+      const contextHash=hash({pro,heroReference,leagueReference,players:[...players].sort(),identityResolutions,radiantTeamId,direTeamId,seriesId});
       const existing=(await sql<{id:string;status:ImportResult['status']}>`SELECT id,status FROM provider_ingest_receipts WHERE provider='opendota'
         AND provider_match_id=${matchId} AND payload_sha256=${source.payloadSha256} AND adapter_version=${source.adapterVersion}
         AND normalizer_version=${NORMALIZER_VERSION} AND context_sha256=${contextHash}`.execute(tx)).rows[0];
@@ -172,7 +172,7 @@ export class IngestionService {
       const draft=(await sql<{id:string}>`SELECT id FROM match_draft_source_observations WHERE match_id=${matchId} AND provider='opendota'
         AND adapter_version=${source.adapterVersion} AND payload_sha256=${source.payloadSha256}`.execute(tx)).rows[0]!;
       const facts:Record<string,unknown>={...input.projection,pro_classification:{value:pro,league_tier:league?.tier??null,reference_id:leagueReference},
-        canonical_players:[...players],patch_resolution:{value:null,reason:'PATCH_METADATA_UNVERIFIED'}};
+        canonical_players:[...players],identity_resolution:identityResolutions,patch_resolution:{value:null,reason:'PATCH_METADATA_UNVERIFIED'}};
       for(const [field,value] of Object.entries(facts))await sql`INSERT INTO match_field_observations(match_id,field_name,provider,value,
         provider_record_id,fetched_at,known_at,evidence_ref,adapter_version,value_sha256,review_state,receipt_id)
         VALUES (${matchId},${field},'opendota',${json(value)},${matchId},${source.fetchedAt},NULL,${`receipt:${receipt.id}`},

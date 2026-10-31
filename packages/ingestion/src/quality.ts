@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { MatchSchema, type OpenDotaMatch } from './opendota/schemas.js';
 import type { ProviderObservation } from './opendota/client.js';
 
-export const NORMALIZER_VERSION='opendota-map-v1';
+export const NORMALIZER_VERSION='opendota-map-v2-identity';
 export const QUALITY_POLICY='opendota-quality-v1';
 export const hash=(value:unknown)=>createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const record=(value:unknown):Record<string,unknown> => value!==null && typeof value==='object' && !Array.isArray(value)
