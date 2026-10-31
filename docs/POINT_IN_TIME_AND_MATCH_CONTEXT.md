@@ -46,4 +46,4 @@ MVP prediction target = победа **на одной карте**. Серий�
 
 ## Реализация S0-04
 
-`@dota/db` предоставляет `MatchContextRepository` и чистую `resolveContextAsOf` с policy `strict-asof-v1`; миграция 009 добавляет типизированный provenance, не переинтерпретируя старые наблюдения. [Контракт, границы и тесты](S0_04_TEMPORAL_CONTEXT.md). Полный MatchContextResolver с patch/draft-rule/hero-availability остаётся S0-06; conditional cohorts — S0-09, feature builder — S3-02.
+`@dota/db` предоставляет `MatchContextRepository` и чистую `resolveContextAsOf`; миграция 009 добавляет типизированный provenance, не переинтерпретируя старые наблюдения. [Контракт, границы и тесты](S0_04_TEMPORAL_CONTEXT.md). S0-06 расширяет policy до `strict-asof-v2` (league/mode/lobby) и добавляет `GameContextRepository`/`resolveGameContext` с immutable registry proof для патчей, версий draft rules и hero eligibility: [контракт](S0_06_GAME_CONTEXT.md). Draft timeline validation — P1 S2-05; conditional cohorts — S0-09, feature builder — S3-02.

@@ -1,8 +1,8 @@
 import { ContextAsOfSchema, ContextObservationSchema, type ContextAsOf, type ContextField,
   type ContextFact, type StoredContextObservation } from '@dota/contracts';
 
-export const CONTEXT_POLICY_VERSION = 'strict-asof-v1';
-export const CONTEXT_FIELDS: readonly ContextField[] = ['series_id', 'map_number', 'series_score_before',
+export const CONTEXT_POLICY_VERSION = 'strict-asof-v2';
+export const CONTEXT_FIELDS: readonly ContextField[] = ['league_id', 'game_mode', 'lobby_type', 'series_id', 'map_number', 'series_score_before',
   'teams', 'first_pick_side', 'draft_order_version', 'lineup', 'roles', 'heroes'];
 type Reason = 'MISSING' | 'UNVERIFIED_AVAILABILITY' | 'UNREVIEWED' | 'LATE_KNOWLEDGE' |
   'FUTURE_EVENT' | 'STAGE_UNAVAILABLE' | 'BETWEEN_MAPS_UNSUPPORTED' | 'CONFLICT' | 'NULL_VALUE';

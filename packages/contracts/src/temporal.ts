@@ -22,6 +22,9 @@ function uniquePlayers(rows: z.infer<typeof Player>[]) {
   return new Set(ids).size === ids.length;
 }
 export const ContextFactSchema = z.discriminatedUnion('field', [
+  z.object({ field: z.literal('league_id'), value: Id.nullable() }).strict(),
+  z.object({ field: z.literal('game_mode'), value: z.number().int().min(0).max(32767).nullable() }).strict(),
+  z.object({ field: z.literal('lobby_type'), value: z.number().int().min(0).max(32767).nullable() }).strict(),
   z.object({ field: z.literal('series_id'), value: z.uuid().nullable() }).strict(),
   z.object({ field: z.literal('map_number'), value: z.number().int().min(1).max(32767).nullable() }).strict(),
   z.object({ field: z.literal('series_score_before'), value: z.object({

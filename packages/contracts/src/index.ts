@@ -1,6 +1,7 @@
 import { z } from 'zod';
 export * from './temporal.js';
 export * from './identity.js';
+export * from './game-context.js';
 // API-facing BIGINT identifiers travel as strings; do not coerce via Number.
 export const IdSchema = z.string().regex(/^[1-9]\d*$/);
 export const SideSchema = z.enum(['radiant', 'dire']);

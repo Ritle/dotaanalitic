@@ -104,3 +104,7 @@ See [DRAFT_DATA_INTEGRITY.md](DRAFT_DATA_INTEGRITY.md); 001–005 remain immutab
 ## S0-05: account evidence и состав
 
 Миграция 010 добавляет immutable `player_account_evidence`, alias provenance и `identity_registry_state.revision`. Общий resolver различает current identity и verified-asof; importer сохраняет proof IDs/status, retrospective history пересчитывает identity по source accounts на cutoff без фильтра организации. Canonical `match_players.player_id` не является достаточным as-of gate. `lineupAsOf` использует S0-04 context evidence, отдельно проверяет роли и не читает current-members flags. [Контракт](S0_05_IDENTITY_LINEUP.md).
+
+## S0-06: game-context registry
+
+Миграция 011 добавляет immutable `patch_release_evidence`, `draft_rule_evidence`, evidence provenance для `hero_availability_rules`, `game_context_registry_state.revision` и расширяет context whitelist полями league/mode/lobby. Legacy rules не становятся verified. GameContextRepository разрешает patch/side/hero eligibility на cutoff в repeatable-read; policy/revisions/proof IDs входят в результат. Исторические SQL 001–010 не менялись. [Контракт](S0_06_GAME_CONTEXT.md).

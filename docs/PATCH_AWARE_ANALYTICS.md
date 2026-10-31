@@ -97,3 +97,7 @@ n_eff         = (sum(w_i)^2) / sum(w_i^2), if sum(w_i^2) > 0
 ## Roster-sensitive переносимость данных
 
 Совместная игра двух игроков в прошлой организации сохраняет информативность после их общего перехода, но старые hero-specific показатели по другой мете уменьшают вес значительно сильнее. Для `pairwise player co-play`, `exact-five` и team-churn использовать **раздельную** временную политику, не путать её с weight героев/геройских связок. На новом составе отмечать `ROSTER_COLD_START`, низкое покрытие ID и roster drift; качество pre-match модели измерять также на решафлах и stand-in матчах.
+
+## Реализация registry в S0-06
+
+`GameRegistryRepository` сохраняет immutable release evidence с подтверждённым coverageUntil; `resolveGameContext` выбирает patch по timestamp и as-of proof, без fallback к последнему известному label. Пробел покрытия или конфликт оставляет patch null. Новая evidence повышает registryRevision для инвалидирования derived cache; сама таблица patches не является историческим proof. Реальные release metadata в этом этапе не seed-ятся. [Контракт и границы](S0_06_GAME_CONTEXT.md).

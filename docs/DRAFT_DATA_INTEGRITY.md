@@ -88,3 +88,7 @@
 - Для исторического pre/post вычисления отсутствует verified known-as-of → только conditional analysis/unavailable, не prospective accuracy.
 
 Выпуск числового прогноза требует **отдельного успешного model evaluation gate** (`docs/ML_ENGINEERING_DECISIONS.md`), а не только положительных quality flags.
+
+## Реализация контекста S0-06
+
+`draft_rule_evidence` и `GameContextRepository` связывают verified patch + game_mode + lobby_type с исторической версией правил; first-pick side и A/B orientation независимы. Этот lookup не проверяет фактическую последовательность raw actions: `draftOrderValid` остаётся null. Raw picks, включая 0/11/12, и существующие quality assessments не переписываются. Полный валидатор timeline остаётся P1 S2-05. [Контракт](S0_06_GAME_CONTEXT.md).

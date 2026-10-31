@@ -59,6 +59,7 @@ jobs:
       - run: pnpm test:auth
       - run: pnpm test:temporal
       - run: pnpm test:identity
+      - run: pnpm test:game-context
 
   ml-bootstrap:
     runs-on: ubuntu-latest
