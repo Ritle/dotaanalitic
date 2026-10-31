@@ -1,28 +1,32 @@
 # Текущее состояние репозитория — Codex handoff
 
-**Обновлено:** 2026-10-31. S0-00/DX-00, S0-01, S0-02 + S0-10 и **S0-03** выполнены локально. **Функциональный MVP ещё не готов.** Рабочий Git checkout — `dotaanalitic`; родительский starter не редактировать.
+**Обновлено:** 2026-10-31. S0-00/DX-00, S0-01, S0-02 + S0-10, S0-03 и **S0-04** выполнены локально. **Функциональный MVP ещё не готов.** Рабочий Git checkout — `dotaanalitic`; родительский starter не редактировать.
 
 ## Реально присутствует
 
-- Vue 3 login/loading/error/logout, router guard и личная оболочка. Fastify health и auth login/me/logout; аналитические страницы/API ещё planned.
-- CLI `owner:create`/`owner:reset`: единственный owner, hidden password/UTF-8 stdin, Argon2id; reset отзывает все сессии. Аккаунт владельца в рабочей БД не создавался автоматически, пароль задаёт владелец.
-- DB opaque sessions: только SHA-256 tokens, TTL 12h, rotation/revocation/expiry/inactive checks. Cookies Secure/HttpOnly/host prefix в HTTPS production; local HTTP cookies только для loopback origin. CSRF session-bound, exact Origin, per-IP + restart-safe global PG login budget, no secret logging.
-- PostgreSQL 16.15 native localhost/SCRAM; 001–008 применены, повтор 8 SKIP. 001–007 не редактировались в S0-03, 001–005 golden сохранены; следующая миграция 009+.
-- Shared `@dota/db` pg/Kysely 0.28.18, `@dota/ingestion`, `@dota/worker` pg-boss 12.38.0. `@dota/contracts` теперь compiled dist/declarations для API/web; root shared:build и filtered Docker builds учитывают contracts dependency.
-- Import: per-map lock/idempotency, immutable provenance/raw/quality, durable Retry-After, global PG quotas. Raw 0/11/12 picks сохранены, draft_order_valid/patch/known_at/verified roles не угадываются. Canonical identities только verified account links.
-- Live S0-01: 20-map recent coverage ([отчёт](S0_01_PROVIDER_SPIKE.md)). Live S0-02: карта `9069021061` дважды через очередь, одна карта/10 slots/revision 1; canonical IDs 0/10, historic availability не подтверждена ([отчёт](S0_02_INGESTION.md)).
-- S0-03 PASS: frozen install/typecheck/build; 66 unit + 11 auth PG/CLI + 16 ingestion/queue PG + 4 baseline DB + 10 Node + 2 Chromium tests. Visual mobile/desktop checked; migrations/checksums, strict preflight DB (Docker WARN), compiled Node health=200/private me=401. [Отчёт S0-03](S0_03_OWNER_AUTH.md).
-- S0-00 ранее: 6 Python tests и 12 Python↔JS parity comparisons; в S0-03 не повторялись. Demo остаётся synthetic_only/deployable:false, production models 0.
+- Vue login/logout/router guard и личная оболочка; Fastify health/auth, CLI owner provisioning/reset, Argon2id, hash-only opaque sessions, CSRF и per-IP/global PG login budgets. Owner в рабочей БД не создавался автоматически. [S0-03](S0_03_OWNER_AUTH.md).
+- Import одной карты через durable pg-boss worker: idempotency, immutable receipts/raw/quality, global quotas/Retry-After, canonical links only when verified. Raw 0/11/12 picks сохранены; unknown patch/known_at/roles не угадываются. [S0-02](S0_02_INGESTION.md).
+- **S0-04:** `@dota/contracts` temporal schemas, `@dota/db` MatchContextRepository + pure strict-asof-v1 resolver. Source/event/known/fetched/stage/availability и роли сохраняются независимо. Immutable typed `context.*` observations не смешиваются с raw provider facts; no outcome/telemetry whitelist. Conflicts, unknowns, late knowledge и post-draft поля в pre-match дают недоступность.
+- Evidence insert + data_revision atomic, concurrent retries deduplicated; corrected proof appends, no UPDATE/DELETE. SQL/TS typed timestamps требуют UTC millisecond precision, чтобы микросекунды не округлялись в cutoff. [Контракт S0-04](S0_04_TEMPORAL_CONTEXT.md).
+- PostgreSQL 16.15 native localhost/SCRAM; **001–009 применены**, повтор 9 SKIP. Исторические 001–008 не менялись; 001–005 golden совпадают. Следующая миграция **010+**.
+- Node 22.15.0 / pnpm 10.19.0, pg/Kysely 0.28.18, pg-boss 12.38.0. Contracts/db/ingestion compiled dist/declarations; root shared:build строит зависимости топологически. Lockfile обновлён pnpm только для db→contracts/vitest; версии external dependencies не менялись.
+
+## Проверено
+
+- S0-04 PASS: frozen install/typecheck/build, **82 unit + 40 DB/integration** (temporal 9, ingestion/queue 16, auth 11, baseline 4), **10 Node fixtures**; migration checksums/doc links/git diff. Compiled Node repository прочитал сохранённую реальную карту: ни одного выдуманного as-of факта.
+- Live S0-01: recent 20-map coverage ([отчёт](S0_01_PROVIDER_SPIKE.md)). S0-02: карта 9069021061 дважды импортирована через очередь, одна карта/10 slots/revision 1; canonical IDs 0/10, historic availability неизвестна. S0-04 новых provider-запросов не делал.
+- S0-03 ранее: 2 Chromium E2E + mobile/desktop visual inspection; S0-00 ранее: 6 Python tests / 12 parity comparisons. В S0-04 UI/E2E/Python не менялись и не повторялись.
+- Tests synthetic only in separate temporary databases; рабочая БД не получает synthetic contexts/owners. Demo ML остаётся synthetic_only/deployable:false; production models не создавались.
 
 ## Запуск и ограничения
 
-- Frozen install, `pnpm db:migrate`, `pnpm owner:create`, `pnpm dev`. Открывать web точно по WEB_ORIGIN (обычно http://localhost:5173), не менять hostname на 127.0.0.1 без согласованной настройки.
-- Production требует HTTPS WEB_ORIGIN и случайный AUTH_COOKIE_SECRET >=32 символов. В development без secret CSRF signing key process-local; DB session остаётся, после рестарта reload/me перевыпускает CSRF.
-- Root-команды явно собирают shared packages. `pnpm test:auth`, `test:ingestion`, `test:e2e` требуют PG16/CREATEDB; synthetic owners/maps живут только в отдельных temporary test DB, затем cleanup. Browser E2E использует API/Vite 3151/5179 и случайный synthetic password, без mocks/записи в рабочую БД.
-- Provider defaults 45 RPM/2000 day/45000 month, shared PG UTC budget; live spike/audit требуют DB/007. `.env`, `.tools`, browser artifacts и passwords не коммитятся.
-- Node 22.15.0, pnpm 10.19.0; Argon2 Windows bundled native prebuild исполнен. Docker/Compose отсутствуют: production images/TLS/restore и remote CI не проверены. CI/Compose подготовлены, это не deployment gate. Push/deploy не выполнялись.
-- Нет bulk/backfill scheduler, полного identity/context/patch resolver, production training/activation или вероятностей. Accepted import не равен model eligibility. S0-08/09 и temporal/ML gates открыты.
+- Frozen install → `pnpm db:migrate` → `pnpm owner:create` в локальном терминале → `pnpm dev`. Web открывать точно по WEB_ORIGIN (обычно http://localhost:5173), не менять hostname без настройки.
+- Production: HTTPS WEB_ORIGIN + AUTH_COOKIE_SECRET >=32 random characters. Dev loopback без secret использует process-local CSRF signing key; DB session остаётся, reload/me обновляет CSRF.
+- `pnpm test:temporal`, `test:auth`, `test:ingestion`, `test:e2e` требуют PG16/CREATEDB. PG сейчас доступен; API/Vite не оставлены работающими. Если PG остановлен, проверить существующий .tools/pgsql/.tools/pgdata; не пересоздавать кластер.
+- Windows sandbox может блокировать child processes (EPERM); разрешённые повторы прошли. Frozen install выполнялся в том же окружении, где pnpm восстановил modules.
+- Docker/Compose отсутствуют: container builds/TLS/restore/remote GitHub Actions не выполнены. Push/deploy не выполнялись.
+- Нет аналитических страниц/API, identity review, полного match/patch/hero-eligibility resolver, frozen dataset builder/production training/activation. Context resolved ≠ model eligibility; partial lineup/role estimates не становятся доказанной десяткой. Strict evidence не закрывает conditional/live cohort и исторические coverage gates S0-08/09.
 
 ## Следующая задача
 
-**S0-04 [P0] Point-in-time schema / temporal semantics.** Читать POINT_IN_TIME_AND_MATCH_CONTEXT и текущие provenance/match field observations; отличать event/start, known_at, fetched_at, map/series/side и stage-specific availability. Backfill завершённой карты не подтверждает pre-start lineup knowledge. Рекомендуемая модель: **GPT-6 Astra · High**.
+**S0-05 [P0] Identity & lineup integrity.** Читать IDENTITY_AND_DATA_QUALITY + ROSTER_CONTINUITY и текущие player_external_accounts/aliases/role observations; сохранить карьеру через трансферы, проверять identity/lineup/roles, не склеивать по nickname/current-team. Использовать S0-04 evidence boundary; не внедрять S0-06 patch rules или S3 feature builder заранее. Рекомендуемая модель: **GPT-6 Astra · High**.

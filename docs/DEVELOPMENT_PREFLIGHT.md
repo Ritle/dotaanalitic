@@ -31,12 +31,14 @@ node scripts/check-ml-parity.mjs /tmp/dota2-demo.json
 
 ## Правила
 
-Локальная `.env` не коммитится. Никогда не сохранять реальные API ключи, токены или пользовательские Steam данные в test fixtures. Исторические миграции `001–005` защищены checksum-фикстурой; применённые `006–008` также не редактировать, следующие изменения — `009+`.
+Локальная `.env` не коммитится. Никогда не сохранять реальные API ключи, токены или пользовательские Steam данные в test fixtures. Исторические миграции `001–005` защищены checksum-фикстурой; применённые `006–009` также не редактировать, следующие изменения — `010+`.
 
 ## S0-02: importer и очередь
 
 S0-03: `pnpm owner:create` в локальном терминале задаёт первый логин/скрытый пароль. `pnpm test:auth` выполняет реальные DB/CLI проверки, но не создаёт аккаунт в рабочей БД. Для HTTPS production нужен AUTH_COOKIE_SECRET >=32 random characters; development без него использует process-local CSRF signing key. Открывать web точно по WEB_ORIGIN. [Подробности](S0_03_OWNER_AUTH.md).
 
-После всех восьми миграций запускать `pnpm test:ingestion`: требуется реальный PostgreSQL и роль с CREATEDB. Suite создаёт случайные отдельные `codex_ingest_*` databases, выполняет миграции и удаляет только свои тестовые БД; синтетика не импортируется в рабочую БД. `pnpm test:integration` по-прежнему выполняет baseline проверки.
+После всех девяти миграций запускать `pnpm test:ingestion`: требуется реальный PostgreSQL и роль с CREATEDB. Suite создаёт случайные отдельные `codex_ingest_*` databases, выполняет миграции и удаляет только свои тестовые БД; синтетика не импортируется в рабочую БД. `pnpm test:integration` по-прежнему выполняет baseline проверки.
 
 `pnpm worker:dev` + `pnpm ingest:enqueue --match-id 9069021061` либо `pnpm ingest:once --match-id 9069021061` проверяют настоящий импорт. Это расходует API quota и записывает реальную карту. `provider:spike` и `provider:audit` теперь также требуют DB/007, поскольку используют общий persistent budget. Offline audit `node scripts/audit-prediction-sources.mjs --fixture ...` остаётся независимым от сети/БД. [Результаты и ограничения](S0_02_INGESTION.md).
+
+S0-04: `pnpm test:temporal` проверяет as-of evidence в отдельной временной PostgreSQL БД; `pnpm test` включает pure temporal tests. [Контракт](S0_04_TEMPORAL_CONTEXT.md).

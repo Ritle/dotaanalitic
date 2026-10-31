@@ -96,3 +96,7 @@
 - Уровень доступности для обучения модели вычисляется по stage/as-of/feature revision, **не** хранится как глобальный `training_eligible` флаг.
 
 See [DRAFT_DATA_INTEGRITY.md](DRAFT_DATA_INTEGRITY.md); 001–005 remain immutable.
+
+## S0-04: типизированные temporal observations
+
+Миграция 009 расширяет immutable `match_field_observations` event/availability/stage/fingerprint. `context.*` — отдельные проверяемые typed facts; старые raw observations не получают историческую известность автоматически. `MatchContextRepository` сохраняет доказательства идемпотентно и читает только доступные на cutoff/stage поля; карта/серия, side/A-B и роль/slot остаются разными понятиями. [Подробный контракт](S0_04_TEMPORAL_CONTEXT.md). `started_at` означает фактический старт карты, а не known_at.

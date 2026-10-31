@@ -42,7 +42,7 @@ pnpm ingest:enqueue --match-id 9069021061 # поставить карту в dur
 pnpm ingest:once --match-id 9069021061    # поставить и дождаться одной задачи
 pnpm test:ingestion      # импорт/очередь в отдельных временных БД, нужны права CREATEDB
 pnpm db:up               # PostgreSQL
-pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007→008
+pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007→008→009
 pnpm db:down             # остановить PostgreSQL, НЕ удалять volume
 ```
 
@@ -53,7 +53,7 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 1. `AGENTS.md` — правила агента и запреты.
 2. `TECHNICAL_SPEC.md` — все утверждённые функциональные требования Personal MVP v2.
 3. `docs/TECHNICAL_ARCHITECTURE_AND_STACK.md`, `docs/DEPENDENCY_MATRIX.md`, `docs/ENGINEERING_PATTERNS.md`, `docs/DATA_PIPELINE_DESIGN.md`, `docs/ML_ENGINEERING_DECISIONS.md`, `docs/DEPLOYMENT_AND_TESTING.md` — нормативные технические решения и паттерны; затем `docs/ARCHITECTURE.md` и `docs/SCREEN_SPECS.md` — компоненты, пользовательские экраны и потоки данных.
-4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..008` — хранение.
+4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..009` — хранение.
 5. `docs/DATA_SOURCES.md` — OpenDota и ограничения.
 6. `docs/API_CONTRACTS.md` — маршруты и форматы.
 7. `docs/PREDICTION_ENGINE.md` и `docs/CONTINUOUS_LEARNING_PIPELINE.md` — антиутечка, backtest, frozen datasets, verified outcomes и безопасная публикация моделей.
@@ -134,3 +134,7 @@ node scripts/verify-migrations.mjs
 ```
 
 S0-02 (+ S0-10): нормализатор и durable очередь реализованы; новая миграция 007 применена, повторный импорт реальной карты проверен. Команды выше автоматически собирают shared packages; после правок `packages/db`/`packages/ingestion` перезапускайте worker. Границы, тесты и live evidence: [S0_02_INGESTION.md](docs/S0_02_INGESTION.md). Одна импортированная карта не является готовой обучающей выборкой или проверкой модели.
+
+### S0-04 — исторический контекст
+
+Типизированные наблюдения и чтение по cutoff/stage реализованы в `@dota/db`, без подстановки исторического knowledge из завершённой карты. Проверка: `pnpm test:temporal` (PG16/CREATEDB). [Контракт и ограничения](docs/S0_04_TEMPORAL_CONTEXT.md).

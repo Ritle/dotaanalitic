@@ -43,3 +43,7 @@ MVP prediction target = победа **на одной карте**. Серий�
 5. Неполная последовательность банов не маркируется полной; правила старого патча не заменяются сегодняшними.
 6. Нет данных по LAN/online и stage — `null`, не фиктивный online.
 7. Hero pool ограничен доказанной rule validity, null availability не становится false.
+
+## Реализация S0-04
+
+`@dota/db` предоставляет `MatchContextRepository` и чистую `resolveContextAsOf` с policy `strict-asof-v1`; миграция 009 добавляет типизированный provenance, не переинтерпретируя старые наблюдения. [Контракт, границы и тесты](S0_04_TEMPORAL_CONTEXT.md). Полный MatchContextResolver с patch/draft-rule/hero-availability остаётся S0-06; conditional cohorts — S0-09, feature builder — S3-02.

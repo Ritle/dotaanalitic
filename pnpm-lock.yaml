@@ -160,6 +160,9 @@ importers:
 
   packages/db:
     dependencies:
+      '@dota/contracts':
+        specifier: workspace:*
+        version: link:../contracts
       kysely:
         specifier: 0.28.18
         version: 0.28.18
@@ -176,6 +179,9 @@ importers:
       typescript:
         specifier: ^5.9.0
         version: 5.9.3
+      vitest:
+        specifier: ^3.2.0
+        version: 3.2.7(@types/node@22.20.5)(tsx@4.23.15)
 
   packages/ingestion:
     dependencies:

@@ -41,3 +41,4 @@
 - https://kysely.dev/docs/getting-started
 - https://pgboss.io/introduction
 - https://www.npmjs.com/package/%40fastify%2Ftype-provider-zod
+S0-04: `@dota/db` зависит от compiled `@dota/contracts` для temporal Zod boundaries и использует существующий Vitest 3.2.7 для pure/PG tests. Lockfile обновлён pnpm; новых внешних библиотек/версий не добавлено.

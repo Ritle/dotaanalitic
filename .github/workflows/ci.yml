@@ -57,6 +57,7 @@ jobs:
       - run: pnpm test:integration
       - run: pnpm test:ingestion
       - run: pnpm test:auth
+      - run: pnpm test:temporal
 
   ml-bootstrap:
     runs-on: ubuntu-latest
