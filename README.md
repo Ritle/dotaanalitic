@@ -16,12 +16,13 @@ cp .env.example .env
 pnpm install --frozen-lockfile
 pnpm db:up
 pnpm db:migrate
+pnpm owner:create
 pnpm dev
 ```
 
-На Windows PowerShell вместо `cp` можно использовать `Copy-Item .env.example .env`. Замените пароль в `POSTGRES_PASSWORD` и `DATABASE_URL` согласованно до запуска БД. API при `dev`/`start`, мигратор и integration-тесты читают корневую `.env`; переменные процесса имеют приоритет. После запуска: web `http://localhost:5173`, API `http://localhost:3000/health`. Каркас показывает технический статус API; импорт одной карты доступен через CLI/worker. Auth и аналитические страницы ещё не реализованы.
+На Windows PowerShell вместо `cp` можно использовать `Copy-Item .env.example .env`. Замените пароль в `POSTGRES_PASSWORD` и `DATABASE_URL` согласованно до запуска БД. API при `dev`/`start`, мигратор и integration-тесты читают корневую `.env`; переменные процесса имеют приоритет. После запуска: web `http://localhost:5173`, API `http://localhost:3000/health`. До входа доступна форма владельца; после входа — личная оболочка. Открывайте web точно по `WEB_ORIGIN` (localhost и 127.0.0.1 — разные Origin). Импорт одной карты работает через CLI/worker; аналитические страницы ещё не реализованы.
 
-Файл `.env` содержит локальные секреты и **не коммитится**. Для установки владельца после реализации задачи S0-03 предусмотрена CLI-команда `pnpm owner:create` (на старте команда намеренно отсутствует, пока не реализован AuthService).
+Файл `.env` содержит секреты и **не коммитится**. `pnpm owner:create` запускайте в локальном терминале: логин + два скрытых ввода пароля (12–128 символов). Второй аккаунт запрещён. Сброс: `pnpm owner:reset --login YOUR_LOGIN`, с отзывом всех сессий. Пароль не передавать аргументом командной строки. [Контракт, stdin-режим и проверки S0-03](docs/S0_03_OWNER_AUTH.md).
 
 ## Важные команды
 
@@ -30,6 +31,10 @@ pnpm dev                 # web + api в watch-режиме
 pnpm build               # сборка рабочих пространств
 pnpm typecheck           # проверка типов
 pnpm test                # unit-тесты
+pnpm test:auth           # авторизация на PG, отдельная временная БД
+pnpm test:e2e            # Chromium + реальный API/PG, нужны CREATEDB
+pnpm owner:create       # единственный владелец, скрытый ввод пароля
+pnpm owner:reset --login YOUR_LOGIN # сброс пароля и отзыв сессий
 pnpm provider:spike      # ограниченная проверка OpenDota, без записи матчей в БД
 pnpm provider:audit --sample 20 --out reports/opendota-coverage.json # live coverage, нужны БД и сеть
 pnpm worker:dev          # постоянный worker pg-boss, отдельный терминал
@@ -37,7 +42,7 @@ pnpm ingest:enqueue --match-id 9069021061 # поставить карту в dur
 pnpm ingest:once --match-id 9069021061    # поставить и дождаться одной задачи
 pnpm test:ingestion      # импорт/очередь в отдельных временных БД, нужны права CREATEDB
 pnpm db:up               # PostgreSQL
-pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007
+pnpm db:migrate          # применить все миграции 001→002→003→004→005→006→007→008
 pnpm db:down             # остановить PostgreSQL, НЕ удалять volume
 ```
 
@@ -48,7 +53,7 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 1. `AGENTS.md` — правила агента и запреты.
 2. `TECHNICAL_SPEC.md` — все утверждённые функциональные требования Personal MVP v2.
 3. `docs/TECHNICAL_ARCHITECTURE_AND_STACK.md`, `docs/DEPENDENCY_MATRIX.md`, `docs/ENGINEERING_PATTERNS.md`, `docs/DATA_PIPELINE_DESIGN.md`, `docs/ML_ENGINEERING_DECISIONS.md`, `docs/DEPLOYMENT_AND_TESTING.md` — нормативные технические решения и паттерны; затем `docs/ARCHITECTURE.md` и `docs/SCREEN_SPECS.md` — компоненты, пользовательские экраны и потоки данных.
-4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..007` — хранение.
+4. `docs/DATA_MODEL.md` + `packages/db/migrations/001..008` — хранение.
 5. `docs/DATA_SOURCES.md` — OpenDota и ограничения.
 6. `docs/API_CONTRACTS.md` — маршруты и форматы.
 7. `docs/PREDICTION_ENGINE.md` и `docs/CONTINUOUS_LEARNING_PIPELINE.md` — антиутечка, backtest, frozen datasets, verified outcomes и безопасная публикация моделей.

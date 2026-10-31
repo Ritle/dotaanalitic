@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { parseEnv } from 'node:util';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const strict = process.argv.includes('--strict');
@@ -27,6 +28,12 @@ if (envExists) {
   for (const key of ['DATABASE_URL', ...(prod ? ['SITE_HOST','POSTGRES_PASSWORD'] : [])]) {
     const found = new RegExp(`^${key}=(.+)$`, 'm').exec(source);
     check(`Env:${key}`, !!found && !/replace-this|change-me|localhost\.invalid/i.test(found[1]), 'set and non-placeholder', prod);
+  }
+  if (prod) {
+    const values = parseEnv(source);
+    check('Auth cookie secret', (values.AUTH_COOKIE_SECRET?.length ?? 0) >= 32, 'requires >=32 random characters; value is never printed');
+    const origin = values.WEB_ORIGIN;
+    check('Auth HTTPS origin', !!origin && URL.canParse(origin) && new URL(origin).protocol === 'https:', 'production WEB_ORIGIN must use HTTPS');
   }
 }
 const docker = spawnSync('docker', ['compose', 'version'], { encoding: 'utf8', timeout: 5000 });

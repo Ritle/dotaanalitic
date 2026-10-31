@@ -1,1 +1,1 @@
-{ "extends": "../../tsconfig.base.json", "compilerOptions": { "types": ["node"] }, "include": ["src/**/*.ts"] }
+{ "extends": "../../tsconfig.base.json", "compilerOptions": { "types": ["node"], "rootDir": "src", "outDir": "dist", "declaration": true, "module": "NodeNext", "moduleResolution": "NodeNext" }, "include": ["src/**/*.ts"] }

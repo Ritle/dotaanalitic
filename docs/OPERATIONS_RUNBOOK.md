@@ -2,15 +2,15 @@
 
 ## Сервис
 
-Ubuntu 24.04+, рекомендация 4 vCPU/8 GB/120 GB NVMe, Docker Compose. Сеть: только 80/443, SSH (ограничен владельцем). PostgreSQL и API — **только приватная сеть Docker**, без публикации портов. Шифрование TLS Caddy для домена `SITE_HOST`. Не использовать в production без реализации Auth (S0-03): current skeleton health is intentionally public, product routes not implemented.
+Ubuntu 24.04+, рекомендация 4 vCPU/8 GB/120 GB NVMe, Docker Compose. Сеть: только 80/443, SSH (ограничен владельцем). PostgreSQL и API — **только приватная сеть Docker**, без публикации портов. Шифрование TLS Caddy для домена `SITE_HOST`. S0-03 Auth реализован; production deployment остаётся заблокирован до реального Docker/CI/restore gate. Health публичен, продуктовые routes требуют owner session.
 
-## First deploy (только после S0-03 и прохода CI)
+## First deploy (после прохода CI/Docker/restore gate)
 
 1. Выполнить frozen install существующего registry lockfile, CI, тесты миграций, backup restore drill.
 2. `cp .env.production.example .env.production`, заменить все пароли/домен и проверить `node scripts/preflight.mjs --production --strict`. Production Compose ожидает `DATABASE_URL` вида `postgresql://user:pass@postgres:5432/db`, не `localhost`.
 3. `docker compose --env-file .env.production -f compose.production.yaml config` проверить **локально** (не публиковать результат со значениями секретов).
 4. `docker compose --env-file .env.production -f compose.production.yaml up -d --build`; `docker compose ... ps`; запрос `https://SITE_HOST/health` → `status=ok`.
-5. Owner создаётся только защищённой CLI-командой из S0-03; не seed-ить пароль миграцией.
+5. Owner создаётся CLI: `docker compose --env-file .env.production -f compose.production.yaml run --rm api node apps/api/dist/modules/auth/owner-cli.js create` в интерактивном терминале; не seed-ить пароль миграцией. Аналогично `reset --login YOUR_LOGIN` отзывает все сессии. Задать случайный AUTH_COOKIE_SECRET >=32 символов и HTTPS WEB_ORIGIN; preflight проверяет оба условия.
 
 ## Backup
 
@@ -23,13 +23,13 @@ Ubuntu 24.04+, рекомендация 4 vCPU/8 GB/120 GB NVMe, Docker Compose.
 ## Upgrade / rollback
 
 - Перед upgrade — SQL backup и фиксировать git commit/image tag.
-- Применённые миграции `001–007` не редактировать, `001–005` защищены golden. Следующий SQL — `008_...`.
+- Применённые миграции `001–008` не редактировать, `001–005` защищены golden. Следующий SQL — `009_...`.
 - Не откатывать SQL физическим `DROP` без отдельного плана; менять приложение вперед-схемой.
 - ML candidate не активируется автоматически; rollback model_version через registry с аудитом по контракту v4.
 
 ## Known deployment blockers v7
 
-Registry lockfile создан в S0-00 и обновлён/проверен frozen install в S0-02. Docker отсутствует, Auth/API ещё не реализованы; production configs, включая worker, **не проверены контейнерным запуском**. Локальные PG16/Node интеграции не заменяют deploy/restore gate.
+Registry lockfile создан в S0-00 и обновлён/проверен frozen install в S0-02/S0-03. Docker отсутствует, Auth реализован, аналитические API ещё planned; production configs, включая worker, **не проверены контейнерным запуском**. Локальные PG16/Node интеграции не заменяют deploy/restore gate.
 
 ## Импорт одной карты (S0-02)
 

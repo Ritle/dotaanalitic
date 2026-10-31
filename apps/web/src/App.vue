@@ -14,10 +14,7 @@ onMounted(async () => {
     <div class="eyebrow">PERSONAL ANALYTICS · MVP 2.0</div>
     <h1>Dota 2 Pro Analytics</h1>
     <p>Личный сервис аналитики профессиональных матчей и драфтов.</p>
-    <section class="panel">
-      <h2>Технический каркас</h2>
-      <p>API: <strong>{{ apiState === 'online' ? 'доступен' : apiState === 'offline' ? 'не отвечает' : 'проверка…' }}</strong></p>
-      <p class="hint">Интерфейс команд, драфтов и предсказаний будет реализован по <code>docs/IMPLEMENTATION_PLAN.md</code>. Демонстрационных прогнозов нет.</p>
-    </section>
+    <p class="hint" role="status">API: <strong>{{ apiState === 'online' ? 'доступен' : apiState === 'offline' ? 'не отвечает' : 'проверка…' }}</strong></p>
+    <RouterView />
   </main>
 </template>

@@ -33,6 +33,7 @@ services:
       API_PORT: 3000
       API_HOST: 0.0.0.0
       WEB_ORIGIN: ${WEB_ORIGIN:?}
+      AUTH_COOKIE_SECRET: ${AUTH_COOKIE_SECRET:?}
       DATABASE_URL: ${DATABASE_URL:?}
     depends_on:
       migrate: {condition: service_completed_successfully}

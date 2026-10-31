@@ -9,3 +9,14 @@ p { color: var(--color-muted); line-height: 1.6; }
 h2 { margin-top: 0; }
 .hint { font-size: 14px; }
 code { overflow-wrap: anywhere; }
+.auth-panel { max-width: 460px; }
+form { display: grid; gap: var(--space-3); }
+label { margin-top: var(--space-2); font-weight: 600; }
+input, button { font: inherit; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); min-height: 44px; }
+input { color: var(--color-text); background: var(--color-bg); width: 100%; min-width: 0; }
+button { color: var(--color-bg); background: var(--color-accent); font-weight: 700; cursor: pointer; }
+button:disabled, input:disabled { opacity: .65; cursor: wait; }
+form button { margin-top: var(--space-4); }
+.error { color: var(--color-danger); }
+.account-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); flex-wrap: wrap; }
+.account-row h2 { margin: 0; }

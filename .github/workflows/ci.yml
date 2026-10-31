@@ -56,6 +56,7 @@ jobs:
       - run: node scripts/migrate.mjs # must be idempotent
       - run: pnpm test:integration
       - run: pnpm test:ingestion
+      - run: pnpm test:auth
 
   ml-bootstrap:
     runs-on: ubuntu-latest
@@ -76,6 +77,19 @@ jobs:
 
   e2e-bootstrap:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: dota
+          POSTGRES_PASSWORD: ci_password_only
+          POSTGRES_DB: dota_e2e
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U dota -d dota_e2e"
+          --health-interval 5s --health-timeout 5s --health-retries 20
+    env:
+      DATABASE_URL: postgresql://dota:ci_password_only@localhost:5432/dota_e2e
     steps:
       - uses: actions/checkout@v4
       - name: Confirm npm lockfile is committed

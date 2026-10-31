@@ -20,3 +20,14 @@ export const CreateScenarioSchema = z.object({
   radiantSlot: ScenarioSlotSchema.nullable().optional()
 }).refine(value => value.teamAId !== value.teamBId, { message: 'Teams must differ' });
 export type CreateScenario = z.infer<typeof CreateScenarioSchema>;
+
+export const OwnerLoginSchema = z.string().trim().toLowerCase().regex(/^[a-z0-9_.-]{3,120}$/);
+export const OwnerPasswordSchema = z.string().min(12).max(128);
+export const LoginSchema = z.object({ login: OwnerLoginSchema, password: z.string().min(1).max(128) }).strict();
+export const OwnerSchema = z.object({ id: z.uuid(), login: OwnerLoginSchema });
+export const AuthResponseSchema = z.object({
+  owner: OwnerSchema,
+  expiresAt: z.iso.datetime(),
+  csrfToken: z.string().min(1).max(512)
+});
+export type AuthResponse = z.infer<typeof AuthResponseSchema>;

@@ -7,7 +7,7 @@
 3. `corepack pnpm install --frozen-lockfile`, `cp .env.example .env` (Windows: `Copy-Item`). Изменить пароль dev DB; `pnpm preflight`.
 4. `pnpm db:up` (пропустить при нативном PostgreSQL), `pnpm db:migrate` и повторить последнюю команду для проверки идемпотентности; затем `pnpm test:integration` (не пропускать). Мигратор и тесты читают `.env`; CI может передавать `DATABASE_URL` непосредственно. `pnpm preflight:strict --require-db` проверяет реальное подключение; отсутствие Docker в dev — предупреждение, если доступен нативный сервер.
 5. `pnpm typecheck`, `pnpm test`, `pnpm build`, `pnpm dev`; отдельным терминалом `pnpm smoke`. Root-команды явно собирают shared packages, не полагаясь на pre/post hooks.
-6. `pnpm --filter @dota/web exec playwright install --with-deps chromium`, затем `pnpm test:e2e` (после `pnpm install`). На Windows достаточно `install chromium`. Playwright-тесты выполняются отдельным runner и исключены из Vitest.
+6. `pnpm --filter @dota/web exec playwright install --with-deps chromium`, затем `pnpm test:e2e` (после `pnpm install`). На Windows достаточно `install chromium`. Playwright выполняется отдельно от Vitest; с S0-03 нужны PG16/CREATEDB. Отдельные API/Vite 3151/5179, временная БД и случайный synthetic password; рабочий owner не меняется.
 
 ## Дополнительные проверки (Python требует установленных зависимостей)
 
@@ -31,10 +31,12 @@ node scripts/check-ml-parity.mjs /tmp/dota2-demo.json
 
 ## Правила
 
-Локальная `.env` не коммитится. Никогда не сохранять реальные API ключи, токены или пользовательские Steam данные в test fixtures. Исторические миграции `001–005` защищены checksum-фикстурой; применённые `006–007` также не редактировать, следующие изменения — `008+`.
+Локальная `.env` не коммитится. Никогда не сохранять реальные API ключи, токены или пользовательские Steam данные в test fixtures. Исторические миграции `001–005` защищены checksum-фикстурой; применённые `006–008` также не редактировать, следующие изменения — `009+`.
 
 ## S0-02: importer и очередь
 
-После всех семи миграций запускать `pnpm test:ingestion`: требуется реальный PostgreSQL и роль с CREATEDB. Suite создаёт случайные отдельные `codex_ingest_*` databases, выполняет миграции и удаляет только свои тестовые БД; синтетика не импортируется в рабочую БД. `pnpm test:integration` по-прежнему выполняет baseline проверки.
+S0-03: `pnpm owner:create` в локальном терминале задаёт первый логин/скрытый пароль. `pnpm test:auth` выполняет реальные DB/CLI проверки, но не создаёт аккаунт в рабочей БД. Для HTTPS production нужен AUTH_COOKIE_SECRET >=32 random characters; development без него использует process-local CSRF signing key. Открывать web точно по WEB_ORIGIN. [Подробности](S0_03_OWNER_AUTH.md).
+
+После всех восьми миграций запускать `pnpm test:ingestion`: требуется реальный PostgreSQL и роль с CREATEDB. Suite создаёт случайные отдельные `codex_ingest_*` databases, выполняет миграции и удаляет только свои тестовые БД; синтетика не импортируется в рабочую БД. `pnpm test:integration` по-прежнему выполняет baseline проверки.
 
 `pnpm worker:dev` + `pnpm ingest:enqueue --match-id 9069021061` либо `pnpm ingest:once --match-id 9069021061` проверяют настоящий импорт. Это расходует API quota и записывает реальную карту. `provider:spike` и `provider:audit` теперь также требуют DB/007, поскольку используют общий persistent budget. Offline audit `node scripts/audit-prediction-sources.mjs --fixture ...` остаётся независимым от сети/БД. [Результаты и ограничения](S0_02_INGESTION.md).

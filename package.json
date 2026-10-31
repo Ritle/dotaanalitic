@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "pnpm shared:build && pnpm --parallel --filter @dota/api --filter @dota/web dev",
-    "shared:build": "pnpm --filter @dota/ingestion... --if-present build",
+    "shared:build": "pnpm --filter @dota/ingestion... --filter @dota/contracts --if-present build",
     "worker:dev": "pnpm shared:build && pnpm --filter @dota/worker dev",
     "ingest:enqueue": "pnpm shared:build && pnpm --filter @dota/worker queue",
     "ingest:once": "pnpm shared:build && pnpm --filter @dota/worker once",
@@ -26,10 +26,13 @@
     "verify:docs": "node scripts/check-doc-links.mjs",
     "test:fixtures": "node --test tests/node/*.test.mjs",
     "test:integration": "node --env-file-if-exists=.env --test tests/integration/*.test.mjs",
-    "test:e2e": "pnpm --filter @dota/web test:e2e",
+    "test:e2e": "pnpm shared:build && pnpm --filter @dota/web test:e2e",
     "smoke": "node scripts/smoke-test.mjs",
     "lockfile:bootstrap": "node scripts/bootstrap-lockfile.mjs",
-    "provider:spike": "pnpm shared:build && pnpm --filter @dota/api provider:spike"
+    "provider:spike": "pnpm shared:build && pnpm --filter @dota/api provider:spike",
+    "owner:create": "pnpm shared:build && pnpm --filter @dota/api owner:create",
+    "owner:reset": "pnpm shared:build && pnpm --filter @dota/api owner:reset",
+    "test:auth": "pnpm shared:build && node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run apps/api/tests/auth.integration.test.ts"
   },
   "devDependencies": {
     "typescript": "^5.9.0",

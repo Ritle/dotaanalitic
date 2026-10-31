@@ -9,10 +9,10 @@
 | api | `fastify` 5 | HTTP server | Уже в starter; route `inject` |
 | api/contracts | `zod` 4 | DTO/runtime validation | Уже в starter; provider schemas, unknown/null contract |
 | api | `@fastify/type-provider-zod` | Совместить Fastify route types и Zod | Внедрять только после проверки Zod 4.x совместимости на `pnpm` и минимальном API test |
-| api | `@fastify/cookie` | Owner session cookie | S0-03; HttpOnly/Secure/SameSite tests |
-| api | `@fastify/csrf-protection` | CSRF при cookie-auth | S0-03; POST без токена/с неправильным token = 403 |
-| api | `@fastify/rate-limit` | Ограничение логинов | S0-03; совместимый Fastify5 plugin major |
-| api | `argon2` | password Argon2id | S0-03; нативная установка на Ubuntu/Windows CI |
+| api | `@fastify/cookie` 11.1.5 | Owner session cookie | Installed S0-03; HttpOnly/Secure/SameSite/host-prefix tested |
+| api | `@fastify/csrf-protection` 8.0.2 | CSRF при cookie-auth | Installed S0-03; missing/wrong/different-session token = 403 |
+| api | `@fastify/rate-limit` 11.2.1 | Ограничение логинов | Installed S0-03; Fastify5 + spoofed forwarded IP tested |
+| api | `argon2` 0.45.1 | password Argon2id | Installed S0-03; Windows native prebuild exercised; Linux remote CI not run |
 | db | `pg` 8 | SQL driver | Уже в root starter; migrations and pool test |
 | db | `kysely` 0.28.18 | Typed select/joins/transactions | Installed/tested S0-02; SQL migration authority remains manually written `.sql` |
 | worker | `pg-boss` 12.38.0 | Durable scheduled/import jobs | Installed/tested S0-02; Node >=22.12; restart/dedup/retry/atomic deferral tested, own schema lifecycle |

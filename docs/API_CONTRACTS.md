@@ -1,14 +1,14 @@
 # API контракт MVP — `/api/v1`
 
-Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `/health` и `POST /api/v1/auth/login`. JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
+Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
-## Основные маршруты (планируемые; пока не реализованы)
+## Основные маршруты (auth реализован в S0-03; остальные планируются)
 
 | HTTP | Путь | Смысл |
 |---|---|---|
 | POST | `/auth/login` | Login по паролю |
 | POST | `/auth/logout` | Revoke session |
-| GET | `/auth/me` | Владелец и настройки |
+| GET | `/auth/me` | Владелец, expiry и CSRF token; настройки ещё planned |
 | GET | `/heroes` | Справочник |
 | GET | `/teams?query=...` | Поиск команд |
 | GET | `/teams/:id` | Команда/состав |
@@ -29,6 +29,10 @@
 | GET | `/models/status` | Качество и readiness моделей |
 | POST | `/admin/sync/teams/:id` | Триггер импорта |
 | GET | `/jobs/:id` | Статус импорта |
+
+S0-03: login принимает strict JSON `{login,password}`; unknown fields — 400. Успех login/me: `{owner:{id:uuid,login},expiresAt:ISO,csrfToken:string}`. Session token передаётся только HttpOnly cookie. Logout — 204, revoke и очистка cookies. Ошибки: 401 credentials/session, 403 Origin/CSRF, 429 + Retry-After. API ответы: Cache-Control: no-store.
+
+Login требует Origin, точно совпадающий с WEB_ORIGIN; изменяющие авторизованные запросы также требуют `X-CSRF-Token` из login/me и signed CSRF cookie. CSRF связан с сессией, GET me обновляет token после reload. Scripts/curl должны передавать Origin явно. Production: `__Host-session`/`__Host-csrf`, Secure/HttpOnly/SameSite=Lax/Path=/ без Domain; localhost HTTP: `dota_session`/`dota_csrf`. [Подробно](S0_03_OWNER_AUTH.md).
 
 ## DTO: ошибка
 
