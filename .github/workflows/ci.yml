@@ -71,6 +71,7 @@ jobs:
       - run: pnpm test:sample
       - run: pnpm test:patch-history
       - run: pnpm test:compare
+      - run: pnpm test:upcoming
 
   ml-bootstrap:
     runs-on: ubuntu-latest

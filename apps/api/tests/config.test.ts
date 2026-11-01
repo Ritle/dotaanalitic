@@ -21,3 +21,8 @@ test('production requires HTTPS and persistent signing secret', () => {
   expect(() => readConfig({ ...base, WEB_ORIGIN: 'https://user:pass@example.test' })).toThrow();
   expect(readConfig({ ...base, NODE_ENV: 'production', WEB_ORIGIN: 'https://example.test', AUTH_COOKIE_SECRET: 'synthetic-signing-secret-with-32-bytes' }).WEB_ORIGIN).toBe('https://example.test');
 });
+test('schedule credential is optional, server-only and never echoed by validation errors',()=>{
+  expect(readConfig({...base,PANDASCORE_API_TOKEN:''}).PANDASCORE_API_TOKEN).toBeUndefined();
+  expect(readConfig({...base,PANDASCORE_API_TOKEN:'synthetic-token'}).PANDASCORE_API_TOKEN).toBe('synthetic-token');
+  expect(()=>readConfig({...base,PANDASCORE_API_TOKEN:'private\nsecret'})).toThrow(/^Некорректная конфигурация: PANDASCORE_API_TOKEN$/);
+});

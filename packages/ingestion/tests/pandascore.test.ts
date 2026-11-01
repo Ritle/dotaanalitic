@@ -129,3 +129,15 @@ it('rejects a profile ID mismatch and preserves independently captured schedule 
   expect(r.errors[0]!.code).toBe('source_id_mismatch');expect(r.identityProbe).toBeNull();expect(r.rosters!.data).toHaveLength(2);
   expect(r.captureStatus).toBe('blocked_or_partial');
 });
+it('consults the durable budget for every attempt and records every HTTP response',async()=>{
+  let time=start,n=0,claims=0;const observations:number[]=[];
+  const c=new PandaScoreClient({apiToken:token},{now:()=>time,sleep:async ms=>{time+=ms;},
+    budget:{beforeRequest:async()=>{claims++;},observe:async status=>{observations.push(status);}},
+    fetch:async()=>++n===1?json({},503):json([match()])});
+  await c.getUpcomingMatches();expect(claims).toBe(2);expect(observations).toEqual([503,200]);
+});
+it('a durable quota denial stops before exposing the token or sending HTTP',async()=>{
+  let calls=0;const c=new PandaScoreClient({apiToken:token},{budget:{beforeRequest:async()=>{throw new PandaScoreError('source_rate_limited',null,null,3600000);},observe:async()=>{}},
+    fetch:async()=>{calls++;return json([]);}});
+  await expect(c.getUpcomingMatches()).rejects.toMatchObject({code:'source_rate_limited',retryAfterMs:3600000});expect(calls).toBe(0);expect(c.requestStats.attempts).toBe(0);
+});

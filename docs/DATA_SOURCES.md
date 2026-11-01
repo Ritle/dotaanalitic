@@ -31,7 +31,7 @@ Normalize OpenDota match object into:
 
 ## Остальные источники
 
-- PandaScore: owner-selected source для расписания и expected tournament rosters; основной источник фактических карт/статистики остаётся OpenDota. `schedule:audit` реализует ручной bounded spike с приватным Bearer token. Живые20 upcoming rows и турнир22231/8 teams/5+5 нужных игроков проверены2026-11-01. PandaScore match/player/team IDs — отдельный namespace; canonical mapping не создаётся по никам. Заявки не гарантируют map attendance. До recurring sync нужны durable quota/cache и новый protected API/UI. [S1-09](S1_09_UPCOMING_SOURCE.md).
+- PandaScore: owner-selected source для расписания и expected tournament rosters; основной источник фактических карт/статистики остаётся OpenDota. `schedule:audit` реализует ручной bounded spike с приватным Bearer token. Живые20 upcoming rows и турнир22231/8 teams/5+5 нужных игроков проверены2026-11-01. PandaScore match/player/team IDs — отдельный namespace; canonical mapping не создаётся по никам. Заявки не гарантируют map attendance. S1-10 добавляет защищённый API/UI, PostgreSQL cache5мин и общую runtime quota900/час. Обновление ручное; автоматических jobs пока нет. [S1-10](S1_10_UPCOMING_UI.md). [S1-09](S1_09_UPCOMING_SOURCE.md).
 
 - `dotaconstants` для справочников героев и патчей; сохранять версию набора.
 - STRATZ: необязательный адаптер, выключен по умолчанию; возможные ограничения API/договора отдельно проверить.

@@ -6,7 +6,8 @@ const ConfigSchema = z.object({
   API_PORT: z.coerce.number().int().min(1).max(65535).default(3000),
   API_HOST: z.string().trim().min(1).default('127.0.0.1'),
   WEB_ORIGIN: z.url({ protocol: /^https?$/ }).default('http://localhost:5173'),
-  AUTH_COOKIE_SECRET: z.preprocess(value => value === '' ? undefined : value, z.string().min(32).optional())
+  AUTH_COOKIE_SECRET: z.preprocess(value => value === '' ? undefined : value, z.string().min(32).optional()),
+  PANDASCORE_API_TOKEN:z.preprocess(value=>typeof value==='string'&&!value.trim()?undefined:value,z.string().trim().min(1).max(4096).regex(/^[!-~]+$/).optional())
 }).superRefine((config, ctx) => {
   // Zod can run refinements after a format issue; preserve sanitized field-only
   // errors rather than letting URL() throw with the original input attached.

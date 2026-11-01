@@ -26,6 +26,7 @@ async function signOut() {
     <p>Владелец: <strong>{{ ownerAuth?.owner.login }}</strong></p>
     <p v-if="error" role="alert" class="error">{{ error }}</p>
     <p>Справочники и профессиональная история доступны ниже.</p><RouterLink to="/compare">Сравнить две команды →</RouterLink><p><RouterLink to="/scenarios">Сохранённые сценарии →</RouterLink></p>
+    <p><RouterLink to="/upcoming">Предстоящие матчи →</RouterLink></p>
     <p class="hint">Прогноз недоступен: проверенные модели ещё не опубликованы.</p>
   </section>
   <CatalogSearch />

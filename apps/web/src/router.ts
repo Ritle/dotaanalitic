@@ -5,6 +5,7 @@ import EntityView from './views/EntityView.vue';
 import CompareView from './views/CompareView.vue';
 import ScenariosView from './views/ScenariosView.vue';
 import ScenarioReportView from './views/ScenarioReportView.vue';
+import UpcomingView from './views/UpcomingView.vue';
 import { ownerAuth, restoreAuth } from './auth';
 
 export const router = createRouter({
@@ -12,6 +13,7 @@ export const router = createRouter({
   routes: [
     { path: '/login', component: LoginView },
     { path: '/', component: HomeView, meta: { requiresAuth: true } },
+    { path: '/upcoming', component: UpcomingView, meta: { requiresAuth: true } },
     { path: '/compare', name: 'compare', component: CompareView, meta: { requiresAuth: true } },
     { path: '/scenarios', component: ScenariosView, meta: { requiresAuth: true } },
     { path: '/scenarios/:id', component: ScenariosView, meta: { requiresAuth: true } },

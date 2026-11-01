@@ -163,3 +163,9 @@ P0 architecture needs **internal CLI/service**, not a new public endpoint: `Data
 | POST | `/api/v1/admin/models/:id/rollback` | owner-reviewed previously passing model, audited rollback |
 
 User forecasts/guesses (future) are **not** verified labels. `prediction_outcomes` can be linked to a specific real map only when context and pre-start timestamps are verified; this link never modifies immutable `prediction_runs`. New verified pro matches are taken **directly from canonical matches** for the next frozen training dataset, not reconstructed from user prediction rows.
+
+## S1-10 — private upcoming schedule
+
+GET `/api/v1/upcoming` и GET `/api/v1/upcoming/tournaments/:id` читают только кэш; соответствующие POST routes с `/refresh` обновляют отсутствующий/истёкший snapshot. Требуются owner session, для POST также Origin/CSRF и пустой JSON body. GET/POST ответы no-store. Турнир разрешён только при наличии ID в сохранённом расписании; unknown query/body fields и невалидный decimal ID дают400, отсутствующий турнир404.
+
+DTO в `packages/contracts/src/upcoming.ts`: status ready/stale/unavailable, snapshot с data/source или null, computedAt/expiresAt/retryAt, configured/refreshing и безопасный reason. API хранит отдельные provider IDs как строки; не выдаёт token/raw provider error body. Snapshot содержит expected tournament roster, не actual map lineup/roles. Создание сценария использует существующий POST `/scenarios` с ручными canonical IDs и confirmedByOwner, не импортирует PandaScore IDs. [TTL/leases/quota и UI](S1_10_UPCOMING_UI.md).

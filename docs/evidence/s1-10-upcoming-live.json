@@ -1,0 +1,897 @@
+{
+  "schemaVersion": 1,
+  "mode": "live_persisted_upcoming_service_smoke",
+  "generatedAt": "2026-11-01T00:35:54.659Z",
+  "beforeStatus": "unavailable",
+  "schedule": {
+    "status": "ready",
+    "computedAt": "2026-11-01T00:35:51.161Z",
+    "expiresAt": "2026-11-01T00:40:51.155Z",
+    "retryAt": null,
+    "refreshing": false,
+    "configured": true,
+    "reason": null,
+    "snapshot": {
+      "data": [
+        {
+          "providerMatchId": "1772633",
+          "name": "TS vs HN",
+          "status": "not_started",
+          "scheduledAt": "2026-11-01T09:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22302",
+            "name": "Group C"
+          },
+          "league": {
+            "providerLeagueId": "5576",
+            "name": "Esports Pro Circuit"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11149",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "139124",
+              "name": "Team Synapse"
+            },
+            {
+              "providerTeamId": "139463",
+              "name": "HellNight-"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1759494",
+          "name": "Zenith vs RB",
+          "status": "not_started",
+          "scheduledAt": "2026-11-01T10:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22246",
+            "name": "Group Stage"
+          },
+          "league": {
+            "providerLeagueId": "4884",
+            "name": "EPL World Series"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11129",
+            "name": "Southeast Asia season 19 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "139363",
+              "name": "Zenith"
+            },
+            {
+              "providerTeamId": "139367",
+              "name": "Royal Bear"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1772634",
+          "name": "XE vs P-",
+          "status": "not_started",
+          "scheduledAt": "2026-11-01T12:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22302",
+            "name": "Group C"
+          },
+          "league": {
+            "providerLeagueId": "5576",
+            "name": "Esports Pro Circuit"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11149",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "139239",
+              "name": "Xipto Esports"
+            },
+            {
+              "providerTeamId": "129222",
+              "name": "potn9ki"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1753769",
+          "name": "Grand Final: TY vs TS",
+          "status": "not_started",
+          "scheduledAt": "2026-11-01T13:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22231",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "5567",
+            "name": "PARI Universe"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11124",
+            "name": "2026"
+          },
+          "seriesBestOf": 5,
+          "opponents": [
+            {
+              "providerTeamId": "137073",
+              "name": "Team Yandex"
+            },
+            {
+              "providerTeamId": "1669",
+              "name": "Team Spirit"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1772365",
+          "name": "Grand Final: TS vs SOLID",
+          "status": "not_started",
+          "scheduledAt": "2026-11-01T21:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22299",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "5575",
+            "name": "NEXUS SERIES"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11148",
+            "name": "Season 2 2026"
+          },
+          "seriesBestOf": 5,
+          "opponents": [
+            {
+              "providerTeamId": "139124",
+              "name": "Team Synapse"
+            },
+            {
+              "providerTeamId": "139457",
+              "name": "SOLID"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1759487",
+          "name": "Zenith vs Team Kinetix",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T04:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22246",
+            "name": "Group Stage"
+          },
+          "league": {
+            "providerLeagueId": "4884",
+            "name": "EPL World Series"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11129",
+            "name": "Southeast Asia season 19 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "139363",
+              "name": "Zenith"
+            },
+            {
+              "providerTeamId": "139148",
+              "name": "Team Kinetix"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1759499",
+          "name": "Zenith vs DB",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T07:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22246",
+            "name": "Group Stage"
+          },
+          "league": {
+            "providerLeagueId": "4884",
+            "name": "EPL World Series"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11129",
+            "name": "Southeast Asia season 19 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "139363",
+              "name": "Zenith"
+            },
+            {
+              "providerTeamId": "138753",
+              "name": "Direborn"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1772636",
+          "name": "XE vs TS",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T09:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22302",
+            "name": "Group C"
+          },
+          "league": {
+            "providerLeagueId": "5576",
+            "name": "Esports Pro Circuit"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11149",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "139239",
+              "name": "Xipto Esports"
+            },
+            {
+              "providerTeamId": "139124",
+              "name": "Team Synapse"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1756301",
+          "name": "Upper Bracket Quarterfinals match 1: LEGION vs HULIGANI",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T10:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22236",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "5544",
+            "name": "EPL Masters"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11126",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "139340",
+              "name": "LEGION"
+            },
+            {
+              "providerTeamId": "138842",
+              "name": "HULIGANI"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1772637",
+          "name": "P- vs HN",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T12:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22302",
+            "name": "Group C"
+          },
+          "league": {
+            "providerLeagueId": "5576",
+            "name": "Esports Pro Circuit"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11149",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "129222",
+              "name": "potn9ki"
+            },
+            {
+              "providerTeamId": "139463",
+              "name": "HellNight-"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1756302",
+          "name": "Upper Bracket Quarterfinals match 2: OG vs YeS",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T13:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22236",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "5544",
+            "name": "EPL Masters"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11126",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "1654",
+              "name": "OG"
+            },
+            {
+              "providerTeamId": "1931",
+              "name": "Yellow Submarine"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1772638",
+          "name": "HKR vs XE",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T15:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22302",
+            "name": "Group C"
+          },
+          "league": {
+            "providerLeagueId": "5576",
+            "name": "Esports Pro Circuit"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11149",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "127965",
+              "name": "Hokori"
+            },
+            {
+              "providerTeamId": "139239",
+              "name": "Xipto Esports"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1756303",
+          "name": "Upper Bracket Quarterfinals match 3: Na`Vi vs Nemiga",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T16:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22236",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "5544",
+            "name": "EPL Masters"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11126",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "1699",
+              "name": "Natus Vincere"
+            },
+            {
+              "providerTeamId": "2227",
+              "name": "Nemiga Gaming"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1772650",
+          "name": "RL vs old blood",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T18:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22301",
+            "name": "Group B"
+          },
+          "league": {
+            "providerLeagueId": "5576",
+            "name": "Esports Pro Circuit"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11149",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "137808",
+              "name": "Rottweilas Latam"
+            },
+            {
+              "providerTeamId": "139389",
+              "name": "old blood"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1756304",
+          "name": "Upper Bracket Quarterfinals match 4: GL vs CH",
+          "status": "not_started",
+          "scheduledAt": "2026-11-02T19:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22236",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "5544",
+            "name": "EPL Masters"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11126",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "137588",
+              "name": "GamerLegion"
+            },
+            {
+              "providerTeamId": "139339",
+              "name": "CyberHero"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1759509",
+          "name": "Upper Bracket Semifinal 1: TBD vs TBD",
+          "status": "not_started",
+          "scheduledAt": "2026-11-03T03:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22247",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "4884",
+            "name": "EPL World Series"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11129",
+            "name": "Southeast Asia season 19 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": []
+        },
+        {
+          "providerMatchId": "1759510",
+          "name": "Upper Bracket Semifinal 2: TBD vs TBD",
+          "status": "not_started",
+          "scheduledAt": "2026-11-03T06:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22247",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "4884",
+            "name": "EPL World Series"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11129",
+            "name": "Southeast Asia season 19 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": []
+        },
+        {
+          "providerMatchId": "1759512",
+          "name": "Lower Bracket Quarterfinal 1: TBD vs TBD",
+          "status": "not_started",
+          "scheduledAt": "2026-11-03T09:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22247",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "4884",
+            "name": "EPL World Series"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11129",
+            "name": "Southeast Asia season 19 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": []
+        },
+        {
+          "providerMatchId": "1772628",
+          "name": "oveA vs NH",
+          "status": "not_started",
+          "scheduledAt": "2026-11-03T09:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22300",
+            "name": "Group A"
+          },
+          "league": {
+            "providerLeagueId": "5576",
+            "name": "Esports Pro Circuit"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11149",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": [
+            {
+              "providerTeamId": "139391",
+              "name": "oveA"
+            },
+            {
+              "providerTeamId": "137658",
+              "name": "No Hoodwink"
+            }
+          ]
+        },
+        {
+          "providerMatchId": "1756308",
+          "name": "Lower Bracket Round 1 match 1: TBD vs TBD",
+          "status": "not_started",
+          "scheduledAt": "2026-11-03T10:00:00.000Z",
+          "tournament": {
+            "providerTournamentId": "22236",
+            "name": "Playoffs"
+          },
+          "league": {
+            "providerLeagueId": "5544",
+            "name": "EPL Masters"
+          },
+          "eventSeries": {
+            "providerEventSeriesId": "11126",
+            "name": "Season 3 2026"
+          },
+          "seriesBestOf": 3,
+          "opponents": []
+        }
+      ],
+      "source": {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+        "fetchedAt": "2026-11-01T00:35:51.137Z",
+        "knownAt": null,
+        "payloadSha256": "f72aa8176bd2178c269c918de02425fdf6be99ed525bca2ef90aa5d3d8dec2b2",
+        "attempts": 1,
+        "rateLimitRemaining": 992
+      }
+    }
+  },
+  "selectedMatch": {
+    "providerMatchId": "1753769",
+    "name": "Grand Final: TY vs TS",
+    "status": "not_started",
+    "scheduledAt": "2026-11-01T13:00:00.000Z",
+    "tournament": {
+      "providerTournamentId": "22231",
+      "name": "Playoffs"
+    },
+    "league": {
+      "providerLeagueId": "5567",
+      "name": "PARI Universe"
+    },
+    "eventSeries": {
+      "providerEventSeriesId": "11124",
+      "name": "2026"
+    },
+    "seriesBestOf": 5,
+    "opponents": [
+      {
+        "providerTeamId": "137073",
+        "name": "Team Yandex"
+      },
+      {
+        "providerTeamId": "1669",
+        "name": "Team Spirit"
+      }
+    ]
+  },
+  "rosters": {
+    "status": "ready",
+    "computedAt": "2026-11-01T00:35:54.575Z",
+    "expiresAt": "2026-11-01T00:40:54.573Z",
+    "retryAt": null,
+    "refreshing": false,
+    "configured": true,
+    "reason": null,
+    "snapshot": {
+      "data": [
+        {
+          "providerTeamId": "139432",
+          "name": "Astra Invicta",
+          "players": [
+            {
+              "providerPlayerId": "9341",
+              "name": "GH"
+            },
+            {
+              "providerPlayerId": "12509",
+              "name": "DM"
+            },
+            {
+              "providerPlayerId": "23715",
+              "name": "Nightfall"
+            },
+            {
+              "providerPlayerId": "26929",
+              "name": "lorenof"
+            },
+            {
+              "providerPlayerId": "33521",
+              "name": "OmaR"
+            }
+          ]
+        },
+        {
+          "providerTeamId": "139340",
+          "name": "LEGION",
+          "players": [
+            {
+              "providerPlayerId": "10784",
+              "name": "xsvampire"
+            },
+            {
+              "providerPlayerId": "14854",
+              "name": "SaberLight"
+            },
+            {
+              "providerPlayerId": "23114",
+              "name": "Kidaro"
+            },
+            {
+              "providerPlayerId": "26887",
+              "name": "KJ"
+            },
+            {
+              "providerPlayerId": "38393",
+              "name": "DarkLord^"
+            },
+            {
+              "providerPlayerId": "42027",
+              "name": "Stojkov"
+            }
+          ]
+        },
+        {
+          "providerTeamId": "137588",
+          "name": "GamerLegion",
+          "players": [
+            {
+              "providerPlayerId": "9609",
+              "name": "Bignum"
+            },
+            {
+              "providerPlayerId": "13844",
+              "name": "Speeed"
+            },
+            {
+              "providerPlayerId": "27993",
+              "name": "Fayde"
+            },
+            {
+              "providerPlayerId": "29644",
+              "name": "Yuma"
+            },
+            {
+              "providerPlayerId": "43534",
+              "name": "RCY"
+            }
+          ]
+        },
+        {
+          "providerTeamId": "137073",
+          "name": "Team Yandex",
+          "players": [
+            {
+              "providerPlayerId": "9495",
+              "name": "Saksa"
+            },
+            {
+              "providerPlayerId": "24551",
+              "name": "watson"
+            },
+            {
+              "providerPlayerId": "31708",
+              "name": "ATF"
+            },
+            {
+              "providerPlayerId": "33877",
+              "name": "Malady"
+            },
+            {
+              "providerPlayerId": "35696",
+              "name": "Chira JUNIOR"
+            }
+          ]
+        },
+        {
+          "providerTeamId": "135712",
+          "name": "PARIVISION",
+          "players": [
+            {
+              "providerPlayerId": "9360",
+              "name": "No[o]ne"
+            },
+            {
+              "providerPlayerId": "25670",
+              "name": "Dukalis"
+            },
+            {
+              "providerPlayerId": "31713",
+              "name": "Noticed"
+            },
+            {
+              "providerPlayerId": "46343",
+              "name": "9Class"
+            },
+            {
+              "providerPlayerId": "50818",
+              "name": "Satanic"
+            }
+          ]
+        },
+        {
+          "providerTeamId": "1669",
+          "name": "Team Spirit",
+          "players": [
+            {
+              "providerPlayerId": "27480",
+              "name": "Larl"
+            },
+            {
+              "providerPlayerId": "30258",
+              "name": "Yatoro"
+            },
+            {
+              "providerPlayerId": "48058",
+              "name": "Batyuk"
+            },
+            {
+              "providerPlayerId": "49070",
+              "name": "rue"
+            },
+            {
+              "providerPlayerId": "54351",
+              "name": "not me"
+            }
+          ]
+        },
+        {
+          "providerTeamId": "1654",
+          "name": "OG",
+          "players": [
+            {
+              "providerPlayerId": "9895",
+              "name": "Skem"
+            },
+            {
+              "providerPlayerId": "10000",
+              "name": "TOPSON"
+            },
+            {
+              "providerPlayerId": "23094",
+              "name": "Natsumi-"
+            },
+            {
+              "providerPlayerId": "26728",
+              "name": "SSS"
+            },
+            {
+              "providerPlayerId": "41870",
+              "name": "OneJey"
+            }
+          ]
+        },
+        {
+          "providerTeamId": "1647",
+          "name": "Team Liquid",
+          "players": [
+            {
+              "providerPlayerId": "9399",
+              "name": "Timado"
+            },
+            {
+              "providerPlayerId": "9596",
+              "name": "miCKe"
+            },
+            {
+              "providerPlayerId": "13664",
+              "name": "Wisper"
+            },
+            {
+              "providerPlayerId": "13848",
+              "name": "Boxi"
+            },
+            {
+              "providerPlayerId": "31555",
+              "name": "tOfu"
+            },
+            {
+              "providerPlayerId": "31707",
+              "name": "Malr1ne"
+            }
+          ]
+        }
+      ],
+      "source": {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/tournaments/22231/rosters",
+        "fetchedAt": "2026-11-01T00:35:54.567Z",
+        "knownAt": null,
+        "payloadSha256": "6a0b6e3e7ccfcbce5bab750b16b09c437f41372459d6b928b5141457963b1a15",
+        "attempts": 1,
+        "rateLimitRemaining": 991
+      }
+    }
+  },
+  "cacheReplaySameSnapshot": true,
+  "workingState": {
+    "maps": 1,
+    "owners": 0,
+    "scenarios": 0,
+    "players": 10,
+    "account_proofs": 10,
+    "identity_revision": "20",
+    "datasets": 0,
+    "active_models": 0,
+    "schedule_cache_rows": 2,
+    "quota_requests_used": 2,
+    "temporary_databases": 1
+  },
+  "code": [
+    {
+      "file": "packages/db/migrations/019_upcoming_schedule.sql",
+      "sha256": "07c209cbc751a091588016aab82006aa50fd4c42c024cb858a79e3ec184db5d6"
+    },
+    {
+      "file": "packages/db/src/schedule-cache.ts",
+      "sha256": "c4d8ff8fe78a5b6573f2a0b8d41445e0143c21194568074ff218303e96081bfa"
+    },
+    {
+      "file": "apps/api/src/modules/upcoming/service.ts",
+      "sha256": "09171800f3d6478c4c767828d149e4af73ea2855940a044f05ea7654874c52f7"
+    },
+    {
+      "file": "apps/api/src/modules/upcoming/http.ts",
+      "sha256": "556da2c70cadc1a31680ea6d56c26fc8e6633dda665db8761af5a3107d083c65"
+    },
+    {
+      "file": "packages/ingestion/src/pandascore/client.ts",
+      "sha256": "e4ffc2469658714f4fcd546533258029e66de61fa06df9370f8714f62bb3c718"
+    },
+    {
+      "file": "packages/contracts/src/upcoming.ts",
+      "sha256": "88f6c87c429ad7579ec441afab4a0052413239bea3a689d15db5e45b3f6f0819"
+    },
+    {
+      "file": "apps/api/dist/modules/upcoming/service.js",
+      "sha256": "e80e3105124caab3066f138a6763c432c98ad5c87a3b7200c9be8645e7efa1b0"
+    },
+    {
+      "file": "packages/db/dist/schedule-cache.js",
+      "sha256": "b54c9ac73fbbaad54fb2633bcb3e3e96bccee3b9fb134051211eb017d62d341a"
+    },
+    {
+      "file": "packages/ingestion/dist/pandascore/client.js",
+      "sha256": "efebdcda4b92c93aee2d5cde429aaa6a2af95b561f3b675fc4b4d4612cf1253d"
+    }
+  ],
+  "writes": "provider_schedule_cache_and_quota_only",
+  "canonicalPlayersLinked": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

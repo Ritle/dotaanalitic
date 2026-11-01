@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "report": {
+    "file": "docs/evidence/s1-10-upcoming-live.json",
+    "sha256": "9750a8f1ba314d30b4e37f087f9373cf6b5336a3535a0a11cf8d8552bfbd44af"
+  },
+  "sourceRuntimeHashesVerified": 9,
+  "directProviderRequests": 2,
+  "cacheReplaySameSnapshot": true,
+  "finalWorkingState": {
+    "maps": 1,
+    "owners": 0,
+    "scenarios": 0,
+    "players": 10,
+    "account_proofs": 10,
+    "identity_revision": "20",
+    "datasets": 0,
+    "active_models": 0,
+    "schedule_cache_rows": 2,
+    "quota_requests_used": 2,
+    "temporary_databases": 0
+  },
+  "canonicalPlayersLinked": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}

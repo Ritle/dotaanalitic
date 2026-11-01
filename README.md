@@ -197,7 +197,7 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 
 ### S2-01 — сохранение сценариев
 
-После `pnpm db:migrate` (текущая018) откройте «Сохранённые сценарии». Выберите две организации и вручную задайте10 разных canonical player IDs из локального каталога с ролями1–5; optional expected five и контекст одной карты сохраняются вместе. Пустые сторона/первый пик/серия остаются неизвестными. Подтверждение владельца относится к гипотезе; запись сегодня не доказывает историческую доступность состава. Каждое сохранение создаёт неизменяемую редакцию, конфликт двух вкладок сохраняет ваши правки в форме до явной загрузки актуальной версии. Проверки: `pnpm test:scenarios`, `pnpm test:e2e`. Прогнозы пока недоступны. [Контракт](docs/S2_01_SCENARIOS.md).
+После `pnpm db:migrate` (текущая019) откройте «Сохранённые сценарии». Выберите две организации и вручную задайте10 разных canonical player IDs из локального каталога с ролями1–5; optional expected five и контекст одной карты сохраняются вместе. Пустые сторона/первый пик/серия остаются неизвестными. Подтверждение владельца относится к гипотезе; запись сегодня не доказывает историческую доступность состава. Каждое сохранение создаёт неизменяемую редакцию, конфликт двух вкладок сохраняет ваши правки в форме до явной загрузки актуальной версии. Проверки: `pnpm test:scenarios`, `pnpm test:e2e`. Прогнозы пока недоступны. [Контракт](docs/S2_01_SCENARIOS.md).
 
 ### S2-02 — Draft Lab
 
@@ -209,11 +209,11 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 
 ### S2-04 — сохранённые отчёты
 
-После `pnpm db:migrate` (текущая018) откройте «Открыть отчёты сценария», задайте период/патч/лигу и выберите «Рассчитать и сохранить отчёт». Каждая версия сохраняет редакцию ввода, организации/пятёрки, player×hero по подтверждённым историческим ролям, meta героев, пары/матрицу, источники и покрытие. Сырые и экспериментальные скорректированные показатели имеют собственные выборки; прогнозы недоступны. История остаётся неизменной после новых данных или редактирования сценария. Проверки: `pnpm test:reports`, `pnpm test:e2e`. [Контракт](docs/S2_04_SCENARIO_REPORTS.md).
+После `pnpm db:migrate` (текущая019) откройте «Открыть отчёты сценария», задайте период/патч/лигу и выберите «Рассчитать и сохранить отчёт». Каждая версия сохраняет редакцию ввода, организации/пятёрки, player×hero по подтверждённым историческим ролям, meta героев, пары/матрицу, источники и покрытие. Сырые и экспериментальные скорректированные показатели имеют собственные выборки; прогнозы недоступны. История остаётся неизменной после новых данных или редактирования сценария. Проверки: `pnpm test:reports`, `pnpm test:e2e`. [Контракт](docs/S2_04_SCENARIO_REPORTS.md).
 
 ### S3-00 — подготовка датасетов
 
-После `pnpm db:migrate` (текущая018) используйте `pnpm dataset:prepare preview config.json`, затем `build config.json`. Strict as-of context и проверенный исход сохраняются отдельно; неизвестные составы/патчи/серии исключаются. Пустая выборка даёт unavailable без новых записей. Повтор одинакового build использует прежний frozen ID; `export <dataset-uuid> output.json` проверяет SHA и сохраняет точные bytes без перезаписи файла. Это prepared-context-v1, ещё без numeric features/training; прогнозы недоступны. Проверки: `pnpm test:dataset-builder`. [Config, gates и ограничения](docs/S3_00_DATASET_BUILDER.md), [свежий live audit](docs/S3_00_SOURCE_AUDIT.md).
+После `pnpm db:migrate` (текущая019) используйте `pnpm dataset:prepare preview config.json`, затем `build config.json`. Strict as-of context и проверенный исход сохраняются отдельно; неизвестные составы/патчи/серии исключаются. Пустая выборка даёт unavailable без новых записей. Повтор одинакового build использует прежний frozen ID; `export <dataset-uuid> output.json` проверяет SHA и сохраняет точные bytes без перезаписи файла. Это prepared-context-v1, ещё без numeric features/training; прогнозы недоступны. Проверки: `pnpm test:dataset-builder`. [Config, gates и ограничения](docs/S3_00_DATASET_BUILDER.md), [свежий live audit](docs/S3_00_SOURCE_AUDIT.md).
 
 ### S3-01 — аудит корпуса и временных выборок (частично)
 
@@ -223,7 +223,7 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 
 `pnpm cohort:lineup --out reports/new-ti12-lineup-evidence.json` сопоставляет архивную регистрацию Valve, текущих участников выбранной карты и frozen canonical ledger revision20. Архив2023-10-07 содержит обе нужные пятёрки;10/10 numeric IDs и native slots совпали с участниками карты. Регистрация не доказывает объявление состава для этой карты до старта: strict lineup/training остаются unavailable. Команда не пишет в БД; exit0 означает завершённый capture. [Результат, блокер и следующий шаг](docs/S3_01_LINEUP_EVIDENCE.md).
 
-`pnpm schedule:audit --out reports/new-upcoming.json [--tournament ID]` проверяет актуальное расписание PandaScore и ожидаемые составы одного турнира. Нужен локальный `PANDASCORE_API_TOKEN` в `.env`, только server-side. Живой capture2026-11-01:20 предстоящих встреч; Team Yandex—Team Spirit/турнир22231,8 команд и5+5 ожидаемых игроков. Provider IDs пока не связаны с историей OpenDota; UI будет следующим срезом. Без ключа команда пишет blocked/0 HTTP, существующий отчёт не перезаписывает. [Настройка, факты и ограничения](docs/S1_09_UPCOMING_SOURCE.md).
+`pnpm schedule:audit --out reports/new-upcoming.json [--tournament ID]` проверяет актуальное расписание PandaScore и ожидаемые составы одного турнира. Нужен локальный `PANDASCORE_API_TOKEN` в `.env`, только server-side. Живой capture2026-11-01:20 предстоящих встреч; Team Yandex—Team Spirit/турнир22231,8 команд и5+5 ожидаемых игроков. Provider IDs пока не связаны с историей OpenDota; экран реализован в S1-10. Без ключа команда пишет blocked/0 HTTP, существующий отчёт не перезаписывает. [Настройка, факты и ограничения](docs/S1_09_UPCOMING_SOURCE.md).
 
 `pnpm cohort:evidence --out reports/new-ti12-evidence.json` проверяет архивные метаданные Valve до TI2023. Найден также датированный регистрационный ответ с пятью никами одной команды; account links и фактические составы карт не подтверждены. [Историческое evidence и границы](docs/S3_01_HISTORICAL_EVIDENCE.md).
 
@@ -234,3 +234,9 @@ DataReadinessRepository оценивает strict, owner-asserted и conditional
 `pnpm corpus:audit docs/evidence/s3-01-corpus-config.json reports/new-corpus-analysis.json` воспроизводит offline diagnostic сохранённых live captures: SHA, дедупликация карт, конфликты, покрытие и явные временные окна. Итог —1287 уникальных ID и87 подробно проверенных карт; пригодность для исторического обучения не установлена. Output должен быть новым файлом.
 
 `pnpm dataset:audit stored <dataset-uuid>` или `pnpm dataset:audit file reports/export.json <expected-sha256>` независимо проверяет неизменяемый dataset, четыре окна и целые provider-серии, включая несколько canonical aliases. Проверки: `pnpm test:dataset-splits`, `pnpm test:fixtures`. Политика подготовки теперь v2; legacy snapshots не переписываются. Структурный PASS не разрешает training/deployment. S3-01 остаётся открытой до реального as-of evidence cohort. [Контракт и replay](docs/S3_01_SPLIT_AUDIT.md), [новый live audit](docs/S3_01_SOURCE_AUDIT.md).
+
+## Предстоящие матчи — S1-10
+
+После `pnpm db:migrate` (019) и запуска `pnpm dev` войдите владельцем и откройте «Предстоящие матчи» (`/upcoming`). Ключ `PANDASCORE_API_TOKEN` остаётся только в серверном `.env`. Обновите расписание, выберите встречу и загрузите заявки. Время матча показано в МСК; время получения источника — отдельно. Server cache5мин и общая PostgreSQL quota защищают источник.
+
+В раскрывающемся блоке выберите из локального справочника ID двух организаций и10 разных игроков по ролям, подтвердите состав и создайте обычный manual scenario. ID PandaScore не подставляются как canonical IDs. Если источник недоступен, последнее расписание сохраняется с предупреждением. Проверки: `pnpm test:upcoming`, `pnpm test:e2e`. [Поведение, API и ограничения](docs/S1_10_UPCOMING_UI.md).
