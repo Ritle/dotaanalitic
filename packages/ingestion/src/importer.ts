@@ -100,7 +100,7 @@ export class IngestionService {
         ON CONFLICT (opendota_league_id) DO NOTHING`.execute(tx);
         leagueId=(await sql<{id:string}>`SELECT id FROM leagues WHERE opendota_league_id=${league.leagueid}`.execute(tx)).rows[0]?.id??null;}
       const series=match.series_id?(await sql<{id:string}>`SELECT id FROM series WHERE provider='opendota'
-        AND provider_series_id=${match.series_id} AND
+        AND provider_series_id=${match.series_id} AND (league_id IS NULL OR league_id=${leagueId}) AND
         ((team_a_id=${radiantTeamId} AND team_b_id=${direTeamId}) OR (team_b_id=${radiantTeamId} AND team_a_id=${direTeamId}))`.execute(tx)).rows:[];
       const seriesId=series.length===1?series[0]!.id:null;
       const contextHash=hash({pro,heroReference,leagueReference,players:[...players].sort(),identityResolutions,radiantTeamId,direTeamId,seriesId});

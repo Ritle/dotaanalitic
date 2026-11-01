@@ -30,6 +30,7 @@ export * from './dataset-repository.js';
 export * from './dataset-builder.js';
 export * from './corpus-audit.js';
 export * from './corpus-quality.js';
+export * from './series-provision.js';
 export * from './dataset-audit.js';
 export * from './dataset-splits.js';
 export * from './outcome-verifier.js';

@@ -44,7 +44,7 @@ pnpm ingest:enqueue --match-id 9069021061 # поставить карту в dur
 pnpm ingest:once --match-id 9069021061    # поставить и дождаться одной задачи
 pnpm test:ingestion      # импорт/очередь в отдельных временных БД, нужны права CREATEDB
 pnpm db:up               # PostgreSQL
-pnpm db:migrate          # применить все миграции 001–021
+pnpm db:migrate          # применить все миграции 001–022
 pnpm db:down             # остановить PostgreSQL, НЕ удалять volume
 ```
 
@@ -55,6 +55,8 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 Качество уже импортированных pro-карт по турнирам, патчам и месяцам:
 `pnpm corpus:quality 2000-01-01T00:00:00.000Z 2026-11-01T17:44:00.000Z .tools/corpus-quality.json`.
 Отчёт сохраняет независимые статусы исходов, игроков, героев, организаций, серий и драфта, включая неизвестные данные. [Контракт и измерения](docs/S1_08_CORPUS_QUALITY.md).
+
+Для проверенной привязки карт к числовым source series ID: `pnpm series:provision preview request.json new-plan.json`, затем `pnpm series:provision apply request.json <fingerprint-из-плана> new-result.json`. После регистрации штатный importer повторно обрабатывает reviewed captures. [Конфиг, проверки, миграция022 и ограничения](docs/S1_08_SERIES_PROVISION.md).
 
 `pnpm-lock.yaml` создан из registry при S0-00. Локально и в CI используйте `--frozen-lockfile`. Результаты проверок и запуск на Windows без глобальной установки pnpm описаны в [отчёте S0-00](docs/S0_00_VERIFICATION.md). При уже запущенном нативном PostgreSQL шаг `pnpm db:up` не нужен.
 
