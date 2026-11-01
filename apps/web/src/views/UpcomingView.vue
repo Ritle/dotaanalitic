@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import {computed,ref} from 'vue';
+import {computed,nextTick,ref} from 'vue';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {UpcomingScheduleResponseSchema,UpcomingRostersResponseSchema} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
 import UpcomingScenario from '../components/UpcomingScenario.vue';
 const cache=useQueryClient(),selectedId=ref(''),busy=ref(false),error=ref('');
+const selectedPanel=ref<HTMLElement|null>(null);
+async function selectMatch(id:string){
+  selectedId.value=id;error.value='';await nextTick();
+  selectedPanel.value?.focus({preventScroll:true});selectedPanel.value?.scrollIntoView({block:'start',behavior:'instant'});
+}
 const schedule=useQuery({queryKey:['upcoming'],queryFn:({signal})=>readCatalog('upcoming',UpcomingScheduleResponseSchema,signal)});
 const matches=computed(()=>(schedule.data.value?.snapshot?.data??[]).filter(m=>m.status==='not_started'&&
   (m.scheduledAt===null||m.scheduledAt>schedule.data.value!.computedAt)));
@@ -46,7 +51,7 @@ async function refresh(kind:'schedule'|'rosters'){
           <thead><tr><th scope="col">Начало</th><th scope="col">Встреча</th><th scope="col">Турнир</th><th scope="col">Формат</th></tr></thead>
           <tbody><tr v-for="m in matches" :key="m.providerMatchId" :class="{chosen:selectedId===m.providerMatchId}">
             <td>{{moscow(m.scheduledAt)}}</td><td><span class="match-name">{{m.opponents.map(t=>t.name??'Команда не определена').join(' — ')||m.name||'Участники не определены'}}</span>
-              <button :aria-pressed="selectedId===m.providerMatchId" @click="selectedId=m.providerMatchId;error=''">Выбрать</button></td>
+              <button :aria-pressed="selectedId===m.providerMatchId" @click="selectMatch(m.providerMatchId)">Выбрать</button></td>
             <td>{{m.league.name??'Турнир не назван'}} · {{m.eventSeries?.name}} · {{m.tournament.name??'Стадия не указана'}}</td>
             <td>{{m.seriesBestOf?'BO'+m.seriesBestOf:'Не объявлен'}}</td>
           </tr></tbody>
@@ -54,7 +59,7 @@ async function refresh(kind:'schedule'|'rosters'){
       </template>
     </section>
     <p v-if="error" class="error" role="alert">{{error}}</p>
-    <section v-if="selected" class="panel" aria-label="Ожидаемые составы">
+    <section v-if="selected" ref="selectedPanel" class="panel" tabindex="-1" aria-label="Ожидаемые составы">
       <div class="account-row"><h2>{{selected.name??'Выбранная встреча'}}</h2><button :disabled="busy||!rosters.data.value?.configured" @click="refresh('rosters')">Обновить составы</button></div>
       <p>{{moscow(selected.scheduledAt)}} · {{selected.league.name}} · {{selected.tournament.name}}</p>
       <p>Здесь ожидаемые заявки на турнир. Поздние замены могут ещё не попасть в источник. Порядок списка не определяет роли.</p>

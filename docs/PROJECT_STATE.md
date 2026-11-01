@@ -1,6 +1,6 @@
 # Текущее состояние репозитория — Codex handoff
 
-**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08..19 owner workflow/startup, S2-01/02/03/04 и S3-00** выполнены локально. **Приложение запущено, owners1, первый вход проверен. Следующий практический шаг — пользовательская приёмка локальной аналитики. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; prediction MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
+**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08..20 owner workflow/startup/acceptance, S2-01/02/03/04 и S3-00** выполнены локально. **Приложение запущено, owners1, первый вход проверен. Следующий срез — S1-21 проверенные данные для выбранной владельцем встречи; выбор запрошен. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; prediction MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
 
 **S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket unchecked, но владелец явно выбрал **S1-08** после archival checkpoint (AGENTS§10). Повторного подтверждения не требуется; prediction gates не обходить.
 
@@ -9,6 +9,9 @@
 **Archive checkpoint:** CDX/Memento подтвердили body анонса7.34d к2023-10-12T15:55:12Z, SHA совпадает с нынешним body; раньше5 TI2023 maps. Narrow source-body proof не подтверждает deployment/hero/outcome. [Evidence](S1_07_ARCHIVED_BODY.md).
 
 ## Реально присутствует
+
+- **S1-20 real acceptance + navigation:** API всех5 организаций/21 игрока проверены; GamerLegion N4/PARIVISION3/Liquid3/Spirit5/Yandex5,11 игроков имеют историю,10 N0/rate null. Typed schema/count/dedupe/model-null и sampled UI1280/360px PASS. Schedule/rosters штатно обновлены двумя live PandaScore HTTP:20 future rows, Team Synapse—SOLID expected5+5/tournament22299; source clocks15:35:38Z/15:35:42Z, full DTO/screenshots только ignored private folder. Нет auto canonical mapping/сохранённых сценариев. [Приёмка](S1_20_OWNER_ACCEPTANCE.md).
+- **S1-20 fix/checks PASS:** UpcomingView explicit select после nextTick фокусирует tabindex=-1 region/instant scroll. Regression initially failed focus, затем position assertion corrected for -0.109px browser rounding; final focused1 и full28 Chromium/434 unit/frozen install/typecheck/build, verifier20/docs/diff. Synthetic20-row fixture только tempDB; real selected match360px focus/top/overflow/pageerror проверены и screenshot просмотрен. Backend/contracts/SQL/dependencies/lockfile unchanged. Maps10/participants100/resolved53/players21/teams5/proofs21/revision42/owners1/scenarios0/datasets0/models0/history_runs0/cache3/PandaScore requests2 in current quota window/tempDB0. Live API13392/web7920/worker22112 retained; test3151/5179 закрыты.
 
 - **S1-19 completion:** пользователь явно разрешил агенту создать тестовый локальный аккаунт и сохранить доступ в файл, изменив прежнее условие ручного provisioning. Единственный владелец создан existing compiled CLI/create/password-stdin; пароль cryptographic random, не в args/stdout/Git. Файл `.tools/private-owner/access.json` имеет NTFS FullControl только текущему Windows-пользователю, Git ignored. Реальный Chromium login→catalogue/private API200→cached upcoming→home/logout→private401 PASS, pageerror0. Owners1; пароль/содержимое файла в документах не сохранять. Pro-данные прежние. [Первый вход](S1_19_LOCAL_STARTUP.md).
 
@@ -147,4 +150,4 @@
 
 ## Следующая задача
 
-**Пользовательская приёмка запущенного приложения.** Открыть http://localhost:5173 с доступом из ignored private file, выбрать нужную встречу/аналитический экран и сообщить конкретную доработку. S1-19 завершена, нового владельца не создавать и пароль не сбрасывать без запроса. Следующую функциональную задачу выбирать по результату приёмки; не добавлять возможности автоматически. S1-07/S3-01/v8 corpus/model gates открыты, SQL001–020 immutable, никакого deploy/training. Для последующих UI-доработок — **GPT-6.1 Sol · Medium**.
+**S1-21 — GamerLegion—CyberHero02.11/22:00МСК.** Владелец явно выбрал эту встречу. Далее bounded inventory/preview существующими S1-12/13 tools и review numeric identity evidence; не склеивать ники, не назначать lineup/роли, unknown без proof, no historical backdate. Owner access остаётся в ignored private file; пароль не менять/не выводить. S1-07/S3-01/v8 corpus/model gates открыты, SQL001–020 immutable, без deploy/training. Для верификации новых identities рекомендуется **GPT-6 Astra · High**; для обычного UI — **GPT-6.1 Sol · Medium**.
