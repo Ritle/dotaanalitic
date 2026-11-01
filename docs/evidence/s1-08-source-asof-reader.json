@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T17:41:21.919Z",
+  "scope": "read_only_prospective_source_asof_replay",
+  "policyVersion": "upcoming-observations-asof-v1",
+  "artifacts": [
+    {
+      "file": ".tools/s1-08-source-asof-before.json",
+      "sha256": "a7ba3744eefd180ffff1b5cb76474563c632e8f3daa80ac4e8a818c57db3697a",
+      "bytes": 477
+    },
+    {
+      "file": ".tools/s1-08-source-asof-schedule.json",
+      "sha256": "2b8bbc059d75af2ec1bf745342eb71491e142f011c77c109cca8ef777e0667fc",
+      "bytes": 1660
+    },
+    {
+      "file": ".tools/s1-08-source-asof-selected.json",
+      "sha256": "09baf9214fb48bc0c75810e8f98577b5a4417e3fde86655a05400e732984ae54",
+      "bytes": 3235
+    }
+  ],
+  "reports": [
+    {
+      "request": {
+        "providerMatchId": "1756304",
+        "cutoffAt": "2026-11-01T17:12:20.000Z"
+      },
+      "status": "unavailable",
+      "reasons": [
+        "schedule_not_observed"
+      ],
+      "scheduleRowsExamined": 0,
+      "scheduleObservation": null,
+      "rosterObservation": null,
+      "scheduledAt": null,
+      "registeredPlayers": null,
+      "mapBinding": "not_assessed",
+      "lineupVerification": "not_assessed"
+    },
+    {
+      "request": {
+        "providerMatchId": "1756304",
+        "cutoffAt": "2026-11-01T17:12:22.000Z"
+      },
+      "status": "partial",
+      "reasons": [
+        "roster_not_observed"
+      ],
+      "scheduleRowsExamined": 1,
+      "scheduleObservation": {
+        "id": "1",
+        "provider": "pandascore",
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+        "sourceFetchedAt": "2026-11-01T17:12:20.743000Z",
+        "recordedAt": "2026-11-01T17:12:20.785937Z",
+        "sourcePayloadSha256": "8cccb730b024cb4259bbb48698d875c1c37bb630e7d1adf5a0dccf88c1689bc3",
+        "snapshotSha256": "b926b90f699e81dc774e4ae34ecfaeac22f01ccbc1e88e993de029af9815994b"
+      },
+      "rosterObservation": null,
+      "scheduledAt": "2026-11-02T19:00:00.000Z",
+      "registeredPlayers": null,
+      "mapBinding": "not_assessed",
+      "lineupVerification": "not_assessed"
+    },
+    {
+      "request": {
+        "providerMatchId": "1756304",
+        "cutoffAt": "2026-11-01T17:12:24.000Z"
+      },
+      "status": "observed",
+      "reasons": [],
+      "scheduleRowsExamined": 1,
+      "scheduleObservation": {
+        "id": "1",
+        "provider": "pandascore",
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+        "sourceFetchedAt": "2026-11-01T17:12:20.743000Z",
+        "recordedAt": "2026-11-01T17:12:20.785937Z",
+        "sourcePayloadSha256": "8cccb730b024cb4259bbb48698d875c1c37bb630e7d1adf5a0dccf88c1689bc3",
+        "snapshotSha256": "b926b90f699e81dc774e4ae34ecfaeac22f01ccbc1e88e993de029af9815994b"
+      },
+      "rosterObservation": {
+        "id": "2",
+        "provider": "pandascore",
+        "endpoint": "/tournaments/22236/rosters",
+        "sourceFetchedAt": "2026-11-01T17:12:23.715000Z",
+        "recordedAt": "2026-11-01T17:12:23.875771Z",
+        "sourcePayloadSha256": "6337148bcbecf500fac2264e5f63c9f1ff7ce2025eb24cb2b06589d8d74e0359",
+        "snapshotSha256": "b05b539dfbe2d44016f3191a5f6c9fcc579b9301c1e6b78258e1b2797ddfb2d3"
+      },
+      "scheduledAt": "2026-11-02T19:00:00.000Z",
+      "registeredPlayers": [
+        {
+          "providerTeamId": "137588",
+          "count": 5
+        },
+        {
+          "providerTeamId": "139339",
+          "count": 5
+        }
+      ],
+      "mapBinding": "not_assessed",
+      "lineupVerification": "not_assessed"
+    }
+  ],
+  "code": [
+    {
+      "file": "scripts/read-upcoming-evidence.mjs",
+      "sha256": "0b8be40d2ded7965e556a93a2b3a08d3b3b2bcfb5df276719bab70a6e00549f1",
+      "bytes": 2088
+    },
+    {
+      "file": "packages/db/src/upcoming-evidence.ts",
+      "sha256": "baf35677bf5ba21fb2a340850fa88ff3adb6012a298ab008f337775fb94264ca",
+      "bytes": 5989
+    },
+    {
+      "file": "packages/db/dist/upcoming-evidence.js",
+      "sha256": "f88980e36fb066cacab5f299b4616a16056d26ee3d926155d3b15bfb21a5b032",
+      "bytes": 6372
+    },
+    {
+      "file": "packages/contracts/src/upcoming-evidence.ts",
+      "sha256": "0e3441fd3f9dff6ced6828bcb7a827d8c273bcb7a2a3028c4aead6c8c909c033",
+      "bytes": 1727
+    },
+    {
+      "file": "packages/contracts/dist/upcoming-evidence.js",
+      "sha256": "58238bf1f3ad0837fae5d4eb4419678d224df23bd6dbd822d79806fb3f290d4c",
+      "bytes": 1664
+    },
+    {
+      "file": "packages/db/tests/upcoming-evidence.integration.test.ts",
+      "sha256": "ff2e45e5c24d1971d77ffbdc11659c4d1defe9d5ddb7d728041559fe595da0a3",
+      "bytes": 8363
+    },
+    {
+      "file": "package.json",
+      "sha256": "7b5a6e4469a0e7843ded9c776f71bf509ccf8cc2e594cf3ec7a40f81b4a7e919",
+      "bytes": 8071
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783",
+      "bytes": 74139
+    }
+  ],
+  "stateBefore": {
+    "pro_maps": 16,
+    "source_observations": 2,
+    "datasets": 0,
+    "active_models": 0,
+    "scenarios": 0
+  },
+  "stateAfter": {
+    "pro_maps": 16,
+    "source_observations": 2,
+    "datasets": 0,
+    "active_models": 0,
+    "scenarios": 0
+  },
+  "replayEqual": true,
+  "newProviderRequests": 0,
+  "trainingReady": false,
+  "deployable": false
+}
