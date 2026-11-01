@@ -58,3 +58,4 @@ export * from './upcoming.js';
 export * from './upcoming-evidence.js';
 export * from './history-refresh.js';
 export * from './patch-diagnostics.js';
+export * from './prospective-patch.js';

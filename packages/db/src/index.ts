@@ -53,3 +53,4 @@ export {ScenarioReportRepository} from './scenario-report-repository.js';
 export * from './schedule-cache.js';
 export * from './upcoming-evidence.js';
 export * from './history-refresh.js';
+export * from './prospective-patch.js';
