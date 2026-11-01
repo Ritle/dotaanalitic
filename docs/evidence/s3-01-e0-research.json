@@ -1,0 +1,1034 @@
+{
+  "schemaVersion": 1,
+  "experiment": "S3-01 E0",
+  "generatedAt": "2026-11-01T20:54:11.663Z",
+  "cohort": "research_event_time_reconstructed",
+  "status": "research_complete",
+  "request": {
+    "schemaVersion": 1,
+    "cohort": "research_event_time_reconstructed",
+    "fromAt": "2020-01-01T00:00:00.000Z",
+    "holdoutFromAt": "2026-10-01T00:00:00.000Z",
+    "toAt": "2026-11-01T20:53:15.000Z",
+    "snapshotAt": "2026-11-01T20:53:15.000Z",
+    "maxMaps": 5000,
+    "evaluationPolicy": "event-time-prequential-series-v1"
+  },
+  "eloPolicy": {
+    "version": "player-mean-elo-v1",
+    "initialRating": 1500,
+    "k": 32,
+    "scale": 400,
+    "validation": "unvalidated"
+  },
+  "artifacts": [
+    {
+      "path": "docs/evidence/s3-01-e0-config.json",
+      "bytes": 320,
+      "sha256": "4e1b55510a1eeb4cf17973ac64c06eb712eed074efc113eba9e31f109f124a2a"
+    },
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "bytes": 972640,
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": ".tools/s3-01-e0-export-replay.json",
+      "bytes": 972640,
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": ".tools/s3-01-e0-evaluation.json",
+      "bytes": 14742,
+      "sha256": "56088689591d2fdcbb5f6336013f962d1f21149cb282ad55d55d0248fd8a19c4"
+    },
+    {
+      "path": ".tools/s3-01-e0-evaluation-replay.json",
+      "bytes": 14742,
+      "sha256": "56088689591d2fdcbb5f6336013f962d1f21149cb282ad55d55d0248fd8a19c4"
+    },
+    {
+      "path": ".tools/s3-01-e0-before.json",
+      "bytes": 2371,
+      "sha256": "6ba043c2733aa0bcbefc7f5bb86adc2edd719b6e9557abbe4e0e02ecf965a9e3"
+    },
+    {
+      "path": ".tools/s3-01-e0-after.json",
+      "bytes": 2371,
+      "sha256": "6ba043c2733aa0bcbefc7f5bb86adc2edd719b6e9557abbe4e0e02ecf965a9e3"
+    }
+  ],
+  "exportFingerprint": "a249b527d521e50f836fcba4ff9dc57839bea4a698f5022fedb29bfb585ec046",
+  "evaluationFingerprint": "16d842229b626d5a221e7b544194779ab533ebaa59b7e50c0dd7e880fdec44b4",
+  "code": [
+    {
+      "path": "packages/analytics/dist/elo.js",
+      "sha256": "ca3c4b1129f9e10fd352bc074dbd04b787f2183ea4e635499d839609836f2e20"
+    },
+    {
+      "path": "packages/contracts/dist/research-elo.js",
+      "sha256": "d1aa85934736ca5cf931b796615f80ba92251bed000f6a8a25b6626a3da7a31a"
+    },
+    {
+      "path": "packages/db/dist/dataset-splits.js",
+      "sha256": "3875e37729e5827c4b3a2e304565f0ee89eba4a7b341ae32527bcde5914a081a"
+    },
+    {
+      "path": "packages/db/dist/identity-repository.js",
+      "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+    },
+    {
+      "path": "packages/db/dist/identity.js",
+      "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+    },
+    {
+      "path": "packages/db/dist/outcome-verifier.js",
+      "sha256": "604ed065ce7a277cdfba9b4d166416e7fd460d4760755268b3de0e5ece44225b"
+    },
+    {
+      "path": "packages/db/dist/research-elo-repository.js",
+      "sha256": "8c6a4b72b0119dbcd9749021cb2eb7b9e40761b4c3d3606b24bce7726762135b"
+    },
+    {
+      "path": "packages/db/dist/research-elo.js",
+      "sha256": "d8795c0c573886f54409ee339e55aa1d430715fc7a505276375ae6a981274688"
+    },
+    {
+      "path": "packages/db/dist/temporal.js",
+      "sha256": "c37f882da18ecc5694d168cdd146c4905cb001cab3829bed13947215fbb92bcb"
+    },
+    {
+      "path": "packages/db/migrations/012_verified_dataset_boundary.sql",
+      "sha256": "a406136a38c2f9399c0a913f17abeb77ee0296c641d3426041e03cf9938b4269"
+    },
+    {
+      "path": "packages/db/migrations/018_outcome_verifier.sql",
+      "sha256": "a534be6670a699d6e7e4dd9df4efb493ff070b1b3833a3c11609f926e156e0c1"
+    },
+    {
+      "path": "scripts/research-elo.mjs",
+      "sha256": "b62ec3716a42c670dce8df295bc458bfcd4837e22d97d03796b1e291459086b7"
+    }
+  ],
+  "summary": {
+    "candidateMaps": 36,
+    "eligibleMaps": 36,
+    "excludedMaps": 0,
+    "warmupMaps": 20,
+    "holdoutMaps": 16,
+    "scoredMaps": 16,
+    "holdoutSeries": 8,
+    "allTenPlayersUnseenHoldoutMaps": 1,
+    "holdoutMapsWithPriorPlayerHistory": 15,
+    "replayUpdatesApplied": 36
+  },
+  "metrics": {
+    "brier": 0.23744452564934726,
+    "logLoss": 0.6679704734179476,
+    "constantPriorBaseline": {
+      "brier": 0.25,
+      "logLoss": 0.6931471805599453,
+      "n": 16
+    }
+  },
+  "exclusionsByReason": {},
+  "mapAssessments": [
+    {
+      "matchId": "6054718020",
+      "seriesKey": "opendota:572260",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6067239305",
+      "seriesKey": "opendota:574398",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6079100944",
+      "seriesKey": "opendota:576265",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6214131970",
+      "seriesKey": "opendota:601388",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6227492909",
+      "seriesKey": "opendota:603588",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6806047579",
+      "seriesKey": "opendota:713700",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6807772726",
+      "seriesKey": "opendota:714100",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6809522859",
+      "seriesKey": "opendota:714548",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6811000638",
+      "seriesKey": "opendota:714854",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "6832287527",
+      "seriesKey": "opendota:718491",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7378530387",
+      "seriesKey": "opendota:815175",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7378939289",
+      "seriesKey": "opendota:815334",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7380403482",
+      "seriesKey": "opendota:815600",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7393133836",
+      "seriesKey": "opendota:818237",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7406531302",
+      "seriesKey": "opendota:820565",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7927665228",
+      "seriesKey": "opendota:903379",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7928915377",
+      "seriesKey": "opendota:903582",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7931106306",
+      "seriesKey": "opendota:903863",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7936520519",
+      "seriesKey": "opendota:904699",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "7944311818",
+      "seriesKey": "opendota:905925",
+      "split": "warmup",
+      "reasons": []
+    },
+    {
+      "matchId": "9052687571",
+      "seriesKey": "opendota:1156918",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9056685103",
+      "seriesKey": "opendota:1157928",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9056844521",
+      "seriesKey": "opendota:1157928",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9061631640",
+      "seriesKey": "opendota:1159662",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9061735400",
+      "seriesKey": "opendota:1159662",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9067177642",
+      "seriesKey": "opendota:1161402",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9067346550",
+      "seriesKey": "opendota:1161402",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9067412106",
+      "seriesKey": "opendota:1161402",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9067617648",
+      "seriesKey": "opendota:1161529",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9068795274",
+      "seriesKey": "opendota:1161942",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9068910292",
+      "seriesKey": "opendota:1161942",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9069021061",
+      "seriesKey": "opendota:1161942",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9069952836",
+      "seriesKey": "opendota:1162416",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9070062078",
+      "seriesKey": "opendota:1162416",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9070392472",
+      "seriesKey": "opendota:1162593",
+      "split": "holdout",
+      "reasons": []
+    },
+    {
+      "matchId": "9070527945",
+      "seriesKey": "opendota:1162593",
+      "split": "holdout",
+      "reasons": []
+    }
+  ],
+  "featureObservations": [
+    {
+      "matchId": "6054718020",
+      "seriesKey": "opendota:572260",
+      "split": "warmup",
+      "priorPlayers": 10,
+      "featureFingerprint": "c4404d2768642778636e71c5d0946c7985a503b7c8141315a89c92a7fea39d9e"
+    },
+    {
+      "matchId": "6067239305",
+      "seriesKey": "opendota:574398",
+      "split": "warmup",
+      "priorPlayers": 10,
+      "featureFingerprint": "4d6fbe8c20d9a57859c5cfdbe57f2eac77a63330ae0205454ed337751ae2b254"
+    },
+    {
+      "matchId": "6079100944",
+      "seriesKey": "opendota:576265",
+      "split": "warmup",
+      "priorPlayers": 10,
+      "featureFingerprint": "cd87b77a7330be09fe86d8a465153a7f1a6bec8ece0cb03410313901b4c91e12"
+    },
+    {
+      "matchId": "6214131970",
+      "seriesKey": "opendota:601388",
+      "split": "warmup",
+      "priorPlayers": 10,
+      "featureFingerprint": "f0b183d3109062716ec4c6d6fdfad1e8d13dc88de6bd515411a0a631d827bceb"
+    },
+    {
+      "matchId": "6227492909",
+      "seriesKey": "opendota:603588",
+      "split": "warmup",
+      "priorPlayers": 10,
+      "featureFingerprint": "19a97d41499ad76fc12fcbd9db2c2630cd077c745507577802ac1b82d75d847f"
+    },
+    {
+      "matchId": "6806047579",
+      "seriesKey": "opendota:713700",
+      "split": "warmup",
+      "priorPlayers": 5,
+      "featureFingerprint": "ea43e66ac87b9eb4df77ca78e666926aa595adf7137b0763490f842f49e0ee09"
+    },
+    {
+      "matchId": "6807772726",
+      "seriesKey": "opendota:714100",
+      "split": "warmup",
+      "priorPlayers": 4,
+      "featureFingerprint": "fe3760d7b3b15b75008a061157e2d97b5dfe3857c5f37158c671a1e5293fc995"
+    },
+    {
+      "matchId": "6809522859",
+      "seriesKey": "opendota:714548",
+      "split": "warmup",
+      "priorPlayers": 9,
+      "featureFingerprint": "41293d71cd05144d4dc3a660c4f2f383c3c063eb4971d4995a7088db29cc3375"
+    },
+    {
+      "matchId": "6811000638",
+      "seriesKey": "opendota:714854",
+      "split": "warmup",
+      "priorPlayers": 10,
+      "featureFingerprint": "568089881ffdd181ee1cc606f3bca21da0948e9019738354f716e41eff99d2da"
+    },
+    {
+      "matchId": "6832287527",
+      "seriesKey": "opendota:718491",
+      "split": "warmup",
+      "priorPlayers": 5,
+      "featureFingerprint": "3d354d284d0094771fbd88fd024f97ea62e7e6b903fb4c53a0f1b8e28cd37e74"
+    },
+    {
+      "matchId": "7378530387",
+      "seriesKey": "opendota:815175",
+      "split": "warmup",
+      "priorPlayers": 2,
+      "featureFingerprint": "1e9ee9b0476ad6723859ae13dc7fcd527b7aeb3c759c49151886bb9133d08cb3"
+    },
+    {
+      "matchId": "7378939289",
+      "seriesKey": "opendota:815334",
+      "split": "warmup",
+      "priorPlayers": 4,
+      "featureFingerprint": "b40316ea3b00a9c9080a58beb1d420c0ffdf0eaa6a7236d0621dc8e0975e24d8"
+    },
+    {
+      "matchId": "7380403482",
+      "seriesKey": "opendota:815600",
+      "split": "warmup",
+      "priorPlayers": 6,
+      "featureFingerprint": "59b3fe929223975d3095985be5c696eec0f2499faf59270c0a5c3ca94fc66bcd"
+    },
+    {
+      "matchId": "7393133836",
+      "seriesKey": "opendota:818237",
+      "split": "warmup",
+      "priorPlayers": 5,
+      "featureFingerprint": "e4d27079706e5003b91ee05557f1a51b7c3b87ae56968db5ebc3e2fdb3e01f43"
+    },
+    {
+      "matchId": "7406531302",
+      "seriesKey": "opendota:820565",
+      "split": "warmup",
+      "priorPlayers": 1,
+      "featureFingerprint": "84589f9aa4ab41250d7bd4aa0659850a11014f96c359b3a6f5dd21411b2868b7"
+    },
+    {
+      "matchId": "7927665228",
+      "seriesKey": "opendota:903379",
+      "split": "warmup",
+      "priorPlayers": 5,
+      "featureFingerprint": "7bdd7bdc3c3a4b246958d8e75cdbf04681885a317557e53783fb1dc7c1c34df1"
+    },
+    {
+      "matchId": "7928915377",
+      "seriesKey": "opendota:903582",
+      "split": "warmup",
+      "priorPlayers": 5,
+      "featureFingerprint": "e498bb9a7231b8a4686ecc7860882ce79178b32180219d3bba966e93da893c4f"
+    },
+    {
+      "matchId": "7931106306",
+      "seriesKey": "opendota:903863",
+      "split": "warmup",
+      "priorPlayers": 7,
+      "featureFingerprint": "9c78e8cef5bf8cbd24400ae1b1548079b7a7d0237f9285afbc06d40f1b65019e"
+    },
+    {
+      "matchId": "7936520519",
+      "seriesKey": "opendota:904699",
+      "split": "warmup",
+      "priorPlayers": 4,
+      "featureFingerprint": "47c4e9c44369f324c027a76931aecbdb644ae4f44fdada3980e3e2be19d96755"
+    },
+    {
+      "matchId": "7944311818",
+      "seriesKey": "opendota:905925",
+      "split": "warmup",
+      "priorPlayers": 4,
+      "featureFingerprint": "b356fa6dfa92942809e51fe465fd486f775f147f3560d2ecdb547d1e91d9182a"
+    },
+    {
+      "matchId": "9052687571",
+      "seriesKey": "opendota:1156918",
+      "split": "holdout",
+      "priorPlayers": 10,
+      "featureFingerprint": "0246447671946ff3449b15be1d619e9726e26060c26f5fe4db59175e9f7c0906"
+    },
+    {
+      "matchId": "9056685103",
+      "seriesKey": "opendota:1157928",
+      "split": "holdout",
+      "priorPlayers": 5,
+      "featureFingerprint": "a27fcd1b73a694f222416b1f560856aa975f4f615fc31413e33931fb409d4eee"
+    },
+    {
+      "matchId": "9056844521",
+      "seriesKey": "opendota:1157928",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "1d8a37421ad6a171990e68754f4d4759ce68ca1243e5c9879645ba0aa12b8ecc"
+    },
+    {
+      "matchId": "9061631640",
+      "seriesKey": "opendota:1159662",
+      "split": "holdout",
+      "priorPlayers": 5,
+      "featureFingerprint": "d699ca1013b015660774e114a6841d2ae3d98214d1cf7b95e6d0575d4541f732"
+    },
+    {
+      "matchId": "9061735400",
+      "seriesKey": "opendota:1159662",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "d91040b0456411746616ea8f0323cc5a0b15b8fa304aa39bc557122b48cfbab0"
+    },
+    {
+      "matchId": "9067177642",
+      "seriesKey": "opendota:1161402",
+      "split": "holdout",
+      "priorPlayers": 7,
+      "featureFingerprint": "9bcb9f0bce4b8834a75ae11a8cbfc6f1df0fc2a4617e2842ea4b3390b0c0dc7b"
+    },
+    {
+      "matchId": "9067346550",
+      "seriesKey": "opendota:1161402",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "2a7c5808d20b2188c3b00a5bb95abd16feb6686bb8795e678aa5b220efbe2aad"
+    },
+    {
+      "matchId": "9067412106",
+      "seriesKey": "opendota:1161402",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "7f5f434751429f02f8964f85e362966036c4d423e1e2c6bd042b4fde1488e434"
+    },
+    {
+      "matchId": "9067617648",
+      "seriesKey": "opendota:1161529",
+      "split": "holdout",
+      "priorPlayers": 8,
+      "featureFingerprint": "ac3be0174ed6c06a924f3f8a4e125c1d8da5a9fc7a7482e54986c0c2641b9f29"
+    },
+    {
+      "matchId": "9068795274",
+      "seriesKey": "opendota:1161942",
+      "split": "holdout",
+      "priorPlayers": 4,
+      "featureFingerprint": "493888a62149134b01c8e0e7223df8251ec4fa9aad7be3ac68480e3779a8c92f"
+    },
+    {
+      "matchId": "9068910292",
+      "seriesKey": "opendota:1161942",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "1969552311bdd0a465dfb6efe88af05d7d558fd70ac1953e54d803e0baac100d"
+    },
+    {
+      "matchId": "9069021061",
+      "seriesKey": "opendota:1161942",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "35912f724f0da1faaab34247167811500e71ca8298e8885c13bc2e6c9c2967f7"
+    },
+    {
+      "matchId": "9069952836",
+      "seriesKey": "opendota:1162416",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "a17fa30fb78d525c8a0a426bec805de57d89bab534de006f5f3089dc0864fee9"
+    },
+    {
+      "matchId": "9070062078",
+      "seriesKey": "opendota:1162416",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "7c66f85aa78d697e5266cee9b2d0e1f822e0cb9a18ab8c40a2080cf1dcc2026e"
+    },
+    {
+      "matchId": "9070392472",
+      "seriesKey": "opendota:1162593",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "c573fdee26bd2b0120ac5b88c7a6bcdc72bbcdeb7e36cfc32dfc046776498a02"
+    },
+    {
+      "matchId": "9070527945",
+      "seriesKey": "opendota:1162593",
+      "split": "holdout",
+      "priorPlayers": 0,
+      "featureFingerprint": "12ac084ca090003627e533cdfd97fb3ddd26390186a56e98c633f3569dec45fa"
+    }
+  ],
+  "provenance": {
+    "identityRevision": "330",
+    "currentIdentityEvidence": 165,
+    "fieldObservations": 2507,
+    "fieldObservationsWithKnownAt": 0,
+    "providerSeries": 28,
+    "sourceReceiptHashes": [
+      {
+        "matchId": "6054718020",
+        "receiptId": "317",
+        "payloadSha256": "eeb04f47f59116a1c065b2e7e04f377e273f7a09183feb02c76fad16dba23e71",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:19.097Z"
+      },
+      {
+        "matchId": "6067239305",
+        "receiptId": "319",
+        "payloadSha256": "e9b265af34989dba0de80d666dc1c71694f4d818c94253b02692da3e90417aa5",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:20.031Z"
+      },
+      {
+        "matchId": "6079100944",
+        "receiptId": "321",
+        "payloadSha256": "283052c622b30428c426a154e1029c6a4fa8a298ddd71af84ee037b639f3ea3c",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:21.427Z"
+      },
+      {
+        "matchId": "6214131970",
+        "receiptId": "323",
+        "payloadSha256": "18264b3817499cdbd769a85dc324f00a6621a1d6ea0b57c18a3b1cdbed0aea71",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:22.760Z"
+      },
+      {
+        "matchId": "6227492909",
+        "receiptId": "325",
+        "payloadSha256": "1c8c2a7df5ad3b23f5a3e0b97c1e296ded4ec107d2d0bc41e447f9f45357d58f",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:24.513Z"
+      },
+      {
+        "matchId": "6806047579",
+        "receiptId": "327",
+        "payloadSha256": "0a91816fc5b83ff8c3cc562e0a6a03a9bca1ae6b64632974846bfb17a624b0b9",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:25.308Z"
+      },
+      {
+        "matchId": "6807772726",
+        "receiptId": "329",
+        "payloadSha256": "b069859efb2b1d37b9d270fcd1df0eb358ef3b499ce24bbb05da80c3555e2fe6",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:26.725Z"
+      },
+      {
+        "matchId": "6809522859",
+        "receiptId": "331",
+        "payloadSha256": "c5e53eabb20a2dfe18bd2ee151a202a1730083f8ca5052363d2e58c2208ccdb9",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:28.210Z"
+      },
+      {
+        "matchId": "6811000638",
+        "receiptId": "333",
+        "payloadSha256": "e30ffdd56a1c992177eec7e540d469f6d7b14b792055cd79025efbdbb8f68e4c",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:29.320Z"
+      },
+      {
+        "matchId": "6832287527",
+        "receiptId": "335",
+        "payloadSha256": "b8e7f97d9b9ad848248053f3749679e1f49ce694488d6ef847b48a9bfefafdbb",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:30.684Z"
+      },
+      {
+        "matchId": "7378530387",
+        "receiptId": "279",
+        "payloadSha256": "6cf2ee08be59c619be2f4cabd949d2310844c135fec44ed4a06403ab5ea3e66a",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:32.154Z"
+      },
+      {
+        "matchId": "7378939289",
+        "receiptId": "338",
+        "payloadSha256": "3ccbf4a5f6279ca8d83fcd4917b455cbba561c23ef7fd59a8dc36d3972b05466",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:33.331Z"
+      },
+      {
+        "matchId": "7380403482",
+        "receiptId": "340",
+        "payloadSha256": "02b35fed7f65d412f2a75b64fc19e7204567579036eaa017c1a0f2d8bbc2053d",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:34.670Z"
+      },
+      {
+        "matchId": "7393133836",
+        "receiptId": "342",
+        "payloadSha256": "1fe397ff639c3e1a3260385017e657094fa2eade0c3fa6ab864d483a6b3f4261",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:36.263Z"
+      },
+      {
+        "matchId": "7406531302",
+        "receiptId": "344",
+        "payloadSha256": "431212208113a30abd05a608b1f59e218a750fc52f2a38e34ade3d780ecbf154",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:38.355Z"
+      },
+      {
+        "matchId": "7927665228",
+        "receiptId": "391",
+        "payloadSha256": "b7c6bb8e5f675e6e569c172eb6df80e2c8bf44cfd21faf4268f15cf34f09f04c",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:39.522Z"
+      },
+      {
+        "matchId": "7928915377",
+        "receiptId": "393",
+        "payloadSha256": "07fe7b9fad6e9be9d484338b5ecebee517c814bbd471761a2cd4a2252a21ad6c",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:40.359Z"
+      },
+      {
+        "matchId": "7931106306",
+        "receiptId": "350",
+        "payloadSha256": "9e6f1ab3225a09096f05981279d99efb7521c4ca435c89387fcccbf828b50bdc",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:41.863Z"
+      },
+      {
+        "matchId": "7936520519",
+        "receiptId": "352",
+        "payloadSha256": "077bef50bc488b3d49aea1b97756666ccbc5e324956d6ccde28fe36bac24819c",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:44.164Z"
+      },
+      {
+        "matchId": "7944311818",
+        "receiptId": "354",
+        "payloadSha256": "3c9c05f479c92bca784a4750dd0dea7c02fcad9e86132a1784b1c6dc112680b9",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T19:38:44.808Z"
+      },
+      {
+        "matchId": "9052687571",
+        "receiptId": "155",
+        "payloadSha256": "4d2c48a4e79b348a81eebb5a465a489817bf1b8bc48ad91b6e4b1170cae6486f",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:52:10.800Z"
+      },
+      {
+        "matchId": "9056685103",
+        "receiptId": "185",
+        "payloadSha256": "119cfa151612b5bf48f7ca40a36ae8bf7e96ff6485040d95f685f997a20398ec",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:52:07.306Z"
+      },
+      {
+        "matchId": "9056844521",
+        "receiptId": "182",
+        "payloadSha256": "0f82051cfd5f05815936b112d8559d944a0993f4ce7662551d12dc8bfd5d48e6",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:52:05.099Z"
+      },
+      {
+        "matchId": "9061631640",
+        "receiptId": "145",
+        "payloadSha256": "b214343ef4cb8b378312ad5ad261c349656c5e868d70bf430b09b4e39059b09b",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:52:02.417Z"
+      },
+      {
+        "matchId": "9061735400",
+        "receiptId": "142",
+        "payloadSha256": "32e387efc3ed3aaa8e81806f8d6ad9b9e8465790495736bb54443b7dbd76eaa5",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:51:59.974Z"
+      },
+      {
+        "matchId": "9067177642",
+        "receiptId": "139",
+        "payloadSha256": "d6c29806bd846c365484f33bed306806d0c56a6dffaf7419a36fc4171f910bd6",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T01:10:38.633Z"
+      },
+      {
+        "matchId": "9067346550",
+        "receiptId": "135",
+        "payloadSha256": "512808d250a1d7f4a5147641eeb13cbccc38e426926dc00ffd5a23911b7fffa2",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T01:10:35.835Z"
+      },
+      {
+        "matchId": "9067412106",
+        "receiptId": "131",
+        "payloadSha256": "1af79f775c1a966f7cecc79ecc8fc1e966b210ed27d7c16ca558ba5a6f08d890",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T01:10:33.041Z"
+      },
+      {
+        "matchId": "9067617648",
+        "receiptId": "153",
+        "payloadSha256": "7bc4a5c3042d71d072d9db81b3a42420e022a05bf272de1f6bb9eb6d1c6205bf",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:52:08.497Z"
+      },
+      {
+        "matchId": "9068795274",
+        "receiptId": "137",
+        "payloadSha256": "7963f84fd41513574f48e602e516a0773e98e9358322b1692813231afe678afc",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T01:10:37.044Z"
+      },
+      {
+        "matchId": "9068910292",
+        "receiptId": "133",
+        "payloadSha256": "a6f0b55edbc97e24a0c754f2456d5752c1efbe3e387a2dec9e4827409abfe9e5",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T01:10:34.307Z"
+      },
+      {
+        "matchId": "9069021061",
+        "receiptId": "129",
+        "payloadSha256": "afe9cb8684e1908343e40611ea4469679481719a8172312b5c85a7d918431354",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T01:10:31.713Z"
+      },
+      {
+        "matchId": "9069952836",
+        "receiptId": "97",
+        "payloadSha256": "4708b2f2bb60005df9fa5337f3bee88089e2aef519c2c2bf28318fbafcc63c3b",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:52:05.799Z"
+      },
+      {
+        "matchId": "9070062078",
+        "receiptId": "93",
+        "payloadSha256": "4021623a3ea4eafa40dd937e63a511778201749e876acbbdc7a49c3f0b27a8ac",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:52:03.066Z"
+      },
+      {
+        "matchId": "9070392472",
+        "receiptId": "89",
+        "payloadSha256": "38e45a575dd8e1607793a15c19b24a343991d0cf248ee6d5846149ca3b9a82aa",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:52:01.278Z"
+      },
+      {
+        "matchId": "9070527945",
+        "receiptId": "85",
+        "payloadSha256": "a83f221daef84c8f8b843c030a71b17bad2873a689864d91469e6e9824688e1d",
+        "adapterVersion": "opendota-provider-v2",
+        "normalizerVersion": "opendota-map-v2-identity",
+        "receiptFetchedAt": "2026-11-01T15:51:58.242Z"
+      }
+    ]
+  },
+  "verification": {
+    "repeatedExportByteIdentical": true,
+    "offlineEvaluationByteIdentical": true,
+    "codeManifestMatches": true,
+    "databaseContentUnchanged": true,
+    "tablesCompared": 21,
+    "inventory": [
+      {
+        "table": "matches",
+        "n": 36,
+        "fingerprint": "dca88734cf4d3908f0a502de124edfb1"
+      },
+      {
+        "table": "match_players",
+        "n": 360,
+        "fingerprint": "b9e663db3e59284366daeaaf1574be23"
+      },
+      {
+        "table": "series",
+        "n": 28,
+        "fingerprint": "9008f485c0b00accdf3805263a59490d"
+      },
+      {
+        "table": "series_provision_batches",
+        "n": 3,
+        "fingerprint": "087960ffde9d37c1da4dca1319ab2133"
+      },
+      {
+        "table": "provider_ingest_receipts",
+        "n": 155,
+        "fingerprint": "8fc4f1e4a1caa7a1068aa283a996fa99"
+      },
+      {
+        "table": "match_quality_assessments",
+        "n": 114,
+        "fingerprint": "449e805061066c78bfd96230fd0dfa2d"
+      },
+      {
+        "table": "players",
+        "n": 165,
+        "fingerprint": "b825b71d781715c12712b2da358aa4f3"
+      },
+      {
+        "table": "player_account_evidence",
+        "n": 165,
+        "fingerprint": "89e4e7b106fcedb1b563f2e5cef37eaa"
+      },
+      {
+        "table": "player_external_accounts",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patches",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patch_release_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patch_transition_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "hero_impact_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "draft_rule_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "hero_availability_rules",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "match_field_observations",
+        "n": 2507,
+        "fingerprint": "ec2c9490db669eae009f4edc8273c5fb"
+      },
+      {
+        "table": "training_dataset_versions",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "prediction_model_versions",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "game_context_registry_state",
+        "n": 1,
+        "fingerprint": "db672d0480f3402e6e416a4550559e17"
+      },
+      {
+        "table": "identity_registry_state",
+        "n": 1,
+        "fingerprint": "3f2f823a9fdd28695139fa9a8199f60b"
+      },
+      {
+        "table": "upcoming_source_observations",
+        "n": 2,
+        "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+      }
+    ],
+    "newProviderRequests": 0
+  },
+  "assumptions": [
+    "ACTUAL_LINEUPS_RECONSTRUCTED",
+    "CURRENT_VERIFIED_IDENTITIES",
+    "EVENT_TIME_OUTCOME_AVAILABILITY_ASSUMED",
+    "PATCH_FEATURES_NOT_USED",
+    "PREQUENTIAL_HOLDOUT_UPDATES_AFTER_COMPLETION",
+    "REMOTE_SERIES_COMPLETENESS_UNKNOWN"
+  ],
+  "historicalAvailability": "not_verified",
+  "prospectiveAccuracy": "not_assessed",
+  "calibration": "not_performed",
+  "syntheticOnly": false,
+  "trainingReady": false,
+  "deployable": false,
+  "teamAWinProbability": null
+}

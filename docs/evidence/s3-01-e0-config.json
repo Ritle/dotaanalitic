@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "cohort": "research_event_time_reconstructed",
+  "fromAt": "2020-01-01T00:00:00.000Z",
+  "holdoutFromAt": "2026-10-01T00:00:00.000Z",
+  "toAt": "2026-11-01T20:53:15.000Z",
+  "snapshotAt": "2026-11-01T20:53:15.000Z",
+  "maxMaps": 5000,
+  "evaluationPolicy": "event-time-prequential-series-v1"
+}

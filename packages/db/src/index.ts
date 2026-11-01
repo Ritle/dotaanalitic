@@ -54,3 +54,5 @@ export * from './schedule-cache.js';
 export * from './upcoming-evidence.js';
 export * from './history-refresh.js';
 export * from './prospective-patch.js';
+export * from './research-elo.js';
+export * from './research-elo-repository.js';

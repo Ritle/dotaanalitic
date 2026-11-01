@@ -4,6 +4,8 @@
 
 > **Статус:** реализованы локальные справочники, расписание, описательная аналитика, ручные сценарии/Draft Lab и версии отчётов. Прогнозные модели пока недоступны: empirical source/model gates остаются открытыми. Точное состояние — [PROJECT_STATE](docs/PROJECT_STATE.md).
 
+Отдельный [offline эксперимент Elo E0](docs/S3_01_E0_RESEARCH.md) выполнен на реальных pro-картах: экспорт, повторяемая хронологическая оценка и aggregate metrics. Команда `pnpm research:elo` работает вне production prediction pipeline; публикация прогнозов остаётся недоступной.
+
 Репозиторий: **[Ritle/dotaanalitic](https://github.com/Ritle/dotaanalitic)**. Для подключения Git в VS Code см. [инструкцию для Windows](docs/GIT_SETUP_WINDOWS.md).
 
 ## Быстрый старт
