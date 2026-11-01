@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T18:18:57.184Z",
+  "scope": "current_stored_import_quality",
+  "artifact": {
+    "file": "docs/evidence/s1-08-current-quality.json",
+    "sha256": "deb336a0830499640fd5df446be5bbe8f96b714eebc03dd247c95aadb08c1c81",
+    "bytes": 28097
+  },
+  "code": [
+    {
+      "file": "packages/contracts/src/corpus-quality.ts",
+      "sha256": "335a80d6d57226a3b14a253d2795ca14a0b2f8c6fe995ace6d0bcc334ca3f5d5",
+      "bytes": 1273
+    },
+    {
+      "file": "packages/db/src/corpus-quality.ts",
+      "sha256": "76b2987cabb87c950bdb0b50dfe4bf32c482b4c80d05dd8befe9f34e85296ccb",
+      "bytes": 5241
+    },
+    {
+      "file": "packages/db/dist/corpus-quality.js",
+      "sha256": "a168da5a3057fa989d9597868749ca08a6acd5eef33706356da05ca0df1a4056",
+      "bytes": 5435
+    },
+    {
+      "file": "packages/db/tests/corpus-quality.integration.test.ts",
+      "sha256": "c828341abda6431b8735159bd5c9a6159c6a026bd4e77c41750188ea6976201b",
+      "bytes": 5934
+    },
+    {
+      "file": "scripts/report-corpus-quality.mjs",
+      "sha256": "48f39cd91597942371ef5c57f00463303ebf0c25fae26ae9ab534c4824a87c49",
+      "bytes": 1528
+    },
+    {
+      "file": "package.json",
+      "sha256": "c1728a8dcf85229bd97b8d3e462d255589808fb26c2e31a6c558ec5935e55105",
+      "bytes": 8387
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783",
+      "bytes": 74139
+    }
+  ],
+  "stateBefore": {
+    "pro_maps": 16,
+    "quality_assessments": 21,
+    "receipts": 42,
+    "datasets": 0,
+    "active_models": 0,
+    "source_observations": 2
+  },
+  "stateAfter": {
+    "pro_maps": 16,
+    "quality_assessments": 21,
+    "receipts": 42,
+    "datasets": 0,
+    "active_models": 0,
+    "source_observations": 2
+  },
+  "replayFingerprintEqual": true,
+  "allDimensionCountsReconciled": true,
+  "newProviderRequests": 0,
+  "trainingReady": false,
+  "deployable": false
+}
