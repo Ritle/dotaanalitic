@@ -1,0 +1,1689 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T19:45:26.126Z",
+  "scope": "existing_series_provision_and_captured_map_reimport",
+  "sourceCapture": {
+    "file": ".tools/s1-08-expansion-capture.json",
+    "sha256": "23155cb42202978fc12b6a8b1250ed902f01d5a31ab00ff94fa5a8305b0f6c87",
+    "bytes": 22420660
+  },
+  "sourceAuditManifest": {
+    "file": "docs/evidence/s1-08-expansion-manifest.json",
+    "sha256": "21a40159bd455ffab574de91ae6433d4d401ba792daffafc6a9c3e6a4a91f588",
+    "bytes": 39635
+  },
+  "networkRequests": 0,
+  "preview": {
+    "fullStatus": "blocked",
+    "fullFingerprint": "7aaac0bad19cd114b1993b49b3ae337317ce18113a75358ffd43a7be54a7feb9",
+    "supportedStatus": "ready",
+    "supportedFingerprint": "a4445a09e1cf89ea744b13c75ad13b7ffbe9f0db307bdfbcd32d0bb2120df6e0",
+    "groups": [
+      {
+        "providerSeriesId": "572260",
+        "mapIds": [
+          "6054718020"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "574398",
+        "mapIds": [
+          "6067239305"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "576265",
+        "mapIds": [
+          "6079100944"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "601388",
+        "mapIds": [
+          "6214131970"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "603588",
+        "mapIds": [
+          "6227492909"
+        ],
+        "bestOf": 5,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "713700",
+        "mapIds": [
+          "6806047579"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "714100",
+        "mapIds": [
+          "6807772726"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "714548",
+        "mapIds": [
+          "6809522859"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "714854",
+        "mapIds": [
+          "6811000638"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "718491",
+        "mapIds": [
+          "6832287527"
+        ],
+        "bestOf": 5,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "815175",
+        "mapIds": [
+          "7378530387"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "815334",
+        "mapIds": [
+          "7378939289"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "815600",
+        "mapIds": [
+          "7380403482"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "818237",
+        "mapIds": [
+          "7393133836"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "820565",
+        "mapIds": [
+          "7406531302"
+        ],
+        "bestOf": 5,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "903379",
+        "mapIds": [
+          "7927665228"
+        ],
+        "bestOf": null,
+        "reasons": [
+          "SERIES_TYPE_UNSUPPORTED"
+        ]
+      },
+      {
+        "providerSeriesId": "903582",
+        "mapIds": [
+          "7928915377"
+        ],
+        "bestOf": null,
+        "reasons": [
+          "SERIES_TYPE_UNSUPPORTED"
+        ]
+      },
+      {
+        "providerSeriesId": "903863",
+        "mapIds": [
+          "7931106306"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "904699",
+        "mapIds": [
+          "7936520519"
+        ],
+        "bestOf": 3,
+        "reasons": []
+      },
+      {
+        "providerSeriesId": "905925",
+        "mapIds": [
+          "7944311818"
+        ],
+        "bestOf": 5,
+        "reasons": []
+      }
+    ],
+    "remoteMembershipCompleteness": "unknown"
+  },
+  "provision": {
+    "created": 18,
+    "mappings": [
+      {
+        "providerSeriesId": "572260",
+        "seriesId": "e217f3f5-538a-4b8a-8ae9-23b8292969be",
+        "mapIds": [
+          "6054718020"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "574398",
+        "seriesId": "5058572a-fd77-4f49-93c5-7072ba8fce22",
+        "mapIds": [
+          "6067239305"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "576265",
+        "seriesId": "01b01088-a9ee-4ec0-b07f-3835075d720d",
+        "mapIds": [
+          "6079100944"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "601388",
+        "seriesId": "2dba0993-7623-407f-bd0d-a3171fbd35c3",
+        "mapIds": [
+          "6214131970"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "603588",
+        "seriesId": "f2baebe6-9bb3-4dce-bf90-9c3d9489403c",
+        "mapIds": [
+          "6227492909"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "713700",
+        "seriesId": "461776d8-85ac-4272-9581-0a314cc95c3a",
+        "mapIds": [
+          "6806047579"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "714100",
+        "seriesId": "d6aa1461-cb7f-4767-8845-6384d3c2f50f",
+        "mapIds": [
+          "6807772726"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "714548",
+        "seriesId": "e122b0a1-d7d6-42ea-ba8c-a25665e76b0b",
+        "mapIds": [
+          "6809522859"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "714854",
+        "seriesId": "618271d5-62c7-44c2-bf45-cdbcdff34224",
+        "mapIds": [
+          "6811000638"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "718491",
+        "seriesId": "5b26a41d-10d1-4588-8cab-7914684d453b",
+        "mapIds": [
+          "6832287527"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "815175",
+        "seriesId": "45b29169-1511-43ba-98b3-81b6d51b11e7",
+        "mapIds": [
+          "7378530387"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "815334",
+        "seriesId": "041e5ece-4562-4b9d-9414-b5e7fe64012c",
+        "mapIds": [
+          "7378939289"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "815600",
+        "seriesId": "f3ba1c43-078a-4d53-9e98-439183c918bc",
+        "mapIds": [
+          "7380403482"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "818237",
+        "seriesId": "20689557-f14a-4fb2-a49b-6bf143e8fe03",
+        "mapIds": [
+          "7393133836"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "820565",
+        "seriesId": "34d1d361-6535-4a8a-9287-a5ef59e86ce1",
+        "mapIds": [
+          "7406531302"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "903863",
+        "seriesId": "b0c91941-1a36-41eb-94b1-a78677454bf1",
+        "mapIds": [
+          "7931106306"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "904699",
+        "seriesId": "e6b8e3f1-c921-4a2a-83c4-d24efe5a8f66",
+        "mapIds": [
+          "7936520519"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "905925",
+        "seriesId": "9a3f6224-6553-47b4-8944-a804907aeafc",
+        "mapIds": [
+          "7944311818"
+        ],
+        "created": true
+      }
+    ],
+    "replayStatus": "already_applied",
+    "mapWrites": 0
+  },
+  "reimport": {
+    "first": [
+      {
+        "matchId": "6054718020",
+        "receiptId": "259",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6067239305",
+        "receiptId": "261",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6079100944",
+        "receiptId": "263",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6214131970",
+        "receiptId": "265",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6227492909",
+        "receiptId": "267",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6806047579",
+        "receiptId": "269",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6807772726",
+        "receiptId": "271",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6809522859",
+        "receiptId": "273",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6811000638",
+        "receiptId": "275",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6832287527",
+        "receiptId": "277",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7378530387",
+        "receiptId": "279",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7378939289",
+        "receiptId": "281",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7380403482",
+        "receiptId": "283",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7393133836",
+        "receiptId": "285",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7406531302",
+        "receiptId": "287",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7927665228",
+        "receiptId": "229",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "1"
+      },
+      {
+        "matchId": "7928915377",
+        "receiptId": "231",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "1"
+      },
+      {
+        "matchId": "7931106306",
+        "receiptId": "291",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7936520519",
+        "receiptId": "293",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7944311818",
+        "receiptId": "295",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      }
+    ],
+    "replay": [
+      {
+        "matchId": "6054718020",
+        "receiptId": "259",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6067239305",
+        "receiptId": "261",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6079100944",
+        "receiptId": "263",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6214131970",
+        "receiptId": "265",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6227492909",
+        "receiptId": "267",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6806047579",
+        "receiptId": "269",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6807772726",
+        "receiptId": "271",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6809522859",
+        "receiptId": "273",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6811000638",
+        "receiptId": "275",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "6832287527",
+        "receiptId": "277",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7378530387",
+        "receiptId": "279",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7378939289",
+        "receiptId": "281",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7380403482",
+        "receiptId": "283",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7393133836",
+        "receiptId": "285",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7406531302",
+        "receiptId": "287",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7927665228",
+        "receiptId": "229",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "1"
+      },
+      {
+        "matchId": "7928915377",
+        "receiptId": "231",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "1"
+      },
+      {
+        "matchId": "7931106306",
+        "receiptId": "291",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7936520519",
+        "receiptId": "293",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7944311818",
+        "receiptId": "295",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      }
+    ],
+    "before": {
+      "maps": 36,
+      "series": 8,
+      "batches": 1,
+      "assessments": 75,
+      "receipts": 116,
+      "players": 59,
+      "identity_revision": "118",
+      "proofs": 59,
+      "datasets": 0,
+      "active_models": 0,
+      "known_fields": 0,
+      "known_series_batches": 0
+    },
+    "after": {
+      "maps": 36,
+      "series": 26,
+      "batches": 2,
+      "assessments": 93,
+      "receipts": 134,
+      "players": 59,
+      "identity_revision": "118",
+      "proofs": 59,
+      "datasets": 0,
+      "active_models": 0,
+      "known_fields": 0,
+      "known_series_batches": 0
+    },
+    "invariants": {
+      "registryOnlyBeforeReimport": true,
+      "existingSeriesPreserved": true,
+      "oldReceiptsPreserved": true,
+      "playersPreserved": true,
+      "mapFactsPreserved": true,
+      "unknownMapsPreserved": true,
+      "exactReplay": true,
+      "qualityFingerprintStable": true
+    }
+  },
+  "quality": {
+    "file": "docs/evidence/s1-08-historical-series-quality.json",
+    "sha256": "51a2240805b5e57dcfeea15e334d8badae92a1512127ac7ee22a05de6aa4bde8",
+    "bytes": 69315
+  },
+  "strictPreviews": {
+    "pre_match": {
+      "status": "unavailable",
+      "reason": "NO_ELIGIBLE_MAPS",
+      "summary": {
+        "policyVersion": "strict-context-preparation-v2",
+        "stage": "pre_match",
+        "candidates": 36,
+        "eligible": 0,
+        "excluded": 36,
+        "byReason": {
+          "ACTUAL_LINEUP_INCOMPLETE": 36,
+          "CONTEXT_LINEUP_UNAVAILABLE": 36,
+          "CONTEXT_PATCH_UNAVAILABLE": 36,
+          "CONTEXT_TEAMS_UNAVAILABLE": 36,
+          "SERIES_MEMBERSHIP_UNVERIFIED": 2,
+          "SERIES_UNKNOWN": 2
+        },
+        "bySplit": {},
+        "byPatch": {},
+        "assessments": [
+          {
+            "matchId": "6054718020",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6067239305",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6079100944",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6214131970",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6227492909",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6806047579",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6807772726",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6809522859",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6811000638",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6832287527",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7378530387",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7378939289",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7380403482",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7393133836",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7406531302",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7927665228",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "SERIES_MEMBERSHIP_UNVERIFIED",
+              "SERIES_UNKNOWN"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7928915377",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "SERIES_MEMBERSHIP_UNVERIFIED",
+              "SERIES_UNKNOWN"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7931106306",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7936520519",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7944311818",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9052687571",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9056685103",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9056844521",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9061631640",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9061735400",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9067177642",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9067346550",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9067412106",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9067617648",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9068795274",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9068910292",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9069021061",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9069952836",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9070062078",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9070392472",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9070527945",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE"
+            ],
+            "split": null,
+            "patchId": null
+          }
+        ],
+        "trainingReady": false,
+        "deployable": false,
+        "syntheticOnly": false
+      }
+    },
+    "post_draft": {
+      "status": "unavailable",
+      "reason": "NO_ELIGIBLE_MAPS",
+      "summary": {
+        "policyVersion": "strict-context-preparation-v2",
+        "stage": "post_draft",
+        "candidates": 36,
+        "eligible": 0,
+        "excluded": 36,
+        "byReason": {
+          "ACTUAL_LINEUP_INCOMPLETE": 36,
+          "CONTEXT_HEROES_UNAVAILABLE": 36,
+          "CONTEXT_LINEUP_UNAVAILABLE": 36,
+          "CONTEXT_PATCH_UNAVAILABLE": 36,
+          "CONTEXT_TEAMS_UNAVAILABLE": 36,
+          "OBSERVED_HERO_MISMATCH": 36,
+          "SERIES_MEMBERSHIP_UNVERIFIED": 2,
+          "SERIES_UNKNOWN": 2
+        },
+        "bySplit": {},
+        "byPatch": {},
+        "assessments": [
+          {
+            "matchId": "6054718020",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6067239305",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6079100944",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6214131970",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6227492909",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6806047579",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6807772726",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6809522859",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6811000638",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "6832287527",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7378530387",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7378939289",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7380403482",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7393133836",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7406531302",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7927665228",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH",
+              "SERIES_MEMBERSHIP_UNVERIFIED",
+              "SERIES_UNKNOWN"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7928915377",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH",
+              "SERIES_MEMBERSHIP_UNVERIFIED",
+              "SERIES_UNKNOWN"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7931106306",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7936520519",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "7944311818",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9052687571",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9056685103",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9056844521",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9061631640",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9061735400",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9067177642",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9067346550",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9067412106",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9067617648",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9068795274",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9068910292",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9069021061",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9069952836",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9070062078",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9070392472",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          },
+          {
+            "matchId": "9070527945",
+            "reasons": [
+              "ACTUAL_LINEUP_INCOMPLETE",
+              "CONTEXT_HEROES_UNAVAILABLE",
+              "CONTEXT_LINEUP_UNAVAILABLE",
+              "CONTEXT_PATCH_UNAVAILABLE",
+              "CONTEXT_TEAMS_UNAVAILABLE",
+              "OBSERVED_HERO_MISMATCH"
+            ],
+            "split": null,
+            "patchId": null
+          }
+        ],
+        "trainingReady": false,
+        "deployable": false,
+        "syntheticOnly": false
+      }
+    }
+  },
+  "localArtifacts": [
+    {
+      "file": ".tools/s1-08-historical-series-request.json",
+      "sha256": "7c04284abca0be5189ef04aabc1c2fde2fff92c00a13b949a64a5723deb6b802",
+      "bytes": 356
+    },
+    {
+      "file": ".tools/s1-08-historical-series-plan.json",
+      "sha256": "7ed83362ad35dba42bcb41367da73af7b35c94de68fce6988a673f9f64ca5fa8",
+      "bytes": 52124
+    },
+    {
+      "file": ".tools/s1-08-historical-series-supported-request.json",
+      "sha256": "4761e2d20d8a7a1faa6a1ee8890af01fcd644b1dd776ecda9e7796176dc004be",
+      "bytes": 328
+    },
+    {
+      "file": ".tools/s1-08-historical-series-supported-plan.json",
+      "sha256": "0f4e975a9a6c7f59870b44e1f6f8c86be05006dfe040d03de091d777ed243659",
+      "bytes": 46865
+    },
+    {
+      "file": ".tools/s1-08-historical-series-before.json",
+      "sha256": "f26d32c5b0872c4726d8604127b63de375eda8240260e1499568c658ddd3958f",
+      "bytes": 44792
+    },
+    {
+      "file": ".tools/s1-08-historical-series-applied.json",
+      "sha256": "1d3a3e72fbb8c0162f514b42e97d738ca77b047419ce7193d8d23101d62c3fca",
+      "bytes": 3445
+    },
+    {
+      "file": ".tools/s1-08-historical-series-applied-replay.json",
+      "sha256": "06f5f2f7f39f215eeb3ddc27f29744e3bff481cdfba239babf1ae1a0c404da88",
+      "bytes": 3453
+    },
+    {
+      "file": ".tools/s1-08-historical-series-reimport.json",
+      "sha256": "388dad2bacef479246c636bd3f081e480d8da307d86e48aad1c019a9763bc32e",
+      "bytes": 81157
+    }
+  ],
+  "code": [
+    {
+      "file": "scripts/provision-series.mjs",
+      "sha256": "428a3eaa6c13d30f7d3c215458bbd04b7a3004c34e1829bcbec08b36019e9af8",
+      "bytes": 2269
+    },
+    {
+      "file": "packages/db/src/series-provision.ts",
+      "sha256": "f7a89dbcc3d09a69084034bf8336198fcf4cb6edfdd3ea8ebaf45226483731fe",
+      "bytes": 10944
+    },
+    {
+      "file": "packages/contracts/src/series-provision.ts",
+      "sha256": "8d945b8307f9835361904c7a8848df1dfd22f1b472c61835bd00a3a7538698f4",
+      "bytes": 704
+    },
+    {
+      "file": "packages/ingestion/src/importer.ts",
+      "sha256": "7024a031ed1a6a0c0dab9f4b3bab1e4dd8d0059e2355b9f89f91fe7ba1e31358",
+      "bytes": 20076
+    },
+    {
+      "file": ".tools/s1-08-historical-series.mjs",
+      "sha256": "1186cc4178d54c4fcdf0d5984627315e547d5a88a33a3d3667d2bc6c47062042",
+      "bytes": 6302
+    }
+  ],
+  "restrictions": [
+    "series_type=3 stays unknown; no policy change",
+    "One local map per new series does not prove full membership, map order or preceding score",
+    "No source clocks backdated, identity proof, trained dataset or model activation",
+    "Local artifacts and source capture remain ignored; exact replay requires local files"
+  ],
+  "nextTask": "S1-08 review 106 unresolved account IDs against saved numeric registry evidence before accounts:current preview/apply.",
+  "trainingReady": false,
+  "deployable": false,
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "unitTests": 448,
+    "build": "PASS",
+    "postgresIntegrationTests": 29,
+    "migrationChecksumChecks": 22,
+    "sourceAndArtifactSha": "PASS",
+    "credentialScan": "PASS",
+    "docsLinks": "PASS",
+    "whitespace": "PASS",
+    "browserTests": "not_run",
+    "pythonBacktest": "not_run"
+  }
+}

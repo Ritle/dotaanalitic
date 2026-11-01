@@ -1,6 +1,6 @@
 # S1-08 — проверенная регистрация серий
 
-На 2026-11-01 все 16 локальных pro-карт связаны с 8 сериями OpenDota. До этого importer видел числовой `series_id`, но canonical registry был пуст; качество series оставалось unknown. Общий corpus gate, S1-07 и S3-01 остаются открытыми. Это группировка карт для последующей проверки выборок, а не прогноз серии или доказательство состава до старта.
+На 2026-11-01 после исторического расширения **34 из36 локальных pro-карт связаны с26 сериями OpenDota**. Для двух карт source `series_type=3` не поддерживается текущей reviewed policy: связь остаётся unknown. Первый checkpoint ниже описывает прежние16 карт/8 серий; историческая партия добавила18 серий. Общий corpus gate, S1-07 и S3-01 остаются открытыми. Это группировка карт для последующей проверки выборок, а не прогноз серии или доказательство состава до старта.
 
 ## Контракт и запуск
 
@@ -51,6 +51,18 @@ Provisioner не меняет maps (`mapWrites:0`). Затем штатный im
 
 ## Проверки и следующий шаг
 
+### Историческая партия после расширения корпуса
+
+Проверены20 новых provider series IDs из SHA-bound capture [исторического расширения](evidence/s1-08-expansion-manifest.json). Новых provider HTTP запросов0. Общий preview корректно заблокирован из-за `SERIES_TYPE_UNSUPPORTED` у903379 (карта7927665228) и903582 (7928915377): source enum3 не преобразован в best_of по предположению. Остальные18 групп прошли отдельный preview без изменения policy; атомарно созданы18 canonical series и1 batch. Старые8 registry rows, все карты и receipts на этом шаге не изменились. Статус и scheduled_at новых серий NULL; known_at batch NULL.
+
+Штатный importer повторно обработал20 сохранённых observations:18 изменённых связей/2 duplicate, затем20 duplicate при exact replay. Для18 карт data_revision выросла ровно на1. Полные map facts (кроме series/revision/ingest state/service timestamps), все player rows, старые receipts и18 нетронутых карт совпали с before snapshot; итоговый quality fingerprint стабилен при replay. База:36 карт/26 серий/2 batches/93 assessments/134 receipts; players59/proofs59/identity revision118 неизменны. Series eligible16→34, unknown2; outcome/heroes/teams36, players17. Scope новых групп — одна локальная карта на серию: полнота состава серии, номер карты и предшествующий счёт не установлены.
+
+Strict pre/post previews по-прежнему36 candidates/0 eligible; datasets0/active models0/known field observations0.106 unresolved source accounts — следующий отдельный шаг. [Manifest с preview/replay/SHA и результатами проверок](evidence/s1-08-historical-series.json), [качество](evidence/s1-08-historical-series-quality.json). Полные планы/capture/helper находятся локально в ignored `.tools`, без них exact-byte replay нельзя воспроизвести из одного checkout. Source capture/audits предыдущего шага не перезаписаны.
+
+Для этой партии пройдены frozen install/typecheck/unit/build,29 PG (10 series provision +14 importer +5 corpus quality),22 migration checksum checks. Production code, SQL, dependencies и UI не изменялись; browser/Python/backtest не запускались. Ни новые tests, ни weakened gates для этого применения существующих инструментов не добавлялись.
+
+### Первый checkpoint
+
 PASS: frozen install, typecheck, 434 unit, build; 10 новых PG случаев + 14 importer + 4 worker queue = 28 PG. Покрыты concurrent apply/replay, swapped sides, conflicting league/receipt, unsupported enum, новый sibling после preview, неоднозначные aliases, league mismatch importer и микросекундная граница. UI/Python/backtest не изменялись и не запускались. Windows spawn/store ограничения обходились разрешённым запуском вне sandbox, не заменой тестов.
 
-Следующий точный шаг **S1-08**: составить inventory отсутствующих canonical account links на 12 неполных картах из существующих numeric receipts и сверить с сохранённым proPlayers/identity evidence. Сначала review конфликтов и времени доступности, затем только доказанные identity links и штатный reimport. Это не создаёт pre-start lineup proof автоматически. Для этой проверки рекомендована **GPT-6 Astra · High**; модель владелец выбирает вручную.
+Следующий точный шаг **S1-08**: сверить106 unresolved numeric account IDs исторических карт с уже сохранёнными proPlayers/identity sources. Сначала inventory/source SHA/time/conflicts; затем только подтверждённые связи через существующий accounts:current preview/apply и штатный reimport. Не объединять людей по nickname и не переносить нынешнее подтверждение в прошлое. Две unsupported series остаются unknown до отдельной проверки enum3, но не блокируют независимый identity slice. Для следующей задачи — **GPT-6 Astra · High**, модель владелец выбирает вручную.
