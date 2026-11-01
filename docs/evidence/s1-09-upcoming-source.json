@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "mode": "live_pandascore_upcoming_tournament_audit",
+  "startedAt": "2026-11-01T00:13:55.451Z",
+  "generatedAt": "2026-11-01T00:13:55.997Z",
+  "captureStatus": "blocked_or_partial",
+  "selectionPolicy": "earliest_future_not_started_match_in_first_twenty_rows_then_exact_tournament_rosters",
+  "requestedTournamentId": "22231",
+  "schedule": null,
+  "selectedMatch": null,
+  "rosters": null,
+  "identityProbe": null,
+  "teams": [],
+  "coverage": {
+    "scheduleRows": null,
+    "selectedOpponentTeams": null,
+    "tournamentRosterTeams": null,
+    "exactExpectedFives": null,
+    "expectedLineupReady": false,
+    "globalScheduleCoverage": "not_assessed",
+    "rosterScope": "expected_tournament_roster_not_confirmed_map_lineup",
+    "playerIdentityProfilesSampled": 0,
+    "playerHistoryLinks": "requires_verified_provider_mapping",
+    "steamAccountCoverage": "not_assessed",
+    "canonicalPlayersLinked": 0
+  },
+  "requests": {
+    "attempts": 1,
+    "httpStatuses": {
+      "200": 1
+    },
+    "transportErrors": {}
+  },
+  "errors": [
+    {
+      "code": "source_schema_invalid",
+      "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+      "status": null,
+      "retryAfterMs": null
+    }
+  ],
+  "databaseWrites": 0,
+  "mapResultsImported": 0,
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false,
+  "code": [
+    {
+      "file": "scripts/audit-upcoming-matches.mjs",
+      "sha256": "831c9b129d028d9ee9980aa424f8483011535ccca92b2440c6708692d7e518ff"
+    },
+    {
+      "file": "packages/ingestion/src/pandascore/client.ts",
+      "sha256": "e6e1f9021aeb9dbcaeda2b794bc746868c567e2bff657efb5d353e27845f460b"
+    },
+    {
+      "file": "packages/ingestion/src/pandascore/schemas.ts",
+      "sha256": "a36d190ac3064ec083219f300cbc53720f1aea3fc327b95a9099f9ecae598f84"
+    },
+    {
+      "file": "packages/ingestion/src/pandascore/audit.ts",
+      "sha256": "70f9b9574e5b2ed5ad05198ff669b662585da4b8d91d0f496d3d044d9ffba2c7"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/client.ts",
+      "sha256": "c614e3ff06bf4cc8f20e934836d4088f43b90d55cf05fc30f48059f1c51d61fd"
+    },
+    {
+      "file": "packages/ingestion/dist/pandascore/client.js",
+      "sha256": "34259a88c14570c5837abba63d2183bd202397016db6001917af625c87b0a237"
+    },
+    {
+      "file": "packages/ingestion/dist/pandascore/schemas.js",
+      "sha256": "d577d6d0f676d71c01c54cdb58b6f361c690a6eafd5a13582045b3399d76537e"
+    },
+    {
+      "file": "packages/ingestion/dist/pandascore/audit.js",
+      "sha256": "25a2c3e1e4d59a9a93a8a73d07fa32579d568caafdabbbafd98327362e08f44d"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "914424aafc1923c7d021b17dd1fabe4306aaa632756c822ad3eda5fae0edf4d8"
+    }
+  ]
+}

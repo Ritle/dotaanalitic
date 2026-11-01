@@ -15,3 +15,6 @@ export * from './valve/team-account-evidence.js';
 export * from './valve/steam-profile-evidence.js';
 export * from './opendota/registry-evidence.js';
 export * from './valve/league-lineup-evidence.js';
+export * from './pandascore/client.js';
+export * from './pandascore/schemas.js';
+export * from './pandascore/audit.js';

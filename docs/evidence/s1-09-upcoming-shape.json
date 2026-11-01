@@ -1,0 +1,150 @@
+{
+  "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+  "fetchedAt": "2026-11-01T00:14:35.982Z",
+  "httpStatus": 200,
+  "payloadSha256": "d0215f33e956c4e9b9cf1085d60015485c50b058fd1a8842a8d813cdba0b278d",
+  "validationIssues": [
+    {
+      "code": "too_small",
+      "path": [
+        0,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        2,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        3,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        4,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        7,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        8,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        9,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        10,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        11,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        12,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        13,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        14,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        18,
+        "serie",
+        "name"
+      ]
+    },
+    {
+      "code": "too_small",
+      "path": [
+        19,
+        "serie",
+        "name"
+      ]
+    }
+  ],
+  "seriesShapes": [
+    {
+      "id": "number",
+      "name": "string",
+      "year": "number",
+      "slug": "string",
+      "begin_at": "string",
+      "end_at": "string",
+      "winner_id": "null",
+      "winner_type": "string",
+      "modified_at": "string",
+      "league_id": "number",
+      "season": "string",
+      "full_name": "string"
+    },
+    {
+      "id": "number",
+      "name": "string",
+      "year": "number",
+      "slug": "string",
+      "begin_at": "string",
+      "end_at": "string",
+      "winner_id": "null",
+      "winner_type": "string",
+      "modified_at": "string",
+      "league_id": "number",
+      "season": "string",
+      "full_name": "string"
+    }
+  ]
+}

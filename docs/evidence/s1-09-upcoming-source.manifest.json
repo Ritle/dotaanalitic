@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "report": {
+    "file": "docs/evidence/s1-09-upcoming-source-final.json",
+    "sha256": "ca8a6f2de18fba7e44b3b6c4b1ebf0d0dbb75ec2ab917e541d482f280c07bddb"
+  },
+  "preliminary": {
+    "file": "docs/evidence/s1-09-upcoming-preliminary.json",
+    "sha256": "5c2039a4d6f1e05ad120f243a271d465dceda7b897915906cb7ed1696fe4ba85"
+  },
+  "failedAttempt": {
+    "file": "docs/evidence/s1-09-upcoming-source.json",
+    "sha256": "dd729e94b5488dd53d4b77e2bcbcdae07d691a186fffc11bf3804fc4dda4b59b"
+  },
+  "schemaDiagnostic": {
+    "file": "docs/evidence/s1-09-upcoming-shape.json",
+    "sha256": "7752d4aff76efc9ebbac02591851b7bde884e03ed1cdd2442809fe53107ccd3d"
+  },
+  "sourceRuntimeHashesVerified": 9,
+  "directProviderRequests": 7,
+  "httpStatuses": {
+    "200": 7
+  },
+  "selectedMatchId": "1753769",
+  "expectedLineupReady": true,
+  "canonicalPlayersLinked": 0,
+  "workingState": {
+    "maps": 1,
+    "owners": 0,
+    "scenarios": 0,
+    "datasets": 0,
+    "active_models": 0,
+    "canonical_players": 10,
+    "account_proofs": 10,
+    "aliases": 10,
+    "legacy_links": 0,
+    "identity_revision": "20",
+    "temporary_databases": 0
+  },
+  "databaseWrites": 0,
+  "trainingExamples": 0,
+  "deployable": false
+}
