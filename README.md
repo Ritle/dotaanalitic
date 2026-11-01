@@ -60,6 +60,8 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 
 Для явно выбранных numeric accounts вне зависимости от нынешней команды: `pnpm accounts:current preview source.json selection.json new-plan.json`, затем `pnpm accounts:current apply source.json selection.json plan.json <SHA256-файла-плана> new-result.json`. [Формат, evidence и ограничения](docs/S1_08_CURRENT_ACCOUNTS.md).
 
+Если аккаунта нет в сохранённом registry, `pnpm profile:capture <Steam32> new-profile.json` получает отдельный профиль через named client; `accounts:current` умеет проверять такой capture по отдельной policy. [Правила profile evidence](docs/S1_08_PROFILE_IDENTITY.md).
+
 `pnpm-lock.yaml` создан из registry при S0-00. Локально и в CI используйте `--frozen-lockfile`. Результаты проверок и запуск на Windows без глобальной установки pnpm описаны в [отчёте S0-00](docs/S0_00_VERIFICATION.md). При уже запущенном нативном PostgreSQL шаг `pnpm db:up` не нужен.
 
 ## Документация — порядок чтения Codex

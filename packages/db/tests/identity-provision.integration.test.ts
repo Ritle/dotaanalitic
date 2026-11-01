@@ -1,6 +1,6 @@
 import {beforeAll,afterAll,it,expect} from 'vitest';
 import {IdentityProvisioner,IdentityRepository,readAccountEvidence,resolveIdentity,sql,reviewedIdentityEvidence,normalizeReviewedAccounts} from '../src/index.js';
-import {ReviewedCurrentCatalogueSchema,ReviewedCurrentAccountsSchema,type ReviewedAccountBatch,type ReviewedCurrentCatalogue} from '@dota/contracts';
+import {ReviewedCurrentCatalogueSchema,ReviewedCurrentAccountsSchema,ReviewedCurrentProfileSchema,type ReviewedAccountBatch,type ReviewedCurrentCatalogue} from '@dota/contracts';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 let database:Awaited<ReturnType<typeof testDatabase>>,provisioner:IdentityProvisioner,identity:IdentityRepository;
 const batch=(ids=['101','102']):ReviewedAccountBatch=>({schemaVersion:1,policyVersion:'reviewed-single-account-v1',reviewedAt:'2026-10-31T00:00:00.000Z',
@@ -15,6 +15,20 @@ const current=(id='2101',team='3101'):ReviewedCurrentCatalogue=>({schemaVersion:
     source:{endpoint:`/teams/${team}`,payloadSha256:'c'.repeat(64),fetchedAt:'2026-10-30T00:00:00.000Z'}}]});
 beforeAll(async()=>{database=await testDatabase();provisioner=new IdentityProvisioner(database.db);identity=new IdentityRepository(database.db);},30000);
 afterAll(async()=>{await database?.close();});
+it('current profile proof keeps its own endpoint, replays safely and does not create historical identity',async()=>{
+  const {teams,...base}=current('2301');
+  const b=ReviewedCurrentProfileSchema.parse({...base,policyVersion:'reviewed-current-profile-v1',source:{...base.source,url:'https://api.opendota.com/api/players/2301'}});
+  expect(ReviewedCurrentProfileSchema.safeParse({...b,source:{...b.source,url:'https://api.opendota.com/api/proPlayers'}}).success).toBe(false);
+  expect(ReviewedCurrentProfileSchema.safeParse({...b,source:{...b.source,url:'https://api.opendota.com/api/players/2302'}}).success).toBe(false);
+  expect(ReviewedCurrentProfileSchema.safeParse({...b,source:{...b.source,knownAt:'2020-01-01T00:00:00.000Z'}}).success).toBe(false);
+  const p=await provisioner.preview(b),r=await provisioner.apply(b,p.fingerprint);
+  expect(r).toMatchObject({playersCreated:1,accountProofsAdded:1,aliasesAdded:1});
+  expect(await provisioner.apply(b,p.fingerprint)).toMatchObject({status:'already_applied',playersCreated:0,accountProofsAdded:0,aliasesAdded:0});
+  const proof=await readAccountEvidence(database.db,['2301']);
+  expect(proof[0]).toMatchObject({source:'reviewed-current-profile-v1:https://api.opendota.com/api/players/2301',knownAt:b.source.fetchedAt,eventAt:null});
+  expect(resolveIdentity(proof,'2301',null).playerId).not.toBeNull();
+  expect(resolveIdentity(proof,'2301','2026-10-01T00:00:00.000Z').playerId).toBeNull();
+});
 it('selected current accounts add no organizations, keep namesakes distinct and never become historical lineup evidence',async()=>{
   const {teams,...base}=current('2201');
   const b=ReviewedCurrentAccountsSchema.parse({...base,policyVersion:'reviewed-current-accounts-v1',accounts:batch(['2201','2202']).accounts});

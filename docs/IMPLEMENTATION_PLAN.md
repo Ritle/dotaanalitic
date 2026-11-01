@@ -175,6 +175,8 @@
 
   - S1-08 account checkpoint2026-11-01: reviewed current registry policy/`accounts:current` добавили27 numeric identities независимо от нынешней команды; player references4→14/16. Один account1150772339 отсутствует в двух saved registries, две карты unknown.35 PG +441 unit/typecheck/build/frozen install PASS; knownAt не backdated, strict pre/post eligible0. Общий corpus gate unchecked. [Контракт и evidence](S1_08_CURRENT_ACCOUNTS.md).
 
+  - S1-08 profile checkpoint2026-11-01: отдельное numeric profile evidence для1150772339,1 player/proof/alias, штатный reimport2 карт. Все50 source accounts разрешены, players16/16; replay без writes, историческая доступность не создана.36 PG +448 unit/typecheck/build/frozen install PASS. Далее широкий стратифицированный corpus; общий gate unchecked. [Контракт и evidence](S1_08_PROFILE_IDENTITY.md).
+
 `S0-08/09` — архитектурные prerequisites для валидных прогнозов, но не блокируют создание базовой страницы интерфейса. `S1-08` обязателен перед обучением S3; внутренние номера не перенумеровывать.
 
 ## v9 — P0 raw-vs-final draft integrity (добавление к S0/S1/S2/S3, без перенумерации)

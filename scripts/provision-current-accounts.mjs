@@ -1,7 +1,7 @@
 import {readFile,stat,open} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {createDatabase,IdentityProvisioner,canonicalContextJson} from '../packages/db/dist/index.js';
-import {prepareCurrentAccounts} from '../packages/ingestion/dist/index.js';
+import {prepareCurrentAccounts,prepareCurrentProfile} from '../packages/ingestion/dist/index.js';
 import {CurrentAccountSelectionSchema} from '../packages/contracts/dist/index.js';
 const [mode,sourceFile,selectionFile,...args]=process.argv.slice(2),sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 if(!['preview','apply'].includes(mode)||!sourceFile||!selectionFile||args.length!==(mode==='apply'?3:1)){
@@ -11,7 +11,8 @@ let db,output,committed=false;
 try{
  const read=async(file,limit)=>{if((await stat(file)).size>limit)throw new Error('input_size');return readFile(file);};
  const source=await read(sourceFile,16*1024*1024),selection=CurrentAccountSelectionSchema.parse(JSON.parse(await read(selectionFile,65536)));
- const prepared=prepareCurrentAccounts(JSON.parse(source),sha(source),selection);
+ const capture=JSON.parse(source);
+ const prepared=capture?.mode==='current_profile_capture'?prepareCurrentProfile(capture,sha(source),selection):prepareCurrentAccounts(capture,sha(source),selection);
  let plan;
  if(mode==='apply'){
   const bytes=await read(args[0],1024*1024);if(sha(bytes)!==args[1])throw new Error('plan_hash');plan=JSON.parse(bytes);

@@ -55,5 +55,20 @@ export const ReviewedCurrentAccountsSchema=z.object({
     ctx.addIssue({code:'custom',message:'Duplicate or inconsistent numeric ID'});
 });
 export type ReviewedCurrentAccounts=z.infer<typeof ReviewedCurrentAccountsSchema>;
-export const ProvisionBatchSchema=z.union([ReviewedAccountBatchSchema,ReviewedCurrentCatalogueSchema,ReviewedCurrentAccountsSchema]);
+/** A profile is a current numeric account anchor, never pro status or a map lineup. */
+export const ReviewedCurrentProfileSchema=z.object({
+  schemaVersion:z.literal(1),policyVersion:z.literal('reviewed-current-profile-v1'),reviewedAt:IdentityTimeSchema,
+  source:z.object({reportSha256:Sha,payloadSha256:Sha,
+    url:z.string().regex(/^https:\/\/api\.opendota\.com\/api\/players\/[1-9]\d*$/),
+    knownAt:IdentityTimeSchema,fetchedAt:IdentityTimeSchema}).strict(),
+  accounts:ReviewedCurrentAccountsSchema.shape.accounts.length(1)
+}).strict().superRefine((b,ctx)=>{
+  const a=b.accounts[0];
+  if(b.source.knownAt!==b.source.fetchedAt||b.source.fetchedAt>b.reviewedAt)
+    ctx.addIssue({code:'custom',message:'Current profile clocks invalid'});
+  if(!a||b.source.url!==`https://api.opendota.com/api/players/${a.accountId}`||BigInt(a.steam64)!==76561197960265728n+BigInt(a.accountId))
+    ctx.addIssue({code:'custom',message:'Inconsistent profile account binding'});
+});
+export type ReviewedCurrentProfile=z.infer<typeof ReviewedCurrentProfileSchema>;
+export const ProvisionBatchSchema=z.union([ReviewedAccountBatchSchema,ReviewedCurrentCatalogueSchema,ReviewedCurrentAccountsSchema,ReviewedCurrentProfileSchema]);
 export type ProvisionBatch=z.infer<typeof ProvisionBatchSchema>;
