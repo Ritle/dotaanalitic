@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import {computed,reactive,ref} from 'vue';
+import {computed,reactive,ref,watch} from 'vue';
 import {useRouter} from 'vue-router';
 import {useQueryClient} from '@tanstack/vue-query';
 import {ScenarioInputSchema,ScenarioSnapshotSchema,type UpcomingMatch} from '@dota/contracts';
 import {readCatalog} from '../catalog';
 import {ownerAuth} from '../auth';
+import CatalogPicker from './CatalogPicker.vue';
 const props=defineProps<{match:UpcomingMatch}>(),router=useRouter(),cache=useQueryClient();
 const five=()=>Array.from({length:5},(_,i)=>({rolePos:i+1,playerId:'',isStandin:false}));
 const form=reactive({title:(props.match.name??'Сценарий встречи').slice(0,120),teamAId:'',teamBId:'',lineupA:five(),lineupB:five()});
 const confirmed=ref(false),busy=ref(false),error=ref('');
+watch(form,()=>{confirmed.value=false;},{deep:true,flush:'sync'});
+const usedPlayers=(current:typeof form.lineupA[number])=>[...form.lineupA,...form.lineupB].filter(p=>p!==current&&p.playerId).map(p=>p.playerId);
 const input=computed(()=>ScenarioInputSchema.safeParse({...form,cutoffAt:new Date().toISOString(),scheduledAt:props.match.scheduledAt,
   confirmedByOwner:confirmed.value,expectedLineupA:null,expectedLineupB:null,
   context:{seriesId:null,leagueId:null,mapNumber:null,teamASeriesWinsBefore:null,teamBSeriesWinsBefore:null,radiantSlot:null,
@@ -31,15 +34,15 @@ async function create(){
 <template>
   <details class="manual-scenario"><summary>Выбрать игроков для анализа одной карты</summary>
     <p>Задайте игроков и их роли по локальному справочнику. Заявка турнира служит ориентиром; состав сценария подтверждаете вы.</p>
-    <p><RouterLink to="/" target="_blank">Открыть справочник в новой вкладке →</RouterLink></p>
+    <p class="hint">Найдите запись по имени или ID и выберите её из списка. Если записи нет в локальной базе, состав остаётся неполным.</p>
     <form @submit.prevent="create"><fieldset :disabled="busy" class="scenario-fields">
       <label>Название сценария<input v-model="form.title" maxlength="120" required @input="confirmed=false" /></label>
       <div class="manual-columns"><fieldset v-for="slot in (['A','B'] as const)" :key="slot">
         <legend>Команда {{slot}} · {{match.opponents[slot==='A'?0:1]?.name??'не определена'}}</legend>
-        <label v-if="slot==='A'">Команда A в локальной базе · ID<input v-model="form.teamAId" inputmode="numeric" required @input="confirmed=false" /></label>
-        <label v-else>Команда B в локальной базе · ID<input v-model="form.teamBId" inputmode="numeric" required @input="confirmed=false" /></label>
+        <CatalogPicker v-if="slot==='A'" v-model="form.teamAId" kind="teams" label="Команда A в локальной базе" :excluded-ids="[form.teamBId]" />
+        <CatalogPicker v-else v-model="form.teamBId" kind="teams" label="Команда B в локальной базе" :excluded-ids="[form.teamAId]" />
         <div v-for="p in slot==='A'?form.lineupA:form.lineupB" :key="p.rolePos">
-          <label>{{slot}}: игрок роли {{p.rolePos}} · ID из справочника<input v-model="p.playerId" inputmode="numeric" required @input="confirmed=false" /></label>
+          <CatalogPicker v-model="p.playerId" kind="players" :label="`${slot}: игрок роли ${p.rolePos}`" :excluded-ids="usedPlayers(p)" />
           <label class="check-row"><input v-model="p.isStandin" type="checkbox" @change="confirmed=false" />{{slot}}: замена роли {{p.rolePos}}</label>
         </div>
       </fieldset></div>
