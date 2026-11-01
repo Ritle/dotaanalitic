@@ -761,3 +761,17 @@ Real run: шесть сохранённых live audits (4 historical +S1-13 +S1
 Compatibility: миграций/dependency/lockfile/API/UI изменений нет; source reader/existing importer не переписаны. Registry/knownAt/lineup/model gates не смягчены, datasets0/active models0. Общие corpus/S1-07/S3-01 gates открыты.
 
 Next task: S1-07 — решение о достаточности доказательств интервала патча для16 недавних карт, конкретный review по released_at/coverage_until/known_at и недостающим фактам. Изменение нормативного контракта не следует из диагностической метки. Больше одноразовых аналогичных helpers не требуется. Suggested model: GPT-6 Astra · High, ручной выбор владельцем.
+
+### 2026-11-01 — S1-07: решение по patch intervals и prospective cutoff
+
+Goal / implemented / changed files: docs/S1_07_PATCH_INTERVAL_DECISION.md фиксирует достаточные доказательства releasedAt/coverageUntil/knownAt, review сохранённых источников для16 недавних карт и ограниченный вариант неопределённых границ. IMPLEMENTATION_PLAN/PROJECT_STATE обновлены. Canonical promotion отклонён: публикации/coarse code не подтверждают effective deployment, покрытие и historical availability. Нормативные правила, production TS/SQL/API/UI/dependencies не изменены.
+
+New finding: при online fetchedAt<=cutoffAt<=mapTime существующее coverageUntil<=fetchedAt противоречит resolver mapTime<coverageUntil. Прямой вызов compiled resolvePatchAt на synthetic proof воспроизвёл PATCH_COVERAGE_GAP для будущего времени и равенства cutoff; earlier map внутри coverage проходит. Три assertions PASS. Это независимое ограничение будущего прогноза, которое не устранится повторным поиском даты старого релиза.
+
+Proposed contract, not implemented: отдельно effective_patch_at_map и patch_observed_at_cutoff, явное условие версии будущей карты, source scope и as-of validation, неизменяемость старого prediction после actual-version correction. Семь acceptance cases и ограничения evidence-bounded release windows описаны. Нельзя просто убрать coverage CHECK, продлить интервал до бесконечности, поставить releasedAt по max двух публикаций или принять source freshness за доказательство действия версии.
+
+Checks actually executed: pnpm install --frozen-lockfile/typecheck/test461/build PASS; verifier22 ordered migrations/golden checks PASS; relative docs links/git diff --check PASS. Штатные pnpm checks вне sandbox из-за ранее подтверждённых EPERM. Сверены16 saved live-map projections/count/крайние IDs/null patch/knownAt, без HTTP и без новых diagnostic helpers. DB integration/browser/Python/backtest не запускались, новых постоянных тестов для docs-only review нет. Рабочая БД не читалась/не менялась, API/web/worker не перезапускались. Числа корпуса — из ранее сохранённого evidence; новый DB snapshot не заявляется.
+
+Known blockers: patch proofs для16 карт по-прежнему отсутствуют, pre-start lineup/teams/hero gates независимы; последние strict previews36 candidates/0 eligible. S1-07/S3-01/corpus gate остаются открытыми. Неизвестно, как упрощение повлияет на точность, до сопоставимого temporal backtest.
+
+Next task: S1-07 — согласованный prospective patch context contract с источником активной версии на cutoff, отдельным условием будущей версии и совместимостью исторического resolver; использовать decision/acceptance matrix, представить изменение обязательных правил владельцу до реализации. Повторять источники code60/body7.34d не требуется. Suggested model: GPT-6 Astra · High, ручной выбор владельцем.
