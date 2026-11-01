@@ -1,6 +1,6 @@
 import {beforeAll,afterAll,it,expect} from 'vitest';
 import {IdentityProvisioner,IdentityRepository,readAccountEvidence,resolveIdentity,sql,reviewedIdentityEvidence,normalizeReviewedAccounts} from '../src/index.js';
-import {ReviewedCurrentCatalogueSchema,type ReviewedAccountBatch,type ReviewedCurrentCatalogue} from '@dota/contracts';
+import {ReviewedCurrentCatalogueSchema,ReviewedCurrentAccountsSchema,type ReviewedAccountBatch,type ReviewedCurrentCatalogue} from '@dota/contracts';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 let database:Awaited<ReturnType<typeof testDatabase>>,provisioner:IdentityProvisioner,identity:IdentityRepository;
 const batch=(ids=['101','102']):ReviewedAccountBatch=>({schemaVersion:1,policyVersion:'reviewed-single-account-v1',reviewedAt:'2026-10-31T00:00:00.000Z',
@@ -15,6 +15,28 @@ const current=(id='2101',team='3101'):ReviewedCurrentCatalogue=>({schemaVersion:
     source:{endpoint:`/teams/${team}`,payloadSha256:'c'.repeat(64),fetchedAt:'2026-10-30T00:00:00.000Z'}}]});
 beforeAll(async()=>{database=await testDatabase();provisioner=new IdentityProvisioner(database.db);identity=new IdentityRepository(database.db);},30000);
 afterAll(async()=>{await database?.close();});
+it('selected current accounts add no organizations, keep namesakes distinct and never become historical lineup evidence',async()=>{
+  const {teams,...base}=current('2201');
+  const b=ReviewedCurrentAccountsSchema.parse({...base,policyVersion:'reviewed-current-accounts-v1',accounts:batch(['2201','2202']).accounts});
+  const teamCount=async()=>(await sql`SELECT count(*)::int AS n FROM teams`.execute(database.db)).rows;
+  const beforeTeams=await teamCount(),before=await counts(),p=await provisioner.preview(b);expect(await counts()).toEqual(before);
+  expect(p).toMatchObject({status:'ready',plannedPlayers:2});
+  const r=await provisioner.apply(b,p.fingerprint);expect(r).toMatchObject({playersCreated:2,accountProofsAdded:2,aliasesAdded:2});
+  expect(new Set(r.planAfter.rows.map(row=>row.playerId)).size).toBe(2);expect(await teamCount()).toEqual(beforeTeams);
+  expect(await provisioner.apply(b,p.fingerprint)).toMatchObject({status:'already_applied',playersCreated:0,accountProofsAdded:0,aliasesAdded:0});
+  const proof=await readAccountEvidence(database.db,['2201']);expect(resolveIdentity(proof,'2201',null).playerId).not.toBeNull();
+  expect(resolveIdentity(proof,'2201','2026-10-29T23:59:59.999Z').playerId).toBeNull();
+  expect(proof[0]).toMatchObject({eventAt:null,knownAt:b.source.fetchedAt});
+  expect(ReviewedCurrentAccountsSchema.safeParse({...b,source:{...b.source,knownAt:'2023-01-01T00:00:00.000Z'}}).success).toBe(false);
+});
+it('current account selection cannot bypass a conflicting existing claim or create the rest of the batch',async()=>{
+  const {teams,...base}=current('2203');
+  const b=ReviewedCurrentAccountsSchema.parse({...base,policyVersion:'reviewed-current-accounts-v1',accounts:batch(['2203','2204']).accounts});
+  const existing=(await sql<{id:string}>`SELECT id::text FROM players ORDER BY id LIMIT 1`.execute(database.db)).rows[0]!;
+  await identity.appendAccountEvidence({...reviewedIdentityEvidence(b,b.accounts[0]!,existing.id).claim,status:'rejected'});
+  const p=await provisioner.preview(b),before=await counts();expect(p.status).toBe('blocked');
+  await expect(provisioner.apply(b,p.fingerprint)).rejects.toMatchObject({code:'identity_provision_conflict'});expect(await counts()).toEqual(before);
+});
 it('current catalogue adds organizations and account anchors atomically, replay adds nothing, no historical coverage',async()=>{
   const b=current(),p=await provisioner.preview(b);expect(p).toMatchObject({status:'ready',plannedTeams:1,plannedPlayers:1});
   expect((await sql<{n:number}>`SELECT count(*)::int AS n FROM teams`.execute(database.db)).rows[0]!.n).toBe(0);

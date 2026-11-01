@@ -173,6 +173,8 @@
 
   - S1-08 series checkpoint2026-11-01: migration022/`series:provision` с reviewed fingerprint и immutable replay;8 numeric source series зарегистрированы, штатный capture reimport связал16/16 карт, series eligible0→16.28 PG +434 unit/typecheck/build/frozen install PASS. Историческая доступность не создана, strict pre/post eligible0. Следующий шаг — canonical player references12 неполных карт; общий corpus gate unchecked. [Применение и evidence](S1_08_SERIES_PROVISION.md).
 
+  - S1-08 account checkpoint2026-11-01: reviewed current registry policy/`accounts:current` добавили27 numeric identities независимо от нынешней команды; player references4→14/16. Один account1150772339 отсутствует в двух saved registries, две карты unknown.35 PG +441 unit/typecheck/build/frozen install PASS; knownAt не backdated, strict pre/post eligible0. Общий corpus gate unchecked. [Контракт и evidence](S1_08_CURRENT_ACCOUNTS.md).
+
 `S0-08/09` — архитектурные prerequisites для валидных прогнозов, но не блокируют создание базовой страницы интерфейса. `S1-08` обязателен перед обучением S3; внутренние номера не перенумеровывать.
 
 ## v9 — P0 raw-vs-final draft integrity (добавление к S0/S1/S2/S3, без перенумерации)

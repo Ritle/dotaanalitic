@@ -14,7 +14,7 @@ export function normalizeReviewedAccounts(input:unknown){
 export function reviewedIdentityEvidence(batch:ProvisionBatch,account:ProvisionBatch['accounts'][number],playerId:string){
   const normalized=normalizeReviewedAccounts(batch),reviewSha256=hash(normalized);
   const clocks={eventAt:null,knownAt:batch.source.knownAt,fetchedAt:batch.source.fetchedAt,
-    source:batch.policyVersion+':'+(batch.policyVersion==='reviewed-current-catalogue-v1'?batch.source.url:batch.source.archiveUrl),
+    source:batch.policyVersion+':'+('url' in batch.source?batch.source.url:batch.source.archiveUrl),
     evidenceRef:`review-sha256:${reviewSha256};payload-sha256:${batch.source.payloadSha256};account:${account.accountId}`};
   const claim:AccountEvidence={playerId,provider:'opendota',externalAccountId:account.accountId,status:'verified',...clocks};
   const alias:AliasEvidence={playerId,alias:account.alias,...clocks};

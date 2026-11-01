@@ -38,5 +38,22 @@ export const ReviewedCurrentCatalogueSchema=z.object({
     ctx.addIssue({code:'custom',message:'Duplicate or inconsistent numeric ID'});
 });
 export type ReviewedCurrentCatalogue=z.infer<typeof ReviewedCurrentCatalogueSchema>;
-export const ProvisionBatchSchema=z.union([ReviewedAccountBatchSchema,ReviewedCurrentCatalogueSchema]);
+/** Explicit account selection is independent of a provider's current organization membership. */
+export const CurrentAccountSelectionSchema=z.object({accountIds:z.array(Steam32Schema).min(1).max(100),reviewedAt:IdentityTimeSchema})
+  .strict().refine(s=>new Set(s.accountIds).size===s.accountIds.length,'Duplicate account selection');
+export const ReviewedCurrentAccountsSchema=z.object({
+  schemaVersion:z.literal(1),policyVersion:z.literal('reviewed-current-accounts-v1'),reviewedAt:IdentityTimeSchema,
+  source:z.object({reportSha256:Sha,payloadSha256:Sha,url:z.literal('https://api.opendota.com/api/proPlayers'),
+    knownAt:IdentityTimeSchema,fetchedAt:IdentityTimeSchema}).strict(),
+  accounts:z.array(z.object({accountId:Steam32Schema,steam64:z.string().regex(/^\d{17}$/),
+    alias:z.string().trim().min(1).max(120)}).strict()).min(1).max(100)
+}).strict().superRefine((b,ctx)=>{
+  if(b.source.knownAt!==b.source.fetchedAt||b.source.fetchedAt>b.reviewedAt)
+    ctx.addIssue({code:'custom',message:'Current observation clocks invalid'});
+  if(new Set(b.accounts.map(a=>a.accountId)).size!==b.accounts.length||
+    b.accounts.some(a=>BigInt(a.steam64)!==76561197960265728n+BigInt(a.accountId)))
+    ctx.addIssue({code:'custom',message:'Duplicate or inconsistent numeric ID'});
+});
+export type ReviewedCurrentAccounts=z.infer<typeof ReviewedCurrentAccountsSchema>;
+export const ProvisionBatchSchema=z.union([ReviewedAccountBatchSchema,ReviewedCurrentCatalogueSchema,ReviewedCurrentAccountsSchema]);
 export type ProvisionBatch=z.infer<typeof ProvisionBatchSchema>;

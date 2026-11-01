@@ -58,6 +58,8 @@ pnpm db:down             # остановить PostgreSQL, НЕ удалять 
 
 Для проверенной привязки карт к числовым source series ID: `pnpm series:provision preview request.json new-plan.json`, затем `pnpm series:provision apply request.json <fingerprint-из-плана> new-result.json`. После регистрации штатный importer повторно обрабатывает reviewed captures. [Конфиг, проверки, миграция022 и ограничения](docs/S1_08_SERIES_PROVISION.md).
 
+Для явно выбранных numeric accounts вне зависимости от нынешней команды: `pnpm accounts:current preview source.json selection.json new-plan.json`, затем `pnpm accounts:current apply source.json selection.json plan.json <SHA256-файла-плана> new-result.json`. [Формат, evidence и ограничения](docs/S1_08_CURRENT_ACCOUNTS.md).
+
 `pnpm-lock.yaml` создан из registry при S0-00. Локально и в CI используйте `--frozen-lockfile`. Результаты проверок и запуск на Windows без глобальной установки pnpm описаны в [отчёте S0-00](docs/S0_00_VERIFICATION.md). При уже запущенном нативном PostgreSQL шаг `pnpm db:up` не нужен.
 
 ## Документация — порядок чтения Codex
