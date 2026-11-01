@@ -1,0 +1,2982 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-01T22:24:34.821Z",
+  "mode": "stratz_public_documentation_and_bounded_read_probe",
+  "productionIntegrationEnabled": false,
+  "ownerTokenConfigured": false,
+  "databaseWrites": 0,
+  "canonicalProofsCreated": 0,
+  "requests": {
+    "directHttp": 9,
+    "http200": 9,
+    "graphqlQueries": 6,
+    "graphqlResponsesWithErrors": 1,
+    "bulkMatchRequestDenied": true,
+    "workingSingleMapResponses": 1
+  },
+  "sources": [
+    {
+      "name": "api-page",
+      "url": "https://stratz.com/api",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:22:11.397Z",
+      "bytes": 91922,
+      "sha256": "0c2681c26881e6144afa5ae25d17808b15132a0270211d6c012d7e320b0ac29a",
+      "file": ".tools/stratz-review-20261102/api-page.body"
+    },
+    {
+      "name": "explorer",
+      "url": "https://api.stratz.com/graphiql",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:22:11.823Z",
+      "bytes": 11766,
+      "sha256": "559b1ba1a8729d474c354d1e6408c26e0ac620db9f7c0ac836f537ecf2477e6a",
+      "file": ".tools/stratz-review-20261102/explorer.body"
+    },
+    {
+      "name": "official-faq",
+      "url": "https://api.github.com/repos/STRATZ-Esports/knowledge-base/issues?state=all&per_page=100",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:22:12.569Z",
+      "bytes": 149748,
+      "sha256": "273770811da6d637806037d6194ed7d7097014f14ed6d2c8243bdb0caae961df",
+      "file": ".tools/stratz-review-20261102/official-faq.body"
+    },
+    {
+      "name": "schema",
+      "url": "https://api.stratz.com/graphql",
+      "access": "Published GraphiQL fetch endpoint; no owner token",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:22:42.497Z",
+      "bytes": 903932,
+      "sha256": "ad1da0b6e4e09fb6b4dc43f58ba3627982abca1f91a4b16dec5d89d5445fbb17",
+      "schemaTypes": 513,
+      "errorCount": 0,
+      "file": ".tools/stratz-review-20261102/schema.body"
+    },
+    {
+      "name": "constants",
+      "url": "https://api.stratz.com/graphql",
+      "operation": "constants",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:23:19.489Z",
+      "bytes": 9701,
+      "sha256": "9dfba7c206d928f2768d2b24e30d2a554cd6aebb46bedbc1347fae67c7ed5f41",
+      "errorCount": 0,
+      "dataKeys": [
+        "constants"
+      ],
+      "file": ".tools/stratz-review-20261102/constants.body"
+    },
+    {
+      "name": "matches",
+      "url": "https://api.stratz.com/graphql",
+      "operation": "matches",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:23:20.443Z",
+      "bytes": 72,
+      "sha256": "d0e5b59204acd2e9fed5cc36ae024865f96f266cbf41ed3ad673bd60c73ac2ed",
+      "errorCount": 1,
+      "dataKeys": [
+        "matches"
+      ],
+      "file": ".tools/stratz-review-20261102/matches.body"
+    },
+    {
+      "name": "league",
+      "url": "https://api.stratz.com/graphql",
+      "operation": "league",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:23:21.581Z",
+      "bytes": 82,
+      "sha256": "2bf1733c5b12c5a84688cad434df3f01dd8ecdde00c75a0668b0be316127c65f",
+      "errorCount": 0,
+      "dataKeys": [
+        "league"
+      ],
+      "file": ".tools/stratz-review-20261102/league.body"
+    },
+    {
+      "name": "future-leagues",
+      "url": "https://api.stratz.com/graphql",
+      "operation": "future-leagues",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:23:22.447Z",
+      "bytes": 23,
+      "sha256": "8e6c53d8dac5f4a4ce42263a12a196833522f1b8c2fafc9c79a03edef20ef33d",
+      "errorCount": 0,
+      "dataKeys": [
+        "leagues"
+      ],
+      "file": ".tools/stratz-review-20261102/future-leagues.body"
+    },
+    {
+      "name": "single-map",
+      "url": "https://api.stratz.com/graphql",
+      "operation": "single-map",
+      "status": 200,
+      "fetchedAt": "2026-11-01T22:23:50.113Z",
+      "bytes": 2492,
+      "sha256": "a48e90919ed0df655895eae1e1f5147c24d12c259e5d602a879c12e18225d09e",
+      "errorCount": 0,
+      "file": ".tools/stratz-review-20261102/single-map.body"
+    }
+  ],
+  "schema": {
+    "typeCount": 513,
+    "queryType": "DotaQuery",
+    "projection": [
+      {
+        "name": "DotaQuery",
+        "fields": [
+          {
+            "name": "match",
+            "type": "MatchType",
+            "args": [
+              {
+                "name": "id",
+                "type": "Long!"
+              }
+            ]
+          },
+          {
+            "name": "matches",
+            "type": "[MatchType]",
+            "args": [
+              {
+                "name": "ids",
+                "type": "[Long]!"
+              }
+            ]
+          },
+          {
+            "name": "player",
+            "type": "PlayerType",
+            "args": [
+              {
+                "name": "steamAccountId",
+                "type": "Long!"
+              }
+            ]
+          },
+          {
+            "name": "players",
+            "type": "[PlayerType]",
+            "args": [
+              {
+                "name": "steamAccountIds",
+                "type": "[Long]!"
+              }
+            ]
+          },
+          {
+            "name": "team",
+            "type": "TeamType",
+            "args": [
+              {
+                "name": "teamId",
+                "type": "Int!"
+              }
+            ]
+          },
+          {
+            "name": "teams",
+            "type": "[TeamType]",
+            "args": [
+              {
+                "name": "teamIds",
+                "type": "[Int]!"
+              }
+            ]
+          },
+          {
+            "name": "league",
+            "type": "LeagueType",
+            "args": [
+              {
+                "name": "id",
+                "type": "Int!"
+              }
+            ]
+          },
+          {
+            "name": "leagues",
+            "type": "[LeagueType]",
+            "args": [
+              {
+                "name": "request",
+                "type": "LeagueRequestType!"
+              }
+            ]
+          },
+          {
+            "name": "guild",
+            "type": "GuildType",
+            "args": [
+              {
+                "name": "id",
+                "type": "Int!"
+              }
+            ]
+          },
+          {
+            "name": "yogurt",
+            "type": "YogurtQuery",
+            "args": []
+          },
+          {
+            "name": "plus",
+            "type": "PlusQuery",
+            "args": []
+          },
+          {
+            "name": "stratz",
+            "type": "StratzQuery",
+            "args": []
+          },
+          {
+            "name": "heroStats",
+            "type": "HeroStatsQuery",
+            "args": []
+          },
+          {
+            "name": "constants",
+            "type": "ConstantQuery",
+            "args": []
+          },
+          {
+            "name": "leaderboard",
+            "type": "LeaderboardQuery",
+            "args": []
+          },
+          {
+            "name": "live",
+            "type": "LiveQuery",
+            "args": []
+          },
+          {
+            "name": "vendor",
+            "type": "VendorQuery",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "MatchType",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "didRadiantWin",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "durationSeconds",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "startDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "endDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "towerStatusRadiant",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "towerStatusDire",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "barracksStatusRadiant",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "barracksStatusDire",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "clusterId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "firstBloodTime",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "lobbyType",
+            "type": "LobbyTypeEnum",
+            "args": []
+          },
+          {
+            "name": "numHumanPlayers",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "gameMode",
+            "type": "GameModeEnumType",
+            "args": []
+          },
+          {
+            "name": "replaySalt",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "isStats",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "tournamentId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "tournamentRound",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "actualRank",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "averageRank",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "averageImp",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "parsedDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "statsDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "leagueId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "league",
+            "type": "LeagueType",
+            "args": []
+          },
+          {
+            "name": "radiantTeamId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "radiantTeam",
+            "type": "TeamType",
+            "args": []
+          },
+          {
+            "name": "direTeamId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "direTeam",
+            "type": "TeamType",
+            "args": []
+          },
+          {
+            "name": "seriesId",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "series",
+            "type": "SeriesType",
+            "args": []
+          },
+          {
+            "name": "gameVersionId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "regionId",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "sequenceNum",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "rank",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "bracket",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "analysisOutcome",
+            "type": "MatchAnalysisOutcomeType",
+            "args": []
+          },
+          {
+            "name": "predictedOutcomeWeight",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "players",
+            "type": "[MatchPlayerType]",
+            "args": [
+              {
+                "name": "steamAccountId",
+                "type": "Long"
+              }
+            ]
+          },
+          {
+            "name": "radiantNetworthLeads",
+            "type": "[Int]",
+            "args": []
+          },
+          {
+            "name": "radiantExperienceLeads",
+            "type": "[Int]",
+            "args": []
+          },
+          {
+            "name": "radiantKills",
+            "type": "[Int]",
+            "args": []
+          },
+          {
+            "name": "direKills",
+            "type": "[Int]",
+            "args": []
+          },
+          {
+            "name": "pickBans",
+            "type": "[MatchStatsPickBanType]",
+            "args": []
+          },
+          {
+            "name": "towerStatus",
+            "type": "[MatchStatsTowerReportType]",
+            "args": []
+          },
+          {
+            "name": "laneReport",
+            "type": "MatchStatsLaneReportType",
+            "args": []
+          },
+          {
+            "name": "winRates",
+            "type": "[Decimal]",
+            "args": []
+          },
+          {
+            "name": "predictedWinRates",
+            "type": "[Decimal]",
+            "args": []
+          },
+          {
+            "name": "chatEvents",
+            "type": "[MatchStatsChatEventType]",
+            "args": []
+          },
+          {
+            "name": "towerDeaths",
+            "type": "[MatchStatsTowerDeathType]",
+            "args": []
+          },
+          {
+            "name": "playbackData",
+            "type": "MatchPlaybackDataType",
+            "args": []
+          },
+          {
+            "name": "spectators",
+            "type": "[MatchPlayerSpectatorType]",
+            "args": []
+          },
+          {
+            "name": "bottomLaneOutcome",
+            "type": "LaneOutcomeEnums",
+            "args": []
+          },
+          {
+            "name": "midLaneOutcome",
+            "type": "LaneOutcomeEnums",
+            "args": []
+          },
+          {
+            "name": "topLaneOutcome",
+            "type": "LaneOutcomeEnums",
+            "args": []
+          },
+          {
+            "name": "didRequestDownload",
+            "type": "Boolean",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "MatchPlayerType",
+        "fields": [
+          {
+            "name": "matchId",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "match",
+            "type": "MatchType",
+            "args": []
+          },
+          {
+            "name": "playerSlot",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "steamAccountId",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "steamAccount",
+            "type": "SteamAccountType",
+            "args": []
+          },
+          {
+            "name": "isRadiant",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "isVictory",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "heroId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "gameVersionId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "hero",
+            "type": "HeroType",
+            "args": []
+          },
+          {
+            "name": "kills",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "deaths",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "assists",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "leaverStatus",
+            "type": "LeaverStatusEnum",
+            "args": []
+          },
+          {
+            "name": "numLastHits",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "numDenies",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "goldPerMinute",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "networth",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "experiencePerMinute",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "level",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "gold",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "goldSpent",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "heroDamage",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "towerDamage",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "heroHealing",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "partyId",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "isRandom",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "lane",
+            "type": "MatchLaneType",
+            "args": []
+          },
+          {
+            "name": "position",
+            "type": "MatchPlayerPositionType",
+            "args": []
+          },
+          {
+            "name": "streakPrediction",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "intentionalFeeding",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "role",
+            "type": "MatchPlayerRoleType",
+            "args": []
+          },
+          {
+            "name": "roleBasic",
+            "type": "MatchPlayerRoleType",
+            "args": []
+          },
+          {
+            "name": "imp",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "award",
+            "type": "MatchPlayerAward",
+            "args": []
+          },
+          {
+            "name": "item0Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "item1Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "item2Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "item3Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "item4Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "item5Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "backpack0Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "backpack1Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "backpack2Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "neutral0Id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "behavior",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "stats",
+            "type": "MatchPlayerStatsType",
+            "args": []
+          },
+          {
+            "name": "playbackData",
+            "type": "MatchPlayerPlaybackDataType",
+            "args": []
+          },
+          {
+            "name": "heroAverage",
+            "type": "[HeroPositionTimeDetailType]",
+            "args": []
+          },
+          {
+            "name": "additionalUnit",
+            "type": "MatchPlayerAdditionalUnitType",
+            "args": []
+          },
+          {
+            "name": "dotaPlus",
+            "type": "HeroDotaPlusLeaderboardRankType",
+            "args": []
+          },
+          {
+            "name": "abilities",
+            "type": "[PlayerAbilityType]",
+            "args": [
+              {
+                "name": "gameVerionId",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "invisibleSeconds",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "dotaPlusHeroXp",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "variant",
+            "type": "Byte",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "MatchStatsPickBanType",
+        "fields": [
+          {
+            "name": "isPick",
+            "type": "Boolean!",
+            "args": []
+          },
+          {
+            "name": "heroId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "order",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "bannedHeroId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "isRadiant",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "playerIndex",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "wasBannedSuccessfully",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "isCaptain",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "baseWinRate",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "adjustedWinRate",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "letter",
+            "type": "Int",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "LeagueType",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "banner",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "basePrizePool",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "stopSalesTime",
+            "type": "DateTime",
+            "args": []
+          },
+          {
+            "name": "tier",
+            "type": "LeagueTier",
+            "args": []
+          },
+          {
+            "name": "region",
+            "type": "LeagueRegion",
+            "args": []
+          },
+          {
+            "name": "private",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "freeToSpectate",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "startDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "endDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "tournamentUrl",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "lastMatchDate",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "hasLiveMatches",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "prizePool",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "imageUri",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "displayName",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "description",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "country",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "venue",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "isFollowed",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "nodeGroups",
+            "type": "[LeagueNodeGroupType]",
+            "args": []
+          },
+          {
+            "name": "liveMatches",
+            "type": "[MatchLiveType]",
+            "args": []
+          },
+          {
+            "name": "matches",
+            "type": "[MatchType]",
+            "args": [
+              {
+                "name": "request",
+                "type": "LeagueMatchesRequestType!"
+              }
+            ]
+          },
+          {
+            "name": "matchesGroupBy",
+            "type": "[MatchGroupByType]",
+            "args": [
+              {
+                "name": "request",
+                "type": "PlayerMatchesGroupByRequestType!"
+              }
+            ]
+          },
+          {
+            "name": "series",
+            "type": "[SeriesType]",
+            "args": [
+              {
+                "name": "leagueStageTypeIds",
+                "type": "[LeagueStage]"
+              },
+              {
+                "name": "seriesId",
+                "type": "Int"
+              },
+              {
+                "name": "teamId",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "tables",
+            "type": "LeagueTableType",
+            "args": [
+              {
+                "name": "leagueStageTypeIds",
+                "type": "[LeagueStage]"
+              },
+              {
+                "name": "calculateTypeId",
+                "type": "TableCalculateEnum"
+              }
+            ]
+          },
+          {
+            "name": "battlePass",
+            "type": "LeagueBattlePassType",
+            "args": []
+          },
+          {
+            "name": "stats",
+            "type": "LeagueStatType",
+            "args": [
+              {
+                "name": "leagueStageTypeIds",
+                "type": "[LeagueStage]"
+              }
+            ]
+          },
+          {
+            "name": "prizePoolPercentages",
+            "type": "[LeaguePrizePoolPercentageType]",
+            "args": []
+          },
+          {
+            "name": "standings",
+            "type": "[TeamPrizeType]",
+            "args": []
+          },
+          {
+            "name": "streams",
+            "type": "[LeagueStreamType]",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "LeagueNodeType",
+        "fields": [
+          {
+            "name": "nodeGroupId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "winningNodeId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "losingNodeId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "nodeType",
+            "type": "LeagueNodeDefaultGroupEnum",
+            "args": []
+          },
+          {
+            "name": "scheduledTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "actualTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "seriesId",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "matches",
+            "type": "[MatchType]",
+            "args": []
+          },
+          {
+            "name": "teamOneId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "teamOne",
+            "type": "TeamType",
+            "args": []
+          },
+          {
+            "name": "teamTwoId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "teamTwo",
+            "type": "TeamType",
+            "args": []
+          },
+          {
+            "name": "teamOneWins",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "teamTwoWins",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "hasStarted",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "isCompleted",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "streamIds",
+            "type": "[Int]",
+            "args": []
+          },
+          {
+            "name": "streams",
+            "type": "[LeagueStreamType]",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "LeagueNodeGroupType",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "parentNodeGroupId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "advancingNodeGroupId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "advancingTeamCount",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "teamCount",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "defaultNodeType",
+            "type": "LeagueNodeDefaultGroupEnum",
+            "args": []
+          },
+          {
+            "name": "nodeGroupType",
+            "type": "LeagueNodeGroupTypeEnum",
+            "args": []
+          },
+          {
+            "name": "round",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "maxRounds",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "isTieBreaker",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "isFinalGroup",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "isCompleted",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "phase",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "region",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "startDate",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "endDate",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "secondaryAdvancingNodeGroupId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "secondaryAdvancingTeamCount",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "tertiaryAdvancingNodeGroupId",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "tertiaryAdvancingTeamCount",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "eliminationDPCPoints",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "nodes",
+            "type": "[LeagueNodeType]",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "LeagueTableType",
+        "fields": [
+          {
+            "name": "leagueId",
+            "type": "Int!",
+            "args": []
+          },
+          {
+            "name": "tableTeams",
+            "type": "[LeagueTableTeamType]",
+            "args": []
+          },
+          {
+            "name": "tableHeroes",
+            "type": "[LeagueTableHeroType]",
+            "args": []
+          },
+          {
+            "name": "tablePlayers",
+            "type": "[LeagueTablePlayerType]",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "LeagueTableTeamType",
+        "fields": [
+          {
+            "name": "teamId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "team",
+            "type": "TeamType",
+            "args": []
+          },
+          {
+            "name": "members",
+            "type": "[LeagueRegisteredPlayerType]",
+            "args": []
+          },
+          {
+            "name": "overview",
+            "type": "LeagueTableTeamOverviewType",
+            "args": []
+          },
+          {
+            "name": "stats",
+            "type": "LeagueTableTeamStatsType",
+            "args": []
+          },
+          {
+            "name": "heroes",
+            "type": "[LeagueTableTeamHeroesObjectType]",
+            "args": []
+          },
+          {
+            "name": "lanes",
+            "type": "[LeagueTableTeamLanesObjectType]",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "LeagueRegisteredPlayerType",
+        "fields": [
+          {
+            "name": "leagueId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "league",
+            "type": "LeagueType",
+            "args": []
+          },
+          {
+            "name": "teamId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "radiantTeam",
+            "type": "TeamType",
+            "args": []
+          },
+          {
+            "name": "steamAccountId",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "steamAccount",
+            "type": "SteamAccountType",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "TeamType",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Int!",
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "tag",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "dateCreated",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "isPro",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "isLocked",
+            "type": "Boolean",
+            "args": []
+          },
+          {
+            "name": "countryCode",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "url",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "logo",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "baseLogo",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "bannerLogo",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "winCount",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "lossCount",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "lastMatchDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "countryName",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "coachSteamAccountId",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "coachSteamAccount",
+            "type": "SteamAccountType",
+            "args": []
+          },
+          {
+            "name": "matches",
+            "type": "[MatchType]",
+            "args": [
+              {
+                "name": "request",
+                "type": "TeamMatchesRequestType!"
+              }
+            ]
+          },
+          {
+            "name": "series",
+            "type": "[SeriesType]",
+            "args": [
+              {
+                "name": "request",
+                "type": "FilterSeriesRequestType!"
+              }
+            ]
+          },
+          {
+            "name": "members",
+            "type": "[SteamAccountTeamMemberType]",
+            "args": [
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "matchesGroupBy",
+            "type": "[MatchGroupByType]",
+            "args": [
+              {
+                "name": "request",
+                "type": "PlayerMatchesGroupByRequestType!"
+              }
+            ]
+          },
+          {
+            "name": "heroPickBan",
+            "type": "[MatchPickBanGroupByType]",
+            "args": [
+              {
+                "name": "request",
+                "type": "HeroPickBanRequestType!"
+              }
+            ]
+          },
+          {
+            "name": "leagues",
+            "type": "[LeagueType]",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "SteamAccountTeamMemberType",
+        "fields": [
+          {
+            "name": "steamAccountId",
+            "type": "Long!",
+            "args": []
+          },
+          {
+            "name": "steamAccount",
+            "type": "SteamAccountType",
+            "args": []
+          },
+          {
+            "name": "player",
+            "type": "PlayerType",
+            "args": []
+          },
+          {
+            "name": "teamId",
+            "type": "Int!",
+            "args": []
+          },
+          {
+            "name": "firstMatchId",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "firstMatchDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "lastMatchId",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "lastMatchDateTime",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "team",
+            "type": "TeamType",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "ProSteamAccountType",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "realName",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "fantasyRole",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "teamId",
+            "type": "Int",
+            "args": []
+          },
+          {
+            "name": "sponsor",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "isLocked",
+            "type": "Boolean!",
+            "args": []
+          },
+          {
+            "name": "isPro",
+            "type": "Boolean!",
+            "args": []
+          },
+          {
+            "name": "totalEarnings",
+            "type": "Int!",
+            "args": []
+          },
+          {
+            "name": "birthday",
+            "type": "Long",
+            "args": []
+          },
+          {
+            "name": "romanizedRealName",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "roles",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "aliases",
+            "type": "[String]",
+            "args": []
+          },
+          {
+            "name": "statuses",
+            "type": "Byte",
+            "args": []
+          },
+          {
+            "name": "twitterLink",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "twitchLink",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "instagramLink",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "vkLink",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "youTubeLink",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "facebookLink",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "weiboLink",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "signatureHeroes",
+            "type": "[String]",
+            "args": []
+          },
+          {
+            "name": "position",
+            "type": "MatchPlayerPositionType",
+            "args": []
+          },
+          {
+            "name": "countries",
+            "type": "[String]",
+            "args": []
+          },
+          {
+            "name": "team",
+            "type": "TeamType",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "GameVersionType",
+        "fields": [
+          {
+            "name": "id",
+            "type": "Short",
+            "args": []
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "args": []
+          },
+          {
+            "name": "asOfDateTime",
+            "type": "Long",
+            "args": []
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "ConstantQuery",
+        "fields": [
+          {
+            "name": "hero",
+            "type": "HeroType",
+            "args": [
+              {
+                "name": "id",
+                "type": "Short!"
+              },
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              },
+              {
+                "name": "language",
+                "type": "LanguageEnum"
+              }
+            ]
+          },
+          {
+            "name": "heroes",
+            "type": "[HeroType]",
+            "args": [
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              },
+              {
+                "name": "language",
+                "type": "LanguageEnum"
+              }
+            ]
+          },
+          {
+            "name": "roles",
+            "type": "[RoleType]",
+            "args": []
+          },
+          {
+            "name": "item",
+            "type": "ItemType",
+            "args": [
+              {
+                "name": "id",
+                "type": "Int!"
+              },
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              },
+              {
+                "name": "language",
+                "type": "LanguageEnum"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "[ItemType]",
+            "args": [
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              },
+              {
+                "name": "language",
+                "type": "LanguageEnum"
+              }
+            ]
+          },
+          {
+            "name": "ability",
+            "type": "AbilityType",
+            "args": [
+              {
+                "name": "id",
+                "type": "Int!"
+              },
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              },
+              {
+                "name": "language",
+                "type": "LanguageEnum"
+              }
+            ]
+          },
+          {
+            "name": "abilities",
+            "type": "[AbilityType]",
+            "args": [
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              },
+              {
+                "name": "language",
+                "type": "LanguageEnum"
+              }
+            ]
+          },
+          {
+            "name": "gameModes",
+            "type": "[GameModeType]",
+            "args": []
+          },
+          {
+            "name": "lobbyTypes",
+            "type": "[LobbyTypeType]",
+            "args": []
+          },
+          {
+            "name": "clusters",
+            "type": "[ClusterType]",
+            "args": []
+          },
+          {
+            "name": "regions",
+            "type": "[RegionType]",
+            "args": []
+          },
+          {
+            "name": "gameVersion",
+            "type": "GameVersionType",
+            "args": [
+              {
+                "name": "id",
+                "type": "Short!"
+              }
+            ]
+          },
+          {
+            "name": "gameVersions",
+            "type": "[GameVersionType]",
+            "args": []
+          },
+          {
+            "name": "npc",
+            "type": "NpcType",
+            "args": [
+              {
+                "name": "id",
+                "type": "Short!"
+              },
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              }
+            ]
+          },
+          {
+            "name": "npcs",
+            "type": "[NpcType]",
+            "args": [
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              }
+            ]
+          },
+          {
+            "name": "patchNotes",
+            "type": "[PatchNoteLanguageType]",
+            "args": [
+              {
+                "name": "languageId",
+                "type": "LanguageEnum"
+              },
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              }
+            ]
+          },
+          {
+            "name": "customAbilities",
+            "type": "[AbilityCustomGameType]",
+            "args": [
+              {
+                "name": "languageId",
+                "type": "LanguageEnum"
+              }
+            ]
+          },
+          {
+            "name": "modifiers",
+            "type": "[ModifierType]",
+            "args": [
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "proSteamAccounts",
+            "type": "[ProSteamAccountType]",
+            "args": []
+          },
+          {
+            "name": "popularTeamIds",
+            "type": "[TeamType]",
+            "args": []
+          },
+          {
+            "name": "casters",
+            "type": "[SteamAccountType]",
+            "args": []
+          },
+          {
+            "name": "tiWinners",
+            "type": "[SteamAccountType]",
+            "args": []
+          },
+          {
+            "name": "facets",
+            "type": "[FacetType]",
+            "args": [
+              {
+                "name": "gameVersionId",
+                "type": "Short"
+              },
+              {
+                "name": "language",
+                "type": "LanguageEnum"
+              }
+            ]
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "HeroStatsQuery",
+        "fields": [
+          {
+            "name": "stats",
+            "type": "[HeroPositionTimeDetailType]",
+            "args": [
+              {
+                "name": "heroIds",
+                "type": "[Short]"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              },
+              {
+                "name": "groupByTime",
+                "type": "Boolean"
+              },
+              {
+                "name": "groupByPosition",
+                "type": "Boolean"
+              },
+              {
+                "name": "groupByBracket",
+                "type": "Boolean"
+              },
+              {
+                "name": "minTime",
+                "type": "Int"
+              },
+              {
+                "name": "maxTime",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "matchUp",
+            "type": "[HeroDryadType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short"
+              },
+              {
+                "name": "heroIds",
+                "type": "[Short]"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "orderBy",
+                "type": "Byte"
+              },
+              {
+                "name": "matchLimit",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "itemFullPurchase",
+            "type": "[HeroItemPurchaseType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              },
+              {
+                "name": "minTime",
+                "type": "Int"
+              },
+              {
+                "name": "maxTime",
+                "type": "Int"
+              },
+              {
+                "name": "matchLimit",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "itemStartingPurchase",
+            "type": "[HeroItemStartingPurchaseType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              }
+            ]
+          },
+          {
+            "name": "itemBootPurchase",
+            "type": "[HeroItemBootPurchaseType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              }
+            ]
+          },
+          {
+            "name": "itemNeutral",
+            "type": "[HeroNeutralItemType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              }
+            ]
+          },
+          {
+            "name": "laneOutcome",
+            "type": "[HeroLaneOutcomeType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short"
+              },
+              {
+                "name": "isWith",
+                "type": "Boolean!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              }
+            ]
+          },
+          {
+            "name": "heroVsHeroMatchup",
+            "type": "HeroMatchupType",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "matchLimit",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "talent",
+            "type": "[HeroAbilityTalentType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              }
+            ]
+          },
+          {
+            "name": "winHour",
+            "type": "[HeroWinHourType]",
+            "args": [
+              {
+                "name": "heroIds",
+                "type": "[Short]"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "bracketIds",
+                "type": "[RankBracket]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              },
+              {
+                "name": "regionIds",
+                "type": "[BasicRegionType]"
+              },
+              {
+                "name": "gameModeIds",
+                "type": "[GameModeEnumType]"
+              },
+              {
+                "name": "groupBy",
+                "type": "FilterHeroWinRequestGroupBy"
+              }
+            ]
+          },
+          {
+            "name": "winDay",
+            "type": "[HeroWinDayType]",
+            "args": [
+              {
+                "name": "heroIds",
+                "type": "[Short]"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "bracketIds",
+                "type": "[RankBracket]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              },
+              {
+                "name": "regionIds",
+                "type": "[BasicRegionType]"
+              },
+              {
+                "name": "gameModeIds",
+                "type": "[GameModeEnumType]"
+              },
+              {
+                "name": "groupBy",
+                "type": "FilterHeroWinRequestGroupBy"
+              }
+            ]
+          },
+          {
+            "name": "winWeek",
+            "type": "[HeroWinWeekType]",
+            "args": [
+              {
+                "name": "heroIds",
+                "type": "[Short]"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "bracketIds",
+                "type": "[RankBracket]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              },
+              {
+                "name": "regionIds",
+                "type": "[BasicRegionType]"
+              },
+              {
+                "name": "gameModeIds",
+                "type": "[GameModeEnumType]"
+              },
+              {
+                "name": "groupBy",
+                "type": "FilterHeroWinRequestGroupBy"
+              }
+            ]
+          },
+          {
+            "name": "winMonth",
+            "type": "[HeroWinMonthType]",
+            "args": [
+              {
+                "name": "heroIds",
+                "type": "[Short]"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "bracketIds",
+                "type": "[RankBracket]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              },
+              {
+                "name": "regionIds",
+                "type": "[BasicRegionType]"
+              },
+              {
+                "name": "gameModeIds",
+                "type": "[GameModeEnumType]"
+              },
+              {
+                "name": "groupBy",
+                "type": "FilterHeroWinRequestGroupBy"
+              }
+            ]
+          },
+          {
+            "name": "winGameVersion",
+            "type": "[HeroWinGameVersionType]",
+            "args": [
+              {
+                "name": "heroIds",
+                "type": "[Short]"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "bracketIds",
+                "type": "[RankBracket]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              },
+              {
+                "name": "regionIds",
+                "type": "[BasicRegionType]"
+              },
+              {
+                "name": "gameModeIds",
+                "type": "[GameModeEnumType]"
+              },
+              {
+                "name": "groupBy",
+                "type": "FilterHeroWinRequestGroupBy"
+              }
+            ]
+          },
+          {
+            "name": "guide",
+            "type": "[HeroGuideListType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short"
+              },
+              {
+                "name": "withHeroId",
+                "type": "Short"
+              },
+              {
+                "name": "againstHeroId",
+                "type": "Short"
+              },
+              {
+                "name": "isPro",
+                "type": "Boolean"
+              },
+              {
+                "name": "positionId",
+                "type": "MatchPlayerPositionType"
+              },
+              {
+                "name": "itemId",
+                "type": "Short"
+              },
+              {
+                "name": "neutralItemId",
+                "type": "Short"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              }
+            ]
+          },
+          {
+            "name": "rampages",
+            "type": "[HeroRampageObjectType]",
+            "args": [
+              {
+                "name": "request",
+                "type": "FilterHeroRampageType!"
+              }
+            ]
+          },
+          {
+            "name": "abilityMinLevel",
+            "type": "[HeroAbilityMinType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              }
+            ]
+          },
+          {
+            "name": "abilityMaxLevel",
+            "type": "[HeroAbilityMaxType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "week",
+                "type": "Long"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "positionIds",
+                "type": "[MatchPlayerPositionType]"
+              }
+            ]
+          },
+          {
+            "name": "banDay",
+            "type": "[HeroBanType]",
+            "args": [
+              {
+                "name": "heroId",
+                "type": "Short!"
+              },
+              {
+                "name": "day",
+                "type": "Int"
+              },
+              {
+                "name": "bracketBasicIds",
+                "type": "[RankBracketBasicEnum]"
+              },
+              {
+                "name": "take",
+                "type": "Int"
+              },
+              {
+                "name": "skip",
+                "type": "Int"
+              },
+              {
+                "name": "groupByDay",
+                "type": "Boolean"
+              },
+              {
+                "name": "groupByRank",
+                "type": "Boolean"
+              }
+            ]
+          }
+        ],
+        "inputFields": null
+      },
+      {
+        "name": "LeagueRequestType",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "leagueId",
+            "type": "Int"
+          },
+          {
+            "name": "leagueIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "tiers",
+            "type": "[LeagueTier]"
+          },
+          {
+            "name": "requireImage",
+            "type": "Boolean"
+          },
+          {
+            "name": "requirePrizePool",
+            "type": "Boolean"
+          },
+          {
+            "name": "requireStartAndEndDates",
+            "type": "Boolean"
+          },
+          {
+            "name": "hasLiveMatches",
+            "type": "Boolean"
+          },
+          {
+            "name": "leagueEnded",
+            "type": "Boolean"
+          },
+          {
+            "name": "isFutureLeague",
+            "type": "Boolean"
+          },
+          {
+            "name": "startDateTime",
+            "type": "Long"
+          },
+          {
+            "name": "endDateTime",
+            "type": "Long"
+          },
+          {
+            "name": "betweenStartDateTime",
+            "type": "Long"
+          },
+          {
+            "name": "betweenEndDateTime",
+            "type": "Long"
+          },
+          {
+            "name": "orderBy",
+            "type": "FilterOrderBy"
+          },
+          {
+            "name": "take",
+            "type": "Int"
+          },
+          {
+            "name": "skip",
+            "type": "Int"
+          }
+        ]
+      },
+      {
+        "name": "PlayerMatchesRequestType",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "matchIds",
+            "type": "[Long]"
+          },
+          {
+            "name": "leagueId",
+            "type": "Int"
+          },
+          {
+            "name": "leagueIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "seriesId",
+            "type": "Long"
+          },
+          {
+            "name": "teamId",
+            "type": "Int"
+          },
+          {
+            "name": "teamIdSteamAccount",
+            "type": "Int"
+          },
+          {
+            "name": "isParsed",
+            "type": "Boolean"
+          },
+          {
+            "name": "startDateTime",
+            "type": "Long"
+          },
+          {
+            "name": "endDateTime",
+            "type": "Long"
+          },
+          {
+            "name": "gameModeIds",
+            "type": "[Byte]"
+          },
+          {
+            "name": "lobbyTypeIds",
+            "type": "[Byte]"
+          },
+          {
+            "name": "gameVersionIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "regionIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "rankIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "bracketIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "isStats",
+            "type": "Boolean"
+          },
+          {
+            "name": "heroIds",
+            "type": "[Short]"
+          },
+          {
+            "name": "laneIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "roleIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "positionIds",
+            "type": "[MatchPlayerPositionType]"
+          },
+          {
+            "name": "awardIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "isParty",
+            "type": "Boolean"
+          },
+          {
+            "name": "hasAward",
+            "type": "Boolean"
+          },
+          {
+            "name": "withFriendSteamAccountIds",
+            "type": "[Long]"
+          },
+          {
+            "name": "withEnemySteamAccountIds",
+            "type": "[Long]"
+          },
+          {
+            "name": "withFriendHeroIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "withEnemyHeroIds",
+            "type": "[Int]"
+          },
+          {
+            "name": "isVictory",
+            "type": "Boolean"
+          },
+          {
+            "name": "isRadiant",
+            "type": "Boolean"
+          },
+          {
+            "name": "minGameVersionId",
+            "type": "Int"
+          },
+          {
+            "name": "maxGameVersionId",
+            "type": "Int"
+          },
+          {
+            "name": "minImp",
+            "type": "Int"
+          },
+          {
+            "name": "maxImp",
+            "type": "Int"
+          },
+          {
+            "name": "playerList",
+            "type": "FindMatchPlayerList"
+          },
+          {
+            "name": "take",
+            "type": "Int"
+          },
+          {
+            "name": "skip",
+            "type": "Int"
+          },
+          {
+            "name": "after",
+            "type": "Long"
+          },
+          {
+            "name": "before",
+            "type": "Long"
+          },
+          {
+            "name": "orderBy",
+            "type": "FindMatchPlayerOrderBy"
+          }
+        ]
+      }
+    ],
+    "temporalFieldInventory": [
+      {
+        "type": "LeagueRegisteredPlayerType",
+        "fields": []
+      },
+      {
+        "type": "SteamAccountTeamMemberType",
+        "fields": [
+          "firstMatchDateTime",
+          "lastMatchDateTime"
+        ]
+      },
+      {
+        "type": "MatchStatsPickBanType",
+        "fields": []
+      }
+    ]
+  },
+  "constants": {
+    "count": 189,
+    "selectedVersion": {
+      "id": 179,
+      "name": "7.38",
+      "asOfDateTime": 1739923200
+    },
+    "latest": [
+      {
+        "id": 190,
+        "name": "7.41f",
+        "asOfDateTime": 1789430400
+      },
+      {
+        "id": 189,
+        "name": "7.41e",
+        "asOfDateTime": 1785369600
+      },
+      {
+        "id": 188,
+        "name": "7.41d",
+        "asOfDateTime": 1780531200
+      },
+      {
+        "id": 187,
+        "name": "7.41c",
+        "asOfDateTime": 1778025600
+      },
+      {
+        "id": 186,
+        "name": "7.41b",
+        "asOfDateTime": 1775520000
+      }
+    ],
+    "latestDatesAllUtcMidnight": true,
+    "limitation": "Provider catalog timestamps do not prove exact Valve deployment or historical publication; no active client-build mapping verified."
+  },
+  "sample": {
+    "matchId": "8182423670",
+    "startDateTime": 1740057900,
+    "leagueId": "17765",
+    "seriesId": "951232",
+    "gameVersionId": 179,
+    "players": 10,
+    "distinctAccounts": 10,
+    "distinctHeroes": 10,
+    "positionsPresent": 10,
+    "nativeSlots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      128,
+      129,
+      130,
+      131,
+      132
+    ],
+    "draftEvents": 24,
+    "picks": 10,
+    "bans": 14,
+    "originalSource": {
+      "file": ".tools/s3-01-e1-capture/match-8182423670.json",
+      "sha256": "5e71a4178445786a28999bab5e5afe31da59c684b5e557cc1eb5384e8b30f2d2",
+      "payloadSha256": "b9b4f906da7d2452c5a88c1901bd7e60351e91a5d33e680113a9666555c69a90"
+    },
+    "agreement": {
+      "matchId": true,
+      "startTime": true,
+      "leagueId": true,
+      "seriesId": true,
+      "accountsHeroesAndSides": true,
+      "picksMatchFinalHeroesAndSides": true
+    },
+    "coverage": "One selected known pro map, not a representative coverage audit; no whole-corpus/prospective availability claims."
+  },
+  "accessObservations": {
+    "bulkMatches": {
+      "errors": [
+        {
+          "message": "User is not an admin."
+        }
+      ],
+      "data": {
+        "matches": null
+      }
+    },
+    "league": {
+      "data": {
+        "league": {
+          "id": 17765,
+          "name": null,
+          "tier": "PROFESSIONAL",
+          "nodeGroups": []
+        }
+      }
+    },
+    "futureLeagues": {
+      "data": {
+        "leagues": []
+      }
+    }
+  },
+  "conclusions": {
+    "historyEnrichment": "promising; single-map numeric identity, hero, draft and version demonstrated",
+    "schedule": "scheduledTime and teams exist in league nodes; no upcoming rows verified",
+    "registeredPlayers": "league.tables.tableTeams.members exposes LeagueRegisteredPlayerType; real payload not verified; no publication clock in type",
+    "patch": "direct per-map gameVersionId is useful; catalog asOfDateTime alone is insufficient for existing strict provenance gate",
+    "prediction": "No local model activated; provider win rates/IMP are not ground-truth labels or local backtest results",
+    "next": "Owner-token bounded schema/coverage audit, if pursued; retain current E1 protocol and production STRATZ OFF."
+  }
+}

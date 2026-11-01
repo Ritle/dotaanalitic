@@ -1,5 +1,43 @@
 # Источники данных и техническая проверка
 
+## STRATZ — проверка документации и публичного Explorer2026-11-02
+
+По запросу владельца выполнен отдельный source review; production STRATZ остаётся OFF. Это не внедрение адаптера и не смена frozen E1 protocol. [Evidence: реальные HTTP, SHA, схема и сравнение карты](evidence/stratz-api-review-2026-11-02.json). Рабочая БД не подключалась/не менялась; ключ STRATZ в проверенных env-переменных отсутствует.
+
+Проверены [официальная API-страница](https://stratz.com/api), опубликованный ею [GraphiQL Explorer](https://api.stratz.com/graphiql), официальная GitHub knowledge-base. Обычный browser renderer в этой сессии недоступен из-за MXC startup error; исходные HTML/API responses получены разрешённым прямым HTTPS. Explorer публично содержит собственный fetch endpoint; он использовался только для ограниченной read-only проверки, не переносился в приложение и не публиковался в manifest. Для интеграции нужен собственный токен владельца.
+
+Реально получено9 HTTP200:3 GET (API page/Explorer/FAQ),6 GraphQL POST (schema/constants/bulk matches/league/future leagues/single match). HTTP200 не равен успеху GraphQL: bulk `matches(ids:...)` вернул `User is not an admin.`, data.matches NULL. Одиночный документированный `match(id:...)` успешно вернул выбранную карту. Нельзя обещать, что batch query доступен default-token. Все raw responses с SHA сохранены локально в ignored `.tools/stratz-review-20261102/`, публичный manifest не содержит ключ Explorer.
+
+### Подтверждённые возможности и ограничения
+
+| Наша задача | Найдено в актуальной схеме | Реальная проверка / предел вывода |
+|---|---|---|
+| Карта, игроки, стороны, герои | `match`, `MatchType.players`, `steamAccountId`, `playerSlot`, `isRadiant`, `heroId` | У8182423670 все10 numeric аккаунтов/героев/сторон совпали с сохранённым OpenDota; N=1, не общий coverage audit |
+| Позиции и линии | `MatchPlayerType.position/lane/role/roleBasic` | POSITION_1..5 заполнены у10 игроков; это provider annotation завершённой карты, не официальное назначение роли до игры |
+| Драфт | `pickBans`, `isPick/heroId/order/isRadiant/playerIndex` | 24 события=10 picks+14 bans; выбранные герои/стороны совпали с финальными. В MatchStatsPickBanType нет event timestamp или publication clock; полноценный исторический draft-as-of не доказан |
+| Патч карты | `MatchType.gameVersionId`, `constants.gameVersions{id,name,asOfDateTime}` | Карта8182423670→179→7.38; каталог189 версий, последняя по дате190/7.41f. Все5 последних catalog dates — UTC midnight: это не доказательство точного deployment time или client6969→7.41f |
+| Расписание | `leagues(request:{isFutureLeague,...})`, `league.nodeGroups.nodes{scheduledTime,actualTime,teamOneId,teamTwoId,hasStarted,isCompleted}` | Запрос5 будущих лиг дал пустой список; league17765 дал nameNULL/tierPROFESSIONAL/nodeGroups[]. Покрытие расписания нужного турнира не подтверждено; не делать вывод, что будущих матчей вообще нет |
+| Участники турнира и зарегистрированные игроки | `league.tables.tableTeams{teamId,members{leagueId,teamId,steamAccountId}}`, members имеет тип LeagueRegisteredPlayerType | Путь подтверждён introspection, payload registrations не проверен. Нет времени публикации регистрации; заявка на турнир не гарантирует пятёрку конкретной карты |
+| Состав команды / история участия | `team.members{steamAccountId,firstMatchId,firstMatchDateTime,lastMatchId,lastMatchDateTime}` | Даты участия не равны объявлению будущего состава; не назначать пять ролей автоматически |
+| Статистика героев, пар и контрпиков | `heroStats.matchUp`, `heroVsHeroMatchup`, position/bracket/week filters | У этих агрегатов не обнаружен league/pro-only аргумент; не подменять ими наши pro-only counts. Считать по проверенным pro maps или отдельно маркировать внешнюю общую мета-статистику |
+| История игрока | `PlayerMatchesRequestType.leagueIds/startDateTime/endDateTime/gameVersionIds/positionIds/...` | Есть подходящие фильтры, но map pro eligibility всё равно проверять отдельно |
+
+Схема содержит513 типов. В `LeagueRegisteredPlayerType` отсутствуют временные поля; у team member есть только first/last match timestamps, у draft event — order без времени. Поля `parsedDateTime/statsDateTime` относятся к обработке и не подтверждают публикацию состава до старта. `isStats` означает внутренний фильтр качества STRATZ, **не** профессиональный матч. `constants.proSteamAccounts` по описанию включает также стримеров, **не** является pro-map proof.
+
+Поля winRates/predictedWinRates/IMP — оценки поставщика. Не использовать их как verified outcome, не выдавать за вероятность нашей независимо проверенной модели и не подмешивать post-match данные целевой карты в pre-match признаки. Совпадение двух API полезно для обнаружения расхождений, но не гарантирует независимость их upstream sources.
+
+### Доступ и лимиты
+
+STRATZ описывает API как бесплатный и рекомендует собственный токен после Steam login: [официальный FAQ токенов](https://github.com/STRATZ-Esports/knowledge-base/issues/37). [FAQ лимитов](https://github.com/STRATZ-Esports/knowledge-base/issues/15), обновлённый2021-11-22, указывает Default20/sec,250/min,2000/hour,10000/day; Individual20/sec,250/min,4000/hour,20000/day. Это опубликованные старые значения, не измеренный лимит нашей учётной записи в2026. Проверить актуальные My Tokens/ответы после входа, учитывать все интервалы и Retry-After. Не задавать лимиты по сторонним wrapper README.
+
+[FAQ условий](https://github.com/STRATZ-Esports/knowledge-base/issues/31), также старый: для Default требуется ссылка на источник, для повышенных token types описаны referral requirements. Полные актуальные условия лицензирования/хранения/redistribution здесь не подтверждены. Не считать слово free разрешением на любую перепубликацию. Старые REST wrappers не брать за контракт: официальный сайт сообщает о переходе на GraphQL.
+
+### Рекомендация для проекта
+
+Сохранить OpenDota основным источником, STRATZ проверять как дополнение для per-map patch label, позиционных аннотаций и draft detail. Расписание PandaScore/BALLDONTLIE пока не заменять: STRATZ имеет подходящие schema fields, но нужное покрытие не показано. Для будущих игр сохранить собственные pre-start snapshots доступной заявки/состава; manual hypothetical lineups остаются допустимым вводом и не требуют поиска старого объявления. Исторические reconstructed карты держать в явном research cohort.
+
+Следующий возможный STRATZ pilot: собственный `STRATZ_API_TOKEN` в локальной `.env`, повтор auth/schema/limits;10–20 заранее выбранных локальных pro maps разных дат/патчей через single-map reader; отдельная проверка одной нужной future league, registered roster и изменения snapshot до старта. Отчёт должен дать coverage/conflicts по каждому полю и точные clocks. Не включать fallback/import автоматически, не менять старый E0/E1 dataset или его frozen settings. Текущий следующий implementation slice остаётся E1 collector/scoring guard, пока владелец не выберет интеграцию STRATZ.
+
 ## S3-01 E1 — identity/series completion2026-11-02
 
 31 account ID подтверждён двумя прежними SHA-bound `/proPlayers`, последний223342537 — одним новым HTTP200 `/players/{id}` через штатный client. Current numeric identity не является историческим lineup knownAt. Один публичный HTTP200 Valve GetLeagueData17765 подтвердил пять explicit series_type0→BO1 через numeric series/map/team IDs и node_type1; pinned protobuf SHA сохранён. Policy v3 различает явный0 и отсутствующее значение. Новых map HTTP0. Зарегистрированы32 players/proofs и94 серии; reimport196 + replay196 duplicate. Итог232 pro maps/2320 resolved slots/197 players/122 canonical series, outcomes/players/heroes/teams/series232/232; patch registry/datasets/models0. Remote completeness unknown, historical availability не доказана. [Применение и источники](S3_01_E1_LINKS.md), [manifest](evidence/s3-01-e1-links.json). Следующий раздел сохраняет прежний checkpoint до этих изменений.
