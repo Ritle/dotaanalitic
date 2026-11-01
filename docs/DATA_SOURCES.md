@@ -1,5 +1,9 @@
 # Источники данных и техническая проверка
 
+## S3-01 E1 — warmup corpus import2026-11-02
+
+По pinned plan получены196 полных OpenDota responses DreamLeague25/league17765 и3 reference snapshots. До импорта source audit8 карт дал10 HTTP200. Capture:201 attempts (199×200/2×429), cooldown/Retry-After соблюдены;200 primary attempts и отдельный recovery последней карты1 из max3. Импорт196 новых pro-карт/verified outcomes, replay196 duplicate без новых HTTP. Рабочий корпус232 pro maps/2320 slots;32 source accounts пока unknown,94 provider-серии требуют canonical provision. Identity registry165 proofs/revision330, patch registry/datasets/models0; source knownAtNULL сохранён, historic availability не доказана. [Полный результат и SHA](S3_01_E1_IMPORT.md).
+
 ## S1-07 — client mapping source branch завершена
 
 Ограниченная проверка registered Steam library и трёх файлов pinned community GameTracking mirror не установила technical-version→balance-patch correspondence. Client/server6969 и104 localization tokens7.41f в файле с122 разными patch labels не являются active selector.5 HTTP200,5 SHA/3 exact Git blob checks; primary installed client snapshot не получен. Ветка остановлена до materially new evidence, accepted patch proofs0. [Результат и граница вывода](S1_07_CLIENT_MAPPING_STOP.md), [manifest](evidence/s1-07-client-mapping-review.json).

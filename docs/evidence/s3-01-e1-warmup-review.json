@@ -1,0 +1,1403 @@
+{
+  "schemaVersion": 1,
+  "mode": "e1_warmup_review",
+  "generatedAt": "2026-11-01T21:50:40.290Z",
+  "plan": {
+    "file": "docs/evidence/s3-01-e1-plan.json",
+    "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62",
+    "bytes": 51419
+  },
+  "audit": {
+    "file": "reports/s3-01-e1-source-audit.json",
+    "sha256": "8c9a078cc0ebf386222c62461b67d3004dac7b21670fd16ab1d49510622322cc",
+    "bytes": 28458
+  },
+  "captureIndex": {
+    "file": ".tools/s3-01-e1-capture/recovered-index.json",
+    "sha256": "5c2b6b51bae25898dcd4129e56e456bb751e7222af10cd765c43bf482caf47f5",
+    "bytes": 47792
+  },
+  "eligibleIds": [
+    "8176324556",
+    "8176333219",
+    "8176318378",
+    "8176331185",
+    "8176418029",
+    "8176419599",
+    "8176421766",
+    "8176424546",
+    "8176544132",
+    "8176568556",
+    "8176568607",
+    "8176593686",
+    "8176690425",
+    "8176702303",
+    "8176691519",
+    "8176738386",
+    "8176853300",
+    "8176853271",
+    "8176853920",
+    "8176866692",
+    "8176953517",
+    "8176962465",
+    "8176972698",
+    "8176998187",
+    "8177042833",
+    "8177081974",
+    "8177098226",
+    "8177094101",
+    "8177140322",
+    "8177162198",
+    "8177175505",
+    "8177179626",
+    "8177788900",
+    "8177795770",
+    "8177793345",
+    "8177795894",
+    "8177857062",
+    "8177855729",
+    "8177872455",
+    "8177873642",
+    "8177979992",
+    "8177966388",
+    "8177972205",
+    "8177993088",
+    "8178054279",
+    "8178071101",
+    "8178089669",
+    "8178082411",
+    "8178198896",
+    "8178209050",
+    "8178217730",
+    "8178223689",
+    "8178287873",
+    "8178293395",
+    "8178336438",
+    "8178331701",
+    "8178396014",
+    "8178416582",
+    "8178427331",
+    "8178498792",
+    "8178495419",
+    "8178503846",
+    "8178521185",
+    "8178594096",
+    "8179123839",
+    "8179129689",
+    "8179129826",
+    "8179125294",
+    "8179191377",
+    "8179201399",
+    "8179198444",
+    "8179215784",
+    "8179295960",
+    "8179312828",
+    "8179315610",
+    "8179356848",
+    "8179388679",
+    "8179426172",
+    "8179420583",
+    "8179504218",
+    "8179529448",
+    "8179526188",
+    "8179557618",
+    "8179632650",
+    "8179639324",
+    "8179644342",
+    "8179680428",
+    "8179727963",
+    "8179735864",
+    "8179747680",
+    "8179754432",
+    "8179820296",
+    "8179818758",
+    "8179825453",
+    "8179852572",
+    "8179905694",
+    "8181154673",
+    "8181171260",
+    "8181166277",
+    "8181185346",
+    "8181273873",
+    "8181284015",
+    "8181275866",
+    "8181307882",
+    "8181400323",
+    "8181406947",
+    "8181420740",
+    "8181445296",
+    "8181514705",
+    "8181522405",
+    "8181539594",
+    "8181545391",
+    "8182423670",
+    "8182543107",
+    "8182654920",
+    "8182791788",
+    "8182907583",
+    "8183642521",
+    "8183722972",
+    "8183837907",
+    "8183945792",
+    "8184093905",
+    "8184273990",
+    "8184390264",
+    "8184590344",
+    "8184670170",
+    "8184734925",
+    "8185278759",
+    "8185374108",
+    "8185600616",
+    "8185744704",
+    "8185983891",
+    "8186101644",
+    "8186212116",
+    "8186332629",
+    "8186454260",
+    "8186524440",
+    "8187040217",
+    "8187313774",
+    "8187522475",
+    "8187668360",
+    "8187804922",
+    "8187923027",
+    "8188051616",
+    "8188122665",
+    "8188590279",
+    "8188655840",
+    "8188734692",
+    "8188913379",
+    "8189005792",
+    "8189149640",
+    "8189233392",
+    "8189432866",
+    "8189491576",
+    "8189554620",
+    "8189952576",
+    "8190011384",
+    "8190194573",
+    "8190294076",
+    "8190432750",
+    "8190531017",
+    "8190630231",
+    "8190784614",
+    "8190845902",
+    "8191296542",
+    "8191350491",
+    "8191531686",
+    "8191660167",
+    "8191838350",
+    "8191952054",
+    "8192113171",
+    "8192174540",
+    "8192617618",
+    "8192678156",
+    "8192853077",
+    "8192947707",
+    "8193165788",
+    "8193280233",
+    "8193365045",
+    "8193463396",
+    "8193515068",
+    "8193562371",
+    "8195843134",
+    "8196015197",
+    "8196103081",
+    "8196288391",
+    "8196380751",
+    "8196485303",
+    "8197311299",
+    "8197456312",
+    "8197688531",
+    "8197793601",
+    "8197912154",
+    "8198039682",
+    "8200366179",
+    "8200463236"
+  ],
+  "assessments": [
+    {
+      "matchId": "8176324556",
+      "seriesKey": "opendota:949983",
+      "reasons": []
+    },
+    {
+      "matchId": "8176333219",
+      "seriesKey": "opendota:949987",
+      "reasons": []
+    },
+    {
+      "matchId": "8176318378",
+      "seriesKey": "opendota:949982",
+      "reasons": []
+    },
+    {
+      "matchId": "8176331185",
+      "seriesKey": "opendota:949986",
+      "reasons": []
+    },
+    {
+      "matchId": "8176418029",
+      "seriesKey": "opendota:949987",
+      "reasons": []
+    },
+    {
+      "matchId": "8176419599",
+      "seriesKey": "opendota:949982",
+      "reasons": []
+    },
+    {
+      "matchId": "8176421766",
+      "seriesKey": "opendota:949986",
+      "reasons": []
+    },
+    {
+      "matchId": "8176424546",
+      "seriesKey": "opendota:949983",
+      "reasons": []
+    },
+    {
+      "matchId": "8176544132",
+      "seriesKey": "opendota:950034",
+      "reasons": []
+    },
+    {
+      "matchId": "8176568556",
+      "seriesKey": "opendota:950044",
+      "reasons": []
+    },
+    {
+      "matchId": "8176568607",
+      "seriesKey": "opendota:950045",
+      "reasons": []
+    },
+    {
+      "matchId": "8176593686",
+      "seriesKey": "opendota:950051",
+      "reasons": []
+    },
+    {
+      "matchId": "8176690425",
+      "seriesKey": "opendota:950045",
+      "reasons": []
+    },
+    {
+      "matchId": "8176702303",
+      "seriesKey": "opendota:950044",
+      "reasons": []
+    },
+    {
+      "matchId": "8176691519",
+      "seriesKey": "opendota:950034",
+      "reasons": []
+    },
+    {
+      "matchId": "8176738386",
+      "seriesKey": "opendota:950051",
+      "reasons": []
+    },
+    {
+      "matchId": "8176853300",
+      "seriesKey": "opendota:950112",
+      "reasons": []
+    },
+    {
+      "matchId": "8176853271",
+      "seriesKey": "opendota:950111",
+      "reasons": []
+    },
+    {
+      "matchId": "8176853920",
+      "seriesKey": "opendota:950113",
+      "reasons": []
+    },
+    {
+      "matchId": "8176866692",
+      "seriesKey": "opendota:950118",
+      "reasons": []
+    },
+    {
+      "matchId": "8176953517",
+      "seriesKey": "opendota:950111",
+      "reasons": []
+    },
+    {
+      "matchId": "8176962465",
+      "seriesKey": "opendota:950113",
+      "reasons": []
+    },
+    {
+      "matchId": "8176972698",
+      "seriesKey": "opendota:950118",
+      "reasons": []
+    },
+    {
+      "matchId": "8176998187",
+      "seriesKey": "opendota:950112",
+      "reasons": []
+    },
+    {
+      "matchId": "8177042833",
+      "seriesKey": "opendota:950180",
+      "reasons": []
+    },
+    {
+      "matchId": "8177081974",
+      "seriesKey": "opendota:950200",
+      "reasons": []
+    },
+    {
+      "matchId": "8177098226",
+      "seriesKey": "opendota:950207",
+      "reasons": []
+    },
+    {
+      "matchId": "8177094101",
+      "seriesKey": "opendota:950205",
+      "reasons": []
+    },
+    {
+      "matchId": "8177140322",
+      "seriesKey": "opendota:950180",
+      "reasons": []
+    },
+    {
+      "matchId": "8177162198",
+      "seriesKey": "opendota:950207",
+      "reasons": []
+    },
+    {
+      "matchId": "8177175505",
+      "seriesKey": "opendota:950205",
+      "reasons": []
+    },
+    {
+      "matchId": "8177179626",
+      "seriesKey": "opendota:950200",
+      "reasons": []
+    },
+    {
+      "matchId": "8177788900",
+      "seriesKey": "opendota:950413",
+      "reasons": []
+    },
+    {
+      "matchId": "8177795770",
+      "seriesKey": "opendota:950417",
+      "reasons": []
+    },
+    {
+      "matchId": "8177793345",
+      "seriesKey": "opendota:950414",
+      "reasons": []
+    },
+    {
+      "matchId": "8177795894",
+      "seriesKey": "opendota:950418",
+      "reasons": []
+    },
+    {
+      "matchId": "8177857062",
+      "seriesKey": "opendota:950417",
+      "reasons": []
+    },
+    {
+      "matchId": "8177855729",
+      "seriesKey": "opendota:950413",
+      "reasons": []
+    },
+    {
+      "matchId": "8177872455",
+      "seriesKey": "opendota:950418",
+      "reasons": []
+    },
+    {
+      "matchId": "8177873642",
+      "seriesKey": "opendota:950414",
+      "reasons": []
+    },
+    {
+      "matchId": "8177979992",
+      "seriesKey": "opendota:950441",
+      "reasons": []
+    },
+    {
+      "matchId": "8177966388",
+      "seriesKey": "opendota:950437",
+      "reasons": []
+    },
+    {
+      "matchId": "8177972205",
+      "seriesKey": "opendota:950439",
+      "reasons": []
+    },
+    {
+      "matchId": "8177993088",
+      "seriesKey": "opendota:950447",
+      "reasons": []
+    },
+    {
+      "matchId": "8178054279",
+      "seriesKey": "opendota:950441",
+      "reasons": []
+    },
+    {
+      "matchId": "8178071101",
+      "seriesKey": "opendota:950439",
+      "reasons": []
+    },
+    {
+      "matchId": "8178089669",
+      "seriesKey": "opendota:950447",
+      "reasons": []
+    },
+    {
+      "matchId": "8178082411",
+      "seriesKey": "opendota:950437",
+      "reasons": []
+    },
+    {
+      "matchId": "8178198896",
+      "seriesKey": "opendota:950460",
+      "reasons": []
+    },
+    {
+      "matchId": "8178209050",
+      "seriesKey": "opendota:950462",
+      "reasons": []
+    },
+    {
+      "matchId": "8178217730",
+      "seriesKey": "opendota:950463",
+      "reasons": []
+    },
+    {
+      "matchId": "8178223689",
+      "seriesKey": "opendota:950465",
+      "reasons": []
+    },
+    {
+      "matchId": "8178287873",
+      "seriesKey": "opendota:950460",
+      "reasons": []
+    },
+    {
+      "matchId": "8178293395",
+      "seriesKey": "opendota:950462",
+      "reasons": []
+    },
+    {
+      "matchId": "8178336438",
+      "seriesKey": "opendota:950463",
+      "reasons": []
+    },
+    {
+      "matchId": "8178331701",
+      "seriesKey": "opendota:950465",
+      "reasons": []
+    },
+    {
+      "matchId": "8178396014",
+      "seriesKey": "opendota:950497",
+      "reasons": []
+    },
+    {
+      "matchId": "8178416582",
+      "seriesKey": "opendota:950506",
+      "reasons": []
+    },
+    {
+      "matchId": "8178427331",
+      "seriesKey": "opendota:950508",
+      "reasons": []
+    },
+    {
+      "matchId": "8178498792",
+      "seriesKey": "opendota:950528",
+      "reasons": []
+    },
+    {
+      "matchId": "8178495419",
+      "seriesKey": "opendota:950506",
+      "reasons": []
+    },
+    {
+      "matchId": "8178503846",
+      "seriesKey": "opendota:950497",
+      "reasons": []
+    },
+    {
+      "matchId": "8178521185",
+      "seriesKey": "opendota:950508",
+      "reasons": []
+    },
+    {
+      "matchId": "8178594096",
+      "seriesKey": "opendota:950528",
+      "reasons": []
+    },
+    {
+      "matchId": "8179123839",
+      "seriesKey": "opendota:950657",
+      "reasons": []
+    },
+    {
+      "matchId": "8179129689",
+      "seriesKey": "opendota:950661",
+      "reasons": []
+    },
+    {
+      "matchId": "8179129826",
+      "seriesKey": "opendota:950662",
+      "reasons": []
+    },
+    {
+      "matchId": "8179125294",
+      "seriesKey": "opendota:950658",
+      "reasons": []
+    },
+    {
+      "matchId": "8179191377",
+      "seriesKey": "opendota:950657",
+      "reasons": []
+    },
+    {
+      "matchId": "8179201399",
+      "seriesKey": "opendota:950661",
+      "reasons": []
+    },
+    {
+      "matchId": "8179198444",
+      "seriesKey": "opendota:950658",
+      "reasons": []
+    },
+    {
+      "matchId": "8179215784",
+      "seriesKey": "opendota:950662",
+      "reasons": []
+    },
+    {
+      "matchId": "8179295960",
+      "seriesKey": "opendota:950690",
+      "reasons": []
+    },
+    {
+      "matchId": "8179312828",
+      "seriesKey": "opendota:950696",
+      "reasons": []
+    },
+    {
+      "matchId": "8179315610",
+      "seriesKey": "opendota:950697",
+      "reasons": []
+    },
+    {
+      "matchId": "8179356848",
+      "seriesKey": "opendota:950706",
+      "reasons": []
+    },
+    {
+      "matchId": "8179388679",
+      "seriesKey": "opendota:950690",
+      "reasons": []
+    },
+    {
+      "matchId": "8179426172",
+      "seriesKey": "opendota:950697",
+      "reasons": []
+    },
+    {
+      "matchId": "8179420583",
+      "seriesKey": "opendota:950696",
+      "reasons": []
+    },
+    {
+      "matchId": "8179504218",
+      "seriesKey": "opendota:950706",
+      "reasons": []
+    },
+    {
+      "matchId": "8179529448",
+      "seriesKey": "opendota:950735",
+      "reasons": []
+    },
+    {
+      "matchId": "8179526188",
+      "seriesKey": "opendota:950734",
+      "reasons": []
+    },
+    {
+      "matchId": "8179557618",
+      "seriesKey": "opendota:950739",
+      "reasons": []
+    },
+    {
+      "matchId": "8179632650",
+      "seriesKey": "opendota:950754",
+      "reasons": []
+    },
+    {
+      "matchId": "8179639324",
+      "seriesKey": "opendota:950735",
+      "reasons": []
+    },
+    {
+      "matchId": "8179644342",
+      "seriesKey": "opendota:950734",
+      "reasons": []
+    },
+    {
+      "matchId": "8179680428",
+      "seriesKey": "opendota:950739",
+      "reasons": []
+    },
+    {
+      "matchId": "8179727963",
+      "seriesKey": "opendota:950754",
+      "reasons": []
+    },
+    {
+      "matchId": "8179735864",
+      "seriesKey": "opendota:950777",
+      "reasons": []
+    },
+    {
+      "matchId": "8179747680",
+      "seriesKey": "opendota:950780",
+      "reasons": []
+    },
+    {
+      "matchId": "8179754432",
+      "seriesKey": "opendota:950781",
+      "reasons": []
+    },
+    {
+      "matchId": "8179820296",
+      "seriesKey": "opendota:950804",
+      "reasons": []
+    },
+    {
+      "matchId": "8179818758",
+      "seriesKey": "opendota:950780",
+      "reasons": []
+    },
+    {
+      "matchId": "8179825453",
+      "seriesKey": "opendota:950777",
+      "reasons": []
+    },
+    {
+      "matchId": "8179852572",
+      "seriesKey": "opendota:950781",
+      "reasons": []
+    },
+    {
+      "matchId": "8179905694",
+      "seriesKey": "opendota:950804",
+      "reasons": []
+    },
+    {
+      "matchId": "8181154673",
+      "seriesKey": "opendota:951010",
+      "reasons": []
+    },
+    {
+      "matchId": "8181171260",
+      "seriesKey": "opendota:951012",
+      "reasons": []
+    },
+    {
+      "matchId": "8181166277",
+      "seriesKey": "opendota:951011",
+      "reasons": []
+    },
+    {
+      "matchId": "8181185346",
+      "seriesKey": "opendota:951013",
+      "reasons": []
+    },
+    {
+      "matchId": "8181273873",
+      "seriesKey": "opendota:951013",
+      "reasons": []
+    },
+    {
+      "matchId": "8181284015",
+      "seriesKey": "opendota:951011",
+      "reasons": []
+    },
+    {
+      "matchId": "8181275866",
+      "seriesKey": "opendota:951010",
+      "reasons": []
+    },
+    {
+      "matchId": "8181307882",
+      "seriesKey": "opendota:951012",
+      "reasons": []
+    },
+    {
+      "matchId": "8181400323",
+      "seriesKey": "opendota:951038",
+      "reasons": []
+    },
+    {
+      "matchId": "8181406947",
+      "seriesKey": "opendota:951040",
+      "reasons": []
+    },
+    {
+      "matchId": "8181420740",
+      "seriesKey": "opendota:951048",
+      "reasons": []
+    },
+    {
+      "matchId": "8181445296",
+      "seriesKey": "opendota:951051",
+      "reasons": []
+    },
+    {
+      "matchId": "8181514705",
+      "seriesKey": "opendota:951048",
+      "reasons": []
+    },
+    {
+      "matchId": "8181522405",
+      "seriesKey": "opendota:951038",
+      "reasons": []
+    },
+    {
+      "matchId": "8181539594",
+      "seriesKey": "opendota:951040",
+      "reasons": []
+    },
+    {
+      "matchId": "8181545391",
+      "seriesKey": "opendota:951051",
+      "reasons": []
+    },
+    {
+      "matchId": "8182423670",
+      "seriesKey": "opendota:951232",
+      "reasons": []
+    },
+    {
+      "matchId": "8182543107",
+      "seriesKey": "opendota:951246",
+      "reasons": []
+    },
+    {
+      "matchId": "8182654920",
+      "seriesKey": "opendota:951258",
+      "reasons": []
+    },
+    {
+      "matchId": "8182791788",
+      "seriesKey": "opendota:951274",
+      "reasons": []
+    },
+    {
+      "matchId": "8182907583",
+      "seriesKey": "opendota:951288",
+      "reasons": []
+    },
+    {
+      "matchId": "8183642521",
+      "seriesKey": "opendota:951498",
+      "reasons": []
+    },
+    {
+      "matchId": "8183722972",
+      "seriesKey": "opendota:951498",
+      "reasons": []
+    },
+    {
+      "matchId": "8183837907",
+      "seriesKey": "opendota:951498",
+      "reasons": []
+    },
+    {
+      "matchId": "8183945792",
+      "seriesKey": "opendota:951544",
+      "reasons": []
+    },
+    {
+      "matchId": "8184093905",
+      "seriesKey": "opendota:951544",
+      "reasons": []
+    },
+    {
+      "matchId": "8184273990",
+      "seriesKey": "opendota:951597",
+      "reasons": []
+    },
+    {
+      "matchId": "8184390264",
+      "seriesKey": "opendota:951597",
+      "reasons": []
+    },
+    {
+      "matchId": "8184590344",
+      "seriesKey": "opendota:951663",
+      "reasons": []
+    },
+    {
+      "matchId": "8184670170",
+      "seriesKey": "opendota:951663",
+      "reasons": []
+    },
+    {
+      "matchId": "8184734925",
+      "seriesKey": "opendota:951663",
+      "reasons": []
+    },
+    {
+      "matchId": "8185278759",
+      "seriesKey": "opendota:951800",
+      "reasons": []
+    },
+    {
+      "matchId": "8185374108",
+      "seriesKey": "opendota:951800",
+      "reasons": []
+    },
+    {
+      "matchId": "8185600616",
+      "seriesKey": "opendota:951866",
+      "reasons": []
+    },
+    {
+      "matchId": "8185744704",
+      "seriesKey": "opendota:951866",
+      "reasons": []
+    },
+    {
+      "matchId": "8185983891",
+      "seriesKey": "opendota:951935",
+      "reasons": []
+    },
+    {
+      "matchId": "8186101644",
+      "seriesKey": "opendota:951935",
+      "reasons": []
+    },
+    {
+      "matchId": "8186212116",
+      "seriesKey": "opendota:951935",
+      "reasons": []
+    },
+    {
+      "matchId": "8186332629",
+      "seriesKey": "opendota:952017",
+      "reasons": []
+    },
+    {
+      "matchId": "8186454260",
+      "seriesKey": "opendota:952017",
+      "reasons": []
+    },
+    {
+      "matchId": "8186524440",
+      "seriesKey": "opendota:952017",
+      "reasons": []
+    },
+    {
+      "matchId": "8187040217",
+      "seriesKey": "opendota:952116",
+      "reasons": []
+    },
+    {
+      "matchId": "8187313774",
+      "seriesKey": "opendota:952161",
+      "reasons": []
+    },
+    {
+      "matchId": "8187522475",
+      "seriesKey": "opendota:952161",
+      "reasons": []
+    },
+    {
+      "matchId": "8187668360",
+      "seriesKey": "opendota:952161",
+      "reasons": []
+    },
+    {
+      "matchId": "8187804922",
+      "seriesKey": "opendota:952273",
+      "reasons": []
+    },
+    {
+      "matchId": "8187923027",
+      "seriesKey": "opendota:952273",
+      "reasons": []
+    },
+    {
+      "matchId": "8188051616",
+      "seriesKey": "opendota:952377",
+      "reasons": []
+    },
+    {
+      "matchId": "8188122665",
+      "seriesKey": "opendota:952377",
+      "reasons": []
+    },
+    {
+      "matchId": "8188590279",
+      "seriesKey": "opendota:952506",
+      "reasons": []
+    },
+    {
+      "matchId": "8188655840",
+      "seriesKey": "opendota:952506",
+      "reasons": []
+    },
+    {
+      "matchId": "8188734692",
+      "seriesKey": "opendota:952506",
+      "reasons": []
+    },
+    {
+      "matchId": "8188913379",
+      "seriesKey": "opendota:952554",
+      "reasons": []
+    },
+    {
+      "matchId": "8189005792",
+      "seriesKey": "opendota:952554",
+      "reasons": []
+    },
+    {
+      "matchId": "8189149640",
+      "seriesKey": "opendota:952582",
+      "reasons": []
+    },
+    {
+      "matchId": "8189233392",
+      "seriesKey": "opendota:952582",
+      "reasons": []
+    },
+    {
+      "matchId": "8189432866",
+      "seriesKey": "opendota:952663",
+      "reasons": []
+    },
+    {
+      "matchId": "8189491576",
+      "seriesKey": "opendota:952663",
+      "reasons": []
+    },
+    {
+      "matchId": "8189554620",
+      "seriesKey": "opendota:952663",
+      "reasons": []
+    },
+    {
+      "matchId": "8189952576",
+      "seriesKey": "opendota:952776",
+      "reasons": []
+    },
+    {
+      "matchId": "8190011384",
+      "seriesKey": "opendota:952776",
+      "reasons": []
+    },
+    {
+      "matchId": "8190194573",
+      "seriesKey": "opendota:952804",
+      "reasons": []
+    },
+    {
+      "matchId": "8190294076",
+      "seriesKey": "opendota:952804",
+      "reasons": []
+    },
+    {
+      "matchId": "8190432750",
+      "seriesKey": "opendota:952804",
+      "reasons": []
+    },
+    {
+      "matchId": "8190531017",
+      "seriesKey": "opendota:952856",
+      "reasons": []
+    },
+    {
+      "matchId": "8190630231",
+      "seriesKey": "opendota:952856",
+      "reasons": []
+    },
+    {
+      "matchId": "8190784614",
+      "seriesKey": "opendota:952910",
+      "reasons": []
+    },
+    {
+      "matchId": "8190845902",
+      "seriesKey": "opendota:952910",
+      "reasons": []
+    },
+    {
+      "matchId": "8191296542",
+      "seriesKey": "opendota:953019",
+      "reasons": []
+    },
+    {
+      "matchId": "8191350491",
+      "seriesKey": "opendota:953019",
+      "reasons": []
+    },
+    {
+      "matchId": "8191531686",
+      "seriesKey": "opendota:953044",
+      "reasons": []
+    },
+    {
+      "matchId": "8191660167",
+      "seriesKey": "opendota:953044",
+      "reasons": []
+    },
+    {
+      "matchId": "8191838350",
+      "seriesKey": "opendota:953101",
+      "reasons": []
+    },
+    {
+      "matchId": "8191952054",
+      "seriesKey": "opendota:953101",
+      "reasons": []
+    },
+    {
+      "matchId": "8192113171",
+      "seriesKey": "opendota:953172",
+      "reasons": []
+    },
+    {
+      "matchId": "8192174540",
+      "seriesKey": "opendota:953172",
+      "reasons": []
+    },
+    {
+      "matchId": "8192617618",
+      "seriesKey": "opendota:953266",
+      "reasons": []
+    },
+    {
+      "matchId": "8192678156",
+      "seriesKey": "opendota:953266",
+      "reasons": []
+    },
+    {
+      "matchId": "8192853077",
+      "seriesKey": "opendota:953308",
+      "reasons": []
+    },
+    {
+      "matchId": "8192947707",
+      "seriesKey": "opendota:953308",
+      "reasons": []
+    },
+    {
+      "matchId": "8193165788",
+      "seriesKey": "opendota:953368",
+      "reasons": []
+    },
+    {
+      "matchId": "8193280233",
+      "seriesKey": "opendota:953368",
+      "reasons": []
+    },
+    {
+      "matchId": "8193365045",
+      "seriesKey": "opendota:953368",
+      "reasons": []
+    },
+    {
+      "matchId": "8193463396",
+      "seriesKey": "opendota:953436",
+      "reasons": []
+    },
+    {
+      "matchId": "8193515068",
+      "seriesKey": "opendota:953436",
+      "reasons": []
+    },
+    {
+      "matchId": "8193562371",
+      "seriesKey": "opendota:953436",
+      "reasons": []
+    },
+    {
+      "matchId": "8195843134",
+      "seriesKey": "opendota:953894",
+      "reasons": []
+    },
+    {
+      "matchId": "8196015197",
+      "seriesKey": "opendota:953894",
+      "reasons": []
+    },
+    {
+      "matchId": "8196103081",
+      "seriesKey": "opendota:953894",
+      "reasons": []
+    },
+    {
+      "matchId": "8196288391",
+      "seriesKey": "opendota:953997",
+      "reasons": []
+    },
+    {
+      "matchId": "8196380751",
+      "seriesKey": "opendota:953997",
+      "reasons": []
+    },
+    {
+      "matchId": "8196485303",
+      "seriesKey": "opendota:953997",
+      "reasons": []
+    },
+    {
+      "matchId": "8197311299",
+      "seriesKey": "opendota:954165",
+      "reasons": []
+    },
+    {
+      "matchId": "8197456312",
+      "seriesKey": "opendota:954165",
+      "reasons": []
+    },
+    {
+      "matchId": "8197688531",
+      "seriesKey": "opendota:954249",
+      "reasons": []
+    },
+    {
+      "matchId": "8197793601",
+      "seriesKey": "opendota:954249",
+      "reasons": []
+    },
+    {
+      "matchId": "8197912154",
+      "seriesKey": "opendota:954249",
+      "reasons": []
+    },
+    {
+      "matchId": "8198039682",
+      "seriesKey": "opendota:954249",
+      "reasons": []
+    },
+    {
+      "matchId": "8200366179",
+      "seriesKey": "opendota:954819",
+      "reasons": []
+    },
+    {
+      "matchId": "8200463236",
+      "seriesKey": "opendota:954819",
+      "reasons": []
+    }
+  ],
+  "before": [
+    {
+      "id": "6054718020",
+      "revision": "3",
+      "signature": "4ca9b5c4dbc5842659b8fb02d0469c7a"
+    },
+    {
+      "id": "6067239305",
+      "revision": "3",
+      "signature": "a793fa09a79cf7674d76f8a531857236"
+    },
+    {
+      "id": "6079100944",
+      "revision": "3",
+      "signature": "2db888c0b40553c3c0eb48191f919518"
+    },
+    {
+      "id": "6214131970",
+      "revision": "3",
+      "signature": "f9ad185c94ec7ec794c397568ff1cf12"
+    },
+    {
+      "id": "6227492909",
+      "revision": "3",
+      "signature": "1d794b0a95b1c988a7592b6e02833218"
+    },
+    {
+      "id": "6806047579",
+      "revision": "3",
+      "signature": "9ddd891ca26e2164d14e264d6ff8b287"
+    },
+    {
+      "id": "6807772726",
+      "revision": "3",
+      "signature": "ce59f9b09ae3b72b86d2791f215b95cb"
+    },
+    {
+      "id": "6809522859",
+      "revision": "3",
+      "signature": "656a0bc47a1fcf40f03687335376430a"
+    },
+    {
+      "id": "6811000638",
+      "revision": "3",
+      "signature": "0de36b3412573a3580fced8e9cc8885d"
+    },
+    {
+      "id": "6832287527",
+      "revision": "3",
+      "signature": "6344e487e1c597364da2ae3a21b01c1c"
+    },
+    {
+      "id": "7378530387",
+      "revision": "2",
+      "signature": "9097b40f5a633ed405b2b47335159aec"
+    },
+    {
+      "id": "7378939289",
+      "revision": "3",
+      "signature": "bfbd334343fd20583856ef86c68ac701"
+    },
+    {
+      "id": "7380403482",
+      "revision": "3",
+      "signature": "cbcd924b654cebd802a0ac040099b5e0"
+    },
+    {
+      "id": "7393133836",
+      "revision": "3",
+      "signature": "2830c3e5a9680c335b51114a11bdae10"
+    },
+    {
+      "id": "7406531302",
+      "revision": "3",
+      "signature": "5c54d9fe8ed1c1afe63d5754e9499959"
+    },
+    {
+      "id": "7927665228",
+      "revision": "3",
+      "signature": "683aa9f6340397797f9b24ae025818a5"
+    },
+    {
+      "id": "7928915377",
+      "revision": "3",
+      "signature": "a3531379e425536b46bca47acccce4f0"
+    },
+    {
+      "id": "7931106306",
+      "revision": "3",
+      "signature": "74f6424978b9ff5f46932a20f9404590"
+    },
+    {
+      "id": "7936520519",
+      "revision": "3",
+      "signature": "9458b3e5fe0e60115b420da6f7ec9afa"
+    },
+    {
+      "id": "7944311818",
+      "revision": "3",
+      "signature": "f7fd5c3af3050657601cdf9c99fa8002"
+    },
+    {
+      "id": "9052687571",
+      "revision": "3",
+      "signature": "022ab7575d42dd709685b8587d16cfb2"
+    },
+    {
+      "id": "9056685103",
+      "revision": "4",
+      "signature": "e685da5e96b3fd6f34396ef97da017c5"
+    },
+    {
+      "id": "9056844521",
+      "revision": "4",
+      "signature": "fe0101c1a156d328e188375a29eeecfc"
+    },
+    {
+      "id": "9061631640",
+      "revision": "3",
+      "signature": "efa7044aa754f1c0f0e8380d9a69acac"
+    },
+    {
+      "id": "9061735400",
+      "revision": "3",
+      "signature": "2ed8e694422bb4a061d8b27835a1626f"
+    },
+    {
+      "id": "9067177642",
+      "revision": "3",
+      "signature": "d42c05b397dde04422696d6a2b460a56"
+    },
+    {
+      "id": "9067346550",
+      "revision": "3",
+      "signature": "7156186e60548a082b803d47f64a02fe"
+    },
+    {
+      "id": "9067412106",
+      "revision": "3",
+      "signature": "1163223599ce5c4d55afc8f70bfe24a9"
+    },
+    {
+      "id": "9067617648",
+      "revision": "3",
+      "signature": "3e8316f57fe01ab0f5ba4c2ec4cf131a"
+    },
+    {
+      "id": "9068795274",
+      "revision": "3",
+      "signature": "69bdb09d52fd3e65cbd1fdaeb0d5bf06"
+    },
+    {
+      "id": "9068910292",
+      "revision": "3",
+      "signature": "d8a680b3c9edc44f9354105ef454efae"
+    },
+    {
+      "id": "9069021061",
+      "revision": "4",
+      "signature": "097cbd7a5e0ef3fa53158db120874824"
+    },
+    {
+      "id": "9069952836",
+      "revision": "3",
+      "signature": "d6d0a3c3550ceea3fc0fb44fda517c48"
+    },
+    {
+      "id": "9070062078",
+      "revision": "3",
+      "signature": "348210aca22034517317c9183eb5be81"
+    },
+    {
+      "id": "9070392472",
+      "revision": "3",
+      "signature": "10203a716bc029f55349fbba3c13456b"
+    },
+    {
+      "id": "9070527945",
+      "revision": "3",
+      "signature": "c51d715d55db4278ea68426785c33952"
+    }
+  ],
+  "beforeCounts": {
+    "maps": 36,
+    "pro_maps": 36,
+    "slots": 360,
+    "resolved": 360,
+    "players": 165,
+    "proofs": 165,
+    "identity_revision": "330",
+    "teams": 35,
+    "series": 28,
+    "receipts": 155,
+    "assessments": 114,
+    "field_observations": 2507,
+    "known_field_observations": 0,
+    "patches": 0,
+    "datasets": 0,
+    "models": 0
+  },
+  "newVerifiedMaps": 0,
+  "trainingReady": false,
+  "deployable": false
+}

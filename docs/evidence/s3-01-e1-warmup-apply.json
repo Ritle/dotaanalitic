@@ -1,0 +1,5526 @@
+{
+  "schemaVersion": 1,
+  "mode": "e1_warmup_apply",
+  "generatedAt": "2026-11-01T21:51:18.321Z",
+  "sourceReport": {
+    "file": ".tools/s3-01-e1-apply.json",
+    "sha256": "88ed91a5ba1f740cc4cb5db173d89506bf72df1e71da8eec5ddac96e9ae2a191",
+    "bytes": 544634
+  },
+  "beforeCounts": {
+    "maps": 36,
+    "pro_maps": 36,
+    "slots": 360,
+    "resolved": 360,
+    "players": 165,
+    "proofs": 165,
+    "identity_revision": "330",
+    "teams": 35,
+    "series": 28,
+    "receipts": 155,
+    "assessments": 114,
+    "field_observations": 2507,
+    "known_field_observations": 0,
+    "patches": 0,
+    "datasets": 0,
+    "models": 0
+  },
+  "afterCounts": {
+    "maps": 232,
+    "pro_maps": 232,
+    "slots": 2320,
+    "resolved": 1725,
+    "players": 165,
+    "proofs": 165,
+    "identity_revision": "330",
+    "teams": 44,
+    "series": 28,
+    "receipts": 547,
+    "assessments": 310,
+    "field_observations": 6818,
+    "known_field_observations": 0,
+    "patches": 0,
+    "datasets": 0,
+    "models": 0
+  },
+  "results": [
+    {
+      "matchId": "8176324556",
+      "receiptId": "418",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176333219",
+      "receiptId": "420",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176318378",
+      "receiptId": "422",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176331185",
+      "receiptId": "424",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176418029",
+      "receiptId": "426",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176419599",
+      "receiptId": "428",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176421766",
+      "receiptId": "430",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176424546",
+      "receiptId": "432",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176544132",
+      "receiptId": "434",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176568556",
+      "receiptId": "436",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176568607",
+      "receiptId": "438",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176593686",
+      "receiptId": "440",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176690425",
+      "receiptId": "442",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176702303",
+      "receiptId": "444",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176691519",
+      "receiptId": "446",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176738386",
+      "receiptId": "448",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176853300",
+      "receiptId": "450",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176853271",
+      "receiptId": "452",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176853920",
+      "receiptId": "454",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176866692",
+      "receiptId": "456",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176953517",
+      "receiptId": "458",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176962465",
+      "receiptId": "460",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176972698",
+      "receiptId": "462",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8176998187",
+      "receiptId": "464",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177042833",
+      "receiptId": "466",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177081974",
+      "receiptId": "468",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177098226",
+      "receiptId": "470",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177094101",
+      "receiptId": "472",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177140322",
+      "receiptId": "474",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177162198",
+      "receiptId": "476",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177175505",
+      "receiptId": "478",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177179626",
+      "receiptId": "480",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177788900",
+      "receiptId": "482",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177795770",
+      "receiptId": "484",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177793345",
+      "receiptId": "486",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177795894",
+      "receiptId": "488",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177857062",
+      "receiptId": "490",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177855729",
+      "receiptId": "492",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177872455",
+      "receiptId": "494",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177873642",
+      "receiptId": "496",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177979992",
+      "receiptId": "498",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177966388",
+      "receiptId": "500",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177972205",
+      "receiptId": "502",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8177993088",
+      "receiptId": "504",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178054279",
+      "receiptId": "506",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178071101",
+      "receiptId": "508",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178089669",
+      "receiptId": "510",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178082411",
+      "receiptId": "512",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178198896",
+      "receiptId": "514",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178209050",
+      "receiptId": "516",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178217730",
+      "receiptId": "518",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178223689",
+      "receiptId": "520",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178287873",
+      "receiptId": "522",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178293395",
+      "receiptId": "524",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178336438",
+      "receiptId": "526",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178331701",
+      "receiptId": "528",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178396014",
+      "receiptId": "530",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178416582",
+      "receiptId": "532",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178427331",
+      "receiptId": "534",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178498792",
+      "receiptId": "536",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178495419",
+      "receiptId": "538",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178503846",
+      "receiptId": "540",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178521185",
+      "receiptId": "542",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8178594096",
+      "receiptId": "544",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179123839",
+      "receiptId": "546",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179129689",
+      "receiptId": "548",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179129826",
+      "receiptId": "550",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179125294",
+      "receiptId": "552",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179191377",
+      "receiptId": "554",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179201399",
+      "receiptId": "556",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179198444",
+      "receiptId": "558",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179215784",
+      "receiptId": "560",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179295960",
+      "receiptId": "562",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179312828",
+      "receiptId": "564",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179315610",
+      "receiptId": "566",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179356848",
+      "receiptId": "568",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179388679",
+      "receiptId": "570",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179426172",
+      "receiptId": "572",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179420583",
+      "receiptId": "574",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179504218",
+      "receiptId": "576",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179529448",
+      "receiptId": "578",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179526188",
+      "receiptId": "580",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179557618",
+      "receiptId": "582",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179632650",
+      "receiptId": "584",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179639324",
+      "receiptId": "586",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179644342",
+      "receiptId": "588",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179680428",
+      "receiptId": "590",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179727963",
+      "receiptId": "592",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179735864",
+      "receiptId": "594",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179747680",
+      "receiptId": "596",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179754432",
+      "receiptId": "598",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179820296",
+      "receiptId": "600",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179818758",
+      "receiptId": "602",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179825453",
+      "receiptId": "604",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179852572",
+      "receiptId": "606",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8179905694",
+      "receiptId": "608",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181154673",
+      "receiptId": "610",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181171260",
+      "receiptId": "612",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181166277",
+      "receiptId": "614",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181185346",
+      "receiptId": "616",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181273873",
+      "receiptId": "618",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181284015",
+      "receiptId": "620",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181275866",
+      "receiptId": "622",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181307882",
+      "receiptId": "624",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181400323",
+      "receiptId": "626",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181406947",
+      "receiptId": "628",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181420740",
+      "receiptId": "630",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181445296",
+      "receiptId": "632",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181514705",
+      "receiptId": "634",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181522405",
+      "receiptId": "636",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181539594",
+      "receiptId": "638",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8181545391",
+      "receiptId": "640",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8182423670",
+      "receiptId": "642",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8182543107",
+      "receiptId": "644",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8182654920",
+      "receiptId": "646",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8182791788",
+      "receiptId": "648",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8182907583",
+      "receiptId": "650",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8183642521",
+      "receiptId": "652",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8183722972",
+      "receiptId": "654",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8183837907",
+      "receiptId": "656",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8183945792",
+      "receiptId": "658",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8184093905",
+      "receiptId": "660",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8184273990",
+      "receiptId": "662",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8184390264",
+      "receiptId": "664",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8184590344",
+      "receiptId": "666",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8184670170",
+      "receiptId": "668",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8184734925",
+      "receiptId": "670",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8185278759",
+      "receiptId": "672",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8185374108",
+      "receiptId": "674",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8185600616",
+      "receiptId": "676",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8185744704",
+      "receiptId": "678",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8185983891",
+      "receiptId": "680",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8186101644",
+      "receiptId": "682",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8186212116",
+      "receiptId": "684",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8186332629",
+      "receiptId": "686",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8186454260",
+      "receiptId": "688",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8186524440",
+      "receiptId": "690",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8187040217",
+      "receiptId": "692",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8187313774",
+      "receiptId": "694",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8187522475",
+      "receiptId": "696",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8187668360",
+      "receiptId": "698",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8187804922",
+      "receiptId": "700",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8187923027",
+      "receiptId": "702",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8188051616",
+      "receiptId": "704",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8188122665",
+      "receiptId": "706",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8188590279",
+      "receiptId": "708",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8188655840",
+      "receiptId": "710",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8188734692",
+      "receiptId": "712",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8188913379",
+      "receiptId": "714",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8189005792",
+      "receiptId": "716",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8189149640",
+      "receiptId": "718",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8189233392",
+      "receiptId": "720",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8189432866",
+      "receiptId": "722",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8189491576",
+      "receiptId": "724",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8189554620",
+      "receiptId": "726",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8189952576",
+      "receiptId": "728",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8190011384",
+      "receiptId": "730",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8190194573",
+      "receiptId": "732",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8190294076",
+      "receiptId": "734",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8190432750",
+      "receiptId": "736",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8190531017",
+      "receiptId": "738",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8190630231",
+      "receiptId": "740",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8190784614",
+      "receiptId": "742",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8190845902",
+      "receiptId": "744",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8191296542",
+      "receiptId": "746",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8191350491",
+      "receiptId": "748",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8191531686",
+      "receiptId": "750",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8191660167",
+      "receiptId": "752",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8191838350",
+      "receiptId": "754",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8191952054",
+      "receiptId": "756",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8192113171",
+      "receiptId": "758",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8192174540",
+      "receiptId": "760",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8192617618",
+      "receiptId": "762",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8192678156",
+      "receiptId": "764",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8192853077",
+      "receiptId": "766",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8192947707",
+      "receiptId": "768",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8193165788",
+      "receiptId": "770",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8193280233",
+      "receiptId": "772",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8193365045",
+      "receiptId": "774",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8193463396",
+      "receiptId": "776",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8193515068",
+      "receiptId": "778",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8193562371",
+      "receiptId": "780",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8195843134",
+      "receiptId": "782",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8196015197",
+      "receiptId": "784",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8196103081",
+      "receiptId": "786",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8196288391",
+      "receiptId": "788",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8196380751",
+      "receiptId": "790",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8196485303",
+      "receiptId": "792",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8197311299",
+      "receiptId": "794",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8197456312",
+      "receiptId": "796",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8197688531",
+      "receiptId": "798",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8197793601",
+      "receiptId": "800",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8197912154",
+      "receiptId": "802",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8198039682",
+      "receiptId": "804",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8200366179",
+      "receiptId": "806",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "8200463236",
+      "receiptId": "808",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    }
+  ],
+  "outcomes": [
+    {
+      "status": "verified",
+      "matchId": "8176324556",
+      "teamAId": "607",
+      "teamBId": "317",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T10:55:02.000Z",
+      "completedAt": "2025-02-16T11:34:06.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "418",
+        "payloadSha256": "8c7da4de039a5d9d43cbd466d7fd37774e0837ea29e9c7f380c373b7d824691c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:36.236Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "418"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176333219",
+      "teamAId": "312",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T10:56:35.000Z",
+      "completedAt": "2025-02-16T11:33:59.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "420",
+        "payloadSha256": "692e313a56ceb382ca1b31222142e009d1189ab2424595ec3864ff5bf6e0a117",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:37.528Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "420"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176318378",
+      "teamAId": "611",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T10:57:08.000Z",
+      "completedAt": "2025-02-16T11:33:47.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "422",
+        "payloadSha256": "0261afca6391b6e4274b7cf70d3d33fb8be7c2872953207d6e0e56ac885e79ab",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:38.971Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "422"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176331185",
+      "teamAId": "613",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T11:02:27.000Z",
+      "completedAt": "2025-02-16T11:38:28.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "424",
+        "payloadSha256": "09db1ebf8049d638329e70b51b284f7d574d5797836f3c31d9ba8de64e6780ac",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:40.210Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "424"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176418029",
+      "teamAId": "318",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T12:05:04.000Z",
+      "completedAt": "2025-02-16T12:43:39.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "426",
+        "payloadSha256": "75b776d4cb915e65fbe25954a8c49e93ed654dff9064d1e9c9efb6b9b2e578a2",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:41.582Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "426"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176419599",
+      "teamAId": "302",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T12:07:07.000Z",
+      "completedAt": "2025-02-16T12:34:36.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "428",
+        "payloadSha256": "aa1a1e62c24bc8cd3ea27aed43dc1c8b8eeb1d83803e6c36f2917f6c8105f4b9",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:42.917Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "428"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176421766",
+      "teamAId": "613",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T12:08:00.000Z",
+      "completedAt": "2025-02-16T13:04:00.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "430",
+        "payloadSha256": "96caea9be63a4549a0c68387709b3e1a47a6b80a053c5762abbe0cbfb92b58a0",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:44.455Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "430"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176424546",
+      "teamAId": "317",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T12:10:02.000Z",
+      "completedAt": "2025-02-16T12:36:05.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "432",
+        "payloadSha256": "98f4ed15b785e7f56fd995b919db8c1de91e4c36d373229aabd954631c304f0f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:45.749Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "432"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176544132",
+      "teamAId": "623",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T13:26:16.000Z",
+      "completedAt": "2025-02-16T14:10:40.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "434",
+        "payloadSha256": "e91163ece87d408a6e966cd1294a7fe078d52b84f9870d6399330af7b724dd3b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:47.045Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "434"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176568556",
+      "teamAId": "314",
+      "teamBId": "626",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T13:29:25.000Z",
+      "completedAt": "2025-02-16T14:03:56.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "436",
+        "payloadSha256": "9666c99ff75aba580b0bd4b1d2b7531299e243c9e47226d98e12eca0cc697d50",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:48.209Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "436"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176568607",
+      "teamAId": "627",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T13:31:00.000Z",
+      "completedAt": "2025-02-16T14:10:31.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "438",
+        "payloadSha256": "d37f717567f7a06d866329ba3c56461d8a9d6e81b6edd8ddef697e7461763d28",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:49.762Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "438"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176593686",
+      "teamAId": "629",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T13:46:00.000Z",
+      "completedAt": "2025-02-16T14:33:00.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "440",
+        "payloadSha256": "b4adc02a842765842c807bc2951c5a6403b9310de8d63cb245cc2bec69bebbdc",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:51.470Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "440"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176690425",
+      "teamAId": "627",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T14:41:00.000Z",
+      "completedAt": "2025-02-16T15:25:49.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "442",
+        "payloadSha256": "9f2784595c3d4240917e8c2d6f79d505310e9bca6b3a6921af58d2cdb75a3367",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:52.638Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "442"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176702303",
+      "teamAId": "626",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T14:43:04.000Z",
+      "completedAt": "2025-02-16T15:22:24.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "444",
+        "payloadSha256": "8386008bf4df7a67f443dce538aaf5dc832252cd9773d6f26c3910757479fca5",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:54.207Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "444"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176691519",
+      "teamAId": "623",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T14:45:53.000Z",
+      "completedAt": "2025-02-16T15:22:18.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "446",
+        "payloadSha256": "d971e9f0348acb15a54f422ff57aff919689236616e46524053f68b95e246884",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:55.009Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "446"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176738386",
+      "teamAId": "1",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T15:05:00.000Z",
+      "completedAt": "2025-02-16T15:43:12.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "448",
+        "payloadSha256": "306db5b05f5107a581e5aa226e8ec5aee62c06de54479cdfacd67199cbee79b5",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:57.064Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "448"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176853300",
+      "teamAId": "614",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T16:14:00.000Z",
+      "completedAt": "2025-02-16T17:15:53.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "450",
+        "payloadSha256": "c45d64a0b33fbb783d917ce589882bcb6aecd976dcac2d44115f28e43bddd941",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:57.861Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "450"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176853271",
+      "teamAId": "611",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T16:14:05.000Z",
+      "completedAt": "2025-02-16T16:49:33.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "452",
+        "payloadSha256": "514ea8c4fc01dca43bfdde2d2fed4ba352157abf43c1aa2aebabcb850128853d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:30:59.728Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "452"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176853920",
+      "teamAId": "317",
+      "teamBId": "613",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T16:17:43.000Z",
+      "completedAt": "2025-02-16T17:02:07.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "454",
+        "payloadSha256": "b7ea69034e7d1254a609df84f3f7b981d9cd69c4a6b017b3c6f76565dc10684e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:00.388Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "454"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176866692",
+      "teamAId": "312",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T16:35:00.000Z",
+      "completedAt": "2025-02-16T17:01:09.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "456",
+        "payloadSha256": "3e894582a783778e80406ddf67055e4ba7242a51fa4b25a14b964165106215bb",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:01.785Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "456"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176953517",
+      "teamAId": "611",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T17:21:07.000Z",
+      "completedAt": "2025-02-16T18:04:12.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "458",
+        "payloadSha256": "51ec99e2e8a77681535f3b337523e72ac0ca2b943a6087b8f49ad9b0dffcbd2b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:03.530Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "458"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176962465",
+      "teamAId": "613",
+      "teamBId": "317",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T17:30:01.000Z",
+      "completedAt": "2025-02-16T17:48:01.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "460",
+        "payloadSha256": "0dcc7a6637d6ba8831f04713741189c46394c863c28fe98e01748cd8f901922a",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:04.575Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "460"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176972698",
+      "teamAId": "312",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T17:33:00.000Z",
+      "completedAt": "2025-02-16T18:13:53.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "462",
+        "payloadSha256": "80c1be3c1fdd3a4fde4fcfe803951c10da1451153191cffcf671b4529533663c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:06.171Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "462"
+    },
+    {
+      "status": "verified",
+      "matchId": "8176998187",
+      "teamAId": "318",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T17:49:01.000Z",
+      "completedAt": "2025-02-16T18:23:05.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "464",
+        "payloadSha256": "5856f6957cb1a7d532777d74aab3915f671dc8fa7d16516ca61dacdcb57f3c19",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:07.478Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "464"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177042833",
+      "teamAId": "1",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T18:31:36.000Z",
+      "completedAt": "2025-02-16T18:51:25.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "466",
+        "payloadSha256": "400f4cc93c8260d13e584f96a8baa07e66df7b44089192810f55b102ef81d81f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:08.548Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "466"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177081974",
+      "teamAId": "314",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T18:46:08.000Z",
+      "completedAt": "2025-02-16T19:31:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "468",
+        "payloadSha256": "5d55148d252fae76cbd24f0abb253070faccb2bad6109a67e19d86542434722b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:10.012Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "468"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177098226",
+      "teamAId": "628",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T18:57:00.000Z",
+      "completedAt": "2025-02-16T19:18:57.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "470",
+        "payloadSha256": "ead78d799e8011af575301243b239438d7cfcd2a677642e088bad9f513144d6b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:11.511Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "470"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177094101",
+      "teamAId": "626",
+      "teamBId": "627",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T19:05:03.000Z",
+      "completedAt": "2025-02-16T19:35:09.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "472",
+        "payloadSha256": "59f3dec5dd443d381ee6d9966443d178010d50787732943d7fd10038ecc9a441",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:12.704Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "472"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177140322",
+      "teamAId": "1",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T19:31:05.000Z",
+      "completedAt": "2025-02-16T19:57:03.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "474",
+        "payloadSha256": "2a733c34000147d871d00fc9874779670d01123f712394417c51004078636164",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:14.670Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "474"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177162198",
+      "teamAId": "629",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T19:49:00.000Z",
+      "completedAt": "2025-02-16T20:24:34.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "476",
+        "payloadSha256": "32db8c0f5b6b7c65a7e8dae9854a52aa01fbd6f974e19c244e50a8511a957224",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:15.299Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "476"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177175505",
+      "teamAId": "627",
+      "teamBId": "626",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-16T20:04:01.000Z",
+      "completedAt": "2025-02-16T20:33:14.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "478",
+        "payloadSha256": "33e42a16a5c9ba4624a7b9e8c0383cb31dec2e7b2640561f13f9e6d1f8b0f0c4",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:17.159Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "478"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177179626",
+      "teamAId": "2",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-16T20:05:06.000Z",
+      "completedAt": "2025-02-16T20:53:02.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "480",
+        "payloadSha256": "c5341e59bee229dfcc549b1378d039e5acf61820a7536a14f0c2700ad66a9b05",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:18.029Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "480"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177788900",
+      "teamAId": "312",
+      "teamBId": "613",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T10:55:00.000Z",
+      "completedAt": "2025-02-17T11:30:07.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "482",
+        "payloadSha256": "29ceadba2992b5b5d1f79ae23ae89e983441d320ab0256b7f92c5619ec11a93a",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:19.345Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "482"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177795770",
+      "teamAId": "607",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T10:55:00.000Z",
+      "completedAt": "2025-02-17T11:21:09.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "484",
+        "payloadSha256": "996127bba0a7cc4c315ccbda640aaaf00deaf3dfe450e23a3bbe0e1a51dc8554",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:20.895Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "484"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177793345",
+      "teamAId": "317",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T10:55:01.000Z",
+      "completedAt": "2025-02-17T11:42:32.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "486",
+        "payloadSha256": "824c2cc9db33c7f6b64ed9dbff2f7124e1a0ee259d733b93ac8f650311c87370",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:22.257Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "486"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177795894",
+      "teamAId": "302",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T10:55:07.000Z",
+      "completedAt": "2025-02-17T11:36:46.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "488",
+        "payloadSha256": "19978fa21f3437d093c83918c30d73d7ed37a56cdacfc76e86d25581b7435d2e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:23.470Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "488"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177857062",
+      "teamAId": "614",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T11:55:00.000Z",
+      "completedAt": "2025-02-17T12:22:35.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "490",
+        "payloadSha256": "0d172db7884efe9d46069387c580cd88373e48ee3f17cdc74f8a7b0b07133105",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:24.910Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "490"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177855729",
+      "teamAId": "613",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T12:00:00.000Z",
+      "completedAt": "2025-02-17T12:39:49.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "492",
+        "payloadSha256": "3281b7317dd989e6398b43b1808c17c1f6fa3056b91bdac9961ca1da9472f64b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:26.781Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "492"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177872455",
+      "teamAId": "318",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T12:09:04.000Z",
+      "completedAt": "2025-02-17T12:33:18.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "494",
+        "payloadSha256": "728f0dd4bce193a109eb0357958b2bde23d442d70509a82e8a1e2f3ee88b9cc9",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:27.594Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "494"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177873642",
+      "teamAId": "317",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T12:14:59.000Z",
+      "completedAt": "2025-02-17T12:58:50.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "496",
+        "payloadSha256": "98c748256e2920396234164555a055070537f0f07742a6eea601b1503efd6161",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:29.349Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "496"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177979992",
+      "teamAId": "2",
+      "teamBId": "627",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T13:25:00.000Z",
+      "completedAt": "2025-02-17T13:44:18.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "498",
+        "payloadSha256": "a3dbf90fd7d0fb39daeeedd1d4986232f1016cdbe56fd8111522986baec98653",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:30.650Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "498"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177966388",
+      "teamAId": "314",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T13:25:09.000Z",
+      "completedAt": "2025-02-17T14:05:25.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "500",
+        "payloadSha256": "38f07634edf364aac2a34dc64e48907ab50de034f364cf8445c9c9c37c83cde4",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:31.876Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "500"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177972205",
+      "teamAId": "629",
+      "teamBId": "626",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T13:27:01.000Z",
+      "completedAt": "2025-02-17T13:53:50.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "502",
+        "payloadSha256": "e4987b74575ebe13e316835b3d921ba54f718dcd64e02bf4971f0a61d9c9ef4c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:32.982Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "502"
+    },
+    {
+      "status": "verified",
+      "matchId": "8177993088",
+      "teamAId": "628",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T13:40:00.000Z",
+      "completedAt": "2025-02-17T14:05:52.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "504",
+        "payloadSha256": "ba52acd23b2b8ac0a885f53daa3c1036dd4ed2ace01a4225c268b24bda6cf5c4",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:34.439Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "504"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178054279",
+      "teamAId": "627",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T14:16:01.000Z",
+      "completedAt": "2025-02-17T15:01:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "506",
+        "payloadSha256": "62077223314b93f43de8a0071f14a45407c882bbfde80e285179c3b65eda835d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:36.637Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "506"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178071101",
+      "teamAId": "626",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T14:30:01.000Z",
+      "completedAt": "2025-02-17T15:08:15.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "508",
+        "payloadSha256": "59dc91380309b52b3f4f84bd853cf5f19b192f7b085d6b0b2d46755ab4027dde",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:37.257Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "508"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178089669",
+      "teamAId": "1",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T14:36:02.000Z",
+      "completedAt": "2025-02-17T15:20:09.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "510",
+        "payloadSha256": "0c7433c16763b2a10ddefd191df33d611427820c4c5f0c2960642e9e91845087",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:39.443Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "510"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178082411",
+      "teamAId": "623",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T14:42:23.000Z",
+      "completedAt": "2025-02-17T15:39:58.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "512",
+        "payloadSha256": "44c548f5ddc6fe07dad5af987b5d9b62383f57c21fef6e6542c784bb71f38f71",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:40.146Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "512"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178198896",
+      "teamAId": "317",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T15:55:00.000Z",
+      "completedAt": "2025-02-17T16:22:59.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "514",
+        "payloadSha256": "7ff6f559691d550b0a5a1b40550adb8cc3aea9fc01a687325b8b6c74e349c027",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:41.972Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "514"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178209050",
+      "teamAId": "312",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T15:59:00.000Z",
+      "completedAt": "2025-02-17T16:30:57.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "516",
+        "payloadSha256": "37ac0a85c37c5c721b6faa57abeb0a2b7b5dacb316e49e209f70060113a0fdfc",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:43.061Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "516"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178217730",
+      "teamAId": "611",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T16:10:00.000Z",
+      "completedAt": "2025-02-17T16:54:57.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "518",
+        "payloadSha256": "8560a93d3e5b1bc8fb7701beb3740cfd94f83d1f85114012f415fe5bba7b3777",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:44.171Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "518"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178223689",
+      "teamAId": "613",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T16:32:05.000Z",
+      "completedAt": "2025-02-17T17:00:25.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "520",
+        "payloadSha256": "95b007ebf7349ebd4227c5ab01b14e1a76197ce6e8911a98698d64e21b997f9b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:45.587Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "520"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178287873",
+      "teamAId": "317",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T16:53:01.000Z",
+      "completedAt": "2025-02-17T17:27:11.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "522",
+        "payloadSha256": "69b1079e3201d346a618d337d93a51e26f30d9785738762052fa1525974f5846",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:47.027Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "522"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178293395",
+      "teamAId": "607",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T17:02:01.000Z",
+      "completedAt": "2025-02-17T17:35:53.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "524",
+        "payloadSha256": "9c8e82078d58c3f42b9fbff0b6b3614e5c23da081a5fb2ba31a2b5ef5f6c0146",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:48.207Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "524"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178336438",
+      "teamAId": "318",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T17:28:00.000Z",
+      "completedAt": "2025-02-17T18:02:56.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "526",
+        "payloadSha256": "0e0867198d19955da08b93dc612c97b3ba952a8728f7f11a406cdeb93af2bccb",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:50.507Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "526"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178331701",
+      "teamAId": "302",
+      "teamBId": "613",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T17:32:07.000Z",
+      "completedAt": "2025-02-17T18:22:11.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "528",
+        "payloadSha256": "6965a08d66c38e3857d0b677bca3a8c0e1a1751dc0e3ccc48636f2df170ecaaf",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:51.112Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "528"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178396014",
+      "teamAId": "2",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T18:25:00.000Z",
+      "completedAt": "2025-02-17T19:02:11.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "530",
+        "payloadSha256": "a0e3cec2d7466676cc9e0ad13da98c8c0523f84730443fe830bf04edd5524a0a",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:31:53.240Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "530"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178416582",
+      "teamAId": "314",
+      "teamBId": "627",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T18:25:00.000Z",
+      "completedAt": "2025-02-17T18:58:02.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "532",
+        "payloadSha256": "65d24b008c5dc702309c759dda333438b5ebd98dd6bd4a4d56e4e10e9dad48d7",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:32:54.443Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "532"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178427331",
+      "teamAId": "626",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T18:47:11.000Z",
+      "completedAt": "2025-02-17T19:25:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "534",
+        "payloadSha256": "c067fafbf5a3077010702822a0a17a42e3bda99d460d55b78d1428f19fc3e8c8",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:32:55.124Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "534"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178498792",
+      "teamAId": "623",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T19:26:14.000Z",
+      "completedAt": "2025-02-17T20:32:37.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "536",
+        "payloadSha256": "0992aff86e89ae222be8e4f0168742b51eacbbfabb2bbca873ffe57898df70bb",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:32:56.613Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "536"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178495419",
+      "teamAId": "627",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T19:28:00.000Z",
+      "completedAt": "2025-02-17T19:58:49.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "538",
+        "payloadSha256": "6fc21a6bf354c95daae055241420389a2431acc7ea08fb8177da0092000ba78d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:32:57.927Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "538"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178503846",
+      "teamAId": "629",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T19:36:01.000Z",
+      "completedAt": "2025-02-17T20:12:13.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "540",
+        "payloadSha256": "9f341567ee35dae65346b89a28db3ec050dfeab71b3d996970ded4669e95bde7",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:32:59.329Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "540"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178521185",
+      "teamAId": "1",
+      "teamBId": "626",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-17T19:55:59.000Z",
+      "completedAt": "2025-02-17T20:34:30.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "542",
+        "payloadSha256": "a17eb9485fcd1981e2c70fc146032c7a573c62b0d6811ad654a41d88b6fae17e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:00.763Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "542"
+    },
+    {
+      "status": "verified",
+      "matchId": "8178594096",
+      "teamAId": "628",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-17T20:55:06.000Z",
+      "completedAt": "2025-02-17T21:31:29.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "544",
+        "payloadSha256": "d6bed6a2c3d2116ac95b5ebf31981a04fdab93870751743cb6ee9b0865581912",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:01.996Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "544"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179123839",
+      "teamAId": "611",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T10:55:00.000Z",
+      "completedAt": "2025-02-18T11:16:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "546",
+        "payloadSha256": "03a6e30b58cdb6ab0017a34193f2408b765bf194fa8aef62b7670e7c281f62ea",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:03.180Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "546"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179129689",
+      "teamAId": "613",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T10:55:00.000Z",
+      "completedAt": "2025-02-18T11:31:04.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "548",
+        "payloadSha256": "70da2551f2ba27eeae66f56649a74b7a151c047f6362c2f21904abe20ad1c77e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:04.649Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "548"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179129826",
+      "teamAId": "302",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T10:55:04.000Z",
+      "completedAt": "2025-02-18T11:49:19.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "550",
+        "payloadSha256": "dbe69475b356ceac8230cf30c04921fb57d0f1f922b8e3de0330f287dee43fe9",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:06.124Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "550"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179125294",
+      "teamAId": "317",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T10:55:14.000Z",
+      "completedAt": "2025-02-18T11:34:27.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "552",
+        "payloadSha256": "290ac2e6e9c71043da40d13752cbdd5689fa923537b6ef21fdc91112d289cb87",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:08.088Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "552"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179191377",
+      "teamAId": "611",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T11:51:01.000Z",
+      "completedAt": "2025-02-18T12:31:37.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "554",
+        "payloadSha256": "dba6276f93a95bc6ae2da4cccb5527e0e7ee8bc326c42a3906f06e0b13383743",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:08.851Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "554"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179201399",
+      "teamAId": "318",
+      "teamBId": "613",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T12:01:01.000Z",
+      "completedAt": "2025-02-18T12:29:59.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "556",
+        "payloadSha256": "eed3bbb2205cebd657ec15e7a8d762d73a1eb2aaa6b1aa821b700aa05fdd831c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:10.151Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "556"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179198444",
+      "teamAId": "317",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T12:06:04.000Z",
+      "completedAt": "2025-02-18T12:58:20.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "558",
+        "payloadSha256": "cd58ff1faf88edf0967fa433b8cfabc29ec3dbca784838f7a4a5544ff441649f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:11.814Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "558"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179215784",
+      "teamAId": "607",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T12:20:05.000Z",
+      "completedAt": "2025-02-18T13:23:37.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "560",
+        "payloadSha256": "2c18b10cf36887197cb7f1f6dbfaed9d031618bb43227504393d5f60260c138c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:12.903Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "560"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179295960",
+      "teamAId": "623",
+      "teamBId": "627",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T13:25:00.000Z",
+      "completedAt": "2025-02-18T13:49:23.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "562",
+        "payloadSha256": "0040465def249c63e21ead67dd08d2f66baa50ea4b2f9072691316b71d1aefb9",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:14.607Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "562"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179312828",
+      "teamAId": "629",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T13:25:00.000Z",
+      "completedAt": "2025-02-18T14:08:04.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "564",
+        "payloadSha256": "399e4b45a38012d52f883e44347e7a5a8c6729957935387489b439e0e230a155",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:15.462Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "564"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179315610",
+      "teamAId": "628",
+      "teamBId": "626",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T13:35:01.000Z",
+      "completedAt": "2025-02-18T14:09:31.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "566",
+        "payloadSha256": "78f4cd88c426e590c5abcf970af74245b1341908aa45c36bf8048fc049d3404d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:17.077Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "566"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179356848",
+      "teamAId": "1",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T14:02:02.000Z",
+      "completedAt": "2025-02-18T15:04:18.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "568",
+        "payloadSha256": "5a4964948dd81aaa49b11002024e13544e5c20209462ffe81cc25859fd55f73e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:18.633Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "568"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179388679",
+      "teamAId": "623",
+      "teamBId": "627",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T14:21:00.000Z",
+      "completedAt": "2025-02-18T14:52:42.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "570",
+        "payloadSha256": "94f681be371b460285de2c6feed16c22b1299a83e545be340c1c247f143fc827",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:20.136Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "570"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179426172",
+      "teamAId": "626",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T14:39:01.000Z",
+      "completedAt": "2025-02-18T15:21:42.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "572",
+        "payloadSha256": "2c9f48ef7af5c1f1c8cb37c49505e1f1efb26559f231429fb8eb7af44bf7d72d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:21.266Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "572"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179420583",
+      "teamAId": "314",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T14:39:02.000Z",
+      "completedAt": "2025-02-18T15:21:47.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "574",
+        "payloadSha256": "a3c7ce310cd90d936adb8d1ddf329dbd1874ab17c5cba26e3717699bfe1bed95",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:22.995Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "574"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179504218",
+      "teamAId": "2",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T15:38:01.000Z",
+      "completedAt": "2025-02-18T16:15:34.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "576",
+        "payloadSha256": "2a3bb250cae4208fc29307512de3aac9625f13a31d24deafdbc8eb7def645fc8",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:24.454Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "576"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179529448",
+      "teamAId": "613",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T15:55:01.000Z",
+      "completedAt": "2025-02-18T16:37:53.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "578",
+        "payloadSha256": "d760afd2ba085e691dc34dfbf69eb7581e65b732965c9f55b34c90304ee38038",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:25.257Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "578"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179526188",
+      "teamAId": "614",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T16:12:01.000Z",
+      "completedAt": "2025-02-18T16:44:06.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "580",
+        "payloadSha256": "fd9222d4bdb710cd8b89803034b30f64dd9ff438fba8f3b4872ba98096d2241c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:26.578Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "580"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179557618",
+      "teamAId": "302",
+      "teamBId": "317",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T16:14:59.000Z",
+      "completedAt": "2025-02-18T16:50:03.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "582",
+        "payloadSha256": "962e0f60f80d0cd739e607372b0a046246afd3fd61d5696e26d9997a1025a7df",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:27.839Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "582"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179632650",
+      "teamAId": "318",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T17:09:01.000Z",
+      "completedAt": "2025-02-18T17:45:01.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "584",
+        "payloadSha256": "da47b6b70214e55e860edd6bb039da0fa608cb1ae088a6a82661d456f5ac2c90",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:30.193Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "584"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179639324",
+      "teamAId": "611",
+      "teamBId": "613",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T17:12:00.000Z",
+      "completedAt": "2025-02-18T17:45:02.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "586",
+        "payloadSha256": "81dbd28dee5a2b3eb9bbdf356526960f697a7b072978cab9b400ca14df53c8bd",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:31.117Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "586"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179644342",
+      "teamAId": "614",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T17:15:01.000Z",
+      "completedAt": "2025-02-18T17:58:20.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "588",
+        "payloadSha256": "88efa6126d5ee7f9157285203195b39c6d831af9fb16242c69666c5f451bf49e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:32.370Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "588"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179680428",
+      "teamAId": "317",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T17:30:40.000Z",
+      "completedAt": "2025-02-18T17:56:36.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "590",
+        "payloadSha256": "e36b14c1a327a0230b3bfd649d94a651f7108b5e5da1020d5a786c7f221bd0af",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:33.887Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "590"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179727963",
+      "teamAId": "318",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T18:16:01.000Z",
+      "completedAt": "2025-02-18T18:46:55.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "592",
+        "payloadSha256": "46b37cad3c7e2fc9503a750b3dae2450b0efaf7e383260b1876013ccbfb852dc",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:35.392Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "592"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179735864",
+      "teamAId": "627",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T18:26:00.000Z",
+      "completedAt": "2025-02-18T19:05:09.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "594",
+        "payloadSha256": "94b93d1c26dd388db48fce49ec5a296c17ddeca5dcb8f42e0dcd7b9d8d7cae56",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:36.194Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "594"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179747680",
+      "teamAId": "623",
+      "teamBId": "626",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T18:37:00.000Z",
+      "completedAt": "2025-02-18T18:59:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "596",
+        "payloadSha256": "bb7d72af1167e3c52266adcdc20b260b815b165f4a24a746ab6ee57c9c836343",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:37.969Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "596"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179754432",
+      "teamAId": "628",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T18:38:00.000Z",
+      "completedAt": "2025-02-18T19:19:50.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "598",
+        "payloadSha256": "1728608d7890b9758d26358ee1c5af834bb72b63ab0f3dd79880ae4a222915e5",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:39.142Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "598"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179820296",
+      "teamAId": "1",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T19:28:01.000Z",
+      "completedAt": "2025-02-18T20:12:14.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "600",
+        "payloadSha256": "781854cbb21e3c6dff91fcef182e0a511472e14b0477885235fd9306ca41ce5b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:40.491Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "600"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179818758",
+      "teamAId": "623",
+      "teamBId": "626",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-18T19:32:00.000Z",
+      "completedAt": "2025-02-18T20:13:09.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "602",
+        "payloadSha256": "46cde14578b5d2725286226282d698542b64677aa744cb41db07d3fae8b9bf1a",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:42.290Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "602"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179825453",
+      "teamAId": "629",
+      "teamBId": "627",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T19:37:01.000Z",
+      "completedAt": "2025-02-18T20:10:16.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "604",
+        "payloadSha256": "200b6eb9f509b5fc51e9aa7e3eca6672d8ae5d751babf58fe8d864c96e768114",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:42.833Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "604"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179852572",
+      "teamAId": "2",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T19:51:02.000Z",
+      "completedAt": "2025-02-18T20:25:57.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "606",
+        "payloadSha256": "3449b0bc9696309189820be222416e83561f8d06b7a900b1e672d08e7a1ed13b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:44.989Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "606"
+    },
+    {
+      "status": "verified",
+      "matchId": "8179905694",
+      "teamAId": "1",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-18T20:44:01.000Z",
+      "completedAt": "2025-02-18T21:24:05.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "608",
+        "payloadSha256": "c08c26cdbcd1e4b7d52b1bc29e67dac3ce912450b98c4cf6287fe08d775cc730",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:45.734Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "608"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181154673",
+      "teamAId": "611",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T15:55:00.000Z",
+      "completedAt": "2025-02-19T16:28:44.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "610",
+        "payloadSha256": "bbd21a16f1e86fe33fc53ac57ac6b99cdddbb365d9db70dba947f1f5d5aa0a38",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:47.690Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "610"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181171260",
+      "teamAId": "317",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-19T15:55:00.000Z",
+      "completedAt": "2025-02-19T16:36:54.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "612",
+        "payloadSha256": "e39d21d56f38399ee44765d8e2abd706078e6078742687fe1e815d57c2f57779",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:48.418Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "612"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181166277",
+      "teamAId": "614",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-19T15:55:02.000Z",
+      "completedAt": "2025-02-19T16:27:23.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "614",
+        "payloadSha256": "d156838ae2b66c72ee3adcbdd9b12bf4f87c9d4340d7ab2e0c82153a179ab5ca",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:49.775Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "614"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181185346",
+      "teamAId": "613",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-19T15:56:29.000Z",
+      "completedAt": "2025-02-19T16:29:59.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "616",
+        "payloadSha256": "4703b64fb77e9ac477d4c83759aa545658e408caa159c1d762ed383be405fe8e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:51.247Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "616"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181273873",
+      "teamAId": "607",
+      "teamBId": "613",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T16:59:00.000Z",
+      "completedAt": "2025-02-19T17:36:57.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "618",
+        "payloadSha256": "184023922321f7c1d462c8919a8896d4d43693ef5f70e779f5e4e081803e3b1e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:52.653Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "618"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181284015",
+      "teamAId": "302",
+      "teamBId": "614",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T17:00:03.000Z",
+      "completedAt": "2025-02-19T17:29:48.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "620",
+        "payloadSha256": "c53648550ded530fce2be8dd6e1e60ec2c3e97a5349a4b595fef90f6cb9ab361",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:53.706Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "620"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181275866",
+      "teamAId": "611",
+      "teamBId": "312",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T17:01:01.000Z",
+      "completedAt": "2025-02-19T17:31:58.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "622",
+        "payloadSha256": "963eb0355cabc1e8f9530fd3e1711dd508342ff2455c90abb5aa94c83e11685e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:55.540Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "622"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181307882",
+      "teamAId": "318",
+      "teamBId": "317",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T17:16:00.000Z",
+      "completedAt": "2025-02-19T17:58:13.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "624",
+        "payloadSha256": "aacaff5d82344c1af59536af0a48ae7186d8f1c928f05028bfb15eb2f57214c4",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:56.626Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "624"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181400323",
+      "teamAId": "627",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T18:25:00.000Z",
+      "completedAt": "2025-02-19T18:59:21.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "626",
+        "payloadSha256": "60f8de86811bb9d2010e9f731a9f6dea8affae5503c61b9ca15d186828af87f5",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:58.177Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "626"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181406947",
+      "teamAId": "623",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-19T18:25:01.000Z",
+      "completedAt": "2025-02-19T19:05:27.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "628",
+        "payloadSha256": "fbc4112266e08dd15e7e61c341615fe3b0e835e8688da89da4fa372156aecf97",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:33:59.278Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "628"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181420740",
+      "teamAId": "314",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T18:25:01.000Z",
+      "completedAt": "2025-02-19T18:56:50.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "630",
+        "payloadSha256": "dcad790929c97d15d3c2580e630a99a75b01b4eafcbf64b7ad36a37389f91969",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:02.840Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "630"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181445296",
+      "teamAId": "2",
+      "teamBId": "626",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T18:40:00.000Z",
+      "completedAt": "2025-02-19T19:10:27.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "632",
+        "payloadSha256": "443dca2c017df06593ddcb43c0cf6595bc10b28388aef34a49ed81cf3c51110f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:03.496Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "632"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181514705",
+      "teamAId": "314",
+      "teamBId": "628",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T19:28:01.000Z",
+      "completedAt": "2025-02-19T19:48:41.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "634",
+        "payloadSha256": "cc750ca2a3c8e17df22bb31815536e7bf9f269d7cb8ea0a2079930474d443484",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:04.841Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "634"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181522405",
+      "teamAId": "627",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-19T19:30:04.000Z",
+      "completedAt": "2025-02-19T20:02:33.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "636",
+        "payloadSha256": "bf679e4500215a52a2fa66179fb2df81665b23c284fcfb2427eb8fe9152f89f6",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:06.417Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "636"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181539594",
+      "teamAId": "629",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-19T19:40:01.000Z",
+      "completedAt": "2025-02-19T20:04:47.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "638",
+        "payloadSha256": "1cadd10a88cfd8652cd2f986abc724aedb20c59154058dbb82afc00af839bca2",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:07.455Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "638"
+    },
+    {
+      "status": "verified",
+      "matchId": "8181545391",
+      "teamAId": "626",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-19T19:43:00.000Z",
+      "completedAt": "2025-02-19T20:35:56.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "640",
+        "payloadSha256": "3de78c504a2bd652af4f65339294ceacdb517ee9f4cfd87d546c90083ca2e89b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:10.339Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "640"
+    },
+    {
+      "status": "verified",
+      "matchId": "8182423670",
+      "teamAId": "627",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-20T13:25:00.000Z",
+      "completedAt": "2025-02-20T13:55:00.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "642",
+        "payloadSha256": "b9b4f906da7d2452c5a88c1901bd7e60351e91a5d33e680113a9666555c69a90",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:11.292Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "642"
+    },
+    {
+      "status": "verified",
+      "matchId": "8182543107",
+      "teamAId": "627",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-20T14:26:01.000Z",
+      "completedAt": "2025-02-20T15:01:28.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "644",
+        "payloadSha256": "62262c40849bb8ff36571d4b2f16887cdcf545d133a02bd1e73fcc7d6a4cc66b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:12.835Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "644"
+    },
+    {
+      "status": "verified",
+      "matchId": "8182654920",
+      "teamAId": "2",
+      "teamBId": "314",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-20T15:31:01.000Z",
+      "completedAt": "2025-02-20T16:15:35.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "646",
+        "payloadSha256": "f964c18db85d6f721a7c15b345107335af87ee50d4da5bf5a9da693cedcc2ae0",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:13.982Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "646"
+    },
+    {
+      "status": "verified",
+      "matchId": "8182791788",
+      "teamAId": "627",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-20T16:58:01.000Z",
+      "completedAt": "2025-02-20T17:46:18.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "648",
+        "payloadSha256": "2eab1f3bab87d71f57a6c3f47c79f7b5b44d014d91308826710a070b787da580",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:15.234Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "648"
+    },
+    {
+      "status": "verified",
+      "matchId": "8182907583",
+      "teamAId": "314",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-20T18:14:00.000Z",
+      "completedAt": "2025-02-20T18:58:26.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "650",
+        "payloadSha256": "9c82c32488ca2300eda2823577cdb51de3530beb0f3e37613715db5ba1812902",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:34:16.440Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "650"
+    },
+    {
+      "status": "verified",
+      "matchId": "8183642521",
+      "teamAId": "2",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-21T09:55:21.000Z",
+      "completedAt": "2025-02-21T10:38:42.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "652",
+        "payloadSha256": "1f095a672bbd4e6898fd0b9dd7d3c9f9951fc10916dcacbfcd3461dbf7a61649",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:18.758Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "652"
+    },
+    {
+      "status": "verified",
+      "matchId": "8183722972",
+      "teamAId": "607",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-21T11:11:06.000Z",
+      "completedAt": "2025-02-21T12:07:01.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "654",
+        "payloadSha256": "ad94261c0650aaaa4d477c10d31c6ec1f6ec2cdcf5aad08d94a779765300b7c1",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:19.640Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "654"
+    },
+    {
+      "status": "verified",
+      "matchId": "8183837907",
+      "teamAId": "2",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-21T12:38:06.000Z",
+      "completedAt": "2025-02-21T13:20:09.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "656",
+        "payloadSha256": "859e2cd071b192c3e6c2c46583b94083c0750c970358564387c872b3d2c28118",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:20.859Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "656"
+    },
+    {
+      "status": "verified",
+      "matchId": "8183945792",
+      "teamAId": "623",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-21T14:00:05.000Z",
+      "completedAt": "2025-02-21T14:41:05.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "658",
+        "payloadSha256": "9f3169062a3019196dcc272b0ef4a31b81be915b3f51527ff06490b5ab61b2fc",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:22.726Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "658"
+    },
+    {
+      "status": "verified",
+      "matchId": "8184093905",
+      "teamAId": "623",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-21T15:13:08.000Z",
+      "completedAt": "2025-02-21T15:53:05.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "660",
+        "payloadSha256": "1a7d7403358de0dd870d579852804b9b257684a0882d061a9a872b5e082b5c44",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:23.975Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "660"
+    },
+    {
+      "status": "verified",
+      "matchId": "8184273990",
+      "teamAId": "1",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-21T16:55:00.000Z",
+      "completedAt": "2025-02-21T17:36:34.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "662",
+        "payloadSha256": "f1af1d22b39fec84cbc3709a6c677ec214517bc8edbaffa0a85428f046d9d1ce",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:24.802Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "662"
+    },
+    {
+      "status": "verified",
+      "matchId": "8184390264",
+      "teamAId": "1",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-21T18:09:00.000Z",
+      "completedAt": "2025-02-21T18:35:46.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "664",
+        "payloadSha256": "fc9472dd699e040baba7a3b88b87c3be4954e580bfae4c0053e94111f8da5273",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:26.423Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "664"
+    },
+    {
+      "status": "verified",
+      "matchId": "8184590344",
+      "teamAId": "318",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-21T20:25:00.000Z",
+      "completedAt": "2025-02-21T21:01:00.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "666",
+        "payloadSha256": "f601a820489a59cc5599c813b71a5d84578e7cd4b5ee303713c377aee834c74d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:27.535Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "666"
+    },
+    {
+      "status": "verified",
+      "matchId": "8184670170",
+      "teamAId": "318",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-21T21:34:00.000Z",
+      "completedAt": "2025-02-21T22:13:19.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "668",
+        "payloadSha256": "95d202bd26566ca751a812d9f8748340ff250a1c5b30c4228b2d4cac00e9d9c2",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:29.342Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "668"
+    },
+    {
+      "status": "verified",
+      "matchId": "8184734925",
+      "teamAId": "318",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-21T22:44:00.000Z",
+      "completedAt": "2025-02-21T23:20:30.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "670",
+        "payloadSha256": "2e0d4db6a29f2d8e224481f6ae2bda13a06b9f8b2f9e69adc0fbd07c3268df4c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:30.248Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "670"
+    },
+    {
+      "status": "verified",
+      "matchId": "8185278759",
+      "teamAId": "1",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-22T09:55:05.000Z",
+      "completedAt": "2025-02-22T10:35:12.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "672",
+        "payloadSha256": "75330cbf8ef383c1e69539ff7ce1ca561df8aa26a6e6c69f1d0771eadb1db2dc",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:31.871Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "672"
+    },
+    {
+      "status": "verified",
+      "matchId": "8185374108",
+      "teamAId": "607",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-22T11:07:07.000Z",
+      "completedAt": "2025-02-22T11:42:17.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "674",
+        "payloadSha256": "c565c38a20fe6a8a4e678a30d87d183196d3441a619b862a4696e339ba9cfa8d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:32.879Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "674"
+    },
+    {
+      "status": "verified",
+      "matchId": "8185600616",
+      "teamAId": "2",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-22T13:25:10.000Z",
+      "completedAt": "2025-02-22T14:11:02.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "676",
+        "payloadSha256": "98e3f084a942990ad3a162a86e679b4917961bba1bf51e9ea028616a560c8493",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:34.359Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "676"
+    },
+    {
+      "status": "verified",
+      "matchId": "8185744704",
+      "teamAId": "2",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-22T14:47:06.000Z",
+      "completedAt": "2025-02-22T15:15:57.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "678",
+        "payloadSha256": "dacfaa3a609130314b39b0d3eed561f32d7b8053cff4dc7c1c5b5ad01d868c3c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:35.589Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "678"
+    },
+    {
+      "status": "verified",
+      "matchId": "8185983891",
+      "teamAId": "318",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-22T16:55:03.000Z",
+      "completedAt": "2025-02-22T17:34:23.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "680",
+        "payloadSha256": "896d4b14c31fc439bea0ac60e98930c1e0fd63f7c2f24f65e7d0c981c043e07d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:36.993Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "680"
+    },
+    {
+      "status": "verified",
+      "matchId": "8186101644",
+      "teamAId": "611",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-22T18:07:03.000Z",
+      "completedAt": "2025-02-22T18:41:10.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "682",
+        "payloadSha256": "508f563321caf2505d28359b2840f3198d2f321421214e229cd2b98dcf86e723",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:38.452Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "682"
+    },
+    {
+      "status": "verified",
+      "matchId": "8186212116",
+      "teamAId": "318",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-22T19:13:59.000Z",
+      "completedAt": "2025-02-22T20:07:18.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "684",
+        "payloadSha256": "eb679cf4ef3c4d00b0329109237fba742bfbfb8ca19752ddceba8fecc7810bfb",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:40.239Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "684"
+    },
+    {
+      "status": "verified",
+      "matchId": "8186332629",
+      "teamAId": "623",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-22T20:51:11.000Z",
+      "completedAt": "2025-02-22T21:54:08.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "686",
+        "payloadSha256": "603ae9a843cd50b008503261430436d2b7d70abc4029799e23299e970771e56c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:40.915Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "686"
+    },
+    {
+      "status": "verified",
+      "matchId": "8186454260",
+      "teamAId": "623",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-22T22:30:00.000Z",
+      "completedAt": "2025-02-22T23:25:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "688",
+        "payloadSha256": "219bebdb56eba652d4693303ef96c85390e2324aa31e28b10f97683e0a2afdcd",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:42.582Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "688"
+    },
+    {
+      "status": "verified",
+      "matchId": "8186524440",
+      "teamAId": "302",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-23T00:01:03.000Z",
+      "completedAt": "2025-02-23T00:36:16.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "690",
+        "payloadSha256": "a8ef280b8461bc51331635fbd619592df4f880de565a7973cd6166cce2a051d4",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:43.782Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "690"
+    },
+    {
+      "status": "verified",
+      "matchId": "8187040217",
+      "teamAId": "611",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-23T10:46:04.000Z",
+      "completedAt": "2025-02-23T11:23:08.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "692",
+        "payloadSha256": "bf2384b696fa27aa762f48e226ccc8d53c4d0bf8a6357004e2020ad37e195f7f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:45.535Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "692"
+    },
+    {
+      "status": "verified",
+      "matchId": "8187313774",
+      "teamAId": "1",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-23T13:25:06.000Z",
+      "completedAt": "2025-02-23T14:05:12.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "694",
+        "payloadSha256": "dee29e6d82409db9e4c406f1e35f54e823cee46e3559a9e45445f3aaea565e55",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:46.657Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "694"
+    },
+    {
+      "status": "verified",
+      "matchId": "8187522475",
+      "teamAId": "629",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-23T14:41:08.000Z",
+      "completedAt": "2025-02-23T15:30:52.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "696",
+        "payloadSha256": "daf0ad0a0e78abc44706ff7863eca9fdd5d9fac611b7324ea2a91578491bb5ba",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:48.607Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "696"
+    },
+    {
+      "status": "verified",
+      "matchId": "8187668360",
+      "teamAId": "629",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-23T16:04:08.000Z",
+      "completedAt": "2025-02-23T16:37:03.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "698",
+        "payloadSha256": "f991ab4452d348da4ea98dbb5e4450ea3a9893929698499e7b0911b3da53ff72",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:49.204Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "698"
+    },
+    {
+      "status": "verified",
+      "matchId": "8187804922",
+      "teamAId": "607",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-23T17:30:03.000Z",
+      "completedAt": "2025-02-23T18:18:03.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "700",
+        "payloadSha256": "fcfa21cc29a9ea5310093f8baa709363cb29b24ffd5e5fad2545794149b1b848",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:50.795Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "700"
+    },
+    {
+      "status": "verified",
+      "matchId": "8187923027",
+      "teamAId": "302",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-23T18:50:00.000Z",
+      "completedAt": "2025-02-23T19:04:45.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "702",
+        "payloadSha256": "fcaf373ba9287cecd18957751d285cdb8c3fc6f3e0d98e4be52209bb7e98e50b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:51.821Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "702"
+    },
+    {
+      "status": "verified",
+      "matchId": "8188051616",
+      "teamAId": "318",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-23T20:28:15.000Z",
+      "completedAt": "2025-02-23T21:04:05.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "704",
+        "payloadSha256": "30c13ea816dbf1181bd7b9f29c0980bcd48e4d05c8318476aa6a734156c0cd2e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:53.314Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "704"
+    },
+    {
+      "status": "verified",
+      "matchId": "8188122665",
+      "teamAId": "623",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-23T21:36:00.000Z",
+      "completedAt": "2025-02-23T22:05:06.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "706",
+        "payloadSha256": "32f73b481f790ab67d538cbd9b9a0c0e008254028ff3f42833fcf1ce68f3be28",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:55.213Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "706"
+    },
+    {
+      "status": "verified",
+      "matchId": "8188590279",
+      "teamAId": "607",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T09:55:00.000Z",
+      "completedAt": "2025-02-24T10:31:28.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "708",
+        "payloadSha256": "2d92636f3010bb6ca48b8bfb7146cbfa765a8b72078d1d36fae289979cb54eb6",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:37:56.060Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "708"
+    },
+    {
+      "status": "verified",
+      "matchId": "8188655840",
+      "teamAId": "629",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T11:02:00.000Z",
+      "completedAt": "2025-02-24T11:42:25.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "710",
+        "payloadSha256": "16e7e2f4ccb7539e2099d16123e3f3b9bed60329c9274f533c769ffdaa771b14",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:47.769Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "710"
+    },
+    {
+      "status": "verified",
+      "matchId": "8188734692",
+      "teamAId": "629",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T12:13:00.000Z",
+      "completedAt": "2025-02-24T13:26:19.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "712",
+        "payloadSha256": "8dd112c50ce9b5f80a815ac8e5ddd439deecfdfb4e4a86bc71d0d8311c162df9",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:49.131Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "712"
+    },
+    {
+      "status": "verified",
+      "matchId": "8188913379",
+      "teamAId": "1",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T14:13:00.000Z",
+      "completedAt": "2025-02-24T14:42:17.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "714",
+        "payloadSha256": "22b274358a649cde93c19ab0d3eecd22e8d3aabc801147c7cd46c3bfc5eb277f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:49.665Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "714"
+    },
+    {
+      "status": "verified",
+      "matchId": "8189005792",
+      "teamAId": "1",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T15:16:00.000Z",
+      "completedAt": "2025-02-24T15:51:16.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "716",
+        "payloadSha256": "df73fd7ddc7e6778b906a5e41e42097288b39c335a58b18a926961c170bf2e7a",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:51.184Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "716"
+    },
+    {
+      "status": "verified",
+      "matchId": "8189149640",
+      "teamAId": "623",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T16:54:59.000Z",
+      "completedAt": "2025-02-24T17:19:49.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "718",
+        "payloadSha256": "7e2a08c194aa38081734a79d520f9e4ee8227af234f107972ac42826819d87b9",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:52.652Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "718"
+    },
+    {
+      "status": "verified",
+      "matchId": "8189233392",
+      "teamAId": "623",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T17:51:59.000Z",
+      "completedAt": "2025-02-24T18:35:50.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "720",
+        "payloadSha256": "64c326a2fdd886bb2f6d86f461d6f7a286e2e99425fe987ce02b0da9676ca122",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:53.941Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "720"
+    },
+    {
+      "status": "verified",
+      "matchId": "8189432866",
+      "teamAId": "302",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T20:25:00.000Z",
+      "completedAt": "2025-02-24T20:59:16.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "722",
+        "payloadSha256": "c01a7bf7db5d131229d6a6e176f05ac25bf6bdcb4c7d0795530ab76922f64a2e",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:55.361Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "722"
+    },
+    {
+      "status": "verified",
+      "matchId": "8189491576",
+      "teamAId": "318",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-24T21:33:04.000Z",
+      "completedAt": "2025-02-24T22:27:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "724",
+        "payloadSha256": "1f9bca6efe270a353bf78346b22b365a98b5923e2d173d50cf1ce00f1ef23ed5",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:56.441Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "724"
+    },
+    {
+      "status": "verified",
+      "matchId": "8189554620",
+      "teamAId": "318",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-24T22:58:02.000Z",
+      "completedAt": "2025-02-24T23:47:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "726",
+        "payloadSha256": "8d1e64b366f07c61918d9e7c6a088b7fef4fab25647c85cc33b0123a54146c5f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:57.939Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "726"
+    },
+    {
+      "status": "verified",
+      "matchId": "8189952576",
+      "teamAId": "629",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-25T09:55:34.000Z",
+      "completedAt": "2025-02-25T10:29:12.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "728",
+        "payloadSha256": "00f232dc2191a74342d3e326260d70c950105ff625c0b63ce8f1f0b01e1b3b89",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:48:59.079Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "728"
+    },
+    {
+      "status": "verified",
+      "matchId": "8190011384",
+      "teamAId": "629",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-25T11:04:00.000Z",
+      "completedAt": "2025-02-25T11:49:13.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "730",
+        "payloadSha256": "a28106ee36eb8a3df10b3ea2da1f3e40dcf6d00ac9804dfddd30b413c2bbb2fa",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:01.263Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "730"
+    },
+    {
+      "status": "verified",
+      "matchId": "8190194573",
+      "teamAId": "607",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-25T13:25:01.000Z",
+      "completedAt": "2025-02-25T13:57:31.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "732",
+        "payloadSha256": "2a6192be1db2153de3398a4f5878c37218c53007e16ece4fc9e8280bcf9caea4",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:02.177Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "732"
+    },
+    {
+      "status": "verified",
+      "matchId": "8190294076",
+      "teamAId": "623",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-25T14:30:00.000Z",
+      "completedAt": "2025-02-25T15:27:20.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "734",
+        "payloadSha256": "86394bf0c4600f9946f8bb7a6d6d25de1f7376ac7fd546403b88ffbfe4eedac4",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:03.153Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "734"
+    },
+    {
+      "status": "verified",
+      "matchId": "8190432750",
+      "teamAId": "623",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-25T15:58:00.000Z",
+      "completedAt": "2025-02-25T16:25:15.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "736",
+        "payloadSha256": "999321649d7c1c93c9ce4b7926b50eca90ccd6c057dec7dbd96daaa5f45b0484",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:04.709Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "736"
+    },
+    {
+      "status": "verified",
+      "matchId": "8190531017",
+      "teamAId": "302",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-25T17:15:00.000Z",
+      "completedAt": "2025-02-25T17:50:42.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "738",
+        "payloadSha256": "7b643ba3bf874f1a40d43af2741fa20edc2c2ef5d00a0c36d6ba526bd73dc00b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:06.174Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "738"
+    },
+    {
+      "status": "verified",
+      "matchId": "8190630231",
+      "teamAId": "302",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-25T18:23:00.000Z",
+      "completedAt": "2025-02-25T19:10:27.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "740",
+        "payloadSha256": "4c8603024bdb1a39ea3b548486d6f469fbbf2b57f42f1151366c5be6b3da95bb",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:08.264Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "740"
+    },
+    {
+      "status": "verified",
+      "matchId": "8190784614",
+      "teamAId": "1",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-25T20:25:00.000Z",
+      "completedAt": "2025-02-25T20:57:33.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "742",
+        "payloadSha256": "75bff33c52dbfcae4c29d04b06e3c31b05c4f404b7ea9946224905962a501a2c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:08.755Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "742"
+    },
+    {
+      "status": "verified",
+      "matchId": "8190845902",
+      "teamAId": "318",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-25T21:29:00.000Z",
+      "completedAt": "2025-02-25T22:01:45.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "744",
+        "payloadSha256": "8dcb2afe63c870791bb54b5bd93ad78060ceb98dfc73deb35585fc917a387f4a",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:10.508Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "744"
+    },
+    {
+      "status": "verified",
+      "matchId": "8191296542",
+      "teamAId": "629",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-26T09:55:00.000Z",
+      "completedAt": "2025-02-26T10:24:02.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "746",
+        "payloadSha256": "bb7512c132ccca36989c1ad0e006e056ce165fbb240cd6f0be3e4a3e8dfa7303",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:11.583Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "746"
+    },
+    {
+      "status": "verified",
+      "matchId": "8191350491",
+      "teamAId": "629",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-26T10:58:00.000Z",
+      "completedAt": "2025-02-26T11:33:31.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "748",
+        "payloadSha256": "181d256e001b52f2cfeb4afe78785eed2ec65f3f05fb90c41eed275bd6785a39",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:13.103Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "748"
+    },
+    {
+      "status": "verified",
+      "matchId": "8191531686",
+      "teamAId": "607",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-26T13:25:00.000Z",
+      "completedAt": "2025-02-26T14:13:19.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "750",
+        "payloadSha256": "f12ad15325782781790d93866a1bc4b15d9bc2b247dcabcbd0b975f3d77537cf",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:14.407Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "750"
+    },
+    {
+      "status": "verified",
+      "matchId": "8191660167",
+      "teamAId": "607",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-26T14:47:00.000Z",
+      "completedAt": "2025-02-26T15:19:58.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "752",
+        "payloadSha256": "82316fa531225ef96a7137a2ceafce66254d5dea646791bd245854486dd47b1c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:15.747Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "752"
+    },
+    {
+      "status": "verified",
+      "matchId": "8191838350",
+      "teamAId": "1",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-26T16:55:00.000Z",
+      "completedAt": "2025-02-26T17:33:56.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "754",
+        "payloadSha256": "35eafaf28b62770ac8e4c9b7c79e3349362c30182a7dc69e02fbd7a2a3fc9a27",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:16.891Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "754"
+    },
+    {
+      "status": "verified",
+      "matchId": "8191952054",
+      "teamAId": "623",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-26T18:09:00.000Z",
+      "completedAt": "2025-02-26T18:52:03.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "756",
+        "payloadSha256": "47c914bd3ac8da199e2bd6d3906ee456b3504e738c83a5d6e046a0b66710833c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:18.326Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "756"
+    },
+    {
+      "status": "verified",
+      "matchId": "8192113171",
+      "teamAId": "318",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-26T20:25:01.000Z",
+      "completedAt": "2025-02-26T21:05:03.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "758",
+        "payloadSha256": "be4e138aaa8ba9783820365e9fcd08abf824190f7a63874e79fc58677ea6d468",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:19.997Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "758"
+    },
+    {
+      "status": "verified",
+      "matchId": "8192174540",
+      "teamAId": "318",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-26T21:37:01.000Z",
+      "completedAt": "2025-02-26T22:16:34.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "760",
+        "payloadSha256": "72634ac3d0dc77c0708d0fb81ce49142fc08e8b26257f2b21535102826f70198",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:21.486Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "760"
+    },
+    {
+      "status": "verified",
+      "matchId": "8192617618",
+      "teamAId": "623",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-27T09:55:10.000Z",
+      "completedAt": "2025-02-27T10:26:03.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "762",
+        "payloadSha256": "536f37e85630ab60b27dad446e15b535b419d0962a2e45c93a40479e85fff7f1",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:22.706Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "762"
+    },
+    {
+      "status": "verified",
+      "matchId": "8192678156",
+      "teamAId": "623",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-27T10:58:05.000Z",
+      "completedAt": "2025-02-27T11:54:07.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "764",
+        "payloadSha256": "e334de025c613fc2a17ffaa482449bd5adea887e3a55bd57e06ea871ca82a54a",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:24.194Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "764"
+    },
+    {
+      "status": "verified",
+      "matchId": "8192853077",
+      "teamAId": "302",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-27T13:25:08.000Z",
+      "completedAt": "2025-02-27T13:54:57.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "766",
+        "payloadSha256": "99bb1c3e868c410ec872cd41ae88681412ef87c3d8f2e3e710818b167ae0092c",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:25.299Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "766"
+    },
+    {
+      "status": "verified",
+      "matchId": "8192947707",
+      "teamAId": "302",
+      "teamBId": "611",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-27T14:27:08.000Z",
+      "completedAt": "2025-02-27T15:25:48.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "768",
+        "payloadSha256": "8d0aa19fbabc0b19897ab5f5fd61850fe0ce1bb320bfeb7f934da2bd6e416591",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:26.575Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "768"
+    },
+    {
+      "status": "verified",
+      "matchId": "8193165788",
+      "teamAId": "1",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-27T16:55:00.000Z",
+      "completedAt": "2025-02-27T17:39:08.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "770",
+        "payloadSha256": "00dc597ff887c4cf8dc6583875d25e57a2bbd7af33aa65b39d282aa94776ef26",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:27.802Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "770"
+    },
+    {
+      "status": "verified",
+      "matchId": "8193280233",
+      "teamAId": "1",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-27T18:11:00.000Z",
+      "completedAt": "2025-02-27T18:51:58.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "772",
+        "payloadSha256": "9242b9f705ad6545735528be9bc42098e183997a89d6360611b1be21d6fc5f69",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:29.095Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "772"
+    },
+    {
+      "status": "verified",
+      "matchId": "8193365045",
+      "teamAId": "1",
+      "teamBId": "2",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-02-27T19:24:00.000Z",
+      "completedAt": "2025-02-27T19:59:33.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "774",
+        "payloadSha256": "20120cc12d7aa7b3c334b146740552ce606f05ba66d97e2f7ffdd1aa632d2143",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:30.572Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "774"
+    },
+    {
+      "status": "verified",
+      "matchId": "8193463396",
+      "teamAId": "607",
+      "teamBId": "318",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-27T20:42:00.000Z",
+      "completedAt": "2025-02-27T21:17:44.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "776",
+        "payloadSha256": "0892ed6564affc58b92b42dfa46a6fca8b05f9c72dd431c079ad3c16bdb0a82f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:32.196Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "776"
+    },
+    {
+      "status": "verified",
+      "matchId": "8193515068",
+      "teamAId": "318",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-27T21:49:00.000Z",
+      "completedAt": "2025-02-27T22:16:14.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "778",
+        "payloadSha256": "0664daef238c6d4a37723fc232e75000ce51de799bc16e67cea04c780a0964bc",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:33.550Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "778"
+    },
+    {
+      "status": "verified",
+      "matchId": "8193562371",
+      "teamAId": "318",
+      "teamBId": "607",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-02-27T22:48:01.000Z",
+      "completedAt": "2025-02-27T23:13:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "780",
+        "payloadSha256": "3fd84c9c2e4f68d5aef3b4f41a774a79d58abbf37022de77016f2ee497af39c7",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:35.460Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "780"
+    },
+    {
+      "status": "verified",
+      "matchId": "8195843134",
+      "teamAId": "1",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-03-01T13:56:10.000Z",
+      "completedAt": "2025-03-01T15:07:45.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "782",
+        "payloadSha256": "f24501fe88b791321d97e07bed4137a12d0c5bdc6a19474ed69db2f0360b2733",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:36.021Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "782"
+    },
+    {
+      "status": "verified",
+      "matchId": "8196015197",
+      "teamAId": "1",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-01T15:40:08.000Z",
+      "completedAt": "2025-03-01T16:05:16.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "784",
+        "payloadSha256": "35d8699a87b95d467c3d05201700b8c4286d36d6c7a32d775efe8a0b8effe436",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:37.654Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "784"
+    },
+    {
+      "status": "verified",
+      "matchId": "8196103081",
+      "teamAId": "1",
+      "teamBId": "629",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-01T16:40:07.000Z",
+      "completedAt": "2025-03-01T18:02:24.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "786",
+        "payloadSha256": "eb45982dce0760af0247668d8dfd6d0869a1c2c580d478fee56aaf94796987db",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:39.848Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "786"
+    },
+    {
+      "status": "verified",
+      "matchId": "8196288391",
+      "teamAId": "623",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-03-01T18:46:00.000Z",
+      "completedAt": "2025-03-01T19:15:31.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "788",
+        "payloadSha256": "9276577ae76c19019c02e150e9b3aa4a1744f0eaf5ed5743100a1b781d6b3386",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:40.613Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "788"
+    },
+    {
+      "status": "verified",
+      "matchId": "8196380751",
+      "teamAId": "623",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-01T19:48:00.000Z",
+      "completedAt": "2025-03-01T20:40:05.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "790",
+        "payloadSha256": "1f047225f5ae106038ab538fd3d219278e5c2e5a5cfd701e268480c23393b41a",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:42.494Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "790"
+    },
+    {
+      "status": "verified",
+      "matchId": "8196485303",
+      "teamAId": "623",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-03-01T21:09:00.000Z",
+      "completedAt": "2025-03-01T21:36:49.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "792",
+        "payloadSha256": "131d25e6d92ffc0b0010e5464f68d03fe0c318cd2e4291f47953e1cf355e702d",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:43.742Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "792"
+    },
+    {
+      "status": "verified",
+      "matchId": "8197311299",
+      "teamAId": "1",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-02T11:55:06.000Z",
+      "completedAt": "2025-03-02T12:44:33.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "794",
+        "payloadSha256": "60e271d8d666c8f819767dac1b0c7451ed9a8d15db1c975ff06bde31ecf44bd7",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:44.541Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "794"
+    },
+    {
+      "status": "verified",
+      "matchId": "8197456312",
+      "teamAId": "1",
+      "teamBId": "623",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-02T13:20:06.000Z",
+      "completedAt": "2025-03-02T14:24:32.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "796",
+        "payloadSha256": "b5f5ea8884dfac2e742c2b8204c1318039cac3ed5f6e9e112c74cc119d699b78",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:45.962Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "796"
+    },
+    {
+      "status": "verified",
+      "matchId": "8197688531",
+      "teamAId": "1",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-02T15:26:14.000Z",
+      "completedAt": "2025-03-02T16:05:28.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "798",
+        "payloadSha256": "8742eb2f2fc26c2c0eeea91a8deb01713e1062232b7968e004a96cf8642c65c0",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:47.266Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "798"
+    },
+    {
+      "status": "verified",
+      "matchId": "8197793601",
+      "teamAId": "1",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-03-02T16:39:01.000Z",
+      "completedAt": "2025-03-02T17:24:28.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "800",
+        "payloadSha256": "68576076160399d7e8b159496b0e2d19deb69b151a943321e2abae17fecf36fc",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:48.744Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "800"
+    },
+    {
+      "status": "verified",
+      "matchId": "8197912154",
+      "teamAId": "1",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-02T17:57:00.000Z",
+      "completedAt": "2025-03-02T19:03:33.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "802",
+        "payloadSha256": "397c34804aec3b611618a112a34745c54061ce132c9dce0c13a7d0d4a39e8c1f",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:50.006Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "802"
+    },
+    {
+      "status": "verified",
+      "matchId": "8198039682",
+      "teamAId": "302",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": false,
+      "startedAt": "2025-03-02T19:35:00.000Z",
+      "completedAt": "2025-03-02T20:27:51.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "804",
+        "payloadSha256": "3fd2f38dfe5a8e9c312f743fc0d437eef1e7fa3c6bea91b1ac67bd5ec54132e9",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:51.531Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "804"
+    },
+    {
+      "status": "verified",
+      "matchId": "8200366179",
+      "teamAId": "302",
+      "teamBId": "1",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-04T15:00:00.000Z",
+      "completedAt": "2025-03-04T15:26:46.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "806",
+        "payloadSha256": "1db70daf361dfd4aabb04199b3dc291668d7826916c197967a5d04f5f5da1822",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:49:52.498Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "806"
+    },
+    {
+      "status": "verified",
+      "matchId": "8200463236",
+      "teamAId": "1",
+      "teamBId": "302",
+      "seriesId": null,
+      "teamAWon": true,
+      "startedAt": "2025-03-04T16:06:00.000Z",
+      "completedAt": "2025-03-04T16:41:20.000Z",
+      "dataRevision": "1",
+      "sourceEvidence": {
+        "receiptId": "808",
+        "payloadSha256": "0340185ec64490ff1cb5fdad8cfce71cf122c86a69990ec066b78374e3c5d01b",
+        "adapterVersion": "opendota-provider-v2",
+        "receiptFetchedAt": "2026-11-01T21:50:22.034Z",
+        "normalizerVersion": "opendota-map-v2-identity"
+      },
+      "labelVerifiedAt": "2026-11-01T21:51:18.321Z",
+      "outcomeReceiptId": "808"
+    }
+  ],
+  "verifiedOutcomes": 196,
+  "unavailableOutcomeReasons": {},
+  "missingAccounts": [
+    {
+      "account_id": "25907144",
+      "maps": 28
+    },
+    {
+      "account_id": "76904792",
+      "maps": 14
+    },
+    {
+      "account_id": "93618577",
+      "maps": 39
+    },
+    {
+      "account_id": "96183976",
+      "maps": 34
+    },
+    {
+      "account_id": "96803083",
+      "maps": 14
+    },
+    {
+      "account_id": "104512126",
+      "maps": 14
+    },
+    {
+      "account_id": "108958769",
+      "maps": 34
+    },
+    {
+      "account_id": "117514269",
+      "maps": 14
+    },
+    {
+      "account_id": "138857296",
+      "maps": 14
+    },
+    {
+      "account_id": "145957968",
+      "maps": 14
+    },
+    {
+      "account_id": "147767183",
+      "maps": 17
+    },
+    {
+      "account_id": "152455523",
+      "maps": 14
+    },
+    {
+      "account_id": "154715080",
+      "maps": 14
+    },
+    {
+      "account_id": "155162307",
+      "maps": 14
+    },
+    {
+      "account_id": "155494381",
+      "maps": 14
+    },
+    {
+      "account_id": "156328257",
+      "maps": 14
+    },
+    {
+      "account_id": "158847773",
+      "maps": 17
+    },
+    {
+      "account_id": "177411785",
+      "maps": 34
+    },
+    {
+      "account_id": "185908355",
+      "maps": 14
+    },
+    {
+      "account_id": "191597529",
+      "maps": 14
+    },
+    {
+      "account_id": "202217968",
+      "maps": 17
+    },
+    {
+      "account_id": "207829314",
+      "maps": 17
+    },
+    {
+      "account_id": "223342537",
+      "maps": 14
+    },
+    {
+      "account_id": "230487729",
+      "maps": 14
+    },
+    {
+      "account_id": "241884166",
+      "maps": 14
+    },
+    {
+      "account_id": "317880638",
+      "maps": 32
+    },
+    {
+      "account_id": "324277900",
+      "maps": 14
+    },
+    {
+      "account_id": "369342470",
+      "maps": 14
+    },
+    {
+      "account_id": "392565237",
+      "maps": 14
+    },
+    {
+      "account_id": "399804216",
+      "maps": 14
+    },
+    {
+      "account_id": "458287006",
+      "maps": 14
+    },
+    {
+      "account_id": "480412663",
+      "maps": 32
+    }
+  ],
+  "qualitySummary": {
+    "maps": 232,
+    "assessedMaps": 232,
+    "linkedReceiptMaps": 232,
+    "canonicalConflictMaps": 0,
+    "dimensions": {
+      "outcome": {
+        "eligible": 232,
+        "ineligible": 0,
+        "unknown": 0
+      },
+      "players": {
+        "eligible": 65,
+        "ineligible": 0,
+        "unknown": 167
+      },
+      "heroes": {
+        "eligible": 232,
+        "ineligible": 0,
+        "unknown": 0
+      },
+      "teams": {
+        "eligible": 232,
+        "ineligible": 0,
+        "unknown": 0
+      },
+      "series": {
+        "eligible": 36,
+        "ineligible": 0,
+        "unknown": 196
+      },
+      "timeline": {
+        "unknown": 231,
+        "structurally_inconsistent": 0,
+        "missing": 1,
+        "verified": 0
+      }
+    },
+    "anomalies": {
+      "CANONICAL_IDENTITIES_UNRESOLVED": 167,
+      "DRAFT_EVENTS_MISSING": 1,
+      "DRAFT_RULES_UNVERIFIED": 232,
+      "LINEUP_KNOWN_AT_UNKNOWN": 232,
+      "PATCH_METADATA_UNVERIFIED": 232,
+      "ROLE_UNVERIFIED": 232,
+      "SERIES_REFERENCE_UNRESOLVED": 196
+    }
+  },
+  "networkRequests": 0,
+  "trainingReady": false,
+  "deployable": false,
+  "teamAWinProbability": null
+}
