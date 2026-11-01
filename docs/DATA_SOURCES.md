@@ -10,6 +10,10 @@ Source IDs остаются отдельным namespace; nickname joins, DB imp
 
 ## OpenDota — основной источник
 
+### S1-08: воспроизводимая диагностика патчей
+
+Офлайн pnpm patch:diagnose принимает SHA-bound map audits v3, pinned raw constants и schema projection Valve list. Source code/coarse label/latest declared feed label/nullable verified patch показаны отдельно. На шести сохранённых live audits40 observations дали36 unique pro maps,4 duplicate; повторные отчёты побайтно совпали, новых HTTP0 и canonical assignments0. Native OpenDota dates без миллисекунд нормализуются, противоречивые timeline/коды не принимаются молча. [Контракт и происхождение inputs](S1_08_PATCH_DIAGNOSTICS_CLI.md), [manifest](evidence/s1-08-patch-diagnostics.json).
+
 ### S1-08: patch code60 — первичная проверка2026-11-01
 
 Pinned odota/dotaconstants определяет60 как7.41; odota/core вычисляет индекс по start_time и датам, после последней записи возвращает60. Буквенные7.41a–f этим кодом не различаются; это не независимое измерение версии. Valve list/notes/Steam подтверждают наличие опубликованной7.41f; notes/news timestamps расходятся на42265с, точные release/coverage/knownAt не доказаны.14 GET/14 HTTP200 (7 GitHub +7 Valve),16 карт повторно дали60, canonical assignments0; DB writes0. [Pinned primary sources, timestamps и решение](S1_08_PATCH60_SOURCE_AUDIT.md), [SHA manifest](evidence/s1-08-patch60-source-audit.json). Использовать labels только в диагностике с provenance.

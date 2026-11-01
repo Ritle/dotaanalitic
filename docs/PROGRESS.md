@@ -746,3 +746,18 @@ Checks actually executed: frozen install/typecheck/448 unit/build PASS; game-con
 Known blockers: canonical release/coverage/historical availability и pre-start lineup всё ещё не доказаны; maps36/series28/players165/receipts155/assessments114, datasets0/active models0. S1-07/S3-01 и broad corpus gate остаются открытыми. Повтор определения code60 или старого archive body не даст нового evidence.
 
 Next task: S1-08 — воспроизводимый read-only patch diagnostic CLI по SHA-bound snapshots, с раздельными provider code/coarse label/latest published label/nullable verified patch и regression coverage конфликтов/неизвестных кодов/open interval/дубликатов. Никаких registry writers или ослабления prediction gates. Suggested model: GPT-6.1 Sol · High, ручной выбор владельцем.
+
+
+### 2026-11-01 — S1-08: воспроизводимый offline patch diagnostic CLI
+
+Goal / implemented / changed files: contracts/patch-diagnostics.ts, ingestion/valve/patch-diagnostics.ts и scripts/diagnose-corpus-patches.mjs реализуют SHA-bound/Zod validated pipeline; экспорты и pnpm patch:diagnose добавлены. Документированы source semantics, ограничения, replay и реальные input refs; README/DATA_SOURCES/IMPLEMENTATION_PLAN/PROJECT_STATE обновлены. Source label не стал accepted patch evidence.
+
+Behavior: раздельные source code/coarse label/last declared Valve label/nominal bounded candidate/nullable verified patch. Существующий assessAuditedMapPatches переиспользован. Карты дедуплицируются по decimal-string ID; code/start/pro conflicts не разрешаются последним snapshot. Source clocks после snapshot и противоречивая chronology блокируются. Config64KiB/snapshot8MiB/total64MiB, bounded UTF-8 read; SHA до JSON. Output exclusive handle, deterministic bytes/fingerprint, structured Russian errors без payload/credential text. Runtime DB/network отсутствует.
+
+Regression and checks actually executed: native second-precision constants первоначально дали1 failed test, затем UTC normalization исправлена;13 новых pure +11 существующих Valve PASS.4 новых Node CLI PASS (byte replay, bigint, overwrite, corrupted bytes, size/horizon, invalid DATABASE_URL sentinel). pnpm install --frozen-lockfile/typecheck/test461/build PASS.22 applied migration SHA +golden001–005 PASS,21 core tables unchanged по read-only snapshot. PG integration/browser/Python/backtest в этом срезе не запускались; работающие сервисы не перезапускались. Sandbox EPERM pnpm/child process потребовал разрешённого запуска checks вне sandbox.
+
+Real run: шесть сохранённых live audits (4 historical +S1-13 +S1-21),40 observations/36 unique pro maps/4 duplicates. Все36 coarse labels определены;20 closed nominal candidates и16 open intervals, verified patch0. Два локальных запуска и public-config replay дали byte-identical output/fingerprint. Никаких fresh live audit/HTTP/DB writes; synthetic fixtures не участвовали в real run. Сохранены public config/report/manifest, source/code/log hashes; часть входов ignored local .tools, checkout без них не обеспечивает exact replay.
+
+Compatibility: миграций/dependency/lockfile/API/UI изменений нет; source reader/existing importer не переписаны. Registry/knownAt/lineup/model gates не смягчены, datasets0/active models0. Общие corpus/S1-07/S3-01 gates открыты.
+
+Next task: S1-07 — решение о достаточности доказательств интервала патча для16 недавних карт, конкретный review по released_at/coverage_until/known_at и недостающим фактам. Изменение нормативного контракта не следует из диагностической метки. Больше одноразовых аналогичных helpers не требуется. Suggested model: GPT-6 Astra · High, ручной выбор владельцем.

@@ -7,6 +7,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "patch:diagnose": "pnpm shared:build && node scripts/diagnose-corpus-patches.mjs",
     "profile:capture": "pnpm shared:build && node --env-file-if-exists=.env scripts/capture-player-profile.mjs",
     "accounts:current": "pnpm shared:build && node --env-file-if-exists=.env scripts/provision-current-accounts.mjs",
     "series:provision": "pnpm shared:build && node --env-file-if-exists=.env scripts/provision-series.mjs",

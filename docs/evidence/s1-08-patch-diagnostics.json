@@ -1,0 +1,383 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-01T20:21:12.541Z",
+  "task": "S1-08 offline patch diagnostics CLI",
+  "policyVersion": "offline-patch-diagnostics-v1",
+  "fingerprint": "b6e1e4e9ec35fcb151fc7882c3487766c101e1d4eef0a47d14aee3c7ec781dff",
+  "summary": {
+    "observations": 40,
+    "uniqueMaps": 36,
+    "duplicateObservations": 4,
+    "proConfirmedMaps": 36,
+    "providerCoarseLabelMaps": 36,
+    "latestPublishedFeedLabelMaps": 36,
+    "verifiedPatchMaps": 0
+  },
+  "strata": [
+    {
+      "providerCode": "48",
+      "coarseLabel": "7.29",
+      "latestPublishedFeedLabel": "7.29d",
+      "nominalBoundedCandidate": "7.29d",
+      "maps": 3
+    },
+    {
+      "providerCode": "49",
+      "coarseLabel": "7.30",
+      "latestPublishedFeedLabel": "7.30d",
+      "nominalBoundedCandidate": "7.30d",
+      "maps": 2
+    },
+    {
+      "providerCode": "51",
+      "coarseLabel": "7.32",
+      "latestPublishedFeedLabel": "7.32c",
+      "nominalBoundedCandidate": "7.32c",
+      "maps": 5
+    },
+    {
+      "providerCode": "53",
+      "coarseLabel": "7.34",
+      "latestPublishedFeedLabel": "7.34d",
+      "nominalBoundedCandidate": "7.34d",
+      "maps": 5
+    },
+    {
+      "providerCode": "56",
+      "coarseLabel": "7.37",
+      "latestPublishedFeedLabel": "7.37c",
+      "nominalBoundedCandidate": "7.37c",
+      "maps": 5
+    },
+    {
+      "providerCode": "60",
+      "coarseLabel": "7.41",
+      "latestPublishedFeedLabel": "7.41f",
+      "nominalBoundedCandidate": null,
+      "maps": 16
+    }
+  ],
+  "config": {
+    "file": "docs/evidence/s1-08-patch-diagnostics-config.json",
+    "sha256": "f50e0dba575dcfffc42fee6ea71ffdcd3c1d83cf7abb0c430bed5c6b28e86263",
+    "bytes": 2195
+  },
+  "report": {
+    "file": "docs/evidence/s1-08-patch-diagnostics-report.json",
+    "sha256": "e44b70990367217288612db398ad8d2a0084463745a087528ae12cff76c0192c",
+    "bytes": 24115
+  },
+  "inputs": [
+    {
+      "file": "s1-08-expansion-ti2021.json",
+      "sha256": "9c971efead513d3fdb082872c23b2845b8050e503fe099e4ed768caf0c439d19",
+      "bytes": 21978
+    },
+    {
+      "file": "s1-08-expansion-ti2022.json",
+      "sha256": "0d95d5c162225d553947b3f67aaafcec8398c9012ee939f860d2492408cf08dd",
+      "bytes": 21963
+    },
+    {
+      "file": "s1-08-expansion-ti2023.json",
+      "sha256": "1538e17b0eed228408ae51573bf24c3de781ae80e612aaf3f99d45d6db05aa36",
+      "bytes": 21963
+    },
+    {
+      "file": "s1-08-expansion-ti2024.json",
+      "sha256": "95358f8d3d65fc8b758fe54f9561e747548933b2ba9078d9dca729a53b25c540",
+      "bytes": 21963
+    },
+    {
+      "file": "s1-13-current-history-audit.json",
+      "sha256": "f71c9291f2a29b2084d51a47ff3ab34d033f6a8acf794cbd221cff3c07b6cf06",
+      "bytes": 34102
+    },
+    {
+      "file": "../../.tools/s1-21-history-audit.json",
+      "sha256": "d8b3c4736d9c432dde9432fef27b659970fa7ddccecebd6473399eefe9c030e5",
+      "bytes": 34149
+    },
+    {
+      "file": "../../.tools/s1-08-patch60-constants.json",
+      "sha256": "78eda94740a8064d01acc73be25a2ac7058ab42ae976d404eef063ae4553dc23",
+      "bytes": 4883
+    },
+    {
+      "file": "../../.tools/s1-08-patch-diagnostics-valve-list.json",
+      "sha256": "9dfef78ddbacc6a278149520ec8500aeadebbdd8b9095208dbf30ed143df274a",
+      "bytes": 10728
+    }
+  ],
+  "valveProjection": {
+    "originalCapture": {
+      "file": ".tools/s1-08-patch60-valve-list.json",
+      "sha256": "6dbcd10e8f6e74e3c8d828a3c0a1453bc893063c46817825c9bd307e40388f96",
+      "bytes": 11797
+    },
+    "normalizedSnapshot": {
+      "file": ".tools/s1-08-patch-diagnostics-valve-list.json",
+      "sha256": "9dfef78ddbacc6a278149520ec8500aeadebbdd8b9095208dbf30ed143df274a",
+      "bytes": 10728
+    },
+    "transform": "JSON.parse(capture).list serialized as UTF-8 JSON; source payload hash is not recomputed from projection"
+  },
+  "replay": {
+    "runs": 3,
+    "byteIdentical": true,
+    "fingerprintIdentical": true,
+    "publicConfigPathsRebased": true
+  },
+  "database": {
+    "checkedAt": "2026-11-01T20:20:16.165Z",
+    "databaseTablesUnchanged": 21,
+    "migrationChecks": 22,
+    "inventory": [
+      {
+        "table": "matches",
+        "n": 36,
+        "fingerprint": "dca88734cf4d3908f0a502de124edfb1"
+      },
+      {
+        "table": "match_players",
+        "n": 360,
+        "fingerprint": "b9e663db3e59284366daeaaf1574be23"
+      },
+      {
+        "table": "series",
+        "n": 28,
+        "fingerprint": "9008f485c0b00accdf3805263a59490d"
+      },
+      {
+        "table": "series_provision_batches",
+        "n": 3,
+        "fingerprint": "087960ffde9d37c1da4dca1319ab2133"
+      },
+      {
+        "table": "provider_ingest_receipts",
+        "n": 155,
+        "fingerprint": "8fc4f1e4a1caa7a1068aa283a996fa99"
+      },
+      {
+        "table": "match_quality_assessments",
+        "n": 114,
+        "fingerprint": "449e805061066c78bfd96230fd0dfa2d"
+      },
+      {
+        "table": "players",
+        "n": 165,
+        "fingerprint": "b825b71d781715c12712b2da358aa4f3"
+      },
+      {
+        "table": "player_account_evidence",
+        "n": 165,
+        "fingerprint": "89e4e7b106fcedb1b563f2e5cef37eaa"
+      },
+      {
+        "table": "player_external_accounts",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patches",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patch_release_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patch_transition_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "hero_impact_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "draft_rule_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "hero_availability_rules",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "match_field_observations",
+        "n": 2507,
+        "fingerprint": "ec2c9490db669eae009f4edc8273c5fb"
+      },
+      {
+        "table": "training_dataset_versions",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "prediction_model_versions",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "game_context_registry_state",
+        "n": 1,
+        "fingerprint": "db672d0480f3402e6e416a4550559e17"
+      },
+      {
+        "table": "identity_registry_state",
+        "n": 1,
+        "fingerprint": "3f2f823a9fdd28695139fa9a8199f60b"
+      },
+      {
+        "table": "upcoming_source_observations",
+        "n": 2,
+        "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+      }
+    ]
+  },
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "unitTests": 461,
+    "newPureTests": 13,
+    "nodeCliTests": 4,
+    "existingValveRegressionTests": 11,
+    "build": "PASS",
+    "nativeDateRegressionRed": "1 failed before normalization; all green after",
+    "migrationChecksumChecks": 22,
+    "postgresIntegration": "not_run",
+    "browser": "not_run",
+    "pythonBacktest": "not_run"
+  },
+  "artifacts": [
+    {
+      "file": ".tools/s1-08-patch-diagnostics-config.json",
+      "sha256": "fdc99e3d031ea1b29cc09f1d2a4cbe5f15c06ba7b85619f8dbc6b098e460f350",
+      "bytes": 2241
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-report.json",
+      "sha256": "e44b70990367217288612db398ad8d2a0084463745a087528ae12cff76c0192c",
+      "bytes": 24115
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-replay.json",
+      "sha256": "e44b70990367217288612db398ad8d2a0084463745a087528ae12cff76c0192c",
+      "bytes": 24115
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-public-replay.json",
+      "sha256": "e44b70990367217288612db398ad8d2a0084463745a087528ae12cff76c0192c",
+      "bytes": 24115
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-db-check.json",
+      "sha256": "dee360f9814a81654d5442b4dfe1fa51edeed47223058595db8dffd7a2713cc0",
+      "bytes": 2703
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-install.log",
+      "sha256": "5d4e3f236f3e7c2f59e506a0d3d4728a98740d8711e89c2db85e4b8377acfa4b",
+      "bytes": 280
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-typecheck.log",
+      "sha256": "058040e5f19fc1f26ee5e1554f82ba02f7ab029aef7fed9e4d99081cc59471e9",
+      "bytes": 2706
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-unit.log",
+      "sha256": "c363706b0f2c8403889b178c9b1737f49322d73eea1132ce64d90145b6d15ee1",
+      "bytes": 9406
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-checks-typecheck.log",
+      "sha256": "e72e9bea83494ce08bbe8069170e9a083096b761041d5cc1f98ca100933a6b78",
+      "bytes": 2706
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-checks-unit.log",
+      "sha256": "661f25940037c8714f4abcb32467ba23b71efcdc45ce2190e64c35a5c35498c8",
+      "bytes": 848
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-checks-cli.log",
+      "sha256": "38517fa4be47160bcdb6a64894f78360a4198c2addcee3242c13807a8ef56c5f",
+      "bytes": 1774
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-checks-test.log",
+      "sha256": "2a41ed209765981a095806e6fd02fc625b3e03548f5408946f58f51de76df9d8",
+      "bytes": 16002
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-checks-build.log",
+      "sha256": "887f19516adf1bd9311bd5e61606e2d4a73691319302ae4c8f3d67e4784aa65f",
+      "bytes": 4770
+    },
+    {
+      "file": ".tools/s1-08-patch-diagnostics-migrations.log",
+      "sha256": "42fda892ace7c9ca8098e574dd7bb3b11f534f4cfb9c1bda3d1847882a9734fd",
+      "bytes": 2076
+    }
+  ],
+  "code": [
+    {
+      "file": "packages/contracts/src/patch-diagnostics.ts",
+      "sha256": "97c3ffddcddc658539f1b2d1418ccebcb5a64306cdbf870ee591cbe0e81ecb03",
+      "bytes": 2311
+    },
+    {
+      "file": "packages/ingestion/src/valve/patch-diagnostics.ts",
+      "sha256": "bd820deff60f57fcb75e85ef34ef8ca76921ad72ce46437057eff72bf5536de2",
+      "bytes": 7056
+    },
+    {
+      "file": "packages/ingestion/src/valve/patch-audit.ts",
+      "sha256": "48ee6d30e89ad62e4de294f52f38e1456468735216ba53563117a31f79075424",
+      "bytes": 4632
+    },
+    {
+      "file": "scripts/diagnose-corpus-patches.mjs",
+      "sha256": "42e6f9fc60da6fd085d11c69e7cdefbfc9fcf4f2dd8f26a43da9c8ef639368a5",
+      "bytes": 2473
+    },
+    {
+      "file": "packages/ingestion/tests/patch-diagnostics.test.ts",
+      "sha256": "b284c995af4338912a26ade9ee921c615f3c9df994009c6fbf9767142a08f675",
+      "bytes": 8433
+    },
+    {
+      "file": "tests/node/patch-diagnostics-cli.test.mjs",
+      "sha256": "aaec12dd31afe0ca6bf8194e179d96e893eabbed7c15eb90b086372fe3f65906",
+      "bytes": 4530
+    },
+    {
+      "file": "package.json",
+      "sha256": "a75052b5a02ed78dee6bde4d923b680a7d633f429104b1f4b66cccb3546ee2e6",
+      "bytes": 9022
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783",
+      "bytes": 74139
+    }
+  ],
+  "limitations": [
+    "Source artifact hashes verify bytes, not the truth of historical availability claims.",
+    "Latest declared Valve feed date is not an independently verified deployment time.",
+    "Config references local ignored provider/Valve/S1-21 files; exact replay needs these artifacts.",
+    "No canonical patch or identity/lineup availability was created."
+  ],
+  "nextTask": "S1-07 review sufficient evidence for patch intervals on16 recent maps; prepare a concrete decision for released_at/coverage_until/known_at without automatic contract relaxation.",
+  "networkRequests": 0,
+  "databaseWrites": 0,
+  "autoRegistryEligible": false,
+  "trainingReady": false,
+  "deployable": false
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "snapshotAt": "2026-11-01T20:18:05.141Z",
+  "mapCaptures": [
+    {
+      "path": "s1-08-expansion-ti2021.json",
+      "sha256": "9c971efead513d3fdb082872c23b2845b8050e503fe099e4ed768caf0c439d19"
+    },
+    {
+      "path": "s1-08-expansion-ti2022.json",
+      "sha256": "0d95d5c162225d553947b3f67aaafcec8398c9012ee939f860d2492408cf08dd"
+    },
+    {
+      "path": "s1-08-expansion-ti2023.json",
+      "sha256": "1538e17b0eed228408ae51573bf24c3de781ae80e612aaf3f99d45d6db05aa36"
+    },
+    {
+      "path": "s1-08-expansion-ti2024.json",
+      "sha256": "95358f8d3d65fc8b758fe54f9561e747548933b2ba9078d9dca729a53b25c540"
+    },
+    {
+      "path": "s1-13-current-history-audit.json",
+      "sha256": "f71c9291f2a29b2084d51a47ff3ab34d033f6a8acf794cbd221cff3c07b6cf06"
+    },
+    {
+      "path": "../../.tools/s1-21-history-audit.json",
+      "sha256": "d8b3c4736d9c432dde9432fef27b659970fa7ddccecebd6473399eefe9c030e5"
+    }
+  ],
+  "providerPatches": {
+    "path": "../../.tools/s1-08-patch60-constants.json",
+    "sha256": "78eda94740a8064d01acc73be25a2ac7058ab42ae976d404eef063ae4553dc23",
+    "fetchedAt": "2026-11-01T20:06:48.159Z",
+    "revision": "5c0242df9057848fa2036ca3fafe9f2bd4508163",
+    "sourceUrl": "https://raw.githubusercontent.com/odota/dotaconstants/5c0242df9057848fa2036ca3fafe9f2bd4508163/build/patch.json"
+  },
+  "valveList": {
+    "path": "../../.tools/s1-08-patch-diagnostics-valve-list.json",
+    "sha256": "9dfef78ddbacc6a278149520ec8500aeadebbdd8b9095208dbf30ed143df274a"
+  },
+  "matchIds": [
+    "6054718020",
+    "6067239305",
+    "6079100944",
+    "6214131970",
+    "6227492909",
+    "6806047579",
+    "6807772726",
+    "6809522859",
+    "6811000638",
+    "6832287527",
+    "7378530387",
+    "7378939289",
+    "7380403482",
+    "7393133836",
+    "7406531302",
+    "7927665228",
+    "7928915377",
+    "7931106306",
+    "7936520519",
+    "7944311818",
+    "9052687571",
+    "9056685103",
+    "9056844521",
+    "9061631640",
+    "9061735400",
+    "9067177642",
+    "9067346550",
+    "9067412106",
+    "9067617648",
+    "9068795274",
+    "9068910292",
+    "9069021061",
+    "9069952836",
+    "9070062078",
+    "9070392472",
+    "9070527945"
+  ]
+}
