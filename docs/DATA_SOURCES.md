@@ -10,6 +10,10 @@ Source IDs остаются отдельным namespace; nickname joins, DB imp
 
 ## OpenDota — основной источник
 
+### S1-08: patch code60 — первичная проверка2026-11-01
+
+Pinned odota/dotaconstants определяет60 как7.41; odota/core вычисляет индекс по start_time и датам, после последней записи возвращает60. Буквенные7.41a–f этим кодом не различаются; это не независимое измерение версии. Valve list/notes/Steam подтверждают наличие опубликованной7.41f; notes/news timestamps расходятся на42265с, точные release/coverage/knownAt не доказаны.14 GET/14 HTTP200 (7 GitHub +7 Valve),16 карт повторно дали60, canonical assignments0; DB writes0. [Pinned primary sources, timestamps и решение](S1_08_PATCH60_SOURCE_AUDIT.md), [SHA manifest](evidence/s1-08-patch60-source-audit.json). Использовать labels только в диагностике с provenance.
+
 ### S1-08: пересечение patch/as-of evidence с рабочим корпусом
 
 Инвентаризация2026-11-01 без новых Dota HTTP:36 карт/6 source patch codes,27 точных ID/start совпадений с прежним40-map audit. Для20 исторических карт есть только nominal feed candidates7.29d/7.30d/7.32c/7.34d/7.37c; code60 у16 недавних карт остаётся без candidate (7 старых open-interval observations,9 вне того audit).5 archive proofs относятся только к announcement body7.34d, не к deployment/hero availability. Canonical registry пуст; strict pre/post0 eligible. [Матрица, источники и границы](S1_08_PATCH_CONTEXT_INVENTORY.md), [manifest](evidence/s1-08-patch-context-inventory.json). Следующий источник для проверки — определение code60 и официальные Valve metadata; старый архивный body повторно не искать.

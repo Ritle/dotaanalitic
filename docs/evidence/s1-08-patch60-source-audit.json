@@ -1,0 +1,895 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T20:11:08.661Z",
+  "scope": "bounded_live_source_audit_patch60_16_maps",
+  "selection": {
+    "source": "docs/evidence/s1-08-patch-context-inventory.json",
+    "sha256": "917d5e90393c8c04f3b3345240f9ce273365e06399c8260c63d2914509b1e4f2",
+    "filter": "providerPatchCodes includes60",
+    "maps": 16
+  },
+  "requests": {
+    "github": {
+      "attempts": 7,
+      "httpStatuses": {
+        "200": 7
+      }
+    },
+    "valve": {
+      "attempts": 7,
+      "httpStatuses": {
+        "200": 7
+      }
+    },
+    "totalAttempts": 14,
+    "retries": 0,
+    "pagination": false
+  },
+  "providerMapping": {
+    "code": 60,
+    "coarseLabel": "7.41",
+    "sourceDate": "2026-03-24T00:50:59.580Z",
+    "constantEntries": 61,
+    "constantsRevision": "5c0242df9057848fa2036ca3fafe9f2bd4508163",
+    "coreRevision": "8d774abda8542390fbd215487d961f1b5c3a3ef3",
+    "derivedFrom": "map start_time and dotaconstants dates",
+    "lastIndexFallback": true,
+    "independentGameVersionObservation": false,
+    "deployedApiRevisionVerified": false,
+    "verifiedReleasedAt": null,
+    "knownAt": null
+  },
+  "githubSources": [
+    {
+      "url": "https://api.github.com/repos/odota/dotaconstants/git/ref/heads/master",
+      "status": 200,
+      "fetchedAt": "2026-11-01T20:06:44.984Z",
+      "knownAt": null,
+      "file": ".tools/s1-08-patch60-constants-ref.json",
+      "sha256": "29dc406dbe2b144853d48450bd57f2e171379c9438a3cd56785471cc252fb20e",
+      "bytes": 349
+    },
+    {
+      "url": "https://api.github.com/repos/odota/core/git/ref/heads/master",
+      "status": 200,
+      "fetchedAt": "2026-11-01T20:06:46.583Z",
+      "knownAt": null,
+      "file": ".tools/s1-08-patch60-core-ref.json",
+      "sha256": "744bdb14c27ad6ed88eaefb73b5f348a612f12b61ab8d56c060b715f512a23a3",
+      "bytes": 331
+    },
+    {
+      "url": "https://raw.githubusercontent.com/odota/dotaconstants/5c0242df9057848fa2036ca3fafe9f2bd4508163/build/patch.json",
+      "status": 200,
+      "fetchedAt": "2026-11-01T20:06:48.159Z",
+      "knownAt": null,
+      "file": ".tools/s1-08-patch60-constants.json",
+      "sha256": "78eda94740a8064d01acc73be25a2ac7058ab42ae976d404eef063ae4553dc23",
+      "bytes": 4883
+    },
+    {
+      "url": "https://api.github.com/repos/odota/core/git/trees/8d774abda8542390fbd215487d961f1b5c3a3ef3?recursive=1",
+      "status": 200,
+      "fetchedAt": "2026-11-01T20:06:49.621Z",
+      "knownAt": null,
+      "file": ".tools/s1-08-patch60-core-tree.json",
+      "sha256": "ba59fd62448388519becd390baeabe7f3492f3a62929a392f652099bf4645079",
+      "bytes": 76769
+    },
+    {
+      "url": "https://raw.githubusercontent.com/odota/core/8d774abda8542390fbd215487d961f1b5c3a3ef3/svc/util/compute.ts",
+      "status": 200,
+      "fetchedAt": "2026-11-01T20:07:05.691Z",
+      "knownAt": null,
+      "file": ".tools/s1-08-patch60-compute.ts",
+      "sha256": "8c846774824b7069c76aa421810909d233b4b1d32d9f25c2100168b05243d861",
+      "bytes": 16181
+    },
+    {
+      "url": "https://raw.githubusercontent.com/odota/core/8d774abda8542390fbd215487d961f1b5c3a3ef3/svc/util/utility.ts",
+      "status": 200,
+      "fetchedAt": "2026-11-01T20:07:07.045Z",
+      "knownAt": null,
+      "file": ".tools/s1-08-patch60-utility.ts",
+      "sha256": "39adad45e1dfccc3eebd8ebab5eb18ac8171a1556d954aefbaa3509a35bf05d4",
+      "bytes": 10981
+    },
+    {
+      "url": "https://raw.githubusercontent.com/odota/core/8d774abda8542390fbd215487d961f1b5c3a3ef3/dev/repatch.ts",
+      "status": 200,
+      "fetchedAt": "2026-11-01T20:07:08.414Z",
+      "knownAt": null,
+      "file": ".tools/s1-08-patch60-repatch.ts",
+      "sha256": "824e62b4713c68d507c5548b920cb50e5f4c5399ae16e06d4285eec30cac305f",
+      "bytes": 544
+    }
+  ],
+  "valveSources": [
+    {
+      "url": "https://www.dota2.com/datafeed/patchnoteslist?language=english",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-11-01T20:07:08.848Z",
+      "knownAt": null,
+      "payloadSha256": "9ec57bde0c37aee9b782bd7190cc0c18b68310d90b6cba0b9f9dd3b196bd29ea",
+      "attempts": 1
+    },
+    {
+      "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.41",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-11-01T20:07:26.515Z",
+      "knownAt": null,
+      "payloadSha256": "bcee7be712fff470c5ce7f093fe5cc2b95d26c7c8f60835317c8262179e5e7d3",
+      "attempts": 1
+    },
+    {
+      "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1774940400&feeds=steam_community_announcements",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-11-01T20:07:27.076Z",
+      "knownAt": null,
+      "payloadSha256": "b9ba753e65015e8b7d01604f3c761d551845bf748d30663ab5ab675e407919e1",
+      "attempts": 1
+    },
+    {
+      "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.41e",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-11-01T20:07:27.976Z",
+      "knownAt": null,
+      "payloadSha256": "7e9af03eaba53c9897e80842d3319ab67c326e7834e5b927cbb249136d060750",
+      "attempts": 1
+    },
+    {
+      "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1785999600&feeds=steam_community_announcements",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-11-01T20:07:29.006Z",
+      "knownAt": null,
+      "payloadSha256": "d3d2790996de34446ccea0652a25deac92caef5521298721d1f823e7e29ac89d",
+      "attempts": 1
+    },
+    {
+      "url": "https://www.dota2.com/datafeed/patchnotes?language=english&version=7.41f",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-11-01T20:07:29.837Z",
+      "knownAt": null,
+      "payloadSha256": "f9cd855b7b77dc8a6025f875ef21b539f539b44d832d7dfd80bbb087f745fc26",
+      "attempts": 1
+    },
+    {
+      "url": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1790060400&feeds=steam_community_announcements",
+      "adapterVersion": "valve-patch-audit-v1",
+      "fetchedAt": "2026-11-01T20:07:30.885Z",
+      "knownAt": null,
+      "payloadSha256": "f50b77f31782baf3ccf1cd15050e4259ce324a97dc539e79ff1115df3d049049",
+      "attempts": 1
+    }
+  ],
+  "comparisons": [
+    {
+      "patchLabel": "7.41",
+      "status": "requires_manual_review",
+      "datafeed": {
+        "listTimestamp": 1774335600,
+        "listAt": "2026-03-24T07:00:00.000Z",
+        "notesTimestamp": 1774335600,
+        "notesAt": "2026-03-24T07:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "1827626365766968",
+          "title": "7.41 Gameplay Patch",
+          "publishedAt": "2026-03-24T23:43:44.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1774940400&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 60224,
+      "firstAnnouncementDeltaSeconds": 60224,
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null,
+      "autoRegistryEligible": false,
+      "reasons": [
+        "PUBLICATION_TIMESTAMP_IS_NOT_VERIFIED_EFFECTIVE_TIME",
+        "HISTORICAL_KNOWN_AT_UNPROVEN",
+        "HERO_IMPACT_REQUIRES_REVIEW",
+        "HERO_AVAILABILITY_UNASSESSED",
+        "RELEASE_COVERAGE_UNPROVEN",
+        "FEED_ANNOUNCEMENT_TIMESTAMP_DISAGREEMENT"
+      ],
+      "heroRows": 126
+    },
+    {
+      "patchLabel": "7.41e",
+      "status": "requires_manual_review",
+      "datafeed": {
+        "listTimestamp": 1785394800,
+        "listAt": "2026-07-30T07:00:00.000Z",
+        "notesTimestamp": 1785394800,
+        "notesAt": "2026-07-30T07:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "1839676055886687",
+          "title": "Gameplay Patch 7.41e and Summer Scrub",
+          "publishedAt": "2026-07-30T23:58:15.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1785999600&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 61095,
+      "firstAnnouncementDeltaSeconds": 61095,
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null,
+      "autoRegistryEligible": false,
+      "reasons": [
+        "PUBLICATION_TIMESTAMP_IS_NOT_VERIFIED_EFFECTIVE_TIME",
+        "HISTORICAL_KNOWN_AT_UNPROVEN",
+        "HERO_IMPACT_REQUIRES_REVIEW",
+        "HERO_AVAILABILITY_UNASSESSED",
+        "RELEASE_COVERAGE_UNPROVEN",
+        "FEED_ANNOUNCEMENT_TIMESTAMP_DISAGREEMENT"
+      ],
+      "heroRows": 57
+    },
+    {
+      "patchLabel": "7.41f",
+      "status": "requires_manual_review",
+      "datafeed": {
+        "listTimestamp": 1789455600,
+        "listAt": "2026-09-15T07:00:00.000Z",
+        "notesTimestamp": 1789455600,
+        "notesAt": "2026-09-15T07:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "1843481262705400",
+          "title": "7.41f Gameplay Patch",
+          "publishedAt": "2026-09-15T18:44:25.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1790060400&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 42265,
+      "firstAnnouncementDeltaSeconds": 42265,
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null,
+      "autoRegistryEligible": false,
+      "reasons": [
+        "PUBLICATION_TIMESTAMP_IS_NOT_VERIFIED_EFFECTIVE_TIME",
+        "HISTORICAL_KNOWN_AT_UNPROVEN",
+        "HERO_IMPACT_REQUIRES_REVIEW",
+        "HERO_AVAILABILITY_UNASSESSED",
+        "RELEASE_COVERAGE_UNPROVEN",
+        "FEED_ANNOUNCEMENT_TIMESTAMP_DISAGREEMENT"
+      ],
+      "heroRows": 35
+    }
+  ],
+  "mapReview": {
+    "recordedAt": "2026-11-01T20:08:34.127Z",
+    "selection": {
+      "source": "docs/evidence/s1-08-patch-context-inventory.json",
+      "sha256": "917d5e90393c8c04f3b3345240f9ce273365e06399c8260c63d2914509b1e4f2",
+      "filter": "providerPatchCodes includes60",
+      "maps": 16
+    },
+    "providerRule": {
+      "source": "reviewed pinned compute.ts getPatchIndex; no remote code executed",
+      "lastIndex": 60,
+      "openEnded": true
+    },
+    "projectionLineage": "Actual persisted pro maps from the prior read-only DB inventory; current DB hashes rechecked unchanged.",
+    "coverage": {
+      "observations": 16,
+      "uniqueMaps": 16,
+      "duplicateObservations": 0,
+      "verifiedPatchMaps": 0,
+      "historicalAvailabilityAssessed": false,
+      "maps": [
+        {
+          "matchId": "9052687571",
+          "startedAt": "2026-10-19T15:58:27.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9056685103",
+          "startedAt": "2026-10-22T14:58:56.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9056844521",
+          "startedAt": "2026-10-22T16:31:23.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9061631640",
+          "startedAt": "2026-10-25T16:02:44.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9061735400",
+          "startedAt": "2026-10-25T17:00:54.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9067177642",
+          "startedAt": "2026-10-29T15:08:28.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9067346550",
+          "startedAt": "2026-10-29T16:54:12.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9067412106",
+          "startedAt": "2026-10-29T17:39:37.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9067617648",
+          "startedAt": "2026-10-29T20:05:54.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9068795274",
+          "startedAt": "2026-10-30T17:23:31.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9068910292",
+          "startedAt": "2026-10-30T18:37:56.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9069021061",
+          "startedAt": "2026-10-30T19:53:24.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9069952836",
+          "startedAt": "2026-10-31T13:00:42.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9070062078",
+          "startedAt": "2026-10-31T14:11:28.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9070392472",
+          "startedAt": "2026-10-31T17:27:04.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        },
+        {
+          "matchId": "9070527945",
+          "startedAt": "2026-10-31T18:51:31.000Z",
+          "observations": 1,
+          "nominalPatchCandidate": null,
+          "verifiedPatchId": null,
+          "historicalKnownAt": null,
+          "reasons": [
+            "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+          ]
+        }
+      ]
+    },
+    "maps": [
+      {
+        "matchId": "9052687571",
+        "startedAt": "2026-10-19T15:58:27.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9056685103",
+        "startedAt": "2026-10-22T14:58:56.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9056844521",
+        "startedAt": "2026-10-22T16:31:23.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9061631640",
+        "startedAt": "2026-10-25T16:02:44.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9061735400",
+        "startedAt": "2026-10-25T17:00:54.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9067177642",
+        "startedAt": "2026-10-29T15:08:28.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9067346550",
+        "startedAt": "2026-10-29T16:54:12.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9067412106",
+        "startedAt": "2026-10-29T17:39:37.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9067617648",
+        "startedAt": "2026-10-29T20:05:54.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9068795274",
+        "startedAt": "2026-10-30T17:23:31.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9068910292",
+        "startedAt": "2026-10-30T18:37:56.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9069021061",
+        "startedAt": "2026-10-30T19:53:24.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9069952836",
+        "startedAt": "2026-10-31T13:00:42.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9070062078",
+        "startedAt": "2026-10-31T14:11:28.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9070392472",
+        "startedAt": "2026-10-31T17:27:04.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      },
+      {
+        "matchId": "9070527945",
+        "startedAt": "2026-10-31T18:51:31.000Z",
+        "providerPatchCode": "60",
+        "providerCoarseLabel": "7.41",
+        "recomputedProviderCode": 60,
+        "latestPublishedFeedLabel": "7.41f",
+        "latestPublishedFeedTimestamp": "2026-09-15T07:00:00.000Z",
+        "nominalBoundedCandidate": null,
+        "verifiedPatchId": null,
+        "knownAt": null
+      }
+    ],
+    "invariant": {
+      "tablesUnchanged": 21,
+      "migrationChecks": 22,
+      "inventory": [
+        {
+          "table": "matches",
+          "n": 36,
+          "fingerprint": "dca88734cf4d3908f0a502de124edfb1"
+        },
+        {
+          "table": "match_players",
+          "n": 360,
+          "fingerprint": "b9e663db3e59284366daeaaf1574be23"
+        },
+        {
+          "table": "series",
+          "n": 28,
+          "fingerprint": "9008f485c0b00accdf3805263a59490d"
+        },
+        {
+          "table": "series_provision_batches",
+          "n": 3,
+          "fingerprint": "087960ffde9d37c1da4dca1319ab2133"
+        },
+        {
+          "table": "provider_ingest_receipts",
+          "n": 155,
+          "fingerprint": "8fc4f1e4a1caa7a1068aa283a996fa99"
+        },
+        {
+          "table": "match_quality_assessments",
+          "n": 114,
+          "fingerprint": "449e805061066c78bfd96230fd0dfa2d"
+        },
+        {
+          "table": "players",
+          "n": 165,
+          "fingerprint": "b825b71d781715c12712b2da358aa4f3"
+        },
+        {
+          "table": "player_account_evidence",
+          "n": 165,
+          "fingerprint": "89e4e7b106fcedb1b563f2e5cef37eaa"
+        },
+        {
+          "table": "player_external_accounts",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "patches",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "patch_release_evidence",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "patch_transition_evidence",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "hero_impact_evidence",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "draft_rule_evidence",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "hero_availability_rules",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "match_field_observations",
+          "n": 2507,
+          "fingerprint": "ec2c9490db669eae009f4edc8273c5fb"
+        },
+        {
+          "table": "training_dataset_versions",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "prediction_model_versions",
+          "n": 0,
+          "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+        },
+        {
+          "table": "game_context_registry_state",
+          "n": 1,
+          "fingerprint": "db672d0480f3402e6e416a4550559e17"
+        },
+        {
+          "table": "identity_registry_state",
+          "n": 1,
+          "fingerprint": "3f2f823a9fdd28695139fa9a8199f60b"
+        },
+        {
+          "table": "upcoming_source_observations",
+          "n": 2,
+          "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+        }
+      ]
+    },
+    "networkRequests": 0,
+    "databaseWrites": 0,
+    "autoRegistryEligible": false,
+    "trainingReady": false,
+    "deployable": false
+  },
+  "interpretation": {
+    "providerCoarseLabel": "7.41",
+    "latestPublishedFeedLabel": "7.41f",
+    "mapPatchAssignment": "unavailable",
+    "reason": "NO_VERIFIED_RELEASE_INTERVAL_OR_HISTORICAL_AVAILABILITY",
+    "registryIntakeAllowed": false
+  },
+  "artifacts": [
+    {
+      "file": ".tools/s1-08-patch60-bootstrap.json",
+      "sha256": "8cbf69e54cdf5416d28fa830cbaa01ecc72fd50015546caa97dfed5f13eb4b63",
+      "bytes": 1652
+    },
+    {
+      "file": ".tools/s1-08-patch60-code-sources.json",
+      "sha256": "556ff2ac8a49d9ce81486879063ac8135a01a578b3d1511916fe2cf9bc0eaf3b",
+      "bytes": 1156
+    },
+    {
+      "file": ".tools/s1-08-patch60-valve-list.json",
+      "sha256": "6dbcd10e8f6e74e3c8d828a3c0a1453bc893063c46817825c9bd307e40388f96",
+      "bytes": 11797
+    },
+    {
+      "file": ".tools/s1-08-patch60-valve-details.json",
+      "sha256": "b99353ce04401d99d9adf1c55767407161736497acfc6f33326592e101dfcf22",
+      "bytes": 389854
+    },
+    {
+      "file": ".tools/s1-08-patch60-map-review.json",
+      "sha256": "981a53e9a98c9eea42a280f56b6bc753e16dae4173e3d4ba404c78933a07ea4f",
+      "bytes": 15048
+    },
+    {
+      "file": ".tools/s1-08-patch60-install.log",
+      "sha256": "5d4e3f236f3e7c2f59e506a0d3d4728a98740d8711e89c2db85e4b8377acfa4b",
+      "bytes": 280
+    },
+    {
+      "file": ".tools/s1-08-patch60-typecheck.log",
+      "sha256": "ef72be12878e861370f87da4b818213ba09a8c653d7698cdf04d9992011f62db",
+      "bytes": 2706
+    },
+    {
+      "file": ".tools/s1-08-patch60-pg.log",
+      "sha256": "d3aba82c55631ce75abb4c78e7721eaf64eac66b93aa61e91f9799e671506cdf",
+      "bytes": 3112
+    },
+    {
+      "file": ".tools/s1-08-patch60-test.log",
+      "sha256": "91dab6c6db08062c1487f4d838736e01434cbb89035e70c3350380dee384c28b",
+      "bytes": 15850
+    },
+    {
+      "file": ".tools/s1-08-patch60-build.log",
+      "sha256": "9b6cdf0416562ba21396d1effe63c3cbbf409dc121a58b892d9563657f11d2e6",
+      "bytes": 4770
+    },
+    {
+      "file": ".tools/s1-08-patch60-migrations.log",
+      "sha256": "42fda892ace7c9ca8098e574dd7bb3b11f534f4cfb9c1bda3d1847882a9734fd",
+      "bytes": 2076
+    }
+  ],
+  "code": [
+    {
+      "file": "packages/ingestion/src/valve/patch-client.ts",
+      "sha256": "297572033e9f825f84e3844d6369f3e6ef5a6e384ae4c27a628a4acaade86748",
+      "bytes": 7190
+    },
+    {
+      "file": "packages/ingestion/src/valve/patch-audit.ts",
+      "sha256": "48ee6d30e89ad62e4de294f52f38e1456468735216ba53563117a31f79075424",
+      "bytes": 4632
+    },
+    {
+      "file": "packages/ingestion/dist/valve/patch-client.js",
+      "sha256": "3752f0a8c810c1c9fba38d810ee4b53298e39f42495526c285dc2b48020235cb",
+      "bytes": 8655
+    },
+    {
+      "file": "packages/ingestion/dist/valve/patch-audit.js",
+      "sha256": "4e16967252ab0e34b67b6b45d4659f371c7eaeb873f1f381206ff9f6fe87ae12",
+      "bytes": 4836
+    },
+    {
+      "file": ".tools/s1-08-patch60-fetch.mjs",
+      "sha256": "b3ba283c60795f4d1311f04f40aa092b89257ca5e767dd31ce2ff11118537901",
+      "bytes": 1275
+    }
+  ],
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "unitTests": 448,
+    "postgresIntegrationTests": 11,
+    "postgresSuites": {
+      "gameContext": 6,
+      "patchHistory": 5
+    },
+    "build": "PASS",
+    "migrationChecksumChecks": 22,
+    "unchangedDatabaseTables": 21,
+    "sourceArtifactHashes": "PASS",
+    "browser": "not_run",
+    "pythonBacktest": "not_run"
+  },
+  "limitations": [
+    "Pinned repository revisions do not establish the deployed API revision at earlier map fetch time.",
+    "Valve payload hashes describe raw HTTP bytes; stored schema projections have separate artifact hashes and cannot reconstruct all raw bytes.",
+    "No exact deployment, coverageUntil, historical knownAt, hero eligibility or impact established.",
+    "Last published feed label is diagnostic only, not canonical map patch.",
+    "No additional independent maps or training examples were created."
+  ],
+  "nextTask": "S1-08 reproducible read-only corpus patch diagnostics CLI: SHA-bound snapshots, separate provider code/coarse label/latest published feed label/nullable verified patch, existing auditor, no registry writer or prediction gate changes.",
+  "databaseWrites": 0,
+  "autoRegistryEligible": false,
+  "trainingReady": false,
+  "deployable": false
+}

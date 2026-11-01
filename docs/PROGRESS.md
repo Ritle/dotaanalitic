@@ -731,3 +731,18 @@ Checks actually executed: frozen install/typecheck/pnpm test448/build PASS; Post
 Compatibility / unresolved: никаких DB writes/provider requests/source promotions, исходы/игроки/серии/receipts/модели не изменены. Helper и полные локальные snapshots ignored; публичный отчёт хранит проекцию/SHA. S1-07/S3-01 и общий corpus gate остаются открытыми. Не обозначать source-body availability как подтверждённый patch release.
 
 Next task: S1-08 — bounded source audit определения provider patch code60 и официальных Valve list/notes/announcements для16 недавних карт; использовать существующий ValvePatchClient, без повторного поиска body7.34d и без auto promotion. Рекомендуемая модель: GPT-6 Astra · High, выбор владельцем вручную.
+
+
+### 2026-11-01 — S1-08: первичный аудит OpenDota code60 и Valve7.41f
+
+Goal / implemented / changed files: проверить определение кода и возможность принять release evidence для16 недавних карт. Добавлены docs/S1_08_PATCH60_SOURCE_AUDIT.md и docs/evidence/s1-08-patch60-source-audit.json; обновлены DATA_SOURCES/PROJECT_STATE/IMPLEMENTATION_PLAN и ссылка из предыдущего inventory. Production TS/SQL/dependencies/UI не менялись.
+
+Evidence:7 GitHub GET (refs/pinned constants/tree/core files) +7 Valve GET через existing ValvePatchClient =14 HTTP200,0 retries/pagination. Constants revision5c0242df9057848fa2036ca3fafe9f2bd4508163:60→7.41; core8d774abda8542390fbd215487d961f1b5c3a3ef3 вычисляет индекс по start_time с последним индексом для открытого хвоста. Remote source не исполнялся. Valve list/notes/announcements7.41/e/f:60224/61095/42265с расхождения timestamps. Последняя опубликованная запись7.41f предшествует всем16 starts, но независимое доказательство canonical version/coverage не получено.
+
+Application decision: сохранены диагностические сведения code/coarse label/latest published label/source clocks/SHA. Registry intake запрещён текущим контрактом; knownAt/releasedAt/coverageUntil не выдуманы. Existing pure auditor16/16 возвращает FEED_INTERVAL_OPEN_OR_UNKNOWN, verifiedPatchMaps0. Полный capture parsed Valve data локален; raw source SHA нельзя пересчитать из schema projection, artifact SHA дан отдельно. Pinned core не сертифицирует deployed API revision. DatabaseWrites0.
+
+Checks actually executed: frozen install/typecheck/448 unit/build PASS; game-context6 +patch-history5 =11 PG PASS.21 table fingerprints совпали с предыдущим inventory, applied22 migration SHA и golden001–005 PASS. Никакого обучения/backtest/browser tests; работающие API/web/worker не перезапускались. Checks вне sandbox из-за подтверждённых Windows EPERM ограничений. Сохранены источники, IDs/clocks, code/artifact hashes и логи; private captures ignored.
+
+Known blockers: canonical release/coverage/historical availability и pre-start lineup всё ещё не доказаны; maps36/series28/players165/receipts155/assessments114, datasets0/active models0. S1-07/S3-01 и broad corpus gate остаются открытыми. Повтор определения code60 или старого archive body не даст нового evidence.
+
+Next task: S1-08 — воспроизводимый read-only patch diagnostic CLI по SHA-bound snapshots, с раздельными provider code/coarse label/latest published label/nullable verified patch и regression coverage конфликтов/неизвестных кодов/open interval/дубликатов. Никаких registry writers или ослабления prediction gates. Suggested model: GPT-6.1 Sol · High, ручной выбор владельцем.

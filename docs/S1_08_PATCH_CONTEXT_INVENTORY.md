@@ -50,3 +50,6 @@
 ## Следующая задача
 
 **S1-08 — ограниченный аудит источника версии для 16 недавних карт с provider patch code 60.** Проверить определение кода у OpenDota и официальные Valve list/notes/announcements, сохранить source clocks/SHA и отдельный вывод о возможности подтвердить интервал. Не повторять поиск архивного body 7.34d и не расширять корпус до прояснения этого пробела. Использовать существующий ValvePatchClient; никакого auto promotion timestamps или ослабления lineup/model gates. После этого решение по intake evidence должно ссылаться на конкретный доступный источник либо фиксировать его отсутствие. Общие S1-08 corpus, S1-07 и S3-01 gates остаются открытыми. Рекомендуемая модель: **GPT-6 Astra · High**, выбор владельцем вручную.
+
+
+Продолжение2026-11-01: указанный source audit code60 выполнен. Установлено coarse7.41 и отдельно latest published Valve7.41f; canonical patch не назначен. [Результат и следующий implementation slice](S1_08_PATCH60_SOURCE_AUDIT.md).
