@@ -1,0 +1,495 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T16:06:16.970Z",
+  "task": "S1-21",
+  "status": "data_imported_identity_reconciliation_open",
+  "match": {
+    "provider": "pandascore",
+    "id": "1756304",
+    "tournamentId": "22236",
+    "scheduledAt": "2026-11-02T19:00:00.000Z",
+    "teams": [
+      "GamerLegion",
+      "CyberHero"
+    ],
+    "unit": "series_schedule_not_map_prediction"
+  },
+  "artifacts": [
+    {
+      "file": ".tools/s1-21-current-capture.json",
+      "sha256": "73874a4e125f069e2ba1ccf8cbd71a02cabfb9f55e5078d0adbc442309c8d414",
+      "bytes": 5467046
+    },
+    {
+      "file": ".tools/s1-21-catalogue-review.json",
+      "sha256": "195ec9c0160939456f063a2ad31c91e3982f9bf90fda52a2236f816bfae85535",
+      "bytes": 2149
+    },
+    {
+      "file": ".tools/s1-21-catalogue-plan.json",
+      "sha256": "57a49ee1401d8454226dc996b142bf4f1834214d2f67b8475c7b98515ab3a4f8",
+      "bytes": 6577
+    },
+    {
+      "file": ".tools/s1-21-catalogue-applied.json",
+      "sha256": "ffa6b339e4df51b996bb8c335c4571051cec0b521213d954d617695166518089",
+      "bytes": 10933
+    },
+    {
+      "file": ".tools/s1-21-catalogue-replay.json",
+      "sha256": "2ff1f697774e2663df5fcd59f5e52cb6b4e57c2a37be6964655f1c16840ad1b8",
+      "bytes": 10920
+    },
+    {
+      "file": ".tools/s1-21-history-capture.json",
+      "sha256": "b4e1a8a176f7c6979d4045a4a586632cbad939d2b4269ac4ec35dd6b2fb645a2",
+      "bytes": 4739099
+    },
+    {
+      "file": ".tools/s1-21-history-audit.json",
+      "sha256": "d8b3c4736d9c432dde9432fef27b659970fa7ddccecebd6473399eefe9c030e5",
+      "bytes": 34149
+    },
+    {
+      "file": ".tools/s1-21-history-plan.json",
+      "sha256": "f30583aa84236043eafcee5f8ffb95069975e38835cd981337eddd17746a5ce3",
+      "bytes": 1661
+    },
+    {
+      "file": ".tools/s1-21-history-applied.json",
+      "sha256": "928ad68765092a7a5f2cefcfcb57c459d987fc5719882fd5d2b534ab4ee425d5",
+      "bytes": 4552
+    },
+    {
+      "file": ".tools/s1-21-history-replay.json",
+      "sha256": "af739d5fedd49a36a300c7b3571748cc846e32916722d7f71762fd244058049c",
+      "bytes": 5274
+    },
+    {
+      "file": ".tools/s1-21-upcoming-rosters.json",
+      "sha256": "3d27f53409af744de4b92edce247ba99e602d53847e31e07262d57655d86cac7",
+      "bytes": 5283
+    },
+    {
+      "file": ".tools/s1-21-ui-verification.json",
+      "sha256": "a6f141c92c3d1ce94af59beb442ad855eddd31cc2d33f1877a725f5542de1fc9",
+      "bytes": 8702
+    },
+    {
+      "file": ".tools/s1-21-steam-aliases.json",
+      "sha256": "4406a5f16542069b3bfaf2f6c7b0df94389f24b30ba63828d28cec64e9a7cbeb",
+      "bytes": 693
+    }
+  ],
+  "ui": {
+    "teamStats": [
+      {
+        "id": "6",
+        "n": 5,
+        "wins": 1,
+        "winRate": 0.2,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 4,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "id": "46",
+        "n": 5,
+        "wins": 4,
+        "winRate": 0.8,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 0,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      }
+    ],
+    "playerStats": [
+      {
+        "alias": "Bignum",
+        "id": "22",
+        "n": 5,
+        "wins": 1,
+        "winRate": 0.2,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 4,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "bb3px",
+        "id": "23",
+        "n": 5,
+        "wins": 4,
+        "winRate": 0.8,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 0,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "RCY",
+        "id": "24",
+        "n": 5,
+        "wins": 1,
+        "winRate": 0.2,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 4,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "Fayde",
+        "id": "25",
+        "n": 5,
+        "wins": 1,
+        "winRate": 0.2,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 4,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "Yuma",
+        "id": "26",
+        "n": 5,
+        "wins": 1,
+        "winRate": 0.2,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 4,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "Speeed",
+        "id": "27",
+        "n": 5,
+        "wins": 1,
+        "winRate": 0.2,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 4,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "darkniA",
+        "id": "28",
+        "n": 5,
+        "wins": 4,
+        "winRate": 0.8,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 0,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "Htrd",
+        "id": "29",
+        "n": 5,
+        "wins": 4,
+        "winRate": 0.8,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 0,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "WoE",
+        "id": "30",
+        "n": 5,
+        "wins": 4,
+        "winRate": 0.8,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 0,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      },
+      {
+        "alias": "sematary",
+        "id": "31",
+        "n": 5,
+        "wins": 4,
+        "winRate": 0.8,
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 0,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        }
+      }
+    ],
+    "rosters": {
+      "status": "ready",
+      "source": {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/tournaments/22236/rosters",
+        "fetchedAt": "2026-11-01T16:01:41.550Z",
+        "knownAt": null,
+        "payloadSha256": "74adde0d1df09b8887df1611474c8e0e5fd7ffaf5ef1d0ab98a3fef061089e9e",
+        "attempts": 1,
+        "rateLimitRemaining": 999
+      },
+      "teams": [
+        {
+          "providerTeamId": "139339",
+          "name": "CyberHero",
+          "players": [
+            {
+              "providerPlayerId": "27481",
+              "name": "Ainkrad"
+            },
+            {
+              "providerPlayerId": "38121",
+              "name": "bb3px"
+            },
+            {
+              "providerPlayerId": "41872",
+              "name": "WoE"
+            },
+            {
+              "providerPlayerId": "53184",
+              "name": "Wein"
+            },
+            {
+              "providerPlayerId": "58408",
+              "name": "Htrd"
+            }
+          ]
+        },
+        {
+          "providerTeamId": "137588",
+          "name": "GamerLegion",
+          "players": [
+            {
+              "providerPlayerId": "9609",
+              "name": "Bignum"
+            },
+            {
+              "providerPlayerId": "13844",
+              "name": "Speeed"
+            },
+            {
+              "providerPlayerId": "27993",
+              "name": "Fayde"
+            },
+            {
+              "providerPlayerId": "29644",
+              "name": "Yuma"
+            },
+            {
+              "providerPlayerId": "43534",
+              "name": "RCY"
+            }
+          ]
+        }
+      ]
+    },
+    "searched": 10,
+    "playersSelected": 0,
+    "confirmed": false,
+    "scenarioSaved": false,
+    "pageErrors": 0
+  },
+  "steamAliasObservations": [
+    {
+      "url": "https://steamcommunity.com/profiles/76561198156748474/ajaxaliases/",
+      "fetchedAt": "2026-11-01T16:04:21.988Z",
+      "status": 200,
+      "sha256": "a1403b28c2b8b1775109203c6efa2427c4ce77be74714c2ace0db23806bdb667",
+      "aliases": [
+        "darkniA",
+        "zombie"
+      ]
+    },
+    {
+      "url": "https://steamcommunity.com/profiles/76561199642445187/ajaxaliases/",
+      "fetchedAt": "2026-11-01T16:04:22.672Z",
+      "status": 200,
+      "sha256": "e1f441bd8d6ed0b7cafd05a37d8e1ea38c70a0687917e4ab1064ea7e47028d7a",
+      "aliases": [
+        "sematary"
+      ]
+    }
+  ],
+  "unresolved": [
+    {
+      "providerPlayerId": "27481",
+      "providerName": "Ainkrad",
+      "candidateCanonicalPlayerId": "28",
+      "candidateAccountId": "196482746",
+      "candidateAlias": "darkniA",
+      "status": "not_linked"
+    },
+    {
+      "providerPlayerId": "53184",
+      "providerName": "Wein",
+      "candidateCanonicalPlayerId": "31",
+      "candidateAccountId": "1682179459",
+      "candidateAlias": "sematary",
+      "status": "not_linked"
+    }
+  ],
+  "constraints": {
+    "pandascoreCanonicalIdentityLinksCreated": 0,
+    "automaticPlayerSelections": 0,
+    "rolesAssigned": 0,
+    "historicalAvailabilityBackdated": false,
+    "scenariosCreated": 0,
+    "modelsActivated": 0
+  }
+}

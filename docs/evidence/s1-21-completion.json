@@ -1,0 +1,2461 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T16:34:54.445Z",
+  "task": "S1-21",
+  "status": "complete_with_explicit_unknown_provider_mapping",
+  "scope": "verified_local_catalogue_and_bounded_professional_history",
+  "previousCheckpoint": {
+    "file": "docs/evidence/s1-21-selected-match.json",
+    "sha256": "6d428dc8cb7dccd72d27e482468c75f088d7e1db34941b2b53c11e65fdd61cfc"
+  },
+  "profileProbe": {
+    "captureFile": ".tools/s1-21-profile-probe.json",
+    "sha256": "8a08cb20d12c5c200cb75ed525b3e73acc1961ada9adb50493c24eed57d98f6d",
+    "observations": [
+      {
+        "data": {
+          "providerPlayerId": "27481",
+          "identifierFields": [
+            {
+              "path": "current_videogame.id",
+              "type": "number"
+            },
+            {
+              "path": "id",
+              "type": "number"
+            }
+          ],
+          "scope": "field_inventory_only",
+          "canonicalPlayerId": null,
+          "steamAccountId": null
+        },
+        "source": {
+          "provider": "pandascore",
+          "adapterVersion": "pandascore-schedule-audit-v1",
+          "endpoint": "/players/27481",
+          "fetchedAt": "2026-11-01T16:16:48.783Z",
+          "knownAt": null,
+          "payloadSha256": "2606806b730c36b61b57bebe9e3f8baa5521973c78d28dd0782810ef24104011",
+          "attempts": 1,
+          "rateLimitRemaining": 998
+        }
+      },
+      {
+        "data": {
+          "providerPlayerId": "53184",
+          "identifierFields": [
+            {
+              "path": "current_videogame.id",
+              "type": "number"
+            },
+            {
+              "path": "id",
+              "type": "number"
+            }
+          ],
+          "scope": "field_inventory_only",
+          "canonicalPlayerId": null,
+          "steamAccountId": null
+        },
+        "source": {
+          "provider": "pandascore",
+          "adapterVersion": "pandascore-schedule-audit-v1",
+          "endpoint": "/players/53184",
+          "fetchedAt": "2026-11-01T16:16:52.467Z",
+          "knownAt": null,
+          "payloadSha256": "1df4d5d203f9c19ed73c87be17a7e55ac0c8b512178987a5042a55b071feff1e",
+          "attempts": 1,
+          "rateLimitRemaining": 997
+        }
+      }
+    ],
+    "requests": {
+      "attempts": 2,
+      "httpStatuses": {
+        "200": 2
+      },
+      "transportErrors": {}
+    },
+    "errors": [],
+    "identityWrites": 0
+  },
+  "comparison": {
+    "captureFile": ".tools/s1-21-compare-verification.json",
+    "sha256": "d5e1b3748d6319790ccee2b66556761bf13b6c84ae77f3e056244ff927eb9468",
+    "generatedAt": "2026-11-01T16:34:29.615Z",
+    "report": {
+      "status": "ready",
+      "scope": "retrospective_descriptive",
+      "policyVersion": "team-compare-v1",
+      "input": {
+        "teamAId": "6",
+        "teamBId": "46",
+        "lineupA": [
+          {
+            "playerId": null,
+            "rolePos": 1,
+            "isStandin": false
+          },
+          {
+            "playerId": null,
+            "rolePos": 2,
+            "isStandin": false
+          },
+          {
+            "playerId": null,
+            "rolePos": 3,
+            "isStandin": false
+          },
+          {
+            "playerId": null,
+            "rolePos": 4,
+            "isStandin": false
+          },
+          {
+            "playerId": null,
+            "rolePos": 5,
+            "isStandin": false
+          }
+        ],
+        "lineupB": [
+          {
+            "playerId": null,
+            "rolePos": 1,
+            "isStandin": false
+          },
+          {
+            "playerId": null,
+            "rolePos": 2,
+            "isStandin": false
+          },
+          {
+            "playerId": null,
+            "rolePos": 3,
+            "isStandin": false
+          },
+          {
+            "playerId": null,
+            "rolePos": 4,
+            "isStandin": false
+          },
+          {
+            "playerId": null,
+            "rolePos": 5,
+            "isStandin": false
+          }
+        ],
+        "fromAt": "2026-08-03T16:34:29.385Z",
+        "cutoffAt": "2026-11-01T16:34:29.385Z"
+      },
+      "fromAt": "2026-08-03T16:34:29.385Z",
+      "cutoffAt": "2026-11-01T16:34:29.385Z",
+      "snapshotAt": "2026-11-01T16:34:29.385Z",
+      "source": "normalized_local_maps",
+      "identityRevision": "62",
+      "registryRevision": "0",
+      "currentPatchId": null,
+      "recentLimit": 20,
+      "model": null,
+      "predictionEligibility": "not_assessed",
+      "teamAWinProbability": null,
+      "teamA": {
+        "organizationId": "6",
+        "name": "GamerLegion",
+        "organization": {
+          "nRaw": 5,
+          "wins": 1,
+          "winRate": 0.2,
+          "dataUpdatedAt": "2026-11-01T15:52:08.497Z",
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": 5,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "under_10",
+            "coldStart": false,
+            "smallSample": true
+          }
+        },
+        "recent": {
+          "nRaw": 5,
+          "wins": 1,
+          "winRate": 0.2,
+          "dataUpdatedAt": "2026-11-01T15:52:08.497Z",
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": 5,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "under_10",
+            "coldStart": false,
+            "smallSample": true
+          }
+        },
+        "currentPatch": null,
+        "selectedFiveOrganization": {
+          "nRaw": null,
+          "wins": null,
+          "winRate": null,
+          "dataUpdatedAt": null,
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": null,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "unknown",
+            "coldStart": null,
+            "smallSample": null
+          }
+        },
+        "sides": {
+          "radiant": {
+            "nRaw": 4,
+            "wins": 0,
+            "winRate": 0,
+            "dataUpdatedAt": "2026-11-01T15:52:05.799Z",
+            "sampleEvidence": {
+              "policyVersion": "sample-evidence-v1",
+              "nRaw": 4,
+              "nEff": null,
+              "weightPolicyVersion": null,
+              "band": "under_10",
+              "coldStart": false,
+              "smallSample": true
+            }
+          },
+          "dire": {
+            "nRaw": 1,
+            "wins": 1,
+            "winRate": 1,
+            "dataUpdatedAt": "2026-11-01T15:52:08.497Z",
+            "sampleEvidence": {
+              "policyVersion": "sample-evidence-v1",
+              "nRaw": 1,
+              "nEff": null,
+              "weightPolicyVersion": null,
+              "band": "under_10",
+              "coldStart": false,
+              "smallSample": true
+            }
+          }
+        },
+        "opponents": [
+          {
+            "opponentId": "1",
+            "stats": {
+              "nRaw": 2,
+              "wins": 0,
+              "winRate": 0,
+              "dataUpdatedAt": "2026-11-01T15:52:01.278Z",
+              "sampleEvidence": {
+                "policyVersion": "sample-evidence-v1",
+                "nRaw": 2,
+                "nEff": null,
+                "weightPolicyVersion": null,
+                "band": "under_10",
+                "coldStart": false,
+                "smallSample": true
+              }
+            }
+          },
+          {
+            "opponentId": "5",
+            "stats": {
+              "nRaw": 2,
+              "wins": 0,
+              "winRate": 0,
+              "dataUpdatedAt": "2026-11-01T15:52:05.799Z",
+              "sampleEvidence": {
+                "policyVersion": "sample-evidence-v1",
+                "nRaw": 2,
+                "nEff": null,
+                "weightPolicyVersion": null,
+                "band": "under_10",
+                "coldStart": false,
+                "smallSample": true
+              }
+            }
+          },
+          {
+            "opponentId": "63",
+            "stats": {
+              "nRaw": 1,
+              "wins": 1,
+              "winRate": 1,
+              "dataUpdatedAt": "2026-11-01T15:52:08.497Z",
+              "sampleEvidence": {
+                "policyVersion": "sample-evidence-v1",
+                "nRaw": 1,
+                "nEff": null,
+                "weightPolicyVersion": null,
+                "band": "under_10",
+                "coldStart": false,
+                "smallSample": true
+              }
+            }
+          }
+        ],
+        "cohesion": {
+          "status": "partial",
+          "scope": "retrospective_descriptive",
+          "policyVersion": "roster-display-v1",
+          "organizationId": "6",
+          "input": {
+            "lineup": [
+              {
+                "playerId": null,
+                "rolePos": 1,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 2,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 3,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 4,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 5,
+                "isStandin": false
+              }
+            ],
+            "expectedLineup": null,
+            "fromAt": "2026-08-03T16:34:29.385Z",
+            "cutoffAt": "2026-11-01T16:34:29.385Z"
+          },
+          "snapshotAt": "2026-11-01T16:34:29.385Z",
+          "cutoffAt": "2026-11-01T16:34:29.385Z",
+          "recentFrom": "2026-08-03T16:34:29.385Z",
+          "recentDays": 90,
+          "source": "normalized_local_maps",
+          "identityRevision": "62",
+          "registryRevision": "0",
+          "model": null,
+          "predictionEligibility": "not_assessed",
+          "actual": {
+            "lineup": [
+              {
+                "playerId": null,
+                "rolePos": 1,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 2,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 3,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 4,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 5,
+                "isStandin": false
+              }
+            ],
+            "fingerprint": null,
+            "exactFive": {
+              "nRaw": null,
+              "wins": null,
+              "winRate": null,
+              "recentMaps": null,
+              "firstAt": null,
+              "lastAt": null,
+              "dataUpdatedAt": null,
+              "patchDistribution": [],
+              "sampleEvidence": {
+                "policyVersion": "sample-evidence-v1",
+                "nRaw": null,
+                "nEff": null,
+                "weightPolicyVersion": null,
+                "band": "unknown",
+                "coldStart": null,
+                "smallSample": null
+              }
+            },
+            "exactFiveOrganizationMaps": null,
+            "pairs": [
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              }
+            ],
+            "players": [
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 1,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 2,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 3,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 4,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 5,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              }
+            ]
+          },
+          "expected": null,
+          "comparison": null,
+          "churn": {
+            "limit": 20,
+            "maps": 5,
+            "completeMaps": 5,
+            "uniqueFives": 1,
+            "changedTransitions": 0,
+            "meanRetainedPlayers": 5,
+            "knownTransitions": 4,
+            "transitions": [
+              {
+                "fromMatchId": "9070392472",
+                "toMatchId": "9070527945",
+                "retainedPlayers": 5,
+                "changedPlayers": 0
+              },
+              {
+                "fromMatchId": "9070062078",
+                "toMatchId": "9070392472",
+                "retainedPlayers": 5,
+                "changedPlayers": 0
+              },
+              {
+                "fromMatchId": "9069952836",
+                "toMatchId": "9070062078",
+                "retainedPlayers": 5,
+                "changedPlayers": 0
+              },
+              {
+                "fromMatchId": "9067617648",
+                "toMatchId": "9069952836",
+                "retainedPlayers": 5,
+                "changedPlayers": 0
+              }
+            ]
+          },
+          "coverage": {
+            "candidates": 16,
+            "unknownPro": 0,
+            "nonPro": 0,
+            "conflict": 0,
+            "unfinished": 0,
+            "eligibleMaps": 16,
+            "incompleteSides": 12,
+            "duplicateIdentityMaps": 0,
+            "knownPatchMaps": 0,
+            "lateFetchedMaps": 0,
+            "sourceFetchUnknown": 0
+          },
+          "provenance": [
+            {
+              "matchId": "9070527945",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:51:58.242Z",
+              "sourceFetchedAt": "2026-11-01T15:51:58.242Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9070392472",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:01.278Z",
+              "sourceFetchedAt": "2026-11-01T15:52:01.278Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9070062078",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:03.066Z",
+              "sourceFetchedAt": "2026-11-01T15:52:03.066Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19",
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9069952836",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:05.799Z",
+              "sourceFetchedAt": "2026-11-01T15:52:05.799Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19",
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9069021061",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:31.713Z",
+              "sourceFetchedAt": "2026-11-01T01:10:31.713Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:5"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9068910292",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:34.307Z",
+              "sourceFetchedAt": "2026-11-01T01:10:34.307Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:5"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9068795274",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:37.044Z",
+              "sourceFetchedAt": "2026-11-01T01:10:37.044Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:5"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9067617648",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:08.497Z",
+              "sourceFetchedAt": "2026-11-01T15:52:08.497Z",
+              "identityProofIds": [
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27",
+                "proof:3"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9067412106",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:33.041Z",
+              "sourceFetchedAt": "2026-11-01T01:10:33.041Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9067346550",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:35.835Z",
+              "sourceFetchedAt": "2026-11-01T01:10:35.835Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9067177642",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:38.633Z",
+              "sourceFetchedAt": "2026-11-01T01:10:38.633Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9061735400",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:51:59.974Z",
+              "sourceFetchedAt": "2026-11-01T15:51:59.974Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9061631640",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:02.417Z",
+              "sourceFetchedAt": "2026-11-01T15:52:02.417Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9056844521",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:05.099Z",
+              "sourceFetchedAt": "2026-11-01T15:52:05.099Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9056685103",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:07.306Z",
+              "sourceFetchedAt": "2026-11-01T15:52:07.306Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9052687571",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:10.800Z",
+              "sourceFetchedAt": "2026-11-01T15:52:10.800Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            }
+          ],
+          "warnings": [
+            "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+            "LOCAL_HISTORY_NOT_EXHAUSTIVE",
+            "UNKNOWN_PLAYER_IDS",
+            "EXPECTED_LINEUP_MISSING",
+            "INCOMPLETE_HISTORICAL_LINEUPS",
+            "PATCH_UNKNOWN"
+          ]
+        },
+        "strength": {
+          "organizationId": "6",
+          "filters": {
+            "fromAt": "2026-08-03T16:34:29.385Z",
+            "cutoffAt": "2026-11-01T16:34:29.385Z",
+            "limit": 20
+          },
+          "fromAt": "2026-08-03T16:34:29.385Z",
+          "cutoffAt": "2026-11-01T16:34:29.385Z",
+          "snapshotAt": "2026-11-01T16:34:29.385Z",
+          "source": "normalized_local_maps",
+          "scope": "chronological_retrospective_participation",
+          "policy": {
+            "version": "player-mean-elo-v1",
+            "initialRating": 1500,
+            "k": 32,
+            "scale": 400,
+            "validation": "unvalidated"
+          },
+          "model": null,
+          "predictionEligibility": "not_assessed",
+          "teamAWinProbability": null,
+          "status": "insufficient_data",
+          "identityRevision": "62",
+          "replayStoppedAtUs": null,
+          "summary": {
+            "nRaw": 5,
+            "wins": 1,
+            "winRate": 0.2,
+            "ratedMaps": 0,
+            "meanOpponentRatingBefore": null,
+            "meanRatingChange": null,
+            "lastObservedFiveRating": null,
+            "lastObservedFiveFingerprint": null,
+            "dataUpdatedAt": "2026-11-01T15:52:08.497Z"
+          },
+          "coverage": {
+            "globalCandidates": 16,
+            "unknownPro": 0,
+            "nonPro": 0,
+            "conflict": 0,
+            "unfinished": 0,
+            "identityUnavailable": 16,
+            "evidenceUnavailable": 0,
+            "globalReplayMaps": 0,
+            "updatesApplied": 0,
+            "pendingUpdates": 0,
+            "targetMapsBeforeLimit": 5,
+            "opponentPriorMaps": 0
+          },
+          "maps": [
+            {
+              "matchId": "9070527945",
+              "startedAt": "2026-10-31T18:51:31.000Z",
+              "startedAtUs": "1793472691000000",
+              "endedAtUs": "1793475521000000",
+              "side": "radiant",
+              "won": false,
+              "opponentId": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:51:58.242Z",
+              "dataRevision": "2",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            },
+            {
+              "matchId": "9070392472",
+              "startedAt": "2026-10-31T17:27:04.000Z",
+              "startedAtUs": "1793467624000000",
+              "endedAtUs": "1793470967000000",
+              "side": "radiant",
+              "won": false,
+              "opponentId": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:01.278Z",
+              "dataRevision": "2",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            },
+            {
+              "matchId": "9070062078",
+              "startedAt": "2026-10-31T14:11:28.000Z",
+              "startedAtUs": "1793455888000000",
+              "endedAtUs": "1793459050000000",
+              "side": "radiant",
+              "won": false,
+              "opponentId": "5",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:03.066Z",
+              "dataRevision": "2",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            },
+            {
+              "matchId": "9069952836",
+              "startedAt": "2026-10-31T13:00:42.000Z",
+              "startedAtUs": "1793451642000000",
+              "endedAtUs": "1793453897000000",
+              "side": "radiant",
+              "won": false,
+              "opponentId": "5",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:05.799Z",
+              "dataRevision": "2",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            },
+            {
+              "matchId": "9067617648",
+              "startedAt": "2026-10-29T20:05:54.000Z",
+              "startedAtUs": "1793304354000000",
+              "endedAtUs": "1793306976000000",
+              "side": "dire",
+              "won": true,
+              "opponentId": "63",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:08.497Z",
+              "dataRevision": "1",
+              "rating": null,
+              "identityProofIds": [
+                "proof:3"
+              ],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            }
+          ],
+          "replayManifest": [],
+          "warnings": [
+            "UNVALIDATED_RATING_NOT_FORECAST",
+            "RECONSTRUCTED_PARTICIPATION_NOT_PREKNOWN_LINEUP",
+            "LOCAL_HISTORY_NOT_EXHAUSTIVE",
+            "HISTORICAL_IDENTITY_GAPS"
+          ]
+        }
+      },
+      "teamB": {
+        "organizationId": "46",
+        "name": "CyberHero",
+        "organization": {
+          "nRaw": 5,
+          "wins": 4,
+          "winRate": 0.8,
+          "dataUpdatedAt": "2026-11-01T15:52:10.800Z",
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": 5,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "under_10",
+            "coldStart": false,
+            "smallSample": true
+          }
+        },
+        "recent": {
+          "nRaw": 5,
+          "wins": 4,
+          "winRate": 0.8,
+          "dataUpdatedAt": "2026-11-01T15:52:10.800Z",
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": 5,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "under_10",
+            "coldStart": false,
+            "smallSample": true
+          }
+        },
+        "currentPatch": null,
+        "selectedFiveOrganization": {
+          "nRaw": null,
+          "wins": null,
+          "winRate": null,
+          "dataUpdatedAt": null,
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": null,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "unknown",
+            "coldStart": null,
+            "smallSample": null
+          }
+        },
+        "sides": {
+          "radiant": {
+            "nRaw": 2,
+            "wins": 2,
+            "winRate": 1,
+            "dataUpdatedAt": "2026-11-01T15:52:07.306Z",
+            "sampleEvidence": {
+              "policyVersion": "sample-evidence-v1",
+              "nRaw": 2,
+              "nEff": null,
+              "weightPolicyVersion": null,
+              "band": "under_10",
+              "coldStart": false,
+              "smallSample": true
+            }
+          },
+          "dire": {
+            "nRaw": 3,
+            "wins": 2,
+            "winRate": 0.6666666666666666,
+            "dataUpdatedAt": "2026-11-01T15:52:10.800Z",
+            "sampleEvidence": {
+              "policyVersion": "sample-evidence-v1",
+              "nRaw": 3,
+              "nEff": null,
+              "weightPolicyVersion": null,
+              "band": "under_10",
+              "coldStart": false,
+              "smallSample": true
+            }
+          }
+        },
+        "opponents": [
+          {
+            "opponentId": "49",
+            "stats": {
+              "nRaw": 2,
+              "wins": 2,
+              "winRate": 1,
+              "dataUpdatedAt": "2026-11-01T15:52:02.417Z",
+              "sampleEvidence": {
+                "policyVersion": "sample-evidence-v1",
+                "nRaw": 2,
+                "nEff": null,
+                "weightPolicyVersion": null,
+                "band": "under_10",
+                "coldStart": false,
+                "smallSample": true
+              }
+            }
+          },
+          {
+            "opponentId": "57",
+            "stats": {
+              "nRaw": 2,
+              "wins": 2,
+              "winRate": 1,
+              "dataUpdatedAt": "2026-11-01T15:52:07.306Z",
+              "sampleEvidence": {
+                "policyVersion": "sample-evidence-v1",
+                "nRaw": 2,
+                "nEff": null,
+                "weightPolicyVersion": null,
+                "band": "under_10",
+                "coldStart": false,
+                "smallSample": true
+              }
+            }
+          },
+          {
+            "opponentId": "65",
+            "stats": {
+              "nRaw": 1,
+              "wins": 0,
+              "winRate": 0,
+              "dataUpdatedAt": "2026-11-01T15:52:10.800Z",
+              "sampleEvidence": {
+                "policyVersion": "sample-evidence-v1",
+                "nRaw": 1,
+                "nEff": null,
+                "weightPolicyVersion": null,
+                "band": "under_10",
+                "coldStart": false,
+                "smallSample": true
+              }
+            }
+          }
+        ],
+        "cohesion": {
+          "status": "partial",
+          "scope": "retrospective_descriptive",
+          "policyVersion": "roster-display-v1",
+          "organizationId": "46",
+          "input": {
+            "lineup": [
+              {
+                "playerId": null,
+                "rolePos": 1,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 2,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 3,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 4,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 5,
+                "isStandin": false
+              }
+            ],
+            "expectedLineup": null,
+            "fromAt": "2026-08-03T16:34:29.385Z",
+            "cutoffAt": "2026-11-01T16:34:29.385Z"
+          },
+          "snapshotAt": "2026-11-01T16:34:29.385Z",
+          "cutoffAt": "2026-11-01T16:34:29.385Z",
+          "recentFrom": "2026-08-03T16:34:29.385Z",
+          "recentDays": 90,
+          "source": "normalized_local_maps",
+          "identityRevision": "62",
+          "registryRevision": "0",
+          "model": null,
+          "predictionEligibility": "not_assessed",
+          "actual": {
+            "lineup": [
+              {
+                "playerId": null,
+                "rolePos": 1,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 2,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 3,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 4,
+                "isStandin": false
+              },
+              {
+                "playerId": null,
+                "rolePos": 5,
+                "isStandin": false
+              }
+            ],
+            "fingerprint": null,
+            "exactFive": {
+              "nRaw": null,
+              "wins": null,
+              "winRate": null,
+              "recentMaps": null,
+              "firstAt": null,
+              "lastAt": null,
+              "dataUpdatedAt": null,
+              "patchDistribution": [],
+              "sampleEvidence": {
+                "policyVersion": "sample-evidence-v1",
+                "nRaw": null,
+                "nEff": null,
+                "weightPolicyVersion": null,
+                "band": "unknown",
+                "coldStart": null,
+                "smallSample": null
+              }
+            },
+            "exactFiveOrganizationMaps": null,
+            "pairs": [
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerIds": [
+                  null,
+                  null
+                ],
+                "organizationMaps": null
+              }
+            ],
+            "players": [
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 1,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 2,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 3,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 4,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              },
+              {
+                "nRaw": null,
+                "wins": null,
+                "winRate": null,
+                "recentMaps": null,
+                "firstAt": null,
+                "lastAt": null,
+                "dataUpdatedAt": null,
+                "patchDistribution": [],
+                "sampleEvidence": {
+                  "policyVersion": "sample-evidence-v1",
+                  "nRaw": null,
+                  "nEff": null,
+                  "weightPolicyVersion": null,
+                  "band": "unknown",
+                  "coldStart": null,
+                  "smallSample": null
+                },
+                "playerId": null,
+                "rolePos": 5,
+                "isStandin": false,
+                "identityStatus": "unknown",
+                "confirmedRoleMaps": null,
+                "selectedRoleMaps": null,
+                "organizations": []
+              }
+            ]
+          },
+          "expected": null,
+          "comparison": null,
+          "churn": {
+            "limit": 20,
+            "maps": 5,
+            "completeMaps": 5,
+            "uniqueFives": 1,
+            "changedTransitions": 0,
+            "meanRetainedPlayers": 5,
+            "knownTransitions": 4,
+            "transitions": [
+              {
+                "fromMatchId": "9061631640",
+                "toMatchId": "9061735400",
+                "retainedPlayers": 5,
+                "changedPlayers": 0
+              },
+              {
+                "fromMatchId": "9056844521",
+                "toMatchId": "9061631640",
+                "retainedPlayers": 5,
+                "changedPlayers": 0
+              },
+              {
+                "fromMatchId": "9056685103",
+                "toMatchId": "9056844521",
+                "retainedPlayers": 5,
+                "changedPlayers": 0
+              },
+              {
+                "fromMatchId": "9052687571",
+                "toMatchId": "9056685103",
+                "retainedPlayers": 5,
+                "changedPlayers": 0
+              }
+            ]
+          },
+          "coverage": {
+            "candidates": 16,
+            "unknownPro": 0,
+            "nonPro": 0,
+            "conflict": 0,
+            "unfinished": 0,
+            "eligibleMaps": 16,
+            "incompleteSides": 12,
+            "duplicateIdentityMaps": 0,
+            "knownPatchMaps": 0,
+            "lateFetchedMaps": 0,
+            "sourceFetchUnknown": 0
+          },
+          "provenance": [
+            {
+              "matchId": "9070527945",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:51:58.242Z",
+              "sourceFetchedAt": "2026-11-01T15:51:58.242Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9070392472",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:01.278Z",
+              "sourceFetchedAt": "2026-11-01T15:52:01.278Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9070062078",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:03.066Z",
+              "sourceFetchedAt": "2026-11-01T15:52:03.066Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19",
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9069952836",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:05.799Z",
+              "sourceFetchedAt": "2026-11-01T15:52:05.799Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19",
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9069021061",
+              "dataRevision": "2",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:31.713Z",
+              "sourceFetchedAt": "2026-11-01T01:10:31.713Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:5"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9068910292",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:34.307Z",
+              "sourceFetchedAt": "2026-11-01T01:10:34.307Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:5"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9068795274",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:37.044Z",
+              "sourceFetchedAt": "2026-11-01T01:10:37.044Z",
+              "identityProofIds": [
+                "proof:14",
+                "proof:15",
+                "proof:18",
+                "proof:20",
+                "proof:21",
+                "proof:5"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9067617648",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:08.497Z",
+              "sourceFetchedAt": "2026-11-01T15:52:08.497Z",
+              "identityProofIds": [
+                "proof:22",
+                "proof:24",
+                "proof:25",
+                "proof:26",
+                "proof:27",
+                "proof:3"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9067412106",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:33.041Z",
+              "sourceFetchedAt": "2026-11-01T01:10:33.041Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9067346550",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:35.835Z",
+              "sourceFetchedAt": "2026-11-01T01:10:35.835Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9067177642",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T01:10:38.633Z",
+              "sourceFetchedAt": "2026-11-01T01:10:38.633Z",
+              "identityProofIds": [
+                "proof:12",
+                "proof:13",
+                "proof:16",
+                "proof:17",
+                "proof:19"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9061735400",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:51:59.974Z",
+              "sourceFetchedAt": "2026-11-01T15:51:59.974Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9061631640",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:02.417Z",
+              "sourceFetchedAt": "2026-11-01T15:52:02.417Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9056844521",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:05.099Z",
+              "sourceFetchedAt": "2026-11-01T15:52:05.099Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9056685103",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:07.306Z",
+              "sourceFetchedAt": "2026-11-01T15:52:07.306Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            },
+            {
+              "matchId": "9052687571",
+              "dataRevision": "1",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:10.800Z",
+              "sourceFetchedAt": "2026-11-01T15:52:10.800Z",
+              "identityProofIds": [
+                "proof:23",
+                "proof:28",
+                "proof:29",
+                "proof:30",
+                "proof:31"
+              ],
+              "roleProofIds": [],
+              "patchProofIds": []
+            }
+          ],
+          "warnings": [
+            "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+            "LOCAL_HISTORY_NOT_EXHAUSTIVE",
+            "UNKNOWN_PLAYER_IDS",
+            "EXPECTED_LINEUP_MISSING",
+            "INCOMPLETE_HISTORICAL_LINEUPS",
+            "PATCH_UNKNOWN"
+          ]
+        },
+        "strength": {
+          "organizationId": "46",
+          "filters": {
+            "fromAt": "2026-08-03T16:34:29.385Z",
+            "cutoffAt": "2026-11-01T16:34:29.385Z",
+            "limit": 20
+          },
+          "fromAt": "2026-08-03T16:34:29.385Z",
+          "cutoffAt": "2026-11-01T16:34:29.385Z",
+          "snapshotAt": "2026-11-01T16:34:29.385Z",
+          "source": "normalized_local_maps",
+          "scope": "chronological_retrospective_participation",
+          "policy": {
+            "version": "player-mean-elo-v1",
+            "initialRating": 1500,
+            "k": 32,
+            "scale": 400,
+            "validation": "unvalidated"
+          },
+          "model": null,
+          "predictionEligibility": "not_assessed",
+          "teamAWinProbability": null,
+          "status": "insufficient_data",
+          "identityRevision": "62",
+          "replayStoppedAtUs": null,
+          "summary": {
+            "nRaw": 5,
+            "wins": 4,
+            "winRate": 0.8,
+            "ratedMaps": 0,
+            "meanOpponentRatingBefore": null,
+            "meanRatingChange": null,
+            "lastObservedFiveRating": null,
+            "lastObservedFiveFingerprint": null,
+            "dataUpdatedAt": "2026-11-01T15:52:10.800Z"
+          },
+          "coverage": {
+            "globalCandidates": 16,
+            "unknownPro": 0,
+            "nonPro": 0,
+            "conflict": 0,
+            "unfinished": 0,
+            "identityUnavailable": 16,
+            "evidenceUnavailable": 0,
+            "globalReplayMaps": 0,
+            "updatesApplied": 0,
+            "pendingUpdates": 0,
+            "targetMapsBeforeLimit": 5,
+            "opponentPriorMaps": 0
+          },
+          "maps": [
+            {
+              "matchId": "9061735400",
+              "startedAt": "2026-10-25T17:00:54.000Z",
+              "startedAtUs": "1792947654000000",
+              "endedAtUs": "1792950662000000",
+              "side": "dire",
+              "won": true,
+              "opponentId": "49",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:51:59.974Z",
+              "dataRevision": "1",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            },
+            {
+              "matchId": "9061631640",
+              "startedAt": "2026-10-25T16:02:44.000Z",
+              "startedAtUs": "1792944164000000",
+              "endedAtUs": "1792945965000000",
+              "side": "radiant",
+              "won": true,
+              "opponentId": "49",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:02.417Z",
+              "dataRevision": "1",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            },
+            {
+              "matchId": "9056844521",
+              "startedAt": "2026-10-22T16:31:23.000Z",
+              "startedAtUs": "1792686683000000",
+              "endedAtUs": "1792688551000000",
+              "side": "dire",
+              "won": true,
+              "opponentId": "57",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:05.099Z",
+              "dataRevision": "1",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            },
+            {
+              "matchId": "9056685103",
+              "startedAt": "2026-10-22T14:58:56.000Z",
+              "startedAtUs": "1792681136000000",
+              "endedAtUs": "1792684152000000",
+              "side": "radiant",
+              "won": true,
+              "opponentId": "57",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:07.306Z",
+              "dataRevision": "1",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            },
+            {
+              "matchId": "9052687571",
+              "startedAt": "2026-10-19T15:58:27.000Z",
+              "startedAtUs": "1792425507000000",
+              "endedAtUs": "1792429028000000",
+              "side": "dire",
+              "won": false,
+              "opponentId": "65",
+              "source": "opendota",
+              "syncedAt": "2026-11-01T15:52:10.800Z",
+              "dataRevision": "1",
+              "rating": null,
+              "identityProofIds": [],
+              "factProofIds": [],
+              "reasons": [
+                "IDENTITY_NOT_VERIFIED_AT_MAP_START"
+              ]
+            }
+          ],
+          "replayManifest": [],
+          "warnings": [
+            "UNVALIDATED_RATING_NOT_FORECAST",
+            "RECONSTRUCTED_PARTICIPATION_NOT_PREKNOWN_LINEUP",
+            "LOCAL_HISTORY_NOT_EXHAUSTIVE",
+            "HISTORICAL_IDENTITY_GAPS"
+          ]
+        }
+      },
+      "h2h": {
+        "organizations": {
+          "nRaw": 0,
+          "wins": 0,
+          "winRate": null,
+          "dataUpdatedAt": null,
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": 0,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "empty",
+            "coldStart": true,
+            "smallSample": true
+          }
+        },
+        "selectedFives": {
+          "nRaw": null,
+          "wins": null,
+          "winRate": null,
+          "dataUpdatedAt": null,
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": null,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "unknown",
+            "coldStart": null,
+            "smallSample": null
+          }
+        },
+        "maps": [],
+        "displayedLimit": 100,
+        "omittedMaps": 0
+      },
+      "coverage": {
+        "candidates": 16,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "unattributedOrganizationMaps": 0,
+        "h2hIncompleteFives": 0,
+        "lineupHistoryFilterExcluded": 0
+      },
+      "warnings": [
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ORGANIZATION_NOT_CURRENT_FIVE",
+        "MANUAL_LINEUPS_NOT_CONFIRMED_PARTICIPATION",
+        "LOCAL_HISTORY_NOT_EXHAUSTIVE",
+        "CURRENT_PATCH_UNKNOWN"
+      ]
+    },
+    "checks": {
+      "organizationLinks": true,
+      "unknownLineupsRetained": true,
+      "probabilityNull": true,
+      "mobileNoOverflow": true,
+      "pageErrors": 0,
+      "scenarioWrites": 0
+    }
+  },
+  "decision": {
+    "canonicalAccountsWithVerifiedOpenDotaEvidence": 10,
+    "pandascoreCanonicalLinksEstablished": 0,
+    "sampledPandaScoreProfilesWithSteamIdentifier": 0,
+    "sampledPandaScoreProfiles": 2,
+    "manualWorkflowUsable": true,
+    "automaticProviderMappingAllowed": false,
+    "confirmedFutureLineup": false,
+    "scenarioCreated": false,
+    "trainingReady": false,
+    "deployable": false
+  },
+  "code": [
+    {
+      "file": "packages/ingestion/src/pandascore/client.ts",
+      "sha256": "e4ffc2469658714f4fcd546533258029e66de61fa06df9370f8714f62bb3c718"
+    },
+    {
+      "file": "packages/ingestion/src/pandascore/schemas.ts",
+      "sha256": "7762f176cf59bbb1893bf8fa29f0d80c8980b0a6cf1078170e39e452f4a7c3cd"
+    },
+    {
+      "file": "apps/api/src/modules/upcoming/service.ts",
+      "sha256": "09171800f3d6478c4c767828d149e4af73ea2855940a044f05ea7654874c52f7"
+    },
+    {
+      "file": "apps/web/src/views/UpcomingView.vue",
+      "sha256": "27b917d5c6204a0e94e631e7cd8d8a3f726bfc6ad702a4e520731e8e52a22866"
+    },
+    {
+      "file": "apps/web/src/components/UpcomingScenario.vue",
+      "sha256": "0223ec2c2a6a4684a17cb00fb4f6d165412558f9f231de6b343c6c899ef455cf"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783"
+    }
+  ]
+}
