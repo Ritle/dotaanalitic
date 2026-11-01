@@ -1,5 +1,33 @@
 # Источники данных и техническая проверка
 
+## STRATZ — авторизованный pilot2026-11-02
+
+Владелец добавил `STRATZ_API_TOKEN` и продолжил предложенный bounded pilot. Запросы шли на стандартный `https://api.stratz.com/graphql` с собственным Bearer, без public Explorer key. [План, SHA, реальные ответы и сверка](evidence/stratz-owner-pilot-2026-11-02.json). Production adapter остаётся OFF; рабочая БД не подключалась и не менялась.
+
+До HTTP зафиксирован20-map plan:3 равномерных временных ранга каждой из4 historical leagues +4 DreamLeague25 warmup +4 recent maps. Всего7 лиг,2021–2026; выбор по ID/league/start, без выбора по исходам. OpenDota file/payload SHA, MatchSchema и положительная professional/premium классификация проверены. Это целевая выборка доступного корпуса, не репрезентативная оценка всех турниров STRATZ.
+
+| Проверка | Результат |
+|---|---:|
+| Возвращённые single-map responses | 20/20 |
+| Полные numeric lineups/native slots/10 разных героев | 20/20 |
+| Совпали account IDs/герои/стороны | 20/20 |
+| Совпали start/outcome/duration/league/series/team references | 20/20 |
+| Позиции заполнены у всех10 | 20/20 |
+| gameVersionId разрешён в название патча | 20/20 |
+| 10 source picks совпали с финальными героями/сторонами | 20/20 |
+| Raw draft events | 24 у каждой карты:10 picks/14 bans |
+| Карты с конфликтами проверенных полей | 0/20 |
+
+Patch distribution:7.29d×2,7.30d×1,7.32c×3,7.34d×3,7.37×3,7.37e×2,7.38×2,7.41f×4. Constants189, latest190/7.41f, raw SHA совпадает с прежним публичным запросом. Это заполненная retrospective map classification; точный Valve deployment time/client6969 correspondence и pre-start availability не доказаны.
+
+**Доступ и лимиты:**28 HTTP200/max36, retries0,429/5xx0. Один ответ содержит GraphQL ADMIN_REQUIRED: bulk `matches(ids:...)` требует admin и с owner token; single `match(id)` доступен20/20. Headers всех ответов показывают8/sec,150/min,1500/hour,15000/day — отличаются от старого FAQ ниже. Pilot spacing1.2s ограничивал поток примерно50/min. HTTP attempts и quota cost не считаются автоматически равными. Future client обязан учитывать актуальные headers/Retry-After и все интервалы quota; pilot прекращал бы новые запросы при403/429/5xx.
+
+**Расписание и заявки:**future leagues take5→0; ongoing take5→5 AMATEUR leagues с NULL names/nodes[]. У17765 есть16 tableTeams, registered members0 и nodes0;20395 вернул leagueNULL. Ongoing запрос без pro tier filter — не перепись всех текущих pro турниров. Подтверждённого расписания/заявки нужной будущей встречи нет. Существующие schedule providers сохраняют свою роль. Team9964962 GamerLegion вернул9 членов с first/last match dates — история участия, не гарантированная будущая пятёрка; первые5 строк автоматически не выбирались.
+
+Итог: STRATZ подходит для следующего read-only enrichment slice — версия карты, позиционные аннотации и draft detail, с source/SHA/clocks/conflicts и отдельным opt-in. Named backend client/Zod, durable quotas и field provenance ещё не реализованы; автоматического импорта или patch promotion нет. Принятие per-map patch proof в strict registry требует отдельного review. E0/E1 artifacts не менялись; E1 collector/scoring guard остаётся запланирован, actual evaluation не раньше10.11 03:00 МСК.
+
+Data-only pilot: production code/SQL/dependencies не менялись, поэтому pnpm/DB/E2E/Python suites не повторялись. Реально проверены source hashes,20 deterministic comparisons, observed bulk denial/headers и frozen E1 SHA. Raw responses/request documents/helpers остаются в ignored `.tools/stratz-owner-pilot-20261102/` и `.tools/stratz-owner-pilot*.mjs`; exact-byte replay требует локальный архив.
+
 ## STRATZ — проверка документации и публичного Explorer2026-11-02
 
 По запросу владельца выполнен отдельный source review; production STRATZ остаётся OFF. Это не внедрение адаптера и не смена frozen E1 protocol. [Evidence: реальные HTTP, SHA, схема и сравнение карты](evidence/stratz-api-review-2026-11-02.json). Рабочая БД не подключалась/не менялась; ключ STRATZ в проверенных env-переменных отсутствует.

@@ -1,0 +1,1644 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T22:30:19.636Z",
+  "scope": "authenticated_STRATZ_bounded_source_pilot",
+  "ownerTokenUsed": true,
+  "plan": {
+    "file": ".tools/stratz-owner-pilot-20261102/plan.json",
+    "sha256": "1c2018e01208913f2bd94670dbd9d8e8efc9a3aae6381843f76885336b79364b",
+    "registeredAt": "2026-11-01T22:29:13.800Z",
+    "method": "three_uniform_time_ranks_each_of_four_historical_leagues_plus_four_warmup_plus_four_recent",
+    "selectionUsesOutcomes": false,
+    "representative": false
+  },
+  "requests": {
+    "attempts": 28,
+    "maximum": 36,
+    "retries": 0,
+    "httpStatuses": {
+      "200": 28
+    },
+    "graphqlErrorResponses": 1,
+    "halt": null
+  },
+  "rateLimits": {
+    "first": {
+      "ratelimit-limit": "8",
+      "ratelimit-remaining": "7",
+      "ratelimit-reset": "1",
+      "x-ratelimit-limit-day": "15000",
+      "x-ratelimit-limit-hour": "1500",
+      "x-ratelimit-limit-minute": "150",
+      "x-ratelimit-limit-second": "8",
+      "x-ratelimit-remaining-day": "14909",
+      "x-ratelimit-remaining-hour": "1409",
+      "x-ratelimit-remaining-minute": "148",
+      "x-ratelimit-remaining-second": "7"
+    },
+    "last": {
+      "ratelimit-limit": "8",
+      "ratelimit-remaining": "7",
+      "ratelimit-reset": "1",
+      "x-ratelimit-limit-day": "15000",
+      "x-ratelimit-limit-hour": "1500",
+      "x-ratelimit-limit-minute": "150",
+      "x-ratelimit-limit-second": "8",
+      "x-ratelimit-remaining-day": "14879",
+      "x-ratelimit-remaining-hour": "1379",
+      "x-ratelimit-remaining-minute": "118",
+      "x-ratelimit-remaining-second": "7"
+    },
+    "allObservedLimits": [
+      {
+        "ratelimit-limit": "8",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8"
+      }
+    ]
+  },
+  "summary": {
+    "selected": 20,
+    "returned": 20,
+    "conflictingMaps": 0,
+    "completeNumericLineups": 20,
+    "tenDistinctHeroes": 20,
+    "tenPositions": 20,
+    "namedPatch": 20,
+    "tenPicksMatchingFinal": 20,
+    "sourcePatchDistribution": {
+      "7.29d": 2,
+      "7.30d": 1,
+      "7.32c": 3,
+      "7.34d": 3,
+      "7.37": 3,
+      "7.37e": 2,
+      "7.38": 2,
+      "7.41f": 4
+    },
+    "draftEventDistribution": {
+      "24": 20
+    }
+  },
+  "rows": [
+    {
+      "matchId": "6054718020",
+      "leagueId": "13256",
+      "startedAt": "2021-06-23T08:00:33.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 144,
+      "patchLabel": "7.29d",
+      "versionAsOfDateTime": 1621814400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1624440405,
+      "statsDateTime": 1624440413,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-6054718020.body",
+        "sha256": "d1a36566a570da9c5c09c68810602c37af7d044f71213da014ec88d81c61b904",
+        "fetchedAt": "2026-11-01T22:29:23.909Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "6079100944",
+      "leagueId": "13256",
+      "startedAt": "2021-07-08T13:39:51.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 144,
+      "patchLabel": "7.29d",
+      "versionAsOfDateTime": 1621814400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1625756416,
+      "statsDateTime": 1625756709,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-6079100944.body",
+        "sha256": "1df846bb0e550ea784424dab73d6f42ee9ff073b83e41ab82bb507f94c0ed93b",
+        "fetchedAt": "2026-11-01T22:29:25.110Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "6227492909",
+      "leagueId": "13256",
+      "startedAt": "2021-10-17T16:56:26.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 148,
+      "patchLabel": "7.30d",
+      "versionAsOfDateTime": 1632628320,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1634493054,
+      "statsDateTime": 1634493059,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-6227492909.body",
+        "sha256": "f233d31a9cac20157e42f530ab55dbbf27d4c00b54fa088b729dd1e54ed7f1af",
+        "fetchedAt": "2026-11-01T22:29:26.315Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "6806047579",
+      "leagueId": "14268",
+      "startedAt": "2022-10-15T02:27:57.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 156,
+      "patchLabel": "7.32c",
+      "versionAsOfDateTime": 1664323200,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1665821007,
+      "statsDateTime": 1665821012,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-6806047579.body",
+        "sha256": "21e81110a22ec8e6286e44457b877ac45d0ad7b6e32396daca9e30f8fc1d3ee4",
+        "fetchedAt": "2026-11-01T22:29:27.521Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "6809522859",
+      "leagueId": "14268",
+      "startedAt": "2022-10-17T05:02:37.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 156,
+      "patchLabel": "7.32c",
+      "versionAsOfDateTime": 1664323200,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1665986393,
+      "statsDateTime": 1665986396,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-6809522859.body",
+        "sha256": "989eb8401254d466babfa9947eebf5be027bb18020d30ec98de175e4aab64e88",
+        "fetchedAt": "2026-11-01T22:29:28.735Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "6832287527",
+      "leagueId": "14268",
+      "startedAt": "2022-10-30T11:49:25.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 156,
+      "patchLabel": "7.32c",
+      "versionAsOfDateTime": 1664323200,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1667232846,
+      "statsDateTime": 1667232853,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-6832287527.body",
+        "sha256": "f27d86e90677a8b6e03f9e5a3b1c130fdec1d2c56f58f0a8978c74f82e4ca415",
+        "fetchedAt": "2026-11-01T22:29:29.941Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "7378530387",
+      "leagueId": "15728",
+      "startedAt": "2023-10-12T17:00:44.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 167,
+      "patchLabel": "7.34d",
+      "versionAsOfDateTime": 1696550400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1697107914,
+      "statsDateTime": 1697133118,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-7378530387.body",
+        "sha256": "dc4f222ba2e70a1645cb26f65e3e76a5b34bc096689288181076648ed2eeb40e",
+        "fetchedAt": "2026-11-01T22:29:31.154Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "7380403482",
+      "leagueId": "15728",
+      "startedAt": "2023-10-13T22:51:24.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 167,
+      "patchLabel": "7.34d",
+      "versionAsOfDateTime": 1696550400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1698142295,
+      "statsDateTime": 1698167501,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-7380403482.body",
+        "sha256": "d12194eaf62339ac9acd9bd19cbe5829647ace76d99d555b2460e3daef85d366",
+        "fetchedAt": "2026-11-01T22:29:32.354Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "7406531302",
+      "leagueId": "15728",
+      "startedAt": "2023-10-29T23:13:43.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 167,
+      "patchLabel": "7.34d",
+      "versionAsOfDateTime": 1696550400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1698599750,
+      "statsDateTime": 1698624953,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-7406531302.body",
+        "sha256": "4788a0c5c06c113acaff75a763f4a11c9aa8688f86f9249e35fabe67f4fc7b35",
+        "fetchedAt": "2026-11-01T22:29:33.564Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "7927665228",
+      "leagueId": "16935",
+      "startedAt": "2024-09-04T08:10:41.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 176,
+      "patchLabel": "7.37",
+      "versionAsOfDateTime": 1722470400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1725441150,
+      "statsDateTime": 1725441156,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-7927665228.body",
+        "sha256": "4866171c4d9e34b022a399b0dff860bacb1f85109e66083ac314e61e7df4e66a",
+        "fetchedAt": "2026-11-01T22:29:34.779Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "7931106306",
+      "leagueId": "16935",
+      "startedAt": "2024-09-06T18:59:50.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 176,
+      "patchLabel": "7.37",
+      "versionAsOfDateTime": 1722470400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1725654241,
+      "statsDateTime": 1725654249,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-7931106306.body",
+        "sha256": "2ed9ba78cc013f91040c2b825a9ea053b949b3eca34bc86ac5ce544c77b98db1",
+        "fetchedAt": "2026-11-01T22:29:35.991Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "7944311818",
+      "leagueId": "16935",
+      "startedAt": "2024-09-15T15:59:50.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 176,
+      "patchLabel": "7.37",
+      "versionAsOfDateTime": 1722470400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1726419296,
+      "statsDateTime": 1726419300,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-7944311818.body",
+        "sha256": "228afce924bb124083361818740a87f5f46aa6b4a2b1a40e73d9191458b50ff5",
+        "fetchedAt": "2026-11-01T22:29:37.207Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "8176324556",
+      "leagueId": "17765",
+      "startedAt": "2025-02-16T10:55:02.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 178,
+      "patchLabel": "7.37e",
+      "versionAsOfDateTime": 1731974400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1739708191,
+      "statsDateTime": 1739708199,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-8176324556.body",
+        "sha256": "d5593fe8f20e34207a874854e3e3de285af4a33984b13d1b7371a7579a6724cd",
+        "fetchedAt": "2026-11-01T22:29:38.421Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "8179129689",
+      "leagueId": "17765",
+      "startedAt": "2025-02-18T10:55:00.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 178,
+      "patchLabel": "7.37e",
+      "versionAsOfDateTime": 1731974400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1739880301,
+      "statsDateTime": 1739880303,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-8179129689.body",
+        "sha256": "d730e3aa4387c294b140759f22fd945db50e168e44679fc199a7b5593d2f31c6",
+        "fetchedAt": "2026-11-01T22:29:39.625Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "8185744704",
+      "leagueId": "17765",
+      "startedAt": "2025-02-22T14:47:06.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 179,
+      "patchLabel": "7.38",
+      "versionAsOfDateTime": 1739923200,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1740239544,
+      "statsDateTime": 1740239547,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-8185744704.body",
+        "sha256": "57bf263df583873159a996e516a2a0b2e6853412c3863795db83b21d36417dad",
+        "fetchedAt": "2026-11-01T22:29:40.838Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "8200463236",
+      "leagueId": "17765",
+      "startedAt": "2025-03-04T16:06:00.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 179,
+      "patchLabel": "7.38",
+      "versionAsOfDateTime": 1739923200,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1741108529,
+      "statsDateTime": 1741108533,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-8200463236.body",
+        "sha256": "73b2e51f9218df7fb4abbe33e84b11abc822c4dc1f4f24ca0bcbf6cf31c1cd3e",
+        "fetchedAt": "2026-11-01T22:29:42.051Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "9052687571",
+      "leagueId": "19944",
+      "startedAt": "2026-10-19T15:58:27.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 190,
+      "patchLabel": "7.41f",
+      "versionAsOfDateTime": 1789430400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1792432526,
+      "statsDateTime": 1792432540,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-9052687571.body",
+        "sha256": "75bce66916db9fc42f6279325347f2f553376eb1186ed923733d9421230aa5da",
+        "fetchedAt": "2026-11-01T22:29:43.258Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "9067177642",
+      "leagueId": "20395",
+      "startedAt": "2026-10-29T15:08:28.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 190,
+      "patchLabel": "7.41f",
+      "versionAsOfDateTime": 1789430400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1793294041,
+      "statsDateTime": 1793294063,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-9067177642.body",
+        "sha256": "587d734bf303fd5b58c9c5867ee55f435710baf6d531bd478538baf002c4c778",
+        "fetchedAt": "2026-11-01T22:29:44.467Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "9068910292",
+      "leagueId": "20395",
+      "startedAt": "2026-10-30T18:37:56.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 190,
+      "patchLabel": "7.41f",
+      "versionAsOfDateTime": 1789430400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1793392865,
+      "statsDateTime": 1793392879,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-9068910292.body",
+        "sha256": "b94fe9d57ace35a8ed8e715673a8eb096613dcea4458e6acde5907e018b07b2b",
+        "fetchedAt": "2026-11-01T22:29:45.667Z",
+        "knownAt": null
+      }
+    },
+    {
+      "matchId": "9070527945",
+      "leagueId": "20395",
+      "startedAt": "2026-10-31T18:51:31.000Z",
+      "status": "observed",
+      "conflicts": [],
+      "missing": [],
+      "players": 10,
+      "distinctAccounts": 10,
+      "nativeSlots": true,
+      "tenDistinctHeroes": true,
+      "positions": 10,
+      "lanes": 10,
+      "roles": 10,
+      "gameVersionId": 190,
+      "patchLabel": "7.41f",
+      "versionAsOfDateTime": 1789430400,
+      "draftEvents": 24,
+      "picks": 10,
+      "bans": 14,
+      "picksAgreeWithFinal": true,
+      "draftOrderUnique": true,
+      "parsedDateTime": 1793480642,
+      "statsDateTime": 1793480647,
+      "source": {
+        "file": ".tools/stratz-owner-pilot-20261102/match-9070527945.body",
+        "sha256": "610bf9319ad9217a64d5cae7355dab3a02f34f37ef76ce136d146362c70eebcf",
+        "fetchedAt": "2026-11-01T22:29:46.879Z",
+        "knownAt": null
+      }
+    }
+  ],
+  "versions": {
+    "count": 189,
+    "latest": [
+      {
+        "id": 190,
+        "name": "7.41f",
+        "asOfDateTime": 1789430400
+      },
+      {
+        "id": 189,
+        "name": "7.41e",
+        "asOfDateTime": 1785369600
+      },
+      {
+        "id": 188,
+        "name": "7.41d",
+        "asOfDateTime": 1780531200
+      },
+      {
+        "id": 187,
+        "name": "7.41c",
+        "asOfDateTime": 1778025600
+      },
+      {
+        "id": 186,
+        "name": "7.41b",
+        "asOfDateTime": 1775520000
+      }
+    ]
+  },
+  "schedule": {
+    "future": {
+      "operation": "future-leagues",
+      "count": 0,
+      "leagues": []
+    },
+    "ongoing": {
+      "operation": "ongoing-leagues",
+      "count": 5,
+      "leagues": [
+        {
+          "id": "17599",
+          "name": null,
+          "tier": "AMATEUR",
+          "startDateTime": 1734220800,
+          "endDateTime": 1801267200,
+          "nodes": []
+        },
+        {
+          "id": "16577",
+          "name": null,
+          "tier": "AMATEUR",
+          "startDateTime": 1712505600,
+          "endDateTime": 1827590400,
+          "nodes": []
+        },
+        {
+          "id": "18113",
+          "name": null,
+          "tier": "AMATEUR",
+          "startDateTime": 1745366400,
+          "endDateTime": 1840579200,
+          "nodes": []
+        },
+        {
+          "id": "18382",
+          "name": null,
+          "tier": "AMATEUR",
+          "startDateTime": 1750460400,
+          "endDateTime": 1911337200,
+          "nodes": []
+        },
+        {
+          "id": "13913",
+          "name": null,
+          "tier": "AMATEUR",
+          "startDateTime": 1643500800,
+          "endDateTime": 1940544000,
+          "nodes": []
+        }
+      ]
+    },
+    "queriedLeagues": [
+      {
+        "operation": "league-17765",
+        "id": "17765",
+        "name": null,
+        "tier": "PROFESSIONAL",
+        "nodes": 0,
+        "tableTeams": 16,
+        "registeredPlayers": 0,
+        "members": [
+          {
+            "teamId": "7119388",
+            "accountIds": []
+          },
+          {
+            "teamId": "8291895",
+            "accountIds": []
+          },
+          {
+            "teamId": "9572001",
+            "accountIds": []
+          },
+          {
+            "teamId": "9303484",
+            "accountIds": []
+          },
+          {
+            "teamId": "8255888",
+            "accountIds": []
+          },
+          {
+            "teamId": "9634742",
+            "accountIds": []
+          },
+          {
+            "teamId": "9247354",
+            "accountIds": []
+          },
+          {
+            "teamId": "2163",
+            "accountIds": []
+          },
+          {
+            "teamId": "8599101",
+            "accountIds": []
+          },
+          {
+            "teamId": "9351740",
+            "accountIds": []
+          },
+          {
+            "teamId": "7732977",
+            "accountIds": []
+          },
+          {
+            "teamId": "39",
+            "accountIds": []
+          },
+          {
+            "teamId": "8261500",
+            "accountIds": []
+          },
+          {
+            "teamId": "9678064",
+            "accountIds": []
+          },
+          {
+            "teamId": "9498970",
+            "accountIds": []
+          },
+          {
+            "teamId": "7422789",
+            "accountIds": []
+          }
+        ],
+        "errors": []
+      },
+      {
+        "operation": "league-20395",
+        "id": null,
+        "name": null,
+        "tier": null,
+        "nodes": 0,
+        "tableTeams": 0,
+        "registeredPlayers": 0,
+        "members": [],
+        "errors": []
+      }
+    ],
+    "remoteCompleteness": "unknown"
+  },
+  "team": {
+    "id": "9964962",
+    "name": "GamerLegion",
+    "members": [
+      {
+        "accountId": "90423751",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1763202702,
+        "lastMatchDateTime": 1793475521
+      },
+      {
+        "accountId": "154974246",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1763202702,
+        "lastMatchDateTime": 1793475521
+      },
+      {
+        "accountId": "160119017",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1763202702,
+        "lastMatchDateTime": 1793475521
+      },
+      {
+        "accountId": "177203952",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1790701853,
+        "lastMatchDateTime": 1793475521
+      },
+      {
+        "accountId": "191362875",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1763202702,
+        "lastMatchDateTime": 1793475521
+      },
+      {
+        "accountId": "97658618",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1788811479,
+        "lastMatchDateTime": 1790413577
+      },
+      {
+        "accountId": "206642367",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1775330811,
+        "lastMatchDateTime": 1786865476
+      },
+      {
+        "accountId": "164962869",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1774185081,
+        "lastMatchDateTime": 1774464566
+      },
+      {
+        "accountId": "81475303",
+        "teamId": "9964962",
+        "firstMatchDateTime": 1763202702,
+        "lastMatchDateTime": 1771599711
+      }
+    ]
+  },
+  "bulk": {
+    "status": 200,
+    "errors": [
+      {
+        "code": "ADMIN_REQUIRED",
+        "path": null
+      }
+    ],
+    "dataPresent": false
+  },
+  "sources": [
+    {
+      "name": "constants",
+      "fetchedAt": "2026-11-01T22:29:21.490Z",
+      "receivedAt": "2026-11-01T22:29:22.016Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 9701,
+      "sha256": "9dfba7c206d928f2768d2b24e30d2a554cd6aebb46bedbc1347fae67c7ed5f41",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14909",
+        "x-ratelimit-remaining-hour": "1409",
+        "x-ratelimit-remaining-minute": "148",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/constants.body"
+    },
+    {
+      "name": "schema",
+      "fetchedAt": "2026-11-01T22:29:22.702Z",
+      "receivedAt": "2026-11-01T22:29:22.927Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 735,
+      "sha256": "14c42cadc82eb9c23dda46fd913232256e01ea1fa7b73305917012ca5fa400e3",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14908",
+        "x-ratelimit-remaining-hour": "1408",
+        "x-ratelimit-remaining-minute": "147",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/schema.body"
+    },
+    {
+      "name": "match-6054718020",
+      "fetchedAt": "2026-11-01T22:29:23.909Z",
+      "receivedAt": "2026-11-01T22:29:24.159Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3501,
+      "sha256": "d1a36566a570da9c5c09c68810602c37af7d044f71213da014ec88d81c61b904",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14907",
+        "x-ratelimit-remaining-hour": "1407",
+        "x-ratelimit-remaining-minute": "146",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-6054718020.body"
+    },
+    {
+      "name": "match-6079100944",
+      "fetchedAt": "2026-11-01T22:29:25.110Z",
+      "receivedAt": "2026-11-01T22:29:25.351Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3501,
+      "sha256": "1df846bb0e550ea784424dab73d6f42ee9ff073b83e41ab82bb507f94c0ed93b",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14906",
+        "x-ratelimit-remaining-hour": "1406",
+        "x-ratelimit-remaining-minute": "145",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-6079100944.body"
+    },
+    {
+      "name": "match-6227492909",
+      "fetchedAt": "2026-11-01T22:29:26.315Z",
+      "receivedAt": "2026-11-01T22:29:26.575Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3500,
+      "sha256": "f233d31a9cac20157e42f530ab55dbbf27d4c00b54fa088b729dd1e54ed7f1af",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14905",
+        "x-ratelimit-remaining-hour": "1405",
+        "x-ratelimit-remaining-minute": "144",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-6227492909.body"
+    },
+    {
+      "name": "match-6806047579",
+      "fetchedAt": "2026-11-01T22:29:27.521Z",
+      "receivedAt": "2026-11-01T22:29:27.752Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3401,
+      "sha256": "21e81110a22ec8e6286e44457b877ac45d0ad7b6e32396daca9e30f8fc1d3ee4",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14904",
+        "x-ratelimit-remaining-hour": "1404",
+        "x-ratelimit-remaining-minute": "143",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-6806047579.body"
+    },
+    {
+      "name": "match-6809522859",
+      "fetchedAt": "2026-11-01T22:29:28.735Z",
+      "receivedAt": "2026-11-01T22:29:28.960Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3404,
+      "sha256": "989eb8401254d466babfa9947eebf5be027bb18020d30ec98de175e4aab64e88",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14903",
+        "x-ratelimit-remaining-hour": "1403",
+        "x-ratelimit-remaining-minute": "142",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-6809522859.body"
+    },
+    {
+      "name": "match-6832287527",
+      "fetchedAt": "2026-11-01T22:29:29.941Z",
+      "receivedAt": "2026-11-01T22:29:30.169Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3399,
+      "sha256": "f27d86e90677a8b6e03f9e5a3b1c130fdec1d2c56f58f0a8978c74f82e4ca415",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "6",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14901",
+        "x-ratelimit-remaining-hour": "1401",
+        "x-ratelimit-remaining-minute": "140",
+        "x-ratelimit-remaining-second": "6"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-6832287527.body"
+    },
+    {
+      "name": "match-7378530387",
+      "fetchedAt": "2026-11-01T22:29:31.154Z",
+      "receivedAt": "2026-11-01T22:29:31.383Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3406,
+      "sha256": "dc4f222ba2e70a1645cb26f65e3e76a5b34bc096689288181076648ed2eeb40e",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14900",
+        "x-ratelimit-remaining-hour": "1400",
+        "x-ratelimit-remaining-minute": "139",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-7378530387.body"
+    },
+    {
+      "name": "match-7380403482",
+      "fetchedAt": "2026-11-01T22:29:32.354Z",
+      "receivedAt": "2026-11-01T22:29:32.581Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3408,
+      "sha256": "d12194eaf62339ac9acd9bd19cbe5829647ace76d99d555b2460e3daef85d366",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14899",
+        "x-ratelimit-remaining-hour": "1399",
+        "x-ratelimit-remaining-minute": "138",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-7380403482.body"
+    },
+    {
+      "name": "match-7406531302",
+      "fetchedAt": "2026-11-01T22:29:33.564Z",
+      "receivedAt": "2026-11-01T22:29:33.790Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3408,
+      "sha256": "4788a0c5c06c113acaff75a763f4a11c9aa8688f86f9249e35fabe67f4fc7b35",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14898",
+        "x-ratelimit-remaining-hour": "1398",
+        "x-ratelimit-remaining-minute": "137",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-7406531302.body"
+    },
+    {
+      "name": "match-7927665228",
+      "fetchedAt": "2026-11-01T22:29:34.779Z",
+      "receivedAt": "2026-11-01T22:29:35.003Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3388,
+      "sha256": "4866171c4d9e34b022a399b0dff860bacb1f85109e66083ac314e61e7df4e66a",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14897",
+        "x-ratelimit-remaining-hour": "1397",
+        "x-ratelimit-remaining-minute": "136",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-7927665228.body"
+    },
+    {
+      "name": "match-7931106306",
+      "fetchedAt": "2026-11-01T22:29:35.991Z",
+      "receivedAt": "2026-11-01T22:29:36.212Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3403,
+      "sha256": "2ed9ba78cc013f91040c2b825a9ea053b949b3eca34bc86ac5ce544c77b98db1",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14896",
+        "x-ratelimit-remaining-hour": "1396",
+        "x-ratelimit-remaining-minute": "135",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-7931106306.body"
+    },
+    {
+      "name": "match-7944311818",
+      "fetchedAt": "2026-11-01T22:29:37.207Z",
+      "receivedAt": "2026-11-01T22:29:37.431Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3400,
+      "sha256": "228afce924bb124083361818740a87f5f46aa6b4a2b1a40e73d9191458b50ff5",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14895",
+        "x-ratelimit-remaining-hour": "1395",
+        "x-ratelimit-remaining-minute": "134",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-7944311818.body"
+    },
+    {
+      "name": "match-8176324556",
+      "fetchedAt": "2026-11-01T22:29:38.421Z",
+      "receivedAt": "2026-11-01T22:29:38.649Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3405,
+      "sha256": "d5593fe8f20e34207a874854e3e3de285af4a33984b13d1b7371a7579a6724cd",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14894",
+        "x-ratelimit-remaining-hour": "1394",
+        "x-ratelimit-remaining-minute": "133",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-8176324556.body"
+    },
+    {
+      "name": "match-8179129689",
+      "fetchedAt": "2026-11-01T22:29:39.625Z",
+      "receivedAt": "2026-11-01T22:29:39.918Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3395,
+      "sha256": "d730e3aa4387c294b140759f22fd945db50e168e44679fc199a7b5593d2f31c6",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14893",
+        "x-ratelimit-remaining-hour": "1393",
+        "x-ratelimit-remaining-minute": "132",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-8179129689.body"
+    },
+    {
+      "name": "match-8185744704",
+      "fetchedAt": "2026-11-01T22:29:40.838Z",
+      "receivedAt": "2026-11-01T22:29:41.058Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3387,
+      "sha256": "57bf263df583873159a996e516a2a0b2e6853412c3863795db83b21d36417dad",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14891",
+        "x-ratelimit-remaining-hour": "1391",
+        "x-ratelimit-remaining-minute": "130",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-8185744704.body"
+    },
+    {
+      "name": "match-8200463236",
+      "fetchedAt": "2026-11-01T22:29:42.051Z",
+      "receivedAt": "2026-11-01T22:29:42.274Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3401,
+      "sha256": "73b2e51f9218df7fb4abbe33e84b11abc822c4dc1f4f24ca0bcbf6cf31c1cd3e",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14890",
+        "x-ratelimit-remaining-hour": "1390",
+        "x-ratelimit-remaining-minute": "129",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-8200463236.body"
+    },
+    {
+      "name": "match-9052687571",
+      "fetchedAt": "2026-11-01T22:29:43.258Z",
+      "receivedAt": "2026-11-01T22:29:43.544Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3411,
+      "sha256": "75bce66916db9fc42f6279325347f2f553376eb1186ed923733d9421230aa5da",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14889",
+        "x-ratelimit-remaining-hour": "1389",
+        "x-ratelimit-remaining-minute": "128",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-9052687571.body"
+    },
+    {
+      "name": "match-9067177642",
+      "fetchedAt": "2026-11-01T22:29:44.467Z",
+      "receivedAt": "2026-11-01T22:29:44.690Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3406,
+      "sha256": "587d734bf303fd5b58c9c5867ee55f435710baf6d531bd478538baf002c4c778",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14888",
+        "x-ratelimit-remaining-hour": "1388",
+        "x-ratelimit-remaining-minute": "127",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-9067177642.body"
+    },
+    {
+      "name": "match-9068910292",
+      "fetchedAt": "2026-11-01T22:29:45.667Z",
+      "receivedAt": "2026-11-01T22:29:45.890Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3406,
+      "sha256": "b94fe9d57ace35a8ed8e715673a8eb096613dcea4458e6acde5907e018b07b2b",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14887",
+        "x-ratelimit-remaining-hour": "1387",
+        "x-ratelimit-remaining-minute": "126",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-9068910292.body"
+    },
+    {
+      "name": "match-9070527945",
+      "fetchedAt": "2026-11-01T22:29:46.879Z",
+      "receivedAt": "2026-11-01T22:29:47.105Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 3406,
+      "sha256": "610bf9319ad9217a64d5cae7355dab3a02f34f37ef76ce136d146362c70eebcf",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14886",
+        "x-ratelimit-remaining-hour": "1386",
+        "x-ratelimit-remaining-minute": "125",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/match-9070527945.body"
+    },
+    {
+      "name": "bulk",
+      "fetchedAt": "2026-11-01T22:29:48.089Z",
+      "receivedAt": "2026-11-01T22:29:48.301Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 72,
+      "sha256": "d0e5b59204acd2e9fed5cc36ae024865f96f266cbf41ed3ad673bd60c73ac2ed",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14885",
+        "x-ratelimit-remaining-hour": "1385",
+        "x-ratelimit-remaining-minute": "124",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [
+        {
+          "code": "ADMIN_REQUIRED",
+          "path": null
+        }
+      ],
+      "file": ".tools/stratz-owner-pilot-20261102/bulk.body"
+    },
+    {
+      "name": "future-leagues",
+      "fetchedAt": "2026-11-01T22:29:49.298Z",
+      "receivedAt": "2026-11-01T22:29:49.510Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 23,
+      "sha256": "8e6c53d8dac5f4a4ce42263a12a196833522f1b8c2fafc9c79a03edef20ef33d",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14884",
+        "x-ratelimit-remaining-hour": "1384",
+        "x-ratelimit-remaining-minute": "123",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/future-leagues.body"
+    },
+    {
+      "name": "ongoing-leagues",
+      "fetchedAt": "2026-11-01T22:29:50.506Z",
+      "receivedAt": "2026-11-01T22:29:50.741Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 572,
+      "sha256": "1e871789f18e33168ab5366feefb6a919f537fcd2e7102f922a1b54fd3133914",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14883",
+        "x-ratelimit-remaining-hour": "1383",
+        "x-ratelimit-remaining-minute": "122",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/ongoing-leagues.body"
+    },
+    {
+      "name": "league-17765",
+      "fetchedAt": "2026-11-01T22:29:51.716Z",
+      "receivedAt": "2026-11-01T22:29:52.251Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 664,
+      "sha256": "e15225dcee44f503c2275d77cb438fa40aa8a25744c214a67c4f5c4433ffa932",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "6",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14881",
+        "x-ratelimit-remaining-hour": "1381",
+        "x-ratelimit-remaining-minute": "120",
+        "x-ratelimit-remaining-second": "6"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/league-17765.body"
+    },
+    {
+      "name": "league-20395",
+      "fetchedAt": "2026-11-01T22:29:52.931Z",
+      "receivedAt": "2026-11-01T22:29:53.157Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 24,
+      "sha256": "0fa7557256f156c5f6bedd61efcf5849d7eb70932505f67beb9ed78d32b8be32",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14880",
+        "x-ratelimit-remaining-hour": "1380",
+        "x-ratelimit-remaining-minute": "119",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/league-20395.body"
+    },
+    {
+      "name": "team-9964962",
+      "fetchedAt": "2026-11-01T22:29:54.146Z",
+      "receivedAt": "2026-11-01T22:29:54.375Z",
+      "knownAt": null,
+      "status": 200,
+      "bytes": 1043,
+      "sha256": "c7b76da3d2ad5db47ec35ceba619420bb86ff9952fe831cbd56ad565b8e8bcd7",
+      "headers": {
+        "ratelimit-limit": "8",
+        "ratelimit-remaining": "7",
+        "ratelimit-reset": "1",
+        "x-ratelimit-limit-day": "15000",
+        "x-ratelimit-limit-hour": "1500",
+        "x-ratelimit-limit-minute": "150",
+        "x-ratelimit-limit-second": "8",
+        "x-ratelimit-remaining-day": "14879",
+        "x-ratelimit-remaining-hour": "1379",
+        "x-ratelimit-remaining-minute": "118",
+        "x-ratelimit-remaining-second": "7"
+      },
+      "errors": [],
+      "file": ".tools/stratz-owner-pilot-20261102/team-9964962.body"
+    }
+  ],
+  "code": [
+    {
+      "file": ".tools/stratz-owner-pilot.mjs",
+      "sha256": "334580aada50dcc44f6e270cf8e4660baa6d008fdb61161d21b78c3c9a7d65e4"
+    },
+    {
+      "file": ".tools/stratz-owner-pilot-analyze.mjs",
+      "sha256": "9e5b51be82402e1c1aa9ce85e772f75e5cf8ac3c838bc8a59920f67a1cdda8bb"
+    }
+  ],
+  "databaseWrites": 0,
+  "productionIntegrationEnabled": false,
+  "historicalAvailability": "not_proven",
+  "trainingReady": false,
+  "deployable": false
+}
