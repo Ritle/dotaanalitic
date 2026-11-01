@@ -830,3 +830,13 @@ Checks actually executed — PASS:
 Architecture / open gates: true source clocks не заменялись реконструированным endtime; current identities и actual lineup считаются допущениями только E0. Patched/strict/prospective cohorts и source completeness не установлены. Remote series siblings могут отсутствовать. Production S1-07/S3-01 и prediction MVP остаются открытыми; source mapping поиск остановлен до materially new evidence.
 
 Next task / precise entry point: S3-01 — заранее определить расширение реального pro-корпуса и новый независимый временной holdout по docs/S3_01_E0_RESEARCH.md. Не подбирать параметры под уже просмотренные16 карт, не превращать E0 в production model. Suggested model: GPT-6 Astra · Extra High для temporal evaluation.
+
+### 2026-11-01 — DX: исправление повторяющегося spawn EPERM
+
+По прямому запросу владельца «давай исправим» проверена настройка Codex. Один и тот же spawnSync Node даёт EPERM в текущем unelevated sandbox и status0/stdout123 вне него. Windows11 Home build26300, Codex CLI0.164.0-alpha.11.1. Официальный `codex -c windows.sandbox=mxc sandbox --include-managed-config --permission-profile :workspace -- cmd.exe /d /c echo MXC_OK` — exit0. MXC с `features.prefer_mxc=true`: дочерний Node и13 E0 pure Vitest PASS.
+
+С резервной копией `C:\Users\funnk\.codex\config.toml.before-mxc-20261101T205916772Z.bak` в пользовательском конфиге включён только features.prefer_mxc=true; остальные настройки, включая legacy fallback, сохранены. Новый `codex sandbox --include-managed-config --permission-profile :workspace` без overrides читает сохранённую настройку: spawn PASS, E0 Vitest13 PASS. Основание — official OpenAI Windows sandbox docs https://learn.chatgpt.com/docs/windows/windows-sandbox . Setup elevated/изменения ACL/Defender/полный доступ не потребовались. Global config/backup не включены в Git; локальные probe/helper scripts ignored.
+
+Ограничение: уже работающий executor этой сессии остаётся на старом sandbox, контрольный обычный spawn всё ещё EPERM. Для применения к интерактивной разработке владелец должен перезапустить приложение/окно VS Code с Codex; агент не завершает процесс, содержащий текущую сессию. После перезапуска сначала выполнить `node .tools/sandbox-spawn-probe.cjs` без escalation. Полные install/typecheck/test/build не повторялись для изменения пользовательского окружения; code/dependencies/SQL/working DB/services не менялись. Git docs/diff проверены.
+
+Next action: перезапуск Codex и обычный spawn probe; затем следующий S3-01 research шаг из E0 handoff. Suggested model: GPT-6.1 Sol · High для проверки окружения, GPT-6 Astra · Extra High для temporal evaluation.
