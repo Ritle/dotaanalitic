@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "mode": "reviewed_historical_expansion",
+  "capturedAt": "2026-11-01T19:38:44.813Z",
+  "capture": {
+    "file": ".tools/s1-08-expansion-capture.json",
+    "sha256": "23155cb42202978fc12b6a8b1250ed902f01d5a31ab00ff94fa5a8305b0f6c87"
+  },
+  "audits": [
+    {
+      "file": "reports/s1-08-expansion-ti2021.json",
+      "sha256": "9c971efead513d3fdb082872c23b2845b8050e503fe099e4ed768caf0c439d19"
+    },
+    {
+      "file": "reports/s1-08-expansion-ti2022.json",
+      "sha256": "0d95d5c162225d553947b3f67aaafcec8398c9012ee939f860d2492408cf08dd"
+    },
+    {
+      "file": "reports/s1-08-expansion-ti2023.json",
+      "sha256": "1538e17b0eed228408ae51573bf24c3de781ae80e612aaf3f99d45d6db05aa36"
+    },
+    {
+      "file": "reports/s1-08-expansion-ti2024.json",
+      "sha256": "95358f8d3d65fc8b758fe54f9561e747548933b2ba9078d9dca729a53b25c540"
+    }
+  ],
+  "selectedIds": [
+    "6054718020",
+    "6067239305",
+    "6079100944",
+    "6214131970",
+    "6227492909",
+    "6806047579",
+    "6807772726",
+    "6809522859",
+    "6811000638",
+    "6832287527",
+    "7378530387",
+    "7378939289",
+    "7380403482",
+    "7393133836",
+    "7406531302",
+    "7927665228",
+    "7928915377",
+    "7931106306",
+    "7936520519",
+    "7944311818"
+  ],
+  "alreadyImported": [],
+  "newIds": [
+    "6054718020",
+    "6067239305",
+    "6079100944",
+    "6214131970",
+    "6227492909",
+    "6806047579",
+    "6807772726",
+    "6809522859",
+    "6811000638",
+    "6832287527",
+    "7378530387",
+    "7378939289",
+    "7380403482",
+    "7393133836",
+    "7406531302",
+    "7927665228",
+    "7928915377",
+    "7931106306",
+    "7936520519",
+    "7944311818"
+  ],
+  "before": [
+    {
+      "id": "9052687571",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9056685103",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9056844521",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9061631640",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9061735400",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067177642",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067346550",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067412106",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067617648",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9068795274",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9068910292",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9069021061",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9069952836",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070062078",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070392472",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070527945",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    }
+  ],
+  "beforeCounts": {
+    "maps": 16,
+    "pro_maps": 16,
+    "map_players": 160,
+    "resolved": 160,
+    "players": 59,
+    "proofs": 59,
+    "identity_revision": "118",
+    "teams": 10,
+    "series": 8,
+    "assessments": 55,
+    "receipts": 76,
+    "datasets": 0,
+    "active_models": 0,
+    "known_field_observations": 0,
+    "upcoming_observations": 2
+  },
+  "requests": {
+    "attempts": 22,
+    "httpStatuses": {
+      "200": 22
+    },
+    "transportErrors": {}
+  },
+  "maxCaptureAttempts": 66,
+  "trainingReady": false,
+  "deployable": false,
+  "canonicalWrites": 0
+}

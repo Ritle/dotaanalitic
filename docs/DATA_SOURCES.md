@@ -10,6 +10,16 @@ Source IDs остаются отдельным namespace; nickname joins, DB imp
 
 ## OpenDota — основной источник
 
+### S1-08: расширение исторической выборки 2026-11-01
+
+Добавлены20 completed pro-карт: по5 равномерных временных рангов в лигах13256/14268/15728/16935. Это повтор прежней S0-08 sampling policy на свежих данных, без отбора по победителю/полноте. Лига2021 включает июнь/июль: не считать все её карты основным этапом TI. Перед импортом штатный `audit-prediction-sources.mjs --league ID --sample 5` выполнил28 HTTP200. Named client затем сохранил20 подробных ответов и2 каталога (22 HTTP200); все20 detail SHA совпали с audit. Бюджет максимум84 audit +66 capture attempts, реально50, ошибок0. Дополнительный download нужен потому, что league audit не сохраняет полный replay capture.
+
+До apply проверены20 уникальных IDs/0 уже импортированных, positive league tier, completed outcome, schema/endpoints/SHA/clocks. Существующий IngestionService использовал только проверенные captured observations;20 новых карт,0 conflict, повтор20 duplicate/0 HTTP с неизменными inventory/revisions/counters. Существующие16 карт сохранены. Сейчас36 карт/6 лиг/7 UTC месяцев/6 source patch codes; outcome/heroes/teams36/36, canonical players17/36, series16/36.209/360 participant links разрешены;106 source accounts пока unknown. Ни nickname joins, ни backdating/series/identity proofs не выполнялись. Canonical patch и pre-start контекст неизвестны, strict pre/post preview36 candidates/0 eligible.
+
+[Manifest/SHA/точные IDs](evidence/s1-08-expansion-manifest.json), [preview](evidence/s1-08-expansion-plan.json), [apply](evidence/s1-08-expansion-apply.json), [replay](evidence/s1-08-expansion-replay.json), [качество](evidence/s1-08-expansion-quality.json). Четыре полных audit reports связаны через manifest. Full raw capture и одноразовый orchestration helper остаются локально в ignored `.tools/s1-08-expansion-capture.json` / `.tools/s1-08-expand.mjs`; checkout без них не воспроизводит exact bytes. Helper вызывает существующие exported runtime/importer/quality boundaries; production CLI/API/SQL не изменены. `node --env-file-if-exists=.env .tools/s1-08-expand.mjs replay` возможен только с локальными plan/capture и новым именем выходного отчёта; текущие immutable файлы не перезаписывать. Новый network capture требует нового аудита/плана и повторного review.
+
+Следующий шаг: проверка новых source series через `series:provision preview`; неизвестный тип остаётся unknown, затем отдельный review numeric account identities. Это ограниченное увеличение описательной базы, не закрытие broad corpus/temporal backtest/model gate.
+
 - Base: `https://api.opendota.com/api`
 - Документация: `https://docs.opendota.com/`, `https://opendota.apidocumentation.com/`
 - Основные: `GET /teams`, `/teams/{id}`, `/teams/{id}/players`, `/teams/{id}/matches`, `/proMatches`, `/matches/{id}`, `/heroes`, `/proPlayers`.

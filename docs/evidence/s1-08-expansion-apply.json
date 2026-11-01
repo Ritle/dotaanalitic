@@ -1,0 +1,3323 @@
+{
+  "mode": "apply",
+  "generatedAt": "2026-11-01T19:39:45.080Z",
+  "planSha256": "049ad0e6e517c39c9fe79c09d9ae09ecf5202ba33d1fc785ce7de19ffd7c69d9",
+  "captureSha256": "23155cb42202978fc12b6a8b1250ed902f01d5a31ab00ff94fa5a8305b0f6c87",
+  "beforeCounts": {
+    "maps": 16,
+    "pro_maps": 16,
+    "map_players": 160,
+    "resolved": 160,
+    "players": 59,
+    "proofs": 59,
+    "identity_revision": "118",
+    "teams": 10,
+    "series": 8,
+    "assessments": 55,
+    "receipts": 76,
+    "datasets": 0,
+    "active_models": 0,
+    "known_field_observations": 0,
+    "upcoming_observations": 2
+  },
+  "afterCounts": {
+    "maps": 36,
+    "pro_maps": 36,
+    "map_players": 360,
+    "resolved": 209,
+    "players": 59,
+    "proofs": 59,
+    "identity_revision": "118",
+    "teams": 35,
+    "series": 8,
+    "assessments": 75,
+    "receipts": 116,
+    "datasets": 0,
+    "active_models": 0,
+    "known_field_observations": 0,
+    "upcoming_observations": 2
+  },
+  "results": [
+    {
+      "matchId": "6054718020",
+      "receiptId": "199",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6067239305",
+      "receiptId": "201",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6079100944",
+      "receiptId": "203",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6214131970",
+      "receiptId": "205",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6227492909",
+      "receiptId": "207",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6806047579",
+      "receiptId": "209",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6807772726",
+      "receiptId": "211",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6809522859",
+      "receiptId": "213",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6811000638",
+      "receiptId": "215",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "6832287527",
+      "receiptId": "217",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7378530387",
+      "receiptId": "219",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7378939289",
+      "receiptId": "221",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7380403482",
+      "receiptId": "223",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7393133836",
+      "receiptId": "225",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7406531302",
+      "receiptId": "227",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7927665228",
+      "receiptId": "229",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7928915377",
+      "receiptId": "231",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7931106306",
+      "receiptId": "233",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7936520519",
+      "receiptId": "235",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "7944311818",
+      "receiptId": "237",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    }
+  ],
+  "before": [
+    {
+      "id": "9052687571",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9056685103",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9056844521",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9061631640",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9061735400",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067177642",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067346550",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067412106",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067617648",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9068795274",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9068910292",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9069021061",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9069952836",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070062078",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070392472",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070527945",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    }
+  ],
+  "after": [
+    {
+      "id": "6054718020",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6067239305",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6079100944",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6214131970",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6227492909",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6806047579",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6807772726",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6809522859",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6811000638",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "6832287527",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7378530387",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7378939289",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7380403482",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7393133836",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7406531302",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7927665228",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7928915377",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7931106306",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7936520519",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "7944311818",
+      "data_revision": "1",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9052687571",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9056685103",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9056844521",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9061631640",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9061735400",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067177642",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067346550",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067412106",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9067617648",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9068795274",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9068910292",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9069021061",
+      "data_revision": "4",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9069952836",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070062078",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070392472",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    },
+    {
+      "id": "9070527945",
+      "data_revision": "3",
+      "is_pro": true,
+      "ingest_state": "accepted"
+    }
+  ],
+  "quality": {
+    "status": "complete",
+    "computedAt": "2026-11-01T19:39:45.037341Z",
+    "policyVersion": "current-pro-import-quality-v1",
+    "scope": "current_stored_assessments",
+    "request": {
+      "fromAt": "2020-01-01T00:00:00.000Z",
+      "toAt": "2026-11-01T19:39:44.034Z"
+    },
+    "maps": [
+      {
+        "matchId": "6054718020",
+        "startedAt": "2021-06-23T08:00:33.000000Z",
+        "syncedAt": "2026-11-01T19:38:19.097000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "143",
+        "providerPatchId": "48",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "112",
+          "validatorVersion": "opendota-quality-v1:9de28258f9ddf80a74094bab904f55158c4fa9f59746e5d02a53fc6b3f7a6366",
+          "assessedAt": "2026-11-01T19:39:42.405870Z",
+          "sourceSnapshotId": "56",
+          "provider": "opendota",
+          "receipt": {
+            "id": "199",
+            "payloadSha256": "eeb04f47f59116a1c065b2e7e04f377e273f7a09183feb02c76fad16dba23e71",
+            "fetchedAt": "2026-11-01T19:38:19.097000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6067239305",
+        "startedAt": "2021-06-30T21:07:36.000000Z",
+        "syncedAt": "2026-11-01T19:38:20.031000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "143",
+        "providerPatchId": "48",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "113",
+          "validatorVersion": "opendota-quality-v1:697d56c99391016029890cc86fadca0bc33a058be083f5d323be5f0bcc8b601a",
+          "assessedAt": "2026-11-01T19:39:42.565266Z",
+          "sourceSnapshotId": "57",
+          "provider": "opendota",
+          "receipt": {
+            "id": "201",
+            "payloadSha256": "e9b265af34989dba0de80d666dc1c71694f4d818c94253b02692da3e90417aa5",
+            "fetchedAt": "2026-11-01T19:38:20.031000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6079100944",
+        "startedAt": "2021-07-08T13:39:51.000000Z",
+        "syncedAt": "2026-11-01T19:38:21.427000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "143",
+        "providerPatchId": "48",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "114",
+          "validatorVersion": "opendota-quality-v1:485af01f8118f26e4a7f3867dea8540d7bfcb80634ddc3ce928ae5597d7d9005",
+          "assessedAt": "2026-11-01T19:39:42.671283Z",
+          "sourceSnapshotId": "58",
+          "provider": "opendota",
+          "receipt": {
+            "id": "203",
+            "payloadSha256": "283052c622b30428c426a154e1029c6a4fa8a298ddd71af84ee037b639f3ea3c",
+            "fetchedAt": "2026-11-01T19:38:21.427000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6214131970",
+        "startedAt": "2021-10-08T15:33:56.000000Z",
+        "syncedAt": "2026-11-01T19:38:22.760000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "143",
+        "providerPatchId": "49",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "115",
+          "validatorVersion": "opendota-quality-v1:63008e0d668bac0ab9739573b3b440f42bdd99cf44eed388b49f82a39bc7517e",
+          "assessedAt": "2026-11-01T19:39:42.777181Z",
+          "sourceSnapshotId": "59",
+          "provider": "opendota",
+          "receipt": {
+            "id": "205",
+            "payloadSha256": "18264b3817499cdbd769a85dc324f00a6621a1d6ea0b57c18a3b1cdbed0aea71",
+            "fetchedAt": "2026-11-01T19:38:22.760000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6227492909",
+        "startedAt": "2021-10-17T16:56:26.000000Z",
+        "syncedAt": "2026-11-01T19:38:24.513000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "143",
+        "providerPatchId": "49",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "116",
+          "validatorVersion": "opendota-quality-v1:35c955a40e8d40dd92cad20874678866743b8c2509edc188f0c95cbeba02b83c",
+          "assessedAt": "2026-11-01T19:39:42.909249Z",
+          "sourceSnapshotId": "60",
+          "provider": "opendota",
+          "receipt": {
+            "id": "207",
+            "payloadSha256": "1c8c2a7df5ad3b23f5a3e0b97c1e296ded4ec107d2d0bc41e447f9f45357d58f",
+            "fetchedAt": "2026-11-01T19:38:24.513000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6806047579",
+        "startedAt": "2022-10-15T02:27:57.000000Z",
+        "syncedAt": "2026-11-01T19:38:25.308000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "148",
+        "providerPatchId": "51",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "117",
+          "validatorVersion": "opendota-quality-v1:09c3f723bda3ee6575200f60f95aa85b7c92885261ad581fbc817e8e6d510372",
+          "assessedAt": "2026-11-01T19:39:43.026960Z",
+          "sourceSnapshotId": "61",
+          "provider": "opendota",
+          "receipt": {
+            "id": "209",
+            "payloadSha256": "0a91816fc5b83ff8c3cc562e0a6a03a9bca1ae6b64632974846bfb17a624b0b9",
+            "fetchedAt": "2026-11-01T19:38:25.308000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6807772726",
+        "startedAt": "2022-10-16T03:14:40.000000Z",
+        "syncedAt": "2026-11-01T19:38:26.725000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "148",
+        "providerPatchId": "51",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "118",
+          "validatorVersion": "opendota-quality-v1:26d6ac21f8a86f03b0cb7a4554c6e911cf7799795b0c045d394def5d0c741718",
+          "assessedAt": "2026-11-01T19:39:43.145081Z",
+          "sourceSnapshotId": "62",
+          "provider": "opendota",
+          "receipt": {
+            "id": "211",
+            "payloadSha256": "b069859efb2b1d37b9d270fcd1df0eb358ef3b499ce24bbb05da80c3555e2fe6",
+            "fetchedAt": "2026-11-01T19:38:26.725000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6809522859",
+        "startedAt": "2022-10-17T05:02:37.000000Z",
+        "syncedAt": "2026-11-01T19:38:28.210000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "148",
+        "providerPatchId": "51",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "119",
+          "validatorVersion": "opendota-quality-v1:96478fe761e92d430b857857d352c2ac7a528fd5fde610bd9ccb121e147730e7",
+          "assessedAt": "2026-11-01T19:39:43.284047Z",
+          "sourceSnapshotId": "63",
+          "provider": "opendota",
+          "receipt": {
+            "id": "213",
+            "payloadSha256": "c5e53eabb20a2dfe18bd2ee151a202a1730083f8ca5052363d2e58c2208ccdb9",
+            "fetchedAt": "2026-11-01T19:38:28.210000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6811000638",
+        "startedAt": "2022-10-18T07:02:41.000000Z",
+        "syncedAt": "2026-11-01T19:38:29.320000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "148",
+        "providerPatchId": "51",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "120",
+          "validatorVersion": "opendota-quality-v1:f7eab14f85d1daadaab542dd304dfffb0a387d8170617c7e6aadf0c90515019a",
+          "assessedAt": "2026-11-01T19:39:43.453687Z",
+          "sourceSnapshotId": "64",
+          "provider": "opendota",
+          "receipt": {
+            "id": "215",
+            "payloadSha256": "e30ffdd56a1c992177eec7e540d469f6d7b14b792055cd79025efbdbb8f68e4c",
+            "fetchedAt": "2026-11-01T19:38:29.320000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "6832287527",
+        "startedAt": "2022-10-30T11:49:25.000000Z",
+        "syncedAt": "2026-11-01T19:38:30.684000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "148",
+        "providerPatchId": "51",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "121",
+          "validatorVersion": "opendota-quality-v1:0719e7e9a86b1ec3dfe1a13f22f886a4a718d4dff085ee76cdb2a06c29ad2061",
+          "assessedAt": "2026-11-01T19:39:43.597538Z",
+          "sourceSnapshotId": "65",
+          "provider": "opendota",
+          "receipt": {
+            "id": "217",
+            "payloadSha256": "b8e7f97d9b9ad848248053f3749679e1f49ce694488d6ef847b48a9bfefafdbb",
+            "fetchedAt": "2026-11-01T19:38:30.684000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7378530387",
+        "startedAt": "2023-10-12T17:00:44.000000Z",
+        "syncedAt": "2026-11-01T19:38:32.154000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "153",
+        "providerPatchId": "53",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "122",
+          "validatorVersion": "opendota-quality-v1:216ec7921aac61b3e322bf2358d52968fc2fea2aeb22e60abfc7ede56589dd37",
+          "assessedAt": "2026-11-01T19:39:43.712988Z",
+          "sourceSnapshotId": "66",
+          "provider": "opendota",
+          "receipt": {
+            "id": "219",
+            "payloadSha256": "6cf2ee08be59c619be2f4cabd949d2310844c135fec44ed4a06403ab5ea3e66a",
+            "fetchedAt": "2026-11-01T19:38:32.154000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7378939289",
+        "startedAt": "2023-10-13T01:24:09.000000Z",
+        "syncedAt": "2026-11-01T19:38:33.331000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "153",
+        "providerPatchId": "53",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "123",
+          "validatorVersion": "opendota-quality-v1:0360e50fa30ed430b1595a843ba7152edc2982988d8d9c24e57125a96918a332",
+          "assessedAt": "2026-11-01T19:39:43.819592Z",
+          "sourceSnapshotId": "67",
+          "provider": "opendota",
+          "receipt": {
+            "id": "221",
+            "payloadSha256": "3ccbf4a5f6279ca8d83fcd4917b455cbba561c23ef7fd59a8dc36d3972b05466",
+            "fetchedAt": "2026-11-01T19:38:33.331000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7380403482",
+        "startedAt": "2023-10-13T22:51:24.000000Z",
+        "syncedAt": "2026-11-01T19:38:34.670000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "153",
+        "providerPatchId": "53",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "124",
+          "validatorVersion": "opendota-quality-v1:e65662ea0064b77455f131e9c6bcccc9b872b0109a238bef98951dda795668a2",
+          "assessedAt": "2026-11-01T19:39:43.966986Z",
+          "sourceSnapshotId": "68",
+          "provider": "opendota",
+          "receipt": {
+            "id": "223",
+            "payloadSha256": "02b35fed7f65d412f2a75b64fc19e7204567579036eaa017c1a0f2d8bbc2053d",
+            "fetchedAt": "2026-11-01T19:38:34.670000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7393133836",
+        "startedAt": "2023-10-21T19:37:36.000000Z",
+        "syncedAt": "2026-11-01T19:38:36.263000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "153",
+        "providerPatchId": "53",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "125",
+          "validatorVersion": "opendota-quality-v1:efc8c8cfddc12e1aa6c5bb5bd86a64ffef18d11579914b173f4b3802398c8a01",
+          "assessedAt": "2026-11-01T19:39:44.099050Z",
+          "sourceSnapshotId": "69",
+          "provider": "opendota",
+          "receipt": {
+            "id": "225",
+            "payloadSha256": "1fe397ff639c3e1a3260385017e657094fa2eade0c3fa6ab864d483a6b3f4261",
+            "fetchedAt": "2026-11-01T19:38:36.263000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7406531302",
+        "startedAt": "2023-10-29T23:13:43.000000Z",
+        "syncedAt": "2026-11-01T19:38:38.355000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "153",
+        "providerPatchId": "53",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "126",
+          "validatorVersion": "opendota-quality-v1:e0eff9656aba66441cf81c8d193c8d44d1664fd7b1cb2bfaa7dfc0f7552edf39",
+          "assessedAt": "2026-11-01T19:39:44.249448Z",
+          "sourceSnapshotId": "70",
+          "provider": "opendota",
+          "receipt": {
+            "id": "227",
+            "payloadSha256": "431212208113a30abd05a608b1f59e218a750fc52f2a38e34ade3d780ecbf154",
+            "fetchedAt": "2026-11-01T19:38:38.355000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7927665228",
+        "startedAt": "2024-09-04T08:10:41.000000Z",
+        "syncedAt": "2026-11-01T19:38:39.522000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "158",
+        "providerPatchId": "56",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "127",
+          "validatorVersion": "opendota-quality-v1:344e6f58770d08e5a24eafc0c7f6a77df2cb4be1e6c9edc4444f5fa278046777",
+          "assessedAt": "2026-11-01T19:39:44.397220Z",
+          "sourceSnapshotId": "71",
+          "provider": "opendota",
+          "receipt": {
+            "id": "229",
+            "payloadSha256": "b7c6bb8e5f675e6e569c172eb6df80e2c8bf44cfd21faf4268f15cf34f09f04c",
+            "fetchedAt": "2026-11-01T19:38:39.522000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7928915377",
+        "startedAt": "2024-09-05T08:02:32.000000Z",
+        "syncedAt": "2026-11-01T19:38:40.359000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "158",
+        "providerPatchId": "56",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "128",
+          "validatorVersion": "opendota-quality-v1:314984af454cc6f5b6a58ec39446f0abe55d7b95c6a47eddbf19ba0682ec50b8",
+          "assessedAt": "2026-11-01T19:39:44.535371Z",
+          "sourceSnapshotId": "72",
+          "provider": "opendota",
+          "receipt": {
+            "id": "231",
+            "payloadSha256": "07fe7b9fad6e9be9d484338b5ecebee517c814bbd471761a2cd4a2252a21ad6c",
+            "fetchedAt": "2026-11-01T19:38:40.359000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7931106306",
+        "startedAt": "2024-09-06T18:59:50.000000Z",
+        "syncedAt": "2026-11-01T19:38:41.863000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "158",
+        "providerPatchId": "56",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "129",
+          "validatorVersion": "opendota-quality-v1:f32bfb64fd237dc9373bc4e7b20d557495ec1b2e6b08ea90abf741066439f0de",
+          "assessedAt": "2026-11-01T19:39:44.674335Z",
+          "sourceSnapshotId": "73",
+          "provider": "opendota",
+          "receipt": {
+            "id": "233",
+            "payloadSha256": "9e6f1ab3225a09096f05981279d99efb7521c4ca435c89387fcccbf828b50bdc",
+            "fetchedAt": "2026-11-01T19:38:41.863000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7936520519",
+        "startedAt": "2024-09-10T10:36:00.000000Z",
+        "syncedAt": "2026-11-01T19:38:44.164000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "158",
+        "providerPatchId": "56",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "130",
+          "validatorVersion": "opendota-quality-v1:84cbe373fb6d0fb22b2bb5d7c913029b2407149a955af5c8bd2ad50939a61a5d",
+          "assessedAt": "2026-11-01T19:39:44.829871Z",
+          "sourceSnapshotId": "74",
+          "provider": "opendota",
+          "receipt": {
+            "id": "235",
+            "payloadSha256": "077bef50bc488b3d49aea1b97756666ccbc5e324956d6ccde28fe36bac24819c",
+            "fetchedAt": "2026-11-01T19:38:44.164000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "7944311818",
+        "startedAt": "2024-09-15T15:59:50.000000Z",
+        "syncedAt": "2026-11-01T19:38:44.808000Z",
+        "dataRevision": "1",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "158",
+        "providerPatchId": "56",
+        "quality": {
+          "outcome": "eligible",
+          "players": "unknown",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "unknown",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "SERIES_REFERENCE_UNRESOLVED",
+          "CANONICAL_IDENTITIES_UNRESOLVED",
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "131",
+          "validatorVersion": "opendota-quality-v1:6833e5aac02811828e7f42f63addd8d8367276f4f2785603feeacc267317ccca",
+          "assessedAt": "2026-11-01T19:39:44.948971Z",
+          "sourceSnapshotId": "75",
+          "provider": "opendota",
+          "receipt": {
+            "id": "237",
+            "payloadSha256": "3c9c05f479c92bca784a4750dd0dea7c02fcad9e86132a1784b1c6dc112680b9",
+            "fetchedAt": "2026-11-01T19:38:44.808000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9052687571",
+        "startedAt": "2026-10-19T15:58:27.000000Z",
+        "syncedAt": "2026-11-01T15:52:10.800000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "24",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "109",
+          "validatorVersion": "opendota-quality-v1:3b07b71846471a0dc5cb08877fd815d2f5eae19145a59be1594387937e87a9e9",
+          "assessedAt": "2026-11-01T18:44:51.092923Z",
+          "sourceSnapshotId": "21",
+          "provider": "opendota",
+          "receipt": {
+            "id": "155",
+            "payloadSha256": "4d2c48a4e79b348a81eebb5a465a489817bf1b8bc48ad91b6e4b1170cae6486f",
+            "fetchedAt": "2026-11-01T15:52:10.800000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9056685103",
+        "startedAt": "2026-10-22T14:58:56.000000Z",
+        "syncedAt": "2026-11-01T15:52:07.306000Z",
+        "dataRevision": "4",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "24",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "111",
+          "validatorVersion": "opendota-quality-v1:648bac981cf690e3c9845ce226efc2376b622df55a514b9e221315ce3bc9434c",
+          "assessedAt": "2026-11-01T18:53:46.550331Z",
+          "sourceSnapshotId": "19",
+          "provider": "opendota",
+          "receipt": {
+            "id": "185",
+            "payloadSha256": "119cfa151612b5bf48f7ca40a36ae8bf7e96ff6485040d95f685f997a20398ec",
+            "fetchedAt": "2026-11-01T15:52:07.306000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9056844521",
+        "startedAt": "2026-10-22T16:31:23.000000Z",
+        "syncedAt": "2026-11-01T15:52:05.099000Z",
+        "dataRevision": "4",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "24",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "110",
+          "validatorVersion": "opendota-quality-v1:7138922cac7265e467c37140b217ed2129b27a66de76bcb94031fe14e6734dd1",
+          "assessedAt": "2026-11-01T18:53:46.346736Z",
+          "sourceSnapshotId": "17",
+          "provider": "opendota",
+          "receipt": {
+            "id": "182",
+            "payloadSha256": "0f82051cfd5f05815936b112d8559d944a0993f4ce7662551d12dc8bfd5d48e6",
+            "fetchedAt": "2026-11-01T15:52:05.099000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9061631640",
+        "startedAt": "2026-10-25T16:02:44.000000Z",
+        "syncedAt": "2026-11-01T15:52:02.417000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "24",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "105",
+          "validatorVersion": "opendota-quality-v1:b5cce38ae17441d7e5fc142642a047057b31655e6791a4ae99f267ef6ec63d8c",
+          "assessedAt": "2026-11-01T18:44:50.556709Z",
+          "sourceSnapshotId": "15",
+          "provider": "opendota",
+          "receipt": {
+            "id": "145",
+            "payloadSha256": "b214343ef4cb8b378312ad5ad261c349656c5e868d70bf430b09b4e39059b09b",
+            "fetchedAt": "2026-11-01T15:52:02.417000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9061735400",
+        "startedAt": "2026-10-25T17:00:54.000000Z",
+        "syncedAt": "2026-11-01T15:51:59.974000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "24",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "104",
+          "validatorVersion": "opendota-quality-v1:2e01c41956ccb8ddf853e58b288e8d100278638b544334000844a57ff27d1c67",
+          "assessedAt": "2026-11-01T18:44:50.348112Z",
+          "sourceSnapshotId": "13",
+          "provider": "opendota",
+          "receipt": {
+            "id": "142",
+            "payloadSha256": "32e387efc3ed3aaa8e81806f8d6ad9b9e8465790495736bb54443b7dbd76eaa5",
+            "fetchedAt": "2026-11-01T15:51:59.974000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9067177642",
+        "startedAt": "2026-10-29T15:08:28.000000Z",
+        "syncedAt": "2026-11-01T01:10:38.633000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "103",
+          "validatorVersion": "opendota-quality-v1:1134120878e033c9896cee07e5d37e44eab4d08390aa527b98585e4d0703315d",
+          "assessedAt": "2026-11-01T18:44:48.832961Z",
+          "sourceSnapshotId": "11",
+          "provider": "opendota",
+          "receipt": {
+            "id": "139",
+            "payloadSha256": "d6c29806bd846c365484f33bed306806d0c56a6dffaf7419a36fc4171f910bd6",
+            "fetchedAt": "2026-11-01T01:10:38.633000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9067346550",
+        "startedAt": "2026-10-29T16:54:12.000000Z",
+        "syncedAt": "2026-11-01T01:10:35.835000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "101",
+          "validatorVersion": "opendota-quality-v1:1134120878e033c9896cee07e5d37e44eab4d08390aa527b98585e4d0703315d",
+          "assessedAt": "2026-11-01T18:44:48.671185Z",
+          "sourceSnapshotId": "9",
+          "provider": "opendota",
+          "receipt": {
+            "id": "135",
+            "payloadSha256": "512808d250a1d7f4a5147641eeb13cbccc38e426926dc00ffd5a23911b7fffa2",
+            "fetchedAt": "2026-11-01T01:10:35.835000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9067412106",
+        "startedAt": "2026-10-29T17:39:37.000000Z",
+        "syncedAt": "2026-11-01T01:10:33.041000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "99",
+          "validatorVersion": "opendota-quality-v1:1134120878e033c9896cee07e5d37e44eab4d08390aa527b98585e4d0703315d",
+          "assessedAt": "2026-11-01T18:44:48.495127Z",
+          "sourceSnapshotId": "7",
+          "provider": "opendota",
+          "receipt": {
+            "id": "131",
+            "payloadSha256": "1af79f775c1a966f7cecc79ecc8fc1e966b210ed27d7c16ca558ba5a6f08d890",
+            "fetchedAt": "2026-11-01T01:10:33.041000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9067617648",
+        "startedAt": "2026-10-29T20:05:54.000000Z",
+        "syncedAt": "2026-11-01T15:52:08.497000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "108",
+          "validatorVersion": "opendota-quality-v1:1ebcfd9b5d70e79a291a72f45e36a54d17eb494a6e08d4c3ef63382d7c44177d",
+          "assessedAt": "2026-11-01T18:44:50.982729Z",
+          "sourceSnapshotId": "20",
+          "provider": "opendota",
+          "receipt": {
+            "id": "153",
+            "payloadSha256": "7bc4a5c3042d71d072d9db81b3a42420e022a05bf272de1f6bb9eb6d1c6205bf",
+            "fetchedAt": "2026-11-01T15:52:08.497000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9068795274",
+        "startedAt": "2026-10-30T17:23:31.000000Z",
+        "syncedAt": "2026-11-01T01:10:37.044000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "102",
+          "validatorVersion": "opendota-quality-v1:1cb49db29e9cd531204b7d1210be7a4159a56320f634bcc8ed8aba1b1144b28f",
+          "assessedAt": "2026-11-01T18:44:48.750539Z",
+          "sourceSnapshotId": "10",
+          "provider": "opendota",
+          "receipt": {
+            "id": "137",
+            "payloadSha256": "7963f84fd41513574f48e602e516a0773e98e9358322b1692813231afe678afc",
+            "fetchedAt": "2026-11-01T01:10:37.044000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9068910292",
+        "startedAt": "2026-10-30T18:37:56.000000Z",
+        "syncedAt": "2026-11-01T01:10:34.307000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "100",
+          "validatorVersion": "opendota-quality-v1:1cb49db29e9cd531204b7d1210be7a4159a56320f634bcc8ed8aba1b1144b28f",
+          "assessedAt": "2026-11-01T18:44:48.592179Z",
+          "sourceSnapshotId": "8",
+          "provider": "opendota",
+          "receipt": {
+            "id": "133",
+            "payloadSha256": "a6f0b55edbc97e24a0c754f2456d5752c1efbe3e387a2dec9e4827409abfe9e5",
+            "fetchedAt": "2026-11-01T01:10:34.307000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9069021061",
+        "startedAt": "2026-10-30T19:53:24.000000Z",
+        "syncedAt": "2026-11-01T01:10:31.713000Z",
+        "dataRevision": "4",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "98",
+          "validatorVersion": "opendota-quality-v1:1cb49db29e9cd531204b7d1210be7a4159a56320f634bcc8ed8aba1b1144b28f",
+          "assessedAt": "2026-11-01T18:44:48.302817Z",
+          "sourceSnapshotId": "6",
+          "provider": "opendota",
+          "receipt": {
+            "id": "129",
+            "payloadSha256": "afe9cb8684e1908343e40611ea4469679481719a8172312b5c85a7d918431354",
+            "fetchedAt": "2026-11-01T01:10:31.713000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9069952836",
+        "startedAt": "2026-10-31T13:00:42.000000Z",
+        "syncedAt": "2026-11-01T15:52:05.799000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "94",
+          "validatorVersion": "opendota-quality-v1:86925a48b1160b306da5dd2e6c2fd6009c8e86b16cd92732074c55fb4b43b5b1",
+          "assessedAt": "2026-11-01T18:33:40.715056Z",
+          "sourceSnapshotId": "18",
+          "provider": "opendota",
+          "receipt": {
+            "id": "97",
+            "payloadSha256": "4708b2f2bb60005df9fa5337f3bee88089e2aef519c2c2bf28318fbafcc63c3b",
+            "fetchedAt": "2026-11-01T15:52:05.799000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9070062078",
+        "startedAt": "2026-10-31T14:11:28.000000Z",
+        "syncedAt": "2026-11-01T15:52:03.066000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "92",
+          "validatorVersion": "opendota-quality-v1:86925a48b1160b306da5dd2e6c2fd6009c8e86b16cd92732074c55fb4b43b5b1",
+          "assessedAt": "2026-11-01T18:33:40.404461Z",
+          "sourceSnapshotId": "16",
+          "provider": "opendota",
+          "receipt": {
+            "id": "93",
+            "payloadSha256": "4021623a3ea4eafa40dd937e63a511778201749e876acbbdc7a49c3f0b27a8ac",
+            "fetchedAt": "2026-11-01T15:52:03.066000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9070392472",
+        "startedAt": "2026-10-31T17:27:04.000000Z",
+        "syncedAt": "2026-11-01T15:52:01.278000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "90",
+          "validatorVersion": "opendota-quality-v1:c41c451b7f0fe258bb5bb363144af8f096eef0a2d50048cf025cfeeb9bfc506c",
+          "assessedAt": "2026-11-01T18:33:40.074110Z",
+          "sourceSnapshotId": "14",
+          "provider": "opendota",
+          "receipt": {
+            "id": "89",
+            "payloadSha256": "38e45a575dd8e1607793a15c19b24a343991d0cf248ee6d5846149ca3b9a82aa",
+            "fetchedAt": "2026-11-01T15:52:01.278000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      },
+      {
+        "matchId": "9070527945",
+        "startedAt": "2026-10-31T18:51:31.000000Z",
+        "syncedAt": "2026-11-01T15:51:58.242000Z",
+        "dataRevision": "3",
+        "ingestState": "accepted",
+        "canonicalPatchId": null,
+        "leagueId": "1",
+        "providerPatchId": "60",
+        "quality": {
+          "outcome": "eligible",
+          "players": "eligible",
+          "heroes": "eligible",
+          "teams": "eligible",
+          "series": "eligible",
+          "timeline": "unknown"
+        },
+        "anomalies": [
+          "PATCH_METADATA_UNVERIFIED",
+          "ROLE_UNVERIFIED",
+          "DRAFT_RULES_UNVERIFIED",
+          "LINEUP_KNOWN_AT_UNKNOWN"
+        ],
+        "assessment": {
+          "id": "88",
+          "validatorVersion": "opendota-quality-v1:c41c451b7f0fe258bb5bb363144af8f096eef0a2d50048cf025cfeeb9bfc506c",
+          "assessedAt": "2026-11-01T18:33:39.615160Z",
+          "sourceSnapshotId": "12",
+          "provider": "opendota",
+          "receipt": {
+            "id": "85",
+            "payloadSha256": "a83f221daef84c8f8b843c030a71b17bad2873a689864d91469e6e9824688e1d",
+            "fetchedAt": "2026-11-01T15:51:58.242000Z",
+            "normalizerVersion": "opendota-map-v2-identity"
+          }
+        }
+      }
+    ],
+    "summary": {
+      "maps": 36,
+      "assessedMaps": 36,
+      "linkedReceiptMaps": 36,
+      "canonicalConflictMaps": 0,
+      "dimensions": {
+        "outcome": {
+          "eligible": 36,
+          "ineligible": 0,
+          "unknown": 0
+        },
+        "players": {
+          "eligible": 17,
+          "ineligible": 0,
+          "unknown": 19
+        },
+        "heroes": {
+          "eligible": 36,
+          "ineligible": 0,
+          "unknown": 0
+        },
+        "teams": {
+          "eligible": 36,
+          "ineligible": 0,
+          "unknown": 0
+        },
+        "series": {
+          "eligible": 16,
+          "ineligible": 0,
+          "unknown": 20
+        },
+        "timeline": {
+          "unknown": 36,
+          "structurally_inconsistent": 0,
+          "missing": 0,
+          "verified": 0
+        }
+      },
+      "anomalies": {
+        "CANONICAL_IDENTITIES_UNRESOLVED": 19,
+        "DRAFT_RULES_UNVERIFIED": 36,
+        "LINEUP_KNOWN_AT_UNKNOWN": 36,
+        "PATCH_METADATA_UNVERIFIED": 36,
+        "ROLE_UNVERIFIED": 36,
+        "SERIES_REFERENCE_UNRESOLVED": 20
+      }
+    },
+    "strata": {
+      "canonicalPatch": [
+        {
+          "value": "unknown",
+          "maps": 36,
+          "assessedMaps": 36,
+          "linkedReceiptMaps": 36,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 36,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 17,
+              "ineligible": 0,
+              "unknown": 19
+            },
+            "heroes": {
+              "eligible": 36,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 36,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 20
+            },
+            "timeline": {
+              "unknown": 36,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 19,
+            "DRAFT_RULES_UNVERIFIED": 36,
+            "LINEUP_KNOWN_AT_UNKNOWN": 36,
+            "PATCH_METADATA_UNVERIFIED": 36,
+            "ROLE_UNVERIFIED": 36,
+            "SERIES_REFERENCE_UNRESOLVED": 20
+          }
+        }
+      ],
+      "providerPatch": [
+        {
+          "value": "opendota:48",
+          "maps": 3,
+          "assessedMaps": 3,
+          "linkedReceiptMaps": 3,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 3,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 3
+            },
+            "heroes": {
+              "eligible": 3,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 3,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 3
+            },
+            "timeline": {
+              "unknown": 3,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 3,
+            "DRAFT_RULES_UNVERIFIED": 3,
+            "LINEUP_KNOWN_AT_UNKNOWN": 3,
+            "PATCH_METADATA_UNVERIFIED": 3,
+            "ROLE_UNVERIFIED": 3,
+            "SERIES_REFERENCE_UNRESOLVED": 3
+          }
+        },
+        {
+          "value": "opendota:49",
+          "maps": 2,
+          "assessedMaps": 2,
+          "linkedReceiptMaps": 2,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 2
+            },
+            "heroes": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 2
+            },
+            "timeline": {
+              "unknown": 2,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 2,
+            "DRAFT_RULES_UNVERIFIED": 2,
+            "LINEUP_KNOWN_AT_UNKNOWN": 2,
+            "PATCH_METADATA_UNVERIFIED": 2,
+            "ROLE_UNVERIFIED": 2,
+            "SERIES_REFERENCE_UNRESOLVED": 2
+          }
+        },
+        {
+          "value": "opendota:51",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 5,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "opendota:53",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 1,
+              "ineligible": 0,
+              "unknown": 4
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 4,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "opendota:56",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 5,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "opendota:60",
+          "maps": 16,
+          "assessedMaps": 16,
+          "linkedReceiptMaps": 16,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "heroes": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "timeline": {
+              "unknown": 16,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "DRAFT_RULES_UNVERIFIED": 16,
+            "LINEUP_KNOWN_AT_UNKNOWN": 16,
+            "PATCH_METADATA_UNVERIFIED": 16,
+            "ROLE_UNVERIFIED": 16
+          }
+        }
+      ],
+      "league": [
+        {
+          "value": "1",
+          "maps": 11,
+          "assessedMaps": 11,
+          "linkedReceiptMaps": 11,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 11,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 11,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "heroes": {
+              "eligible": 11,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 11,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 11,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "timeline": {
+              "unknown": 11,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "DRAFT_RULES_UNVERIFIED": 11,
+            "LINEUP_KNOWN_AT_UNKNOWN": 11,
+            "PATCH_METADATA_UNVERIFIED": 11,
+            "ROLE_UNVERIFIED": 11
+          }
+        },
+        {
+          "value": "143",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 5,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "148",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 5,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "153",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 1,
+              "ineligible": 0,
+              "unknown": 4
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 4,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "158",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 5,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "24",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5
+          }
+        }
+      ],
+      "period": [
+        {
+          "value": "2021-06",
+          "maps": 2,
+          "assessedMaps": 2,
+          "linkedReceiptMaps": 2,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 2
+            },
+            "heroes": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 2
+            },
+            "timeline": {
+              "unknown": 2,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 2,
+            "DRAFT_RULES_UNVERIFIED": 2,
+            "LINEUP_KNOWN_AT_UNKNOWN": 2,
+            "PATCH_METADATA_UNVERIFIED": 2,
+            "ROLE_UNVERIFIED": 2,
+            "SERIES_REFERENCE_UNRESOLVED": 2
+          }
+        },
+        {
+          "value": "2021-07",
+          "maps": 1,
+          "assessedMaps": 1,
+          "linkedReceiptMaps": 1,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 1,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 1
+            },
+            "heroes": {
+              "eligible": 1,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 1,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 1
+            },
+            "timeline": {
+              "unknown": 1,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 1,
+            "DRAFT_RULES_UNVERIFIED": 1,
+            "LINEUP_KNOWN_AT_UNKNOWN": 1,
+            "PATCH_METADATA_UNVERIFIED": 1,
+            "ROLE_UNVERIFIED": 1,
+            "SERIES_REFERENCE_UNRESOLVED": 1
+          }
+        },
+        {
+          "value": "2021-10",
+          "maps": 2,
+          "assessedMaps": 2,
+          "linkedReceiptMaps": 2,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 2
+            },
+            "heroes": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 2,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 2
+            },
+            "timeline": {
+              "unknown": 2,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 2,
+            "DRAFT_RULES_UNVERIFIED": 2,
+            "LINEUP_KNOWN_AT_UNKNOWN": 2,
+            "PATCH_METADATA_UNVERIFIED": 2,
+            "ROLE_UNVERIFIED": 2,
+            "SERIES_REFERENCE_UNRESOLVED": 2
+          }
+        },
+        {
+          "value": "2022-10",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 5,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "2023-10",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 1,
+              "ineligible": 0,
+              "unknown": 4
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 4,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "2024-09",
+          "maps": 5,
+          "assessedMaps": 5,
+          "linkedReceiptMaps": 5,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "heroes": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 5,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 0,
+              "ineligible": 0,
+              "unknown": 5
+            },
+            "timeline": {
+              "unknown": 5,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "CANONICAL_IDENTITIES_UNRESOLVED": 5,
+            "DRAFT_RULES_UNVERIFIED": 5,
+            "LINEUP_KNOWN_AT_UNKNOWN": 5,
+            "PATCH_METADATA_UNVERIFIED": 5,
+            "ROLE_UNVERIFIED": 5,
+            "SERIES_REFERENCE_UNRESOLVED": 5
+          }
+        },
+        {
+          "value": "2026-10",
+          "maps": 16,
+          "assessedMaps": 16,
+          "linkedReceiptMaps": 16,
+          "canonicalConflictMaps": 0,
+          "dimensions": {
+            "outcome": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "players": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "heroes": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "teams": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "series": {
+              "eligible": 16,
+              "ineligible": 0,
+              "unknown": 0
+            },
+            "timeline": {
+              "unknown": 16,
+              "structurally_inconsistent": 0,
+              "missing": 0,
+              "verified": 0
+            }
+          },
+          "anomalies": {
+            "DRAFT_RULES_UNVERIFIED": 16,
+            "LINEUP_KNOWN_AT_UNKNOWN": 16,
+            "PATCH_METADATA_UNVERIFIED": 16,
+            "ROLE_UNVERIFIED": 16
+          }
+        }
+      ]
+    },
+    "historicalAvailability": "not_assessed",
+    "trainingReady": false,
+    "deployable": false,
+    "fingerprint": "53c9bc7cceac8d863c908c0ef9fe94056636068b35bf8d71231faba7fdb7622f"
+  },
+  "missingAccounts": [
+    {
+      "account_id": "7910302",
+      "maps": 1
+    },
+    {
+      "account_id": "19672354",
+      "maps": 1
+    },
+    {
+      "account_id": "38628747",
+      "maps": 1
+    },
+    {
+      "account_id": "54580962",
+      "maps": 1
+    },
+    {
+      "account_id": "70388657",
+      "maps": 1
+    },
+    {
+      "account_id": "81306398",
+      "maps": 3
+    },
+    {
+      "account_id": "84853828",
+      "maps": 1
+    },
+    {
+      "account_id": "86725175",
+      "maps": 1
+    },
+    {
+      "account_id": "86811043",
+      "maps": 1
+    },
+    {
+      "account_id": "86822085",
+      "maps": 1
+    },
+    {
+      "account_id": "87012746",
+      "maps": 1
+    },
+    {
+      "account_id": "87196890",
+      "maps": 1
+    },
+    {
+      "account_id": "87278757",
+      "maps": 1
+    },
+    {
+      "account_id": "88271237",
+      "maps": 1
+    },
+    {
+      "account_id": "90882159",
+      "maps": 1
+    },
+    {
+      "account_id": "91730177",
+      "maps": 3
+    },
+    {
+      "account_id": "92706637",
+      "maps": 1
+    },
+    {
+      "account_id": "93552791",
+      "maps": 1
+    },
+    {
+      "account_id": "94281932",
+      "maps": 1
+    },
+    {
+      "account_id": "94364925",
+      "maps": 1
+    },
+    {
+      "account_id": "95727214",
+      "maps": 1
+    },
+    {
+      "account_id": "97590558",
+      "maps": 3
+    },
+    {
+      "account_id": "100471531",
+      "maps": 2
+    },
+    {
+      "account_id": "101259972",
+      "maps": 1
+    },
+    {
+      "account_id": "101695162",
+      "maps": 1
+    },
+    {
+      "account_id": "102099826",
+      "maps": 1
+    },
+    {
+      "account_id": "103850210",
+      "maps": 1
+    },
+    {
+      "account_id": "105045291",
+      "maps": 1
+    },
+    {
+      "account_id": "106863163",
+      "maps": 1
+    },
+    {
+      "account_id": "107579895",
+      "maps": 1
+    },
+    {
+      "account_id": "108221389",
+      "maps": 1
+    },
+    {
+      "account_id": "111030315",
+      "maps": 1
+    },
+    {
+      "account_id": "111114687",
+      "maps": 2
+    },
+    {
+      "account_id": "111620041",
+      "maps": 1
+    },
+    {
+      "account_id": "113331514",
+      "maps": 3
+    },
+    {
+      "account_id": "116934015",
+      "maps": 3
+    },
+    {
+      "account_id": "117089283",
+      "maps": 3
+    },
+    {
+      "account_id": "118134220",
+      "maps": 2
+    },
+    {
+      "account_id": "118948666",
+      "maps": 1
+    },
+    {
+      "account_id": "119535307",
+      "maps": 1
+    },
+    {
+      "account_id": "121404228",
+      "maps": 1
+    },
+    {
+      "account_id": "121769650",
+      "maps": 1
+    },
+    {
+      "account_id": "125995177",
+      "maps": 1
+    },
+    {
+      "account_id": "126212866",
+      "maps": 1
+    },
+    {
+      "account_id": "127565532",
+      "maps": 1
+    },
+    {
+      "account_id": "127617979",
+      "maps": 1
+    },
+    {
+      "account_id": "129958758",
+      "maps": 1
+    },
+    {
+      "account_id": "131303632",
+      "maps": 4
+    },
+    {
+      "account_id": "132309493",
+      "maps": 1
+    },
+    {
+      "account_id": "132851371",
+      "maps": 2
+    },
+    {
+      "account_id": "134556694",
+      "maps": 2
+    },
+    {
+      "account_id": "134711350",
+      "maps": 1
+    },
+    {
+      "account_id": "136177710",
+      "maps": 1
+    },
+    {
+      "account_id": "137129583",
+      "maps": 1
+    },
+    {
+      "account_id": "137193239",
+      "maps": 1
+    },
+    {
+      "account_id": "138177198",
+      "maps": 2
+    },
+    {
+      "account_id": "138880576",
+      "maps": 3
+    },
+    {
+      "account_id": "139031324",
+      "maps": 1
+    },
+    {
+      "account_id": "139937922",
+      "maps": 1
+    },
+    {
+      "account_id": "143278997",
+      "maps": 1
+    },
+    {
+      "account_id": "143693439",
+      "maps": 1
+    },
+    {
+      "account_id": "145550466",
+      "maps": 1
+    },
+    {
+      "account_id": "148526973",
+      "maps": 1
+    },
+    {
+      "account_id": "152962063",
+      "maps": 1
+    },
+    {
+      "account_id": "153836240",
+      "maps": 2
+    },
+    {
+      "account_id": "155332459",
+      "maps": 3
+    },
+    {
+      "account_id": "157475523",
+      "maps": 3
+    },
+    {
+      "account_id": "157989498",
+      "maps": 2
+    },
+    {
+      "account_id": "161839895",
+      "maps": 1
+    },
+    {
+      "account_id": "164532005",
+      "maps": 1
+    },
+    {
+      "account_id": "164685175",
+      "maps": 2
+    },
+    {
+      "account_id": "165564598",
+      "maps": 1
+    },
+    {
+      "account_id": "170896543",
+      "maps": 1
+    },
+    {
+      "account_id": "173978074",
+      "maps": 2
+    },
+    {
+      "account_id": "179313961",
+      "maps": 1
+    },
+    {
+      "account_id": "184950344",
+      "maps": 1
+    },
+    {
+      "account_id": "186627166",
+      "maps": 1
+    },
+    {
+      "account_id": "191290281",
+      "maps": 1
+    },
+    {
+      "account_id": "192120253",
+      "maps": 1
+    },
+    {
+      "account_id": "193815691",
+      "maps": 2
+    },
+    {
+      "account_id": "193884241",
+      "maps": 1
+    },
+    {
+      "account_id": "196878136",
+      "maps": 1
+    },
+    {
+      "account_id": "201358612",
+      "maps": 1
+    },
+    {
+      "account_id": "205517338",
+      "maps": 1
+    },
+    {
+      "account_id": "210053851",
+      "maps": 1
+    },
+    {
+      "account_id": "214853734",
+      "maps": 1
+    },
+    {
+      "account_id": "221666230",
+      "maps": 3
+    },
+    {
+      "account_id": "249835593",
+      "maps": 1
+    },
+    {
+      "account_id": "256156323",
+      "maps": 3
+    },
+    {
+      "account_id": "301750126",
+      "maps": 1
+    },
+    {
+      "account_id": "302214028",
+      "maps": 3
+    },
+    {
+      "account_id": "313198707",
+      "maps": 1
+    },
+    {
+      "account_id": "326327879",
+      "maps": 1
+    },
+    {
+      "account_id": "331855530",
+      "maps": 1
+    },
+    {
+      "account_id": "339235645",
+      "maps": 3
+    },
+    {
+      "account_id": "349310876",
+      "maps": 1
+    },
+    {
+      "account_id": "352545711",
+      "maps": 1
+    },
+    {
+      "account_id": "368917218",
+      "maps": 1
+    },
+    {
+      "account_id": "375507918",
+      "maps": 3
+    },
+    {
+      "account_id": "400709028",
+      "maps": 1
+    },
+    {
+      "account_id": "408729743",
+      "maps": 1
+    },
+    {
+      "account_id": "425588742",
+      "maps": 1
+    },
+    {
+      "account_id": "431770905",
+      "maps": 2
+    },
+    {
+      "account_id": "858106446",
+      "maps": 1
+    },
+    {
+      "account_id": "898754153",
+      "maps": 3
+    },
+    {
+      "account_id": "1031547092",
+      "maps": 1
+    }
+  ],
+  "networkRequests": 0,
+  "trainingReady": false,
+  "deployable": false
+}
