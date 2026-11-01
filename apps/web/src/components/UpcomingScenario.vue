@@ -54,10 +54,10 @@ async function create(){
       </fieldset></div>
       <p v-if="form.teamAId&&form.teamBId"><RouterLink :to="{path:'/compare',query:{teamA:form.teamAId,teamB:form.teamBId}}">Открыть сравнение организаций →</RouterLink></p>
       <label class="check-row"><input v-model="confirmed" type="checkbox" required />Подтверждаю выбранных игроков и роли для одной карты</label>
-      <UpcomingLineupCompare :input="comparisonInput" />
       <p class="hint">Команды A/B не назначают Radiant/Dire. Герои и номер карты будут доступны в редакторе сценария.</p>
       <button type="submit" :disabled="!input.success">{{busy?'Создание…':'Создать ручной сценарий'}}</button>
     </fieldset></form><p v-if="error" class="error" role="alert">{{error}}</p>
+    <UpcomingLineupCompare :input="busy?null:comparisonInput" />
   </details>
 </template>
 <style scoped>

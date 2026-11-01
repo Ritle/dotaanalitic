@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed,ref,watch} from 'vue';
+import {computed,reactive,ref,watch} from 'vue';
 import {useQuery} from '@tanstack/vue-query';
 import {CompareRequestSchema,CompareResponseSchema,type CompareRequest} from '@dota/contracts';
 import {ownerAuth} from '../auth';
@@ -7,7 +7,8 @@ import {readCatalog,dateLabel} from '../catalog';
 import CompareStat from './CompareStat.vue';
 import SampleNote from './SampleNote.vue';
 const props=defineProps<{input:CompareRequest|null}>(),applied=ref<CompareRequest|null>(null);
-watch(()=>props.input,()=>{applied.value=null;},{deep:true,flush:'sync'});
+const filters=reactive({from:'',cutoff:'',patch:'',league:''}),validation=ref(''),filterForm=ref<HTMLFormElement|null>(null);
+watch([()=>props.input,filters],()=>{applied.value=null;validation.value='';},{deep:true,flush:'sync'});
 const query=useQuery({queryKey:computed(()=>['compare','upcoming',applied.value]),enabled:computed(()=>!!ownerAuth.value&&!!applied.value),
   queryFn:({signal})=>readCatalog('teams/compare',CompareResponseSchema,signal,{method:'POST',
     headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value!.csrfToken},body:JSON.stringify(applied.value)})});
@@ -15,22 +16,43 @@ const report=computed(()=>applied.value&&!query.isFetching.value&&!query.isError
 const columns=computed(()=>report.value?[{slot:'A',team:report.value.teamA},{slot:'B',team:report.value.teamB}]:[]);
 function compare(){
   if(!props.input)return;
-  const next=CompareRequestSchema.parse(props.input);
-  if(JSON.stringify(applied.value)===JSON.stringify(next)){void query.refetch();return;}
-  applied.value=next;
+  try{
+    if(filterForm.value&&!filterForm.value.checkValidity())throw new Error('invalid_filter_control');
+    const time=(s:string)=>s?new Date(s+'Z').toISOString():undefined;
+    const next=CompareRequestSchema.parse({...props.input,fromAt:time(filters.from),cutoffAt:time(filters.cutoff),
+      patchId:filters.patch.trim()||undefined,leagueId:filters.league.trim()||undefined});
+    const now=new Date().toISOString();
+    if(next.cutoffAt&&next.cutoffAt>now||next.fromAt&&next.fromAt>=(next.cutoffAt??now))throw new Error('invalid_filter_window');
+    validation.value='';
+    if(JSON.stringify(applied.value)===JSON.stringify(next)){void query.refetch();return;}
+    applied.value=next;
+  }catch{applied.value=null;validation.value='Проверьте даты UTC: начало строго раньше среза, срез не в будущем. ID патча и лиги — положительные целые ID из локальной базы.';}
 }
+function resetFilters(){filterForm.value?.reset();Object.assign(filters,{from:'',cutoff:'',patch:'',league:''});applied.value=null;validation.value='';}
 </script>
 <template>
   <section class="lineup-compare" aria-label="Сравнение подтверждённых пятёрок">
     <h3>История выбранных пятёрок</h3>
-    <p class="hint">Подтвердите десять игроков и роли, затем запустите сравнение. Последние 90 дней до запроса, все патчи и турниры. История организации и выбранных игроков считается отдельно. Сценарий не сохраняется.</p>
-    <button type="button" :disabled="!input||query.isFetching.value" @click="compare">Сравнить выбранные пятёрки</button>
+    <p class="hint">Подтвердите десять игроков и роли, затем запустите сравнение. История организации и выбранных игроков считается отдельно. Сценарий не сохраняется.</p>
+    <form ref="filterForm" novalidate @submit.prevent="compare">
+      <div class="filter-grid">
+        <label>Начало истории, UTC<input v-model="filters.from" type="datetime-local" step="0.001" aria-label="Пятёрки: начало UTC" /></label>
+        <label>Срез истории, UTC<input v-model="filters.cutoff" type="datetime-local" step="0.001" aria-label="Пятёрки: срез UTC" /></label>
+        <label>ID патча · пусто = все<input v-model="filters.patch" inputmode="numeric" maxlength="19" aria-label="Пятёрки: ID патча" /></label>
+        <label>ID лиги · пусто = все<input v-model="filters.league" inputmode="numeric" maxlength="19" aria-label="Пятёрки: ID лиги" /></label>
+      </div>
+      <p class="hint">Пустой срез — время запроса; пустое начало — 90 дней до среза. Карта начинается строго раньше среза и завершается к нему. ID — из локальной базы, не PandaScore. При фильтре патча карты без проверенного патча исключаются.</p>
+      <p v-if="validation" class="error" role="alert">{{validation}}</p>
+      <div class="filter-actions"><button type="submit" :disabled="!input||query.isFetching.value">Сравнить выбранные пятёрки</button>
+        <button type="button" @click="resetFilters">Сбросить фильтры пятёрок</button></div>
+    </form>
     <p v-if="applied&&query.isFetching.value" role="status">Сравниваем подтверждённые пятёрки…</p>
     <div v-if="applied&&query.isError.value" role="alert"><p class="error">{{query.error.value?.message}}</p><button type="button" @click="query.refetch()">Повторить сравнение пятёрок</button></div>
-    <p v-if="applied&&!query.isFetching.value&&!query.isError.value&&query.data.value?.status==='unavailable'" class="warning" role="status">{{query.data.value.message}} Уточните период в полном сравнении организаций.</p>
+    <p v-if="applied&&!query.isFetching.value&&!query.isError.value&&query.data.value?.status==='unavailable'" class="warning" role="status">{{query.data.value.message}} Уточните начало истории выше и запустите сравнение снова. Окно не расширяется автоматически.</p>
     <section v-if="report" aria-label="Результат сравнения пятёрок">
       <p>Период: {{dateLabel(report.fromAt)}} → {{dateLabel(report.cutoffAt)}}.</p>
-      <p class="hint">Срез БД: {{dateLabel(report.snapshotAt)}} · источник: нормализованные локальные pro-карты · все патчи и турниры · без весов.</p>
+      <p class="hint">Срез БД: {{dateLabel(report.snapshotAt)}} · источник: нормализованные локальные pro-карты · без весов.</p>
+      <p class="hint">Применённые фильтры: патч {{report.input.patchId??'все'}}, лига {{report.input.leagueId??'все'}}. Период общий для организаций, пятёрок, пар и личной истории.</p>
       <p class="warning">Малое N не гарантирует надёжности. Наблюдаемый win rate — частота прошлых побед. Прогноз недоступен.</p>
       <div class="lineup-columns"><article v-for="col in columns" :key="col.slot" :aria-label="`Пятёрка ${col.slot}`">
         <h4>{{col.slot}} · {{col.team.name}} · ID {{col.team.organizationId}}</h4>
@@ -67,8 +89,10 @@ function compare(){
 <style scoped>
 .lineup-compare{border-top:1px solid var(--color-border);margin-block:var(--space-4);padding-top:var(--space-4);overflow-wrap:anywhere}
 .lineup-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);align-items:start}
+.filter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.filter-grid label{min-width:0;font-size:14px}.filter-actions{display:flex;flex-wrap:wrap;gap:var(--space-3)}
 article{min-width:0;border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:var(--space-4)}
 h4{margin-top:0}summary{cursor:pointer;min-height:44px;padding-block:8px}.player-history{border-bottom:1px solid var(--color-border);padding-block:8px}
 table{min-width:480px}th,td{vertical-align:top}
-@media(max-width:680px){.lineup-columns{grid-template-columns:1fr}}
+@media(max-width:680px){.lineup-columns,.filter-grid{grid-template-columns:1fr}}
 </style>
