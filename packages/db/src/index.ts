@@ -49,3 +49,4 @@ export {assessScenarioDraft} from './scenario-draft.js';
 export {HeroMatchupRepository} from './hero-matchup-repository.js';
 export {ScenarioReportRepository} from './scenario-report-repository.js';
 export * from './schedule-cache.js';
+export * from './history-refresh.js';

@@ -17,6 +17,8 @@ import {ScenarioReportRepository} from '@dota/db';
 import type { FastifyServerOptions } from 'fastify';
 import {UpcomingService} from './modules/upcoming/service.js';
 import {registerUpcoming} from './modules/upcoming/http.js';
+import {HistoryRefreshService} from './modules/history/service.js';
+import {registerHistoryRefresh} from './modules/history/http.js';
 
 export async function buildApp(config = readConfig(), options: { db?: Db; logger?: FastifyServerOptions['logger'];pandascoreFetch?:(url:URL,init:RequestInit)=>Promise<Response> } = {}) {
   const app = Fastify({ bodyLimit: 8192, trustProxy: false, logger: options.logger === false ? false : {
@@ -62,6 +64,9 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   registerHeroMatchups(app, new HeroMatchupRepository(db));
   registerReports(app,new ScenarioReportRepository(db));
   registerUpcoming(app,new UpcomingService(db,config.PANDASCORE_API_TOKEN,options.pandascoreFetch));
+  const history=new HistoryRefreshService(db,config.DATABASE_URL);
+  app.addHook('onClose',async()=>history.close());
+  registerHistoryRefresh(app,history);
   app.setNotFoundHandler((request, reply) => reply.code(404).send({ error: { code: 'NOT_FOUND', message: 'Маршрут не найден.', requestId: request.id } }));
   return app;
 }

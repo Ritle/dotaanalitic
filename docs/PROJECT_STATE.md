@@ -1,6 +1,6 @@
 # Текущее состояние репозитория — Codex handoff
 
-**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08 comparison, S1-09 source spike, S1-10 upcoming UI, S1-11 picker, S1-12 текущий каталог, S1-13 pro-история, S2-01/02/03/04 и S3-00** выполнены локально. **Следующий срез — S1-14 обновление pro-истории из интерфейса. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
+**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08 comparison, S1-09 source spike, S1-10 upcoming UI, S1-11 picker, S1-12 текущий каталог, S1-13 pro-история, S1-14 обновление из UI, S2-01/02/03/04 и S3-00** выполнены локально. **Следующий срез — S1-15 сводка выбранной предстоящей встречи. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
 
 **S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket unchecked, но владелец явно выбрал **S1-08** после archival checkpoint (AGENTS§10). Повторного подтверждения не требуется; prediction gates не обходить.
 
@@ -9,6 +9,10 @@
 **Archive checkpoint:** CDX/Memento подтвердили body анонса7.34d к2023-10-12T15:55:12Z, SHA совпадает с нынешним body; раньше5 TI2023 maps. Narrow source-body proof не подтверждает deployment/hero/outcome. [Evidence](S1_07_ARCHIVED_BODY.md).
 
 ## Реально присутствует
+
+- **S1-14:** на `/teams/:id` кнопка bounded pro-history refresh, protected GET/POST,020 runs state, atomic run/job transaction, canonical organization dedup/cooldown, fenced worker attempts и persisted audit/progress. Existing pg-boss worker handles history alongside map jobs; S1-13 source pipeline/quotas/per-map importer reused. UI автоматически перечитывает mutable reports; saved report versions immutable. Для обработки нужен отдельный `pnpm worker:dev`. [Запуск/контракт](S1_14_HISTORY_REFRESH.md).
+
+- **Проверки S1-14 PASS:** frozen install/typecheck/434 unit/build,8 новых PG/API history +18 ingestion/queue regression,4 SQL baseline,60 Node и full19 Chromium (2 новых). Desktop/360px просмотрены, overflow нет. Первоначальная fixture src/dist error-class mismatch исправлена без ослабления production guards.020 applied/replay20 SKIP, verifier20/golden/docs/diff. Pg-boss12.38.0 подключён к ingestion для общего producer/consumer, pnpm-generated lockfile. Working migrations20/maps10/pro_maps10/map_players100/resolved53/players21/teams5/proofs21/revision42/owners0/scenarios0/datasets0/models0/history_runs0/cache2/PandaScore requests2/tempDB0. Нового provider HTTP нет; tests use disposable synthetic data. SQL001–019/старые evidence unchanged, API/Vite закрыты, PG5432 сохранён.
 
 - **S1-13:** live audit14 HTTP200,10 завершённых карт PARI UNIVERSE за29–31 октября, SHA capture/preview/apply через existing importer;9 новых +1 обновлённая, replay10 duplicate/revisions stable. Реальные ProMap reports дают5 карт у2 организаций/10 игроков, DM0/null. Current retrospective identities используются без historical backdate;53/100 participant links, canonical patch/series/role coverage unknown. [Контракт/evidence](S1_13_CURRENT_HISTORY.md).
 
@@ -126,4 +130,4 @@
 
 ## Следующая задача
 
-**S1-14 — запуск ограниченного обновления pro-истории из интерфейса и отображение состояния задания.** Owner/CSRF endpoint → existing pg-boss → проверенный S1-13 numeric-team source audit/eligibility/import, durable quota/per-map idempotency. Повторные клики deduplicate; UI показывает progress/error/partial/completed, объём и timestamp, обновляет описательные отчёты. Не создавать новые неподтверждённые identity links, не backdate-ить current proofs и не включать обучение. S1-12/13 завершены, реальные catalogue+maps есть в БД. S1-07/S3-01/v8 corpus/model gates открыты. SQL001–019 immutable, следующие020+ только если нужны. Модель — **GPT-6.1 Sol · High** для API/queue/UI integration.
+**S1-15 — сводка выбранной предстоящей встречи в `/upcoming`.** После явного выбора canonical организаций показать описательные N/даты/источник/coverage warnings, подключить готовые S1-14 refresh controls и ссылки на существующие отчёты. Ручной выбор canonical игроков/5 изN/ролей остаётся владельцу. Не объединять PandaScore/OpenDota namespace по никам и не выдавать org history за выбранную пятёрку. S1-12/13/14 завершены; S1-07/S3-01/v8 corpus/model gates открыты, обучение/вероятности не добавлять. SQL001–020 immutable; следующие021+ только если нужны. Модель — **GPT-6.1 Sol · Medium** для UI-интеграции готовых API/компонентов.

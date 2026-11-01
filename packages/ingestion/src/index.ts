@@ -16,6 +16,7 @@ export * from './valve/steam-profile-evidence.js';
 export * from './opendota/registry-evidence.js';
 export * from './opendota/current-catalogue.js';
 export * from './opendota/current-history.js';
+export * from './history-queue.js';
 export * from './valve/league-lineup-evidence.js';
 export * from './pandascore/client.js';
 export * from './pandascore/schemas.js';

@@ -12,12 +12,12 @@ test('all baseline migrations applied with authoritative checksums', async () =>
  await client.connect();
  try{
   const {rows}=await client.query('SELECT filename, checksum FROM schema_migrations ORDER BY filename');
-  assert.equal(rows.length,19);
+  assert.equal(rows.length,20);
   assert.deepEqual(rows.map(x=>x.filename),[
    '001_initial.sql','002_patch_awareness.sql','003_roster_continuity.sql',
    '004_context_identity_provenance.sql','005_training_pipeline.sql',
    '006_draft_data_quality.sql','007_idempotent_ingestion.sql','008_owner_auth.sql','009_temporal_context.sql','010_identity_evidence.sql',
-   '011_game_context_registry.sql','012_verified_dataset_boundary.sql','013_context_recorded_time.sql','014_patch_transfer_evidence.sql','015_scenario_snapshots.sql','016_scenario_draft.sql','017_scenario_reports.sql','018_outcome_verifier.sql','019_upcoming_schedule.sql'
+   '011_game_context_registry.sql','012_verified_dataset_boundary.sql','013_context_recorded_time.sql','014_patch_transfer_evidence.sql','015_scenario_snapshots.sql','016_scenario_draft.sql','017_scenario_reports.sql','018_outcome_verifier.sql','019_upcoming_schedule.sql','020_history_refresh.sql'
   ]);
   for(const {filename,checksum} of rows) {
     const sql=await readFile(new globalThis.URL(`../../packages/db/migrations/${filename}`,import.meta.url));
@@ -31,7 +31,8 @@ test('all baseline migrations applied with authoritative checksums', async () =>
      to_regclass('public.match_quality_assessments')::text AS quality,
      to_regclass('public.match_draft_source_observations')::text AS draft_raw,
      to_regclass('public.upcoming_source_cache')::text AS schedule_cache,
-     to_regclass('public.pandascore_request_quota')::text AS schedule_quota`);
+     to_regclass('public.pandascore_request_quota')::text AS schedule_quota,
+     to_regclass('public.history_refresh_runs')::text AS history_refresh`);
   assert.ok(Object.values(objects[0]).every(Boolean), 'Critical tables missing');
  }finally{await client.end()}
 });

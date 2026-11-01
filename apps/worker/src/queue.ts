@@ -1,6 +1,6 @@
 import { PgBoss, type Job } from 'pg-boss';
 import { CompiledQuery, type Db } from '@dota/db';
-import { OpenDotaError, ProviderIdSchema, type ImportResult } from '@dota/ingestion';
+import { OpenDotaError, ProviderIdSchema, setupHistoryQueue, type ImportResult } from '@dota/ingestion';
 import { z } from 'zod';
 import { randomUUID } from 'node:crypto';
 
@@ -14,6 +14,7 @@ export async function createQueue(connectionString:string,schema='pgboss',retryD
   boss.on('error',()=>console.error(JSON.stringify({event:'queue_error',code:'queue_unavailable'})));
   try{
     await boss.start();
+    await setupHistoryQueue(boss);
     await boss.createQueue(FAILED_QUEUE,{retryLimit:0});
     await boss.createQueue(IMPORT_QUEUE,{policy:'exclusive',retryLimit:3,retryDelay,retryBackoff:true,
       expireInSeconds:300,heartbeatSeconds:30,deadLetter:FAILED_QUEUE});

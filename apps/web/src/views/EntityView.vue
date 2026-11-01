@@ -9,6 +9,7 @@ import ProMapReport from '../components/ProMapReport.vue';
 import RosterReport from '../components/RosterReport.vue';
 import PlayerHeroReport from '../components/PlayerHeroReport.vue';
 import StrengthReport from '../components/StrengthReport.vue';
+import HistoryRefresh from '../components/HistoryRefresh.vue';
 const route=useRoute();
 const kind=computed(()=>route.name==='team'?'teams':'players');
 const id=computed(()=>String(route.params.id));
@@ -31,6 +32,7 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
       <dl class="metadata"><dt>Источник</dt><dd>Локальный справочник</dd><dt>Синхронизация</dt><dd>{{dateLabel(data.entity.syncedAt)}}</dd>
         <dt>Изменение записи</dt><dd>{{dateLabel(data.entity.metadataUpdatedAt)}}</dd><dt>Прочитано</dt><dd>{{dateLabel(data.computedAt)}}</dd></dl>
       <template v-if="data.entityType==='organization'">
+        <HistoryRefresh :team-id="id" />
         <RouterLink :to="{path:'/compare',query:{teamA:id}}">Сравнить эту организацию с другой →</RouterLink>
         <p class="warning">Организация — не постоянная пятёрка. Актуальный состав неизвестен; его нужно подтвердить для конкретной карты.</p>
         <h3>Последний наблюдавшийся состав</h3>

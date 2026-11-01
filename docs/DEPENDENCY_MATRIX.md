@@ -15,7 +15,7 @@
 | api | `argon2` 0.45.1 | password Argon2id | Installed S0-03; Windows native prebuild exercised; Linux remote CI not run |
 | db | `pg` 8 | SQL driver | Уже в root starter; migrations and pool test |
 | db | `kysely` 0.28.18 | Typed select/joins/transactions | Installed/tested S0-02; SQL migration authority remains manually written `.sql` |
-| worker | `pg-boss` 12.38.0 | Durable scheduled/import jobs | Installed/tested S0-02; Node >=22.12; restart/dedup/retry/atomic deferral tested, own schema lifecycle |
+| ingestion / API producer / worker | `pg-boss` 12.38.0 | Durable scheduled/import jobs | Installed/tested S0-02; S1-14 shares the same pinned library for owner history refresh; Node >=22.12; restart/dedup/retry/atomic enqueue tested, own schema lifecycle |
 | web | `@tanstack/vue-query` 5.105.0 | Cache and async fetch | Installed S1-01; query keys by resource/query/page/ID, AbortSignal, cache cleared on logout/401; Chromium E2E |
 | web | `echarts`, `vue-echarts` | Timelines/calibration/graphs | On first analytics visualization (S1/S3), lazy load |
 | web | `@vue/test-utils` | Component tests | S1/S2 |

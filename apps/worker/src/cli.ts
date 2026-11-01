@@ -1,12 +1,12 @@
 import { parseArgs } from 'node:util';
-import { createProviderRuntime, IngestionService } from '@dota/ingestion';
+import { createProviderRuntime, IngestionService, registerHistoryWorker } from '@dota/ingestion';
 import { createQueue, enqueue, registerWorker, IMPORT_QUEUE } from './queue.js';
 
 async function main(){
   const {values,positionals}=parseArgs({allowPositionals:true,options:{'match-id':{type:'string'},'job-id':{type:'string'}}});
   const command=positionals[0];
   if(!['work','enqueue','once','status'].includes(command??''))throw new Error('invalid_command');
-  const runtime=createProviderRuntime(process.env);
+  const runtime=createProviderRuntime(process.env,39);
   const boss=await createQueue(process.env.DATABASE_URL!);
   try{
     if(command==='status'){
@@ -22,6 +22,7 @@ async function main(){
       if(command==='enqueue'||!jobId)return;
     }
     await registerWorker(boss,runtime.db,(id,signal)=>new IngestionService(runtime.db,runtime.clientForJob(signal)).ingest(id));
+    if(command==='work')await registerHistoryWorker(boss,runtime.db,signal=>runtime.clientForJob(signal));
     if(command==='once'){
       const deadline=Date.now()+180000;
       while(Date.now()<deadline){

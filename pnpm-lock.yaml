@@ -197,6 +197,9 @@ importers:
       '@dota/db':
         specifier: workspace:*
         version: link:../db
+      pg-boss:
+        specifier: 12.38.0
+        version: 12.38.0(@opentelemetry/api@1.10.0)
       zod:
         specifier: ^4.1.0
         version: 4.6.7
