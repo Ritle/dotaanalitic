@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "mode": "current_history_checkpoint",
+  "generatedAt": "2026-11-01T01:16:23.192Z",
+  "artifacts": [
+    {
+      "file": "docs/evidence/s1-13-current-history-audit.json",
+      "sha256": "f71c9291f2a29b2084d51a47ff3ab34d033f6a8acf794cbd221cff3c07b6cf06"
+    },
+    {
+      "file": "docs/evidence/s1-13-current-history-preview.json",
+      "sha256": "a899d0552436c4ca0aa3ac2dba1f25862bd243f9d05510564ca31182f3a2b6e4"
+    },
+    {
+      "file": "docs/evidence/s1-13-current-history-applied.json",
+      "sha256": "a17528783516f1cf0eacaabf91ff7d95ec44bcc42ec936c4a9fa8adafe063182"
+    },
+    {
+      "file": "docs/evidence/s1-13-current-history-replay.json",
+      "sha256": "b242d25a6c3b781ec41e9dafd5e8d30b1f448d9374e64d109d46adcff2fc2eb1"
+    },
+    {
+      "file": "docs/evidence/s1-13-current-history-reports.json",
+      "sha256": "27f6eea47f2d1f1daaaf927b5c6f8d86677993b92f5f0acce253df24e70923a0"
+    }
+  ],
+  "code": [
+    {
+      "file": "scripts/audit-prediction-sources.mjs",
+      "sha256": "cd45bcca08fc41e967b68e335c48f46358e4a0ef9335ee5838772359729c256c"
+    },
+    {
+      "file": "scripts/lib/coverage-audit.mjs",
+      "sha256": "fe4de560b0535786dcfa8cc6fbe86436ef282bdb98b74aad92549411d9ff4f47"
+    },
+    {
+      "file": "scripts/lib/match-quality.mjs",
+      "sha256": "dac488bc7e59c18647fa5ddc0857ebed6d8c26bcee7bd265d57afec41fa5f89b"
+    },
+    {
+      "file": "scripts/import-current-history.mjs",
+      "sha256": "c9cbf484739905d794a8bbc3c8ee0d25b5887452d86bbb4c7d94021bc21944c7"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/current-history.ts",
+      "sha256": "1fedc75c8b87db61dddb1041067e456e788b48405607dacb60b2c914aa9d9b52"
+    },
+    {
+      "file": "packages/ingestion/dist/opendota/current-history.js",
+      "sha256": "3ec7463ce16fb3916a8f0497789b9412dc8da4456867d647061a9e1cc253998f"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/client.ts",
+      "sha256": "d6f719fdc3888771b487d79cb58b4483e76296fecd68f2b23f3b65a1d9f96181"
+    },
+    {
+      "file": "packages/ingestion/dist/opendota/client.js",
+      "sha256": "5519ee208bcae1c94c44285d387512f047c613ba9315e8350ceb0c7024637063"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/schemas.ts",
+      "sha256": "4f25d37c0479af75ccfa6ea021e813e7094ee997644348f080cb7deec167d616"
+    },
+    {
+      "file": "packages/ingestion/dist/opendota/schemas.js",
+      "sha256": "21b18735b4fbb857854f9f9735a9b9ed38ef1663735b5b7608ea79f179146c86"
+    },
+    {
+      "file": "packages/ingestion/src/importer.ts",
+      "sha256": "1f9de00b2c3defa8ecab0682e87d12e4eb9fa498a3440fd18838ff71b7008240"
+    },
+    {
+      "file": "packages/ingestion/dist/importer.js",
+      "sha256": "48d770b20c8d6fdbf28cdce195b015a3bce346694c527e73e758b52ddac96611"
+    },
+    {
+      "file": "packages/ingestion/src/quality.ts",
+      "sha256": "08934f270bd9455b42bd04457b82dda35912743bd6f1c3688cb374a4c8e14f72"
+    },
+    {
+      "file": "packages/ingestion/dist/quality.js",
+      "sha256": "1fbd95ce446b163bb56e08d8f3f8934ada2169912f2c0ab944b56c8082527513"
+    },
+    {
+      "file": "packages/ingestion/src/runtime.ts",
+      "sha256": "491313766a326bf69be35b44fe6d6fa5bbfb300bfc4ff9031ebc58fe470ba4ef"
+    },
+    {
+      "file": "packages/ingestion/src/quota.ts",
+      "sha256": "2250f733522cb3643ec0ebd1574104001a898878384ecea2a91c750a2f226093"
+    },
+    {
+      "file": "packages/db/src/identity.ts",
+      "sha256": "80264467afadb04ae257addc12f69fdb68d3262875e77c1f0941ef4cfe046888"
+    },
+    {
+      "file": "packages/db/src/pro-maps.ts",
+      "sha256": "daff274a47dd9b5e816cdfa262adad1e2ce6fda637cee1474761c27b4fb8dca4"
+    },
+    {
+      "file": "packages/db/src/pro-map-reader.ts",
+      "sha256": "7cda52a58c9355d7f56eed41599a12578e4be40fe90aab57370b8cb26f4a5040"
+    },
+    {
+      "file": "packages/db/src/pro-map-repository.ts",
+      "sha256": "55bb7b7bdca0224de3bb1d2e6b32252c87895d1e9dab31a74e44cad7bccab2d1"
+    },
+    {
+      "file": "package.json",
+      "sha256": "219f61422694fb7eec04516e28337f817c0d3d5bbf799c587b578dd940378a06"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "914424aafc1923c7d021b17dd1fabe4306aaa632756c822ad3eda5fae0edf4d8"
+    }
+  ],
+  "rawCapture": {
+    "file": ".tools/s1-13-current-history-capture.json",
+    "sha256": "18bb97dbf8676c966066dbe2347210c333b3d992878be67f42c3049c79622f65",
+    "committed": false,
+    "retainedLocally": true,
+    "requiredForExactByteCliReplay": true
+  },
+  "requests": {
+    "opendota": {
+      "attempts": 14,
+      "httpStatuses": {
+        "200": 14
+      },
+      "transportErrors": {},
+      "durablePostgresQuota": true
+    },
+    "pandascore": 0
+  },
+  "verification": {
+    "frozenInstall": "passed",
+    "typecheck": "passed",
+    "unitTests": 434,
+    "postgresIngestionAndQueue": 18,
+    "postgresProMapsApi": 7,
+    "nodeTests": 60,
+    "build": "passed",
+    "chromium": "not_rerun_unchanged_ui",
+    "sqlBaseline": "not_rerun_unchanged_schema",
+    "newMaps": 9,
+    "updatedMaps": 1,
+    "replayDuplicates": 10
+  },
+  "finalCounts": {
+    "maps": 10,
+    "pro_maps": 10,
+    "map_players": 100,
+    "resolved_map_players": 53,
+    "players": 21,
+    "teams": 5,
+    "proofs": 21,
+    "identity_revision": "42",
+    "owners": 0,
+    "scenarios": 0,
+    "datasets": 0,
+    "active_models": 0,
+    "upcoming_cache": 2,
+    "pandascore_requests": 2,
+    "temporary_databases": 0
+  },
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false
+}

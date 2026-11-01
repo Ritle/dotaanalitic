@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
-import { MatchSchema, MatchSourceSchema, HeroesSchema, LeaguesSchema, PlayerSchema, ProMatchesSchema, ProPlayersSchema, ProviderIdSchema, TeamPlayersSchema, TeamSchema } from './schemas.js';
+import { MatchSchema, MatchSourceSchema, HeroesSchema, LeaguesSchema, PlayerSchema, ProMatchesSchema, ProPlayersSchema, ProviderIdSchema, TeamPlayersSchema, TeamMatchesSchema, TeamSchema } from './schemas.js';
 
 export const OPENDOTA_ADAPTER_VERSION = 'opendota-provider-v2';
 export type ProviderErrorCode = 'invalid_configuration' | 'invalid_id' | 'request_budget_exhausted'
@@ -125,6 +125,7 @@ export class OpenDotaClient {
     return result;
   }
   getTeamPlayers(id: string) { return this.request(`/teams/${this.id(id)}/players`, TeamPlayersSchema); }
+  getTeamMatches(id: string) { return this.request(`/teams/${this.id(id)}/matches`, TeamMatchesSchema); }
   async getPlayer(id: string) {
     const expected = this.id(id);
     if (BigInt(expected) > 4294967295n) throw new OpenDotaError('invalid_id');

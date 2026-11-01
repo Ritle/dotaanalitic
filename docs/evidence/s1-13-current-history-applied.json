@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 1,
+  "mode": "current_history_apply",
+  "generatedAt": "2026-11-01T01:11:55.460Z",
+  "capture": {
+    "file": ".tools/s1-13-current-history-capture.json",
+    "sha256": "18bb97dbf8676c966066dbe2347210c333b3d992878be67f42c3049c79622f65"
+  },
+  "audit": {
+    "file": "docs/evidence/s1-13-current-history-audit.json",
+    "sha256": "f71c9291f2a29b2084d51a47ff3ab34d033f6a8acf794cbd221cff3c07b6cf06"
+  },
+  "planInput": {
+    "file": "docs/evidence/s1-13-current-history-preview.json",
+    "sha256": "a899d0552436c4ca0aa3ac2dba1f25862bd243f9d05510564ca31182f3a2b6e4"
+  },
+  "status": "ready",
+  "cutoffAt": "2026-11-01T01:10:19.996Z",
+  "teamIds": [
+    "7119388",
+    "9823272"
+  ],
+  "eligibleMatchIds": [
+    "9070527945",
+    "9070062078",
+    "9070392472",
+    "9069952836",
+    "9069021061",
+    "9067412106",
+    "9068910292",
+    "9067346550",
+    "9068795274",
+    "9067177642"
+  ],
+  "excluded": [],
+  "sourceErrors": [],
+  "existingMaps": [
+    {
+      "id": "9069021061",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    }
+  ],
+  "results": [
+    {
+      "matchId": "9070527945",
+      "receiptId": "5",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "9070062078",
+      "receiptId": "7",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "9070392472",
+      "receiptId": "9",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "9069952836",
+      "receiptId": "11",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "9069021061",
+      "receiptId": "13",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "2"
+    },
+    {
+      "matchId": "9067412106",
+      "receiptId": "15",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "9068910292",
+      "receiptId": "17",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "9067346550",
+      "receiptId": "19",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "9068795274",
+      "receiptId": "21",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    },
+    {
+      "matchId": "9067177642",
+      "receiptId": "23",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "1"
+    }
+  ],
+  "errors": [],
+  "mapsAfter": [
+    {
+      "id": "9067177642",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9067346550",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9067412106",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9068795274",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9068910292",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9069021061",
+      "data_revision": "2",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9069952836",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9070062078",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9070392472",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    },
+    {
+      "id": "9070527945",
+      "data_revision": "1",
+      "ingest_state": "accepted",
+      "is_pro": true
+    }
+  ],
+  "canonicalWritesAttempted": true,
+  "networkRequests": 0,
+  "warnings": [
+    "BOUNDED_ORGANIZATION_HISTORY_NOT_COMPLETE_PLAYER_CAREER",
+    "CURRENT_RETROSPECTIVE_DISPLAY_ONLY",
+    "UNKNOWN_PATCH_SERIES_ROLES_AND_IDENTITIES_REMAIN_UNKNOWN",
+    "PER_MAP_TRANSACTIONS_REPLAY_SAFE"
+  ],
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false
+}

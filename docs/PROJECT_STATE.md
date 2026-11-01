@@ -1,6 +1,6 @@
 # Текущее состояние репозитория — Codex handoff
 
-**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08 comparison, S1-09 source spike, S1-10 upcoming UI, S1-11 picker, S1-12 текущий каталог, S2-01/02/03/04 и S3-00** выполнены локально. **Следующий срез — S1-13 проверенная завершённая pro-история выбранных участников. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
+**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08 comparison, S1-09 source spike, S1-10 upcoming UI, S1-11 picker, S1-12 текущий каталог, S1-13 pro-история, S2-01/02/03/04 и S3-00** выполнены локально. **Следующий срез — S1-14 обновление pro-истории из интерфейса. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
 
 **S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket unchecked, но владелец явно выбрал **S1-08** после archival checkpoint (AGENTS§10). Повторного подтверждения не требуется; prediction gates не обходить.
 
@@ -9,6 +9,10 @@
 **Archive checkpoint:** CDX/Memento подтвердили body анонса7.34d к2023-10-12T15:55:12Z, SHA совпадает с нынешним body; раньше5 TI2023 maps. Narrow source-body proof не подтверждает deployment/hero/outcome. [Evidence](S1_07_ARCHIVED_BODY.md).
 
 ## Реально присутствует
+
+- **S1-13:** live audit14 HTTP200,10 завершённых карт PARI UNIVERSE за29–31 октября, SHA capture/preview/apply через existing importer;9 новых +1 обновлённая, replay10 duplicate/revisions stable. Реальные ProMap reports дают5 карт у2 организаций/10 игроков, DM0/null. Current retrospective identities используются без historical backdate;53/100 participant links, canonical patch/series/role coverage unknown. [Контракт/evidence](S1_13_CURRENT_HISTORY.md).
+
+- **Проверки S1-13 PASS:** frozen install/typecheck/434 unit/build,18 PG ingestion/queue +7 PG API pro-maps,60 Node, verifier19/golden/docs/diff. UI/API contracts/SQL001–019/dependencies/lockfile unchanged; Chromium/SQL baseline отдельно не повторялись. Working maps10/pro_maps10/map_players100/resolved53/players21/teams5/proofs21/revision42/owners0/scenarios0/datasets0/models0/tempDB0 на read-only report check.14 HTTP OpenDota, PandaScore0; old evidence unchanged, full capture retained locally ignored. API/Vite не запускались, PG5432 сохранён.
 
 - **S1-12:** current OpenDota catalogue через reviewed numeric IDs/Steam32/Steam64, raw SHA/endpoint replay, существующий identity provisioner с team plan/fingerprint/atomic rollback. Реально добавлены Yandex/11 игроков/11 proofs/11 aliases; Spirit reuse. Повтор0 вставок; поиск11/11 +2/2. Source5+6 candidates, без ролей/пятёрки/PandaScore identity join. Текущее knownAt=fetchedAt, historical availability не backdate-ится. [Контракт/evidence](S1_12_CURRENT_CATALOGUE.md).
 
@@ -122,4 +126,4 @@
 
 ## Следующая задача
 
-**S1-13 — ограниченный импорт проверенной завершённой pro-истории выбранных участников для описательных отчётов.** Начать с live source eligibility/coverage audit, затем использовать existing idempotent importer; source/outcome/identity/side/series/patch coverage, N/filters/warnings, повтор без дубликатов. S1-12 завершён: реальные записи уже находятся в picker. Current account evidence не backdate-ить в исторические as-of features; retrospective descriptive history отделять от training. PandaScore namespace остаётся отдельным. S3-01/S1-07/v8 corpus/model gates открыты, архив старых объявлений не блокирует текущий ручной workflow. Автоматического S3-02/training/activation нет. SQL001–019 immutable, следующие020+ если нужны. Модель — **GPT-6 Astra · High** для source/identity/import correctness.
+**S1-14 — запуск ограниченного обновления pro-истории из интерфейса и отображение состояния задания.** Owner/CSRF endpoint → existing pg-boss → проверенный S1-13 numeric-team source audit/eligibility/import, durable quota/per-map idempotency. Повторные клики deduplicate; UI показывает progress/error/partial/completed, объём и timestamp, обновляет описательные отчёты. Не создавать новые неподтверждённые identity links, не backdate-ить current proofs и не включать обучение. S1-12/13 завершены, реальные catalogue+maps есть в БД. S1-07/S3-01/v8 corpus/model gates открыты. SQL001–019 immutable, следующие020+ только если нужны. Модель — **GPT-6.1 Sol · High** для API/queue/UI integration.

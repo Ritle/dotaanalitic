@@ -1,6 +1,7 @@
 import {afterAll,beforeAll,test,expect} from 'vitest';
-import {sql,IdentityRepository} from '@dota/db';
-import {OpenDotaClient,PostgresProviderBudget,IngestionService} from '../src/index.js';
+import {createHash} from 'node:crypto';
+import {sql,IdentityRepository,ProMapRepository,readAccountEvidence,resolveIdentity} from '@dota/db';
+import {OpenDotaClient,PostgresProviderBudget,IngestionService,validateCurrentHistoryCapture} from '../src/index.js';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 
 let fixture:Awaited<ReturnType<typeof testDatabase>>;
@@ -17,6 +18,32 @@ function importer(payload:unknown,tier:string|null='professional'){
   }});
   return new IngestionService(fixture.db,client);
 }
+
+test('captured current pro-history feeds retrospective player statistics without backdating identity; raw replay is idempotent',async()=>{
+  const account='300001',player='9007199254741999',matchId='900000000090';
+  await sql`INSERT INTO players(id,opendota_account_id,nickname) VALUES (${player},${account},'Synthetic current history player')`.execute(fixture.db);
+  await new IdentityRepository(fixture.db).appendAccountEvidence({playerId:player,provider:'opendota',externalAccountId:account,status:'verified',
+    eventAt:null,knownAt:'2026-10-31T00:00:00.000Z',fetchedAt:'2026-10-31T00:00:00.000Z',source:'synthetic-current-catalogue',evidenceRef:'synthetic-numeric-proof'});
+  const raw={...base(matchId),radiant_team_id:3101,dire_team_id:3102,
+    radiant_team:{team_id:3101,name:'Synthetic history A'},dire_team:{team_id:3102,name:'Synthetic history B'},
+    players:base(matchId).players.map((p,i)=>({...p,account_id:300001+i}))};
+  const observation=(endpoint:string,data:unknown)=>{const rawBody=JSON.stringify(data);return {rawBody,source:{provider:'opendota',adapterVersion:'synthetic-current-history-test',endpoint,
+    fetchedAt:'2026-10-31T00:00:01.000Z',knownAt:null,payloadSha256:createHash('sha256').update(rawBody).digest('hex'),attempts:1,
+    rateLimitRemaining:{minute:null,day:null,month:null}}};};
+  const validated=validateCurrentHistoryCapture({schemaVersion:1,mode:'live_current_history_capture',teamIds:['3101'],sample:1,
+    cutoffAt:'2026-10-31T00:00:00.000Z',capturedAt:'2026-10-31T00:00:02.000Z',
+    discoveries:[observation('/teams/3101/matches',[{...raw,radiant:true,opposing_team_id:3102}])],
+    heroes:observation('/heroes',heroes),leagues:observation('/leagues',[{leagueid:77,name:'Synthetic history league',tier:'professional'}]),
+    matches:[observation(`/matches/${matchId}`,raw)],errors:[]});
+  expect(validated.matches[0]!.eligible).toBe(true);
+  const service=new IngestionService(fixture.db,{getMatchSource:async()=>validated.matches[0]!.observation,getHeroes:async()=>validated.heroes,getLeagues:async()=>validated.leagues});
+  const first=await service.ingest(matchId),again=await service.ingest(matchId);expect(again).toMatchObject({duplicate:true,dataRevision:first.dataRevision,status:'accepted'});
+  const report=await new ProMapRepository(fixture.db).report('players',player,{cutoffAt:'2024-01-01T00:00:00.000Z',limit:20});
+  expect(report).toMatchObject({scope:'retrospective_descriptive',predictionEligibility:'not_assessed',model:null,
+    summary:{nRaw:1,wins:0,losses:1,winRate:0},coverage:{knownPatch:0,knownSeries:0,completeCanonicalRosters:0}});
+  const evidence=await readAccountEvidence(fixture.db,[account]);expect(resolveIdentity(evidence,account,'2024-01-01T00:00:00.000Z').playerId).toBeNull();
+  expect((await sql<{n:number}>`SELECT count(*)::int AS n FROM match_field_observations WHERE match_id=${matchId} AND known_at IS NOT NULL`.execute(fixture.db)).rows[0]!.n).toBe(0);
+});
 test('repeat and parallel import produce one map, ten slots, one raw snapshot and a stable revision',async()=>{
   const payload=base('900000000001');
   const first=await importer(payload).ingest(payload.match_id);

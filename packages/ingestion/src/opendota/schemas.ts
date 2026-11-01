@@ -26,6 +26,8 @@ const MatchSummaryFields = {
   dire_score: IntegerSchema
 };
 export const ProMatchesSchema = z.array(z.object(MatchSummaryFields));
+export const TeamMatchesSchema = z.array(z.object({...MatchSummaryFields,
+  radiant:z.boolean().nullish(),opposing_team_id:NullableIdSchema})).max(10000);
 
 export const MatchPlayerSchema = z.object({
   account_id: AccountIdSchema,

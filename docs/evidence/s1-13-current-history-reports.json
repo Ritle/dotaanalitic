@@ -1,0 +1,1189 @@
+{
+  "schemaVersion": 1,
+  "mode": "current_history_descriptive_report_check",
+  "observedAt": "2026-11-01T01:12:41.702Z",
+  "teams": [
+    {
+      "name": "Team Spirit",
+      "sourceTeamId": "7119388",
+      "report": {
+        "status": "ready",
+        "scope": "retrospective_descriptive",
+        "policyVersion": "pro-map-display-v1",
+        "entityType": "organization",
+        "entityId": "1",
+        "filters": {
+          "fromAt": "2026-10-29T00:00:00.000Z",
+          "cutoffAt": "2026-11-01T01:12:41.027Z",
+          "limit": 20
+        },
+        "snapshotAt": "2026-11-01T01:12:41.039Z",
+        "computedAt": "2026-11-01T01:12:41.039Z",
+        "source": "normalized_local_maps",
+        "identityRevision": "42",
+        "registryRevision": "0",
+        "model": null,
+        "predictionEligibility": "not_assessed",
+        "summary": {
+          "nRaw": 5,
+          "wins": 4,
+          "losses": 1,
+          "winRate": 0.8,
+          "meanDurationSeconds": 2781.6,
+          "dataUpdatedAt": "2026-11-01T01:10:37.044Z",
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": 5,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "under_10",
+            "coldStart": false,
+            "smallSample": true
+          }
+        },
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 0,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        },
+        "patchDistribution": [
+          {
+            "patchId": null,
+            "maps": 5
+          }
+        ],
+        "maps": [
+          {
+            "matchId": "9070527945",
+            "startedAt": "2026-10-31T18:51:31.000Z",
+            "side": "dire",
+            "won": true,
+            "durationSeconds": 2830,
+            "organizationId": "1",
+            "opponentId": "6",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:25.794Z",
+            "sourceFetchedAt": "2026-11-01T01:10:25.794Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:14",
+              "proof:15",
+              "proof:18",
+              "proof:20",
+              "proof:21"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          },
+          {
+            "matchId": "9070392472",
+            "startedAt": "2026-10-31T17:27:04.000Z",
+            "side": "dire",
+            "won": true,
+            "durationSeconds": 3343,
+            "organizationId": "1",
+            "opponentId": "6",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:28.478Z",
+            "sourceFetchedAt": "2026-11-01T01:10:28.478Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:14",
+              "proof:15",
+              "proof:18",
+              "proof:20",
+              "proof:21"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          },
+          {
+            "matchId": "9069021061",
+            "startedAt": "2026-10-30T19:53:24.000Z",
+            "side": "radiant",
+            "won": true,
+            "durationSeconds": 2213,
+            "organizationId": "1",
+            "opponentId": "2",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:31.713Z",
+            "sourceFetchedAt": "2026-11-01T01:10:31.713Z",
+            "dataRevision": "2",
+            "identityProofIds": [
+              "proof:14",
+              "proof:15",
+              "proof:18",
+              "proof:20",
+              "proof:21",
+              "proof:5"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          },
+          {
+            "matchId": "9068910292",
+            "startedAt": "2026-10-30T18:37:56.000Z",
+            "side": "radiant",
+            "won": false,
+            "durationSeconds": 2793,
+            "organizationId": "1",
+            "opponentId": "2",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:34.307Z",
+            "sourceFetchedAt": "2026-11-01T01:10:34.307Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:14",
+              "proof:15",
+              "proof:18",
+              "proof:20",
+              "proof:21",
+              "proof:5"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          },
+          {
+            "matchId": "9068795274",
+            "startedAt": "2026-10-30T17:23:31.000Z",
+            "side": "radiant",
+            "won": true,
+            "durationSeconds": 2729,
+            "organizationId": "1",
+            "opponentId": "2",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:37.044Z",
+            "sourceFetchedAt": "2026-11-01T01:10:37.044Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:14",
+              "proof:15",
+              "proof:18",
+              "proof:20",
+              "proof:21",
+              "proof:5"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          }
+        ],
+        "warnings": [
+          "INCOMPLETE_CANONICAL_ROSTER",
+          "ORGANIZATION_NOT_CURRENT_FIVE",
+          "PATCH_UNKNOWN",
+          "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+          "SERIES_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "name": "Team Yandex",
+      "sourceTeamId": "9823272",
+      "report": {
+        "status": "ready",
+        "scope": "retrospective_descriptive",
+        "policyVersion": "pro-map-display-v1",
+        "entityType": "organization",
+        "entityId": "5",
+        "filters": {
+          "fromAt": "2026-10-29T00:00:00.000Z",
+          "cutoffAt": "2026-11-01T01:12:41.027Z",
+          "limit": 20
+        },
+        "snapshotAt": "2026-11-01T01:12:41.405Z",
+        "computedAt": "2026-11-01T01:12:41.405Z",
+        "source": "normalized_local_maps",
+        "identityRevision": "42",
+        "registryRevision": "0",
+        "model": null,
+        "predictionEligibility": "not_assessed",
+        "summary": {
+          "nRaw": 5,
+          "wins": 4,
+          "losses": 1,
+          "winRate": 0.8,
+          "meanDurationSeconds": 2654.4,
+          "dataUpdatedAt": "2026-11-01T01:10:38.633Z",
+          "sampleEvidence": {
+            "policyVersion": "sample-evidence-v1",
+            "nRaw": 5,
+            "nEff": null,
+            "weightPolicyVersion": null,
+            "band": "under_10",
+            "coldStart": false,
+            "smallSample": true
+          }
+        },
+        "coverage": {
+          "candidates": 5,
+          "unknownPro": 0,
+          "nonPro": 0,
+          "conflict": 0,
+          "unfinished": 0,
+          "identityUnresolved": 0,
+          "filterMismatch": 0,
+          "eligibleBeforeLimit": 5,
+          "knownPatch": 0,
+          "completeCanonicalRosters": 0,
+          "knownSeries": 0,
+          "knownOpponent": 5,
+          "confirmedTargetRole": 0,
+          "lateFetchedMaps": 0,
+          "unattributedOrganizationMapsInWindow": 0
+        },
+        "patchDistribution": [
+          {
+            "patchId": null,
+            "maps": 5
+          }
+        ],
+        "maps": [
+          {
+            "matchId": "9070062078",
+            "startedAt": "2026-10-31T14:11:28.000Z",
+            "side": "dire",
+            "won": true,
+            "durationSeconds": 3162,
+            "organizationId": "5",
+            "opponentId": "6",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:27.118Z",
+            "sourceFetchedAt": "2026-11-01T01:10:27.118Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:12",
+              "proof:13",
+              "proof:16",
+              "proof:17",
+              "proof:19"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          },
+          {
+            "matchId": "9069952836",
+            "startedAt": "2026-10-31T13:00:42.000Z",
+            "side": "dire",
+            "won": true,
+            "durationSeconds": 2255,
+            "organizationId": "5",
+            "opponentId": "6",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:29.853Z",
+            "sourceFetchedAt": "2026-11-01T01:10:29.853Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:12",
+              "proof:13",
+              "proof:16",
+              "proof:17",
+              "proof:19"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          },
+          {
+            "matchId": "9067412106",
+            "startedAt": "2026-10-29T17:39:37.000Z",
+            "side": "dire",
+            "won": true,
+            "durationSeconds": 2539,
+            "organizationId": "5",
+            "opponentId": "16",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:33.041Z",
+            "sourceFetchedAt": "2026-11-01T01:10:33.041Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:12",
+              "proof:13",
+              "proof:16",
+              "proof:17",
+              "proof:19"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          },
+          {
+            "matchId": "9067346550",
+            "startedAt": "2026-10-29T16:54:12.000Z",
+            "side": "dire",
+            "won": false,
+            "durationSeconds": 970,
+            "organizationId": "5",
+            "opponentId": "16",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:35.835Z",
+            "sourceFetchedAt": "2026-11-01T01:10:35.835Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:12",
+              "proof:13",
+              "proof:16",
+              "proof:17",
+              "proof:19"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          },
+          {
+            "matchId": "9067177642",
+            "startedAt": "2026-10-29T15:08:28.000Z",
+            "side": "dire",
+            "won": true,
+            "durationSeconds": 4346,
+            "organizationId": "5",
+            "opponentId": "16",
+            "leagueId": "1",
+            "patchId": null,
+            "seriesId": null,
+            "seriesStatus": "unknown",
+            "rolePos": null,
+            "completeCanonicalRoster": false,
+            "source": "opendota",
+            "syncedAt": "2026-11-01T01:10:38.633Z",
+            "sourceFetchedAt": "2026-11-01T01:10:38.633Z",
+            "dataRevision": "1",
+            "identityProofIds": [
+              "proof:12",
+              "proof:13",
+              "proof:16",
+              "proof:17",
+              "proof:19"
+            ],
+            "roleProofIds": [],
+            "patchProofIds": [],
+            "seriesProofIds": [],
+            "warnings": [
+              "INCOMPLETE_CANONICAL_ROSTER",
+              "SERIES_UNKNOWN",
+              "PATCH_UNKNOWN"
+            ]
+          }
+        ],
+        "warnings": [
+          "INCOMPLETE_CANONICAL_ROSTER",
+          "ORGANIZATION_NOT_CURRENT_FIVE",
+          "PATCH_UNKNOWN",
+          "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+          "SERIES_UNKNOWN"
+        ]
+      }
+    }
+  ],
+  "players": [
+    {
+      "name": "DM",
+      "playerId": "11",
+      "accountId": "56351509",
+      "summary": {
+        "nRaw": 0,
+        "wins": 0,
+        "losses": 0,
+        "winRate": null,
+        "meanDurationSeconds": null,
+        "dataUpdatedAt": null,
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 0,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "empty",
+          "coldStart": true,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 0,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 0,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 0,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [],
+      "warnings": [
+        "NO_ELIGIBLE_PRO_MAPS",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES"
+      ]
+    },
+    {
+      "name": "Maladych",
+      "playerId": "12",
+      "accountId": "93817671",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2654.4,
+        "dataUpdatedAt": "2026-11-01T01:10:38.633Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070062078",
+        "9069952836",
+        "9067412106",
+        "9067346550",
+        "9067177642"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "Saksa",
+      "playerId": "13",
+      "accountId": "103735745",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2654.4,
+        "dataUpdatedAt": "2026-11-01T01:10:38.633Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070062078",
+        "9069952836",
+        "9067412106",
+        "9067346550",
+        "9067177642"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "Larl",
+      "playerId": "14",
+      "accountId": "106305042",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2781.6,
+        "dataUpdatedAt": "2026-11-01T01:10:37.044Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070527945",
+        "9070392472",
+        "9069021061",
+        "9068910292",
+        "9068795274"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "Batyuk",
+      "playerId": "15",
+      "accountId": "140835095",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2781.6,
+        "dataUpdatedAt": "2026-11-01T01:10:37.044Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070527945",
+        "9070392472",
+        "9069021061",
+        "9068910292",
+        "9068795274"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "医者watson`",
+      "playerId": "16",
+      "accountId": "171262902",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2654.4,
+        "dataUpdatedAt": "2026-11-01T01:10:38.633Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070062078",
+        "9069952836",
+        "9067412106",
+        "9067346550",
+        "9067177642"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "AMMAR_THE_F",
+      "playerId": "17",
+      "accountId": "183719386",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2654.4,
+        "dataUpdatedAt": "2026-11-01T01:10:38.633Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070062078",
+        "9069952836",
+        "9067412106",
+        "9067346550",
+        "9067177642"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "not_me",
+      "playerId": "18",
+      "accountId": "218231587",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2781.6,
+        "dataUpdatedAt": "2026-11-01T01:10:37.044Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070527945",
+        "9070392472",
+        "9069021061",
+        "9068910292",
+        "9068795274"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "CHIRA_JUNIOR",
+      "playerId": "19",
+      "accountId": "312436974",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2654.4,
+        "dataUpdatedAt": "2026-11-01T01:10:38.633Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070062078",
+        "9069952836",
+        "9067412106",
+        "9067346550",
+        "9067177642"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "Yatoro",
+      "playerId": "20",
+      "accountId": "321580662",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2781.6,
+        "dataUpdatedAt": "2026-11-01T01:10:37.044Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070527945",
+        "9070392472",
+        "9069021061",
+        "9068910292",
+        "9068795274"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    },
+    {
+      "name": "rue",
+      "playerId": "21",
+      "accountId": "847565596",
+      "summary": {
+        "nRaw": 5,
+        "wins": 4,
+        "losses": 1,
+        "winRate": 0.8,
+        "meanDurationSeconds": 2781.6,
+        "dataUpdatedAt": "2026-11-01T01:10:37.044Z",
+        "sampleEvidence": {
+          "policyVersion": "sample-evidence-v1",
+          "nRaw": 5,
+          "nEff": null,
+          "weightPolicyVersion": null,
+          "band": "under_10",
+          "coldStart": false,
+          "smallSample": true
+        }
+      },
+      "coverage": {
+        "candidates": 5,
+        "unknownPro": 0,
+        "nonPro": 0,
+        "conflict": 0,
+        "unfinished": 0,
+        "identityUnresolved": 0,
+        "filterMismatch": 0,
+        "eligibleBeforeLimit": 5,
+        "knownPatch": 0,
+        "completeCanonicalRosters": 0,
+        "knownSeries": 0,
+        "knownOpponent": 5,
+        "confirmedTargetRole": 0,
+        "lateFetchedMaps": 0,
+        "unattributedOrganizationMapsInWindow": 0
+      },
+      "filters": {
+        "fromAt": "2026-10-29T00:00:00.000Z",
+        "cutoffAt": "2026-11-01T01:12:41.027Z",
+        "limit": 20
+      },
+      "source": "normalized_local_maps",
+      "scope": "retrospective_descriptive",
+      "predictionEligibility": "not_assessed",
+      "model": null,
+      "mapIds": [
+        "9070527945",
+        "9070392472",
+        "9069021061",
+        "9068910292",
+        "9068795274"
+      ],
+      "warnings": [
+        "INCOMPLETE_CANONICAL_ROSTER",
+        "PATCH_UNKNOWN",
+        "RETROSPECTIVE_NOT_HISTORICAL_FEATURES",
+        "ROLE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    }
+  ],
+  "counts": {
+    "maps": 10,
+    "pro_maps": 10,
+    "map_players": 100,
+    "resolved_map_players": 53,
+    "players": 21,
+    "teams": 5,
+    "proofs": 21,
+    "identity_revision": "42",
+    "owners": 0,
+    "scenarios": 0,
+    "datasets": 0,
+    "active_models": 0,
+    "temporary_databases": 0
+  },
+  "databaseWrites": 0,
+  "networkRequests": 0,
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false
+}
