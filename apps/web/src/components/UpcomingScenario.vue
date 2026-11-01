@@ -6,6 +6,7 @@ import {ScenarioInputSchema,ScenarioSnapshotSchema,type UpcomingMatch} from '@do
 import {readCatalog} from '../catalog';
 import {ownerAuth} from '../auth';
 import CatalogPicker from './CatalogPicker.vue';
+import UpcomingTeamSummary from './UpcomingTeamSummary.vue';
 const props=defineProps<{match:UpcomingMatch}>(),router=useRouter(),cache=useQueryClient();
 const five=()=>Array.from({length:5},(_,i)=>({rolePos:i+1,playerId:'',isStandin:false}));
 const form=reactive({title:(props.match.name??'Сценарий встречи').slice(0,120),teamAId:'',teamBId:'',lineupA:five(),lineupB:five()});
@@ -41,11 +42,14 @@ async function create(){
         <legend>Команда {{slot}} · {{match.opponents[slot==='A'?0:1]?.name??'не определена'}}</legend>
         <CatalogPicker v-if="slot==='A'" v-model="form.teamAId" kind="teams" label="Команда A в локальной базе" :excluded-ids="[form.teamBId]" />
         <CatalogPicker v-else v-model="form.teamBId" kind="teams" label="Команда B в локальной базе" :excluded-ids="[form.teamAId]" />
+        <UpcomingTeamSummary v-if="slot==='A'?form.teamAId:form.teamBId" :key="slot+':'+(slot==='A'?form.teamAId:form.teamBId)"
+          :team-id="slot==='A'?form.teamAId:form.teamBId" :side-label="slot" />
         <div v-for="p in slot==='A'?form.lineupA:form.lineupB" :key="p.rolePos">
           <CatalogPicker v-model="p.playerId" kind="players" :label="`${slot}: игрок роли ${p.rolePos}`" :excluded-ids="usedPlayers(p)" />
           <label class="check-row"><input v-model="p.isStandin" type="checkbox" @change="confirmed=false" />{{slot}}: замена роли {{p.rolePos}}</label>
         </div>
       </fieldset></div>
+      <p v-if="form.teamAId&&form.teamBId"><RouterLink :to="{path:'/compare',query:{teamA:form.teamAId,teamB:form.teamBId}}">Открыть сравнение организаций →</RouterLink></p>
       <label class="check-row"><input v-model="confirmed" type="checkbox" required />Подтверждаю выбранных игроков и роли для одной карты</label>
       <p class="hint">Команды A/B не назначают Radiant/Dire. Герои и номер карты будут доступны в редакторе сценария.</p>
       <button type="submit" :disabled="!input.success">{{busy?'Создание…':'Создать ручной сценарий'}}</button>

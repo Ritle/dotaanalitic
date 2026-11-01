@@ -1,6 +1,6 @@
 # Текущее состояние репозитория — Codex handoff
 
-**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08 comparison, S1-09 source spike, S1-10 upcoming UI, S1-11 picker, S1-12 текущий каталог, S1-13 pro-история, S1-14 обновление из UI, S2-01/02/03/04 и S3-00** выполнены локально. **Следующий срез — S1-15 сводка выбранной предстоящей встречи. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
+**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08 comparison, S1-09 source spike, S1-10 upcoming UI, S1-11 picker, S1-12 текущий каталог, S1-13 pro-история, S1-14 обновление из UI, S1-15 сводка встречи, S2-01/02/03/04 и S3-00** выполнены локально. **Следующий срез — S1-16 сравнение подтверждённых пятёрок предстоящей встречи. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
 
 **S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket unchecked, но владелец явно выбрал **S1-08** после archival checkpoint (AGENTS§10). Повторного подтверждения не требуется; prediction gates не обходить.
 
@@ -9,6 +9,9 @@
 **Archive checkpoint:** CDX/Memento подтвердили body анонса7.34d к2023-10-12T15:55:12Z, SHA совпадает с нынешним body; раньше5 TI2023 maps. Narrow source-body proof не подтверждает deployment/hero/outcome. [Evidence](S1_07_ARCHIVED_BODY.md).
 
 ## Реально присутствует
+
+- **S1-15:** `/upcoming` показывает описательные карточки явно выбранных canonical организаций: N/raw nullable WR/даты/source/cutoff и раскрываемое покрытие, S1-14 refresh и ссылки на полные отчёты/compare. Organization history отдельно от выбранной пятёрки; refresh не меняет игроков/роли/подтверждение и не отправляет форму. Смена/очистка выбора убирает прежние данные. [Контракт](S1_15_UPCOMING_SUMMARY.md).
+- **Проверки S1-15 PASS:** frozen install/typecheck/434 unit/build, full21 Chromium (2 новых, focused5 ранее); desktop/360px PNG просмотрены, overflow нет. Первый full E2E остановлен из-за выключенного PG; существующий кластер запущен без переинициализации, повторный полный прогон21 PASS. Verifier20/golden/docs/diff PASS. Backend/contracts/SQL/dependencies/lockfile без изменений; PG/API отдельные suites/Node/Python не повторялись. Working migrations20/maps10/pro_maps10/map_players100/resolved53/players21/teams5/proofs21/revision42/owners0/scenarios0/datasets0/models0/history_runs0/cache2/PandaScore requests2/tempDB0. Нового provider HTTP нет; синтетика только во временных DB. API/Vite закрыты, PG5432 сохранён.
 
 - **S1-14:** на `/teams/:id` кнопка bounded pro-history refresh, protected GET/POST,020 runs state, atomic run/job transaction, canonical organization dedup/cooldown, fenced worker attempts и persisted audit/progress. Existing pg-boss worker handles history alongside map jobs; S1-13 source pipeline/quotas/per-map importer reused. UI автоматически перечитывает mutable reports; saved report versions immutable. Для обработки нужен отдельный `pnpm worker:dev`. [Запуск/контракт](S1_14_HISTORY_REFRESH.md).
 
@@ -130,4 +133,4 @@
 
 ## Следующая задача
 
-**S1-15 — сводка выбранной предстоящей встречи в `/upcoming`.** После явного выбора canonical организаций показать описательные N/даты/источник/coverage warnings, подключить готовые S1-14 refresh controls и ссылки на существующие отчёты. Ручной выбор canonical игроков/5 изN/ролей остаётся владельцу. Не объединять PandaScore/OpenDota namespace по никам и не выдавать org history за выбранную пятёрку. S1-12/13/14 завершены; S1-07/S3-01/v8 corpus/model gates открыты, обучение/вероятности не добавлять. SQL001–020 immutable; следующие021+ только если нужны. Модель — **GPT-6.1 Sol · Medium** для UI-интеграции готовых API/компонентов.
+**S1-16 — сравнение подтверждённых пятёрок предстоящей встречи в `/upcoming`.** По явному действию после подтверждения10 canonical игроков/ролей подключить существующий stateless compare API: exact-five/cross-org pairs/личная история отдельно от organization WR, N/даты/coverage. Изменение формы скрывает прежний результат; refresh перечитывает только актуальный запрос. Ручной выбор5 изN/ролей остаётся владельцу, namespace не объединять. S1-12..15 завершены; S1-07/S3-01/v8 corpus/model gates открыты, обучение/вероятности не добавлять. SQL001–020 immutable; следующие021+ только если нужны. Модель — **GPT-6.1 Sol · High** для cohort/cutoff и инвалидации формы.
