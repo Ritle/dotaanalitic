@@ -6,6 +6,8 @@
 
 Отдельный [offline эксперимент Elo E0](docs/S3_01_E0_RESEARCH.md) выполнен на реальных pro-картах: экспорт, повторяемая хронологическая оценка и aggregate metrics. Команда `pnpm research:elo` работает вне production prediction pipeline; публикация прогнозов остаётся недоступной.
 
+[План E1](docs/S3_01_E1_PROTOCOL.md) фиксирует196 исторических кандидатов и будущий период проверки; `pnpm research:plan` создаёт и воспроизводит план до импорта/оценки.
+
 Репозиторий: **[Ritle/dotaanalitic](https://github.com/Ritle/dotaanalitic)**. Для подключения Git в VS Code см. [инструкцию для Windows](docs/GIT_SETUP_WINDOWS.md).
 
 ## Быстрый старт

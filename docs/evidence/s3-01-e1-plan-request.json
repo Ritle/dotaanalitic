@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "experiment": "S3-01 E1",
+  "warmupFromAt": "2020-01-01T00:00:00.000Z",
+  "holdoutFromAt": "2026-11-02T00:00:00.000Z",
+  "holdoutUntil": "2026-11-09T00:00:00.000Z",
+  "evaluationNotBefore": "2026-11-10T00:00:00.000Z",
+  "warmupLeagueIds": ["17765"],
+  "maxWarmupCandidates": 250,
+  "maxExportMaps": 5000,
+  "priorExportSha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51",
+  "discoverySha256": "ff2fcda0080602e0f0691032083d750c05e52c06386e40fba282acacf544af87",
+  "policy": "fixed-elo-future-window-v1"
+}

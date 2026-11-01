@@ -56,3 +56,4 @@ export * from './history-refresh.js';
 export * from './prospective-patch.js';
 export * from './research-elo.js';
 export * from './research-elo-repository.js';
+export * from './research-plan.js';

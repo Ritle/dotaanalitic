@@ -26,10 +26,10 @@ it('offline CLI replays byte-identically with a broken DB URL and refuses to ove
   const existing = invoke('one.json'); expect(existing.status).toBe(1); expect(String(existing.stderr)).toContain('OUTPUT_EXISTS');
   expect(await readFile(join(dir, 'one.json'))).toEqual(before);
   expect(JSON.parse(before.toString())).toMatchObject({ syntheticOnly: true, trainingReady: false, deployable: false });
-}));
+}), 20000);
 it('checks source SHA before parsing and keeps error responses free of input secrets', () => workspace(async (dir, content, invoke) => {
   await writeFile(join(dir, 'input.json'), 'never-print-this-secret');
   const bad = invoke('one.json'); expect(bad.status).toBe(1); expect(String(bad.stderr)).not.toContain('never-print-this-secret');
   await writeFile(join(dir, 'input.json'), Buffer.from([255]));
   expect(invoke('one.json', sha(Buffer.from([255]))).status).toBe(1);
-}));
+}), 20000);

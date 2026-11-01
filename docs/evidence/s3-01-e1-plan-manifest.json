@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "experiment": "S3-01 E1 protocol",
+  "generatedAt": "2026-11-01T21:22:48.231Z",
+  "artifacts": [
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62",
+      "bytes": 51419
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan-request.json",
+      "sha256": "9c3f2ed6f44e656b4774764f027014dfae2ff47f8bd6ef2e681d767ba5754673",
+      "bytes": 554
+    },
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51",
+      "bytes": 972640
+    },
+    {
+      "path": "docs/evidence/s3-01-league-discovery.json",
+      "sha256": "ff2fcda0080602e0f0691032083d750c05e52c06386e40fba282acacf544af87",
+      "bytes": 401312
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/research-plan.ts",
+      "sha256": "fcae89c823a0a63e8eadf819f9e1d0c12211c466f41e2e61bca4154bf1bcab30",
+      "bytes": 1936
+    },
+    {
+      "path": "packages/contracts/dist/research-plan.js",
+      "sha256": "bd67c6d552dbd9cddd25b668d7a5376d23b0e0e92fd6e54a8f3688b9395808e6",
+      "bytes": 1889
+    },
+    {
+      "path": "packages/db/src/research-plan.ts",
+      "sha256": "c7732f73ede4270250a0161246a353eb83c9a1c6238fba5b6dd128841a38024e",
+      "bytes": 6962
+    },
+    {
+      "path": "packages/db/dist/research-plan.js",
+      "sha256": "871f270426157a44f93cd4b2863bbb815dcb18852f56eda8d4239b3bd72fa051",
+      "bytes": 7248
+    },
+    {
+      "path": "scripts/plan-research-elo.mjs",
+      "sha256": "3ee406052d2cd8d3b1747cfb54ca19c95b86d84c73e75eade9890e2b4c8b2663",
+      "bytes": 3218
+    }
+  ],
+  "registrationAt": "2026-11-01T21:21:12.075Z",
+  "planFingerprint": "7311d2494b0272ae987577873747778b3c665432ad3031859e864be66addde4f",
+  "replayIdentical": true,
+  "candidateWarmupMaps": 196,
+  "candidateWarmupSeries": 94,
+  "excludedWarmupMaps": 0,
+  "importedMaps": 0,
+  "newVerifiedMaps": 0,
+  "newProviderRequests": 0,
+  "databaseAccess": false,
+  "holdoutFromAt": "2026-11-02T00:00:00.000Z",
+  "holdoutUntil": "2026-11-09T00:00:00.000Z",
+  "evaluationSnapshotAt": "2026-11-10T00:00:00.000Z",
+  "holdoutCandidateMaps": null,
+  "holdoutEligibleMaps": null,
+  "metrics": null,
+  "syntheticOnly": false,
+  "trainingReady": false,
+  "deployable": false
+}

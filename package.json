@@ -7,6 +7,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "research:plan": "pnpm shared:build && node scripts/plan-research-elo.mjs",
     "research:elo": "pnpm shared:build && node --env-file-if-exists=.env scripts/research-elo.mjs",
     "patch:diagnose": "pnpm shared:build && node scripts/diagnose-corpus-patches.mjs",
     "profile:capture": "pnpm shared:build && node --env-file-if-exists=.env scripts/capture-player-profile.mjs",
