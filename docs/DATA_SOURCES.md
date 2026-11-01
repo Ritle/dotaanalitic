@@ -10,6 +10,10 @@ Source IDs остаются отдельным namespace; nickname joins, DB imp
 
 ## OpenDota — основной источник
 
+### S1-08: пересечение patch/as-of evidence с рабочим корпусом
+
+Инвентаризация2026-11-01 без новых Dota HTTP:36 карт/6 source patch codes,27 точных ID/start совпадений с прежним40-map audit. Для20 исторических карт есть только nominal feed candidates7.29d/7.30d/7.32c/7.34d/7.37c; code60 у16 недавних карт остаётся без candidate (7 старых open-interval observations,9 вне того audit).5 archive proofs относятся только к announcement body7.34d, не к deployment/hero availability. Canonical registry пуст; strict pre/post0 eligible. [Матрица, источники и границы](S1_08_PATCH_CONTEXT_INVENTORY.md), [manifest](evidence/s1-08-patch-context-inventory.json). Следующий источник для проверки — определение code60 и официальные Valve metadata; старый архивный body повторно не искать.
+
 ### S1-08: BO2 — подтверждение формата 2026-11-01
 
 Valve GetLeagueData для16935 сопоставляет series_type3 с node_type4 в24 однозначных группах, включая903379/903582; одна type3 запись без однозначного node остаётся вне подтверждённого сопоставления. Pinned SteamTracking protobuf dump определяет ELeagueNodeType.BEST_OF_TWO=4; зеркало не принадлежит Valve. Это разные enums: series_type4 остаётся unsupported. [URL, SHA, временные отметки и numeric IDs](evidence/s1-08-bo2-source.json), [контракт и первичные ссылки](S1_08_SERIES_PROVISION.md).

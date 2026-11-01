@@ -716,3 +716,18 @@ Architecture constraints reviewed: enum namespaces, whole-series grouping, swapp
 Known blockers:36 карт недостаточно для признания broad corpus gate выполненным; canonical patch/as-of unknown36, исторические current identity proofs недоступны до карты. Прогнозы остаются unavailable; S1-07/S3-01 и общий S1-08 corpus gate не закрыты.
 
 Next task: S1-08 — инвентаризация canonical patch/as-of evidence36 карт и6 provider patch codes через существующие S1-07 boundaries, сопоставление сохранённых proofs без догадок о release timestamp. Suggested model: GPT-6 Astra · High (ручной выбор владельца).
+
+
+### 2026-11-01 — S1-08: инвентаризация patch/as-of evidence 36 карт
+
+Goal / implemented / changed files: сопоставить рабочий корпус с существующими S1-07 proofs, не присваивая timestamps/версию по догадке. Добавлены docs/S1_08_PATCH_CONTEXT_INVENTORY.md и docs/evidence/s1-08-patch-context-inventory.json, обновлены PROJECT_STATE/IMPLEMENTATION_PLAN/DATA_SOURCES. Production TS/SQL/dependencies/UI не менялись.
+
+Measured result:36 карт/6 source patch codes48/49/51/53/56/60,27 exact ID/start совпадений со старым40-map audit. Все20 исторических карт имеют только nominal candidates;16 недавних code60 без candidate (7 open-interval +9 вне старого audit).5 archive body proofs сохранили узкий scope. Registry releases/transitions/hero impacts/availability/draft rules0. Штатные resolvePatchAt/MatchContextRepository дают canonical patch и pre-start lineup/teams unknown36.
+
+Identity clarification: текущие360/360 participant slots разрешены. При cutoff каждого старта22 slots на8 картах имеют historical identity proof; полные10 только у7378530387. Это не доказательство объявленного состава.2507 field observations без known_at; две PandaScore observations от01.11 позже всех текущих36 карт. Strict DatasetBuilder pre/post previews36 candidates/0 eligible, dataset build не запускался.
+
+Checks actually executed: frozen install/typecheck/pnpm test448/build PASS; PostgreSQL patch-history +game-context +dataset-builder24 PASS. Read-only repeatable-read inventory:21 tables byte-projection fingerprints совпали до/после inventory и previews.22 applied migration SHA +golden001–005 PASS; source/report/helper hashes сохранены в manifest. Тесты выполнены вне sandbox из-за ранее подтверждённых Windows EPERM pnpm/store/spawn. Browser/Python/backtest не запускались, API/web/worker не перезапускались. Новых тестов для reversible inventory не добавлено.
+
+Compatibility / unresolved: никаких DB writes/provider requests/source promotions, исходы/игроки/серии/receipts/модели не изменены. Helper и полные локальные snapshots ignored; публичный отчёт хранит проекцию/SHA. S1-07/S3-01 и общий corpus gate остаются открытыми. Не обозначать source-body availability как подтверждённый patch release.
+
+Next task: S1-08 — bounded source audit определения provider patch code60 и официальных Valve list/notes/announcements для16 недавних карт; использовать существующий ValvePatchClient, без повторного поиска body7.34d и без auto promotion. Рекомендуемая модель: GPT-6 Astra · High, выбор владельцем вручную.

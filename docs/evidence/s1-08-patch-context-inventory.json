@@ -1,0 +1,1701 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T20:03:28.024Z",
+  "scope": "read_only_existing_patch_and_asof_evidence_inventory",
+  "databaseTransaction": "repeatable read, read only",
+  "summary": {
+    "maps": 36,
+    "providerPatchCodes": 6,
+    "canonicalPatchMaps": 0,
+    "oldAuditMatchedMaps": 27,
+    "archivedAnnouncementBodyMaps": 5,
+    "currentIdentitySlots": 360,
+    "historicalIdentitySlots": 22,
+    "historicalIdentityCompleteMaps": 1,
+    "availableContextMaps": {
+      "pre_match": {
+        "lineup": 0,
+        "teams": 0,
+        "heroes": 0,
+        "roles": 0
+      },
+      "post_draft": {
+        "lineup": 0,
+        "teams": 0,
+        "heroes": 0,
+        "roles": 0
+      }
+    }
+  },
+  "registryRevision": "0",
+  "registry": {
+    "releases": 0,
+    "transitions": 0,
+    "heroImpacts": 0,
+    "heroAvailability": 0,
+    "draftRules": 0
+  },
+  "groups": [
+    {
+      "providerPatchCode": "48",
+      "n": 3,
+      "mapIds": [
+        "6054718020",
+        "6067239305",
+        "6079100944"
+      ],
+      "fromAt": "2021-06-23T08:00:33.000Z",
+      "toAt": "2021-07-08T13:39:51.000Z",
+      "historicalAuditMatchedMaps": 3,
+      "nominalCandidates": [
+        "7.29d"
+      ],
+      "archiveBodyMaps": 0,
+      "canonicalPatchMaps": 0
+    },
+    {
+      "providerPatchCode": "49",
+      "n": 2,
+      "mapIds": [
+        "6214131970",
+        "6227492909"
+      ],
+      "fromAt": "2021-10-08T15:33:56.000Z",
+      "toAt": "2021-10-17T16:56:26.000Z",
+      "historicalAuditMatchedMaps": 2,
+      "nominalCandidates": [
+        "7.30d"
+      ],
+      "archiveBodyMaps": 0,
+      "canonicalPatchMaps": 0
+    },
+    {
+      "providerPatchCode": "51",
+      "n": 5,
+      "mapIds": [
+        "6806047579",
+        "6807772726",
+        "6809522859",
+        "6811000638",
+        "6832287527"
+      ],
+      "fromAt": "2022-10-15T02:27:57.000Z",
+      "toAt": "2022-10-30T11:49:25.000Z",
+      "historicalAuditMatchedMaps": 5,
+      "nominalCandidates": [
+        "7.32c"
+      ],
+      "archiveBodyMaps": 0,
+      "canonicalPatchMaps": 0
+    },
+    {
+      "providerPatchCode": "53",
+      "n": 5,
+      "mapIds": [
+        "7378530387",
+        "7378939289",
+        "7380403482",
+        "7393133836",
+        "7406531302"
+      ],
+      "fromAt": "2023-10-12T17:00:44.000Z",
+      "toAt": "2023-10-29T23:13:43.000Z",
+      "historicalAuditMatchedMaps": 5,
+      "nominalCandidates": [
+        "7.34d"
+      ],
+      "archiveBodyMaps": 5,
+      "canonicalPatchMaps": 0
+    },
+    {
+      "providerPatchCode": "56",
+      "n": 5,
+      "mapIds": [
+        "7927665228",
+        "7928915377",
+        "7931106306",
+        "7936520519",
+        "7944311818"
+      ],
+      "fromAt": "2024-09-04T08:10:41.000Z",
+      "toAt": "2024-09-15T15:59:50.000Z",
+      "historicalAuditMatchedMaps": 5,
+      "nominalCandidates": [
+        "7.37c"
+      ],
+      "archiveBodyMaps": 0,
+      "canonicalPatchMaps": 0
+    },
+    {
+      "providerPatchCode": "60",
+      "n": 16,
+      "mapIds": [
+        "9052687571",
+        "9056685103",
+        "9056844521",
+        "9061631640",
+        "9061735400",
+        "9067177642",
+        "9067346550",
+        "9067412106",
+        "9067617648",
+        "9068795274",
+        "9068910292",
+        "9069021061",
+        "9069952836",
+        "9070062078",
+        "9070392472",
+        "9070527945"
+      ],
+      "fromAt": "2026-10-19T15:58:27.000Z",
+      "toAt": "2026-10-31T18:51:31.000Z",
+      "historicalAuditMatchedMaps": 7,
+      "nominalCandidates": [
+        null
+      ],
+      "archiveBodyMaps": 0,
+      "canonicalPatchMaps": 0
+    }
+  ],
+  "maps": [
+    {
+      "matchId": "6054718020",
+      "startedAt": "2021-06-23T08:00:33.000Z",
+      "leagueId": "13256",
+      "providerPatchCodes": [
+        "48"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.29d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6067239305",
+      "startedAt": "2021-06-30T21:07:36.000Z",
+      "leagueId": "13256",
+      "providerPatchCodes": [
+        "48"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.29d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6079100944",
+      "startedAt": "2021-07-08T13:39:51.000Z",
+      "leagueId": "13256",
+      "providerPatchCodes": [
+        "48"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.29d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6214131970",
+      "startedAt": "2021-10-08T15:33:56.000Z",
+      "leagueId": "13256",
+      "providerPatchCodes": [
+        "49"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.30d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6227492909",
+      "startedAt": "2021-10-17T16:56:26.000Z",
+      "leagueId": "13256",
+      "providerPatchCodes": [
+        "49"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.30d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6806047579",
+      "startedAt": "2022-10-15T02:27:57.000Z",
+      "leagueId": "14268",
+      "providerPatchCodes": [
+        "51"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.32c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6807772726",
+      "startedAt": "2022-10-16T03:14:40.000Z",
+      "leagueId": "14268",
+      "providerPatchCodes": [
+        "51"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.32c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6809522859",
+      "startedAt": "2022-10-17T05:02:37.000Z",
+      "leagueId": "14268",
+      "providerPatchCodes": [
+        "51"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.32c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6811000638",
+      "startedAt": "2022-10-18T07:02:41.000Z",
+      "leagueId": "14268",
+      "providerPatchCodes": [
+        "51"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.32c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "6832287527",
+      "startedAt": "2022-10-30T11:49:25.000Z",
+      "leagueId": "14268",
+      "providerPatchCodes": [
+        "51"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.32c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7378530387",
+      "startedAt": "2023-10-12T17:00:44.000Z",
+      "leagueId": "15728",
+      "providerPatchCodes": [
+        "53"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.34d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": {
+        "knownByAt": "2023-10-12T15:55:12.000Z",
+        "precedesStart": true,
+        "scope": "announcement_body_only",
+        "verifiedPatchId": null
+      },
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 10
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7378939289",
+      "startedAt": "2023-10-13T01:24:09.000Z",
+      "leagueId": "15728",
+      "providerPatchCodes": [
+        "53"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.34d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": {
+        "knownByAt": "2023-10-12T15:55:12.000Z",
+        "precedesStart": true,
+        "scope": "announcement_body_only",
+        "verifiedPatchId": null
+      },
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 5
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7380403482",
+      "startedAt": "2023-10-13T22:51:24.000Z",
+      "leagueId": "15728",
+      "providerPatchCodes": [
+        "53"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.34d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": {
+        "knownByAt": "2023-10-12T15:55:12.000Z",
+        "precedesStart": true,
+        "scope": "announcement_body_only",
+        "verifiedPatchId": null
+      },
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7393133836",
+      "startedAt": "2023-10-21T19:37:36.000Z",
+      "leagueId": "15728",
+      "providerPatchCodes": [
+        "53"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.34d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": {
+        "knownByAt": "2023-10-12T15:55:12.000Z",
+        "precedesStart": true,
+        "scope": "announcement_body_only",
+        "verifiedPatchId": null
+      },
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7406531302",
+      "startedAt": "2023-10-29T23:13:43.000Z",
+      "leagueId": "15728",
+      "providerPatchCodes": [
+        "53"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.34d",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": {
+        "knownByAt": "2023-10-12T15:55:12.000Z",
+        "precedesStart": true,
+        "scope": "announcement_body_only",
+        "verifiedPatchId": null
+      },
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7927665228",
+      "startedAt": "2024-09-04T08:10:41.000Z",
+      "leagueId": "16935",
+      "providerPatchCodes": [
+        "56"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.37c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7928915377",
+      "startedAt": "2024-09-05T08:02:32.000Z",
+      "leagueId": "16935",
+      "providerPatchCodes": [
+        "56"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.37c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 2
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7931106306",
+      "startedAt": "2024-09-06T18:59:50.000Z",
+      "leagueId": "16935",
+      "providerPatchCodes": [
+        "56"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.37c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7936520519",
+      "startedAt": "2024-09-10T10:36:00.000Z",
+      "leagueId": "16935",
+      "providerPatchCodes": [
+        "56"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.37c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "7944311818",
+      "startedAt": "2024-09-15T15:59:50.000Z",
+      "leagueId": "16935",
+      "providerPatchCodes": [
+        "56"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": "7.37c",
+        "reasons": [
+          "FEED_INTERVAL_NOT_EFFECTIVE_VERSION_PROOF"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 1
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9052687571",
+      "startedAt": "2026-10-19T15:58:27.000Z",
+      "leagueId": "19944",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9056685103",
+      "startedAt": "2026-10-22T14:58:56.000Z",
+      "leagueId": "19944",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9056844521",
+      "startedAt": "2026-10-22T16:31:23.000Z",
+      "leagueId": "19944",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9061631640",
+      "startedAt": "2026-10-25T16:02:44.000Z",
+      "leagueId": "19944",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9061735400",
+      "startedAt": "2026-10-25T17:00:54.000Z",
+      "leagueId": "19944",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9067177642",
+      "startedAt": "2026-10-29T15:08:28.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9067346550",
+      "startedAt": "2026-10-29T16:54:12.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9067412106",
+      "startedAt": "2026-10-29T17:39:37.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9067617648",
+      "startedAt": "2026-10-29T20:05:54.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 1
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9068795274",
+      "startedAt": "2026-10-30T17:23:31.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 1
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9068910292",
+      "startedAt": "2026-10-30T18:37:56.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 1
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9069021061",
+      "startedAt": "2026-10-30T19:53:24.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": {
+        "nominalPatchCandidate": null,
+        "reasons": [
+          "FEED_INTERVAL_OPEN_OR_UNKNOWN"
+        ]
+      },
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 1
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9069952836",
+      "startedAt": "2026-10-31T13:00:42.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9070062078",
+      "startedAt": "2026-10-31T14:11:28.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9070392472",
+      "startedAt": "2026-10-31T17:27:04.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    },
+    {
+      "matchId": "9070527945",
+      "startedAt": "2026-10-31T18:51:31.000Z",
+      "leagueId": "20395",
+      "providerPatchCodes": [
+        "60"
+      ],
+      "canonicalPatchId": null,
+      "canonicalPatchAsOf": {
+        "value": null,
+        "reason": "PATCH_UNKNOWN",
+        "evidenceIds": []
+      },
+      "oldSourceAudit": null,
+      "archiveBody": null,
+      "identity": {
+        "slots": 10,
+        "currentVerified": 10,
+        "verifiedAtMapStart": 0
+      },
+      "availableContextFields": {
+        "pre_match": [],
+        "post_draft": []
+      }
+    }
+  ],
+  "contextScope": {
+    "requiredFields": [
+      "lineup",
+      "teams",
+      "heroes",
+      "roles"
+    ],
+    "allRequiredFieldsMissing": true,
+    "missingReason": "MISSING",
+    "contextObservationIds": [],
+    "interpretation": "Current participants are known; no verified pre-start lineup observations. Historical identity proof alone does not prove match participation known before start."
+  },
+  "sourceComparisons": [
+    {
+      "patchLabel": "7.34c",
+      "datafeed": {
+        "listTimestamp": 1694156400,
+        "listAt": "2023-09-08T07:00:00.000Z",
+        "notesTimestamp": 1694156400,
+        "notesAt": "2023-09-08T07:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "5159491482914490455",
+          "title": "7.34c Gameplay Patch",
+          "publishedAt": "2023-09-09T01:51:09.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1694761200&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 67869,
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null
+    },
+    {
+      "patchLabel": "7.34d",
+      "datafeed": {
+        "listTimestamp": 1696402800,
+        "listAt": "2023-10-04T07:00:00.000Z",
+        "notesTimestamp": 1696402800,
+        "notesAt": "2023-10-04T07:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "5220292521182246432",
+          "title": "7.34d Gameplay Patch",
+          "publishedAt": "2023-10-05T23:40:41.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1697007600&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 146441,
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null
+    },
+    {
+      "patchLabel": "7.34e",
+      "datafeed": {
+        "listTimestamp": 1700467200,
+        "listAt": "2023-11-20T08:00:00.000Z",
+        "notesTimestamp": 1700467200,
+        "notesAt": "2023-11-20T08:00:00.000Z"
+      },
+      "announcementCandidates": [
+        {
+          "gid": "5382426458968208242",
+          "title": "Gameplay Update 7.34e and What’s Up Next",
+          "publishedAt": "2023-11-21T01:58:14.000Z",
+          "sourceUrl": "https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=570&count=100&maxlength=1&enddate=1701072000&feeds=steam_community_announcements"
+        }
+      ],
+      "timestampSpreadSeconds": 64694,
+      "verifiedReleasedAt": null,
+      "coverageUntil": null,
+      "knownAt": null
+    }
+  ],
+  "fieldObservations": [
+    {
+      "field": "canonical_players",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "dire_score",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "dire_team",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "dire_team_id",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "duration",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "game_mode",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "identity_resolution",
+      "n": 113,
+      "knownAtCount": 0
+    },
+    {
+      "field": "leagueid",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "lobby_type",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "match_id",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "patch",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "patch_resolution",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "picks_bans",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "players",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "pro_classification",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "radiant_score",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "radiant_team",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "radiant_team_id",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "radiant_win",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "series_id",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "series_type",
+      "n": 114,
+      "knownAtCount": 0
+    },
+    {
+      "field": "start_time",
+      "n": 114,
+      "knownAtCount": 0
+    }
+  ],
+  "upcomingObservations": [
+    {
+      "id": "1",
+      "cacheKey": "schedule",
+      "fetchedAt": "2026-11-01T17:12:20.743Z",
+      "recordedAt": "2026-11-01T17:12:20.785Z"
+    },
+    {
+      "id": "2",
+      "cacheKey": "tournament:22236",
+      "fetchedAt": "2026-11-01T17:12:23.715Z",
+      "recordedAt": "2026-11-01T17:12:23.875Z"
+    }
+  ],
+  "strictPreviews": {
+    "pre_match": {
+      "status": "unavailable",
+      "reason": "NO_ELIGIBLE_MAPS",
+      "candidates": 36,
+      "eligible": 0,
+      "byReason": {
+        "ACTUAL_LINEUP_INCOMPLETE": 36,
+        "CONTEXT_LINEUP_UNAVAILABLE": 36,
+        "CONTEXT_PATCH_UNAVAILABLE": 36,
+        "CONTEXT_TEAMS_UNAVAILABLE": 36
+      }
+    },
+    "post_draft": {
+      "status": "unavailable",
+      "reason": "NO_ELIGIBLE_MAPS",
+      "candidates": 36,
+      "eligible": 0,
+      "byReason": {
+        "ACTUAL_LINEUP_INCOMPLETE": 36,
+        "CONTEXT_HEROES_UNAVAILABLE": 36,
+        "CONTEXT_LINEUP_UNAVAILABLE": 36,
+        "CONTEXT_PATCH_UNAVAILABLE": 36,
+        "CONTEXT_TEAMS_UNAVAILABLE": 36,
+        "OBSERVED_HERO_MISMATCH": 36
+      }
+    }
+  },
+  "invariants": {
+    "checkedAt": "2026-11-01T20:04:22.321Z",
+    "databaseTablesUnchanged": 21,
+    "migrationChecks": 22,
+    "inventory": [
+      {
+        "table": "matches",
+        "n": 36,
+        "fingerprint": "dca88734cf4d3908f0a502de124edfb1"
+      },
+      {
+        "table": "match_players",
+        "n": 360,
+        "fingerprint": "b9e663db3e59284366daeaaf1574be23"
+      },
+      {
+        "table": "series",
+        "n": 28,
+        "fingerprint": "9008f485c0b00accdf3805263a59490d"
+      },
+      {
+        "table": "series_provision_batches",
+        "n": 3,
+        "fingerprint": "087960ffde9d37c1da4dca1319ab2133"
+      },
+      {
+        "table": "provider_ingest_receipts",
+        "n": 155,
+        "fingerprint": "8fc4f1e4a1caa7a1068aa283a996fa99"
+      },
+      {
+        "table": "match_quality_assessments",
+        "n": 114,
+        "fingerprint": "449e805061066c78bfd96230fd0dfa2d"
+      },
+      {
+        "table": "players",
+        "n": 165,
+        "fingerprint": "b825b71d781715c12712b2da358aa4f3"
+      },
+      {
+        "table": "player_account_evidence",
+        "n": 165,
+        "fingerprint": "89e4e7b106fcedb1b563f2e5cef37eaa"
+      },
+      {
+        "table": "player_external_accounts",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patches",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patch_release_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "patch_transition_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "hero_impact_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "draft_rule_evidence",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "hero_availability_rules",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "match_field_observations",
+        "n": 2507,
+        "fingerprint": "ec2c9490db669eae009f4edc8273c5fb"
+      },
+      {
+        "table": "training_dataset_versions",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "prediction_model_versions",
+        "n": 0,
+        "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+      },
+      {
+        "table": "game_context_registry_state",
+        "n": 1,
+        "fingerprint": "db672d0480f3402e6e416a4550559e17"
+      },
+      {
+        "table": "identity_registry_state",
+        "n": 1,
+        "fingerprint": "3f2f823a9fdd28695139fa9a8199f60b"
+      },
+      {
+        "table": "upcoming_source_observations",
+        "n": 2,
+        "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "file": "reports/s1-07-valve-source-capture.json",
+      "sha256": "72063340a6d81b5f0a51318eaf3f413f9f370c025acfc12331a947dc9e28e93d",
+      "bytes": 47756
+    },
+    {
+      "file": "reports/s1-07-valve-source-manifest.json",
+      "sha256": "2271497ccd5e238277f36d850d3b6bfee2f5d8cac05eb991e09416801a518f00",
+      "bytes": 464
+    },
+    {
+      "file": "docs/evidence/s1-07-archived-announcement.json",
+      "sha256": "b8f2509cfd0f0dd9de7000f6a4a5d810cad7beb70267305807c56b7c2f4f6b18",
+      "bytes": 7133
+    },
+    {
+      "file": "docs/evidence/s1-07-archived-announcement.manifest.json",
+      "sha256": "64a95afad5d1b09ab9d66e4c89be69115baf2472de207aaff76ce511e293f6db",
+      "bytes": 414
+    }
+  ],
+  "code": [
+    {
+      "file": ".tools/s1-08-patch-inventory.mjs",
+      "sha256": "37034a50af8a8dd28f63971228a6ee5ce53d369f472a52e4636d2283a8acbda3",
+      "bytes": 8130
+    },
+    {
+      "file": "packages/db/src/game-context.ts",
+      "sha256": "15f2b28b531d66b44b44056de7fc564b7a12b6464b941afbb2aa17f6eea1f3a2",
+      "bytes": 6995
+    },
+    {
+      "file": "packages/db/src/identity.ts",
+      "sha256": "80264467afadb04ae257addc12f69fdb68d3262875e77c1f0941ef4cfe046888",
+      "bytes": 4832
+    },
+    {
+      "file": "packages/db/src/context-repository.ts",
+      "sha256": "052549f002db709222fbb90b6b3884a5edf152e20fbb03a34ba475834bb652da",
+      "bytes": 4481
+    }
+  ],
+  "artifacts": [
+    {
+      "file": ".tools/s1-08-patch-inventory-reviewed.json",
+      "sha256": "8e44d9291649c7256c8794412f8d9172103ad79213b1592ee4a59445f5d4c8eb",
+      "bytes": 190241
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-invariants.json",
+      "sha256": "87718a74449c605db4567e6f0e49e2a18519cfe688a2d4dc5f6832733d020947",
+      "bytes": 2703
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-pre_match-config.json",
+      "sha256": "efa3848b8b3c7bd1c622f2fd7f2827d507fabd33dff6ca5c2792087220dc3a35",
+      "bytes": 337
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-pre_match-preview.json",
+      "sha256": "81c09bda581feee69bca85c136335bc725cf673b83bef436baa8692941de3912",
+      "bytes": 22430
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-post_draft-config.json",
+      "sha256": "04fb987e62fbd341f2df7d4985759885a0e6142a38169fe7440a3c4edabc0f9e",
+      "bytes": 338
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-post_draft-preview.json",
+      "sha256": "d105a37100ea3abe7bf8b3b474f4178113af81e6f7a4d39c9f25f3192a674ff2",
+      "bytes": 28204
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-install.log",
+      "sha256": "5d4e3f236f3e7c2f59e506a0d3d4728a98740d8711e89c2db85e4b8377acfa4b",
+      "bytes": 280
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-typecheck.log",
+      "sha256": "a0bcc4544d25f52b2569ec65de1ec79f6feca0dc02c6c41c0d3a52d5b4aa5ae8",
+      "bytes": 2706
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-pg.log",
+      "sha256": "2021e7c26f2e34475973294e9d1b0482c1f12a7e4171d4aab857a0ff1ff6261d",
+      "bytes": 4406
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-test.log",
+      "sha256": "4d59ae208539f79ec6ee4cc67ebbcea90c945dcb34caeabd839f79344ed90f39",
+      "bytes": 15846
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-build.log",
+      "sha256": "f39337319f62323ae91d49533b8e53f763c1ca8db6d6712899a243c990f5265e",
+      "bytes": 4770
+    },
+    {
+      "file": ".tools/s1-08-patch-inventory-migrations.log",
+      "sha256": "42fda892ace7c9ca8098e574dd7bb3b11f534f4cfb9c1bda3d1847882a9734fd",
+      "bytes": 2076
+    }
+  ],
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "unitTests": 448,
+    "postgresIntegrationTests": 24,
+    "postgresSuites": {
+      "patchHistory": 5,
+      "gameContext": 6,
+      "datasetBuilder": 13
+    },
+    "build": "PASS",
+    "unchangedDatabaseTables": 21,
+    "migrationChecksumChecks": 22,
+    "sourceAndArtifactHashes": "PASS",
+    "browser": "not_run",
+    "pythonBacktest": "not_run"
+  },
+  "limitations": [
+    "Nominal feed intervals are not verified release times or canonical patch IDs.",
+    "Archive proof applies only to the exact announcement body.",
+    "27 of 36 current maps overlap the old 40-map audit; no source coverage extrapolation to the other9.",
+    "22 historical identity slots are not22 maps and do not establish pre-start lineups.",
+    "Full local captures and helper are ignored; exact replay requires those files."
+  ],
+  "nextTask": "S1-08 bounded source audit of OpenDota patch code60 and official Valve list/notes/announcements for16 recent maps, through existing ValvePatchClient; no automatic registry promotion.",
+  "networkRequests": 0,
+  "databaseWrites": 0,
+  "autoRegistryEligible": false,
+  "trainingReady": false,
+  "deployable": false
+}
