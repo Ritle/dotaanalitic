@@ -3,12 +3,14 @@ import {CatalogIdSchema,SeriesProvisionRequestSchema,SeriesPlanFingerprintSchema
 import {sql,type Db,type Executor} from './index.js';
 import {OutcomeVerifier} from './outcome-verifier.js';
 import {canonicalContextJson} from './temporal.js';
-const POLICY='reviewed-opendota-series-v2';
+const POLICY='reviewed-opendota-series-v3';
 // Valve GetLeagueData links series_type=3 to ELeagueNodeType.BEST_OF_TWO=4.
 // These are different enums; evidence and pinned protobuf are in S1_08_SERIES_PROVISION.md.
 // A BO2 can end 1-1. This limit never assigns a series winner or completion status.
+// Explicit series_type=0 is BO1, not missing: Valve league 17765 binds five
+// series to BEST_OF_ONE=1 nodes. See S3_01_E1_LINKS.md for pinned evidence.
 function bestOfForSeriesType(type:string|null|undefined):number|null{
-  switch(type){case '1':return 3;case '2':return 5;case '3':return 2;default:return null;}
+  switch(type){case '0':return 1;case '1':return 3;case '2':return 5;case '3':return 2;default:return null;}
 }
 const compare=(a:string,b:string)=>BigInt(a)<BigInt(b)?-1:BigInt(a)>BigInt(b)?1:0;
 const unique=(values:string[])=>[...new Set(values)].sort(compare);

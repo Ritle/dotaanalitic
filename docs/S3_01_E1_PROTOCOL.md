@@ -2,7 +2,7 @@
 
 **Срез выполнен 2026-11-02:** реализован offline планировщик и до начала нового периода зафиксирован [машиночитаемый план](evidence/s3-01-e1-plan.json). Это продолжение выбранного владельцем [исследовательского E0](S3_01_E0_RESEARCH.md). Изменение дат/отбора после просмотра результатов требует новой версии и не считается независимым подтверждением старого плана.
 
-**Последующий checkpoint:** все196 warmup-карт получены и импортированы,196 исходов подтверждены; рабочий корпус232 pro maps.32 source accounts и94 provider-серии требуют отдельного canonical review/provision. [Импорт, replay и фактические запросы](S3_01_E1_IMPORT.md). Таблица ниже фиксирует состояние при регистрации плана, до этого импорта.
+**Последующие checkpoints:** все196 warmup-карт получены и импортированы,196 исходов подтверждены; рабочий корпус232 pro maps. Затем подтверждены32 numeric account identities и94 canonical серии, reimport заполнил все2320 player links; outcomes/players/heroes/teams/series232/232. [Импорт](S3_01_E1_IMPORT.md), [identity/series review и replay](S3_01_E1_LINKS.md). Таблица ниже фиксирует состояние при регистрации плана, до этих операций.
 
 ## Что зафиксировано при регистрации
 
@@ -56,6 +56,6 @@ pnpm research:plan verify docs/evidence/s3-01-e1-plan.json b8306aa23b4779dcd4ee0
 
 Восемь pure тестов проверяют детерминизм/невлияние исходов, late registration, повторное использование старых карт/серий, whole-series boundary, source provenance, duplicate/overflow, пустую выборку. CLI regression проверяет create/verify без рабочей DATABASE_URL, отказ перезаписи, source SHA и подмену плана с пересчитанным внешним SHA. Синтетика явно syntheticOnly:true.
 
-Raw source capture/проверенный импорт196 warmup-кандидатов выполнены; [результат и следующий identity/series checkpoint](S3_01_E1_IMPORT.md). Исторические source clocks сохранены настоящими; late fetchedAt не становится ранним knownAt. Импорт не активирует модели. Работа над current numeric identities и series proofs может идти сейчас, ожидание будущего holdout её не блокирует.
+Raw source capture/проверенный импорт196 warmup-кандидатов и [current identity/series completion](S3_01_E1_LINKS.md) выполнены. Исторические source clocks сохранены настоящими; late fetchedAt не становится ранним knownAt. Следующий срез — executable E1 collector/scoring guard по frozen plan: контроль SHA, фиксированных дат/параметров и отказ от ранней оценки. Подготовка CLI не требует ждать будущего snapshot; фактический расчёт holdout раньше10.11 03:00 МСК запрещён. Импорт не активирует модели.
 
 S1-07 и strict P0 S3-01 остаются открытыми. Следующая модель для source/import/identity интеграции — GPT-6.1 Sol · High; temporal evaluation требует GPT-6 Astra · Extra High.

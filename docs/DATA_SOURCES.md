@@ -1,5 +1,9 @@
 # Источники данных и техническая проверка
 
+## S3-01 E1 — identity/series completion2026-11-02
+
+31 account ID подтверждён двумя прежними SHA-bound `/proPlayers`, последний223342537 — одним новым HTTP200 `/players/{id}` через штатный client. Current numeric identity не является историческим lineup knownAt. Один публичный HTTP200 Valve GetLeagueData17765 подтвердил пять explicit series_type0→BO1 через numeric series/map/team IDs и node_type1; pinned protobuf SHA сохранён. Policy v3 различает явный0 и отсутствующее значение. Новых map HTTP0. Зарегистрированы32 players/proofs и94 серии; reimport196 + replay196 duplicate. Итог232 pro maps/2320 resolved slots/197 players/122 canonical series, outcomes/players/heroes/teams/series232/232; patch registry/datasets/models0. Remote completeness unknown, historical availability не доказана. [Применение и источники](S3_01_E1_LINKS.md), [manifest](evidence/s3-01-e1-links.json). Следующий раздел сохраняет прежний checkpoint до этих изменений.
+
 ## S3-01 E1 — warmup corpus import2026-11-02
 
 По pinned plan получены196 полных OpenDota responses DreamLeague25/league17765 и3 reference snapshots. До импорта source audit8 карт дал10 HTTP200. Capture:201 attempts (199×200/2×429), cooldown/Retry-After соблюдены;200 primary attempts и отдельный recovery последней карты1 из max3. Импорт196 новых pro-карт/verified outcomes, replay196 duplicate без новых HTTP. Рабочий корпус232 pro maps/2320 slots;32 source accounts пока unknown,94 provider-серии требуют canonical provision. Identity registry165 proofs/revision330, patch registry/datasets/models0; source knownAtNULL сохранён, historic availability не доказана. [Полный результат и SHA](S3_01_E1_IMPORT.md).

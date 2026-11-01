@@ -8,7 +8,7 @@
 
 [План E1](docs/S3_01_E1_PROTOCOL.md) фиксирует196 исторических кандидатов и будущий период проверки; `pnpm research:plan` создаёт и воспроизводит план до импорта/оценки.
 
-Все196 warmup-карт E1 [импортированы с проверкой исходов и duplicate replay](docs/S3_01_E1_IMPORT.md); рабочий корпус содержит232 pro-карты. Подтверждение неизвестных identities/серий и model gates остаются открытыми.
+Все196 warmup-карт E1 [импортированы с проверкой исходов и duplicate replay](docs/S3_01_E1_IMPORT.md). [Подтверждены32 аккаунта и94 серии](docs/S3_01_E1_LINKS.md): весь корпус232 pro-карты имеет canonical player/series references. Историческая доступность составов, patch и model gates остаются открытыми.
 
 Репозиторий: **[Ritle/dotaanalitic](https://github.com/Ritle/dotaanalitic)**. Для подключения Git в VS Code см. [инструкцию для Windows](docs/GIT_SETUP_WINDOWS.md).
 

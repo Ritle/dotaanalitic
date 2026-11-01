@@ -1,0 +1,1739 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T22:00:42.903Z",
+  "source": {
+    "file": ".tools/s3-01-e1-valve-league.json",
+    "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=17765&delay_seconds=0",
+    "status": 200,
+    "fetchedAt": "2026-11-01T22:00:26.555Z",
+    "sha256": "a68314d2ce0d563e270338d12a0ba82a4be500e7ae3d327814b8ff6a5cb65e26",
+    "bytes": 90857
+  },
+  "rows": [
+    {
+      "providerSeriesId": "949982",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176318378",
+        "8176419599"
+      ],
+      "officialMapIds": [
+        "8176318378",
+        "8176419599"
+      ],
+      "teamIds": [
+        "8291895",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "949983",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176324556",
+        "8176424546"
+      ],
+      "officialMapIds": [
+        "8176324556",
+        "8176424546"
+      ],
+      "teamIds": [
+        "8255888",
+        "8261500"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "949986",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176331185",
+        "8176421766"
+      ],
+      "officialMapIds": [
+        "8176331185",
+        "8176421766"
+      ],
+      "teamIds": [
+        "39",
+        "9678064"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "949987",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176333219",
+        "8176418029"
+      ],
+      "officialMapIds": [
+        "8176333219",
+        "8176418029"
+      ],
+      "teamIds": [
+        "7422789",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950034",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176544132",
+        "8176691519"
+      ],
+      "officialMapIds": [
+        "8176544132",
+        "8176691519"
+      ],
+      "teamIds": [
+        "2163",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950044",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176568556",
+        "8176702303"
+      ],
+      "officialMapIds": [
+        "8176568556",
+        "8176702303"
+      ],
+      "teamIds": [
+        "7732977",
+        "8599101"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950045",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176568607",
+        "8176690425"
+      ],
+      "officialMapIds": [
+        "8176568607",
+        "8176690425"
+      ],
+      "teamIds": [
+        "9351740",
+        "9498970"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950051",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176593686",
+        "8176738386"
+      ],
+      "officialMapIds": [
+        "8176593686",
+        "8176738386"
+      ],
+      "teamIds": [
+        "7119388",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950111",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176853271",
+        "8176953517"
+      ],
+      "officialMapIds": [
+        "8176853271",
+        "8176953517"
+      ],
+      "teamIds": [
+        "8255888",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950112",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176853300",
+        "8176998187"
+      ],
+      "officialMapIds": [
+        "8176853300",
+        "8176998187"
+      ],
+      "teamIds": [
+        "9303484",
+        "9678064"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950113",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176853920",
+        "8176962465"
+      ],
+      "officialMapIds": [
+        "8176853920",
+        "8176962465"
+      ],
+      "teamIds": [
+        "39",
+        "8261500"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950118",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8176866692",
+        "8176972698"
+      ],
+      "officialMapIds": [
+        "8176866692",
+        "8176972698"
+      ],
+      "teamIds": [
+        "7422789",
+        "8291895"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950180",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177042833",
+        "8177140322"
+      ],
+      "officialMapIds": [
+        "8177042833",
+        "8177140322"
+      ],
+      "teamIds": [
+        "7119388",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950200",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177081974",
+        "8177179626"
+      ],
+      "officialMapIds": [
+        "8177081974",
+        "8177179626"
+      ],
+      "teamIds": [
+        "2163",
+        "8599101"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950205",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177094101",
+        "8177175505"
+      ],
+      "officialMapIds": [
+        "8177094101",
+        "8177175505"
+      ],
+      "teamIds": [
+        "7732977",
+        "9351740"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950207",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177098226",
+        "8177162198"
+      ],
+      "officialMapIds": [
+        "8177098226",
+        "8177162198"
+      ],
+      "teamIds": [
+        "9498970",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950413",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177788900",
+        "8177855729"
+      ],
+      "officialMapIds": [
+        "8177788900",
+        "8177855729"
+      ],
+      "teamIds": [
+        "39",
+        "7422789"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950414",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177793345",
+        "8177873642"
+      ],
+      "officialMapIds": [
+        "8177793345",
+        "8177873642"
+      ],
+      "teamIds": [
+        "8261500",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950417",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177795770",
+        "8177857062"
+      ],
+      "officialMapIds": [
+        "8177795770",
+        "8177857062"
+      ],
+      "teamIds": [
+        "8255888",
+        "9678064"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950418",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177795894",
+        "8177872455"
+      ],
+      "officialMapIds": [
+        "8177795894",
+        "8177872455"
+      ],
+      "teamIds": [
+        "8291895",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950437",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177966388",
+        "8178082411"
+      ],
+      "officialMapIds": [
+        "8177966388",
+        "8178082411"
+      ],
+      "teamIds": [
+        "8599101",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950439",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177972205",
+        "8178071101"
+      ],
+      "officialMapIds": [
+        "8177972205",
+        "8178071101"
+      ],
+      "teamIds": [
+        "7732977",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950441",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177979992",
+        "8178054279"
+      ],
+      "officialMapIds": [
+        "8177979992",
+        "8178054279"
+      ],
+      "teamIds": [
+        "2163",
+        "9351740"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950447",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8177993088",
+        "8178089669"
+      ],
+      "officialMapIds": [
+        "8177993088",
+        "8178089669"
+      ],
+      "teamIds": [
+        "7119388",
+        "9498970"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950460",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8178198896",
+        "8178287873"
+      ],
+      "officialMapIds": [
+        "8178198896",
+        "8178287873"
+      ],
+      "teamIds": [
+        "8261500",
+        "9678064"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950462",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8178209050",
+        "8178293395"
+      ],
+      "officialMapIds": [
+        "8178209050",
+        "8178293395"
+      ],
+      "teamIds": [
+        "7422789",
+        "8255888"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950463",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8178217730",
+        "8178336438"
+      ],
+      "officialMapIds": [
+        "8178217730",
+        "8178336438"
+      ],
+      "teamIds": [
+        "9247354",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950465",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8178223689",
+        "8178331701"
+      ],
+      "officialMapIds": [
+        "8178223689",
+        "8178331701"
+      ],
+      "teamIds": [
+        "39",
+        "8291895"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950497",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8178396014",
+        "8178503846"
+      ],
+      "officialMapIds": [
+        "8178396014",
+        "8178503846"
+      ],
+      "teamIds": [
+        "2163",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950506",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8178416582",
+        "8178495419"
+      ],
+      "officialMapIds": [
+        "8178416582",
+        "8178495419"
+      ],
+      "teamIds": [
+        "8599101",
+        "9351740"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950508",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8178427331",
+        "8178521185"
+      ],
+      "officialMapIds": [
+        "8178427331",
+        "8178521185"
+      ],
+      "teamIds": [
+        "7119388",
+        "7732977"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950528",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8178498792",
+        "8178594096"
+      ],
+      "officialMapIds": [
+        "8178498792",
+        "8178594096"
+      ],
+      "teamIds": [
+        "9498970",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950657",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179123839",
+        "8179191377"
+      ],
+      "officialMapIds": [
+        "8179123839",
+        "8179191377"
+      ],
+      "teamIds": [
+        "9247354",
+        "9678064"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950658",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179125294",
+        "8179198444"
+      ],
+      "officialMapIds": [
+        "8179125294",
+        "8179198444"
+      ],
+      "teamIds": [
+        "7422789",
+        "8261500"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950661",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179129689",
+        "8179201399"
+      ],
+      "officialMapIds": [
+        "8179129689",
+        "8179201399"
+      ],
+      "teamIds": [
+        "39",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950662",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179129826",
+        "8179215784"
+      ],
+      "officialMapIds": [
+        "8179129826",
+        "8179215784"
+      ],
+      "teamIds": [
+        "8255888",
+        "8291895"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950690",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179295960",
+        "8179388679"
+      ],
+      "officialMapIds": [
+        "8179295960",
+        "8179388679"
+      ],
+      "teamIds": [
+        "9351740",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950696",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179312828",
+        "8179420583"
+      ],
+      "officialMapIds": [
+        "8179312828",
+        "8179420583"
+      ],
+      "teamIds": [
+        "8599101",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950697",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179315610",
+        "8179426172"
+      ],
+      "officialMapIds": [
+        "8179315610",
+        "8179426172"
+      ],
+      "teamIds": [
+        "7732977",
+        "9498970"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950706",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179356848",
+        "8179504218"
+      ],
+      "officialMapIds": [
+        "8179356848",
+        "8179504218"
+      ],
+      "teamIds": [
+        "2163",
+        "7119388"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950734",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179526188",
+        "8179644342"
+      ],
+      "officialMapIds": [
+        "8179526188",
+        "8179644342"
+      ],
+      "teamIds": [
+        "7422789",
+        "9678064"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950735",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179529448",
+        "8179639324"
+      ],
+      "officialMapIds": [
+        "8179529448",
+        "8179639324"
+      ],
+      "teamIds": [
+        "39",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950739",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179557618",
+        "8179680428"
+      ],
+      "officialMapIds": [
+        "8179557618",
+        "8179680428"
+      ],
+      "teamIds": [
+        "8261500",
+        "8291895"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950754",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179632650",
+        "8179727963"
+      ],
+      "officialMapIds": [
+        "8179632650",
+        "8179727963"
+      ],
+      "teamIds": [
+        "8255888",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950777",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179735864",
+        "8179825453"
+      ],
+      "officialMapIds": [
+        "8179735864",
+        "8179825453"
+      ],
+      "teamIds": [
+        "9351740",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950780",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179747680",
+        "8179818758"
+      ],
+      "officialMapIds": [
+        "8179747680",
+        "8179818758"
+      ],
+      "teamIds": [
+        "7732977",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950781",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179754432",
+        "8179852572"
+      ],
+      "officialMapIds": [
+        "8179754432",
+        "8179852572"
+      ],
+      "teamIds": [
+        "2163",
+        "9498970"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "950804",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8179820296",
+        "8179905694"
+      ],
+      "officialMapIds": [
+        "8179820296",
+        "8179905694"
+      ],
+      "teamIds": [
+        "7119388",
+        "8599101"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951010",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8181154673",
+        "8181275866"
+      ],
+      "officialMapIds": [
+        "8181154673",
+        "8181275866"
+      ],
+      "teamIds": [
+        "7422789",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951011",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8181166277",
+        "8181284015"
+      ],
+      "officialMapIds": [
+        "8181166277",
+        "8181284015"
+      ],
+      "teamIds": [
+        "8291895",
+        "9678064"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951012",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8181171260",
+        "8181307882"
+      ],
+      "officialMapIds": [
+        "8181171260",
+        "8181307882"
+      ],
+      "teamIds": [
+        "8261500",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951013",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8181185346",
+        "8181273873"
+      ],
+      "officialMapIds": [
+        "8181185346",
+        "8181273873"
+      ],
+      "teamIds": [
+        "39",
+        "8255888"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951038",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8181400323",
+        "8181522405"
+      ],
+      "officialMapIds": [
+        "8181400323",
+        "8181522405"
+      ],
+      "teamIds": [
+        "7119388",
+        "9351740"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951040",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8181406947",
+        "8181539594"
+      ],
+      "officialMapIds": [
+        "8181406947",
+        "8181539594"
+      ],
+      "teamIds": [
+        "9572001",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951048",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8181420740",
+        "8181514705"
+      ],
+      "officialMapIds": [
+        "8181420740",
+        "8181514705"
+      ],
+      "teamIds": [
+        "8599101",
+        "9498970"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951051",
+      "sourceSeriesType": "3",
+      "nodeType": 4,
+      "localMapIds": [
+        "8181445296",
+        "8181545391"
+      ],
+      "officialMapIds": [
+        "8181445296",
+        "8181545391"
+      ],
+      "teamIds": [
+        "2163",
+        "7732977"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951232",
+      "sourceSeriesType": "0",
+      "nodeType": 1,
+      "localMapIds": [
+        "8182423670"
+      ],
+      "officialMapIds": [
+        "8182423670"
+      ],
+      "teamIds": [
+        "2163",
+        "9351740"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951246",
+      "sourceSeriesType": "0",
+      "nodeType": 1,
+      "localMapIds": [
+        "8182543107"
+      ],
+      "officialMapIds": [
+        "8182543107"
+      ],
+      "teamIds": [
+        "8599101",
+        "9351740"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951258",
+      "sourceSeriesType": "0",
+      "nodeType": 1,
+      "localMapIds": [
+        "8182654920"
+      ],
+      "officialMapIds": [
+        "8182654920"
+      ],
+      "teamIds": [
+        "2163",
+        "8599101"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951274",
+      "sourceSeriesType": "0",
+      "nodeType": 1,
+      "localMapIds": [
+        "8182791788"
+      ],
+      "officialMapIds": [
+        "8182791788"
+      ],
+      "teamIds": [
+        "2163",
+        "9351740"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951288",
+      "sourceSeriesType": "0",
+      "nodeType": 1,
+      "localMapIds": [
+        "8182907583"
+      ],
+      "officialMapIds": [
+        "8182907583"
+      ],
+      "teamIds": [
+        "2163",
+        "8599101"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951498",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8183642521",
+        "8183722972",
+        "8183837907"
+      ],
+      "officialMapIds": [
+        "8183642521",
+        "8183722972",
+        "8183837907"
+      ],
+      "teamIds": [
+        "2163",
+        "8255888"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951544",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8183945792",
+        "8184093905"
+      ],
+      "officialMapIds": [
+        "8183945792",
+        "8184093905"
+      ],
+      "teamIds": [
+        "9247354",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951597",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8184273990",
+        "8184390264"
+      ],
+      "officialMapIds": [
+        "8184273990",
+        "8184390264"
+      ],
+      "teamIds": [
+        "7119388",
+        "8291895"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951663",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8184590344",
+        "8184670170",
+        "8184734925"
+      ],
+      "officialMapIds": [
+        "8184590344",
+        "8184670170",
+        "8184734925"
+      ],
+      "teamIds": [
+        "9303484",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951800",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8185278759",
+        "8185374108"
+      ],
+      "officialMapIds": [
+        "8185278759",
+        "8185374108"
+      ],
+      "teamIds": [
+        "7119388",
+        "8255888"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951866",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8185600616",
+        "8185744704"
+      ],
+      "officialMapIds": [
+        "8185600616",
+        "8185744704"
+      ],
+      "teamIds": [
+        "2163",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "951935",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8185983891",
+        "8186101644",
+        "8186212116"
+      ],
+      "officialMapIds": [
+        "8185983891",
+        "8186101644",
+        "8186212116"
+      ],
+      "teamIds": [
+        "9247354",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952017",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8186332629",
+        "8186454260",
+        "8186524440"
+      ],
+      "officialMapIds": [
+        "8186332629",
+        "8186454260",
+        "8186524440"
+      ],
+      "teamIds": [
+        "8291895",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952116",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8187040217"
+      ],
+      "officialMapIds": [
+        "8187040217"
+      ],
+      "teamIds": [
+        "2163",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952161",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8187313774",
+        "8187522475",
+        "8187668360"
+      ],
+      "officialMapIds": [
+        "8187313774",
+        "8187522475",
+        "8187668360"
+      ],
+      "teamIds": [
+        "7119388",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952273",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8187804922",
+        "8187923027"
+      ],
+      "officialMapIds": [
+        "8187804922",
+        "8187923027"
+      ],
+      "teamIds": [
+        "8255888",
+        "8291895"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952377",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8188051616",
+        "8188122665"
+      ],
+      "officialMapIds": [
+        "8188051616",
+        "8188122665"
+      ],
+      "teamIds": [
+        "9303484",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952506",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8188590279",
+        "8188655840",
+        "8188734692"
+      ],
+      "officialMapIds": [
+        "8188590279",
+        "8188655840",
+        "8188734692"
+      ],
+      "teamIds": [
+        "8255888",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952554",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8188913379",
+        "8189005792"
+      ],
+      "officialMapIds": [
+        "8188913379",
+        "8189005792"
+      ],
+      "teamIds": [
+        "7119388",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952582",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8189149640",
+        "8189233392"
+      ],
+      "officialMapIds": [
+        "8189149640",
+        "8189233392"
+      ],
+      "teamIds": [
+        "2163",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952663",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8189432866",
+        "8189491576",
+        "8189554620"
+      ],
+      "officialMapIds": [
+        "8189432866",
+        "8189491576",
+        "8189554620"
+      ],
+      "teamIds": [
+        "8291895",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952776",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8189952576",
+        "8190011384"
+      ],
+      "officialMapIds": [
+        "8189952576",
+        "8190011384"
+      ],
+      "teamIds": [
+        "9247354",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952804",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8190194573",
+        "8190294076",
+        "8190432750"
+      ],
+      "officialMapIds": [
+        "8190194573",
+        "8190294076",
+        "8190432750"
+      ],
+      "teamIds": [
+        "8255888",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952856",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8190531017",
+        "8190630231"
+      ],
+      "officialMapIds": [
+        "8190531017",
+        "8190630231"
+      ],
+      "teamIds": [
+        "2163",
+        "8291895"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "952910",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8190784614",
+        "8190845902"
+      ],
+      "officialMapIds": [
+        "8190784614",
+        "8190845902"
+      ],
+      "teamIds": [
+        "7119388",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953019",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8191296542",
+        "8191350491"
+      ],
+      "officialMapIds": [
+        "8191296542",
+        "8191350491"
+      ],
+      "teamIds": [
+        "8291895",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953044",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8191531686",
+        "8191660167"
+      ],
+      "officialMapIds": [
+        "8191531686",
+        "8191660167"
+      ],
+      "teamIds": [
+        "8255888",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953101",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8191838350",
+        "8191952054"
+      ],
+      "officialMapIds": [
+        "8191838350",
+        "8191952054"
+      ],
+      "teamIds": [
+        "7119388",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953172",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8192113171",
+        "8192174540"
+      ],
+      "officialMapIds": [
+        "8192113171",
+        "8192174540"
+      ],
+      "teamIds": [
+        "2163",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953266",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8192617618",
+        "8192678156"
+      ],
+      "officialMapIds": [
+        "8192617618",
+        "8192678156"
+      ],
+      "teamIds": [
+        "9572001",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953308",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8192853077",
+        "8192947707"
+      ],
+      "officialMapIds": [
+        "8192853077",
+        "8192947707"
+      ],
+      "teamIds": [
+        "8291895",
+        "9247354"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953368",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8193165788",
+        "8193280233",
+        "8193365045"
+      ],
+      "officialMapIds": [
+        "8193165788",
+        "8193280233",
+        "8193365045"
+      ],
+      "teamIds": [
+        "2163",
+        "7119388"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953436",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8193463396",
+        "8193515068",
+        "8193562371"
+      ],
+      "officialMapIds": [
+        "8193463396",
+        "8193515068",
+        "8193562371"
+      ],
+      "teamIds": [
+        "8255888",
+        "9303484"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953894",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8195843134",
+        "8196015197",
+        "8196103081"
+      ],
+      "officialMapIds": [
+        "8195843134",
+        "8196015197",
+        "8196103081"
+      ],
+      "teamIds": [
+        "7119388",
+        "9634742"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "953997",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8196288391",
+        "8196380751",
+        "8196485303"
+      ],
+      "officialMapIds": [
+        "8196288391",
+        "8196380751",
+        "8196485303"
+      ],
+      "teamIds": [
+        "8291895",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "954165",
+      "sourceSeriesType": "1",
+      "nodeType": 2,
+      "localMapIds": [
+        "8197311299",
+        "8197456312"
+      ],
+      "officialMapIds": [
+        "8197311299",
+        "8197456312"
+      ],
+      "teamIds": [
+        "7119388",
+        "9572001"
+      ],
+      "reasons": []
+    },
+    {
+      "providerSeriesId": "954249",
+      "sourceSeriesType": "2",
+      "nodeType": null,
+      "localMapIds": [
+        "8197688531",
+        "8197793601",
+        "8197912154",
+        "8198039682"
+      ],
+      "officialMapIds": [
+        "8197688531",
+        "8197793601",
+        "8197912154",
+        "8198039682"
+      ],
+      "teamIds": [
+        "7119388",
+        "8291895"
+      ],
+      "reasons": [
+        "NODE_NOT_UNIQUE"
+      ]
+    },
+    {
+      "providerSeriesId": "954819",
+      "sourceSeriesType": "2",
+      "nodeType": 3,
+      "localMapIds": [
+        "8200366179",
+        "8200463236"
+      ],
+      "officialMapIds": [
+        "8200366179",
+        "8200463236"
+      ],
+      "teamIds": [
+        "7119388",
+        "8291895"
+      ],
+      "reasons": []
+    }
+  ],
+  "historicalAvailability": "not_assessed",
+  "trainingReady": false,
+  "deployable": false,
+  "protobuf": {
+    "file": ".tools/s1-08-bo2-proto-pinned.proto",
+    "url": "https://raw.githubusercontent.com/SteamTracking/Protobufs/531569870d2d1ff08e163e6845bd6ef0e45dfabc/dota2/dota_gcmessages_common_league.proto",
+    "sha256": "622cf814a414297bdc0eaa3af20bb0e5cef0109384b75b94f94283f88ab42646",
+    "savedAt": "2026-11-01T19:54:16.477Z",
+    "enum": "ELeagueNodeType",
+    "definition": "BEST_OF_ONE=1",
+    "mirror": "SteamTracking/Protobufs; not Valve-owned",
+    "revision": "531569870d2d1ff08e163e6845bd6ef0e45dfabc"
+  },
+  "policyVersion": "reviewed-opendota-series-v3",
+  "interpretation": "Explicit OpenDota series_type=0 means BO1. Missing/null/unsupported types remain blocked. No series winner, completion or historic availability inferred."
+}

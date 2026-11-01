@@ -1,0 +1,2820 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T22:17:58.220Z",
+  "scope": "e1_warmup_canonical_identity_and_series_completion",
+  "before": {
+    "maps": 232,
+    "slots": 2320,
+    "resolved": 1725,
+    "players": 165,
+    "proofs": 165,
+    "aliases": 165,
+    "identity_revision": "330",
+    "series": 28,
+    "batches": 3,
+    "receipts": 547,
+    "assessments": 310,
+    "field_observations": 6818,
+    "known_fields": 0,
+    "known_series": 0,
+    "patches": 0,
+    "datasets": 0,
+    "models": 0
+  },
+  "afterIdentities": {
+    "maps": 232,
+    "slots": 2320,
+    "resolved": 1725,
+    "players": 197,
+    "proofs": 197,
+    "aliases": 197,
+    "identity_revision": "394",
+    "series": 28,
+    "batches": 3,
+    "receipts": 547,
+    "assessments": 310,
+    "field_observations": 6818,
+    "known_fields": 0,
+    "known_series": 0,
+    "patches": 0,
+    "datasets": 0,
+    "models": 0
+  },
+  "afterSeries": {
+    "maps": 232,
+    "slots": 2320,
+    "resolved": 1725,
+    "players": 197,
+    "proofs": 197,
+    "aliases": 197,
+    "identity_revision": "394",
+    "series": 122,
+    "batches": 5,
+    "receipts": 547,
+    "assessments": 310,
+    "field_observations": 6818,
+    "known_fields": 0,
+    "known_series": 0,
+    "patches": 0,
+    "datasets": 0,
+    "models": 0
+  },
+  "after": {
+    "maps": 232,
+    "slots": 2320,
+    "resolved": 2320,
+    "players": 197,
+    "proofs": 197,
+    "aliases": 197,
+    "identity_revision": "394",
+    "series": 122,
+    "batches": 5,
+    "receipts": 743,
+    "assessments": 506,
+    "field_observations": 11129,
+    "known_fields": 0,
+    "known_series": 0,
+    "patches": 0,
+    "datasets": 0,
+    "models": 0
+  },
+  "identities": {
+    "accounts": [
+      {
+        "accountId": "25907144",
+        "steam64": "76561197986172872",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "76904792",
+        "steam64": "76561198037170520",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "93618577",
+        "steam64": "76561198053884305",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "96183976",
+        "steam64": "76561198056449704",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "96803083",
+        "steam64": "76561198057068811",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "104512126",
+        "steam64": "76561198064777854",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "108958769",
+        "steam64": "76561198069224497",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "117514269",
+        "steam64": "76561198077779997",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "138857296",
+        "steam64": "76561198099123024",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "145957968",
+        "steam64": "76561198106223696",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "147767183",
+        "steam64": "76561198108032911",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "152455523",
+        "steam64": "76561198112721251",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "154715080",
+        "steam64": "76561198114980808",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "155162307",
+        "steam64": "76561198115428035",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "155494381",
+        "steam64": "76561198115760109",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "156328257",
+        "steam64": "76561198116593985",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "158847773",
+        "steam64": "76561198119113501",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "177411785",
+        "steam64": "76561198137677513",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "185908355",
+        "steam64": "76561198146174083",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "191597529",
+        "steam64": "76561198151863257",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "202217968",
+        "steam64": "76561198162483696",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "207829314",
+        "steam64": "76561198168095042",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "230487729",
+        "steam64": "76561198190753457",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "241884166",
+        "steam64": "76561198202149894",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "317880638",
+        "steam64": "76561198278146366",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "324277900",
+        "steam64": "76561198284543628",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "369342470",
+        "steam64": "76561198329608198",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "392565237",
+        "steam64": "76561198352830965",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "399804216",
+        "steam64": "76561198360069944",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "458287006",
+        "steam64": "76561198418552734",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "480412663",
+        "steam64": "76561198440678391",
+        "policy": "reviewed-current-accounts-v1",
+        "source": "https://api.opendota.com/api/proPlayers",
+        "knownAt": "2026-11-01T15:50:43.622Z",
+        "fetchedAt": "2026-11-01T15:50:43.622Z"
+      },
+      {
+        "accountId": "223342537",
+        "steam64": "76561198183608265",
+        "policy": "reviewed-current-profile-v1",
+        "source": "https://api.opendota.com/api/players/223342537",
+        "knownAt": "2026-11-01T22:00:08.449Z",
+        "fetchedAt": "2026-11-01T22:00:08.449Z"
+      }
+    ],
+    "created": 32,
+    "registry": 31,
+    "profile": 1,
+    "replayWrites": 0
+  },
+  "series": {
+    "created": 94,
+    "policyVersion": "reviewed-opendota-series-v3",
+    "formats": {
+      "BO1": 5,
+      "BO2": 56,
+      "BO3": 31,
+      "BO5": 2
+    },
+    "mappings": [
+      {
+        "providerSeriesId": "949982",
+        "seriesId": "5ebe8b0c-c7dc-427b-a1e6-960e8cd5ebee",
+        "mapIds": [
+          "8176318378",
+          "8176419599"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "949983",
+        "seriesId": "720d9087-6caf-4ee8-94c0-f783f8fc104e",
+        "mapIds": [
+          "8176324556",
+          "8176424546"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "949986",
+        "seriesId": "6f15e2c6-8502-44d8-8a0d-13a1d916a2b7",
+        "mapIds": [
+          "8176331185",
+          "8176421766"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "949987",
+        "seriesId": "4028ed3e-5830-4a49-b0eb-bc07d6d12cdc",
+        "mapIds": [
+          "8176333219",
+          "8176418029"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950034",
+        "seriesId": "57e60911-1253-4081-a9c6-b45a5d27e43c",
+        "mapIds": [
+          "8176544132",
+          "8176691519"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950044",
+        "seriesId": "37880719-44eb-4c04-be05-48b60074d29d",
+        "mapIds": [
+          "8176568556",
+          "8176702303"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950045",
+        "seriesId": "a9f15a97-bc51-4ad2-951c-5f372c881a2e",
+        "mapIds": [
+          "8176568607",
+          "8176690425"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950051",
+        "seriesId": "caf19ea2-0426-4c08-a918-cdcd4e091895",
+        "mapIds": [
+          "8176593686",
+          "8176738386"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950111",
+        "seriesId": "367dc93c-dc64-4d97-b0a2-691b71721897",
+        "mapIds": [
+          "8176853271",
+          "8176953517"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950112",
+        "seriesId": "1223cda3-4cad-45f6-a822-ee39c483651c",
+        "mapIds": [
+          "8176853300",
+          "8176998187"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950113",
+        "seriesId": "8bfcbbf9-6f74-4702-b060-cb79ccf33c66",
+        "mapIds": [
+          "8176853920",
+          "8176962465"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950118",
+        "seriesId": "6343e50e-2df7-4d22-9779-d20635e33d8c",
+        "mapIds": [
+          "8176866692",
+          "8176972698"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950180",
+        "seriesId": "703fafb0-2f3e-4a84-82ae-1df7290f7086",
+        "mapIds": [
+          "8177042833",
+          "8177140322"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950200",
+        "seriesId": "23ba044e-c786-403e-8f48-d52b61356dba",
+        "mapIds": [
+          "8177081974",
+          "8177179626"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950205",
+        "seriesId": "4013b61e-4eb0-4d62-a2b1-8051e7cb7c4c",
+        "mapIds": [
+          "8177094101",
+          "8177175505"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950207",
+        "seriesId": "c9c3365b-c6b0-4ab6-9cc9-046e0d067c13",
+        "mapIds": [
+          "8177098226",
+          "8177162198"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950413",
+        "seriesId": "c7c5d108-0ba4-45c5-bee3-d6b19d9b989b",
+        "mapIds": [
+          "8177788900",
+          "8177855729"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950414",
+        "seriesId": "6994d16c-0ed4-4a76-bc8a-0b6b3fed9ac1",
+        "mapIds": [
+          "8177793345",
+          "8177873642"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950417",
+        "seriesId": "23f3a6a3-4581-4a2e-ba12-d4a5f1133e32",
+        "mapIds": [
+          "8177795770",
+          "8177857062"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950418",
+        "seriesId": "a495a777-14c8-4d56-ba76-6602eb7e5c30",
+        "mapIds": [
+          "8177795894",
+          "8177872455"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950437",
+        "seriesId": "09d547f4-7afa-4d4a-87e4-f4317dac64f6",
+        "mapIds": [
+          "8177966388",
+          "8178082411"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950439",
+        "seriesId": "b83e4046-20e3-4197-814d-84dc756a638b",
+        "mapIds": [
+          "8177972205",
+          "8178071101"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950441",
+        "seriesId": "4a50b833-eb5a-4c32-b4c0-6f984b203224",
+        "mapIds": [
+          "8177979992",
+          "8178054279"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950447",
+        "seriesId": "a2ddcd44-8c53-437a-984a-1bd04d979769",
+        "mapIds": [
+          "8177993088",
+          "8178089669"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950460",
+        "seriesId": "e28e68ad-aed2-4f3a-87dc-8dcbdef974da",
+        "mapIds": [
+          "8178198896",
+          "8178287873"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950462",
+        "seriesId": "2cc826b0-f5da-416f-a26c-44550cc5ef7d",
+        "mapIds": [
+          "8178209050",
+          "8178293395"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950463",
+        "seriesId": "85221b3f-bd07-4d4e-a258-d83733da4802",
+        "mapIds": [
+          "8178217730",
+          "8178336438"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950465",
+        "seriesId": "7c8ae0df-c7e9-41e3-8cde-f95c80ddccdc",
+        "mapIds": [
+          "8178223689",
+          "8178331701"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950497",
+        "seriesId": "dc3b21af-dd04-41d1-85aa-3bd6b5e60168",
+        "mapIds": [
+          "8178396014",
+          "8178503846"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950506",
+        "seriesId": "cb4e6018-9967-4bf8-a0f5-011037d47dc8",
+        "mapIds": [
+          "8178416582",
+          "8178495419"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950508",
+        "seriesId": "651db29b-09a9-48e6-938d-02d54b1e22cd",
+        "mapIds": [
+          "8178427331",
+          "8178521185"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950528",
+        "seriesId": "d3d197b9-e2f4-4b00-831f-fcccb72bf3a5",
+        "mapIds": [
+          "8178498792",
+          "8178594096"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950657",
+        "seriesId": "a36b207e-1d58-4c5c-857b-56a9756172d8",
+        "mapIds": [
+          "8179123839",
+          "8179191377"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950658",
+        "seriesId": "844f4cff-5984-4175-951e-8584d1519211",
+        "mapIds": [
+          "8179125294",
+          "8179198444"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950661",
+        "seriesId": "e34a3307-28c1-40b7-9993-11224a05d3c1",
+        "mapIds": [
+          "8179129689",
+          "8179201399"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950662",
+        "seriesId": "b2304e4f-1b04-4ec3-bdd2-1e38241f7077",
+        "mapIds": [
+          "8179129826",
+          "8179215784"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950690",
+        "seriesId": "3c415f8a-761f-4d2f-8203-7b4f37d84ac9",
+        "mapIds": [
+          "8179295960",
+          "8179388679"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950696",
+        "seriesId": "3b31521a-90a3-4e41-805d-94c2b5bf7bca",
+        "mapIds": [
+          "8179312828",
+          "8179420583"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950697",
+        "seriesId": "76e38ae6-beb9-47bf-bbe8-33b36b70a5ab",
+        "mapIds": [
+          "8179315610",
+          "8179426172"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950706",
+        "seriesId": "d5edbe47-725b-4f19-b7e8-6af5e7def891",
+        "mapIds": [
+          "8179356848",
+          "8179504218"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950734",
+        "seriesId": "dfcb96ad-0e8c-49eb-9800-06f6949422fe",
+        "mapIds": [
+          "8179526188",
+          "8179644342"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950735",
+        "seriesId": "20aef82a-9446-4c94-8ead-68f37716f498",
+        "mapIds": [
+          "8179529448",
+          "8179639324"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950739",
+        "seriesId": "dfb45e38-0056-4cc6-98e1-1effa5767285",
+        "mapIds": [
+          "8179557618",
+          "8179680428"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950754",
+        "seriesId": "6e145044-0b41-42a9-a7d7-d57a00af5968",
+        "mapIds": [
+          "8179632650",
+          "8179727963"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950777",
+        "seriesId": "e51d91d3-3538-4193-9ca5-71d397744d1d",
+        "mapIds": [
+          "8179735864",
+          "8179825453"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950780",
+        "seriesId": "97f9482e-c844-4dbb-bc20-e255602e5ca4",
+        "mapIds": [
+          "8179747680",
+          "8179818758"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950781",
+        "seriesId": "7e2446dd-2f2c-42fb-b920-3d3a176180c2",
+        "mapIds": [
+          "8179754432",
+          "8179852572"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "950804",
+        "seriesId": "01124f91-9b44-44cf-9aba-6191061f15be",
+        "mapIds": [
+          "8179820296",
+          "8179905694"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951010",
+        "seriesId": "9777f699-a714-4e87-acf1-708ba2d21ac8",
+        "mapIds": [
+          "8181154673",
+          "8181275866"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951011",
+        "seriesId": "57f5a4fd-a0d6-41ef-97a8-6df990dee203",
+        "mapIds": [
+          "8181166277",
+          "8181284015"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951012",
+        "seriesId": "877235e9-853f-4b50-941a-da6cc4d4a4e4",
+        "mapIds": [
+          "8181171260",
+          "8181307882"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951013",
+        "seriesId": "5bd2821e-3013-42b1-a7f4-129475a64d67",
+        "mapIds": [
+          "8181185346",
+          "8181273873"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951038",
+        "seriesId": "afb6f24a-1223-4c3b-8284-321899ff9003",
+        "mapIds": [
+          "8181400323",
+          "8181522405"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951040",
+        "seriesId": "76aee042-ee0b-4737-857f-fd2ff37fb0fe",
+        "mapIds": [
+          "8181406947",
+          "8181539594"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951048",
+        "seriesId": "82f0840f-04a9-4525-a1a7-399c5e732187",
+        "mapIds": [
+          "8181420740",
+          "8181514705"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951051",
+        "seriesId": "ba809bb5-d366-44f9-8361-d43540621c09",
+        "mapIds": [
+          "8181445296",
+          "8181545391"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951232",
+        "seriesId": "8a634c54-8a37-44fd-9ecd-04182d09a520",
+        "mapIds": [
+          "8182423670"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951246",
+        "seriesId": "921c4a4d-b520-4dbc-b6a0-42818a090663",
+        "mapIds": [
+          "8182543107"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951258",
+        "seriesId": "a038126c-7728-4540-b475-14b4481d353a",
+        "mapIds": [
+          "8182654920"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951274",
+        "seriesId": "d03dde0e-5e93-4a72-baf5-92b14e0b4afe",
+        "mapIds": [
+          "8182791788"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951288",
+        "seriesId": "bc9dd532-9e97-4165-bea4-05194d70fdeb",
+        "mapIds": [
+          "8182907583"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951498",
+        "seriesId": "b5ed0617-3ead-4bb7-8ec6-a6e8b2b32cc9",
+        "mapIds": [
+          "8183642521",
+          "8183722972",
+          "8183837907"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951544",
+        "seriesId": "1723d195-effd-453c-96ca-886751358741",
+        "mapIds": [
+          "8183945792",
+          "8184093905"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951597",
+        "seriesId": "454337a9-e5b6-4030-b6ad-5384242b6325",
+        "mapIds": [
+          "8184273990",
+          "8184390264"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951663",
+        "seriesId": "b80822df-cebf-49f2-8f6c-897672534302",
+        "mapIds": [
+          "8184590344",
+          "8184670170",
+          "8184734925"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951800",
+        "seriesId": "30a4e8ca-976e-45ff-8deb-92aec4aea426",
+        "mapIds": [
+          "8185278759",
+          "8185374108"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951866",
+        "seriesId": "93f6e4b7-a3bf-4733-a811-df607e69a93d",
+        "mapIds": [
+          "8185600616",
+          "8185744704"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "951935",
+        "seriesId": "596db75d-0666-45db-99bd-5bcf2b337a8f",
+        "mapIds": [
+          "8185983891",
+          "8186101644",
+          "8186212116"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952017",
+        "seriesId": "1c9ed8e9-6cc4-4180-9a24-d949494683a7",
+        "mapIds": [
+          "8186332629",
+          "8186454260",
+          "8186524440"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952116",
+        "seriesId": "f1cc823d-d4dc-4128-8f5a-6ba5424d5e4b",
+        "mapIds": [
+          "8187040217"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952161",
+        "seriesId": "1add4aa9-c07c-4c38-81c1-7e8c50d1fcc0",
+        "mapIds": [
+          "8187313774",
+          "8187522475",
+          "8187668360"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952273",
+        "seriesId": "e900161f-2bfc-4c97-99e8-86c8e4bbd419",
+        "mapIds": [
+          "8187804922",
+          "8187923027"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952377",
+        "seriesId": "d67b951a-ff4b-42b4-955f-57c9b184829d",
+        "mapIds": [
+          "8188051616",
+          "8188122665"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952506",
+        "seriesId": "22a638e2-15f7-48f3-b057-2c5d3613c58d",
+        "mapIds": [
+          "8188590279",
+          "8188655840",
+          "8188734692"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952554",
+        "seriesId": "06770579-7e7d-42ea-b318-ddd77e205e1e",
+        "mapIds": [
+          "8188913379",
+          "8189005792"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952582",
+        "seriesId": "a87f617b-2139-4d1c-8af8-6c4cea781c2c",
+        "mapIds": [
+          "8189149640",
+          "8189233392"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952663",
+        "seriesId": "93963d56-0771-4197-afdc-8c4c9948289a",
+        "mapIds": [
+          "8189432866",
+          "8189491576",
+          "8189554620"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952776",
+        "seriesId": "3942e927-2a90-40d1-96c5-d7b28b124cfc",
+        "mapIds": [
+          "8189952576",
+          "8190011384"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952804",
+        "seriesId": "94193e96-0b9f-4fd7-bea7-d160e652d321",
+        "mapIds": [
+          "8190194573",
+          "8190294076",
+          "8190432750"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952856",
+        "seriesId": "115632d6-1662-400f-92db-1a1b26507cc9",
+        "mapIds": [
+          "8190531017",
+          "8190630231"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "952910",
+        "seriesId": "16a019ce-b108-47fa-bc50-ad5b1168d0b2",
+        "mapIds": [
+          "8190784614",
+          "8190845902"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953019",
+        "seriesId": "4fda6628-45d7-44b1-bff8-aa5363dde654",
+        "mapIds": [
+          "8191296542",
+          "8191350491"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953044",
+        "seriesId": "6d3c364c-56ac-4c44-90d3-d9e9ba6e01d3",
+        "mapIds": [
+          "8191531686",
+          "8191660167"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953101",
+        "seriesId": "bdf5b3b8-66ea-497c-8d22-783820b51a7c",
+        "mapIds": [
+          "8191838350",
+          "8191952054"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953172",
+        "seriesId": "0a14743c-1045-48fc-bd40-3406e3511e97",
+        "mapIds": [
+          "8192113171",
+          "8192174540"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953266",
+        "seriesId": "1902ca2c-6e17-4cca-b83d-29ba073f5691",
+        "mapIds": [
+          "8192617618",
+          "8192678156"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953308",
+        "seriesId": "b28c9795-38ad-4eb0-9760-37803f6f3737",
+        "mapIds": [
+          "8192853077",
+          "8192947707"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953368",
+        "seriesId": "3790472b-fb93-473d-9f65-cf9d61d521ba",
+        "mapIds": [
+          "8193165788",
+          "8193280233",
+          "8193365045"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953436",
+        "seriesId": "a054a449-bb21-45b1-8962-fa68d75aeedf",
+        "mapIds": [
+          "8193463396",
+          "8193515068",
+          "8193562371"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953894",
+        "seriesId": "bccf6bc7-0004-4364-956b-50c05288bf99",
+        "mapIds": [
+          "8195843134",
+          "8196015197",
+          "8196103081"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "953997",
+        "seriesId": "a8facab7-ed1b-4d31-a45d-987d0c10c058",
+        "mapIds": [
+          "8196288391",
+          "8196380751",
+          "8196485303"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "954165",
+        "seriesId": "955d5266-0647-485a-8290-8b3dbc6e14d7",
+        "mapIds": [
+          "8197311299",
+          "8197456312"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "954249",
+        "seriesId": "5c90b805-e1b7-495e-bb6a-982db483cf38",
+        "mapIds": [
+          "8197688531",
+          "8197793601",
+          "8197912154",
+          "8198039682"
+        ],
+        "created": true
+      },
+      {
+        "providerSeriesId": "954819",
+        "seriesId": "9494c782-33ac-4ff3-9427-182563f76de5",
+        "mapIds": [
+          "8200366179",
+          "8200463236"
+        ],
+        "created": true
+      }
+    ],
+    "replayWrites": 0,
+    "legacyBatchesReplayed": [
+      {
+        "fingerprint": "5e7aa8a390913c43d5e9eb52e37fb1c118ebb7a31afb5947721069aae8a63577",
+        "status": "already_applied"
+      },
+      {
+        "fingerprint": "9bd423ec9d9b45e042cc94d6eb0f68a963496125f92c6de48b6f0fe8ef96bb88",
+        "status": "already_applied"
+      },
+      {
+        "fingerprint": "a4445a09e1cf89ea744b13c75ad13b7ffbe9f0db307bdfbcd32d0bb2120df6e0",
+        "status": "already_applied"
+      }
+    ],
+    "remoteMembershipCompleteness": "unknown"
+  },
+  "import": {
+    "changed": 196,
+    "results": [
+      {
+        "matchId": "8176324556",
+        "receiptId": "1006",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176333219",
+        "receiptId": "1008",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176318378",
+        "receiptId": "1010",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176331185",
+        "receiptId": "1012",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176418029",
+        "receiptId": "1014",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176419599",
+        "receiptId": "1016",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176421766",
+        "receiptId": "1018",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176424546",
+        "receiptId": "1020",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176544132",
+        "receiptId": "1022",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176568556",
+        "receiptId": "1024",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176568607",
+        "receiptId": "1026",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176593686",
+        "receiptId": "1028",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176690425",
+        "receiptId": "1030",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176702303",
+        "receiptId": "1032",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176691519",
+        "receiptId": "1034",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176738386",
+        "receiptId": "1036",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176853300",
+        "receiptId": "1038",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176853271",
+        "receiptId": "1040",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176853920",
+        "receiptId": "1042",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176866692",
+        "receiptId": "1044",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176953517",
+        "receiptId": "1046",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176962465",
+        "receiptId": "1048",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176972698",
+        "receiptId": "1050",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8176998187",
+        "receiptId": "1052",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177042833",
+        "receiptId": "1054",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177081974",
+        "receiptId": "1056",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177098226",
+        "receiptId": "1058",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177094101",
+        "receiptId": "1060",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177140322",
+        "receiptId": "1062",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177162198",
+        "receiptId": "1064",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177175505",
+        "receiptId": "1066",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177179626",
+        "receiptId": "1068",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177788900",
+        "receiptId": "1070",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177795770",
+        "receiptId": "1072",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177793345",
+        "receiptId": "1074",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177795894",
+        "receiptId": "1076",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177857062",
+        "receiptId": "1078",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177855729",
+        "receiptId": "1080",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177872455",
+        "receiptId": "1082",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177873642",
+        "receiptId": "1084",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177979992",
+        "receiptId": "1086",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177966388",
+        "receiptId": "1088",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177972205",
+        "receiptId": "1090",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8177993088",
+        "receiptId": "1092",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178054279",
+        "receiptId": "1094",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178071101",
+        "receiptId": "1096",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178089669",
+        "receiptId": "1098",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178082411",
+        "receiptId": "1100",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178198896",
+        "receiptId": "1102",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178209050",
+        "receiptId": "1104",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178217730",
+        "receiptId": "1106",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178223689",
+        "receiptId": "1108",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178287873",
+        "receiptId": "1110",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178293395",
+        "receiptId": "1112",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178336438",
+        "receiptId": "1114",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178331701",
+        "receiptId": "1116",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178396014",
+        "receiptId": "1118",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178416582",
+        "receiptId": "1120",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178427331",
+        "receiptId": "1122",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178498792",
+        "receiptId": "1124",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178495419",
+        "receiptId": "1126",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178503846",
+        "receiptId": "1128",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178521185",
+        "receiptId": "1130",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8178594096",
+        "receiptId": "1132",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179123839",
+        "receiptId": "1134",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179129689",
+        "receiptId": "1136",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179129826",
+        "receiptId": "1138",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179125294",
+        "receiptId": "1140",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179191377",
+        "receiptId": "1142",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179201399",
+        "receiptId": "1144",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179198444",
+        "receiptId": "1146",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179215784",
+        "receiptId": "1148",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179295960",
+        "receiptId": "1150",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179312828",
+        "receiptId": "1152",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179315610",
+        "receiptId": "1154",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179356848",
+        "receiptId": "1156",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179388679",
+        "receiptId": "1158",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179426172",
+        "receiptId": "1160",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179420583",
+        "receiptId": "1162",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179504218",
+        "receiptId": "1164",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179529448",
+        "receiptId": "1166",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179526188",
+        "receiptId": "1168",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179557618",
+        "receiptId": "1170",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179632650",
+        "receiptId": "1172",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179639324",
+        "receiptId": "1174",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179644342",
+        "receiptId": "1176",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179680428",
+        "receiptId": "1178",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179727963",
+        "receiptId": "1180",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179735864",
+        "receiptId": "1182",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179747680",
+        "receiptId": "1184",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179754432",
+        "receiptId": "1186",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179820296",
+        "receiptId": "1188",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179818758",
+        "receiptId": "1190",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179825453",
+        "receiptId": "1192",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179852572",
+        "receiptId": "1194",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8179905694",
+        "receiptId": "1196",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181154673",
+        "receiptId": "1198",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181171260",
+        "receiptId": "1200",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181166277",
+        "receiptId": "1202",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181185346",
+        "receiptId": "1204",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181273873",
+        "receiptId": "1206",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181284015",
+        "receiptId": "1208",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181275866",
+        "receiptId": "1210",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181307882",
+        "receiptId": "1212",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181400323",
+        "receiptId": "1214",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181406947",
+        "receiptId": "1216",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181420740",
+        "receiptId": "1218",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181445296",
+        "receiptId": "1220",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181514705",
+        "receiptId": "1222",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181522405",
+        "receiptId": "1224",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181539594",
+        "receiptId": "1226",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8181545391",
+        "receiptId": "1228",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8182423670",
+        "receiptId": "1230",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8182543107",
+        "receiptId": "1232",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8182654920",
+        "receiptId": "1234",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8182791788",
+        "receiptId": "1236",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8182907583",
+        "receiptId": "1238",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8183642521",
+        "receiptId": "1240",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8183722972",
+        "receiptId": "1242",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8183837907",
+        "receiptId": "1244",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8183945792",
+        "receiptId": "1246",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8184093905",
+        "receiptId": "1248",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8184273990",
+        "receiptId": "1250",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8184390264",
+        "receiptId": "1252",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8184590344",
+        "receiptId": "1254",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8184670170",
+        "receiptId": "1256",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8184734925",
+        "receiptId": "1258",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8185278759",
+        "receiptId": "1260",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8185374108",
+        "receiptId": "1262",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8185600616",
+        "receiptId": "1264",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8185744704",
+        "receiptId": "1266",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8185983891",
+        "receiptId": "1268",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8186101644",
+        "receiptId": "1270",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8186212116",
+        "receiptId": "1272",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8186332629",
+        "receiptId": "1274",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8186454260",
+        "receiptId": "1276",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8186524440",
+        "receiptId": "1278",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8187040217",
+        "receiptId": "1280",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8187313774",
+        "receiptId": "1282",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8187522475",
+        "receiptId": "1284",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8187668360",
+        "receiptId": "1286",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8187804922",
+        "receiptId": "1288",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8187923027",
+        "receiptId": "1290",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8188051616",
+        "receiptId": "1292",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8188122665",
+        "receiptId": "1294",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8188590279",
+        "receiptId": "1296",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8188655840",
+        "receiptId": "1298",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8188734692",
+        "receiptId": "1300",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8188913379",
+        "receiptId": "1302",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8189005792",
+        "receiptId": "1304",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8189149640",
+        "receiptId": "1306",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8189233392",
+        "receiptId": "1308",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8189432866",
+        "receiptId": "1310",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8189491576",
+        "receiptId": "1312",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8189554620",
+        "receiptId": "1314",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8189952576",
+        "receiptId": "1316",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8190011384",
+        "receiptId": "1318",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8190194573",
+        "receiptId": "1320",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8190294076",
+        "receiptId": "1322",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8190432750",
+        "receiptId": "1324",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8190531017",
+        "receiptId": "1326",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8190630231",
+        "receiptId": "1328",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8190784614",
+        "receiptId": "1330",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8190845902",
+        "receiptId": "1332",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8191296542",
+        "receiptId": "1334",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8191350491",
+        "receiptId": "1336",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8191531686",
+        "receiptId": "1338",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8191660167",
+        "receiptId": "1340",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8191838350",
+        "receiptId": "1342",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8191952054",
+        "receiptId": "1344",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8192113171",
+        "receiptId": "1346",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8192174540",
+        "receiptId": "1348",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8192617618",
+        "receiptId": "1350",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8192678156",
+        "receiptId": "1352",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8192853077",
+        "receiptId": "1354",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8192947707",
+        "receiptId": "1356",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8193165788",
+        "receiptId": "1358",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8193280233",
+        "receiptId": "1360",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8193365045",
+        "receiptId": "1362",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8193463396",
+        "receiptId": "1364",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8193515068",
+        "receiptId": "1366",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8193562371",
+        "receiptId": "1368",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8195843134",
+        "receiptId": "1370",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8196015197",
+        "receiptId": "1372",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8196103081",
+        "receiptId": "1374",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8196288391",
+        "receiptId": "1376",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8196380751",
+        "receiptId": "1378",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8196485303",
+        "receiptId": "1380",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8197311299",
+        "receiptId": "1382",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8197456312",
+        "receiptId": "1384",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8197688531",
+        "receiptId": "1386",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8197793601",
+        "receiptId": "1388",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8197912154",
+        "receiptId": "1390",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8198039682",
+        "receiptId": "1392",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8200366179",
+        "receiptId": "1394",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "8200463236",
+        "receiptId": "1396",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      }
+    ],
+    "replayDuplicates": 196,
+    "verifiedOutcomes": 196,
+    "invariants": {
+      "mapFactsPreserved": true,
+      "playerFactsPreserved": true,
+      "old36MapsPreserved": true,
+      "oldReceiptsPreserved": true,
+      "exactReplay": true,
+      "qualityFingerprintStable": true
+    }
+  },
+  "quality": {
+    "maps": 232,
+    "assessedMaps": 232,
+    "linkedReceiptMaps": 232,
+    "canonicalConflictMaps": 0,
+    "dimensions": {
+      "outcome": {
+        "eligible": 232,
+        "ineligible": 0,
+        "unknown": 0
+      },
+      "players": {
+        "eligible": 232,
+        "ineligible": 0,
+        "unknown": 0
+      },
+      "heroes": {
+        "eligible": 232,
+        "ineligible": 0,
+        "unknown": 0
+      },
+      "teams": {
+        "eligible": 232,
+        "ineligible": 0,
+        "unknown": 0
+      },
+      "series": {
+        "eligible": 232,
+        "ineligible": 0,
+        "unknown": 0
+      },
+      "timeline": {
+        "unknown": 231,
+        "structurally_inconsistent": 0,
+        "missing": 1,
+        "verified": 0
+      }
+    },
+    "anomalies": {
+      "DRAFT_EVENTS_MISSING": 1,
+      "DRAFT_RULES_UNVERIFIED": 232,
+      "LINEUP_KNOWN_AT_UNKNOWN": 232,
+      "PATCH_METADATA_UNVERIFIED": 232,
+      "ROLE_UNVERIFIED": 232
+    }
+  },
+  "network": {
+    "newOpenDotaProfileAttempts": 1,
+    "newOpenDotaProfileHttp200": 1,
+    "newMapHttp": 0,
+    "valveLeagueHttp200": 1,
+    "webRetrieval": "unavailable; direct public HTTPS GET succeeded"
+  },
+  "artifacts": [
+    {
+      "file": ".tools/s3-01-e1-links-before.json",
+      "sha256": "2945387393acc929666bf54af90a59842991374d49220a61f787c7d4999ac4f2",
+      "bytes": 112999
+    },
+    {
+      "file": ".tools/s3-01-e1-links-identity-preview.json",
+      "sha256": "8d5f8212f7b274bc936ea09337ad1944c1c915a6d6ed33c7368c32eebbe8e7fa",
+      "bytes": 16528
+    },
+    {
+      "file": ".tools/s3-01-e1-links-registry-applied.json",
+      "sha256": "8cbc01eccca3cade94fd88717d79a27f7b4eb65aecaf9538b1834748a11e2ff7",
+      "bytes": 32152
+    },
+    {
+      "file": ".tools/s3-01-e1-links-profile-capture.json",
+      "sha256": "7a1df9952a0bcd736576f4916a7ca2cd991380b698cc2d40e2f063006cf9b24c",
+      "bytes": 3151
+    },
+    {
+      "file": ".tools/s3-01-e1-links-profile-preview.json",
+      "sha256": "ec5b20ff6edfcb4ad1b5dacef5d5b8e92509a4d8e77f8c8e6e26e430151ea8ba",
+      "bytes": 1669
+    },
+    {
+      "file": ".tools/s3-01-e1-links-profile-applied.json",
+      "sha256": "4090f712d49af5e0ba595fb90d2bcdf4b2107fd1483cec40b354445c7bad3aa7",
+      "bytes": 3064
+    },
+    {
+      "file": ".tools/s3-01-e1-links-identities-applied.json",
+      "sha256": "0f6c3ca88f1f12ca822aa23bd06b9461a2d731a48002971f13a9d76eac176bb6",
+      "bytes": 63183
+    },
+    {
+      "file": ".tools/s3-01-e1-links-series-preview.json",
+      "sha256": "6a4727cdf204e01620c2610be803a0f685fc8d27e5d45a6c4508a723bd397f71",
+      "bytes": 579674
+    },
+    {
+      "file": ".tools/s3-01-e1-links-series-v3-preview.json",
+      "sha256": "93e7e63684bffa91f99248f1f9688bc55f849d983b775367549b0a282bb65626",
+      "bytes": 565103
+    },
+    {
+      "file": ".tools/s3-01-e1-links-series-applied.json",
+      "sha256": "896e11199839d739c60282eb1eb7538da4a83bb5687854201ee67473800edac0",
+      "bytes": 47084
+    },
+    {
+      "file": ".tools/s3-01-e1-links-reimport-before.json",
+      "sha256": "fb9a140bede39133f8d7aaf43e11d310271828bc11dfd60d8daf9c636ac610ff",
+      "bytes": 134338
+    },
+    {
+      "file": ".tools/s3-01-e1-links-reimport.json",
+      "sha256": "f2a90412d59dafe4f020d29dfae7f6e914c89042cb85cb282c9adaf8a6ebb522",
+      "bytes": 532300
+    },
+    {
+      "file": ".tools/s3-01-e1-capture/recovered-index.json",
+      "sha256": "5c2b6b51bae25898dcd4129e56e456bb751e7222af10cd765c43bf482caf47f5",
+      "bytes": 47792
+    },
+    {
+      "file": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62",
+      "bytes": 51419
+    },
+    {
+      "file": "docs/evidence/s3-01-e1-warmup-manifest.json",
+      "sha256": "85fee9b315fc3ed179aef5055e18603d86ba04e31355802a1d96847fa94ff690",
+      "bytes": 55850
+    },
+    {
+      "file": "docs/evidence/s3-01-e1-series-source.json",
+      "sha256": "d4f9404cd0373869702e7649e16d5b329c7be481c4a435b9d7c7d3ae9f7fc659",
+      "bytes": 33446
+    },
+    {
+      "file": ".tools/s1-12-current-capture.json",
+      "sha256": "ce2ef0854c7d8ea0adfd8de4ef932a1b4cc263524dd877de189346aea9a7f683",
+      "bytes": 5464173
+    },
+    {
+      "file": ".tools/s1-21-current-capture.json",
+      "sha256": "73874a4e125f069e2ba1ccf8cbd71a02cabfb9f55e5078d0adbc442309c8d414",
+      "bytes": 5467046
+    }
+  ],
+  "code": [
+    {
+      "file": "packages/db/src/series-provision.ts",
+      "sha256": "5f304363b51aa0fd9d0bf2410afdd10828b8150f603e0a20822fa332f7c8dbe4",
+      "bytes": 11536
+    },
+    {
+      "file": "packages/db/tests/series-provision.integration.test.ts",
+      "sha256": "fc37b5cff1e37a80092aa4a48aa50d33b53f57e499076db2f452b6e1a71d26a1",
+      "bytes": 11597
+    },
+    {
+      "file": "packages/db/src/identity-provision.ts",
+      "sha256": "00e9c7142d2758f273ec2d355d038a6e2c2877469b30f34d75a3a000db935303",
+      "bytes": 10940
+    },
+    {
+      "file": "packages/ingestion/src/opendota/current-accounts.ts",
+      "sha256": "d6f2262a20768eee97a728055b056ae441877257f0a89b366fa416cb5057fb76",
+      "bytes": 2131
+    },
+    {
+      "file": "packages/ingestion/src/opendota/current-profile.ts",
+      "sha256": "5bc6954f29f2cae2b4fb6a4c74fcf74aaf59b03010ef21b2df2ef46d56f3676c",
+      "bytes": 2183
+    },
+    {
+      "file": "packages/ingestion/src/importer.ts",
+      "sha256": "7024a031ed1a6a0c0dab9f4b3bab1e4dd8d0059e2355b9f89f91fe7ba1e31358",
+      "bytes": 20076
+    },
+    {
+      "file": ".tools/s3-01-e1-links.mjs",
+      "sha256": "62c4fda2dc4be9b883b72017e89a3070fd247a67e933e3eed2bde2470a6c798b",
+      "bytes": 3906
+    },
+    {
+      "file": ".tools/s3-01-e1-complete-links.mjs",
+      "sha256": "7e9ac8a5b8f1df355db623132d93087197ff1808d1405c4a3a98e1444b7179de",
+      "bytes": 11612
+    },
+    {
+      "file": ".tools/s3-01-e1-series-evidence.mjs",
+      "sha256": "0e05e77115965d273c53d5c45a6770c7700d6dfa1d1195f2de67769a90f86810",
+      "bytes": 2292
+    },
+    {
+      "file": ".tools/s3-01-e1-valve.mjs",
+      "sha256": "596bef7850507bd2c258ff95258e0bbc3f17a3d4348e3276317505ef0d97660d",
+      "bytes": 948
+    },
+    {
+      "file": ".tools/s3-01-e1-publish-links.mjs",
+      "sha256": "3967ca111f390c1ea601affc7a4f49a73b251719d9aa371a36abc16e67ac95ca",
+      "bytes": 4484
+    }
+  ],
+  "trainingReady": false,
+  "deployable": false,
+  "holdoutMetrics": null,
+  "strictPreview": "not_rerun; prior 36/0 checkpoint is not current coverage"
+}
