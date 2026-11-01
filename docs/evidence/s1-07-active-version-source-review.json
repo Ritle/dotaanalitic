@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 1,
+  "reviewPolicy": "valve-gc-source-review-v1",
+  "reviewedAt": "2026-11-01T20:38:36.223Z",
+  "scope": "source_review_only",
+  "backendRequests": 4,
+  "backendHttp200": 4,
+  "retries": 0,
+  "automaticPolling": false,
+  "artifacts": [
+    {
+      "name": "client",
+      "url": "https://api.steampowered.com/IGCVersion_570/GetClientVersion/v1/",
+      "requestedAt": "2026-11-01T20:36:35.747Z",
+      "fetchedAt": "2026-11-01T20:36:36.413Z",
+      "recordedAt": "2026-11-01T20:36:36.415Z",
+      "status": 200,
+      "sourceDate": "Sun, 01 Nov 2026 20:36:32 GMT",
+      "age": null,
+      "cacheControl": null,
+      "lastModified": null,
+      "etag": null,
+      "contentType": "application/json; charset=UTF-8",
+      "bytes": 82,
+      "sha256": "0fe312742f45efaccf41f07a7c7b39a6c722ca893ed95c7ddb45452e9537134c",
+      "path": "docs/evidence/s1-07-active-version-client.json"
+    },
+    {
+      "name": "server",
+      "url": "https://api.steampowered.com/IGCVersion_570/GetServerVersion/v1/",
+      "requestedAt": "2026-11-01T20:36:37.516Z",
+      "fetchedAt": "2026-11-01T20:36:37.774Z",
+      "recordedAt": "2026-11-01T20:36:37.775Z",
+      "status": 200,
+      "sourceDate": "Sun, 01 Nov 2026 20:36:33 GMT",
+      "age": null,
+      "cacheControl": null,
+      "lastModified": null,
+      "etag": null,
+      "contentType": "application/json; charset=UTF-8",
+      "bytes": 117,
+      "sha256": "681d86b7df6fb565671a11ad1a298a49cc298ddf70f60591985126194124c804",
+      "path": "docs/evidence/s1-07-active-version-server.json"
+    },
+    {
+      "name": "up-to-date",
+      "url": "https://api.steampowered.com/ISteamApps/UpToDateCheck/v1/?appid=570&version=0",
+      "requestedAt": "2026-11-01T20:36:38.885Z",
+      "fetchedAt": "2026-11-01T20:36:39.138Z",
+      "recordedAt": "2026-11-01T20:36:39.145Z",
+      "status": 200,
+      "sourceDate": "Sun, 01 Nov 2026 20:36:35 GMT",
+      "age": null,
+      "cacheControl": null,
+      "lastModified": null,
+      "etag": null,
+      "contentType": "application/json; charset=UTF-8",
+      "bytes": 122,
+      "sha256": "8ddd67c6257691bb7528a5e9366866526f1a5a2b8da84bc813bf283a2a6be514",
+      "path": "docs/evidence/s1-07-active-version-up-to-date.json"
+    },
+    {
+      "url": "https://api.steampowered.com/ISteamWebAPIUtil/GetSupportedAPIList/v1/",
+      "requestedAt": "2026-11-01T20:37:06.245Z",
+      "fetchedAt": "2026-11-01T20:37:07.001Z",
+      "recordedAt": "2026-11-01T20:37:07.004Z",
+      "status": 200,
+      "bytes": 21518,
+      "sha256": "bd9526d07598517c8c4dc1f76b78137106610be49783637438f660a819acf555",
+      "selected": [
+        {
+          "name": "IGCVersion_570",
+          "methods": [
+            {
+              "name": "GetClientVersion",
+              "version": 1,
+              "httpmethod": "GET",
+              "parameters": []
+            },
+            {
+              "name": "GetServerVersion",
+              "version": 1,
+              "httpmethod": "GET",
+              "parameters": []
+            }
+          ]
+        }
+      ],
+      "name": "api-list",
+      "path": "docs/evidence/s1-07-active-version-api-list.json"
+    }
+  ],
+  "officialDocumentation": "https://partner.steamgames.com/doc/webapi/ISteamApps#UpToDateCheck",
+  "reportedFacts": {
+    "appId": 570,
+    "client": {
+      "success": true,
+      "min_allowed_version": 6969,
+      "active_version": 6969
+    },
+    "server": {
+      "success": true,
+      "engine": 1,
+      "deploy_version": 6969,
+      "active_version": 6969,
+      "response_time": 1793565392
+    },
+    "upToDateProbe": {
+      "suppliedVersion": 0,
+      "success": true,
+      "up_to_date": false,
+      "version_is_listable": false,
+      "required_version": 37,
+      "message": "OUT OF DATE"
+    },
+    "serverReportedResponseTimeUtc": "2026-11-01T20:36:32.000Z",
+    "clientServerActiveValuesEqual": true
+  },
+  "acceptance": {
+    "rawNumericVersionObservation": "accepted_for_this_capture",
+    "activePatchLabelEvidence": "not_sufficient",
+    "sourceBoundObservation": {
+      "kind": "valve_gc_numeric_version_observation",
+      "appId": 570,
+      "clientActiveVersion": "6969",
+      "serverActiveVersion": "6969",
+      "clientObservedAt": "2026-11-01T20:36:36.413Z",
+      "serverObservedAt": "2026-11-01T20:36:37.774Z",
+      "patchLabel": null,
+      "effectiveReleaseAt": null,
+      "coverageUntil": null,
+      "historicalKnownAt": null,
+      "leagueId": null,
+      "matchId": null,
+      "prospectivePatchEvidence": []
+    },
+    "blockers": [
+      "GC_VERSION_TO_PATCH_LABEL_MAPPING_UNPROVEN",
+      "MAP_OR_LEAGUE_VERSION_UNPROVEN"
+    ],
+    "allowedUse": [
+      "preserve_exact_numeric_source_observation",
+      "candidate_change_signal_only"
+    ],
+    "forbiddenUse": [
+      "cast_numeric_version_to_patch_label",
+      "join_last_publication_by_date",
+      "set_historical_known_at_from_response_time",
+      "treat_up_to_date_required_version_as_gc_version",
+      "claim_same_patch_until_next_poll"
+    ]
+  },
+  "checks": {
+    "rawArtifactSha256": "passed_4",
+    "observedShapes": "passed_3",
+    "officialApiMethodPresence": "passed_2",
+    "numericLabelProbe": {
+      "syntheticEnvelope": true,
+      "inputLabel": "6969",
+      "result": "rejected_at_patchLabel"
+    }
+  },
+  "limitations": [
+    "single_non_atomic_client_server_capture",
+    "response_time_semantics_not_deployment_evidence",
+    "no_documented_cache_freshness_guarantee",
+    "api_list_does_not_define_response_field_semantics",
+    "numeric_change_is_not_a_balance_patch_change",
+    "third_party_search_results_not_used_as_evidence"
+  ],
+  "databaseWrites": 0,
+  "canonicalPatchAssignments": 0,
+  "autoRegistryEligible": false,
+  "trainingReady": false,
+  "deployable": false
+}

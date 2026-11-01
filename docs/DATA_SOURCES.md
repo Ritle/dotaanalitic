@@ -1,5 +1,9 @@
 # Источники данных и техническая проверка
 
+## Valve IGCVersion_570 — активная техническая версия, S1-07
+
+Проверка2026-11-01:4 backend GET/4 HTTP200, raw snapshots/SHA включены в репозиторий. GetClientVersion и GetServerVersion сообщили active_version6969; UpToDateCheck(app570,version0) — required_version37. Official API list подтвердил два IGC GET метода. Сохранённое наблюдение пригодно как technical-version fact, но буквенный patchLabel и связь6969→7.41f не доказаны; prospective patch proof не создан. Нельзя приравнять одноимённое поле active_version к reviewed balance-patch evidence. [Acceptance policy/ограничения](S1_07_ACTIVE_VERSION_SOURCE.md), [manifest](evidence/s1-07-active-version-source-review.json).
+
 ## BALLDONTLIE — проверка доступа 2026-11-01
 
 По прямому запросу владельца проведён bounded read-only audit с локальным `BALLDONTLIE_API_TOKEN`: 3 GET, интервал не менее13с, timeout25с, без повторов/автопагинации. `GET /dota/v1/teams?search=GamerLegion` →200, одна команда с provider ID113. `GET /dota/v1/matches?dates[]=2026-11-02&per_page=25` и `/tournaments?per_page=5` →401 с body `Unauthorized`. Ключ принимается справочником, но доступ к матчам/турнирам не подтверждён. По документации401 означает неверный ключ **или** отсутствие доступа к endpoint; точный тариф аккаунта не установлен. Не считать401 пустым расписанием или отсутствием встречи.
