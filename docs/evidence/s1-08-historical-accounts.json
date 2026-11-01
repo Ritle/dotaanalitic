@@ -1,0 +1,2024 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T19:50:32.233Z",
+  "scope": "historical_map_canonical_account_completion",
+  "before": {
+    "maps": 36,
+    "series": 26,
+    "teams": 35,
+    "players": 59,
+    "proofs": 59,
+    "aliases": 59,
+    "revision": "118",
+    "assessments": 93,
+    "receipts": 134,
+    "datasets": 0,
+    "active_models": 0,
+    "upcoming_observations": 2,
+    "known_fields": 0
+  },
+  "registered": {
+    "maps": 36,
+    "series": 26,
+    "teams": 35,
+    "players": 165,
+    "proofs": 165,
+    "aliases": 165,
+    "revision": "330",
+    "assessments": 93,
+    "receipts": 134,
+    "datasets": 0,
+    "active_models": 0,
+    "upcoming_observations": 2,
+    "known_fields": 0
+  },
+  "after": {
+    "maps": 36,
+    "series": 26,
+    "teams": 35,
+    "players": 165,
+    "proofs": 165,
+    "aliases": 165,
+    "revision": "330",
+    "assessments": 112,
+    "receipts": 153,
+    "datasets": 0,
+    "active_models": 0,
+    "upcoming_observations": 2,
+    "known_fields": 0
+  },
+  "inventory": {
+    "unresolvedBefore": 106,
+    "registryVerified": 83,
+    "profileVerified": 23,
+    "unresolvedAfter": 0,
+    "totalUniqueMapAccounts": 165,
+    "mapPlayerLinks": 360,
+    "completeMapsBefore": 17,
+    "completeMapsAfter": 36
+  },
+  "registry": {
+    "sources": [
+      {
+        "file": ".tools/s1-12-current-capture.json",
+        "sha256": "ce2ef0854c7d8ea0adfd8de4ef932a1b4cc263524dd877de189346aea9a7f683",
+        "source": {
+          "provider": "opendota",
+          "adapterVersion": "opendota-provider-v2",
+          "endpoint": "/proPlayers",
+          "fetchedAt": "2026-11-01T01:00:35.814Z",
+          "knownAt": null,
+          "payloadSha256": "4bda6e68439a39a81545dac8ec21cc60f46fa77863f4fc6b4ed58dc1e368a221",
+          "attempts": 1,
+          "rateLimitRemaining": {
+            "minute": 59,
+            "day": 2998,
+            "month": null
+          }
+        }
+      },
+      {
+        "file": ".tools/s1-21-current-capture.json",
+        "sha256": "73874a4e125f069e2ba1ccf8cbd71a02cabfb9f55e5078d0adbc442309c8d414",
+        "source": {
+          "provider": "opendota",
+          "adapterVersion": "opendota-provider-v2",
+          "endpoint": "/proPlayers",
+          "fetchedAt": "2026-11-01T15:50:43.622Z",
+          "knownAt": null,
+          "payloadSha256": "6b96636417178be9ee9c5a16e7c81d789e0782f4df5107c85ab39ec1bde4f14e",
+          "attempts": 1,
+          "rateLimitRemaining": {
+            "minute": 59,
+            "day": 2981,
+            "month": null
+          }
+        }
+      }
+    ],
+    "knownAt": "2026-11-01T15:50:43.622Z",
+    "earlierNumericPairsAgree": true,
+    "playersCreated": 83,
+    "replayWrites": 0,
+    "planFingerprint": "b605fbdd0bb423c94cf87f0d137abd71eeaaa167f45567b703d43a4d88910342"
+  },
+  "profiles": {
+    "maxAttempts": 69,
+    "requests": {
+      "attempts": 23,
+      "httpStatuses": {
+        "200": 23
+      },
+      "transportErrors": {}
+    },
+    "results": [
+      {
+        "accountId": "7910302",
+        "knownAt": "2026-11-01T19:48:03.251Z",
+        "source": "https://api.opendota.com/api/players/7910302",
+        "payloadSha256": "ed3c31f4e9dfd94d46dca13c0f20c75f7bd5c71921f217cb6f7c66defa3757cf",
+        "sourceFile": ".tools/s1-08-historical-profile-7910302.json",
+        "sourceFileSha256": "5be7100d0dbe38244e3d23a6b2a396e5a0d255c86d6e393792cc07da25028c7d",
+        "planFingerprint": "43c04c79e6c9cb770e615b37e74892f0b90d4a86f1641b45c88437d034acbbb8",
+        "playersCreated": 1,
+        "playerId": "143",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "19672354",
+        "knownAt": "2026-11-01T19:48:04.244Z",
+        "source": "https://api.opendota.com/api/players/19672354",
+        "payloadSha256": "c1fbc56df2cd84ed9a39f9f58d723e3125cf51ee77acb2c54e9f9836aba57e49",
+        "sourceFile": ".tools/s1-08-historical-profile-19672354.json",
+        "sourceFileSha256": "1eecc86c3dffa06c352ddbfce5d8823f324e4a6dc8fb5ee5710d32b663386976",
+        "planFingerprint": "b82c1d2b8b19947de8a04c86c1b4c2ae59f9070ffe42a72d042659dcfe9f40bf",
+        "playersCreated": 1,
+        "playerId": "144",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "38628747",
+        "knownAt": "2026-11-01T19:48:05.604Z",
+        "source": "https://api.opendota.com/api/players/38628747",
+        "payloadSha256": "aec9afa6a17cdb7d8474260ad6050a61f080d7389ac072906228ce1bddb0403a",
+        "sourceFile": ".tools/s1-08-historical-profile-38628747.json",
+        "sourceFileSha256": "ba463b61ced5c6f3c123c32777b6bf45eaf688c2b9f1b4c2bb18a237ee11123f",
+        "planFingerprint": "070c262f0b76cd3104329e830d502db9b6d12356a37d336fe88706ce54b4ee44",
+        "playersCreated": 1,
+        "playerId": "145",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "87012746",
+        "knownAt": "2026-11-01T19:48:06.957Z",
+        "source": "https://api.opendota.com/api/players/87012746",
+        "payloadSha256": "5025fab12d6680b94461d550a94fe5533cb3b43ad50133589403239a3144a415",
+        "sourceFile": ".tools/s1-08-historical-profile-87012746.json",
+        "sourceFileSha256": "050be220b7d69977198b7a7a962740097996df7f7ac64cc9fa2d358b8442c0c7",
+        "planFingerprint": "b3a13f8e21a1911e467d19377ef1d39ab82d3ce836c1fa79f58bda39a2b497d5",
+        "playersCreated": 1,
+        "playerId": "146",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "87196890",
+        "knownAt": "2026-11-01T19:48:08.308Z",
+        "source": "https://api.opendota.com/api/players/87196890",
+        "payloadSha256": "3ac5727d1f615b7c46a70db7f422b66eb7be208acb47e98227c683c9f5e72c54",
+        "sourceFile": ".tools/s1-08-historical-profile-87196890.json",
+        "sourceFileSha256": "df944173bc08c323d4d3f29456c0e6fa0346b6b91a2dd27151384f64506d0730",
+        "planFingerprint": "d6d763a2567c57ff2c2117e3f6a23b4e0423a9826620cf947511a48c1f0976ec",
+        "playersCreated": 1,
+        "playerId": "147",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "90882159",
+        "knownAt": "2026-11-01T19:48:09.653Z",
+        "source": "https://api.opendota.com/api/players/90882159",
+        "payloadSha256": "e882b909b7e6e1d30906494d69bb6b111f9740b71c6faa6157473e28387addaa",
+        "sourceFile": ".tools/s1-08-historical-profile-90882159.json",
+        "sourceFileSha256": "88ae0620a39813088d9fca89e7dc02fafe3eeb0291d8460d456410caae3cf207",
+        "planFingerprint": "70727198744ecb656e321e842a7a42c470c008dc19be9b9eceab432259dff83c",
+        "playersCreated": 1,
+        "playerId": "148",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "93552791",
+        "knownAt": "2026-11-01T19:48:11.050Z",
+        "source": "https://api.opendota.com/api/players/93552791",
+        "payloadSha256": "1c44e5df69fc528eb4a1bc32084170a4e323a7d4b779212e0bbd4deff9c6a755",
+        "sourceFile": ".tools/s1-08-historical-profile-93552791.json",
+        "sourceFileSha256": "d24b38e122c3c7de228b0c1fb717f8eee552cbaabeac461b85d5abde9fc6e91e",
+        "planFingerprint": "43f22b5537168da7eca4831db07a697a6bbdbbe5c4b7415c4bb7d29925396630",
+        "playersCreated": 1,
+        "playerId": "149",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "94281932",
+        "knownAt": "2026-11-01T19:48:12.393Z",
+        "source": "https://api.opendota.com/api/players/94281932",
+        "payloadSha256": "8d090278417633771772daee07b53e045042c61c05fd3a91ab010a917c85b34a",
+        "sourceFile": ".tools/s1-08-historical-profile-94281932.json",
+        "sourceFileSha256": "61f94c3d07fc7e4d4b7e74aced60cc361f3119f78cc1f25484be2a79a99df124",
+        "planFingerprint": "83737c6a357f3826e219494d48dee8116c34f9dab7249376c9a5c3ef9199fee6",
+        "playersCreated": 1,
+        "playerId": "150",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "95727214",
+        "knownAt": "2026-11-01T19:48:13.743Z",
+        "source": "https://api.opendota.com/api/players/95727214",
+        "payloadSha256": "cbfca7180489204b771941a21296bcf9d9b5dda2d9c1682840c4c6ec5d3e5ef7",
+        "sourceFile": ".tools/s1-08-historical-profile-95727214.json",
+        "sourceFileSha256": "4458a0ad44baeb9de5bcce5c93c08ece83890b50d3366ffabe23aaf9abfec4d8",
+        "planFingerprint": "4cae01ecab430dd00aaa3887af7e7f18b8580c4de5684553faac6d65fe6a8597",
+        "playersCreated": 1,
+        "playerId": "151",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "103850210",
+        "knownAt": "2026-11-01T19:48:15.105Z",
+        "source": "https://api.opendota.com/api/players/103850210",
+        "payloadSha256": "0a3bdad45b07fb959801bf888d4456cce625b11a564b47ce2927c30f02286c9b",
+        "sourceFile": ".tools/s1-08-historical-profile-103850210.json",
+        "sourceFileSha256": "6a207c5e0c483901eb3dc98a90a1f5bcdfcc470534d61ddb62d710ad3c6e7def",
+        "planFingerprint": "05fb50b47ed8a44099755bd8116d8818a285fbdb08eed43806af066a4752bae3",
+        "playersCreated": 1,
+        "playerId": "152",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "106863163",
+        "knownAt": "2026-11-01T19:48:16.469Z",
+        "source": "https://api.opendota.com/api/players/106863163",
+        "payloadSha256": "35edd5399fa833b7c80fc1009ea0ad8c74fced98807df253056098a71d1f62eb",
+        "sourceFile": ".tools/s1-08-historical-profile-106863163.json",
+        "sourceFileSha256": "6ed3f45c6a50b774901d15335a868b910bd0e2e56ecfec9d7e0de101fe6bfd35",
+        "planFingerprint": "1cefa9aa9f620c67b5e646e442bf0588a8559ee75bef1d675db9bdcbae4530e8",
+        "playersCreated": 1,
+        "playerId": "153",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "119535307",
+        "knownAt": "2026-11-01T19:48:17.807Z",
+        "source": "https://api.opendota.com/api/players/119535307",
+        "payloadSha256": "ef3d9947b858e8ac0a5025bebacc991018c72c94c4489fb35ca544d92faef0d8",
+        "sourceFile": ".tools/s1-08-historical-profile-119535307.json",
+        "sourceFileSha256": "10acb714fe0a1e836e651201c76476d10422d444e8e99fb444b97ed98406ebb2",
+        "planFingerprint": "5d5c1b0c7b33beefe53c7c5bfd807db342b4a475c687606bf6368a535b010946",
+        "playersCreated": 1,
+        "playerId": "154",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "121404228",
+        "knownAt": "2026-11-01T19:48:19.161Z",
+        "source": "https://api.opendota.com/api/players/121404228",
+        "payloadSha256": "470b27aa0bf0a7b46ca7d64590773bb0d59d80675e8b987671aa317503357e73",
+        "sourceFile": ".tools/s1-08-historical-profile-121404228.json",
+        "sourceFileSha256": "6a03ed13b4a4bb215de53079f71bda127388120b7292680eadea2265133b7a3d",
+        "planFingerprint": "9036f29d6e618c41bee103a1aa70078b4bba54b3e98b34e49f1f90ceed5d2f25",
+        "playersCreated": 1,
+        "playerId": "155",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "121769650",
+        "knownAt": "2026-11-01T19:48:20.503Z",
+        "source": "https://api.opendota.com/api/players/121769650",
+        "payloadSha256": "49cab5396fd96e18afe0785c7e7cbb961d00bd4b8fecfc1e8325028d0cf998e4",
+        "sourceFile": ".tools/s1-08-historical-profile-121769650.json",
+        "sourceFileSha256": "b3cda5359487d179c10263c34425eec12dc3cc7b1dfa4c4c088f234521884d4c",
+        "planFingerprint": "d04e870da4da5ef776bf9295c7948f0d64a1f46c2d5cb2959a4150ac57228d2d",
+        "playersCreated": 1,
+        "playerId": "156",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "134711350",
+        "knownAt": "2026-11-01T19:48:21.865Z",
+        "source": "https://api.opendota.com/api/players/134711350",
+        "payloadSha256": "b9ff018df874da4f7f61534ce0bd25545142f6f9b15174c0e4afb0bc5b08aa50",
+        "sourceFile": ".tools/s1-08-historical-profile-134711350.json",
+        "sourceFileSha256": "61632aa389d84468c161697960e05a2d9c5ae365e4bfd63d322285ee2e8f80eb",
+        "planFingerprint": "00bdbead694979ae092c6e75d010c752a79cc9b139c87d8ced493aa0b50bd571",
+        "playersCreated": 1,
+        "playerId": "157",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "136177710",
+        "knownAt": "2026-11-01T19:48:23.199Z",
+        "source": "https://api.opendota.com/api/players/136177710",
+        "payloadSha256": "29989f18e2214d446634eb6b47b14a4a03f3f04d2964342e839a682a03113baa",
+        "sourceFile": ".tools/s1-08-historical-profile-136177710.json",
+        "sourceFileSha256": "784f352f76323b2ce8351e9abe9c5954285108070f1a61fc18f1a1820fe88a7a",
+        "planFingerprint": "8f4ebb7f01718264170736c1520ff6c66528c3681974d9490278d629c0722a4e",
+        "playersCreated": 1,
+        "playerId": "158",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "143278997",
+        "knownAt": "2026-11-01T19:48:24.569Z",
+        "source": "https://api.opendota.com/api/players/143278997",
+        "payloadSha256": "1d150bfe26aec653795904e2dad2bf5d18922e4cfbbb7968cdf6e7f9236cee25",
+        "sourceFile": ".tools/s1-08-historical-profile-143278997.json",
+        "sourceFileSha256": "e3c28eae54e97674f4c10ce5207bc279a5fb132d56c46688482933b90e0d043a",
+        "planFingerprint": "11efe591ceefdc4e0f31cf25dea128bb2a1a4641859f4c5298c6a7c3247ccb0d",
+        "playersCreated": 1,
+        "playerId": "159",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "145550466",
+        "knownAt": "2026-11-01T19:48:25.906Z",
+        "source": "https://api.opendota.com/api/players/145550466",
+        "payloadSha256": "903ca29e997931f4ddfc783cd95605738e6835ec84509e2a2f35a4474af3b606",
+        "sourceFile": ".tools/s1-08-historical-profile-145550466.json",
+        "sourceFileSha256": "b70b52f4205b202d819d995795be1e0d19e0c801bdc28c01ad3338ea36fcfdf9",
+        "planFingerprint": "f6fce46202e2314aaaa13efc983080fd17a7c7e482b4fed644721115d04d693e",
+        "playersCreated": 1,
+        "playerId": "160",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "186627166",
+        "knownAt": "2026-11-01T19:48:27.277Z",
+        "source": "https://api.opendota.com/api/players/186627166",
+        "payloadSha256": "fe066286d870787309c4bfd04c6ea73caf97c97c548b5a2776918ef3e24042fa",
+        "sourceFile": ".tools/s1-08-historical-profile-186627166.json",
+        "sourceFileSha256": "d17aea10d22bb7d163f1a13e17baade36ce3a563fd13396552e835fe746ba0df",
+        "planFingerprint": "3fe4b6e9982036a3f11365dbbfe361d55db6f2bb466b1f344c3a9e54ead04307",
+        "playersCreated": 1,
+        "playerId": "161",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "205517338",
+        "knownAt": "2026-11-01T19:48:28.598Z",
+        "source": "https://api.opendota.com/api/players/205517338",
+        "payloadSha256": "8d3c429ab5c1056d9c7d143f762a877fe16414fa9c317f058c17af78bf86a424",
+        "sourceFile": ".tools/s1-08-historical-profile-205517338.json",
+        "sourceFileSha256": "8f419ffe6da5e19420ad842a8e2b0837efa7a6bc0022b651f22d8be0c5f4d79d",
+        "planFingerprint": "a02a02f35ddfd82c5f878d2ae4e3f573394db7382bd4a5f895295bd98cf76690",
+        "playersCreated": 1,
+        "playerId": "162",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "313198707",
+        "knownAt": "2026-11-01T19:48:29.990Z",
+        "source": "https://api.opendota.com/api/players/313198707",
+        "payloadSha256": "6689640210abea153a6657c1f5fe3a65682024ca2af86c9e8e3b17635aef0fa2",
+        "sourceFile": ".tools/s1-08-historical-profile-313198707.json",
+        "sourceFileSha256": "9e02b98b8fb72da423a989762ad533bae763007933004bb2327f54ddcbb27a7f",
+        "planFingerprint": "3d44ad5c5cc4b23f2c908023c357deb7ab70ab031c424bf00a103178b330afac",
+        "playersCreated": 1,
+        "playerId": "163",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "368917218",
+        "knownAt": "2026-11-01T19:48:31.331Z",
+        "source": "https://api.opendota.com/api/players/368917218",
+        "payloadSha256": "1df168baf8c6b6349b1b70dfea39b64805bd0c4347239aa7df2086f66da7006d",
+        "sourceFile": ".tools/s1-08-historical-profile-368917218.json",
+        "sourceFileSha256": "d4ad3332b08fcd6a2c18ae48b11de899f49d2fe0cab979db5d86526914542d7d",
+        "planFingerprint": "08d4da137f3e915ee99db884458566b2cba1eb483cca8896bb56afc0c1938679",
+        "playersCreated": 1,
+        "playerId": "164",
+        "replayWrites": 0
+      },
+      {
+        "accountId": "400709028",
+        "knownAt": "2026-11-01T19:48:32.678Z",
+        "source": "https://api.opendota.com/api/players/400709028",
+        "payloadSha256": "521b8d8a1545ac7d27092b1e94566ca75575bb537405e97864d3408dd7ef3a4c",
+        "sourceFile": ".tools/s1-08-historical-profile-400709028.json",
+        "sourceFileSha256": "b0768718a744fc41ef3ad669b5e800cba1bec4f5bdfb0def0df02b239ad2095f",
+        "planFingerprint": "e13338700d6935d9ec7377ab86ba5dea60186e31371b60b0e1a4b4677a4d3ddc",
+        "playersCreated": 1,
+        "playerId": "165",
+        "replayWrites": 0
+      }
+    ]
+  },
+  "accounts": [
+    {
+      "accountId": "7910302",
+      "playerId": "143",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "19672354",
+      "playerId": "144",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "38628747",
+      "playerId": "145",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "54580962",
+      "playerId": "60",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "70388657",
+      "playerId": "61",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "81306398",
+      "playerId": "62",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "84853828",
+      "playerId": "63",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "86725175",
+      "playerId": "64",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "86811043",
+      "playerId": "65",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "86822085",
+      "playerId": "66",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "87012746",
+      "playerId": "146",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "87196890",
+      "playerId": "147",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "87278757",
+      "playerId": "67",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "88271237",
+      "playerId": "68",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "90882159",
+      "playerId": "148",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "91730177",
+      "playerId": "69",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "92706637",
+      "playerId": "70",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "93552791",
+      "playerId": "149",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "94281932",
+      "playerId": "150",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "94364925",
+      "playerId": "71",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "95727214",
+      "playerId": "151",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "97590558",
+      "playerId": "72",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "100471531",
+      "playerId": "73",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "101259972",
+      "playerId": "74",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "101695162",
+      "playerId": "75",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "102099826",
+      "playerId": "76",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "103850210",
+      "playerId": "152",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "105045291",
+      "playerId": "77",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "106863163",
+      "playerId": "153",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "107579895",
+      "playerId": "78",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "108221389",
+      "playerId": "79",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "111030315",
+      "playerId": "80",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "111114687",
+      "playerId": "81",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "111620041",
+      "playerId": "82",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "113331514",
+      "playerId": "83",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "116934015",
+      "playerId": "84",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "117089283",
+      "playerId": "85",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "118134220",
+      "playerId": "86",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "118948666",
+      "playerId": "87",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "119535307",
+      "playerId": "154",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "121404228",
+      "playerId": "155",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "121769650",
+      "playerId": "156",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "125995177",
+      "playerId": "88",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "126212866",
+      "playerId": "89",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "127565532",
+      "playerId": "90",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "127617979",
+      "playerId": "91",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "129958758",
+      "playerId": "92",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "131303632",
+      "playerId": "93",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "132309493",
+      "playerId": "94",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "132851371",
+      "playerId": "95",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "134556694",
+      "playerId": "96",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "134711350",
+      "playerId": "157",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "136177710",
+      "playerId": "158",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "137129583",
+      "playerId": "97",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "137193239",
+      "playerId": "98",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "138177198",
+      "playerId": "99",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "138880576",
+      "playerId": "100",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "139031324",
+      "playerId": "101",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "139937922",
+      "playerId": "102",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "143278997",
+      "playerId": "159",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "143693439",
+      "playerId": "103",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "145550466",
+      "playerId": "160",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "148526973",
+      "playerId": "104",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "152962063",
+      "playerId": "105",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "153836240",
+      "playerId": "106",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "155332459",
+      "playerId": "107",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "157475523",
+      "playerId": "108",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "157989498",
+      "playerId": "109",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "161839895",
+      "playerId": "110",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "164532005",
+      "playerId": "111",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "164685175",
+      "playerId": "112",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "165564598",
+      "playerId": "113",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "170896543",
+      "playerId": "114",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "173978074",
+      "playerId": "115",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "179313961",
+      "playerId": "116",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "184950344",
+      "playerId": "117",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "186627166",
+      "playerId": "161",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "191290281",
+      "playerId": "118",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "192120253",
+      "playerId": "119",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "193815691",
+      "playerId": "120",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "193884241",
+      "playerId": "121",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "196878136",
+      "playerId": "122",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "201358612",
+      "playerId": "123",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "205517338",
+      "playerId": "162",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "210053851",
+      "playerId": "124",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "214853734",
+      "playerId": "125",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "221666230",
+      "playerId": "126",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "249835593",
+      "playerId": "127",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "256156323",
+      "playerId": "128",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "301750126",
+      "playerId": "129",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "302214028",
+      "playerId": "130",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "313198707",
+      "playerId": "163",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "326327879",
+      "playerId": "131",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "331855530",
+      "playerId": "132",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "339235645",
+      "playerId": "133",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "349310876",
+      "playerId": "134",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "352545711",
+      "playerId": "135",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "368917218",
+      "playerId": "164",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "375507918",
+      "playerId": "136",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "400709028",
+      "playerId": "165",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "408729743",
+      "playerId": "137",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "425588742",
+      "playerId": "138",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "431770905",
+      "playerId": "139",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "858106446",
+      "playerId": "140",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "898754153",
+      "playerId": "141",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "accountId": "1031547092",
+      "playerId": "142",
+      "currentStatus": "verified",
+      "historicalPlayerId": null,
+      "historicalCutoff": "2026-10-01T00:00:00.000Z"
+    }
+  ],
+  "reimport": {
+    "processed": 20,
+    "changed": 19,
+    "duplicates": 1,
+    "replayDuplicates": 20,
+    "networkRequests": 0,
+    "results": [
+      {
+        "matchId": "6054718020",
+        "receiptId": "317",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6067239305",
+        "receiptId": "319",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6079100944",
+        "receiptId": "321",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6214131970",
+        "receiptId": "323",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6227492909",
+        "receiptId": "325",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6806047579",
+        "receiptId": "327",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6807772726",
+        "receiptId": "329",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6809522859",
+        "receiptId": "331",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6811000638",
+        "receiptId": "333",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "6832287527",
+        "receiptId": "335",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "7378530387",
+        "receiptId": "279",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7378939289",
+        "receiptId": "338",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "7380403482",
+        "receiptId": "340",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "7393133836",
+        "receiptId": "342",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "7406531302",
+        "receiptId": "344",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "7927665228",
+        "receiptId": "346",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7928915377",
+        "receiptId": "348",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "2"
+      },
+      {
+        "matchId": "7931106306",
+        "receiptId": "350",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "7936520519",
+        "receiptId": "352",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      },
+      {
+        "matchId": "7944311818",
+        "receiptId": "354",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "3"
+      }
+    ]
+  },
+  "invariants": {
+    "oldPlayersAndProofsPreserved": true,
+    "mapFactsPreserved": true,
+    "slotFactsAndOldLinksPreserved": true,
+    "oldReceiptsPreserved": true,
+    "historicalLinksUnavailable": true,
+    "identityRegistrationDidNotMutateMaps": true,
+    "replayStable": true,
+    "qualityFingerprintStable": true
+  },
+  "quality": {
+    "file": "docs/evidence/s1-08-historical-accounts-quality.json",
+    "sha256": "e5c03eb793d33e908ed321d404eb8a26dd966d62ca798a0cba381aa2892bb21e",
+    "bytes": 67701
+  },
+  "strictPreviews": {
+    "pre_match": {
+      "status": "unavailable",
+      "reason": "NO_ELIGIBLE_MAPS",
+      "candidates": 36,
+      "eligible": 0,
+      "byReason": {
+        "ACTUAL_LINEUP_INCOMPLETE": 36,
+        "CONTEXT_LINEUP_UNAVAILABLE": 36,
+        "CONTEXT_PATCH_UNAVAILABLE": 36,
+        "CONTEXT_TEAMS_UNAVAILABLE": 36,
+        "SERIES_MEMBERSHIP_UNVERIFIED": 2,
+        "SERIES_UNKNOWN": 2
+      }
+    },
+    "post_draft": {
+      "status": "unavailable",
+      "reason": "NO_ELIGIBLE_MAPS",
+      "candidates": 36,
+      "eligible": 0,
+      "byReason": {
+        "ACTUAL_LINEUP_INCOMPLETE": 36,
+        "CONTEXT_HEROES_UNAVAILABLE": 36,
+        "CONTEXT_LINEUP_UNAVAILABLE": 36,
+        "CONTEXT_PATCH_UNAVAILABLE": 36,
+        "CONTEXT_TEAMS_UNAVAILABLE": 36,
+        "OBSERVED_HERO_MISMATCH": 36,
+        "SERIES_MEMBERSHIP_UNVERIFIED": 2,
+        "SERIES_UNKNOWN": 2
+      }
+    }
+  },
+  "sourceMapCapture": {
+    "file": ".tools/s1-08-expansion-capture.json",
+    "sha256": "23155cb42202978fc12b6a8b1250ed902f01d5a31ab00ff94fa5a8305b0f6c87",
+    "bytes": 22420660
+  },
+  "sourceMapAudit": {
+    "file": "docs/evidence/s1-08-expansion-manifest.json",
+    "sha256": "21a40159bd455ffab574de91ae6433d4d401ba792daffafc6a9c3e6a4a91f588",
+    "bytes": 39635
+  },
+  "localArtifacts": [
+    {
+      "file": ".tools/s1-08-historical-accounts-inventory.json",
+      "sha256": "92710b6275bf33808b1fa26a032e181f6b53e1fa839d2a697d85b6d3cc951a2a",
+      "bytes": 50251
+    },
+    {
+      "file": ".tools/s1-08-historical-accounts-selection-1.json",
+      "sha256": "07bc76deb33c8240245ffe8e9f8d7d887a7ab6ae34873b393a67999b4030254c",
+      "bytes": 1468
+    },
+    {
+      "file": ".tools/s1-08-historical-accounts-plan.json",
+      "sha256": "4471bcac9fa3eb14f5cb4e6ece10cc63bcf5caa55321914812214eab3ff4744d",
+      "bytes": 35547
+    },
+    {
+      "file": ".tools/s1-08-historical-accounts-applied.json",
+      "sha256": "d3acb954f446b7bee9c4f833a8dd5ebe29e196ec9a9a7a5e03a1b8e1dbae8c07",
+      "bytes": 58649
+    },
+    {
+      "file": ".tools/s1-08-historical-accounts-replay.json",
+      "sha256": "186233f7219a5b81424cf10437ecaeb9a35107d531330aa2a0820639a7a6684b",
+      "bytes": 58453
+    },
+    {
+      "file": ".tools/s1-08-historical-identities-before.json",
+      "sha256": "7014dcccd2f46dd1f67d2821c0da893ffd7f4a4c3c9707ca204ca42688c3dceb",
+      "bytes": 304146
+    },
+    {
+      "file": ".tools/s1-08-historical-identities-finish.json",
+      "sha256": "ed852093df2148bd883eed38b0ac90c8824385d15e82b1c00c8c8ca70b23bc50",
+      "bytes": 131049
+    },
+    {
+      "file": ".tools/s1-08-historical-identities-profiles.json",
+      "sha256": "2f9387d22e911e281d44bc8083738b36626fba50ff2a2aa2af797be788997e68",
+      "bytes": 13356
+    },
+    {
+      "file": ".tools/s1-08-historical-profiles.json",
+      "sha256": "ef9814d31555349ab6da979e385f8ea047d3e4958b0d8ea1ef711f952c4b67a1",
+      "bytes": 15603
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-7910302.json",
+      "sha256": "5be7100d0dbe38244e3d23a6b2a396e5a0d255c86d6e393792cc07da25028c7d",
+      "bytes": 2139
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-7910302-selection.json",
+      "sha256": "3fec421585b2dc8bb74ec43071b933704a58586b386f345189968d011a0b0c3c",
+      "bytes": 84
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-7910302-plan.json",
+      "sha256": "330e72cb71e300189f874c6105a88f6ba5f78b3505ce3af0a8e38f40a5b33901",
+      "bytes": 1408
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-7910302-applied.json",
+      "sha256": "63223cb2a9b9f4994aa4b22f3dda9960a9464281fded120e7f4748244969b566",
+      "bytes": 1514
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-7910302-replay.json",
+      "sha256": "a4eb915c92ae23521b5cdcafefd6c3625c294a5063bac652309f42804dbb09d9",
+      "bytes": 1530
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-19672354.json",
+      "sha256": "1eecc86c3dffa06c352ddbfce5d8823f324e4a6dc8fb5ee5710d32b663386976",
+      "bytes": 2252
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-19672354-selection.json",
+      "sha256": "4ab4e77957a1dad268f5f44870bb368b73466920d27a2b886ad939a3324a69de",
+      "bytes": 85
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-19672354-plan.json",
+      "sha256": "1ea37186f9a76ee7ac41c99f0570edc8f9e3dfcb66feb5f1ebf99ca84cad6d1d",
+      "bytes": 1449
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-19672354-applied.json",
+      "sha256": "78cefdac9e67aea533cefb562f80a2ee59414dcaab262cba80f1f7912ac55f75",
+      "bytes": 1554
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-19672354-replay.json",
+      "sha256": "0ba1d51074b58c4c163fc068824270f549e872fe80fe75f96cf2f86d07b32a50",
+      "bytes": 1570
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-38628747.json",
+      "sha256": "ba463b61ced5c6f3c123c32777b6bf45eaf688c2b9f1b4c2bb18a237ee11123f",
+      "bytes": 2257
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-38628747-selection.json",
+      "sha256": "4f419c77498ca4c0137e3ed9f79f0633ff246c021de921e5e73c1e59d1c0116e",
+      "bytes": 85
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-38628747-plan.json",
+      "sha256": "10e5874a0ab4da74efe0ad2d0a791319ec82d651ffac27ac7735e9e22f838b88",
+      "bytes": 1409
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-38628747-applied.json",
+      "sha256": "641bdeff6bb2cc438568a7a98caf713e290396aaf5eef49bc106dd3aeba8bafd",
+      "bytes": 1514
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-38628747-replay.json",
+      "sha256": "c5e62f5e33095a51ae01d7f6cc5c0ab1b1c3fa96b327a0317c85bc5d54cf996d",
+      "bytes": 1530
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87012746.json",
+      "sha256": "050be220b7d69977198b7a7a962740097996df7f7ac64cc9fa2d358b8442c0c7",
+      "bytes": 1699
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87012746-selection.json",
+      "sha256": "a42163c4292bada78c379a31d2d5289a650757c59b3d05f9bdc9f54c22429cbb",
+      "bytes": 85
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87012746-plan.json",
+      "sha256": "2cf812f4894be55d40b18de8edf67199381ee98478e008c0216753fdaffb6d2c",
+      "bytes": 1405
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87012746-applied.json",
+      "sha256": "f8a8ca7d91108690cfabf5d7af732a35c70fdd7ef8e5b7f6225907faf875962e",
+      "bytes": 1510
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87012746-replay.json",
+      "sha256": "e9673b4e418b25d90ccf366cbf1e4c57e490f0b187cb4e9ff24437d38a232a03",
+      "bytes": 1526
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87196890.json",
+      "sha256": "df944173bc08c323d4d3f29456c0e6fa0346b6b91a2dd27151384f64506d0730",
+      "bytes": 2048
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87196890-selection.json",
+      "sha256": "e6cdfae60b2f318f8fd82cdc5d5223b46485032a8d2f003fd8a31e067f2f661b",
+      "bytes": 85
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87196890-plan.json",
+      "sha256": "e273e722bd39b5a216b9f88d35a15c22d54307adca0a36d27016cb9ddb86fc57",
+      "bytes": 1395
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87196890-applied.json",
+      "sha256": "3db21cde3d13e935f9905f69e3b22973625c18c3fd04c7c37193a90319c596d7",
+      "bytes": 1500
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-87196890-replay.json",
+      "sha256": "f42a1f7afe0d2a6fc5c14b4977b5934c3bff0c069061a421b514951160aaf301",
+      "bytes": 1516
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-90882159.json",
+      "sha256": "88ae0620a39813088d9fca89e7dc02fafe3eeb0291d8460d456410caae3cf207",
+      "bytes": 2098
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-90882159-selection.json",
+      "sha256": "64c359e81c0d6df5c641a8d1f114e279cf8332447aefc1f364b8070c85b867e8",
+      "bytes": 85
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-90882159-plan.json",
+      "sha256": "3725913c8168ba1e2c7d768b5daba9bd787d94e61d3024e64ddc8671eb55e207",
+      "bytes": 1409
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-90882159-applied.json",
+      "sha256": "54568f6b61570c7103712e56d4bbe065bff11e06a24bed402d8ca1fdf70aa966",
+      "bytes": 1514
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-90882159-replay.json",
+      "sha256": "9b720eb82bd0ad8aa339b41076fcb302b18c35471b85244f7a3edc190d535bc5",
+      "bytes": 1530
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-93552791.json",
+      "sha256": "d24b38e122c3c7de228b0c1fb717f8eee552cbaabeac461b85d5abde9fc6e91e",
+      "bytes": 1949
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-93552791-selection.json",
+      "sha256": "b17888040e0f514b91423949850c59cdfefb85fc0178eed605c1d06cd5df9d4f",
+      "bytes": 85
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-93552791-plan.json",
+      "sha256": "e356c3452cbfc25493cd7bed1d775453b2ec098e79422a3afec376cb9eaf0e9c",
+      "bytes": 1389
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-93552791-applied.json",
+      "sha256": "be2c8d4338244e7fe2b87b88ac6ee3a638ba40c3c81e6f7b3230c1b5a8371a59",
+      "bytes": 1494
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-93552791-replay.json",
+      "sha256": "565bf5370a38018c5feeba640b19e1340de122c048ec03db27f4265af51fc47a",
+      "bytes": 1510
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-94281932.json",
+      "sha256": "61f94c3d07fc7e4d4b7e74aced60cc361f3119f78cc1f25484be2a79a99df124",
+      "bytes": 2014
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-94281932-selection.json",
+      "sha256": "c7bed3fc8b7641651096a97190baf45caed0005f3856c0cb536c1a4f3063457b",
+      "bytes": 85
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-94281932-plan.json",
+      "sha256": "157125ec5fc8f593772cd93095048e0eb2285b962438f8c7af2cf1f4b7bb9dc5",
+      "bytes": 1407
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-94281932-applied.json",
+      "sha256": "44433bbaab50d70aee18e62e5ec0d79ab6a9af1aa85536e77250f37683205db4",
+      "bytes": 1512
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-94281932-replay.json",
+      "sha256": "28518ab74d700ff4d9161fe6fc27ce509ea9e0e6145a591b2249e879b5109488",
+      "bytes": 1528
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-95727214.json",
+      "sha256": "4458a0ad44baeb9de5bcce5c93c08ece83890b50d3366ffabe23aaf9abfec4d8",
+      "bytes": 1661
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-95727214-selection.json",
+      "sha256": "70ddcde206e50347e82a50cb5ec1c6309da45c5d6b9f3d11a5e982957c19cceb",
+      "bytes": 85
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-95727214-plan.json",
+      "sha256": "8927d1130a3c862ad72d90ee6c9f445221f17e526f057f38b8e7dd8ce4cad68f",
+      "bytes": 1403
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-95727214-applied.json",
+      "sha256": "2dbfb23ddcea1cf02f9ee61d98fe14ccc3d9f16cc0e59876626ae3bef8af9d4b",
+      "bytes": 1508
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-95727214-replay.json",
+      "sha256": "beddc28af1ec3aeb32e0e923a3890408ba256f109ef392217443917dbb440b97",
+      "bytes": 1524
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-103850210.json",
+      "sha256": "6a207c5e0c483901eb3dc98a90a1f5bcdfcc470534d61ddb62d710ad3c6e7def",
+      "bytes": 2181
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-103850210-selection.json",
+      "sha256": "9e62a157a4a910cdf0e02b878ae80f45b5c4cbb9d5bd6bbc6371fb97d8e46079",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-103850210-plan.json",
+      "sha256": "9dbfaf9464f86bd56240d4072c92576119857f48236bd20fd4b597ec3e117aa1",
+      "bytes": 1440
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-103850210-applied.json",
+      "sha256": "4f7ca0c0513b626f6da2ede1fabc68e92ec9f8f5dedede84e884753ccf2e709a",
+      "bytes": 1544
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-103850210-replay.json",
+      "sha256": "e204fb7b612d63972ae9c3833e3fb6d912ab6e1508c63caf8ebd4008040d79d0",
+      "bytes": 1560
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-106863163.json",
+      "sha256": "6ed3f45c6a50b774901d15335a868b910bd0e2e56ecfec9d7e0de101fe6bfd35",
+      "bytes": 2083
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-106863163-selection.json",
+      "sha256": "136b47a67a7ed71eea161fb6cb737830c9db0f97fbc6fdae0c1df349ff63ea78",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-106863163-plan.json",
+      "sha256": "8dc5272515b965afb9ba8749f92a64d45810413b33154e4df6f2aa5e781cb052",
+      "bytes": 1418
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-106863163-applied.json",
+      "sha256": "6292a25bc87f7922e79db69d6f1559aa854047846eaf3a0b832a701d9fac4388",
+      "bytes": 1522
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-106863163-replay.json",
+      "sha256": "c5f9552b6afe6f428e907458dd17dc47b39b21b071f83b1ba71869cbdb6f558f",
+      "bytes": 1538
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-119535307.json",
+      "sha256": "10acb714fe0a1e836e651201c76476d10422d444e8e99fb444b97ed98406ebb2",
+      "bytes": 2166
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-119535307-selection.json",
+      "sha256": "c448ca6dcab8ed36a4a558c7e146210a80d3a3b78b247b4bc2c11cd8688f622e",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-119535307-plan.json",
+      "sha256": "22da8ff26f99d344751f42a1d2ff4873093dc8b65e9b9a6a64a77e737028d76c",
+      "bytes": 1402
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-119535307-applied.json",
+      "sha256": "1b013a2994f1c3bd5324e25987fd2c9a5b8f4704af57f810e5613a3fdf5d1b40",
+      "bytes": 1506
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-119535307-replay.json",
+      "sha256": "bd190f5873ff4f45c1cdf13d35cd3e9c2201ab83e3fde1b9b964f2ad51365c52",
+      "bytes": 1522
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121404228.json",
+      "sha256": "6a03ed13b4a4bb215de53079f71bda127388120b7292680eadea2265133b7a3d",
+      "bytes": 2095
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121404228-selection.json",
+      "sha256": "735d1c9e33b11077e95a9a2c8ce98c001e0b35d5f7e9daaab556d454ff7214bf",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121404228-plan.json",
+      "sha256": "2894803dcbf4ff9674ac9b0218c3a3fba107fac15bb443e15dcf3bfb52dd0715",
+      "bytes": 1398
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121404228-applied.json",
+      "sha256": "f401da10a6d58f5b55cea5ca8e2ca29fc08ea3e40a60288db4ed56706ac429fe",
+      "bytes": 1502
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121404228-replay.json",
+      "sha256": "a02e747628ee2da0f853b6d0792f4c801f7bb0953e08a26a62b04e7b7ac9bda3",
+      "bytes": 1518
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121769650.json",
+      "sha256": "b3cda5359487d179c10263c34425eec12dc3cc7b1dfa4c4c088f234521884d4c",
+      "bytes": 1460
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121769650-selection.json",
+      "sha256": "e93d16fb9b0da15d8aeec2f816ee996962ce3b418f230e4ce79df0688213e8e5",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121769650-plan.json",
+      "sha256": "0a82ea34b96fab507672c3c75d41a0485d4d40b31d8bdd42f99c34067835df57",
+      "bytes": 1404
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121769650-applied.json",
+      "sha256": "91eeb342ab2afe3407a45ea4504cbf48852f9828c76278cdc0aec623ecc871c1",
+      "bytes": 1508
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-121769650-replay.json",
+      "sha256": "794c052a6ca790bffa40c59fb62c2f32cbdadb060125b53a3453a7d69ab3bce9",
+      "bytes": 1524
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-134711350.json",
+      "sha256": "61632aa389d84468c161697960e05a2d9c5ae365e4bfd63d322285ee2e8f80eb",
+      "bytes": 3614
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-134711350-selection.json",
+      "sha256": "c739702d55a37b87723702f97444ba93baf749e18fcd75432f084402870ea85c",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-134711350-plan.json",
+      "sha256": "a8d7dd8b21533961f194f798c2cffa9c38af5f7d1694e70e091744cec3bfa64a",
+      "bytes": 1412
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-134711350-applied.json",
+      "sha256": "aad9619cc1d472b26fd80143615e888bb15eae69226ba5bd69451708bc51b4b0",
+      "bytes": 1516
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-134711350-replay.json",
+      "sha256": "b385f5dd2f61b212242e46044a0165ef4d103bd9025636c8d2bda91d839dddda",
+      "bytes": 1532
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-136177710.json",
+      "sha256": "784f352f76323b2ce8351e9abe9c5954285108070f1a61fc18f1a1820fe88a7a",
+      "bytes": 2197
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-136177710-selection.json",
+      "sha256": "c0367f89c416287d40bf9c8fe8fe7f95ebfe56a1cac6aaccb0a7a3687368b704",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-136177710-plan.json",
+      "sha256": "a2a1e38e7e215560ecd0c9ab9725b5d395188e176672abb756f1b1270a143c58",
+      "bytes": 1430
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-136177710-applied.json",
+      "sha256": "8ef54422a93f240d6edc3893c5f2f4216044690bb5b0d54a34f3be288e843ca3",
+      "bytes": 1534
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-136177710-replay.json",
+      "sha256": "34ca1c5aa0309574883480d2506a1fb575082ed9329ceea715bfa9c8afc329a0",
+      "bytes": 1550
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-143278997.json",
+      "sha256": "e3c28eae54e97674f4c10ce5207bc279a5fb132d56c46688482933b90e0d043a",
+      "bytes": 1560
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-143278997-selection.json",
+      "sha256": "f146fec90bef044669beedc76479792bb42a349adb30fc901bb343228fe3b558",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-143278997-plan.json",
+      "sha256": "613cdee78098088aac781cb4693ba0c031be065723e5ae15b3dc811b051ad26b",
+      "bytes": 1406
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-143278997-applied.json",
+      "sha256": "64d00ae92198312af16becba89454ea2d470bc4375db9d7d0fcada91a9fe9f47",
+      "bytes": 1510
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-143278997-replay.json",
+      "sha256": "568bba3f792a295ea3b351d87b447fef21c2593fe2e13e2be331453856c6b6b7",
+      "bytes": 1526
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-145550466.json",
+      "sha256": "b70b52f4205b202d819d995795be1e0d19e0c801bdc28c01ad3338ea36fcfdf9",
+      "bytes": 1521
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-145550466-selection.json",
+      "sha256": "3c03a73870640d626c2deedb5d40080e0841888c3a174785507ae587bb44de45",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-145550466-plan.json",
+      "sha256": "522772aa4f6c82b883698b7ad66179e37e9f7b3357826dcaf48c04a49593ccae",
+      "bytes": 1398
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-145550466-applied.json",
+      "sha256": "33080fae42cf9246e5787ca8f93d6027208955c3fd99bf4f89a9f63d94489976",
+      "bytes": 1502
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-145550466-replay.json",
+      "sha256": "b34013ca0c9fb556cec495c543fbb14f8674995858d67088a7940fcc32a6f196",
+      "bytes": 1518
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-186627166.json",
+      "sha256": "d17aea10d22bb7d163f1a13e17baade36ce3a563fd13396552e835fe746ba0df",
+      "bytes": 2037
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-186627166-selection.json",
+      "sha256": "37e0daccd98ab90a6df8fd115f3c218d977310697aa6ec4a5d12173e3bdcad3f",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-186627166-plan.json",
+      "sha256": "f3101841bf92c34631d63a0e345fcf6a4d10f3a4caf58bfea8e2a6b48d8d0baa",
+      "bytes": 1404
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-186627166-applied.json",
+      "sha256": "b6e50da399e6e88013552b531aa47cf380f8dd9d0bbfbf5bc695543c64055e9c",
+      "bytes": 1508
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-186627166-replay.json",
+      "sha256": "32d5e692e54305da9723b4dcad582da2561e0a3b35c737c1f8f9718a6863380d",
+      "bytes": 1524
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-205517338.json",
+      "sha256": "8f419ffe6da5e19420ad842a8e2b0837efa7a6bc0022b651f22d8be0c5f4d79d",
+      "bytes": 1609
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-205517338-selection.json",
+      "sha256": "8ebc04327c3c5efa5f616aa7880d065981d2d74595c0ccdc7a038e537be434c8",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-205517338-plan.json",
+      "sha256": "2ee49ff598a60a6a5352aefc4fc697211fece9576d8a8b715a587a8f2739186a",
+      "bytes": 1410
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-205517338-applied.json",
+      "sha256": "9ca971e616f45bbd3f446cab2da18d96cc108d0b12e6e2247361238791c1b5ad",
+      "bytes": 1514
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-205517338-replay.json",
+      "sha256": "0bc5976ff38beb054e7e7938631b3a171ade9711f252f1a7ebb75e6bb39b2bc8",
+      "bytes": 1530
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-313198707.json",
+      "sha256": "9e02b98b8fb72da423a989762ad533bae763007933004bb2327f54ddcbb27a7f",
+      "bytes": 1692
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-313198707-selection.json",
+      "sha256": "7eb5718680607351e54a45c5d435ce2050597de894e554e0d094f578c9da8c34",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-313198707-plan.json",
+      "sha256": "404aa1c7a35b26467fe87ecb0b38f49665c304fad0777231f60d66c21b2ce836",
+      "bytes": 1394
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-313198707-applied.json",
+      "sha256": "2c659c7217fdd768966f575a04cadfc286e3cfae2df87762da90716c2c73fbc7",
+      "bytes": 1498
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-313198707-replay.json",
+      "sha256": "ba8e16ab2e7a90f911f4defa597a54102a0c814fa1a1f974a264519fee7f6c35",
+      "bytes": 1514
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-368917218.json",
+      "sha256": "d4ad3332b08fcd6a2c18ae48b11de899f49d2fe0cab979db5d86526914542d7d",
+      "bytes": 2078
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-368917218-selection.json",
+      "sha256": "9c638a8825db06cf6f33f2e7a9e0664b1766d5cb8909a845e3813e4c7535997c",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-368917218-plan.json",
+      "sha256": "a089316c422d14ff36eeb31728cd132d4354c173f5249f3762187c7be11f041a",
+      "bytes": 1394
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-368917218-applied.json",
+      "sha256": "21876eff3285cdfc5b08f24b06a0e4585b222afc1f5c4a49c19bdf580eabbfe1",
+      "bytes": 1498
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-368917218-replay.json",
+      "sha256": "270c742a9d0f0e237ceb6a5cdc60bcd4aac863c80a211c12dfb7718dd30247c8",
+      "bytes": 1514
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-400709028.json",
+      "sha256": "b0768718a744fc41ef3ad669b5e800cba1bec4f5bdfb0def0df02b239ad2095f",
+      "bytes": 1564
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-400709028-selection.json",
+      "sha256": "1434a4a407fe53612da6351134b6e3de3dc2dbbd1265eea46934d28d412c3e16",
+      "bytes": 86
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-400709028-plan.json",
+      "sha256": "c80647b991ead7b1fa1b5db72982a43f5021d1dffb5700940c3ae46276cb05cd",
+      "bytes": 1396
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-400709028-applied.json",
+      "sha256": "09be465f5e64b7eff2756e5970037342d38dcac29ba2c3466ad08a2ee16841e2",
+      "bytes": 1500
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-400709028-replay.json",
+      "sha256": "0c7da5ef77aa45923946a2794a0d6b27f96f805ecabcbf5384c5d8834b3a95be",
+      "bytes": 1516
+    }
+  ],
+  "code": [
+    {
+      "file": "packages/ingestion/src/opendota/current-accounts.ts",
+      "sha256": "d6f2262a20768eee97a728055b056ae441877257f0a89b366fa416cb5057fb76",
+      "bytes": 2131
+    },
+    {
+      "file": "packages/ingestion/src/opendota/current-profile.ts",
+      "sha256": "5bc6954f29f2cae2b4fb6a4c74fcf74aaf59b03010ef21b2df2ef46d56f3676c",
+      "bytes": 2183
+    },
+    {
+      "file": "packages/db/src/identity-provision.ts",
+      "sha256": "00e9c7142d2758f273ec2d355d038a6e2c2877469b30f34d75a3a000db935303",
+      "bytes": 10940
+    },
+    {
+      "file": "packages/ingestion/src/importer.ts",
+      "sha256": "7024a031ed1a6a0c0dab9f4b3bab1e4dd8d0059e2355b9f89f91fe7ba1e31358",
+      "bytes": 20076
+    },
+    {
+      "file": "scripts/provision-current-accounts.mjs",
+      "sha256": "1a2878e86617a60492f05a9ff3860b69ab4d21acddcab04e0846a88b53b85928",
+      "bytes": 3545
+    },
+    {
+      "file": ".tools/s1-08-historical-profile-capture.mjs",
+      "sha256": "67c0719785ecf2b692dcac693f84c5c433d1f3278fe51cec79cb1ee75f0d5da5",
+      "bytes": 2136
+    },
+    {
+      "file": ".tools/s1-08-historical-identities.mjs",
+      "sha256": "a9c4f4a2169b31a00f40ece710257cd7b8309969412fc1bd648450a02b5a1b7a",
+      "bytes": 8747
+    }
+  ],
+  "limitations": [
+    "One canonical record per verified numeric account; no nickname-based person merge or cross-provider roster mapping.",
+    "Profile does not establish professional status, role or match lineup.",
+    "Identity knownAt equals source fetchedAt, not historical match time; all106 new links unavailable before historical maps.",
+    "Full profiles and replay plans are local ignored artifacts; a checkout alone cannot reproduce exact source bytes."
+  ],
+  "nextTask": "S1-08 verify authoritative series_type=3 semantics for remaining source series903379/903582; extend tested decoder only if supported by evidence, preserving map/series distinction.",
+  "trainingReady": false,
+  "deployable": false,
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "unitTests": 448,
+    "build": "PASS",
+    "postgresIntegrationTests": 36,
+    "migrationChecksumChecks": 22,
+    "sourceAndArtifactSha": "PASS",
+    "credentialScan": "PASS",
+    "docsLinks": "PASS",
+    "browserTests": "not_run",
+    "pythonBacktest": "not_run"
+  }
+}

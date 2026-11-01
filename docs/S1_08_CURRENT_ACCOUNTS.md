@@ -1,5 +1,7 @@
 # S1-08 — привязка участников по числовым аккаунтам
 
+**Актуальный результат после исторического расширения:** все165 source account IDs на36 pro-картах разрешены;360/360 player references, complete canonical players36/36. Ниже сохранён первый checkpoint малой16-map выборки; новый106-account checkpoint приведён в конце. Это текущая ретроспективная идентификация, не доказательство lineup до старта.
+
 2026-11-01: на 16 локальных pro-картах найдено 50 разных account ID. У 28 не было canonical identity; это делало player references неполными на 12 картах. Два сохранённых ответа OpenDota `/proPlayers` содержат согласованные Steam32/Steam64 для 27 из них. После review, регистрации и штатного reimport полные player references есть у **14 из 16 карт** (было 4).
 
 Аккаунт `1150772339` отсутствует в обоих снимках registry. Карты `9056685103` и `9056844521` остаются неполными. Отсутствие строки не означает, что игрок не профессиональный, не существует или перестал играть. Никнейм, текущая организация и вычисляемая формула Steam64 не заменяют отсутствующий source proof.
@@ -50,4 +52,18 @@ Datasets0/active models0, field observations с known_at0; исходные2 pro
 
 Evidence: [новый quality report](evidence/s1-08-accounts-quality.json), [manifest, SHA, replay и strict previews](evidence/s1-08-current-accounts.json). Исходные captures и полные отчёты остаются локальными ignored файлами.
 
-Следующий точный шаг **S1-08**: проверить numeric profile evidence для оставшегося account `1150772339` через именованный OpenDota client; при наличии source-bound Steam32/Steam64 подготовить отдельный reviewed proof, при отсутствии сохранить unknown. Не подменять registry source профилем или ником. Затем — реальное покрытие patch/as-of context и широкий corpus. Рекомендация для следующего identity/source шага: **GPT-6 Astra · High**.
+Прежний следующий шаг account1150772339 выполнен отдельно: [profile identity](S1_08_PROFILE_IDENTITY.md). Его источник и часы не менялись при историческом расширении.
+
+## Историческая выборка: 106 дополнительных аккаунтов
+
+После импорта20 исторических карт оставались106 unknown account IDs на19 неполных картах. Действующий resolver подтвердил отсутствие существующих current links. SHA-bound S1-12/S1-21 `/proPlayers` дают согласованные числовые пары Steam32/Steam64 для83 IDs. Existing `accounts:current` preview83 ready → атомарные83 players/proofs/aliases; повтор0 writes. Источник proof — S1-21 snapshot с knownAt2026-11-01T15:50:43.622Z, ранний snapshot только подтверждает совпадение числовых пар.
+
+Остальные23 отсутствуют в обоих registry snapshots. Именованный OpenDota client проверил `/players/{id}` с общим пределом69 attempts: реально23 HTTP200, retries/errors0. Все23 ответа предоставили согласованные account ID/Steam64 и пригодный display alias. Они обработаны через существующую `reviewed-current-profile-v1` и IdentityProvisioner: отдельный source URL/knownAt=fetchedAt, fresh preview перед каждым apply (registry revision меняется), индивидуальный replay0 writes. Профиль не переименовывается в registry и не утверждает pro status/роль/состав. Ни nickname joins, ни cross-provider person merges не выполнялись.
+
+Всего106 новых players/proofs/aliases, current registry59→165/revision118→330. Старые59 player/proof/alias rows сохранены по fingerprint, identity provision не изменял карты/участников/receipts. Штатный importer перечитал исходный SHA-bound20-map capture без HTTP:19 изменений,1 duplicate; контрольный replay20 duplicate с неизменными состоянием и quality fingerprint. Подтверждены неизменность всех исходов/героев/команд/series и старых player links; только151 ранее пустая player reference заполнена. Теперь все165 различных source accounts разрешены,360/360 слотов; player completeness17→36/36, canonical conflicts0.
+
+Working maps36/teams35/series26/assessments112/receipts153, datasets0/active models0, upcoming observations2/known field observations0. Outcome/players/heroes/teams36/36, series34/36; unsupported type3 на двух картах остаётся unknown. Все106 новых identities недоступны historical resolver на2026-10-01 (позже всех20 исторических карт, но раньше новых proofs). Поэтому strict pre/post preview всё ещё36 candidates/0 eligible; `ACTUAL_LINEUP_INCOMPLETE` в strict context не противоречит полной текущей descriptive идентификации. Никакого обучения, активации или ослабления gates.
+
+[Manifest с source SHA, mappings, replay и strict previews](evidence/s1-08-historical-accounts.json), [качество](evidence/s1-08-historical-accounts-quality.json). Full source profiles/registry/планы/replay/helper остаются в ignored `.tools`; exact-byte replay требует этих локальных файлов. Production code/SQL/dependencies/API/UI не менялись; используются уже проверенные boundaries. Browser/Python/backtest не запускались.
+
+Следующий точный шаг **S1-08**: проверить первичный источник значения `series_type=3` для903379/903582 и только при подтверждении расширить tested decoder. Не выводить формат по числу локальных карт, не вводить прогноз серии и не переписывать старые evidence. Затем canonical patch/as-of/corpus gates по плану. Рекомендована **GPT-6 Astra · High**, выбор модели вручную.
