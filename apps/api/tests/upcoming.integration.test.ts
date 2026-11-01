@@ -1,4 +1,5 @@
 import {randomBytes} from 'node:crypto';
+import {createHash} from 'node:crypto';
 import {beforeEach,afterEach,test,expect} from 'vitest';
 import type {FastifyInstance} from 'fastify';
 import {sql,ScheduleCacheRepository,PandaScoreQuotaRepository} from '@dota/db';
@@ -35,6 +36,31 @@ test('real repository cache serves schema-checked data and avoids repeated provi
   expect((await refresh()).json().snapshot).toEqual(s.snapshot);expect((await get()).json().snapshot).toEqual(s.snapshot);expect(calls).toHaveLength(1);
   expect((await sql`SELECT * FROM matches`.execute(database.db)).rows).toHaveLength(0);
 });
+test('successful provider refresh freezes a source observation without assigning a map lineup',async()=>{
+  await refresh();
+  const tournament='/api/v1/upcoming/tournaments/71001';
+  await refresh(tournament+'/refresh');
+  const read=()=>sql<{cache_key:string;source_fetched_at:Date;recorded_at:Date;source_payload_sha256:string;
+    snapshot_sha256:string;snapshot_text:string}>`SELECT cache_key,source_fetched_at,recorded_at,source_payload_sha256,
+    snapshot_sha256,snapshot_text FROM upcoming_source_observations ORDER BY id`.execute(database.db);
+  const rows=(await read()).rows;
+  expect(rows.map(r=>r.cache_key)).toEqual(['schedule','tournament:71001']);
+  for(const row of rows){
+    const snapshot=JSON.parse(row.snapshot_text);
+    expect(row.source_fetched_at.getTime()).toBeLessThanOrEqual(row.recorded_at.getTime());
+    expect(row.source_payload_sha256).toBe(snapshot.source.payloadSha256);
+    expect(row.snapshot_sha256).toBe(createHash('sha256').update(row.snapshot_text).digest('hex'));
+    expect(row.snapshot_text).not.toContain(scheduleToken);
+  }
+  expect(JSON.parse(rows[0]!.snapshot_text).data[0].scheduledAt).toBeDefined();
+  expect(JSON.parse(rows[1]!.snapshot_text).data[0].players).toHaveLength(6);
+  expect((await sql`SELECT count(*)::int AS n FROM matches`.execute(database.db)).rows[0]).toMatchObject({n:0});
+  expect((await sql`SELECT count(*)::int AS n FROM scenarios`.execute(database.db)).rows[0]).toMatchObject({n:0});
+  await refresh();await refresh(tournament+'/refresh');
+  expect((await read()).rows).toHaveLength(2);
+  await expect(sql`UPDATE upcoming_source_observations SET cache_key='schedule' WHERE cache_key='tournament:71001'`.execute(database.db)).rejects.toThrow();
+  await expect(sql`DELETE FROM upcoming_source_observations`.execute(database.db)).rejects.toThrow();
+});
 test('tournament lookup stays within cached schedule and preserves all six expected players',async()=>{
   await refresh();const path='/api/v1/upcoming/tournaments/71001';expect((await get(path)).json().snapshot).toBeNull();
   const r=await refresh(path+'/refresh');expect(r.statusCode).toBe(200);expect(r.json().snapshot.data.map((t:{players:unknown[]})=>t.players.length)).toEqual([6,5]);
@@ -51,6 +77,7 @@ test('stale snapshot survives provider failure and durable cooldown prevents ret
 test('a reflected credential is rejected before caching or responding',async()=>{
   echo=true;const r=await refresh();expect(r.json().snapshot).toBeNull();expect(r.json().reason).toBe('source_unavailable');expect(r.body).not.toContain(scheduleToken);
   expect((await new ScheduleCacheRepository(database.db).read('schedule')).payload).toBeNull();
+  expect((await sql`SELECT count(*)::int AS n FROM upcoming_source_observations`.execute(database.db)).rows[0]).toMatchObject({n:0});
 });
 test('concurrent refresh obtains one lease and lease replacement rejects a late writer',async()=>{
   const a=new ScheduleCacheRepository(database.db),b=new ScheduleCacheRepository(database.db);

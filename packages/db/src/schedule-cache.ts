@@ -1,5 +1,6 @@
-import {randomUUID} from 'node:crypto';
+import {createHash,randomUUID} from 'node:crypto';
 import {sql,type Db} from './index.js';
+import {ScheduleCacheDataSchema,RostersCacheDataSchema} from '@dota/contracts';
 export interface ScheduleCacheRow{payload:unknown;expires_at:Date|null;retry_at:Date|null;lease_until:Date|null;failure_code:'source_unavailable'|null;now:Date}
 const keyCheck=(key:string)=>{if(!/^(?:schedule|tournament:[1-9]\d{0,18})$/.test(key))throw new Error('invalid_schedule_cache_key');};
 export class ScheduleCacheRepository{
@@ -22,11 +23,25 @@ export class ScheduleCacheRepository{
       return r.rows.length?token:null;
     });
   }
-  async publish(key:string,token:string,payload:unknown){
+  async publish(key:string,token:string,payload:unknown,recordObservation=false){
     keyCheck(key);
-    await sql`UPDATE upcoming_source_cache SET payload=${JSON.stringify(payload)}::jsonb,expires_at=clock_timestamp()+interval '5 minutes',
-      lease_token=NULL,lease_until='-infinity',retry_at='-infinity',failure_code=NULL
-      WHERE cache_key=${key} AND lease_token=${token}::uuid AND lease_until>clock_timestamp()`.execute(this.db);
+    const snapshot=recordObservation?(key==='schedule'?ScheduleCacheDataSchema:RostersCacheDataSchema).parse(payload):null;
+    const endpoint=key==='schedule'?'/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20':
+      `/tournaments/${key.slice('tournament:'.length)}/rosters`;
+    if(snapshot&&snapshot.source.endpoint!==endpoint)throw new Error('source_endpoint_mismatch');
+    const snapshotText=snapshot?JSON.stringify(snapshot):null;
+    await this.db.transaction().execute(async tx=>{
+      const updated=await sql`UPDATE upcoming_source_cache SET payload=${JSON.stringify(payload)}::jsonb,expires_at=clock_timestamp()+interval '5 minutes',
+        lease_token=NULL,lease_until='-infinity',retry_at='-infinity',failure_code=NULL
+        WHERE cache_key=${key} AND lease_token=${token}::uuid AND lease_until>clock_timestamp() RETURNING cache_key`.execute(tx);
+      if(snapshot&&updated.rows.length){
+        const digest=createHash('sha256').update(snapshotText!).digest('hex');
+        await sql`INSERT INTO upcoming_source_observations(cache_key,provider,source_endpoint,source_payload_sha256,
+          source_fetched_at,snapshot_sha256,snapshot_text)
+          VALUES (${key},${snapshot.source.provider},${snapshot.source.endpoint},${snapshot.source.payloadSha256},
+            ${snapshot.source.fetchedAt},${digest},${snapshotText})`.execute(tx);
+      }
+    });
   }
   async fail(key:string,token:string,retryAfterMs=60000){
     keyCheck(key);const delay=Number.isFinite(retryAfterMs)?Math.max(60000,Math.ceil(retryAfterMs)):60000;

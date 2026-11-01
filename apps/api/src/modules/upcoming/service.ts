@@ -35,7 +35,7 @@ export class UpcomingService{
           const observation=key==='schedule'?await client.getUpcomingMatches():await client.getTournamentRosters(key.slice('tournament:'.length));
           const data=schema.parse(observation);
           if(JSON.stringify(data).includes(this.token.trim()))throw new Error('credential_echo');
-          await this.cache.publish(key,lease,data);
+          await this.cache.publish(key,lease,data,true);
         }catch(e){await this.cache.fail(key,lease,e instanceof PandaScoreError?e.retryAfterMs??60000:60000);}
       }
     }

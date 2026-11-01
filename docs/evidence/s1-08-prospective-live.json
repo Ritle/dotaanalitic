@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T17:12:23.920Z",
+  "scope": "live_owner_future_match_source_observations",
+  "artifact": {
+    "file": ".tools/s1-08-prospective-live-v3.json",
+    "sha256": "3e6b3394cebc81e630de90df7e1cb4e34fd8910cf64cada00244fa3b6be5c7d9",
+    "bytes": 1206
+  },
+  "selectedMatchId": "1756304",
+  "scheduledAt": "2026-11-02T19:00:00.000Z",
+  "scheduleStatus": "ready",
+  "selectedInFirstPage": true,
+  "rostersStatus": "ready",
+  "observations": [
+    {
+      "key": "schedule",
+      "sourceFetchedAt": "2026-11-01T17:12:20.743Z",
+      "recordedAt": "2026-11-01T17:12:20.785Z",
+      "sourcePayloadSha256": "8cccb730b024cb4259bbb48698d875c1c37bb630e7d1adf5a0dccf88c1689bc3",
+      "snapshotSha256": "b926b90f699e81dc774e4ae34ecfaeac22f01ccbc1e88e993de029af9815994b",
+      "selectedMatchPresent": true,
+      "tournamentTeamCount": null
+    },
+    {
+      "key": "tournament:22236",
+      "sourceFetchedAt": "2026-11-01T17:12:23.715Z",
+      "recordedAt": "2026-11-01T17:12:23.875Z",
+      "sourcePayloadSha256": "6337148bcbecf500fac2264e5f63c9f1ff7ce2025eb24cb2b06589d8d74e0359",
+      "snapshotSha256": "b05b539dfbe2d44016f3191a5f6c9fcc579b9301c1e6b78258e1b2797ddfb2d3",
+      "selectedMatchPresent": null,
+      "tournamentTeamCount": 8
+    }
+  ],
+  "before": 0,
+  "after": 2,
+  "canonicalIdentityLinksCreated": 0,
+  "mapLineupsVerified": 0,
+  "trainingExamples": 0,
+  "predictionsCreated": 0,
+  "state": {
+    "migrations": 21,
+    "pro_maps": 16,
+    "source_observations": 2,
+    "datasets": 0,
+    "active_models": 0,
+    "scenarios": 0
+  },
+  "code": [
+    {
+      "file": "packages/db/migrations/021_upcoming_source_observations.sql",
+      "sha256": "6a03eb941c15574f79fbb70b98d6ee3e695693965449d44098b973428ab4295c"
+    },
+    {
+      "file": "packages/db/src/schedule-cache.ts",
+      "sha256": "1307b18b5894b78a6fc65c0faca6705ae204694758f622e103b4cf9cc3e451b2"
+    },
+    {
+      "file": "apps/api/src/modules/upcoming/service.ts",
+      "sha256": "8a493fa902ef2fc21f18d7011a27f4a56a3bac2ba6c6654212743d8d163c0d30"
+    },
+    {
+      "file": "packages/contracts/src/upcoming.ts",
+      "sha256": "88f6c87c429ad7579ec441afab4a0052413239bea3a689d15db5e45b3f6f0819"
+    },
+    {
+      "file": "packages/db/src/dataset-builder.ts",
+      "sha256": "e20429f454aa30a3307deefd71a8c3b3cdbae74f9eeedaea0a2962a7edb0bd95"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783"
+    }
+  ],
+  "verifiedFutureMapLineup": false,
+  "canonicalProviderMapping": false,
+  "trainingReady": false,
+  "deployable": false
+}
