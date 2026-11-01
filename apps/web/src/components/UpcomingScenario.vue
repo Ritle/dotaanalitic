@@ -7,6 +7,7 @@ import {readCatalog} from '../catalog';
 import {ownerAuth} from '../auth';
 import CatalogPicker from './CatalogPicker.vue';
 import UpcomingTeamSummary from './UpcomingTeamSummary.vue';
+import UpcomingLineupCompare from './UpcomingLineupCompare.vue';
 const props=defineProps<{match:UpcomingMatch}>(),router=useRouter(),cache=useQueryClient();
 const five=()=>Array.from({length:5},(_,i)=>({rolePos:i+1,playerId:'',isStandin:false}));
 const form=reactive({title:(props.match.name??'Сценарий встречи').slice(0,120),teamAId:'',teamBId:'',lineupA:five(),lineupB:five()});
@@ -17,6 +18,8 @@ const input=computed(()=>ScenarioInputSchema.safeParse({...form,cutoffAt:new Dat
   confirmedByOwner:confirmed.value,expectedLineupA:null,expectedLineupB:null,
   context:{seriesId:null,leagueId:null,mapNumber:null,teamASeriesWinsBefore:null,teamBSeriesWinsBefore:null,radiantSlot:null,
     firstPickSlot:null,venueKind:null,tournamentStage:null}}));
+const comparisonInput=computed(()=>{const q=input.value;return q.success?{
+  teamAId:q.data.teamAId,teamBId:q.data.teamBId,lineupA:q.data.lineupA,lineupB:q.data.lineupB}:null;});
 async function create(){
   error.value='';
   if(props.match.scheduledAt&&props.match.scheduledAt<=new Date().toISOString()){
@@ -51,6 +54,7 @@ async function create(){
       </fieldset></div>
       <p v-if="form.teamAId&&form.teamBId"><RouterLink :to="{path:'/compare',query:{teamA:form.teamAId,teamB:form.teamBId}}">Открыть сравнение организаций →</RouterLink></p>
       <label class="check-row"><input v-model="confirmed" type="checkbox" required />Подтверждаю выбранных игроков и роли для одной карты</label>
+      <UpcomingLineupCompare :input="comparisonInput" />
       <p class="hint">Команды A/B не назначают Radiant/Dire. Герои и номер карты будут доступны в редакторе сценария.</p>
       <button type="submit" :disabled="!input.success">{{busy?'Создание…':'Создать ручной сценарий'}}</button>
     </fieldset></form><p v-if="error" class="error" role="alert">{{error}}</p>
