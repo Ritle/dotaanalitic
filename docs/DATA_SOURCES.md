@@ -1,5 +1,13 @@
 # Источники данных и техническая проверка
 
+## BALLDONTLIE — проверка доступа 2026-11-01
+
+По прямому запросу владельца проведён bounded read-only audit с локальным `BALLDONTLIE_API_TOKEN`: 3 GET, интервал не менее13с, timeout25с, без повторов/автопагинации. `GET /dota/v1/teams?search=GamerLegion` →200, одна команда с provider ID113. `GET /dota/v1/matches?dates[]=2026-11-02&per_page=25` и `/tournaments?per_page=5` →401 с body `Unauthorized`. Ключ принимается справочником, но доступ к матчам/турнирам не подтверждён. По документации401 означает неверный ключ **или** отсутствие доступа к endpoint; точный тариф аккаунта не установлен. Не считать401 пустым расписанием или отсутствием встречи.
+
+Расписание GamerLegion—CyberHero, турнирные составы и завершённые карты через этот источник пока не проверены. Тарифная документация относит турниры/составы к ALL-STAR+, матчи/карты/статистику к GOAT. Следующий шаг: владелец проверяет доступ именно к Dota 2 в dashboard; после исправления повторить bounded audit выбранной встречи/пятёрок/исторических карт. Покупка/активация trial не выполнялась. [Документация и тарифы](https://dota2.balldontlie.io/#account-tiers), [ошибки](https://dota2.balldontlie.io/#error-codes), [manifest](evidence/balldontlie-access-audit.json).
+
+Source IDs остаются отдельным namespace; nickname joins, DB import, training и изменение gates не выполнялись. Full local captures и одноразовый probe находятся в ignored `.tools/balldontlie-audit/`; manifest содержит только URL/время/status/SHA без credential/header. Это проверка доступа, не production client и не доказательство live coverage платных endpoints.
+
 ## OpenDota — основной источник
 
 - Base: `https://api.opendota.com/api`

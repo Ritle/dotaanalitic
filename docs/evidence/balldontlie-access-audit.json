@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "provider": "balldontlie",
+  "scope": "read_only_access_audit",
+  "databaseWrites": 0,
+  "requests": [
+    {
+      "sequence": 1,
+      "url": "https://api.balldontlie.io/dota/v1/teams?search=GamerLegion",
+      "requestedAt": "2026-11-01T19:26:19.615Z",
+      "completedAt": "2026-11-01T19:26:23.326Z",
+      "status": 200,
+      "retryAfter": null,
+      "sha256": "8d0ad8b28ca3a9bae5a421b4430e63c96e1d84a3767d4bc5e33e4695aeda308f",
+      "count": 1,
+      "meta": {
+        "per_page": 25
+      },
+      "validDataArray": true
+    },
+    {
+      "sequence": 2,
+      "url": "https://api.balldontlie.io/dota/v1/matches?dates[]=2026-11-02&per_page=25",
+      "requestedAt": "2026-11-01T19:26:36.335Z",
+      "completedAt": "2026-11-01T19:26:36.852Z",
+      "status": 401,
+      "retryAfter": null,
+      "sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+      "count": null,
+      "meta": null,
+      "validDataArray": false
+    },
+    {
+      "sequence": 3,
+      "url": "https://api.balldontlie.io/dota/v1/tournaments?per_page=5",
+      "requestedAt": "2026-11-01T19:26:49.861Z",
+      "completedAt": "2026-11-01T19:26:50.472Z",
+      "status": 401,
+      "retryAfter": null,
+      "sha256": "d089c8a9fc28e4e50223eb38c9409e362521be9380a37341304fbac7a4cd9e5f",
+      "count": null,
+      "meta": null,
+      "validDataArray": false
+    }
+  ],
+  "conclusion": "teams_accessible_matches_and_tournaments_unauthorized",
+  "exactAccountTier": "unknown",
+  "paidDataCoverage": "not_verified",
+  "nextAction": "Verify Dota 2 endpoint entitlement in provider dashboard, then repeat bounded upcoming/roster/map audit."
+}
