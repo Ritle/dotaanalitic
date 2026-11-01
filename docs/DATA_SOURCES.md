@@ -1,5 +1,9 @@
 # Источники данных и техническая проверка
 
+## S1-07 — client mapping source branch завершена
+
+Ограниченная проверка registered Steam library и трёх файлов pinned community GameTracking mirror не установила technical-version→balance-patch correspondence. Client/server6969 и104 localization tokens7.41f в файле с122 разными patch labels не являются active selector.5 HTTP200,5 SHA/3 exact Git blob checks; primary installed client snapshot не получен. Ветка остановлена до materially new evidence, accepted patch proofs0. [Результат и граница вывода](S1_07_CLIENT_MAPPING_STOP.md), [manifest](evidence/s1-07-client-mapping-review.json).
+
 ## Valve IGCVersion_570 — активная техническая версия, S1-07
 
 Проверка2026-11-01:4 backend GET/4 HTTP200, raw snapshots/SHA включены в репозиторий. GetClientVersion и GetServerVersion сообщили active_version6969; UpToDateCheck(app570,version0) — required_version37. Official API list подтвердил два IGC GET метода. Сохранённое наблюдение пригодно как technical-version fact, но буквенный patchLabel и связь6969→7.41f не доказаны; prospective patch proof не создан. Нельзя приравнять одноимённое поле active_version к reviewed balance-patch evidence. [Acceptance policy/ограничения](S1_07_ACTIVE_VERSION_SOURCE.md), [manifest](evidence/s1-07-active-version-source-review.json).

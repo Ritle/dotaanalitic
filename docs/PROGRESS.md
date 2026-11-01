@@ -803,3 +803,13 @@ Checks actually executed:4 raw artifact SHA/3 Zod payload shapes/2 official meth
 Known blockers: active technical version доступна, balance label mapping отсутствует; поэтому новый preparation contract не получил accepted patch evidence. Существующие16 recent maps остаются patch unknown; последние saved strict previews36/0 не пересчитывались. S1-07/S3-01/corpus/lineup/hero/model gates открыты.
 
 Next task: S1-07 — одна bounded primary client-data проверка exact technical-version→balance-label. Не повторять уже выполненные IGC/UpToDateCheck/coarse-code/publication audits; полный download/установка Dota2 не входят в scope. Если подтверждение недоступно, завершить source ветку явным blocker и предложить владельцу конкретный альтернативный scope, а не дополнительные похожие helpers. Suggested model: GPT-6 Astra · High, ручной выбор владельцем.
+
+### 2026-11-01 — S1-07: client mapping stop и выбор E0
+
+Goal / evidence: одна registered Steam library без app570/manifest;5 backend GitHub GET/HTTP200, pinned mirror ee99709f8b6b2cc1a4644c842645c3839ef043b0. Client/server6969; localization26238 tokens/122 labels/104 tokens7.41f не доказывает balance mapping. Community mirror не является Valve distribution attestation. Сохранены manifest/source pins/hashes и source stop decision; больших raw файлов в Git нет.
+
+Checks:5 artifact SHA/3 exact Git blob SHA PASS. Initial basename gameinfo.gi ошибочно сопоставился core path; исправлен full pinned path, source bytes не менялись. Frozen install/typecheck/test481/build PASS, verifier22/golden/doc links/diff PASS. DB integration/browser/Python/backtest не выполнялись, production code/SQL/DB/services не менялись. Scope отсутствия local client ограничен зарегистрированной библиотекой; полный поиск дисков/установка не выполнялись.
+
+Decision: mapping source branch завершена до materially new evidence. S1-07 остаётся unchecked. После подготовки docs/S3_01_E0_RESEARCH_PROPOSAL.md владелец явно ответил «Выполнить исследовательский E0 (рекомендую)». Переход по AGENTS§10 разрешён; E0 не становится strict/prospective cohort или production model.
+
+Next task: S3-01 E0 — реализовать approved isolated offline player-mean Elo export/evaluation, с отдельными assumptions/source clocks, whole-series chronological windows и research-only aggregate metrics. Suggested model: GPT-6 Astra · Extra High.

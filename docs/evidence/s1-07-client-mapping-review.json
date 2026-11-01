@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-01T20:44:06.661Z",
+  "decision": "mapping_unproven_source_branch_stopped",
+  "repository": "https://github.com/SteamTracking/GameTracking-Dota2",
+  "repositoryOwnerIsValve": false,
+  "revision": "ee99709f8b6b2cc1a4644c842645c3839ef043b0",
+  "treeTruncated": false,
+  "scope": "three_selected_client_metadata_files_in_community_mirror",
+  "backendRequests": 5,
+  "backendHttp200": 5,
+  "retries": 0,
+  "requests": [
+    {
+      "name": "ref.json",
+      "url": "https://api.github.com/repos/SteamTracking/GameTracking-Dota2/git/ref/heads/master",
+      "requestedAt": "2026-11-01T20:41:17.744Z",
+      "fetchedAt": "2026-11-01T20:41:18.321Z",
+      "status": 200,
+      "bytes": 375,
+      "sha256": "a4e0232353ebfab06a939841caca2099bc9adef6686549f070f9434862ae8e01"
+    },
+    {
+      "name": "tree.json",
+      "url": "https://api.github.com/repos/SteamTracking/GameTracking-Dota2/git/trees/ee99709f8b6b2cc1a4644c842645c3839ef043b0?recursive=1",
+      "requestedAt": "2026-11-01T20:41:19.432Z",
+      "fetchedAt": "2026-11-01T20:41:20.614Z",
+      "status": 200,
+      "bytes": 6355126,
+      "sha256": "f006aa817c39472c8ebf96070400cbc906fa1e028e5d196dcc3f42cb6a8e3a6e"
+    },
+    {
+      "name": "steam.inf",
+      "url": "https://raw.githubusercontent.com/SteamTracking/GameTracking-Dota2/ee99709f8b6b2cc1a4644c842645c3839ef043b0/game/dota/steam.inf",
+      "requestedAt": "2026-11-01T20:41:31.415Z",
+      "fetchedAt": "2026-11-01T20:41:31.939Z",
+      "status": 200,
+      "bytes": 210,
+      "sha256": "0601db2368ca7082f844f01f95c27d15237e92bb144686514c9fd49cabf47185"
+    },
+    {
+      "name": "gameinfo.gi",
+      "url": "https://raw.githubusercontent.com/SteamTracking/GameTracking-Dota2/ee99709f8b6b2cc1a4644c842645c3839ef043b0/game/dota/gameinfo.gi",
+      "requestedAt": "2026-11-01T20:41:33.046Z",
+      "fetchedAt": "2026-11-01T20:41:33.298Z",
+      "status": 200,
+      "bytes": 8093,
+      "sha256": "e5408aeb9ab31849fb06f05bcfc7db28c2cf075e0e93fe6e691535d99f2f313a"
+    },
+    {
+      "name": "patchnotes_english.txt",
+      "url": "https://raw.githubusercontent.com/SteamTracking/GameTracking-Dota2/ee99709f8b6b2cc1a4644c842645c3839ef043b0/game/dota/pak01_dir/resource/localization/patchnotes/patchnotes_english.txt",
+      "requestedAt": "2026-11-01T20:41:34.415Z",
+      "fetchedAt": "2026-11-01T20:41:35.413Z",
+      "status": 200,
+      "bytes": 2834866,
+      "sha256": "5c6d39aedd374fb5d20fc119c2c7aac8ea46504072d886d9e56954a0a6087411"
+    }
+  ],
+  "blobChecks": [
+    {
+      "path": "game/dota/steam.inf",
+      "gitBlobSha": "36317c227fb4220adfe452960f637f7b3b2ffe62",
+      "matchesPinnedTree": true
+    },
+    {
+      "path": "game/dota/gameinfo.gi",
+      "gitBlobSha": "50b1d3c9c0e612dc294e66261d2967ba24a57ace",
+      "matchesPinnedTree": true
+    },
+    {
+      "path": "game/dota/pak01_dir/resource/localization/patchnotes/patchnotes_english.txt",
+      "gitBlobSha": "279221dc527ac0e3127947c5db9598d9a51fa9f2",
+      "matchesPinnedTree": true
+    }
+  ],
+  "localClientCheck": {
+    "source": "registered_Steam_installation_and_library_metadata",
+    "registeredLibraryCount": 1,
+    "dotaListedInLibraryMetadata": false,
+    "appManifest570FoundInRegisteredLibrary": false,
+    "fullDiskSearch": false,
+    "installationOrDownloadPerformed": false,
+    "privatePathsPublished": false
+  },
+  "observedMetadata": {
+    "appId": "570",
+    "productName": "dota2_workshop",
+    "clientVersion": "6969",
+    "serverVersion": "6969",
+    "sourceRevision": "11175759",
+    "versionDateRaw": "Oct 27 2026",
+    "versionTimeRaw": "12:56:06",
+    "timezone": null
+  },
+  "patchNotesInventory": {
+    "matchedTokenCount": 26238,
+    "distinctLabels": 122,
+    "exampleHistoricalLabels": [
+      "7.06d",
+      "7.06e",
+      "7.07",
+      "7.07b",
+      "7.07c"
+    ],
+    "tokens741f": 104,
+    "interpretation": "localization_history_not_active_patch_selector"
+  },
+  "acceptance": {
+    "activePatchMapping": null,
+    "patchLabel": null,
+    "prospectivePatchEvidence": [],
+    "reasons": [
+      "NO_PRIMARY_INSTALLED_CLIENT_SNAPSHOT",
+      "MIRROR_NOT_VALVE_DISTRIBUTION_ATTESTATION",
+      "HISTORICAL_NOTE_PRESENCE_NOT_VERSION_MAPPING"
+    ],
+    "sourceBranch": "stopped_until_material_new_evidence",
+    "alternativeProposal": "docs/S3_01_E0_RESEARCH_PROPOSAL.md",
+    "alternativeApproved": false
+  },
+  "checks": {
+    "artifactSha256": "passed_5",
+    "pinnedGitBlobSha": "passed_3",
+    "rawFilesRemainLocal": true
+  },
+  "databaseWrites": 0,
+  "canonicalPatchAssignments": 0,
+  "autoRegistryEligible": false,
+  "trainingReady": false,
+  "deployable": false
+}
