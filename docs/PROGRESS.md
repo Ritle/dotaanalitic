@@ -701,3 +701,18 @@
 - PASS: pnpm install --frozen-lockfile/typecheck/test448/build;36 PG (22 identity provision +14 importer),22 migration checksum checks, source/capture/code/plan/artifact SHA chain, helper syntax, docs links/diff/credential checks. Approved outside-sandbox checks used for known Windows pnpm/spawn restrictions. No new tests for unchanged production boundaries; browser/Python/backtest not run.
 - Changed CURRENT_ACCOUNTS/SERIES_PROVISION source documentation, DATA_SOURCES, IMPLEMENTATION_PLAN, PROJECT_STATE, this append-only log and2 historical-account evidence JSONs. Raw profiles/captures/plans/replays/one-off helpers remain ignored locally; manifest records hashes and exact replay limits. No production code/SQL/dependency/UI changes, service restart, push or deploy.
 - Exact next task: S1-08 independently verify authoritative series_type=3 semantics for903379/903582; if supported, implement tested decoder and existing preview/apply/reimport, otherwise preserve unknown. Never infer format from one sampled map or authorize series probabilities. Numeric identity inventory is complete for current36 maps; S1-07/S3-01/broad corpus gates remain open. Recommended GPT-6 Astra / High; owner switches manually.
+
+
+### 2026-11-01 — S1-08: проверенный BO2 decoder и последние две серии
+
+Goal / implemented / changed files: packages/db/src/series-provision.ts переводит policy в reviewed-opendota-series-v2 и поддерживает series_type3→best_of2. Valve league16935 + pinned SteamTracking protocol подтверждают соответствие; зеркало явно обозначено сторонним. Добавлены3 PG regression cases; source/application/quality manifests в docs/evidence/s1-08-bo2-*.json. Обновлены SERIES_PROVISION, DATA_SOURCES, IMPLEMENTATION_PLAN и PROJECT_STATE.
+
+Real apply:2 registry rows/1 immutable batch; preview/apply/replay штатным CLI. Legacy v1 batch18 series повторён без записей. Reimport20 captured observations дал2 изменения/18 duplicate, повтор20 duplicate. Все36 карт связаны с28 сериями; старые26 series, все players/map facts/receipts сохранены. Counts:114 assessments/155 receipts,165 players/proofs, revision330, datasets0/active models0/known fields0. Strict pre/post36 candidates/0 eligible; причины series исчезли. Формат не устанавливает победителя BO2, полный состав серии, номер карты или исторический knownAt.
+
+Checks actually executed: red3 failed на старой реализации; затем frozen install PASS, pnpm typecheck PASS, pnpm test448 PASS, pnpm build PASS. PostgreSQL:13 series-provision +14 importer +7 dataset-series =34 PASS; SQL001–022 SHA совпали с рабочей БД, golden001–005 сохранены. Full command logs SHA связаны в manifest. Browser/Python/backtest не запускались; API/web/worker не перезапускались. Windows sandbox ограничения pnpm/spawn потребовали разрешённого запуска checks вне sandbox.
+
+Architecture constraints reviewed: enum namespaces, whole-series grouping, swapped sides, draw1:1, cutoff/receipt fingerprints, immutable v1 replay. Миграций/зависимостей/API/UI изменений нет. Синтетические тесты не смешаны с real corpus; Valve sibling maps и scores не импортировались. Full capture/helper остаются ignored .tools; exact-byte replay требует локальных файлов.
+
+Known blockers:36 карт недостаточно для признания broad corpus gate выполненным; canonical patch/as-of unknown36, исторические current identity proofs недоступны до карты. Прогнозы остаются unavailable; S1-07/S3-01 и общий S1-08 corpus gate не закрыты.
+
+Next task: S1-08 — инвентаризация canonical patch/as-of evidence36 карт и6 provider patch codes через существующие S1-07 boundaries, сопоставление сохранённых proofs без догадок о release timestamp. Suggested model: GPT-6 Astra · High (ручной выбор владельца).

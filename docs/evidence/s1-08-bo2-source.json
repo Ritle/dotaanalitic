@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-01T19:56:40.479Z",
+  "sources": [
+    {
+      "file": ".tools/s1-08-bo2-valve-league.json",
+      "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=16935&delay_seconds=0",
+      "sha256": "7e11bc0e168dc0fe3f783938c4a0b9af8d8a64548ded2dbc8a4c5c452df44b09",
+      "savedAt": "2026-11-01T19:53:41.938Z"
+    },
+    {
+      "file": ".tools/s1-08-bo2-proto-pinned.proto",
+      "url": "https://raw.githubusercontent.com/SteamTracking/Protobufs/531569870d2d1ff08e163e6845bd6ef0e45dfabc/dota2/dota_gcmessages_common_league.proto",
+      "sha256": "622cf814a414297bdc0eaa3af20bb0e5cef0109384b75b94f94283f88ab42646",
+      "savedAt": "2026-11-01T19:54:16.477Z"
+    }
+  ],
+  "definition": {
+    "enum": "ELeagueNodeType",
+    "name": "BEST_OF_TWO",
+    "value": 4,
+    "mirror": "SteamTracking protobuf dump; not a Valve-owned repository",
+    "commit": "531569870d2d1ff08e163e6845bd6ef0e45dfabc",
+    "commitDate": "2023-08-30T21:47:44Z"
+  },
+  "observedAssociation": {
+    "seriesType": 3,
+    "nodeType": 4,
+    "matchedSeries": 24,
+    "unmatchedSeriesType3": 1
+  },
+  "selected": [
+    {
+      "providerSeriesId": "903379",
+      "localMapId": "7927665228",
+      "sourceSeriesType": 3,
+      "nodeType": 4,
+      "teamIds": [
+        "8261500",
+        "9303484"
+      ],
+      "officialMapIds": [
+        "7927665228",
+        "7927715273"
+      ],
+      "officialObservedScore": [
+        0,
+        2
+      ],
+      "officialScoreTeamIds": [
+        "9303484",
+        "8261500"
+      ]
+    },
+    {
+      "providerSeriesId": "903582",
+      "localMapId": "7928915377",
+      "sourceSeriesType": 3,
+      "nodeType": 4,
+      "teamIds": [
+        "8291895",
+        "8605863"
+      ],
+      "officialMapIds": [
+        "7928915377",
+        "7928969814"
+      ],
+      "officialObservedScore": [
+        1,
+        1
+      ],
+      "officialScoreTeamIds": [
+        "8291895",
+        "8605863"
+      ]
+    }
+  ],
+  "conclusion": "Decode OpenDota series_type 3 as BO2; node_type enum is separate. Do not infer a winner, final status, map number or historical availability.",
+  "sourceMapCaptureSha256": "23155cb42202978fc12b6a8b1250ed902f01d5a31ab00ff94fa5a8305b0f6c87",
+  "knownAtNotBackdated": true
+}

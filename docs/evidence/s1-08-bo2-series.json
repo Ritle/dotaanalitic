@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-11-01T19:59:27.098Z",
+  "task": "S1-08 verified BO2 series classification",
+  "policyVersion": "reviewed-opendota-series-v2",
+  "sourceEvidence": {
+    "file": "docs/evidence/s1-08-bo2-source.json",
+    "sha256": "001398a33bc6415dd911cd7d5ae70ed829b8eb1e4e3ec6145cb5e2a29c0d51a1",
+    "bytes": 2279
+  },
+  "sourceCaptureSha256": "23155cb42202978fc12b6a8b1250ed902f01d5a31ab00ff94fa5a8305b0f6c87",
+  "request": {
+    "providerSeriesIds": [
+      "903379",
+      "903582"
+    ],
+    "snapshotAt": "2026-11-01T19:56:39.492Z"
+  },
+  "planFingerprint": "5e7aa8a390913c43d5e9eb52e37fb1c118ebb7a31afb5947721069aae8a63577",
+  "mappings": [
+    {
+      "providerSeriesId": "903379",
+      "seriesId": "33f695f3-8d4f-4082-88a9-49928f67d6e8",
+      "mapIds": [
+        "7927665228"
+      ],
+      "created": true
+    },
+    {
+      "providerSeriesId": "903582",
+      "seriesId": "85021bb3-4d33-41eb-be43-19d730f1a1b3",
+      "mapIds": [
+        "7928915377"
+      ],
+      "created": true
+    }
+  ],
+  "apply": {
+    "status": "applied",
+    "created": 2,
+    "mapWrites": 0
+  },
+  "replay": {
+    "status": "already_applied",
+    "newWrites": 0
+  },
+  "legacyV1Replay": {
+    "status": "already_applied",
+    "fingerprint": "a4445a09e1cf89ea744b13c75ad13b7ffbe9f0db307bdfbcd32d0bb2120df6e0",
+    "newWrites": 0
+  },
+  "before": {
+    "maps": 36,
+    "series": 26,
+    "batches": 2,
+    "assessments": 112,
+    "receipts": 153,
+    "players": 165,
+    "identity_revision": "330",
+    "proofs": 165,
+    "datasets": 0,
+    "active_models": 0,
+    "known_fields": 0,
+    "known_series_batches": 0
+  },
+  "after": {
+    "maps": 36,
+    "series": 28,
+    "batches": 3,
+    "assessments": 114,
+    "receipts": 155,
+    "players": 165,
+    "identity_revision": "330",
+    "proofs": 165,
+    "datasets": 0,
+    "active_models": 0,
+    "known_fields": 0,
+    "known_series_batches": 0
+  },
+  "reimport": {
+    "changed": 2,
+    "duplicates": 18,
+    "replayDuplicates": 20,
+    "networkRequests": 0
+  },
+  "invariants": {
+    "registryOnlyBeforeReimport": true,
+    "existingSeriesPreserved": true,
+    "oldReceiptsPreserved": true,
+    "playersPreserved": true,
+    "mapFactsPreserved": true,
+    "unknownMapsPreserved": true,
+    "exactReplay": true,
+    "qualityFingerprintStable": true
+  },
+  "quality": {
+    "file": "docs/evidence/s1-08-bo2-quality.json",
+    "fingerprint": "49179e2bde86d2227fab677ce99deba265497d1b195472ff334dfed238b47328",
+    "summary": {
+      "maps": 36,
+      "assessedMaps": 36,
+      "linkedReceiptMaps": 36,
+      "canonicalConflictMaps": 0,
+      "dimensions": {
+        "outcome": {
+          "eligible": 36,
+          "ineligible": 0,
+          "unknown": 0
+        },
+        "players": {
+          "eligible": 36,
+          "ineligible": 0,
+          "unknown": 0
+        },
+        "heroes": {
+          "eligible": 36,
+          "ineligible": 0,
+          "unknown": 0
+        },
+        "teams": {
+          "eligible": 36,
+          "ineligible": 0,
+          "unknown": 0
+        },
+        "series": {
+          "eligible": 36,
+          "ineligible": 0,
+          "unknown": 0
+        },
+        "timeline": {
+          "unknown": 36,
+          "structurally_inconsistent": 0,
+          "missing": 0,
+          "verified": 0
+        }
+      },
+      "anomalies": {
+        "DRAFT_RULES_UNVERIFIED": 36,
+        "LINEUP_KNOWN_AT_UNKNOWN": 36,
+        "PATCH_METADATA_UNVERIFIED": 36,
+        "ROLE_UNVERIFIED": 36
+      }
+    }
+  },
+  "strictPreviews": {
+    "pre_match": {
+      "status": "unavailable",
+      "reason": "NO_ELIGIBLE_MAPS",
+      "candidates": 36,
+      "eligible": 0,
+      "byReason": {
+        "ACTUAL_LINEUP_INCOMPLETE": 36,
+        "CONTEXT_LINEUP_UNAVAILABLE": 36,
+        "CONTEXT_PATCH_UNAVAILABLE": 36,
+        "CONTEXT_TEAMS_UNAVAILABLE": 36
+      }
+    },
+    "post_draft": {
+      "status": "unavailable",
+      "reason": "NO_ELIGIBLE_MAPS",
+      "candidates": 36,
+      "eligible": 0,
+      "byReason": {
+        "ACTUAL_LINEUP_INCOMPLETE": 36,
+        "CONTEXT_HEROES_UNAVAILABLE": 36,
+        "CONTEXT_LINEUP_UNAVAILABLE": 36,
+        "CONTEXT_PATCH_UNAVAILABLE": 36,
+        "CONTEXT_TEAMS_UNAVAILABLE": 36,
+        "OBSERVED_HERO_MISMATCH": 36
+      }
+    }
+  },
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "unitTests": 448,
+    "build": "PASS",
+    "postgresIntegrationTests": 34,
+    "redRegressionTests": 3,
+    "migrationChecksumChecks": 22,
+    "browserTests": "not_run",
+    "pythonBacktest": "not_run"
+  },
+  "artifacts": [
+    {
+      "file": ".tools/s1-08-bo2-workflow-request.json",
+      "sha256": "0b12c314183a278443cd087f511f0af137131e4276e354a29abea4d7c98a356e",
+      "bytes": 104
+    },
+    {
+      "file": ".tools/s1-08-bo2-workflow-plan.json",
+      "sha256": "b5f7ae8cb7bb66ecc9145528095a023678be69661c5013395c380cfbb687bf47",
+      "bytes": 6548
+    },
+    {
+      "file": ".tools/s1-08-bo2-workflow-applied.json",
+      "sha256": "0e038debd3efecab4496d858a76e9f390e56229298c8ced53c8fc0405e71aff3",
+      "bytes": 612
+    },
+    {
+      "file": ".tools/s1-08-bo2-workflow-applied-replay.json",
+      "sha256": "b10f977d492b7aef0d0c99b96ceb06740def0c2da714be2980d3a7e595bd8ec0",
+      "bytes": 620
+    },
+    {
+      "file": ".tools/s1-08-bo2-legacy-replay.json",
+      "sha256": "06f5f2f7f39f215eeb3ddc27f29744e3bff481cdfba239babf1ae1a0c404da88",
+      "bytes": 3453
+    },
+    {
+      "file": ".tools/s1-08-bo2-workflow-before.json",
+      "sha256": "fb46569672b035f26e383e5a3a80b64b87b8fa3f442527ac108d7ed5c4c37d5f",
+      "bytes": 52786
+    },
+    {
+      "file": ".tools/s1-08-bo2-workflow-reimport.json",
+      "sha256": "ebb5e1ec31582133cd2640d418032956c5325576cd5a54c9eabccf8412da0b26",
+      "bytes": 79156
+    },
+    {
+      "file": ".tools/s1-08-bo2-pre_match-config.json",
+      "sha256": "54bdf81c70af0823eb82a2466f5b8ec82cb4fac91519fde29efd733cd6353d11",
+      "bytes": 337
+    },
+    {
+      "file": ".tools/s1-08-bo2-pre_match-preview.json",
+      "sha256": "81c09bda581feee69bca85c136335bc725cf673b83bef436baa8692941de3912",
+      "bytes": 22430
+    },
+    {
+      "file": ".tools/s1-08-bo2-post_draft-config.json",
+      "sha256": "239c11afd3a602c23c6535cee80c4fb6e9a8b9d37cf43b5e2b3af597f52129c2",
+      "bytes": 338
+    },
+    {
+      "file": ".tools/s1-08-bo2-post_draft-preview.json",
+      "sha256": "d105a37100ea3abe7bf8b3b474f4178113af81e6f7a4d39c9f25f3192a674ff2",
+      "bytes": 28204
+    },
+    {
+      "file": ".tools/s1-08-bo2-migration-check.json",
+      "sha256": "5e773ac291d75541c428c9b72d0c7f6bd0055e4a6d2a392c268cd68b562dc4ac",
+      "bytes": 3307
+    },
+    {
+      "file": ".tools/s1-08-bo2-install.log",
+      "sha256": "1a633054f77a22e67666a1d9915a240b11de1e3120592226b6efaa3981069b7b",
+      "bytes": 284
+    },
+    {
+      "file": ".tools/s1-08-bo2-typecheck.log",
+      "sha256": "03bbaddd387076f8194626ae93b38ccf9068504f240fce03aabd20132493bd0d",
+      "bytes": 2706
+    },
+    {
+      "file": ".tools/s1-08-bo2-red.log",
+      "sha256": "1d18ff14080af6a53bc576588ed27f09b3e0e3c6d50317d957e00879bdb48ea8",
+      "bytes": 10360
+    },
+    {
+      "file": ".tools/s1-08-bo2-pg.log",
+      "sha256": "47baefd48b9176277364db09a631a5d8b11f9ea78ecdc3a478fb7f0f73f283bb",
+      "bytes": 3798
+    },
+    {
+      "file": ".tools/s1-08-bo2-test.log",
+      "sha256": "237e7bc847c56a4e5e8dc4c2b36f409f96b3fedd25b087276ac5b9e2031e16db",
+      "bytes": 15850
+    },
+    {
+      "file": ".tools/s1-08-bo2-build.log",
+      "sha256": "914be8a273f19774f6e25478bd7632a861aa8939c4a8a3e216939b830e08d003",
+      "bytes": 4770
+    }
+  ],
+  "code": [
+    {
+      "file": "packages/db/src/series-provision.ts",
+      "sha256": "5acd9e33fc971c626bf358a97d06cf58938021643c2a4c0b2a07f5b916ff0112",
+      "bytes": 11364
+    },
+    {
+      "file": "packages/db/tests/series-provision.integration.test.ts",
+      "sha256": "56c6f1e559758fc5d3f6c06dd026aff42487ba41937449a64c90611e75c48301",
+      "bytes": 9739
+    },
+    {
+      "file": "scripts/provision-series.mjs",
+      "sha256": "428a3eaa6c13d30f7d3c215458bbd04b7a3004c34e1829bcbec08b36019e9af8",
+      "bytes": 2269
+    },
+    {
+      "file": ".tools/s1-08-bo2-workflow.mjs",
+      "sha256": "7a3722c31018a4bea7cd58049ee21ca91e9d6ad4f95fcea3207a902df9aca4ac",
+      "bytes": 6285
+    }
+  ],
+  "limitations": [
+    "Official source records observed now do not establish historical knownAt.",
+    "Each newly registered series has only one imported map; sibling map IDs, source scores and status are not promoted into local map context.",
+    "BO2 may finish 1-1; no series winner or probability inferred.",
+    "Full captured bodies, plans and orchestration are local ignored artifacts; exact replay requires these files."
+  ],
+  "nextTask": "S1-08: inventory canonical patch/as-of evidence for the 36-map corpus and its six provider patch codes through existing S1-07 boundaries; do not infer verified release times from labels.",
+  "trainingReady": false,
+  "deployable": false
+}

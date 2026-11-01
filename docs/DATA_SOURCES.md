@@ -10,6 +10,12 @@ Source IDs остаются отдельным namespace; nickname joins, DB imp
 
 ## OpenDota — основной источник
 
+### S1-08: BO2 — подтверждение формата 2026-11-01
+
+Valve GetLeagueData для16935 сопоставляет series_type3 с node_type4 в24 однозначных группах, включая903379/903582; одна type3 запись без однозначного node остаётся вне подтверждённого сопоставления. Pinned SteamTracking protobuf dump определяет ELeagueNodeType.BEST_OF_TWO=4; зеркало не принадлежит Valve. Это разные enums: series_type4 остаётся unsupported. [URL, SHA, временные отметки и numeric IDs](evidence/s1-08-bo2-source.json), [контракт и первичные ссылки](S1_08_SERIES_PROVISION.md).
+
+Policy v2 зарегистрировала последние2 серии; reimport прежних captured OpenDota maps без HTTP дал series coverage36/36 и28 групп. BO2 допускает1:1; winner/status/порядок/предшествующий счёт не выводятся. Текущие official metadata не превращаются в исторический knownAt, training/model gates закрыты. [Применение и проверки](evidence/s1-08-bo2-series.json). Следующие разделы фиксируют предыдущие состояния корпуса.
+
 ### S1-08: расширение исторической выборки 2026-11-01
 
 Добавлены20 completed pro-карт: по5 равномерных временных рангов в лигах13256/14268/15728/16935. Это повтор прежней S0-08 sampling policy на свежих данных, без отбора по победителю/полноте. Лига2021 включает июнь/июль: не считать все её карты основным этапом TI. Перед импортом штатный `audit-prediction-sources.mjs --league ID --sample 5` выполнил28 HTTP200. Named client затем сохранил20 подробных ответов и2 каталога (22 HTTP200); все20 detail SHA совпали с audit. Бюджет максимум84 audit +66 capture attempts, реально50, ошибок0. Дополнительный download нужен потому, что league audit не сохраняет полный replay capture.

@@ -49,9 +49,39 @@ test('a contradictory received-only observation cannot be hidden by a canonical 
     jsonb_set(source_payload,'{series_id}','"999"'::jsonb),'received','[]'::jsonb FROM provider_ingest_receipts WHERE canonical_match_id=11 LIMIT 1`.execute(database.db);
   const plan=await repo().preview(request);expect(plan.status).toBe('blocked');expect(plan.groups[0]!.reasons).toContain('MAP_SERIES_CONFLICT');
 });
-test.each([0,3,null])('unsupported or missing series type %s never uses the SQL BO3 default',async seriesType=>{
+test.each([0,4,null])('unsupported or missing series type %s never uses the SQL BO3 default',async seriesType=>{
   await importer({...payload('11'),series_type:seriesType}).ingest('11');
   const plan=await repo().preview(request);expect(plan.status).toBe('blocked');expect(plan.groups[0]!.reasons).toContain('SERIES_TYPE_UNSUPPORTED');
+});
+test('BO2 with side-swapped 1-1 outcomes keeps each map and does not invent a series winner or status',async()=>{
+  for(const [id,swap] of [['11',false],['12',true]] as const)await importer({...payload(id,swap),series_type:3}).ingest(id);
+  const plan=await repo().preview(request);
+  expect(plan).toMatchObject({status:'ready',policyVersion:'reviewed-opendota-series-v2'});
+  expect(plan.groups[0]).toMatchObject({bestOf:2,mapIds:['11','12'],reasons:[]});
+  const applied=await repo().apply(request,plan.fingerprint);expect(applied.created).toBe(1);
+  expect((await sql`SELECT best_of,status,scheduled_at FROM series`.execute(database.db)).rows).toEqual([{best_of:2,status:null,scheduled_at:null}]);
+  for(const [id,swap] of [['11',false],['12',true]] as const){
+    const raw={...payload(id,swap),series_type:3};await importer(raw).ingest(id);
+    expect(await importer(raw).ingest(id)).toMatchObject({duplicate:true});
+  }
+  const rows=(await sql`SELECT m.id::text,m.series_id,s.team_a_id=m.radiant_team_id AS a_radiant,m.radiant_win
+    FROM matches m JOIN series s ON s.id=m.series_id ORDER BY m.id`.execute(database.db)).rows;
+  expect(rows).toHaveLength(2);expect(new Set(rows.map(r=>r.series_id)).size).toBe(1);
+  expect(rows.filter(r=>r.a_radiant===r.radiant_win)).toHaveLength(1);
+  expect(await repo().apply(request,plan.fingerprint)).toMatchObject({status:'already_applied',mapWrites:0});
+  expect((await sql`SELECT count(*)::int n FROM match_field_observations WHERE known_at IS NOT NULL`.execute(database.db)).rows[0]).toEqual({n:0});
+});
+test('a third locally observed BO2 map blocks registration instead of truncating the group',async()=>{
+  for(const id of ['11','12','13'])await importer({...payload(id),series_type:3}).ingest(id);
+  const plan=await repo().preview(request);
+  expect(plan.groups[0]).toMatchObject({bestOf:2,mapIds:['11','12','13'],reasons:['SERIES_MAP_COUNT_EXCEEDED']});
+  await expect(repo().apply(request,plan.fingerprint)).rejects.toThrow('series_plan_not_ready');
+});
+test('conflicting BO2 and BO3 observations for the same map do not use the newest format',async()=>{
+  await importer({...payload('11'),series_type:3}).ingest('11');
+  await importer({...payload('11'),series_type:1}).ingest('11');
+  const plan=await repo().preview(request);expect(plan.status).toBe('blocked');
+  expect(plan.groups[0]).toMatchObject({bestOf:null,reasons:['SERIES_TYPE_CONFLICT']});
 });
 test('new sibling after preview invalidates the fingerprint before writes',async()=>{
   await importer(payload('11')).ingest('11');const plan=await repo().preview(request);

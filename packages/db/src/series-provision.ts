@@ -3,7 +3,13 @@ import {CatalogIdSchema,SeriesProvisionRequestSchema,SeriesPlanFingerprintSchema
 import {sql,type Db,type Executor} from './index.js';
 import {OutcomeVerifier} from './outcome-verifier.js';
 import {canonicalContextJson} from './temporal.js';
-const POLICY='reviewed-opendota-series-v1';
+const POLICY='reviewed-opendota-series-v2';
+// Valve GetLeagueData links series_type=3 to ELeagueNodeType.BEST_OF_TWO=4.
+// These are different enums; evidence and pinned protobuf are in S1_08_SERIES_PROVISION.md.
+// A BO2 can end 1-1. This limit never assigns a series winner or completion status.
+function bestOfForSeriesType(type:string|null|undefined):number|null{
+  switch(type){case '1':return 3;case '2':return 5;case '3':return 2;default:return null;}
+}
 const compare=(a:string,b:string)=>BigInt(a)<BigInt(b)?-1:BigInt(a)>BigInt(b)?1:0;
 const unique=(values:string[])=>[...new Set(values)].sort(compare);
 const fingerprint=(value:unknown)=>createHash('sha256').update(canonicalContextJson(value)).digest('hex');
@@ -72,9 +78,9 @@ async function planOn(db:Executor,request:Request){
       if(!m||r.radiant!==m.externalRadiant||r.dire!==m.externalDire||r.league!==m.externalLeague)reasons.push('RECEIPT_REFERENCES_MISMATCH');
     }
     const types=[...new Set(evidence.map(r=>r.seriesType))];
-    if(types.some(t=>t!=='1'&&t!=='2')||!types.length)reasons.push('SERIES_TYPE_UNSUPPORTED');
+    if(types.some(t=>bestOfForSeriesType(t)===null)||!types.length)reasons.push('SERIES_TYPE_UNSUPPORTED');
     if(types.length>1)reasons.push('SERIES_TYPE_CONFLICT');
-    const bestOf=types.length===1?(types[0]==='1'?3:types[0]==='2'?5:null):null;
+    const bestOf=types.length===1?bestOfForSeriesType(types[0]):null;
     const pairs=[...new Set(selected.map(m=>m.radiant&&m.dire?unique([m.radiant,m.dire]).join(':'):'unknown'))];
     const leagues=[...new Set(selected.map(m=>m.league))];
     if(pairs.length>1)reasons.push('SERIES_PARTICIPANTS_CONFLICT');
