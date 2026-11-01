@@ -840,3 +840,9 @@ Next task / precise entry point: S3-01 — заранее определить �
 Ограничение: уже работающий executor этой сессии остаётся на старом sandbox, контрольный обычный spawn всё ещё EPERM. Для применения к интерактивной разработке владелец должен перезапустить приложение/окно VS Code с Codex; агент не завершает процесс, содержащий текущую сессию. После перезапуска сначала выполнить `node .tools/sandbox-spawn-probe.cjs` без escalation. Полные install/typecheck/test/build не повторялись для изменения пользовательского окружения; code/dependencies/SQL/working DB/services не менялись. Git docs/diff проверены.
 
 Next action: перезапуск Codex и обычный spawn probe; затем следующий S3-01 research шаг из E0 handoff. Suggested model: GPT-6.1 Sol · High для проверки окружения, GPT-6 Astra · Extra High для temporal evaluation.
+
+### 2026-11-02 — DX: проверка EPERM после перезапуска VS Code
+
+Владелец перезапустил VS Code. В текущей сессии обычный exec с default permissions, без require_escalated и без внешнего codex sandbox wrapper: `node .tools/sandbox-spawn-probe.cjs` — status0/stdout123; `node node_modules/vitest/vitest.mjs run packages/db/tests/research-elo.test.ts --maxWorkers=1 --no-file-parallelism` —13 PASS, exit0 (00:16 МСК). Прежний сбой дочерних процессов EPERM не воспроизводится. Дополнительных настроек не потребовалось. Изменены только handoff docs; полный install/typecheck/build не повторялся для проверки окружения.
+
+Next action: следующий S3-01 research шаг из docs/S3_01_E0_RESEARCH.md — план расширения корпуса и независимого holdout. Suggested model: GPT-6 Astra · Extra High для temporal evaluation.
