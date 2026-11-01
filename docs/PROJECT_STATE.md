@@ -1,6 +1,6 @@
 # Текущее состояние репозитория — Codex handoff
 
-**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01, S0-02 + S0-10, S0-03, S0-04, S0-05, S0-06, S0-07, S0-08, S0-09, S1-01..06, **S1-08 comparison, S1-09 source spike, S1-10 upcoming UI, S1-11 catalogue picker, S2-01/02/03/04 и S3-00** выполнены локально. **Следующий срез — S1-12 актуализация локального каталога. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
+**Обновлено:** 2026-11-01. S0-00/DX-00, S0-01..10, S1-01..06, **S1-08 comparison, S1-09 source spike, S1-10 upcoming UI, S1-11 picker, S1-12 текущий каталог, S2-01/02/03/04 и S3-00** выполнены локально. **Следующий срез — S1-13 проверенная завершённая pro-история выбранных участников. S3-01 и S1-07 частичны; отдельный S1-08 corpus gate открыт; функциональный MVP ещё не готов.** Рабочий Git checkout — dotaanalitic; родительский starter не редактировать.
 
 **S1-07 частично:** foundation/evaluator/CLI реализованы и проверены; real metadata/as-of cohort/empirical quality gate не закрыт. Ticket unchecked, но владелец явно выбрал **S1-08** после archival checkpoint (AGENTS§10). Повторного подтверждения не требуется; prediction gates не обходить.
 
@@ -9,6 +9,10 @@
 **Archive checkpoint:** CDX/Memento подтвердили body анонса7.34d к2023-10-12T15:55:12Z, SHA совпадает с нынешним body; раньше5 TI2023 maps. Narrow source-body proof не подтверждает deployment/hero/outcome. [Evidence](S1_07_ARCHIVED_BODY.md).
 
 ## Реально присутствует
+
+- **S1-12:** current OpenDota catalogue через reviewed numeric IDs/Steam32/Steam64, raw SHA/endpoint replay, существующий identity provisioner с team plan/fingerprint/atomic rollback. Реально добавлены Yandex/11 игроков/11 proofs/11 aliases; Spirit reuse. Повтор0 вставок; поиск11/11 +2/2. Source5+6 candidates, без ролей/пятёрки/PandaScore identity join. Текущее knownAt=fetchedAt, historical availability не backdate-ится. [Контракт/evidence](S1_12_CURRENT_CATALOGUE.md).
+
+- **Последние проверки S1-12 PASS:** frozen install/typecheck/426 unit/build,19 PG provision (6 новых),7 PG/API catalogue,58 Node (2 новых); verifier19/golden/docs/diff. UI неизменён, Chromium/SQL baseline отдельно не повторялись: предыдущие17 E2E относятся к S1-11.4 HTTP200 OpenDota через durable quota; PandaScore0. Working maps1/players21/teams3/proofs21/revision42/owners0/scenarios0/datasets0/models0/cache2/PandaScore quota2/tempDB0. SQL001–019/dependencies/lockfile/старые evidence сохранены; исходные raw snapshots retained locally ignored. PG5432 сохранён, API/Vite не запускались.
 
 - **S1-11:** CatalogPicker для2 организаций и10 canonical игроков в форме `/upcoming`, существующий private catalogue API. Явный выбор name/ID, disambiguation тёзок, duplicate exclusion, edit/clear снимают ID и подтверждение, empty/error/retry/Escape/Enter. Provider nickname не становится identity link; отсутствующая запись не создаётся автоматически. [Поведение](S1_11_CATALOG_PICKER.md).
 
@@ -118,4 +122,4 @@
 
 ## Следующая задача
 
-**S1-12 — актуализация локального каталога организаций и игроков из текущего OpenDota с проверкой numeric IDs и существующих связей.** Подготовить preview/import через существующие provider/identity boundaries, сохранить source clocks, проверить idempotency/conflicts; реальные записи должны находиться в picker. Не объединять людей по никам и не выдавать текущий fetch за исторический known-at. История профессиональных карт и модели — отдельные последующие срезы. S1-11 завершён; поиск поддерживает только уже имеющиеся локальные записи. PandaScore namespace остаётся отдельным, ручной выбор canonical record не является verified provider mapping. S3-01/S1-07/v8 corpus gates остаются открыты; архив старых объявлений не блокирует текущий owner workflow. Никакого автоматического S3-02/training/activation. SQL001–019 immutable, следующие020+ если нужны. Модель — **GPT-6 Astra · High** для identity/import correctness.
+**S1-13 — ограниченный импорт проверенной завершённой pro-истории выбранных участников для описательных отчётов.** Начать с live source eligibility/coverage audit, затем использовать existing idempotent importer; source/outcome/identity/side/series/patch coverage, N/filters/warnings, повтор без дубликатов. S1-12 завершён: реальные записи уже находятся в picker. Current account evidence не backdate-ить в исторические as-of features; retrospective descriptive history отделять от training. PandaScore namespace остаётся отдельным. S3-01/S1-07/v8 corpus/model gates открыты, архив старых объявлений не блокирует текущий ручной workflow. Автоматического S3-02/training/activation нет. SQL001–019 immutable, следующие020+ если нужны. Модель — **GPT-6 Astra · High** для source/identity/import correctness.

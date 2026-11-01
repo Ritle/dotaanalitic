@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "reviewed-current-catalogue-v1",
+  "reviewedAt": "2026-11-01T01:00:49.400Z",
+  "source": {
+    "reportSha256": "ce2ef0854c7d8ea0adfd8de4ef932a1b4cc263524dd877de189346aea9a7f683",
+    "payloadSha256": "4bda6e68439a39a81545dac8ec21cc60f46fa77863f4fc6b4ed58dc1e368a221",
+    "url": "https://api.opendota.com/api/proPlayers",
+    "knownAt": "2026-11-01T01:00:35.814Z",
+    "fetchedAt": "2026-11-01T01:00:35.814Z"
+  },
+  "accounts": [
+    {
+      "accountId": "56351509",
+      "steam64": "76561198016617237",
+      "alias": "DM"
+    },
+    {
+      "accountId": "93817671",
+      "steam64": "76561198054083399",
+      "alias": "Maladych"
+    },
+    {
+      "accountId": "103735745",
+      "steam64": "76561198064001473",
+      "alias": "Saksa"
+    },
+    {
+      "accountId": "106305042",
+      "steam64": "76561198066570770",
+      "alias": "Larl"
+    },
+    {
+      "accountId": "140835095",
+      "steam64": "76561198101100823",
+      "alias": "Batyuk"
+    },
+    {
+      "accountId": "171262902",
+      "steam64": "76561198131528630",
+      "alias": "医者watson`"
+    },
+    {
+      "accountId": "183719386",
+      "steam64": "76561198143985114",
+      "alias": "AMMAR_THE_F"
+    },
+    {
+      "accountId": "218231587",
+      "steam64": "76561198178497315",
+      "alias": "not_me"
+    },
+    {
+      "accountId": "312436974",
+      "steam64": "76561198272702702",
+      "alias": "CHIRA_JUNIOR"
+    },
+    {
+      "accountId": "321580662",
+      "steam64": "76561198281846390",
+      "alias": "Yatoro"
+    },
+    {
+      "accountId": "847565596",
+      "steam64": "76561198807831324",
+      "alias": "rue"
+    }
+  ],
+  "teams": [
+    {
+      "teamId": "7119388",
+      "name": "Team Spirit",
+      "tag": "TSpirit",
+      "source": {
+        "endpoint": "/teams/7119388",
+        "payloadSha256": "ad6bd26ef0ca5c663fbec3d8555e43970be337e709a23c21497d23a9f4c720c4",
+        "fetchedAt": "2026-11-01T01:00:36.014Z"
+      }
+    },
+    {
+      "teamId": "9823272",
+      "name": "Team Yandex",
+      "tag": "TY",
+      "source": {
+        "endpoint": "/teams/9823272",
+        "payloadSha256": "1783f1ebbfeb6df4040e3597d7622601168cd4ae52b53a4c2d43ff18ce998e47",
+        "fetchedAt": "2026-11-01T01:00:37.400Z"
+      }
+    }
+  ]
+}

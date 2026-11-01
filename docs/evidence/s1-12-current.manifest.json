@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 1,
+  "mode": "current_catalogue_checkpoint",
+  "generatedAt": "2026-11-01T01:05:01.996Z",
+  "artifacts": [
+    {
+      "file": "docs/evidence/s1-12-current-reviewed.json",
+      "sha256": "c33d00762c728cd745cb0e760b032553ca0a04ec01ed632ad20f02a297ae04d6"
+    },
+    {
+      "file": "docs/evidence/s1-12-current-preview.json",
+      "sha256": "4318ff8834aed43bfa396b048fefa86e621dd3fd888fdfd6d6b6e933ab052c84"
+    },
+    {
+      "file": "docs/evidence/s1-12-current-applied.json",
+      "sha256": "59d0ddcc08f2b666bb244cc5a485d14fdfcc35b1355e89093d94979bd4e10bd6"
+    },
+    {
+      "file": "docs/evidence/s1-12-current-replay.json",
+      "sha256": "8fea76d7670d31c256214454062f7a2b72b2af86cbacd7bc4bcd1fa9b6f97150"
+    },
+    {
+      "file": "docs/evidence/s1-12-current-search.json",
+      "sha256": "8dfeabc3ea20606b4201bfe2b51132e24b1758479ffac01455000a8ec1dd37b7"
+    }
+  ],
+  "code": [
+    {
+      "file": "scripts/current-catalogue.mjs",
+      "sha256": "05280d23755a64a89c982b7099d8756eda4a8b445041ab64753b2cde7c8fb2a3"
+    },
+    {
+      "file": "packages/contracts/src/identity-provision.ts",
+      "sha256": "7370d7e93daf455d10a20dc148cdc6287d3f132982fe74b7a2c0f45d0428c0c4"
+    },
+    {
+      "file": "packages/contracts/dist/identity-provision.js",
+      "sha256": "f9372feb5895d7e27af068f5223e358ccc7fc8e1ede1561b6ec927f7fafad393"
+    },
+    {
+      "file": "packages/db/src/identity-provision.ts",
+      "sha256": "42cdeede8d682e514241861c0d8a31b490b6a2b82eb75f8ec1a0b0a54d8d0979"
+    },
+    {
+      "file": "packages/db/dist/identity-provision.js",
+      "sha256": "6c22f4ac2902d5045bf9c9764e60cd8a5aa771d582b0fb9b1622270a0337612f"
+    },
+    {
+      "file": "packages/db/src/identity-repository.ts",
+      "sha256": "67e054026b14aa23340642cd1efbb607fcad6703a5fc6eb5d5fdd8f78107edd2"
+    },
+    {
+      "file": "packages/db/dist/identity-repository.js",
+      "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+    },
+    {
+      "file": "packages/db/src/identity.ts",
+      "sha256": "80264467afadb04ae257addc12f69fdb68d3262875e77c1f0941ef4cfe046888"
+    },
+    {
+      "file": "packages/db/dist/identity.js",
+      "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+    },
+    {
+      "file": "packages/db/src/catalog-repository.ts",
+      "sha256": "16014e2da5233753cb8ab45e62039317fa20a0c8fe80b5be7732489e256986d7"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/current-catalogue.ts",
+      "sha256": "49409db9a63f4000e0e7baac52d57593fb9366762a741ac7db46390c21d9c688"
+    },
+    {
+      "file": "packages/ingestion/dist/opendota/current-catalogue.js",
+      "sha256": "9890fc8a800b7c404559793d06194410db108d74e8a0558fe879e84bc7f22fc7"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/client.ts",
+      "sha256": "bdbdc2cc6e6c09067340b71ba60db41b1ee44334603df5ec58634a3f473f4246"
+    },
+    {
+      "file": "packages/ingestion/dist/opendota/client.js",
+      "sha256": "4904d8bc690ad538d14cfbbf652f1755bfeaed796a099eae92c6c7d5dd27699f"
+    },
+    {
+      "file": "packages/ingestion/src/opendota/schemas.ts",
+      "sha256": "5d1dc9b10800e2b47aa3c060e7ccc38cd31da174a4e23c55ed694ec7847a8164"
+    },
+    {
+      "file": "packages/ingestion/dist/opendota/schemas.js",
+      "sha256": "56cc794257349382fd463f1eee03a6850b4d44687714ed2d1d0346f21392b4f7"
+    },
+    {
+      "file": "packages/ingestion/src/runtime.ts",
+      "sha256": "491313766a326bf69be35b44fe6d6fa5bbfb300bfc4ff9031ebc58fe470ba4ef"
+    },
+    {
+      "file": "packages/ingestion/src/quota.ts",
+      "sha256": "2250f733522cb3643ec0ebd1574104001a898878384ecea2a91c750a2f226093"
+    },
+    {
+      "file": "package.json",
+      "sha256": "83f6122f965f33db736795db37fb40319bd67388bf94c19c722af6e3caeca8f0"
+    },
+    {
+      "file": "pnpm-lock.yaml",
+      "sha256": "914424aafc1923c7d021b17dd1fabe4306aaa632756c822ad3eda5fae0edf4d8"
+    }
+  ],
+  "rawCapture": {
+    "file": ".tools/s1-12-current-capture.json",
+    "sha256": "ce2ef0854c7d8ea0adfd8de4ef932a1b4cc263524dd877de189346aea9a7f683",
+    "committed": false,
+    "retainedLocally": true,
+    "requiredForExactByteCliReplay": true
+  },
+  "preliminaryCapture": {
+    "file": ".tools/s1-12-registry.json",
+    "sha256": "25b8ec7394f59e489bab8c302f158ceb6989482ebe073a1f09ffb0e7fe6a28bf",
+    "committed": false,
+    "retainedLocally": true,
+    "requests": 1
+  },
+  "requests": {
+    "opendota": {
+      "attempts": 4,
+      "httpStatuses": {
+        "200": 4
+      },
+      "transportErrors": {},
+      "durablePostgresQuota": true
+    },
+    "pandascore": 0
+  },
+  "verification": {
+    "frozenInstall": "passed",
+    "typecheck": "passed",
+    "unitTests": 426,
+    "build": "passed",
+    "postgresIdentityProvision": 19,
+    "postgresCatalogueApi": 7,
+    "nodeTests": 58,
+    "chromium": "not_rerun_unchanged_ui",
+    "sqlBaseline": "not_rerun_unchanged_schema",
+    "sourceSearch": {
+      "players": 11,
+      "teams": 2
+    },
+    "workingCounts": {
+      "maps": 1,
+      "players": 21,
+      "teams": 3,
+      "proofs": 21,
+      "identity_revision": "42",
+      "owners": 0,
+      "scenarios": 0,
+      "datasets": 0,
+      "active_models": 0,
+      "upcoming_cache": 2,
+      "pandascore_requests": 2,
+      "temporary_databases": 0
+    }
+  },
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false
+}

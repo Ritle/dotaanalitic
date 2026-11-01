@@ -1,6 +1,6 @@
 import {beforeAll,afterAll,it,expect} from 'vitest';
 import {IdentityProvisioner,IdentityRepository,readAccountEvidence,resolveIdentity,sql,reviewedIdentityEvidence,normalizeReviewedAccounts} from '../src/index.js';
-import type {ReviewedAccountBatch} from '@dota/contracts';
+import {ReviewedCurrentCatalogueSchema,type ReviewedAccountBatch,type ReviewedCurrentCatalogue} from '@dota/contracts';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 let database:Awaited<ReturnType<typeof testDatabase>>,provisioner:IdentityProvisioner,identity:IdentityRepository;
 const batch=(ids=['101','102']):ReviewedAccountBatch=>({schemaVersion:1,policyVersion:'reviewed-single-account-v1',reviewedAt:'2026-10-31T00:00:00.000Z',
@@ -8,8 +8,52 @@ const batch=(ids=['101','102']):ReviewedAccountBatch=>({schemaVersion:1,policyVe
     archiveUrl:'https://web.archive.org/web/20230411210628id_/https://api.opendota.com/api/proPlayers?',
     knownAt:'2023-04-11T21:06:28.000Z',fetchedAt:'2026-10-30T00:00:00.000Z'},
   accounts:ids.map(accountId=>({accountId,steam64:String(76561197960265728n+BigInt(accountId)),alias:'Synthetic shared nickname'}))});
+const current=(id='2101',team='3101'):ReviewedCurrentCatalogue=>({schemaVersion:1,policyVersion:'reviewed-current-catalogue-v1',
+  reviewedAt:'2026-10-31T00:00:00.000Z',source:{reportSha256:'a'.repeat(64),payloadSha256:'b'.repeat(64),
+    url:'https://api.opendota.com/api/proPlayers',knownAt:'2026-10-30T00:00:00.000Z',fetchedAt:'2026-10-30T00:00:00.000Z'},
+  accounts:batch([id]).accounts,teams:[{teamId:team,name:'Synthetic current organization',tag:'TEST',
+    source:{endpoint:`/teams/${team}`,payloadSha256:'c'.repeat(64),fetchedAt:'2026-10-30T00:00:00.000Z'}}]});
 beforeAll(async()=>{database=await testDatabase();provisioner=new IdentityProvisioner(database.db);identity=new IdentityRepository(database.db);},30000);
 afterAll(async()=>{await database?.close();});
+it('current catalogue adds organizations and account anchors atomically, replay adds nothing, no historical coverage',async()=>{
+  const b=current(),p=await provisioner.preview(b);expect(p).toMatchObject({status:'ready',plannedTeams:1,plannedPlayers:1});
+  expect((await sql<{n:number}>`SELECT count(*)::int AS n FROM teams`.execute(database.db)).rows[0]!.n).toBe(0);
+  const r=await provisioner.apply(b,p.fingerprint);expect(r).toMatchObject({teamsCreated:1,playersCreated:1,accountProofsAdded:1});
+  expect((await provisioner.apply(b,p.fingerprint))).toMatchObject({status:'already_applied',teamsCreated:0,playersCreated:0,accountProofsAdded:0,aliasesAdded:0});
+  const proof=await readAccountEvidence(database.db,['2101']);expect(resolveIdentity(proof,'2101','2023-01-01T00:00:00.000Z').playerId).toBeNull();
+  expect(proof[0]).toMatchObject({eventAt:null,knownAt:b.source.fetchedAt,fetchedAt:b.source.fetchedAt});
+});
+it('current preview cannot backdate knownAt or accept mismatched Steam IDs',()=>{
+  const b=current();expect(ReviewedCurrentCatalogueSchema.safeParse({...b,source:{...b.source,knownAt:'2023-01-01T00:00:00.000Z'}}).success).toBe(false);
+  expect(ReviewedCurrentCatalogueSchema.safeParse({...b,accounts:[{...b.accounts[0],steam64:'76561197960265728'}]}).success).toBe(false);
+});
+it('current import preserves existing team identity and display labels even for a changed source label',async()=>{
+  const b=current('2102');const p=await provisioner.preview(b);expect(p.teamRows?.[0]).toMatchObject({action:'reuse'});
+  b.teams[0]!.name='Synthetic renamed source';const next=await provisioner.preview(b);
+  expect(next.teamRows?.[0]!.warnings).toContain('EXISTING_TEAM_LABEL_PRESERVED');
+  expect((await provisioner.apply(b,next.fingerprint)).teamsCreated).toBe(0);
+  expect((await sql<{name:string}>`SELECT name FROM teams WHERE opendota_team_id='3101'`.execute(database.db)).rows[0]!.name).toBe('Synthetic current organization');
+});
+it('a team appearing after preview makes the whole current batch stale',async()=>{
+  const b=current('2103','3103'),p=await provisioner.preview(b);
+  await sql`INSERT INTO teams(opendota_team_id,name) VALUES ('3103','Synthetic concurrent team')`.execute(database.db);
+  const before=await counts();await expect(provisioner.apply(b,p.fingerprint)).rejects.toMatchObject({code:'identity_plan_stale'});expect(await counts()).toEqual(before);
+});
+it('current identity conflict blocks creation of its organization and preserves all rows',async()=>{
+  const b=current('2104','3104');await identity.appendAccountEvidence({...reviewedIdentityEvidence(b,b.accounts[0]!,'1').claim,status:'rejected'});
+  const p=await provisioner.preview(b),before=await counts();expect(p.status).toBe('blocked');
+  await expect(provisioner.apply(b,p.fingerprint)).rejects.toMatchObject({code:'identity_provision_conflict'});expect(await counts()).toEqual(before);
+  expect((await sql<{n:number}>`SELECT count(*)::int AS n FROM teams WHERE opendota_team_id='3104'`.execute(database.db)).rows[0]!.n).toBe(0);
+});
+it('a late alias failure rolls back the current organization as well as accounts',async()=>{
+  const b=current('2105','3105');b.accounts[0]!.alias='Synthetic current failure';
+  await sql`CREATE FUNCTION fail_current_alias() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN
+    IF NEW.alias='Synthetic current failure' THEN RAISE EXCEPTION 'synthetic current failure'; END IF; RETURN NEW; END; $$`.execute(database.db);
+  await sql`CREATE TRIGGER fail_current_alias BEFORE INSERT ON player_alias_history FOR EACH ROW EXECUTE FUNCTION fail_current_alias()`.execute(database.db);
+  try {const p=await provisioner.preview(b),before=await counts();await expect(provisioner.apply(b,p.fingerprint)).rejects.toThrow(/synthetic current failure/);
+    expect(await counts()).toEqual(before);expect((await sql<{n:number}>`SELECT count(*)::int AS n FROM teams WHERE opendota_team_id='3105'`.execute(database.db)).rows[0]!.n).toBe(0);
+  }finally{await sql`DROP TRIGGER fail_current_alias ON player_alias_history`.execute(database.db);await sql`DROP FUNCTION fail_current_alias()`.execute(database.db);}
+});
 async function counts(){return (await sql<{players:number;proofs:number;aliases:number;revision:string}>`SELECT
   (SELECT count(*)::int FROM players) AS players,(SELECT count(*)::int FROM player_account_evidence) AS proofs,
   (SELECT count(*)::int FROM player_alias_history) AS aliases,(SELECT revision FROM identity_registry_state) AS revision`.execute(database.db)).rows[0]!;}

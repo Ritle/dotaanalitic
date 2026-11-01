@@ -1,0 +1,170 @@
+{
+  "schemaVersion": 1,
+  "mode": "current_catalogue_search_check",
+  "observedAt": "2026-11-01T01:02:00.504Z",
+  "players": [
+    {
+      "accountId": "56351509",
+      "query": "DM",
+      "item": {
+        "id": "11",
+        "name": "DM",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "93817671",
+      "query": "Maladych",
+      "item": {
+        "id": "12",
+        "name": "Maladych",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "103735745",
+      "query": "Saksa",
+      "item": {
+        "id": "13",
+        "name": "Saksa",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "106305042",
+      "query": "Larl",
+      "item": {
+        "id": "14",
+        "name": "Larl",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "140835095",
+      "query": "Batyuk",
+      "item": {
+        "id": "15",
+        "name": "Batyuk",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "171262902",
+      "query": "医者watson`",
+      "item": {
+        "id": "16",
+        "name": "医者watson`",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "183719386",
+      "query": "AMMAR_THE_F",
+      "item": {
+        "id": "17",
+        "name": "AMMAR_THE_F",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "218231587",
+      "query": "not_me",
+      "item": {
+        "id": "18",
+        "name": "not_me",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "312436974",
+      "query": "CHIRA_JUNIOR",
+      "item": {
+        "id": "19",
+        "name": "CHIRA_JUNIOR",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "321580662",
+      "query": "Yatoro",
+      "item": {
+        "id": "20",
+        "name": "Yatoro",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    },
+    {
+      "accountId": "847565596",
+      "query": "rue",
+      "item": {
+        "id": "21",
+        "name": "rue",
+        "secondary": null,
+        "syncedAt": "2026-11-01T01:00:35.814Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    }
+  ],
+  "teams": [
+    {
+      "sourceTeamId": "7119388",
+      "query": "Team Spirit",
+      "item": {
+        "id": "1",
+        "name": "Team Spirit",
+        "secondary": "TSpirit",
+        "syncedAt": "2026-10-30T22:20:55.422Z",
+        "metadataUpdatedAt": "2026-10-30T22:20:58.040Z"
+      }
+    },
+    {
+      "sourceTeamId": "9823272",
+      "query": "Team Yandex",
+      "item": {
+        "id": "5",
+        "name": "Team Yandex",
+        "secondary": "TY",
+        "syncedAt": "2026-11-01T01:00:37.400Z",
+        "metadataUpdatedAt": "2026-11-01T01:01:12.469Z"
+      }
+    }
+  ],
+  "counts": {
+    "maps": 1,
+    "players": 21,
+    "teams": 3,
+    "proofs": 21,
+    "identity_revision": "42",
+    "owners": 0,
+    "scenarios": 0,
+    "datasets": 0,
+    "active_models": 0,
+    "upcoming_cache": 2,
+    "pandascore_requests": 2,
+    "temporary_databases": 0
+  },
+  "databaseWrites": 0,
+  "networkRequests": 0,
+  "trainingReady": false,
+  "deployable": false
+}

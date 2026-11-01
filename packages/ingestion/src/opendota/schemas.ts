@@ -59,6 +59,7 @@ export const MatchSchema = z.object({
 
 export const TeamSchema = z.object({
   team_id: ProviderIdSchema,
+  name: z.string().max(256).nullish(),tag: z.string().max(64).nullish(),
   last_match_time: IntegerSchema
 });
 export const TeamPlayersSchema = z.array(z.object({
@@ -78,3 +79,16 @@ export const HeroesSchema = z.array(z.object({ id: z.number().int().positive().m
 export const LeaguesSchema = z.array(z.object({ leagueid: ProviderIdSchema,
   name: z.string().nullish(), tier: z.string().nullish() }));
 export const MatchSourceSchema = z.looseObject({ match_id: ProviderIdSchema });
+
+// Current provider catalogue only; these flags are not map-level pro/lineup proof.
+export const ProPlayersSchema = z.array(z.object({
+  account_id: RawIdSchema.pipe(z.string().refine(id => BigInt(id)>0n&&BigInt(id)<=4294967295n)),
+  steamid: z.string().regex(/^\d{17}$/).nullish(),
+  name: z.string().max(256).nullish(),
+  personaname: z.string().max(256).nullish(),
+  team_id: NullableIdSchema,
+  team_name: z.string().max(256).nullish(),
+  team_tag: z.string().max(64).nullish(),
+  is_pro: z.boolean().nullish(),
+  is_locked: z.boolean().nullish()
+})).max(10000).refine(rows => new Set(rows.map(r=>r.account_id)).size===rows.length);

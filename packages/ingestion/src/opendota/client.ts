@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
-import { MatchSchema, MatchSourceSchema, HeroesSchema, LeaguesSchema, PlayerSchema, ProMatchesSchema, ProviderIdSchema, TeamPlayersSchema, TeamSchema } from './schemas.js';
+import { MatchSchema, MatchSourceSchema, HeroesSchema, LeaguesSchema, PlayerSchema, ProMatchesSchema, ProPlayersSchema, ProviderIdSchema, TeamPlayersSchema, TeamSchema } from './schemas.js';
 
 export const OPENDOTA_ADAPTER_VERSION = 'opendota-provider-v2';
 export type ProviderErrorCode = 'invalid_configuration' | 'invalid_id' | 'request_budget_exhausted'
@@ -102,6 +102,7 @@ export class OpenDotaClient {
   get requestsUsed() { return this.used; }
   get requestStats() { return { attempts: this.used, httpStatuses: { ...this.httpStatuses }, transportErrors: { ...this.transportErrors } }; }
   getProMatches() { return this.request('/proMatches', ProMatchesSchema); }
+  getProPlayers() { return this.request('/proPlayers', ProPlayersSchema); }
   getLeagueMatches(id: string) { return this.request(`/leagues/${this.id(id)}/matches`, ProMatchesSchema); }
   getHeroes() { return this.request('/heroes', HeroesSchema); }
   getLeagues() { return this.request('/leagues', LeaguesSchema); }

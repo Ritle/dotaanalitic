@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "mode": "current_catalogue_preview",
+  "generatedAt": "2026-11-01T01:01:05.557Z",
+  "source": {
+    "file": ".tools/s1-12-current-capture.json",
+    "sha256": "ce2ef0854c7d8ea0adfd8de4ef932a1b4cc263524dd877de189346aea9a7f683"
+  },
+  "review": {
+    "file": "docs/evidence/s1-12-current-reviewed.json",
+    "sha256": "c33d00762c728cd745cb0e760b032553ca0a04ec01ed632ad20f02a297ae04d6"
+  },
+  "plan": {
+    "policyVersion": "reviewed-current-catalogue-v1",
+    "reviewSha256": "93af5363a44af79fe5043c8112e43212a39d97c13519f20aaec8a82e66e1a0d1",
+    "identityRevision": "20",
+    "status": "ready",
+    "rows": [
+      {
+        "accountId": "56351509",
+        "steam64": "76561198016617237",
+        "alias": "DM",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "93817671",
+        "steam64": "76561198054083399",
+        "alias": "Maladych",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "103735745",
+        "steam64": "76561198064001473",
+        "alias": "Saksa",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "106305042",
+        "steam64": "76561198066570770",
+        "alias": "Larl",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "140835095",
+        "steam64": "76561198101100823",
+        "alias": "Batyuk",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "171262902",
+        "steam64": "76561198131528630",
+        "alias": "医者watson`",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "183719386",
+        "steam64": "76561198143985114",
+        "alias": "AMMAR_THE_F",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "218231587",
+        "steam64": "76561198178497315",
+        "alias": "not_me",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "312436974",
+        "steam64": "76561198272702702",
+        "alias": "CHIRA_JUNIOR",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "321580662",
+        "steam64": "76561198281846390",
+        "alias": "Yatoro",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      },
+      {
+        "accountId": "847565596",
+        "steam64": "76561198807831324",
+        "alias": "rue",
+        "playerId": null,
+        "action": "create",
+        "accountEvidencePresent": false,
+        "aliasEvidencePresent": false,
+        "reasons": []
+      }
+    ],
+    "fingerprint": "0df0d5f70987873aa1f83a29b6fd5098e61939c58d68cbc0b704de9db48b855c",
+    "teamRows": [
+      {
+        "teamId": "7119388",
+        "name": "Team Spirit",
+        "tag": "TSpirit",
+        "source": {
+          "endpoint": "/teams/7119388",
+          "payloadSha256": "ad6bd26ef0ca5c663fbec3d8555e43970be337e709a23c21497d23a9f4c720c4",
+          "fetchedAt": "2026-11-01T01:00:36.014Z"
+        },
+        "canonicalTeamId": "1",
+        "action": "reuse",
+        "existingName": "Team Spirit",
+        "warnings": []
+      },
+      {
+        "teamId": "9823272",
+        "name": "Team Yandex",
+        "tag": "TY",
+        "source": {
+          "endpoint": "/teams/9823272",
+          "payloadSha256": "1783f1ebbfeb6df4040e3597d7622601168cd4ae52b53a4c2d43ff18ce998e47",
+          "fetchedAt": "2026-11-01T01:00:37.400Z"
+        },
+        "canonicalTeamId": null,
+        "action": "create",
+        "existingName": null,
+        "warnings": []
+      }
+    ],
+    "plannedTeams": 1,
+    "plannedPlayers": 11,
+    "plannedAccountProofs": 11,
+    "plannedAliases": 11
+  },
+  "databaseWrites": 0,
+  "sourceRowCount": 5732,
+  "reportedMemberships": [
+    {
+      "accountId": "56351509",
+      "reportedTeamId": "9823272",
+      "reportedTeamName": "Team Yandex",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "93817671",
+      "reportedTeamId": "9823272",
+      "reportedTeamName": "Team Yandex",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "103735745",
+      "reportedTeamId": "9823272",
+      "reportedTeamName": "Team Yandex",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "106305042",
+      "reportedTeamId": "7119388",
+      "reportedTeamName": "Team Spirit",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "140835095",
+      "reportedTeamId": "7119388",
+      "reportedTeamName": "Team Spirit",
+      "reportedPro": null,
+      "reportedLocked": null
+    },
+    {
+      "accountId": "171262902",
+      "reportedTeamId": "9823272",
+      "reportedTeamName": "Team Yandex",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "183719386",
+      "reportedTeamId": "9823272",
+      "reportedTeamName": "Team Yandex",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "218231587",
+      "reportedTeamId": "7119388",
+      "reportedTeamName": "Team Spirit",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "312436974",
+      "reportedTeamId": "9823272",
+      "reportedTeamName": "Team Yandex",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "321580662",
+      "reportedTeamId": "7119388",
+      "reportedTeamName": "Team Spirit",
+      "reportedPro": true,
+      "reportedLocked": true
+    },
+    {
+      "accountId": "847565596",
+      "reportedTeamId": "7119388",
+      "reportedTeamName": "Team Spirit",
+      "reportedPro": true,
+      "reportedLocked": true
+    }
+  ],
+  "warnings": [
+    "CURRENT_CATALOGUE_ONLY",
+    "MEMBERSHIP_IS_NOT_MAP_LINEUP",
+    "NO_PROVIDER_IDENTITY_JOIN",
+    "NO_HISTORICAL_BACKDATE"
+  ],
+  "networkRequests": 0,
+  "verifiedMapLineups": 0,
+  "trainingExamples": 0,
+  "trainingReady": false,
+  "deployable": false
+}
