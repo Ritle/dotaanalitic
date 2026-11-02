@@ -1,5 +1,7 @@
 # Матрица трассировки нюансов → приоритет → реализация
 
+**V1 scope override2026-11-02:** [TECHNICAL_SPEC §0](../TECHNICAL_SPEC.md) выделяет first pre-match player-Elo release. В таблицах ниже P0 patch/role/cohesion/post-draft относится к моделям/метрикам, которые их используют, и к будущему полному MVP; это не veto patch-free V1. Для V1 обязательны verified identities/outcomes, chronology/series separation, separate conditional evidence, gate/coverage, auth и immutable snapshots. Точный новый порядок — [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md).
+
 Этот файл отвечает на вопрос: «Все ли предложенные улучшения попали в план?» Приоритет именно **проектный**, а номер задачи — стадия разработки.
 
 | Нюанс | Приоритет | Архитектурное решение | Задачи Codex |
@@ -26,8 +28,8 @@
 | Сравнение сценариев с заменами и сторонами | P1 | branch parentScenarioId, independent snapshots | S5-01 |
 | Подтверждение состава перед прогнозом | P0 | manually confirmed lineup, source/role/coverage | S1-03, S2-01 |
 | Выбор временного диапазона анализа | P0 | cutoff, patch, temporal filter contract | S1-02, S2-04 |
-| Сохранить прогноз до матча и фактический исход | P0 immutable forecast, P1 outcome link | `prediction_runs` + `prediction_outcomes` | S3-06, S3-07 |
-| Model Performance | P1 | scoring по историческим настоящим outcomes | S3-07 |
+| Сохранить прогноз до матча и фактический исход | P0 V1 по выбору владельца2026-11-02 | immutable issued forecast + verified single-map outcome association; one-primary-per-map | S3-06, S3-07/V1-journal |
+| Model Performance | P0 basic V1, P1 richer monitoring | basic table/counts/accuracy/Brier/log loss/reliability; retrospective отдельно, advanced charts/drilldowns P1 | S3-07/V1-journal, S3-07 |
 | Предсказание BO3/BO5 / между картами | P2 | independent target/scores/validation | S3-09, S5-05 |
 
 **Решение по MVP:** все P0 задачи блокируют готовность прогнозной части; P1 и P2 **не блокируют** персональную первую версию. Nullable поля в миграции — подготовка без premature feature implementation. Дополнительный контракт: `docs/POINT_IN_TIME_AND_MATCH_CONTEXT.md`, `docs/IDENTITY_AND_DATA_QUALITY.md`, `docs/MODEL_EVALUATION_AND_SCENARIOS.md`.
@@ -41,7 +43,7 @@
 | Заморозка датасета и воспроизводимость | P0 | immutable training_dataset_versions/maps, features/label/code/patch revisions, split fingerprint | S0-07, S3-00/01 |
 | Кандидат и безопасная публикация | P0 | training run + external SHA-256 artifact, independent evaluation, quality gate, atomic active switch + audit | S3-03/04/05 |
 | Новая модель против текущей / откат | P0 контракт, P1 автоматизация | model_evaluation_runs, model_activation_events, champion/challenger | S3-05, S5-06 |
-| Связь реального исхода с прошлым прогнозом | P1 | `prediction_outcomes`, explicit prospective eligibility, monitoring | S3-07 |
+| Связь реального исхода с прошлым прогнозом | P0 basic V1 по выбору владельца2026-11-02 | `prediction_outcomes`, explicit pre-start issued/target evidence, deterministic primary, idempotent verification and revision audit | S3-07/V1-journal |
 | Автоматическое пакетное переобучение | P1 | durable PostgreSQL jobs, threshold/patch triggers, no per-request training | S5-06 |
 | Автоматическая публикация новых версий | P1, opt-in | disabled by default, holdout gates, CAS+rollback, audit | S5-06 |
 | Пользовательский выбор фаворита | P2 | отдельные guess/feedback, НЕ ground truth | вне MVP |

@@ -1,5 +1,13 @@
 # Data quality gates before models (P0)
 
+## V1: пригодность зависит от модели
+
+[Утверждённая первая версия](../TECHNICAL_SPEC.md) требует verified pro outcomes, ten unique verified numeric accounts, реальное распределение по сторонам для метки, series-aware хронологию и достаточную раннюю историю. Patch, Pos1–5, heroes, draft order, first pick и exact-five counts не являются входами V1 и не могут быть её обязательными gates. Наличие этих полей не улучшает статус модели автоматически. Неизвестные необязательные значения остаются null/coverage warnings.
+
+Expected future roster, conditional reconstructed historical lineup и verified-asof evidence имеют разные статусы. Conditional V1 допускается к отдельному quality gate, без заявления prospective accuracy; [правила проверки](MODEL_VALIDATION.md). Текущая проверенная привязка того же numeric account пригодна для retrospective history; архивные ники не требуются. Конфликт или неизвестный account не заменяется совпадением имени.
+
+Разделы про S1-05/S1-07 ниже описывают их строгие существующие режимы. Их ограничения не становятся глобальным veto V1. **S3-01/V1-data реализован2026-11-02:** отдельные V1DataRepository/prepareV1Data и CLI,232/232 real maps data-eligible; strict readiness не ослаблен. [Контракт](S3_00_DATASET_BUILDER.md). Coverage gate/независимый test ещё не зарегистрированы; пригодность данных не равна готовности модели.
+
 Collector должен возвращать JSON summary per ingestion batch: `requested`, `received`, `confirmed_pro`, `complete_ten_players`, `verified_team_ids`, `known_patch`, `full_draft`, `known_pre_match_lineups`, `conflicting_fields`, `duplicate_match_ids`, `failed_by_reason`, `upstream_age`.
 
 ## Правила качества

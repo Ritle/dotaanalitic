@@ -25,6 +25,8 @@
 
 ## Package policy
 
+S3-02/V1-features2026-11-02: установлен внутренний workspace `@dota/prediction` (Node server-side pure functions), runtime dependency только `@dota/contracts`; `@dota/db` использует его для development adapter. Новых внешних библиотек нет. pnpm обновил только workspace importers/links, версии registry-пакетов сохранены.
+
 1. `pnpm-lock.yaml` committed after first successful resolve; CI always `pnpm install --frozen-lockfile`.
 2. Prefer adding package to correct workspace (`pnpm --filter @dota/api add ...`), not root, except build tooling. New `apps/worker` package declared before installing its deps.
 3. Frontend bundle budget and ECharts lazy-loading are CI review points. Backend data structures must validate at runtime rather than trust TS types.

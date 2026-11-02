@@ -24,3 +24,8 @@ export * from './pandascore/client.js';
 export * from './pandascore/schemas.js';
 export * from './pandascore/audit.js';
 export * from './valve/patch-diagnostics.js';
+export * from './evaluation-discovery.js';
+export * from './evaluation-details.js';
+export * from './research-evidence.js';
+export * from './v1-release-evidence.js';
+export * from './v1-release-evaluation.js';

@@ -1,9 +1,18 @@
 # Модель данных и правила SQL
 
+**S3-06/V1 runtime (2026-11-02):** forward-only026 добавляет `v1_runtime_snapshots` (exact JSON bytes/SHA, owner/requestId/hash, FK prediction), `prediction_runs.v1_request_id/issued_at`; вероятность хранится NUMERIC без округления до4 знаков. Сценарий/revision/model/activation/latest-report binding проверяются SQL, UPDATE/DELETE/TRUNCATE снимков запрещены. Unavailable попытки имеют null probability/issuedAt. Текущий purpose только `what_if_single_map`, не prospective forecast; verified outcomes и primary selection остаются S3-07. [Контракт](S3_06_V1_RUNTIME_SNAPSHOTS.md). SQL001–025 сохранены.
+
+**S3-05/V1 registry (2026-11-02):** forward-only025 добавляет `v1_model_artifacts` с exact plan/kernel/freeze bytes и SHA, привязкой к существующей `prediction_model_versions`; registration inactive, без fictitious fitting run. Общий `model_activation_events` получает V1 journal FK, requestId/hash и sequence; SQL атомарно переключает active flags, проверяет latest report/CAS, сохраняет audit и запрет прямой активации без события. Прежний fitted-model branch и dataset FK в `model_evaluation_runs` сохранены. SQL001–024 не менялись. [Контракт](S3_05_V1_MODEL_REGISTRY.md).
+
+**S3-03/V1 executable freeze (2026-11-02):** capture может содержать полный manifest, новый report `v1-release-evaluation-v2` — его fingerprint/SHA и проверяемый quality gate. Repository сверяет freeze/capture/report/scorer при записи и чтении. Старые capture/report v1 читаются без изменения bytes и остаются releaseGate false. Внешний `journalled-v1-release-report-v1` и таблица024 совместимы; SQL001–024 не менялись, новая миграция не нужна. [Контракт](S3_03_V1_EXECUTABLE_FREEZE.md). Это не пользовательский forecast journal S3-07.
+
+**Release evaluation journal (024, 2026-11-02):** `v1_release_evaluation_journal` отдельно от `research_evaluation_journal` (023) и пользовательских forecast/outcome snapshots. PK `(plan_fingerprint, revision)`, immutable capture/report bytes + SHA, candidate/binding в отчёте, scorer-code SHA, parent report SHA/reason и DB recorded_at. Plan-scoped advisory lock, unique input/code pair, parent FK/linear append и UPDATE/DELETE/TRUNCATE guards. Возврат метрик только после commit; повтор возвращает сохранённые bytes. [Контракт и команды](S3_03_V1_RELEASE_EVALUATION.md). Это журнал проверки качества, не выполнение обязательного S3-07 forecast journal.
+
 Главная исполняемая схема новой БД: `packages/db/migrations/001_initial.sql` (PostgreSQL 16). **Не выполнять одновременно** с legacy схемой из старого ZIP. Файл `001_initial.sql` рассчитан на чистую БД и не является миграцией уже работающего v1 проекта.
 
 ## Предметные сущности
 
+- `research_evaluation_journal` (023, S3-01/E1) — immutable first committed evaluation и линейные revisions по plan fingerprint; точные capture/report bytes+SHA, scorer manifest SHA, parent revision/report SHA, причина и DB recorded_at. Transaction lock/unique/FK/immutable triggers, retry без пересчёта; отдельная сущность от будущего журнала пользовательских прогнозов. [Контракт E1](S3_01_E1_PROTOCOL.md).
 - `teams`, `players`, `heroes`, `patches`, `leagues` — справочники. Внешние OpenDota IDs отличать от внутренних PK.
 - `team_roster_periods` — наблюдения о членстве во времени; `verified=false` для флага API current-member.
 - `series` — турнирная серия, `matches` — отдельные сыгранные карты.
@@ -76,6 +85,8 @@
 ## Инвариант v3: неизменяемость прогнозов
 
 После перехода `prediction_runs.status` в `done`, `failed` или `unavailable` миграция `004_context_identity_provenance.sql` блокирует UPDATE записи триггером. Повторный расчёт обязан создать новый `prediction_runs.id`; привязка фактического результата хранится отдельно в `prediction_outcomes`. Это не заменяет прикладной контроль авторизации, snapshot metadata и фиксацию ревизии сценария.
+
+**V1 journal scope2026-11-02:** [TECHNICAL_SPEC §0.9](../TECHNICAL_SPEC.md) требует basic forecast/outcome journal до первого выпуска. Текущая схема не доказывает наличие готовых issued_at/primary-selection/association revision contracts: при реализации проверить поля и добавить023+ при необходимости, сохраняя001–022. `created_at` задачи не заменяет время успешной выдачи; current `is_active` не заменяет evidence активации на момент выдачи. One-primary-per-actual-map и versioned outcomes/aggregate reports не изменяют исходный prediction snapshot; несколько runs не увеличивают training N. Это дизайн следующего обязательного среза, не выполненная миграция.
 
 ## Архитектурные сущности непрерывного обучения (migration 005)
 

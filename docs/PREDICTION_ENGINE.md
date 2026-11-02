@@ -1,5 +1,7 @@
 # Prediction Engine: технический контракт
 
+**Первый выпуск V1 (утверждён2026-11-02):** [TECHNICAL_SPEC §0](../TECHNICAL_SPEC.md) задаёт conditional player-mean Elo для ожидаемых редактируемых составов. Вектор — разница средних рейтингов выбранных пятёрок; patch/role/hero/side/cohesion признаки отсутствуют. Первый выпуск не требует logistic или post-draft. Следующие разделы описывают целевую расширенную систему; её неиспользуемые зависимости не блокируют V1. Evaluation basis, источники, даты, coverage и версия обязательны; inactive/unvalidated модель не выдаёт probability. Runtime V1 ещё предстоит реализовать по [плану](IMPLEMENTATION_PLAN.md).
+
 ## Стадии
 
 - `pre_match`: вероятность победы **Team A в одной карте**, только известные до драфта данные о командах, подтверждённой/предполагаемой пятёрке, форме, Elo, патче и стороне, если она известна.
@@ -44,7 +46,7 @@ Pre-match: rolling Elo difference, opponent-strength-adjusted team form, exact-l
 3. Holdout metrics: N, Brier, log loss, reliability/calibration (ECE + plot), accuracy secondary. Compare both stages on **same** post-draft subset.
 4. Verify swap symmetry `p(A,B) ≈ 1-p(B,A)` with known side inversion; otherwise inspect feature encoding.
 5. Document data freshness, patch drift, missing identities, selection bias from incomplete historic data.
-6. Candidate gate (not scientifically guaranteed): holdout n >= 300 per stage; calibrated Brier and log loss no worse than baseline on comparable maps; ECE limit set in config and documented. If conditions unmet, remain inactive.
+6. Candidate gate: model-specific minimum map/series counts, coverage, baseline comparison and calibration limits must be documented and registered before the release test. N >= 300 is a former planning heuristic, not a universal requirement or evidence of sufficient power. Do not adjust thresholds after inspecting test results. Failed or unregistered gate => inactive.
 
 ## UX and storage
 

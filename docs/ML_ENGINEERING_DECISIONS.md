@@ -1,5 +1,7 @@
 # ML / Prediction Engine: конкретная реализация, воспроизводимость и сложные случаи
 
+**ADR-039 / V1:** [первый выпуск](../TECHNICAL_SPEC.md) использует fixed player-mean Elo с общей TS-реализацией offline/runtime. Для него не нужен sklearn fit, обязательный fitted calibrator или четыре непустых splits: warmup + untouched test достаточны при зафиксированных параметрах; tuning/calibration требуют своих более ранних данных. Проверка calibration, baseline, coverage, source/config/code/SHA и manual activation обязательны. Logistic/Python↔TS parity ниже сохраняются для будущей линейной модели, role/patch/cohesion — для отдельных feature revisions. Не переносить research result в active registry без нового V1 gate.
+
 ## 1. Две постановки, не одна
 
 **Pre-map target:** `team_A_wins_this_map`, до драфта, только доступная в момент прогноза информация. **Post-draft:** та же метка, но при завершённом драфте и выбранных 10 героях (и корректном `draft_complete_at`). Target серии BO3/BO5 НЕ подменяет target карты.

@@ -1,5 +1,17 @@
 # Prediction Engine — источники, обучающие поля и аудит пригодности данных (v8)
 
+## Профиль первого выпуска V1
+
+**Ranked hero practice, уточнение2026-11-02:** [TECHNICAL_SPEC §0.8](../TECHNICAL_SPEC.md) допускает отдельные ranked-public player×hero descriptive metrics и candidate features будущей hero-aware модели. Pub/pro denominators и labels не смешивать; verified account/mode/cutoff/provenance, coverage и N обязательны. Малое N не даёт fixed penalty, missing не равно отсутствию опыта. V1 Elo без pub/hero features; predictive benefit ещё не измерен.
+
+Решение владельца2026-11-02: [TECHNICAL_SPEC §0](../TECHNICAL_SPEC.md) имеет приоритет для V1. Минимум — проверенные pro outcomes, 10 уникальных numeric accounts/canonical bindings, фактические стороны для метки, завершённая ранее история и series grouping. Вход модели — рейтинги выбранных пятёрок; roles/patch/heroes/first pick не входят и не блокируют её. Общая A/B/C классификация и широкие наборы признаков ниже не являются универсальным model gate.
+
+Для future scenario достаточно ожидаемой пятёрки с source/observation time/manual revision; официальный pre-map анонс не требуется. Для retrospective conditional cohort допускается восстановленная фактическая пятёрка, но не подстановка будущих исходов в историю и не заявление prospective accuracy. Текущая verified привязка того же стабильного account используется без выдуманного исторического known_at. Strict cohort сохраняет прежние правила. Release candidate требует отдельного зарегистрированного gate; E0/E1 остаются research.
+
+Provider patch labels допустимы как отдельная source annotation, а не как verified release timestamp/canonical patch interval. Estimated roles остаются оценками; отсутствие ни того ни другого не меняет V1 eligibility. Source disagreements и неизменяемые raw/provenance сохраняются. Следующие feature groups — кандидаты будущих версий с отдельными dependencies и абляциями.
+
+**Реализовано S3-01/V1-data2026-11-02:** `pnpm dataset:v1 preview|export|verify`, отдельный development-only conditional формат;232/232 real maps data-eligible,122 series,197 игроков. Inputs/labels отдельно, реальные clocks сохранены, history только от ранее завершённых eligible maps. Strict/E0/E1 не изменены, test split/model gate не назначены. [Контракт/лимиты](S3_00_DATASET_BUILDER.md), [coverage/SHA](evidence/s3-01-v1-data.json). Source audit переиспользует сохранённые реальные receipts; новых HTTP нет.
+
 **Статус на 2026-10-31:** S0-08 выполнил ограниченный live-аудит 20 recent + 20 historical карт четырёх TI-лиг, с разбиением по наблюдённым provider patch IDs. [Результаты и evidence](S0_08_SOURCE_AUDIT.md). Это не репрезентативный benchmark, не доказательство historic known-as-of и не model eligibility. Правила readiness/cohorts S0-09 реализованы; реальное historic evidence всё ещё не доказано, corpus gate S1-08 и S3 feature/model gates остаются обязательными.
 
 ## 1. Задача и target

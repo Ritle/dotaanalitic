@@ -1,0 +1,561 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-05/V1-registry",
+  "generatedAt": "2026-11-02T18:18:12.827Z",
+  "status": "registry_and_atomic_lifecycle_implemented_one_inactive_model_registered_runtime_snapshots_pending",
+  "registered": {
+    "modelId": "8837077f-7bd3-4412-85c8-13dcab6aa14d",
+    "isActive": false,
+    "freezeSha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a",
+    "bundleConfigSha256": "873cb15a5ad82524e6c98ad7a8ebbd4506045611f1a3f155d3ad5e0b344c7c41",
+    "candidateSha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad",
+    "byteExactRetry": true,
+    "missingReleasePromotionRejected": true
+  },
+  "workingState": {
+    "models": 1,
+    "active": 0,
+    "artifacts": 1,
+    "activations": 0,
+    "e1": 0,
+    "release": 0
+  },
+  "workingTableState": [
+    {
+      "table": "matches",
+      "n": 233,
+      "fingerprint": "e8f1fe35505bf57473885e0aec1b258a"
+    },
+    {
+      "table": "match_players",
+      "n": 2330,
+      "fingerprint": "d130a70cb46215bcb19006c1a0ce33b8"
+    },
+    {
+      "table": "series",
+      "n": 123,
+      "fingerprint": "6a63b71f41994f8063a708300bf59dfb"
+    },
+    {
+      "table": "series_provision_batches",
+      "n": 6,
+      "fingerprint": "4d16f5546449463d6352b3d24d43cd32"
+    },
+    {
+      "table": "provider_ingest_receipts",
+      "n": 746,
+      "fingerprint": "e779b0f4ffe25ec3aebc251810a655b0"
+    },
+    {
+      "table": "match_quality_assessments",
+      "n": 508,
+      "fingerprint": "14fcfd4c1ca3acc42621a486c1ad2ef9"
+    },
+    {
+      "table": "players",
+      "n": 203,
+      "fingerprint": "3972a6dbfeb253eb832f055cdb780611"
+    },
+    {
+      "table": "player_account_evidence",
+      "n": 203,
+      "fingerprint": "5f862d52d29cf17eb7abbfc8a160b3e1"
+    },
+    {
+      "table": "player_external_accounts",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patches",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_release_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_transition_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_impact_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "draft_rule_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_availability_rules",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "match_field_observations",
+      "n": 11173,
+      "fingerprint": "9de39187313b257631d90f0bcad705cd"
+    },
+    {
+      "table": "training_dataset_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "prediction_model_versions",
+      "n": 1,
+      "fingerprint": "102bdabeb0a6713e0a62953ba121ba28"
+    },
+    {
+      "table": "game_context_registry_state",
+      "n": 1,
+      "fingerprint": "db672d0480f3402e6e416a4550559e17"
+    },
+    {
+      "table": "identity_registry_state",
+      "n": 1,
+      "fingerprint": "064be35e7b72e574ca12c11766afa913"
+    },
+    {
+      "table": "upcoming_source_observations",
+      "n": 2,
+      "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+    }
+  ],
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCliTests": 650,
+    "newUnitCliTests": 5,
+    "postgresTests": 58,
+    "newRegistryPostgresTests": 7,
+    "migrations": 25,
+    "workingMigrationApplied": true,
+    "migrationRetryIdempotent": true,
+    "finalMetadataChange": "test_end_at uses event until, not later snapshot; targeted DB typecheck/build and seven PG tests repeated",
+    "positiveTransitionTests": "explicit synthetic journal-reader contract doubles in disposable DB only; not real release quality",
+    "initialMigrationFailure": "pgcrypto digest unavailable; replaced before application with built-in sha256(convert_to(...))",
+    "e2e": "not run: UI/HTTP unchanged",
+    "python": "not run: no fitting"
+  },
+  "invariants": {
+    "protectedArtifactsUnchanged": true,
+    "e0ReplayIdentical": true,
+    "developmentFeatureRowsUnchanged": 232,
+    "existingDataTablesUnchanged": 20,
+    "modelRowsAdded": 1,
+    "sourceImports": 0,
+    "realEvaluations": 0,
+    "actualActivations": 0,
+    "archivedExecutableReplay": "PASS",
+    "historicalSqlFilesUnchanged": 24
+  },
+  "liveAudit": {
+    "path": ".tools/v1-registry-live-audit.json",
+    "sha256": "b7557c9e90ff2df01ae0f19ee3f098d91acd027f413fc22c35fafc8deb816e90",
+    "generatedAt": "2026-11-02T18:03:59.783Z",
+    "matchIds": [
+      "9073402068"
+    ],
+    "detailsReceived": 1,
+    "coverage": {
+      "match_id_consistent": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "start_time": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "outcome": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "completed_outcome": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "confirmed_pro": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "teams_2": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "league": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "series": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "patch": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "players_10": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "identity_10": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "canonical_identity_10": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9073402068"
+        ]
+      },
+      "heroes_10_unique": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "picks_10": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_actions": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "role_hint_10": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "game_mode": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "lobby_type": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "final_heroes_valid": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_picks_exact": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_heroes_match": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_teams_match": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_order_integrity": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_structurally_consistent": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_order_valid": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9073402068"
+        ]
+      },
+      "verified_patch": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9073402068"
+        ]
+      },
+      "pre_match_lineup_known_at": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9073402068"
+        ]
+      },
+      "post_draft_heroes_known_at": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9073402068"
+        ]
+      },
+      "discovery_cohort_consistent": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      }
+    },
+    "limitations": [
+      "Coverage is observational, not prediction eligibility or model accuracy",
+      "Historical league sample is selected by time ranks, not representative of all leagues or patches",
+      "Provider patch IDs are unverified; no verified release-time registry is populated",
+      "identity_10 means ten distinct source Steam32 accounts, not verified canonical identities",
+      "Current league tier evidence does not prove tier or roster availability before historical map start",
+      "lane_role is a hint, not verified Pos 1-5; draft_order_valid remains unassessed",
+      "Final heroes and completed lineups are retrospective facts without cutoff availability evidence",
+      "No model trained; no raw payloads, profile names or account IDs saved in the report"
+    ],
+    "note": "One recent pro map; observed numeric IDs, not canonical identity or model quality"
+  },
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-release-leagues-20261102.json",
+      "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+    },
+    {
+      "path": ".tools/v1-features-development-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+      "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+      "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evidence.json",
+      "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+      "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+      "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+      "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-verification.json",
+      "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+      "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+      "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/v1-registry.ts",
+      "sha256": "8679d2849d5f5bc889dab62f53e0e7b85fd6060c4642ec31050b188d672a77ec"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "e66d6d6107024938914875cad120810222ab1dc4f0bbb04a7d5d6abbf5d389ea"
+    },
+    {
+      "path": "packages/db/src/v1-registry.ts",
+      "sha256": "9a61e8ed6f59d9a9ce663a6775587c3c0f0bc41a39e4b1227ab07fddd417e854"
+    },
+    {
+      "path": "packages/db/src/v1-registry-repository.ts",
+      "sha256": "d06a64eaaac5dcb1a9a01218ad78daa26614fd8f561218cc252a819c899b8784"
+    },
+    {
+      "path": "packages/db/src/index.ts",
+      "sha256": "3da8da7d2aac4176c371f74668e3255d971ed56e40c638e4ab1ca96b5f017de1"
+    },
+    {
+      "path": "packages/db/migrations/025_v1_model_registry.sql",
+      "sha256": "d14ed21f41f576c72bfd3da5eaced7f5ea4274bab8f052181d14a45ee2327952"
+    },
+    {
+      "path": "packages/db/tests/v1-registry-fixtures.ts",
+      "sha256": "d194e9cd6bdd7013579f8e7d4cb01fcc08bf9e8904a1ef51a3dc0ff80968bc15"
+    },
+    {
+      "path": "packages/db/tests/v1-registry.test.ts",
+      "sha256": "09acafc7ce5b2daa101219da11b0000f91a29cc0d0eef1ce371769cb7fce223c"
+    },
+    {
+      "path": "packages/db/tests/v1-registry.integration.test.ts",
+      "sha256": "2925e46eac477f78c0f79323b00b623bcd685a2da146f611fcac037bd4babaf1"
+    },
+    {
+      "path": "packages/db/tests/v1-registry-cli.test.ts",
+      "sha256": "5ab08a6eeee28580b15f82da957862abc06105fbe350f8f98a8c49be4736e231"
+    },
+    {
+      "path": "scripts/lib/v1-registry-bundle.mjs",
+      "sha256": "989fea9866e189dcc3c927b4a1c8291707e916e97d43baa59dc2b61870745012"
+    },
+    {
+      "path": "scripts/lib/v1-release-files.mjs",
+      "sha256": "387ab1deda250ee788876e18439a470c09b7c170dbea45f1437a3c8f4ee677e1"
+    },
+    {
+      "path": "scripts/v1-registry.mjs",
+      "sha256": "710aa83900f345c41662671d2a6ea410165e1b173dce4478822ec2886cdbf950"
+    },
+    {
+      "path": "package.json",
+      "sha256": "ea81f61e61e495ddac10ea2a77db4a534634c8612c3c1fa4f816c0ca98cb6fdf"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".tools/v1-registry-install.log",
+      "sha256": "d5fac4e90611ad6f2dc815ea5b490be4906fc897a8ca8a6664cbe9076d26b927"
+    },
+    {
+      "path": ".tools/v1-registry-typecheck.log",
+      "sha256": "26a6b4d650d8781991922560c5a4a346a3d6867c736d127019bb662bcbd20d14"
+    },
+    {
+      "path": ".tools/v1-registry-build.log",
+      "sha256": "360e8617103d35a4a64cb3d567c28c1e67473d559b951d602bd967ed8a0c6238"
+    },
+    {
+      "path": ".tools/v1-registry-unit.log",
+      "sha256": "88c1aea1675e7e30a68bf0738ce8d55e60ddc09ab69d8a29cd0c194ff4ff02ff"
+    },
+    {
+      "path": ".tools/v1-registry-pg.log",
+      "sha256": "c6035af3a2aaeec613eab0712f169dcfe07abfb6af265c203ba244d3d7f99f59"
+    },
+    {
+      "path": ".tools/v1-registry-db-final.log",
+      "sha256": "e2a6d2b48c68c0e0471bbd406cb6b47408c864b1cb2bfd325ed3f54b695efac5"
+    },
+    {
+      "path": ".tools/v1-registry-migrations.log",
+      "sha256": "a5b6d6e5907726f6af84292354d1b33e254a6eb15a0a696fe066954c4b2a3932"
+    },
+    {
+      "path": ".tools/v1-registry-migrate.log",
+      "sha256": "423c18911ca2d9ef2f0dfdeac108a8d91fa4a8ad61f28c2503d1afb73b462926"
+    },
+    {
+      "path": ".tools/v1-registry-migrate-retry.log",
+      "sha256": "402029055017852d7607202946484d27bc0c78038dcf8aaaea6e218c5e34271c"
+    },
+    {
+      "path": ".tools/v1-registry-operational.log",
+      "sha256": "cd3ca08279f4faaacf64adb169a65d7613caa0df9f6429867ac5384f8b588cf0"
+    },
+    {
+      "path": ".tools/v1-registry-live-audit.log",
+      "sha256": "15768f1b0577c99949dd701ac7519d02df122d38a20fa23947d5f2feb85fda18"
+    }
+  ],
+  "nextTask": "S3-06/V1-runtime-snapshots: inference-code compatibility, reviewed Tier1 targets, verified current identities/strict completed history, immutable scenario/input/features/model snapshots"
+}

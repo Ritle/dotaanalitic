@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-02T12:02:42.745Z",
+  "scope": "final_series_reconciliation_validation",
+  "references": [
+    {
+      "path": "docs/evidence/s3-01-evaluation-details.json",
+      "sha256": "bd4cc777a945e9c50333acef2a7cbbc44fdb6f574ce0ffebe570b51df9ea1038"
+    },
+    {
+      "path": "packages/ingestion/src/evaluation-details.ts",
+      "sha256": "dfbe4367a36e8da96ce710d4002ac09fcc1f5cc0d29fb7323e592f200dbbf31d"
+    },
+    {
+      "path": "packages/ingestion/dist/evaluation-details.js",
+      "sha256": "b805a4bf204c46db4d00b7b6842e9bc778d178022e0c23a588ccc368b7dcea79"
+    },
+    {
+      "path": "packages/ingestion/tests/evaluation-details.test.ts",
+      "sha256": "84607bbb6e378216d2fdc778dde72ed8b0bf12c736efc8f7b1bdbff86c1b62ef"
+    },
+    {
+      "path": ".tools/evaluation-details-after-import.json",
+      "sha256": "280022dd9f11c93d3fe74d10c9dea704e6c58adbb186ad717b5ccb5e9defaa22"
+    }
+  ],
+  "fixes": [
+    "canonical_siblings_outside_target_window",
+    "canonical_series_fallback_and_both_conflicting_keys_grouped"
+  ],
+  "regressionReproducedBeforeEachFix": true,
+  "originalRealReportStillReplays": true,
+  "offlineVerify": {
+    "status": "reconciliation_verified",
+    "coverage": {
+      "observedTargetMaps": 1,
+      "dataReadyMaps": 0,
+      "mapCoverage": 0,
+      "observedKnownSeries": 1,
+      "readyKnownSeries": 0,
+      "knownSeriesCoverage": 0,
+      "targetMapsWithVerifiedOutcomes": 1
+    },
+    "metrics": null,
+    "deployable": false
+  },
+  "policyWindowsChanged": false,
+  "metrics": null,
+  "deployable": false
+}

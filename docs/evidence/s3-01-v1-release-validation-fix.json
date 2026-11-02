@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T23:53:11.607Z",
+  "change": "guard_non_numeric_id_before_BigInt_refinement",
+  "reproducedBeforeFix": "safeParse_threw_SyntaxError_for_non_numeric_id",
+  "references": [
+    {
+      "path": "docs/evidence/s3-01-v1-release-registration.json",
+      "sha256": "ede635b277697d0439c2327fbeb46293c1fc94803911529123879b850faaf430"
+    },
+    {
+      "path": "packages/contracts/src/v1-release-plan.ts",
+      "sha256": "0022e83a6ca327a6ef786c37401df8eb8b3faec546aa7b1842d72a13a9a34772"
+    },
+    {
+      "path": "packages/contracts/dist/v1-release-plan.js",
+      "sha256": "41ac451c78ea786167ebcb38a810b14f3874b2c866d4c60382584fbc5d52f7a7"
+    },
+    {
+      "path": "packages/db/tests/v1-release-plan.test.ts",
+      "sha256": "3410ff598f29979bf0315bd7f40e2f0e939fe403c8d1019bfcbdbdc6ee349b24"
+    }
+  ],
+  "registeredPlanSha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef",
+  "replay": {
+    "status": "release_plan_verified",
+    "fingerprint": "8ffa8625e3e8cede2505ff79786fd27f7b6eb9c9215fd70e1855938d11dd88b4",
+    "artifactSha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef",
+    "registeredAt": "2026-11-01T23:46:38.285Z",
+    "events": [
+      {
+        "name": "BLAST Slam IX 2026 — main event",
+        "leagueId": "20208"
+      }
+    ],
+    "testFromAt": "2026-11-20T00:00:00.000Z",
+    "evaluateNotBefore": "2026-12-02T00:00:00.000Z",
+    "sample": {
+      "minMaps": 100,
+      "minSeries": 40,
+      "minMapCoverage": 0.8,
+      "minKnownSeriesCoverage": 0.8,
+      "mapCoverageDenominator": "all_observed_target_map_ids_including_unverified_and_unknown_series",
+      "seriesCoverageDenominator": "all_observed_target_known_series_including_ineligible",
+      "identityCoverageWithinScoredMaps": 1
+    },
+    "evaluation": null,
+    "trainingReady": false,
+    "deployable": false
+  },
+  "qualityPolicyChanged": false,
+  "evaluation": null,
+  "deployable": false
+}

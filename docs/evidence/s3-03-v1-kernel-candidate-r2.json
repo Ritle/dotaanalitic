@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-fixed-elo-candidate-v1",
+  "stage": "pre_match",
+  "model": "fixed_player_mean_elo",
+  "registration": {
+    "kernelRegisteredAt": "2026-11-02T14:26:23.615Z",
+    "planRegisteredAt": "2026-11-01T23:46:38.285Z",
+    "planSha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef",
+    "planFingerprint": "8ffa8625e3e8cede2505ff79786fd27f7b6eb9c9215fd70e1855938d11dd88b4",
+    "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+    "developmentDatasetSha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5",
+    "developmentFingerprint": "978658a3d46219b7e32f117f16f67a85dc9b0e94785d6cef14e58acf5ab2b2bb",
+    "warmupFromAt": "2024-01-01T00:00:00.000Z",
+    "testFromAt": "2026-11-20T00:00:00.000Z",
+    "evaluateNotBefore": "2026-12-02T00:00:00.000Z",
+    "syntheticOnly": false,
+    "code": [
+      {
+        "path": "package.json",
+        "sha256": "cc1e92aa7df74061f85f460e92f17ef5c6ee0fde1577d803334c39bef4234032"
+      },
+      {
+        "path": "packages/contracts/dist/catalog.js",
+        "sha256": "66a4759983c45d104bd93534e75aa4f6480ecc345667fd6e55828d822a1c2c00"
+      },
+      {
+        "path": "packages/contracts/dist/compare.js",
+        "sha256": "400615ffaa15bb37df6cbc59070cf03cf4f5ef2f03b319804eab46e034c3d31c"
+      },
+      {
+        "path": "packages/contracts/dist/corpus-audit.js",
+        "sha256": "4b2d9aa123128092b41125f8d43ecb232e2b9d0cea62d3daf7420b004b57fdb2"
+      },
+      {
+        "path": "packages/contracts/dist/corpus-quality.js",
+        "sha256": "21cb11f40ae2f6ba72ed9326b0d4e30f044efb96e185ce1184b179de0a3d214c"
+      },
+      {
+        "path": "packages/contracts/dist/dataset-audit.js",
+        "sha256": "6db5beded6a869263ef6117b402040b2257b3eb4839c54a831751f75e68103f5"
+      },
+      {
+        "path": "packages/contracts/dist/dataset-build.js",
+        "sha256": "3043a55feaccaabe0f8aa8ff7996144e04d920372d32d731ad566fe7265355de"
+      },
+      {
+        "path": "packages/contracts/dist/dataset.js",
+        "sha256": "b6d3b1906144b4b89c6914fe88fcd3ec1233900ec7931ffecdae02eabb558fbd"
+      },
+      {
+        "path": "packages/contracts/dist/draft.js",
+        "sha256": "114e24f047fc14b0d43bb88bda8a9928f0bbab140ecb7048ba0ed50155ca485a"
+      },
+      {
+        "path": "packages/contracts/dist/evaluation-details.js",
+        "sha256": "1f690857a249d4fa2d4d4eff069f16c5b8dafe657626092cb3faaa60d8449943"
+      },
+      {
+        "path": "packages/contracts/dist/evaluation-discovery.js",
+        "sha256": "f29382721af82c35a005155c043797593de728d41f8177ba17c3be209d85c5c7"
+      },
+      {
+        "path": "packages/contracts/dist/game-context.js",
+        "sha256": "2a720871ab7265ebda4e56853ad9558052624263dfd249f7e82b1bc00aaac142"
+      },
+      {
+        "path": "packages/contracts/dist/hero-matchups.js",
+        "sha256": "3387bfa3604b2461cdad07c92b7e96e7096611e4d91f2a737c621a1a83f12262"
+      },
+      {
+        "path": "packages/contracts/dist/history-refresh.js",
+        "sha256": "94d4b3e788081de54d0e11636ed61ec276724b2bf1f17ce3585be02d74a9db32"
+      },
+      {
+        "path": "packages/contracts/dist/identity-provision.js",
+        "sha256": "d3c4b383e554599fc94d54b3beb3ce883692797144a4c590ce873986ea0ce280"
+      },
+      {
+        "path": "packages/contracts/dist/identity.js",
+        "sha256": "728a65b76cb9dc72091248990c6f8244546eeac376ac63e239b237f6de237b7a"
+      },
+      {
+        "path": "packages/contracts/dist/index.js",
+        "sha256": "2738fcf539fccb9e867603cefeadbd3ae6c9f47342a041c9b1324883d654480e"
+      },
+      {
+        "path": "packages/contracts/dist/patch-diagnostics.js",
+        "sha256": "90447e92b8db2d401779010330a2d6e56822d22c7395d8b71bc953962c3e143e"
+      },
+      {
+        "path": "packages/contracts/dist/patch-history.js",
+        "sha256": "bf33e5300e8135884432474326a01c333a4759520771107f90e2412aa4060360"
+      },
+      {
+        "path": "packages/contracts/dist/player-hero.js",
+        "sha256": "92ae1df17d6ac94556822dfd7071f193231b046bee2b835ec1acbe73d31ff3c3"
+      },
+      {
+        "path": "packages/contracts/dist/pro-maps.js",
+        "sha256": "00222367a3402383cfbe18c66f44e130b5950406ce94e9ca377c934f7a024332"
+      },
+      {
+        "path": "packages/contracts/dist/prospective-patch.js",
+        "sha256": "86e00d5031ab82940bf715ddd8c15c48a1f671af6c71aed3631c19e770745bf6"
+      },
+      {
+        "path": "packages/contracts/dist/readiness.js",
+        "sha256": "c11079c1d7747cfbf62f33d420662b834bb73a09743a96eae7948b49d968e32e"
+      },
+      {
+        "path": "packages/contracts/dist/research-elo.js",
+        "sha256": "d1aa85934736ca5cf931b796615f80ba92251bed000f6a8a25b6626a3da7a31a"
+      },
+      {
+        "path": "packages/contracts/dist/research-evidence.js",
+        "sha256": "f6284734318f737ad067a5ac0f81b74e0ef70def18f5a49d41061fa3966588e2"
+      },
+      {
+        "path": "packages/contracts/dist/research-execution.js",
+        "sha256": "658abbfb3807262efb6b86785fd7a9070eaed311f4df4ed035aff75ac24098d2"
+      },
+      {
+        "path": "packages/contracts/dist/research-journal.js",
+        "sha256": "cc407e5fffe86ea693f44f6036b09f9656e459957e4ef3d91694c21048ee8a7e"
+      },
+      {
+        "path": "packages/contracts/dist/research-plan.js",
+        "sha256": "bd67c6d552dbd9cddd25b668d7a5376d23b0e0e92fd6e54a8f3688b9395808e6"
+      },
+      {
+        "path": "packages/contracts/dist/roster.js",
+        "sha256": "f9aeec1aa494bb0906014562719210f21effb69ee81eacc8905028bc7ca16f18"
+      },
+      {
+        "path": "packages/contracts/dist/sample.js",
+        "sha256": "281d4c77c6dfcaec4e71cc8fc93671e52790a6e2dc18f89ad6a932f2fa9cde4d"
+      },
+      {
+        "path": "packages/contracts/dist/scenario-report.js",
+        "sha256": "726cb71385c83d9488eb9b73851e86cc3dc11b5619765b4210572376aeac1176"
+      },
+      {
+        "path": "packages/contracts/dist/scenario.js",
+        "sha256": "a44999e828527623ae707c44e22dbae73faa41d298c4128c80976e0904e07cb4"
+      },
+      {
+        "path": "packages/contracts/dist/series-provision.js",
+        "sha256": "5b9855b91f26b450d2df51c2e1f30f7bb6b8d43f4ada37add62721826c716bd3"
+      },
+      {
+        "path": "packages/contracts/dist/strength.js",
+        "sha256": "c759b2cd5087c5157b671546b9b29918a170c4d50c6d40b244fd338805bd9911"
+      },
+      {
+        "path": "packages/contracts/dist/temporal.js",
+        "sha256": "78f85b06844921b056615b90338c660c791d3037f672b7faf7591649b958fda9"
+      },
+      {
+        "path": "packages/contracts/dist/upcoming-evidence.js",
+        "sha256": "58238bf1f3ad0837fae5d4eb4419678d224df23bd6dbd822d79806fb3f290d4c"
+      },
+      {
+        "path": "packages/contracts/dist/upcoming.js",
+        "sha256": "c51316c214fd2066df12bff85e6ae8cb61e2aa43da2477c81cd2f3c1299a839b"
+      },
+      {
+        "path": "packages/contracts/dist/v1-candidate.js",
+        "sha256": "9585c6635cc2511780ec85d6e414d1fcb61b634521f98ed62475e3eb01211e45"
+      },
+      {
+        "path": "packages/contracts/dist/v1-data.js",
+        "sha256": "bd0f11ae27999d5ae2f8772af6d459657f2581de0001c887bbe3e1133ee1381d"
+      },
+      {
+        "path": "packages/contracts/dist/v1-features.js",
+        "sha256": "77d1fe4bd55db8db0c419ba1dfad7805bc6aa541b7b15a2e42aa28e661e1b275"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-evidence.js",
+        "sha256": "66aced41f0ab3e28092363c2ca7dda411bb8482a843839b1f48fe5d190a191ce"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-plan.js",
+        "sha256": "41ac451c78ea786167ebcb38a810b14f3874b2c866d4c60382584fbc5d52f7a7"
+      },
+      {
+        "path": "packages/contracts/package.json",
+        "sha256": "6bde23c4387eee1be0fac18f55034d345dfab925bafb518a6e7c1d82970e0053"
+      },
+      {
+        "path": "packages/db/dist/catalog-repository.js",
+        "sha256": "803c95001b6eee27247e98c25e352a769b14d6bf0fa314512241b86d88f278bb"
+      },
+      {
+        "path": "packages/db/dist/compare-report.js",
+        "sha256": "ded7c5ba6d53473e6898026cb55bc22bf0e9399319aa09cbf3148f907d38bd74"
+      },
+      {
+        "path": "packages/db/dist/compare-repository.js",
+        "sha256": "bb908b07dcbb302dea34447b7d73af808be8fd1368e48955a91b42965a796400"
+      },
+      {
+        "path": "packages/db/dist/context-repository.js",
+        "sha256": "32327e56b3240d03aaf2c95a40e736e2b3d30f753efee048b14c862dea6ebfd0"
+      },
+      {
+        "path": "packages/db/dist/corpus-audit.js",
+        "sha256": "1c0b9d1f3f0d24aa1902121f0b45ee365b44bf984d6876822ce6a8ca0b3d6375"
+      },
+      {
+        "path": "packages/db/dist/corpus-quality.js",
+        "sha256": "a168da5a3057fa989d9597868749ca08a6acd5eef33706356da05ca0df1a4056"
+      },
+      {
+        "path": "packages/db/dist/dataset-audit.js",
+        "sha256": "53bfb86a8f99c2c1833440aafced21fae047702d21222588d2638f86eddb5d3b"
+      },
+      {
+        "path": "packages/db/dist/dataset-builder.js",
+        "sha256": "7c3b9903ccff0e79be5cfaa683daf3f8232843b11e302958ca797c4d282568f2"
+      },
+      {
+        "path": "packages/db/dist/dataset-repository.js",
+        "sha256": "f8517f8bdf228e2789871b7f3e450dff31f475cb44cab08d665cf45ece981f69"
+      },
+      {
+        "path": "packages/db/dist/dataset-splits.js",
+        "sha256": "3875e37729e5827c4b3a2e304565f0ee89eba4a7b341ae32527bcde5914a081a"
+      },
+      {
+        "path": "packages/db/dist/game-context-repository.js",
+        "sha256": "08ea6aa061e409e4c4a1d8e1dd74b0418af73d8626c1f8174da87f4fa4aedd0e"
+      },
+      {
+        "path": "packages/db/dist/game-context.js",
+        "sha256": "b1e537e39b2c500f604cf574484da7f98c97f1445d96aa1eaf3009cfe1e11114"
+      },
+      {
+        "path": "packages/db/dist/hero-matchup-repository.js",
+        "sha256": "81a562ffaa4f29598c0564891afe79b31bcfe44606b447acfae9b5d2bbe36e3a"
+      },
+      {
+        "path": "packages/db/dist/hero-matchups.js",
+        "sha256": "c9c44b28ca03dc506652a4f9792530b77c480877d31d3792a0d389de9de47821"
+      },
+      {
+        "path": "packages/db/dist/history-refresh.js",
+        "sha256": "bb4f4cff34b54885e386d816e2f781996d4ec7a4dea8cd8e8d3b1964ee424ffa"
+      },
+      {
+        "path": "packages/db/dist/identity-provision.js",
+        "sha256": "e5186a4dbb0afc3692e905b21e0d1513176499f32c4590d726a81f6428137581"
+      },
+      {
+        "path": "packages/db/dist/identity-repository.js",
+        "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+      },
+      {
+        "path": "packages/db/dist/identity.js",
+        "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "sha256": "8ef8e3151116990495cd24aa19a333ba77fba157aa7906635847dee7602bc6ae"
+      },
+      {
+        "path": "packages/db/dist/outcome-verifier.js",
+        "sha256": "604ed065ce7a277cdfba9b4d166416e7fd460d4760755268b3de0e5ece44225b"
+      },
+      {
+        "path": "packages/db/dist/patch-history.js",
+        "sha256": "327ec6619a17b38b6a98c70e04a9bc19b4dbbdc29a8343d76f644df5566f184d"
+      },
+      {
+        "path": "packages/db/dist/patch-meta-repository.js",
+        "sha256": "b3bbcc554ad85e92f8b36e597b79ff5a4b1c31822f8fc1e70c1f8360cb15cb68"
+      },
+      {
+        "path": "packages/db/dist/patch-weight-evaluation.js",
+        "sha256": "7ef97e31f13ad3168074d5cef2cf23f2c48ee6b2f4351293b548e75b0d42ea6e"
+      },
+      {
+        "path": "packages/db/dist/player-hero-report.js",
+        "sha256": "037409c76b41f61aebde3e95b9b23d6d725fe80b42d07b87c46e6cadde94006d"
+      },
+      {
+        "path": "packages/db/dist/player-hero-repository.js",
+        "sha256": "6a90dcfc84a3ff08aed8bc48f0f05c60841da9de6bdd2e39bdbb364899e96383"
+      },
+      {
+        "path": "packages/db/dist/pro-map-reader.js",
+        "sha256": "83391c746f48e9106e55e6a967aba6e1a84b3aca7494e74eb740dd83b00ed782"
+      },
+      {
+        "path": "packages/db/dist/pro-map-repository.js",
+        "sha256": "689ff80247db901dd6748544aeb870e903ee36880570327fd9b23b38f038f994"
+      },
+      {
+        "path": "packages/db/dist/pro-maps.js",
+        "sha256": "ff640d76ba361659729d80c2da4c4c9ba6fe533ac9f14b81453f4eeb12c06076"
+      },
+      {
+        "path": "packages/db/dist/prospective-patch.js",
+        "sha256": "f2e1cfb76bbc01505c35e5c1f166c67963b5750fd35a8948a7b1bb3b921fdb08"
+      },
+      {
+        "path": "packages/db/dist/readiness-repository.js",
+        "sha256": "adcd3e0132897ade8d766f1b2e95fb6f391e442e30a3bb2f2598cf0c3f3855c9"
+      },
+      {
+        "path": "packages/db/dist/readiness.js",
+        "sha256": "be3faf0e94513693a063e1671ea17d421dd98d5e46b59a8387b49b3c3a5c0f7b"
+      },
+      {
+        "path": "packages/db/dist/reference-pool.js",
+        "sha256": "c4e4fc2e0c327e7d93ba5e026c3a1ec21dc8db5d1836f0bf5a7a42ef88df379c"
+      },
+      {
+        "path": "packages/db/dist/research-elo-repository.js",
+        "sha256": "8c6a4b72b0119dbcd9749021cb2eb7b9e40761b4c3d3606b24bce7726762135b"
+      },
+      {
+        "path": "packages/db/dist/research-elo.js",
+        "sha256": "c1d344222cb71be8b12450a355cbbbb1f3bd5d1dee12d926165b8d64179c2d2f"
+      },
+      {
+        "path": "packages/db/dist/research-execution.js",
+        "sha256": "9adb330243989d39de4f0ff044517b2314fd20102f72da65ef69f5052b8eb760"
+      },
+      {
+        "path": "packages/db/dist/research-journal.js",
+        "sha256": "eda1b702cc39c29288f4f8fe4f8132663092a2a66de2c98ea8f7b35533be50dc"
+      },
+      {
+        "path": "packages/db/dist/research-plan.js",
+        "sha256": "871f270426157a44f93cd4b2863bbb815dcb18852f56eda8d4239b3bd72fa051"
+      },
+      {
+        "path": "packages/db/dist/roster-report.js",
+        "sha256": "4522b825594e08717487f3d8f481b57cd1da1653c90b4e7b919076b9f9f472e6"
+      },
+      {
+        "path": "packages/db/dist/roster-repository.js",
+        "sha256": "6f1ec04caee84961fc6cfe87a99590af568da4531e766c9743b8124a9133bdbd"
+      },
+      {
+        "path": "packages/db/dist/scenario-draft.js",
+        "sha256": "7d22610a5c10bd0acafdc7e2dbec7d70975ca21341339f244b88225f16c8024d"
+      },
+      {
+        "path": "packages/db/dist/scenario-report-repository.js",
+        "sha256": "25808a50821a05d378d41aaf5f3174bbf4c2df9860cbdd47dad273c0fcb249bf"
+      },
+      {
+        "path": "packages/db/dist/scenario-repository.js",
+        "sha256": "a9cb545b2eee24681dae1f52c6844ada2d33ad006d503391faf9a3f19d67e518"
+      },
+      {
+        "path": "packages/db/dist/schedule-cache.js",
+        "sha256": "6193b043c6facefaf9a48fab7008ed21281a2cec31041442967826151c136979"
+      },
+      {
+        "path": "packages/db/dist/series-provision.js",
+        "sha256": "f36fa8ac3e993f9ccb7515d545f7e370737e85a03163e53e67cf5156772d004d"
+      },
+      {
+        "path": "packages/db/dist/strength-report.js",
+        "sha256": "70982fb47cf9a134b1d0578dda4357ff2e4e30c70e45d07674a3a98508e45444"
+      },
+      {
+        "path": "packages/db/dist/strength-repository.js",
+        "sha256": "794f2e948d45856a1aa133bf23bc4a4c18d42c7cae9b8f5753d65826afb33295"
+      },
+      {
+        "path": "packages/db/dist/temporal.js",
+        "sha256": "c37f882da18ecc5694d168cdd146c4905cb001cab3829bed13947215fbb92bcb"
+      },
+      {
+        "path": "packages/db/dist/upcoming-evidence.js",
+        "sha256": "f88980e36fb066cacab5f299b4616a16056d26ee3d926155d3b15bfb21a5b032"
+      },
+      {
+        "path": "packages/db/dist/v1-candidate.js",
+        "sha256": "1c2a174408c63037bbc387c5aaa90b58850e188c8270152d9a4e41f69d97984a"
+      },
+      {
+        "path": "packages/db/dist/v1-data-repository.js",
+        "sha256": "223b380f1aa16c82350ca481edf03fe766061707ff08e44a60e18ee658f7f1cc"
+      },
+      {
+        "path": "packages/db/dist/v1-data.js",
+        "sha256": "ef0132909ab8c03115660d707a7628f70bd875fdf565dba7de31925d5e13c82a"
+      },
+      {
+        "path": "packages/db/dist/v1-features.js",
+        "sha256": "81171837c4dd3c5ad64d61309fb5fbf08f9388ce3f3e78ae316253b0fd764986"
+      },
+      {
+        "path": "packages/db/dist/v1-release-inventory.js",
+        "sha256": "fba6ab436ce32b3ddbaf3ddfd133a38f006bce4a331177ca5d29fb82f1edb4e3"
+      },
+      {
+        "path": "packages/db/dist/v1-release-plan.js",
+        "sha256": "ab1fc7eb3a28e6e5d696ef43776c33a37988069323c90021da3a0279b256f093"
+      },
+      {
+        "path": "packages/db/package.json",
+        "sha256": "2d48875617c2c47bc289dad94b75c912a27935adfc3f421a9fd511631aab8b66"
+      },
+      {
+        "path": "packages/prediction/dist/index.js",
+        "sha256": "92109f2d18e74db7b8052c2a3ba7e3b600c169b2a684d2cd38a7da9451ba1d25"
+      },
+      {
+        "path": "packages/prediction/dist/v1-candidate.js",
+        "sha256": "debb9c64633d13d314791a68cd72577f8afd4c212c84a6d2fea305cae9e46618"
+      },
+      {
+        "path": "packages/prediction/dist/v1-features.js",
+        "sha256": "72d353e52f1ac3ccb553006173e90caf5b0e3015c5557e191a6ab5924ade4cd3"
+      },
+      {
+        "path": "packages/prediction/dist/v1-integrity.js",
+        "sha256": "eb9fe3918a6bbf4e61cd9c630f1cf30f4cfb99c4ee49703af856e5e7684e8bdc"
+      },
+      {
+        "path": "packages/prediction/dist/v1-quality-policy.js",
+        "sha256": "010eb124e62d9363204d17175b0bc5cfde040593e7bd665d08de2a429f2d0aba"
+      },
+      {
+        "path": "packages/prediction/dist/v1-quality.js",
+        "sha256": "43c5b60850a647761eaf36a6df36f26ec50a93929406e789f3ee5f8af23ee7b2"
+      },
+      {
+        "path": "packages/prediction/package.json",
+        "sha256": "7aefde48f908f72dc9755436b46a44da71e1feabea11efa09c0808bad77ca28d"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "0297a50b1d23f5550d66fa0d305d332869316316fbd3c1014e4570d411be089d"
+      },
+      {
+        "path": "scripts/lib/v1-candidate-files.mjs",
+        "sha256": "ec1c761143fe671831f47cc486ffdba6e808c40cce83eb942bf4f57ec694729e"
+      },
+      {
+        "path": "scripts/v1-candidate.mjs",
+        "sha256": "0af8db69ca42603565427e9f9b52dbafca0d68aa9d54155c334b49665e8da76f"
+      }
+    ]
+  },
+  "featurePolicy": {
+    "version": "player-mean-elo-completed-strict-v1",
+    "initialRating": 1500,
+    "k": 32,
+    "scale": 400,
+    "minCompletedProMapsPerPlayer": 5,
+    "identity": "current_verified_same_numeric_account",
+    "crossAccountMerges": "unsupported",
+    "availability": "event_time_assumed",
+    "cutoff": "completed_at_strictly_before_target_start",
+    "update": "start_frozen_equal_delta_applied_at_completion",
+    "completionOrder": "completed_at_then_numeric_match_id",
+    "missingHistory": "unavailable",
+    "validation": "unvalidated"
+  },
+  "inference": {
+    "featureOrder": [
+      "eloDifference"
+    ],
+    "link": "base10_elo_logistic",
+    "scale": 400,
+    "preprocessing": "none",
+    "fittedCalibrator": false,
+    "sideAdvantage": false
+  },
+  "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+  "codeFingerprint": "4bdc6f0183f6ce2bdb800bb73bf0583ffe81e227b198454342de1d2b735a8912",
+  "parity": {
+    "purpose": "synthetic_arithmetic_probes_only",
+    "absoluteTolerance": 1e-14,
+    "probes": [
+      {
+        "difference": -800,
+        "expected": 0.009900990099009901
+      },
+      {
+        "difference": -400,
+        "expected": 0.09090909090909091
+      },
+      {
+        "difference": 0,
+        "expected": 0.5
+      },
+      {
+        "difference": 400,
+        "expected": 0.9090909090909091
+      },
+      {
+        "difference": 800,
+        "expected": 0.9900990099009901
+      }
+    ]
+  },
+  "fit": {
+    "method": "fixed_policy_no_fitting",
+    "trainingRunId": null,
+    "seed": null,
+    "developmentUse": "provenance_only_not_a_release_test"
+  },
+  "qualityGate": "not_evaluated",
+  "isActive": false,
+  "deployable": false,
+  "teamAWinProbability": null,
+  "executableFreeze": {
+    "kernelOnly": true,
+    "releaseEvidenceExecutorBound": false,
+    "complete": false
+  },
+  "fingerprint": "f0ecb819955597aebc7a8a70a2b239522b0c254ee10cae9bf072025905a37142"
+}

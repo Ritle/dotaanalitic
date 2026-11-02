@@ -1,0 +1,6553 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-data",
+  "capturedAt": "2026-11-01T23:06:07.534Z",
+  "profile": "pre-match-player-elo-data-v1",
+  "policyVersion": "conditional-player-history-preparation-v1",
+  "request": {
+    "schemaVersion": 1,
+    "profile": "pre-match-player-elo-data-v1",
+    "purpose": "development_only",
+    "fromAt": "2020-01-01T00:00:00.000Z",
+    "toAt": "2026-11-01T23:00:00.000Z",
+    "snapshotAt": "2026-11-01T23:06:07.534Z",
+    "maxMaps": 5000
+  },
+  "artifactFingerprint": "978658a3d46219b7e32f117f16f67a85dc9b0e94785d6cef14e58acf5ab2b2bb",
+  "artifacts": [
+    {
+      "file": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "file": ".tools/v1-data-replay.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "file": ".tools/v1-data-request.json",
+      "sha256": "01b53f6312e89af2f8c6057b1213f3bd4819236812980a3776da2e53e4d5bc6f"
+    },
+    {
+      "file": ".tools/v1-data-before.json",
+      "sha256": "be4f23ce343818a2e8a57be28a1e4a32baa41855571271b961666d8e6649548c"
+    },
+    {
+      "file": ".tools/v1-data-after.json",
+      "sha256": "be4f23ce343818a2e8a57be28a1e4a32baa41855571271b961666d8e6649548c"
+    }
+  ],
+  "code": [
+    {
+      "path": "package.json",
+      "sha256": "24e6065e76d7ae80ef44465850c4ee707839714939778013e8a9368869107cb6"
+    },
+    {
+      "path": "packages/contracts/dist/catalog.js",
+      "sha256": "66a4759983c45d104bd93534e75aa4f6480ecc345667fd6e55828d822a1c2c00"
+    },
+    {
+      "path": "packages/contracts/dist/compare.js",
+      "sha256": "400615ffaa15bb37df6cbc59070cf03cf4f5ef2f03b319804eab46e034c3d31c"
+    },
+    {
+      "path": "packages/contracts/dist/corpus-audit.js",
+      "sha256": "4b2d9aa123128092b41125f8d43ecb232e2b9d0cea62d3daf7420b004b57fdb2"
+    },
+    {
+      "path": "packages/contracts/dist/corpus-quality.js",
+      "sha256": "21cb11f40ae2f6ba72ed9326b0d4e30f044efb96e185ce1184b179de0a3d214c"
+    },
+    {
+      "path": "packages/contracts/dist/dataset-audit.js",
+      "sha256": "6db5beded6a869263ef6117b402040b2257b3eb4839c54a831751f75e68103f5"
+    },
+    {
+      "path": "packages/contracts/dist/dataset-build.js",
+      "sha256": "3043a55feaccaabe0f8aa8ff7996144e04d920372d32d731ad566fe7265355de"
+    },
+    {
+      "path": "packages/contracts/dist/dataset.js",
+      "sha256": "b6d3b1906144b4b89c6914fe88fcd3ec1233900ec7931ffecdae02eabb558fbd"
+    },
+    {
+      "path": "packages/contracts/dist/draft.js",
+      "sha256": "114e24f047fc14b0d43bb88bda8a9928f0bbab140ecb7048ba0ed50155ca485a"
+    },
+    {
+      "path": "packages/contracts/dist/game-context.js",
+      "sha256": "2a720871ab7265ebda4e56853ad9558052624263dfd249f7e82b1bc00aaac142"
+    },
+    {
+      "path": "packages/contracts/dist/hero-matchups.js",
+      "sha256": "3387bfa3604b2461cdad07c92b7e96e7096611e4d91f2a737c621a1a83f12262"
+    },
+    {
+      "path": "packages/contracts/dist/history-refresh.js",
+      "sha256": "94d4b3e788081de54d0e11636ed61ec276724b2bf1f17ce3585be02d74a9db32"
+    },
+    {
+      "path": "packages/contracts/dist/identity-provision.js",
+      "sha256": "d3c4b383e554599fc94d54b3beb3ce883692797144a4c590ce873986ea0ce280"
+    },
+    {
+      "path": "packages/contracts/dist/identity.js",
+      "sha256": "728a65b76cb9dc72091248990c6f8244546eeac376ac63e239b237f6de237b7a"
+    },
+    {
+      "path": "packages/contracts/dist/index.js",
+      "sha256": "4f9d1b6ac3ef021b42a8c50e76a8dc039ca102e13e4ed371fbccd8f5dfa19402"
+    },
+    {
+      "path": "packages/contracts/dist/patch-diagnostics.js",
+      "sha256": "90447e92b8db2d401779010330a2d6e56822d22c7395d8b71bc953962c3e143e"
+    },
+    {
+      "path": "packages/contracts/dist/patch-history.js",
+      "sha256": "bf33e5300e8135884432474326a01c333a4759520771107f90e2412aa4060360"
+    },
+    {
+      "path": "packages/contracts/dist/player-hero.js",
+      "sha256": "92ae1df17d6ac94556822dfd7071f193231b046bee2b835ec1acbe73d31ff3c3"
+    },
+    {
+      "path": "packages/contracts/dist/pro-maps.js",
+      "sha256": "00222367a3402383cfbe18c66f44e130b5950406ce94e9ca377c934f7a024332"
+    },
+    {
+      "path": "packages/contracts/dist/prospective-patch.js",
+      "sha256": "86e00d5031ab82940bf715ddd8c15c48a1f671af6c71aed3631c19e770745bf6"
+    },
+    {
+      "path": "packages/contracts/dist/readiness.js",
+      "sha256": "c11079c1d7747cfbf62f33d420662b834bb73a09743a96eae7948b49d968e32e"
+    },
+    {
+      "path": "packages/contracts/dist/research-elo.js",
+      "sha256": "d1aa85934736ca5cf931b796615f80ba92251bed000f6a8a25b6626a3da7a31a"
+    },
+    {
+      "path": "packages/contracts/dist/research-plan.js",
+      "sha256": "bd67c6d552dbd9cddd25b668d7a5376d23b0e0e92fd6e54a8f3688b9395808e6"
+    },
+    {
+      "path": "packages/contracts/dist/roster.js",
+      "sha256": "f9aeec1aa494bb0906014562719210f21effb69ee81eacc8905028bc7ca16f18"
+    },
+    {
+      "path": "packages/contracts/dist/sample.js",
+      "sha256": "281d4c77c6dfcaec4e71cc8fc93671e52790a6e2dc18f89ad6a932f2fa9cde4d"
+    },
+    {
+      "path": "packages/contracts/dist/scenario-report.js",
+      "sha256": "726cb71385c83d9488eb9b73851e86cc3dc11b5619765b4210572376aeac1176"
+    },
+    {
+      "path": "packages/contracts/dist/scenario.js",
+      "sha256": "a44999e828527623ae707c44e22dbae73faa41d298c4128c80976e0904e07cb4"
+    },
+    {
+      "path": "packages/contracts/dist/series-provision.js",
+      "sha256": "5b9855b91f26b450d2df51c2e1f30f7bb6b8d43f4ada37add62721826c716bd3"
+    },
+    {
+      "path": "packages/contracts/dist/strength.js",
+      "sha256": "c759b2cd5087c5157b671546b9b29918a170c4d50c6d40b244fd338805bd9911"
+    },
+    {
+      "path": "packages/contracts/dist/temporal.js",
+      "sha256": "78f85b06844921b056615b90338c660c791d3037f672b7faf7591649b958fda9"
+    },
+    {
+      "path": "packages/contracts/dist/upcoming-evidence.js",
+      "sha256": "58238bf1f3ad0837fae5d4eb4419678d224df23bd6dbd822d79806fb3f290d4c"
+    },
+    {
+      "path": "packages/contracts/dist/upcoming.js",
+      "sha256": "c51316c214fd2066df12bff85e6ae8cb61e2aa43da2477c81cd2f3c1299a839b"
+    },
+    {
+      "path": "packages/contracts/dist/v1-data.js",
+      "sha256": "bd0f11ae27999d5ae2f8772af6d459657f2581de0001c887bbe3e1133ee1381d"
+    },
+    {
+      "path": "packages/db/dist/catalog-repository.js",
+      "sha256": "803c95001b6eee27247e98c25e352a769b14d6bf0fa314512241b86d88f278bb"
+    },
+    {
+      "path": "packages/db/dist/compare-report.js",
+      "sha256": "ded7c5ba6d53473e6898026cb55bc22bf0e9399319aa09cbf3148f907d38bd74"
+    },
+    {
+      "path": "packages/db/dist/compare-repository.js",
+      "sha256": "bb908b07dcbb302dea34447b7d73af808be8fd1368e48955a91b42965a796400"
+    },
+    {
+      "path": "packages/db/dist/context-repository.js",
+      "sha256": "32327e56b3240d03aaf2c95a40e736e2b3d30f753efee048b14c862dea6ebfd0"
+    },
+    {
+      "path": "packages/db/dist/corpus-audit.js",
+      "sha256": "1c0b9d1f3f0d24aa1902121f0b45ee365b44bf984d6876822ce6a8ca0b3d6375"
+    },
+    {
+      "path": "packages/db/dist/corpus-quality.js",
+      "sha256": "a168da5a3057fa989d9597868749ca08a6acd5eef33706356da05ca0df1a4056"
+    },
+    {
+      "path": "packages/db/dist/dataset-audit.js",
+      "sha256": "53bfb86a8f99c2c1833440aafced21fae047702d21222588d2638f86eddb5d3b"
+    },
+    {
+      "path": "packages/db/dist/dataset-builder.js",
+      "sha256": "7c3b9903ccff0e79be5cfaa683daf3f8232843b11e302958ca797c4d282568f2"
+    },
+    {
+      "path": "packages/db/dist/dataset-repository.js",
+      "sha256": "f8517f8bdf228e2789871b7f3e450dff31f475cb44cab08d665cf45ece981f69"
+    },
+    {
+      "path": "packages/db/dist/dataset-splits.js",
+      "sha256": "3875e37729e5827c4b3a2e304565f0ee89eba4a7b341ae32527bcde5914a081a"
+    },
+    {
+      "path": "packages/db/dist/game-context-repository.js",
+      "sha256": "08ea6aa061e409e4c4a1d8e1dd74b0418af73d8626c1f8174da87f4fa4aedd0e"
+    },
+    {
+      "path": "packages/db/dist/game-context.js",
+      "sha256": "b1e537e39b2c500f604cf574484da7f98c97f1445d96aa1eaf3009cfe1e11114"
+    },
+    {
+      "path": "packages/db/dist/hero-matchup-repository.js",
+      "sha256": "81a562ffaa4f29598c0564891afe79b31bcfe44606b447acfae9b5d2bbe36e3a"
+    },
+    {
+      "path": "packages/db/dist/hero-matchups.js",
+      "sha256": "c9c44b28ca03dc506652a4f9792530b77c480877d31d3792a0d389de9de47821"
+    },
+    {
+      "path": "packages/db/dist/history-refresh.js",
+      "sha256": "bb4f4cff34b54885e386d816e2f781996d4ec7a4dea8cd8e8d3b1964ee424ffa"
+    },
+    {
+      "path": "packages/db/dist/identity-provision.js",
+      "sha256": "e5186a4dbb0afc3692e905b21e0d1513176499f32c4590d726a81f6428137581"
+    },
+    {
+      "path": "packages/db/dist/identity-repository.js",
+      "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+    },
+    {
+      "path": "packages/db/dist/identity.js",
+      "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+    },
+    {
+      "path": "packages/db/dist/index.js",
+      "sha256": "d02ac3655ad4470be1251bb6ad1c8bb6afffc35e504c6e3b7e859c0ca280c0e5"
+    },
+    {
+      "path": "packages/db/dist/outcome-verifier.js",
+      "sha256": "604ed065ce7a277cdfba9b4d166416e7fd460d4760755268b3de0e5ece44225b"
+    },
+    {
+      "path": "packages/db/dist/patch-history.js",
+      "sha256": "327ec6619a17b38b6a98c70e04a9bc19b4dbbdc29a8343d76f644df5566f184d"
+    },
+    {
+      "path": "packages/db/dist/patch-meta-repository.js",
+      "sha256": "b3bbcc554ad85e92f8b36e597b79ff5a4b1c31822f8fc1e70c1f8360cb15cb68"
+    },
+    {
+      "path": "packages/db/dist/patch-weight-evaluation.js",
+      "sha256": "7ef97e31f13ad3168074d5cef2cf23f2c48ee6b2f4351293b548e75b0d42ea6e"
+    },
+    {
+      "path": "packages/db/dist/player-hero-report.js",
+      "sha256": "037409c76b41f61aebde3e95b9b23d6d725fe80b42d07b87c46e6cadde94006d"
+    },
+    {
+      "path": "packages/db/dist/player-hero-repository.js",
+      "sha256": "6a90dcfc84a3ff08aed8bc48f0f05c60841da9de6bdd2e39bdbb364899e96383"
+    },
+    {
+      "path": "packages/db/dist/pro-map-reader.js",
+      "sha256": "83391c746f48e9106e55e6a967aba6e1a84b3aca7494e74eb740dd83b00ed782"
+    },
+    {
+      "path": "packages/db/dist/pro-map-repository.js",
+      "sha256": "689ff80247db901dd6748544aeb870e903ee36880570327fd9b23b38f038f994"
+    },
+    {
+      "path": "packages/db/dist/pro-maps.js",
+      "sha256": "ff640d76ba361659729d80c2da4c4c9ba6fe533ac9f14b81453f4eeb12c06076"
+    },
+    {
+      "path": "packages/db/dist/prospective-patch.js",
+      "sha256": "f2e1cfb76bbc01505c35e5c1f166c67963b5750fd35a8948a7b1bb3b921fdb08"
+    },
+    {
+      "path": "packages/db/dist/readiness-repository.js",
+      "sha256": "adcd3e0132897ade8d766f1b2e95fb6f391e442e30a3bb2f2598cf0c3f3855c9"
+    },
+    {
+      "path": "packages/db/dist/readiness.js",
+      "sha256": "be3faf0e94513693a063e1671ea17d421dd98d5e46b59a8387b49b3c3a5c0f7b"
+    },
+    {
+      "path": "packages/db/dist/reference-pool.js",
+      "sha256": "c4e4fc2e0c327e7d93ba5e026c3a1ec21dc8db5d1836f0bf5a7a42ef88df379c"
+    },
+    {
+      "path": "packages/db/dist/research-elo-repository.js",
+      "sha256": "8c6a4b72b0119dbcd9749021cb2eb7b9e40761b4c3d3606b24bce7726762135b"
+    },
+    {
+      "path": "packages/db/dist/research-elo.js",
+      "sha256": "d8795c0c573886f54409ee339e55aa1d430715fc7a505276375ae6a981274688"
+    },
+    {
+      "path": "packages/db/dist/research-plan.js",
+      "sha256": "871f270426157a44f93cd4b2863bbb815dcb18852f56eda8d4239b3bd72fa051"
+    },
+    {
+      "path": "packages/db/dist/roster-report.js",
+      "sha256": "4522b825594e08717487f3d8f481b57cd1da1653c90b4e7b919076b9f9f472e6"
+    },
+    {
+      "path": "packages/db/dist/roster-repository.js",
+      "sha256": "6f1ec04caee84961fc6cfe87a99590af568da4531e766c9743b8124a9133bdbd"
+    },
+    {
+      "path": "packages/db/dist/scenario-draft.js",
+      "sha256": "7d22610a5c10bd0acafdc7e2dbec7d70975ca21341339f244b88225f16c8024d"
+    },
+    {
+      "path": "packages/db/dist/scenario-report-repository.js",
+      "sha256": "25808a50821a05d378d41aaf5f3174bbf4c2df9860cbdd47dad273c0fcb249bf"
+    },
+    {
+      "path": "packages/db/dist/scenario-repository.js",
+      "sha256": "a9cb545b2eee24681dae1f52c6844ada2d33ad006d503391faf9a3f19d67e518"
+    },
+    {
+      "path": "packages/db/dist/schedule-cache.js",
+      "sha256": "6193b043c6facefaf9a48fab7008ed21281a2cec31041442967826151c136979"
+    },
+    {
+      "path": "packages/db/dist/series-provision.js",
+      "sha256": "f36fa8ac3e993f9ccb7515d545f7e370737e85a03163e53e67cf5156772d004d"
+    },
+    {
+      "path": "packages/db/dist/strength-report.js",
+      "sha256": "70982fb47cf9a134b1d0578dda4357ff2e4e30c70e45d07674a3a98508e45444"
+    },
+    {
+      "path": "packages/db/dist/strength-repository.js",
+      "sha256": "794f2e948d45856a1aa133bf23bc4a4c18d42c7cae9b8f5753d65826afb33295"
+    },
+    {
+      "path": "packages/db/dist/temporal.js",
+      "sha256": "c37f882da18ecc5694d168cdd146c4905cb001cab3829bed13947215fbb92bcb"
+    },
+    {
+      "path": "packages/db/dist/upcoming-evidence.js",
+      "sha256": "f88980e36fb066cacab5f299b4616a16056d26ee3d926155d3b15bfb21a5b032"
+    },
+    {
+      "path": "packages/db/dist/v1-data-repository.js",
+      "sha256": "fc72a9af2624d5611c9b878c203b9e10f7f2309cbe6e6939c418ad23cefa4cf0"
+    },
+    {
+      "path": "packages/db/dist/v1-data.js",
+      "sha256": "a2cf66afedd39bacad41e18568ac827071d4d2a659031908bb015b8ce1cf4316"
+    },
+    {
+      "path": "packages/db/migrations/001_initial.sql",
+      "sha256": "8b1505e143bc200ce1e5ef167e6315557b1c1eb3fc8e0fa2035e59c00d55d4f4"
+    },
+    {
+      "path": "packages/db/migrations/002_patch_awareness.sql",
+      "sha256": "2c332db16f6e40212f0c07f06f45918e1566a1158029392776e9eabae4ffa6b2"
+    },
+    {
+      "path": "packages/db/migrations/003_roster_continuity.sql",
+      "sha256": "c230707713b8cfe35a55a5a48aa9f81d9c9375ffeb4aed67c315d5235ca0c0fb"
+    },
+    {
+      "path": "packages/db/migrations/004_context_identity_provenance.sql",
+      "sha256": "184e24d7e95656e1be115c2010a8946a3d88633ca5d9c554b0b4e7c5cf1f294d"
+    },
+    {
+      "path": "packages/db/migrations/005_training_pipeline.sql",
+      "sha256": "b79dc2586d5d3bcbeb8d290045362fe14639a63b409f52da6c6bb3cc6f965f3c"
+    },
+    {
+      "path": "packages/db/migrations/006_draft_data_quality.sql",
+      "sha256": "76af6b156a25eedcdf64a6d2a8b33161d79a9fac011c8de81a3cdb6dde013e6a"
+    },
+    {
+      "path": "packages/db/migrations/007_idempotent_ingestion.sql",
+      "sha256": "ecfa1aea0ef631f016b797580b0598892af5c15bc09a7a907b0e90cd674628ac"
+    },
+    {
+      "path": "packages/db/migrations/008_owner_auth.sql",
+      "sha256": "8a459ca949428c827bfe8744b92acf870954155ccf7ce4d867b364ddcdad5238"
+    },
+    {
+      "path": "packages/db/migrations/009_temporal_context.sql",
+      "sha256": "2fe9f7f28150127bacc78fb972266de9cc15c30ca82e2a5d306cdba08c8de830"
+    },
+    {
+      "path": "packages/db/migrations/010_identity_evidence.sql",
+      "sha256": "43b41db24f20f3258b03788408eefee66cac312dde6e4691db89a7497dc7e280"
+    },
+    {
+      "path": "packages/db/migrations/011_game_context_registry.sql",
+      "sha256": "b87ce903ff12aa4bf1b2569d9106961f222ab0f2a57e71eae2e9e10d8502a7f2"
+    },
+    {
+      "path": "packages/db/migrations/012_verified_dataset_boundary.sql",
+      "sha256": "a406136a38c2f9399c0a913f17abeb77ee0296c641d3426041e03cf9938b4269"
+    },
+    {
+      "path": "packages/db/migrations/013_context_recorded_time.sql",
+      "sha256": "4f28693720367ec681e07229c9b28d81517a3629823c54ef8d456de691bedfce"
+    },
+    {
+      "path": "packages/db/migrations/014_patch_transfer_evidence.sql",
+      "sha256": "8666a3576f4e997685afc2a8a5535ad9771143849a8c380b113a80f3988443a7"
+    },
+    {
+      "path": "packages/db/migrations/015_scenario_snapshots.sql",
+      "sha256": "c743257c561ae725f3191867f9118905a6136902165465dda3d651359f81d103"
+    },
+    {
+      "path": "packages/db/migrations/016_scenario_draft.sql",
+      "sha256": "e597a4ddbda5fb822284eb3ff8671d0a25cf9e03cc13002dad71f44c77e0724c"
+    },
+    {
+      "path": "packages/db/migrations/017_scenario_reports.sql",
+      "sha256": "7cf013a6bcb8e5d59696f327433bb2b3143fe03a50143eea14ab9c81dfcafd2e"
+    },
+    {
+      "path": "packages/db/migrations/018_outcome_verifier.sql",
+      "sha256": "a534be6670a699d6e7e4dd9df4efb493ff070b1b3833a3c11609f926e156e0c1"
+    },
+    {
+      "path": "packages/db/migrations/019_upcoming_schedule.sql",
+      "sha256": "07c209cbc751a091588016aab82006aa50fd4c42c024cb858a79e3ec184db5d6"
+    },
+    {
+      "path": "packages/db/migrations/020_history_refresh.sql",
+      "sha256": "738a45096172ccb489079247ff55777a2a08fe18cbf4271fb929f1bc97721a34"
+    },
+    {
+      "path": "packages/db/migrations/021_upcoming_source_observations.sql",
+      "sha256": "6a03eb941c15574f79fbb70b98d6ee3e695693965449d44098b973428ab4295c"
+    },
+    {
+      "path": "packages/db/migrations/022_series_provision.sql",
+      "sha256": "91d4883d4de3d4459cd82116cb20540d74427437a167dc87b7da1e0d3db7ce06"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783"
+    },
+    {
+      "path": "scripts/prepare-v1-data.mjs",
+      "sha256": "b4eef27873f955c9a7cb035b2a77773f6c87c98e29ccdcfa143a367ac5a05500"
+    }
+  ],
+  "summary": {
+    "inventoryMaps": 232,
+    "selectedMaps": 232,
+    "eligibleMaps": 232,
+    "excludedMaps": 0,
+    "outsideWindowMaps": 0,
+    "eligibleSeries": 122,
+    "mapsWithAllPlayersHistory": 198,
+    "mapsWithNoPlayerHistory": 6,
+    "byReason": {}
+  },
+  "mapsWithPartialPlayerHistory": 28,
+  "canonicalPlayers": 197,
+  "identityRevision": "394",
+  "sourceFactClocks": 11129,
+  "sourceFactClocksWithKnownAt": 0,
+  "assessments": [
+    {
+      "matchId": "6054718020",
+      "selected": true,
+      "seriesKey": "opendota:572260",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6067239305",
+      "selected": true,
+      "seriesKey": "opendota:574398",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6079100944",
+      "selected": true,
+      "seriesKey": "opendota:576265",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6214131970",
+      "selected": true,
+      "seriesKey": "opendota:601388",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6227492909",
+      "selected": true,
+      "seriesKey": "opendota:603588",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6806047579",
+      "selected": true,
+      "seriesKey": "opendota:713700",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6807772726",
+      "selected": true,
+      "seriesKey": "opendota:714100",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6809522859",
+      "selected": true,
+      "seriesKey": "opendota:714548",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6811000638",
+      "selected": true,
+      "seriesKey": "opendota:714854",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "6832287527",
+      "selected": true,
+      "seriesKey": "opendota:718491",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7378530387",
+      "selected": true,
+      "seriesKey": "opendota:815175",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7378939289",
+      "selected": true,
+      "seriesKey": "opendota:815334",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7380403482",
+      "selected": true,
+      "seriesKey": "opendota:815600",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7393133836",
+      "selected": true,
+      "seriesKey": "opendota:818237",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7406531302",
+      "selected": true,
+      "seriesKey": "opendota:820565",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7927665228",
+      "selected": true,
+      "seriesKey": "opendota:903379",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7928915377",
+      "selected": true,
+      "seriesKey": "opendota:903582",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7931106306",
+      "selected": true,
+      "seriesKey": "opendota:903863",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7936520519",
+      "selected": true,
+      "seriesKey": "opendota:904699",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "7944311818",
+      "selected": true,
+      "seriesKey": "opendota:905925",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176324556",
+      "selected": true,
+      "seriesKey": "opendota:949983",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176333219",
+      "selected": true,
+      "seriesKey": "opendota:949987",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176318378",
+      "selected": true,
+      "seriesKey": "opendota:949982",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176331185",
+      "selected": true,
+      "seriesKey": "opendota:949986",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176418029",
+      "selected": true,
+      "seriesKey": "opendota:949987",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176419599",
+      "selected": true,
+      "seriesKey": "opendota:949982",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176421766",
+      "selected": true,
+      "seriesKey": "opendota:949986",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176424546",
+      "selected": true,
+      "seriesKey": "opendota:949983",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176544132",
+      "selected": true,
+      "seriesKey": "opendota:950034",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176568556",
+      "selected": true,
+      "seriesKey": "opendota:950044",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176568607",
+      "selected": true,
+      "seriesKey": "opendota:950045",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176593686",
+      "selected": true,
+      "seriesKey": "opendota:950051",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176690425",
+      "selected": true,
+      "seriesKey": "opendota:950045",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176702303",
+      "selected": true,
+      "seriesKey": "opendota:950044",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176691519",
+      "selected": true,
+      "seriesKey": "opendota:950034",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176738386",
+      "selected": true,
+      "seriesKey": "opendota:950051",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176853300",
+      "selected": true,
+      "seriesKey": "opendota:950112",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176853271",
+      "selected": true,
+      "seriesKey": "opendota:950111",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176853920",
+      "selected": true,
+      "seriesKey": "opendota:950113",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176866692",
+      "selected": true,
+      "seriesKey": "opendota:950118",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176953517",
+      "selected": true,
+      "seriesKey": "opendota:950111",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176962465",
+      "selected": true,
+      "seriesKey": "opendota:950113",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176972698",
+      "selected": true,
+      "seriesKey": "opendota:950118",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8176998187",
+      "selected": true,
+      "seriesKey": "opendota:950112",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177042833",
+      "selected": true,
+      "seriesKey": "opendota:950180",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177081974",
+      "selected": true,
+      "seriesKey": "opendota:950200",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177098226",
+      "selected": true,
+      "seriesKey": "opendota:950207",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177094101",
+      "selected": true,
+      "seriesKey": "opendota:950205",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177140322",
+      "selected": true,
+      "seriesKey": "opendota:950180",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177162198",
+      "selected": true,
+      "seriesKey": "opendota:950207",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177175505",
+      "selected": true,
+      "seriesKey": "opendota:950205",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177179626",
+      "selected": true,
+      "seriesKey": "opendota:950200",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177788900",
+      "selected": true,
+      "seriesKey": "opendota:950413",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177795770",
+      "selected": true,
+      "seriesKey": "opendota:950417",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177793345",
+      "selected": true,
+      "seriesKey": "opendota:950414",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177795894",
+      "selected": true,
+      "seriesKey": "opendota:950418",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177857062",
+      "selected": true,
+      "seriesKey": "opendota:950417",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177855729",
+      "selected": true,
+      "seriesKey": "opendota:950413",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177872455",
+      "selected": true,
+      "seriesKey": "opendota:950418",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177873642",
+      "selected": true,
+      "seriesKey": "opendota:950414",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177979992",
+      "selected": true,
+      "seriesKey": "opendota:950441",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177966388",
+      "selected": true,
+      "seriesKey": "opendota:950437",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177972205",
+      "selected": true,
+      "seriesKey": "opendota:950439",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8177993088",
+      "selected": true,
+      "seriesKey": "opendota:950447",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178054279",
+      "selected": true,
+      "seriesKey": "opendota:950441",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178071101",
+      "selected": true,
+      "seriesKey": "opendota:950439",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178089669",
+      "selected": true,
+      "seriesKey": "opendota:950447",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178082411",
+      "selected": true,
+      "seriesKey": "opendota:950437",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178198896",
+      "selected": true,
+      "seriesKey": "opendota:950460",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178209050",
+      "selected": true,
+      "seriesKey": "opendota:950462",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178217730",
+      "selected": true,
+      "seriesKey": "opendota:950463",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178223689",
+      "selected": true,
+      "seriesKey": "opendota:950465",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178287873",
+      "selected": true,
+      "seriesKey": "opendota:950460",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178293395",
+      "selected": true,
+      "seriesKey": "opendota:950462",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178336438",
+      "selected": true,
+      "seriesKey": "opendota:950463",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178331701",
+      "selected": true,
+      "seriesKey": "opendota:950465",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178396014",
+      "selected": true,
+      "seriesKey": "opendota:950497",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178416582",
+      "selected": true,
+      "seriesKey": "opendota:950506",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178427331",
+      "selected": true,
+      "seriesKey": "opendota:950508",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178498792",
+      "selected": true,
+      "seriesKey": "opendota:950528",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178495419",
+      "selected": true,
+      "seriesKey": "opendota:950506",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178503846",
+      "selected": true,
+      "seriesKey": "opendota:950497",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178521185",
+      "selected": true,
+      "seriesKey": "opendota:950508",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8178594096",
+      "selected": true,
+      "seriesKey": "opendota:950528",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179123839",
+      "selected": true,
+      "seriesKey": "opendota:950657",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179129689",
+      "selected": true,
+      "seriesKey": "opendota:950661",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179129826",
+      "selected": true,
+      "seriesKey": "opendota:950662",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179125294",
+      "selected": true,
+      "seriesKey": "opendota:950658",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179191377",
+      "selected": true,
+      "seriesKey": "opendota:950657",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179201399",
+      "selected": true,
+      "seriesKey": "opendota:950661",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179198444",
+      "selected": true,
+      "seriesKey": "opendota:950658",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179215784",
+      "selected": true,
+      "seriesKey": "opendota:950662",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179295960",
+      "selected": true,
+      "seriesKey": "opendota:950690",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179312828",
+      "selected": true,
+      "seriesKey": "opendota:950696",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179315610",
+      "selected": true,
+      "seriesKey": "opendota:950697",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179356848",
+      "selected": true,
+      "seriesKey": "opendota:950706",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179388679",
+      "selected": true,
+      "seriesKey": "opendota:950690",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179426172",
+      "selected": true,
+      "seriesKey": "opendota:950697",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179420583",
+      "selected": true,
+      "seriesKey": "opendota:950696",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179504218",
+      "selected": true,
+      "seriesKey": "opendota:950706",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179529448",
+      "selected": true,
+      "seriesKey": "opendota:950735",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179526188",
+      "selected": true,
+      "seriesKey": "opendota:950734",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179557618",
+      "selected": true,
+      "seriesKey": "opendota:950739",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179632650",
+      "selected": true,
+      "seriesKey": "opendota:950754",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179639324",
+      "selected": true,
+      "seriesKey": "opendota:950735",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179644342",
+      "selected": true,
+      "seriesKey": "opendota:950734",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179680428",
+      "selected": true,
+      "seriesKey": "opendota:950739",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179727963",
+      "selected": true,
+      "seriesKey": "opendota:950754",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179735864",
+      "selected": true,
+      "seriesKey": "opendota:950777",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179747680",
+      "selected": true,
+      "seriesKey": "opendota:950780",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179754432",
+      "selected": true,
+      "seriesKey": "opendota:950781",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179820296",
+      "selected": true,
+      "seriesKey": "opendota:950804",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179818758",
+      "selected": true,
+      "seriesKey": "opendota:950780",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179825453",
+      "selected": true,
+      "seriesKey": "opendota:950777",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179852572",
+      "selected": true,
+      "seriesKey": "opendota:950781",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8179905694",
+      "selected": true,
+      "seriesKey": "opendota:950804",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181154673",
+      "selected": true,
+      "seriesKey": "opendota:951010",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181171260",
+      "selected": true,
+      "seriesKey": "opendota:951012",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181166277",
+      "selected": true,
+      "seriesKey": "opendota:951011",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181185346",
+      "selected": true,
+      "seriesKey": "opendota:951013",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181273873",
+      "selected": true,
+      "seriesKey": "opendota:951013",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181284015",
+      "selected": true,
+      "seriesKey": "opendota:951011",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181275866",
+      "selected": true,
+      "seriesKey": "opendota:951010",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181307882",
+      "selected": true,
+      "seriesKey": "opendota:951012",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181400323",
+      "selected": true,
+      "seriesKey": "opendota:951038",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181406947",
+      "selected": true,
+      "seriesKey": "opendota:951040",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181420740",
+      "selected": true,
+      "seriesKey": "opendota:951048",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181445296",
+      "selected": true,
+      "seriesKey": "opendota:951051",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181514705",
+      "selected": true,
+      "seriesKey": "opendota:951048",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181522405",
+      "selected": true,
+      "seriesKey": "opendota:951038",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181539594",
+      "selected": true,
+      "seriesKey": "opendota:951040",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8181545391",
+      "selected": true,
+      "seriesKey": "opendota:951051",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8182423670",
+      "selected": true,
+      "seriesKey": "opendota:951232",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8182543107",
+      "selected": true,
+      "seriesKey": "opendota:951246",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8182654920",
+      "selected": true,
+      "seriesKey": "opendota:951258",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8182791788",
+      "selected": true,
+      "seriesKey": "opendota:951274",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8182907583",
+      "selected": true,
+      "seriesKey": "opendota:951288",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8183642521",
+      "selected": true,
+      "seriesKey": "opendota:951498",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8183722972",
+      "selected": true,
+      "seriesKey": "opendota:951498",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8183837907",
+      "selected": true,
+      "seriesKey": "opendota:951498",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8183945792",
+      "selected": true,
+      "seriesKey": "opendota:951544",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8184093905",
+      "selected": true,
+      "seriesKey": "opendota:951544",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8184273990",
+      "selected": true,
+      "seriesKey": "opendota:951597",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8184390264",
+      "selected": true,
+      "seriesKey": "opendota:951597",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8184590344",
+      "selected": true,
+      "seriesKey": "opendota:951663",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8184670170",
+      "selected": true,
+      "seriesKey": "opendota:951663",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8184734925",
+      "selected": true,
+      "seriesKey": "opendota:951663",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8185278759",
+      "selected": true,
+      "seriesKey": "opendota:951800",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8185374108",
+      "selected": true,
+      "seriesKey": "opendota:951800",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8185600616",
+      "selected": true,
+      "seriesKey": "opendota:951866",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8185744704",
+      "selected": true,
+      "seriesKey": "opendota:951866",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8185983891",
+      "selected": true,
+      "seriesKey": "opendota:951935",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8186101644",
+      "selected": true,
+      "seriesKey": "opendota:951935",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8186212116",
+      "selected": true,
+      "seriesKey": "opendota:951935",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8186332629",
+      "selected": true,
+      "seriesKey": "opendota:952017",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8186454260",
+      "selected": true,
+      "seriesKey": "opendota:952017",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8186524440",
+      "selected": true,
+      "seriesKey": "opendota:952017",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8187040217",
+      "selected": true,
+      "seriesKey": "opendota:952116",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8187313774",
+      "selected": true,
+      "seriesKey": "opendota:952161",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8187522475",
+      "selected": true,
+      "seriesKey": "opendota:952161",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8187668360",
+      "selected": true,
+      "seriesKey": "opendota:952161",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8187804922",
+      "selected": true,
+      "seriesKey": "opendota:952273",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8187923027",
+      "selected": true,
+      "seriesKey": "opendota:952273",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8188051616",
+      "selected": true,
+      "seriesKey": "opendota:952377",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8188122665",
+      "selected": true,
+      "seriesKey": "opendota:952377",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8188590279",
+      "selected": true,
+      "seriesKey": "opendota:952506",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8188655840",
+      "selected": true,
+      "seriesKey": "opendota:952506",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8188734692",
+      "selected": true,
+      "seriesKey": "opendota:952506",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8188913379",
+      "selected": true,
+      "seriesKey": "opendota:952554",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8189005792",
+      "selected": true,
+      "seriesKey": "opendota:952554",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8189149640",
+      "selected": true,
+      "seriesKey": "opendota:952582",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8189233392",
+      "selected": true,
+      "seriesKey": "opendota:952582",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8189432866",
+      "selected": true,
+      "seriesKey": "opendota:952663",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8189491576",
+      "selected": true,
+      "seriesKey": "opendota:952663",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8189554620",
+      "selected": true,
+      "seriesKey": "opendota:952663",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8189952576",
+      "selected": true,
+      "seriesKey": "opendota:952776",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8190011384",
+      "selected": true,
+      "seriesKey": "opendota:952776",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8190194573",
+      "selected": true,
+      "seriesKey": "opendota:952804",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8190294076",
+      "selected": true,
+      "seriesKey": "opendota:952804",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8190432750",
+      "selected": true,
+      "seriesKey": "opendota:952804",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8190531017",
+      "selected": true,
+      "seriesKey": "opendota:952856",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8190630231",
+      "selected": true,
+      "seriesKey": "opendota:952856",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8190784614",
+      "selected": true,
+      "seriesKey": "opendota:952910",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8190845902",
+      "selected": true,
+      "seriesKey": "opendota:952910",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8191296542",
+      "selected": true,
+      "seriesKey": "opendota:953019",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8191350491",
+      "selected": true,
+      "seriesKey": "opendota:953019",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8191531686",
+      "selected": true,
+      "seriesKey": "opendota:953044",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8191660167",
+      "selected": true,
+      "seriesKey": "opendota:953044",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8191838350",
+      "selected": true,
+      "seriesKey": "opendota:953101",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8191952054",
+      "selected": true,
+      "seriesKey": "opendota:953101",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8192113171",
+      "selected": true,
+      "seriesKey": "opendota:953172",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8192174540",
+      "selected": true,
+      "seriesKey": "opendota:953172",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8192617618",
+      "selected": true,
+      "seriesKey": "opendota:953266",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8192678156",
+      "selected": true,
+      "seriesKey": "opendota:953266",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8192853077",
+      "selected": true,
+      "seriesKey": "opendota:953308",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8192947707",
+      "selected": true,
+      "seriesKey": "opendota:953308",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8193165788",
+      "selected": true,
+      "seriesKey": "opendota:953368",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8193280233",
+      "selected": true,
+      "seriesKey": "opendota:953368",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8193365045",
+      "selected": true,
+      "seriesKey": "opendota:953368",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8193463396",
+      "selected": true,
+      "seriesKey": "opendota:953436",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8193515068",
+      "selected": true,
+      "seriesKey": "opendota:953436",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8193562371",
+      "selected": true,
+      "seriesKey": "opendota:953436",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8195843134",
+      "selected": true,
+      "seriesKey": "opendota:953894",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8196015197",
+      "selected": true,
+      "seriesKey": "opendota:953894",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8196103081",
+      "selected": true,
+      "seriesKey": "opendota:953894",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8196288391",
+      "selected": true,
+      "seriesKey": "opendota:953997",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8196380751",
+      "selected": true,
+      "seriesKey": "opendota:953997",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8196485303",
+      "selected": true,
+      "seriesKey": "opendota:953997",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8197311299",
+      "selected": true,
+      "seriesKey": "opendota:954165",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8197456312",
+      "selected": true,
+      "seriesKey": "opendota:954165",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8197688531",
+      "selected": true,
+      "seriesKey": "opendota:954249",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8197793601",
+      "selected": true,
+      "seriesKey": "opendota:954249",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8197912154",
+      "selected": true,
+      "seriesKey": "opendota:954249",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8198039682",
+      "selected": true,
+      "seriesKey": "opendota:954249",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8200366179",
+      "selected": true,
+      "seriesKey": "opendota:954819",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "8200463236",
+      "selected": true,
+      "seriesKey": "opendota:954819",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9052687571",
+      "selected": true,
+      "seriesKey": "opendota:1156918",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9056685103",
+      "selected": true,
+      "seriesKey": "opendota:1157928",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9056844521",
+      "selected": true,
+      "seriesKey": "opendota:1157928",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9061631640",
+      "selected": true,
+      "seriesKey": "opendota:1159662",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9061735400",
+      "selected": true,
+      "seriesKey": "opendota:1159662",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9067177642",
+      "selected": true,
+      "seriesKey": "opendota:1161402",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9067346550",
+      "selected": true,
+      "seriesKey": "opendota:1161402",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9067412106",
+      "selected": true,
+      "seriesKey": "opendota:1161402",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9067617648",
+      "selected": true,
+      "seriesKey": "opendota:1161529",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9068795274",
+      "selected": true,
+      "seriesKey": "opendota:1161942",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9068910292",
+      "selected": true,
+      "seriesKey": "opendota:1161942",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9069021061",
+      "selected": true,
+      "seriesKey": "opendota:1161942",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9069952836",
+      "selected": true,
+      "seriesKey": "opendota:1162416",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9070062078",
+      "selected": true,
+      "seriesKey": "opendota:1162416",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9070392472",
+      "selected": true,
+      "seriesKey": "opendota:1162593",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9070527945",
+      "selected": true,
+      "seriesKey": "opendota:1162593",
+      "dataEligible": true,
+      "reasons": []
+    }
+  ],
+  "historyCoverage": [
+    {
+      "matchId": "6054718020",
+      "seriesKey": "opendota:572260",
+      "cutoffAtUs": "1624435233000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 0,
+      "priorEligibleMaps": 0
+    },
+    {
+      "matchId": "6067239305",
+      "seriesKey": "opendota:574398",
+      "cutoffAtUs": "1625087256000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 0,
+      "priorEligibleMaps": 1
+    },
+    {
+      "matchId": "6079100944",
+      "seriesKey": "opendota:576265",
+      "cutoffAtUs": "1625751591000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 0,
+      "priorEligibleMaps": 2
+    },
+    {
+      "matchId": "6214131970",
+      "seriesKey": "opendota:601388",
+      "cutoffAtUs": "1633707236000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 0,
+      "priorEligibleMaps": 3
+    },
+    {
+      "matchId": "6227492909",
+      "seriesKey": "opendota:603588",
+      "cutoffAtUs": "1634489786000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 0,
+      "priorEligibleMaps": 4
+    },
+    {
+      "matchId": "6806047579",
+      "seriesKey": "opendota:713700",
+      "cutoffAtUs": "1665800877000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 5
+    },
+    {
+      "matchId": "6807772726",
+      "seriesKey": "opendota:714100",
+      "cutoffAtUs": "1665890080000000",
+      "priorMapsPerPlayer": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "playersWithHistory": 6,
+      "priorEligibleMaps": 6
+    },
+    {
+      "matchId": "6809522859",
+      "seriesKey": "opendota:714548",
+      "cutoffAtUs": "1665982957000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "playersWithHistory": 1,
+      "priorEligibleMaps": 7
+    },
+    {
+      "matchId": "6811000638",
+      "seriesKey": "opendota:714854",
+      "cutoffAtUs": "1666076561000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 0,
+      "priorEligibleMaps": 8
+    },
+    {
+      "matchId": "6832287527",
+      "seriesKey": "opendota:718491",
+      "cutoffAtUs": "1667130565000000",
+      "priorMapsPerPlayer": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 9
+    },
+    {
+      "matchId": "7378530387",
+      "seriesKey": "opendota:815175",
+      "cutoffAtUs": "1697130044000000",
+      "priorMapsPerPlayer": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "playersWithHistory": 8,
+      "priorEligibleMaps": 10
+    },
+    {
+      "matchId": "7378939289",
+      "seriesKey": "opendota:815334",
+      "cutoffAtUs": "1697160249000000",
+      "priorMapsPerPlayer": [
+        3,
+        3,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 6,
+      "priorEligibleMaps": 11
+    },
+    {
+      "matchId": "7380403482",
+      "seriesKey": "opendota:815600",
+      "cutoffAtUs": "1697237484000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 4,
+      "priorEligibleMaps": 12
+    },
+    {
+      "matchId": "7393133836",
+      "seriesKey": "opendota:818237",
+      "cutoffAtUs": "1697917056000000",
+      "priorMapsPerPlayer": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 13
+    },
+    {
+      "matchId": "7406531302",
+      "seriesKey": "opendota:820565",
+      "cutoffAtUs": "1698621223000000",
+      "priorMapsPerPlayer": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        0,
+        2,
+        2
+      ],
+      "playersWithHistory": 9,
+      "priorEligibleMaps": 14
+    },
+    {
+      "matchId": "7927665228",
+      "seriesKey": "opendota:903379",
+      "cutoffAtUs": "1725437441000000",
+      "priorMapsPerPlayer": [
+        2,
+        0,
+        0,
+        2,
+        0,
+        1,
+        2,
+        1,
+        0,
+        0
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 15
+    },
+    {
+      "matchId": "7928915377",
+      "seriesKey": "opendota:903582",
+      "cutoffAtUs": "1725523352000000",
+      "priorMapsPerPlayer": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        3,
+        3
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 16
+    },
+    {
+      "matchId": "7931106306",
+      "seriesKey": "opendota:903863",
+      "cutoffAtUs": "1725649190000000",
+      "priorMapsPerPlayer": [
+        1,
+        2,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 3,
+      "priorEligibleMaps": 17
+    },
+    {
+      "matchId": "7936520519",
+      "seriesKey": "opendota:904699",
+      "cutoffAtUs": "1725964560000000",
+      "priorMapsPerPlayer": [
+        2,
+        3,
+        2,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 6,
+      "priorEligibleMaps": 18
+    },
+    {
+      "matchId": "7944311818",
+      "seriesKey": "opendota:905925",
+      "cutoffAtUs": "1726415990000000",
+      "priorMapsPerPlayer": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        4,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 6,
+      "priorEligibleMaps": 19
+    },
+    {
+      "matchId": "8176324556",
+      "seriesKey": "opendota:949983",
+      "cutoffAtUs": "1739703302000000",
+      "priorMapsPerPlayer": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 4,
+      "priorEligibleMaps": 20
+    },
+    {
+      "matchId": "8176333219",
+      "seriesKey": "opendota:949987",
+      "cutoffAtUs": "1739703395000000",
+      "priorMapsPerPlayer": [
+        2,
+        0,
+        0,
+        0,
+        0,
+        1,
+        4,
+        2,
+        2,
+        3
+      ],
+      "playersWithHistory": 6,
+      "priorEligibleMaps": 20
+    },
+    {
+      "matchId": "8176318378",
+      "seriesKey": "opendota:949982",
+      "cutoffAtUs": "1739703428000000",
+      "priorMapsPerPlayer": [
+        4,
+        4,
+        0,
+        0,
+        0,
+        5,
+        3,
+        3,
+        0,
+        4
+      ],
+      "playersWithHistory": 6,
+      "priorEligibleMaps": 20
+    },
+    {
+      "matchId": "8176331185",
+      "seriesKey": "opendota:949986",
+      "cutoffAtUs": "1739703747000000",
+      "priorMapsPerPlayer": [
+        3,
+        2,
+        0,
+        0,
+        0,
+        2,
+        0,
+        1,
+        0,
+        0
+      ],
+      "playersWithHistory": 4,
+      "priorEligibleMaps": 20
+    },
+    {
+      "matchId": "8176418029",
+      "seriesKey": "opendota:949987",
+      "cutoffAtUs": "1739707504000000",
+      "priorMapsPerPlayer": [
+        2,
+        5,
+        3,
+        3,
+        4,
+        3,
+        1,
+        1,
+        1,
+        1
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 24
+    },
+    {
+      "matchId": "8176419599",
+      "seriesKey": "opendota:949982",
+      "cutoffAtUs": "1739707627000000",
+      "priorMapsPerPlayer": [
+        6,
+        4,
+        4,
+        1,
+        5,
+        5,
+        5,
+        1,
+        1,
+        1
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 24
+    },
+    {
+      "matchId": "8176421766",
+      "seriesKey": "opendota:949986",
+      "cutoffAtUs": "1739707680000000",
+      "priorMapsPerPlayer": [
+        4,
+        3,
+        1,
+        1,
+        1,
+        3,
+        1,
+        2,
+        1,
+        1
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 24
+    },
+    {
+      "matchId": "8176424546",
+      "seriesKey": "opendota:949983",
+      "cutoffAtUs": "1739707802000000",
+      "priorMapsPerPlayer": [
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 24
+    },
+    {
+      "matchId": "8176544132",
+      "seriesKey": "opendota:950034",
+      "cutoffAtUs": "1739712376000000",
+      "priorMapsPerPlayer": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "playersWithHistory": 7,
+      "priorEligibleMaps": 28
+    },
+    {
+      "matchId": "8176568556",
+      "seriesKey": "opendota:950044",
+      "cutoffAtUs": "1739712565000000",
+      "priorMapsPerPlayer": [
+        2,
+        0,
+        3,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 28
+    },
+    {
+      "matchId": "8176568607",
+      "seriesKey": "opendota:950045",
+      "cutoffAtUs": "1739712660000000",
+      "priorMapsPerPlayer": [
+        3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 1,
+      "priorEligibleMaps": 28
+    },
+    {
+      "matchId": "8176593686",
+      "seriesKey": "opendota:950051",
+      "cutoffAtUs": "1739713560000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        3,
+        3,
+        1,
+        0,
+        3
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 28
+    },
+    {
+      "matchId": "8176690425",
+      "seriesKey": "opendota:950045",
+      "cutoffAtUs": "1739716860000000",
+      "priorMapsPerPlayer": [
+        4,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 32
+    },
+    {
+      "matchId": "8176702303",
+      "seriesKey": "opendota:950044",
+      "cutoffAtUs": "1739716984000000",
+      "priorMapsPerPlayer": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        3,
+        1,
+        4,
+        4,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 32
+    },
+    {
+      "matchId": "8176691519",
+      "seriesKey": "opendota:950034",
+      "cutoffAtUs": "1739717153000000",
+      "priorMapsPerPlayer": [
+        1,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 32
+    },
+    {
+      "matchId": "8176738386",
+      "seriesKey": "opendota:950051",
+      "cutoffAtUs": "1739718300000000",
+      "priorMapsPerPlayer": [
+        4,
+        4,
+        2,
+        1,
+        4,
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 32
+    },
+    {
+      "matchId": "8176853300",
+      "seriesKey": "opendota:950112",
+      "cutoffAtUs": "1739722440000000",
+      "priorMapsPerPlayer": [
+        4,
+        2,
+        3,
+        2,
+        2,
+        3,
+        6,
+        4,
+        4,
+        5
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 36
+    },
+    {
+      "matchId": "8176853271",
+      "seriesKey": "opendota:950111",
+      "cutoffAtUs": "1739722445000000",
+      "priorMapsPerPlayer": [
+        6,
+        6,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 36
+    },
+    {
+      "matchId": "8176853920",
+      "seriesKey": "opendota:950113",
+      "cutoffAtUs": "1739722663000000",
+      "priorMapsPerPlayer": [
+        2,
+        3,
+        2,
+        2,
+        2,
+        5,
+        2,
+        4,
+        2,
+        2
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 36
+    },
+    {
+      "matchId": "8176866692",
+      "seriesKey": "opendota:950118",
+      "cutoffAtUs": "1739723700000000",
+      "priorMapsPerPlayer": [
+        4,
+        2,
+        2,
+        2,
+        2,
+        7,
+        5,
+        5,
+        2,
+        6
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 36
+    },
+    {
+      "matchId": "8176953517",
+      "seriesKey": "opendota:950111",
+      "cutoffAtUs": "1739726467000000",
+      "priorMapsPerPlayer": [
+        7,
+        7,
+        3,
+        3,
+        3,
+        4,
+        3,
+        4,
+        3,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 40
+    },
+    {
+      "matchId": "8176962465",
+      "seriesKey": "opendota:950113",
+      "cutoffAtUs": "1739727001000000",
+      "priorMapsPerPlayer": [
+        6,
+        3,
+        5,
+        3,
+        3,
+        3,
+        4,
+        3,
+        3,
+        3
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 40
+    },
+    {
+      "matchId": "8176972698",
+      "seriesKey": "opendota:950118",
+      "cutoffAtUs": "1739727180000000",
+      "priorMapsPerPlayer": [
+        5,
+        3,
+        3,
+        3,
+        3,
+        8,
+        6,
+        6,
+        3,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 40
+    },
+    {
+      "matchId": "8176998187",
+      "seriesKey": "opendota:950112",
+      "cutoffAtUs": "1739728141000000",
+      "priorMapsPerPlayer": [
+        4,
+        7,
+        5,
+        5,
+        6,
+        5,
+        3,
+        4,
+        3,
+        3
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 41
+    },
+    {
+      "matchId": "8177042833",
+      "seriesKey": "opendota:950180",
+      "cutoffAtUs": "1739730696000000",
+      "priorMapsPerPlayer": [
+        5,
+        5,
+        3,
+        2,
+        5,
+        2,
+        3,
+        3,
+        2,
+        2
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 44
+    },
+    {
+      "matchId": "8177081974",
+      "seriesKey": "opendota:950200",
+      "cutoffAtUs": "1739731568000000",
+      "priorMapsPerPlayer": [
+        4,
+        2,
+        5,
+        5,
+        5,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 44
+    },
+    {
+      "matchId": "8177098226",
+      "seriesKey": "opendota:950207",
+      "cutoffAtUs": "1739732220000000",
+      "priorMapsPerPlayer": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 45
+    },
+    {
+      "matchId": "8177094101",
+      "seriesKey": "opendota:950205",
+      "cutoffAtUs": "1739732703000000",
+      "priorMapsPerPlayer": [
+        3,
+        2,
+        2,
+        2,
+        2,
+        5,
+        2,
+        2,
+        2,
+        2
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 45
+    },
+    {
+      "matchId": "8177140322",
+      "seriesKey": "opendota:950180",
+      "cutoffAtUs": "1739734265000000",
+      "priorMapsPerPlayer": [
+        6,
+        6,
+        4,
+        3,
+        6,
+        3,
+        4,
+        4,
+        3,
+        3
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 46
+    },
+    {
+      "matchId": "8177162198",
+      "seriesKey": "opendota:950207",
+      "cutoffAtUs": "1739735340000000",
+      "priorMapsPerPlayer": [
+        3,
+        3,
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 48
+    },
+    {
+      "matchId": "8177175505",
+      "seriesKey": "opendota:950205",
+      "cutoffAtUs": "1739736241000000",
+      "priorMapsPerPlayer": [
+        6,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 49
+    },
+    {
+      "matchId": "8177179626",
+      "seriesKey": "opendota:950200",
+      "cutoffAtUs": "1739736306000000",
+      "priorMapsPerPlayer": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        5,
+        3,
+        6,
+        6,
+        6
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 49
+    },
+    {
+      "matchId": "8177788900",
+      "seriesKey": "opendota:950413",
+      "cutoffAtUs": "1739789700000000",
+      "priorMapsPerPlayer": [
+        6,
+        4,
+        4,
+        4,
+        4,
+        7,
+        4,
+        6,
+        4,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 52
+    },
+    {
+      "matchId": "8177795770",
+      "seriesKey": "opendota:950417",
+      "cutoffAtUs": "1739789700000000",
+      "priorMapsPerPlayer": [
+        5,
+        4,
+        5,
+        4,
+        5,
+        6,
+        4,
+        5,
+        4,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 52
+    },
+    {
+      "matchId": "8177793345",
+      "seriesKey": "opendota:950414",
+      "cutoffAtUs": "1739789701000000",
+      "priorMapsPerPlayer": [
+        4,
+        5,
+        4,
+        4,
+        4,
+        8,
+        8,
+        4,
+        4,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 52
+    },
+    {
+      "matchId": "8177795894",
+      "seriesKey": "opendota:950418",
+      "cutoffAtUs": "1739789707000000",
+      "priorMapsPerPlayer": [
+        9,
+        7,
+        7,
+        4,
+        8,
+        5,
+        8,
+        6,
+        6,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 52
+    },
+    {
+      "matchId": "8177857062",
+      "seriesKey": "opendota:950417",
+      "cutoffAtUs": "1739793300000000",
+      "priorMapsPerPlayer": [
+        7,
+        5,
+        6,
+        5,
+        5,
+        6,
+        5,
+        6,
+        5,
+        6
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 56
+    },
+    {
+      "matchId": "8177855729",
+      "seriesKey": "opendota:950413",
+      "cutoffAtUs": "1739793600000000",
+      "priorMapsPerPlayer": [
+        8,
+        7,
+        5,
+        5,
+        5,
+        7,
+        5,
+        5,
+        5,
+        5
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 56
+    },
+    {
+      "matchId": "8177872455",
+      "seriesKey": "opendota:950418",
+      "cutoffAtUs": "1739794144000000",
+      "priorMapsPerPlayer": [
+        6,
+        9,
+        7,
+        7,
+        8,
+        10,
+        8,
+        8,
+        5,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 56
+    },
+    {
+      "matchId": "8177873642",
+      "seriesKey": "opendota:950414",
+      "cutoffAtUs": "1739794499000000",
+      "priorMapsPerPlayer": [
+        5,
+        6,
+        5,
+        5,
+        5,
+        9,
+        9,
+        5,
+        5,
+        5
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 56
+    },
+    {
+      "matchId": "8177979992",
+      "seriesKey": "opendota:950441",
+      "cutoffAtUs": "1739798700000000",
+      "priorMapsPerPlayer": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        7,
+        4,
+        4,
+        4,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 60
+    },
+    {
+      "matchId": "8177966388",
+      "seriesKey": "opendota:950437",
+      "cutoffAtUs": "1739798709000000",
+      "priorMapsPerPlayer": [
+        6,
+        4,
+        7,
+        7,
+        7,
+        4,
+        5,
+        5,
+        4,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 60
+    },
+    {
+      "matchId": "8177972205",
+      "seriesKey": "opendota:950439",
+      "cutoffAtUs": "1739798821000000",
+      "priorMapsPerPlayer": [
+        4,
+        4,
+        4,
+        5,
+        4,
+        4,
+        4,
+        4,
+        4,
+        5
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 60
+    },
+    {
+      "matchId": "8177993088",
+      "seriesKey": "opendota:950447",
+      "cutoffAtUs": "1739799600000000",
+      "priorMapsPerPlayer": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        7,
+        7,
+        5,
+        4,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 60
+    },
+    {
+      "matchId": "8178054279",
+      "seriesKey": "opendota:950441",
+      "cutoffAtUs": "1739801761000000",
+      "priorMapsPerPlayer": [
+        8,
+        5,
+        5,
+        5,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 64
+    },
+    {
+      "matchId": "8178071101",
+      "seriesKey": "opendota:950439",
+      "cutoffAtUs": "1739802601000000",
+      "priorMapsPerPlayer": [
+        5,
+        5,
+        5,
+        5,
+        6,
+        5,
+        5,
+        5,
+        6,
+        5
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 64
+    },
+    {
+      "matchId": "8178089669",
+      "seriesKey": "opendota:950447",
+      "cutoffAtUs": "1739802962000000",
+      "priorMapsPerPlayer": [
+        8,
+        8,
+        6,
+        5,
+        8,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 64
+    },
+    {
+      "matchId": "8178082411",
+      "seriesKey": "opendota:950437",
+      "cutoffAtUs": "1739803343000000",
+      "priorMapsPerPlayer": [
+        5,
+        6,
+        6,
+        5,
+        5,
+        7,
+        5,
+        8,
+        8,
+        8
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 64
+    },
+    {
+      "matchId": "8178198896",
+      "seriesKey": "opendota:950460",
+      "cutoffAtUs": "1739807700000000",
+      "priorMapsPerPlayer": [
+        6,
+        7,
+        6,
+        6,
+        6,
+        8,
+        6,
+        7,
+        6,
+        6
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 68
+    },
+    {
+      "matchId": "8178209050",
+      "seriesKey": "opendota:950462",
+      "cutoffAtUs": "1739807940000000",
+      "priorMapsPerPlayer": [
+        8,
+        6,
+        6,
+        6,
+        6,
+        7,
+        6,
+        7,
+        6,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 68
+    },
+    {
+      "matchId": "8178217730",
+      "seriesKey": "opendota:950463",
+      "cutoffAtUs": "1739808600000000",
+      "priorMapsPerPlayer": [
+        10,
+        10,
+        6,
+        6,
+        6,
+        7,
+        10,
+        8,
+        8,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 68
+    },
+    {
+      "matchId": "8178223689",
+      "seriesKey": "opendota:950465",
+      "cutoffAtUs": "1739809925000000",
+      "priorMapsPerPlayer": [
+        9,
+        6,
+        8,
+        6,
+        6,
+        11,
+        9,
+        9,
+        6,
+        10
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 70
+    },
+    {
+      "matchId": "8178287873",
+      "seriesKey": "opendota:950460",
+      "cutoffAtUs": "1739811181000000",
+      "priorMapsPerPlayer": [
+        7,
+        8,
+        7,
+        7,
+        7,
+        9,
+        7,
+        8,
+        7,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 70
+    },
+    {
+      "matchId": "8178293395",
+      "seriesKey": "opendota:950462",
+      "cutoffAtUs": "1739811721000000",
+      "priorMapsPerPlayer": [
+        8,
+        7,
+        8,
+        7,
+        8,
+        9,
+        7,
+        7,
+        7,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 72
+    },
+    {
+      "matchId": "8178336438",
+      "seriesKey": "opendota:950463",
+      "cutoffAtUs": "1739813280000000",
+      "priorMapsPerPlayer": [
+        8,
+        11,
+        9,
+        9,
+        10,
+        11,
+        11,
+        7,
+        7,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 73
+    },
+    {
+      "matchId": "8178331701",
+      "seriesKey": "opendota:950465",
+      "cutoffAtUs": "1739813527000000",
+      "priorMapsPerPlayer": [
+        12,
+        10,
+        10,
+        7,
+        11,
+        10,
+        7,
+        9,
+        7,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 73
+    },
+    {
+      "matchId": "8178396014",
+      "seriesKey": "opendota:950497",
+      "cutoffAtUs": "1739816700000000",
+      "priorMapsPerPlayer": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        6,
+        6,
+        6,
+        7,
+        6
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 76
+    },
+    {
+      "matchId": "8178416582",
+      "seriesKey": "opendota:950506",
+      "cutoffAtUs": "1739816700000000",
+      "priorMapsPerPlayer": [
+        8,
+        6,
+        9,
+        9,
+        9,
+        9,
+        6,
+        6,
+        6,
+        6
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 76
+    },
+    {
+      "matchId": "8178427331",
+      "seriesKey": "opendota:950508",
+      "cutoffAtUs": "1739818031000000",
+      "priorMapsPerPlayer": [
+        6,
+        6,
+        6,
+        6,
+        7,
+        9,
+        9,
+        7,
+        6,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 76
+    },
+    {
+      "matchId": "8178498792",
+      "seriesKey": "opendota:950528",
+      "cutoffAtUs": "1739820374000000",
+      "priorMapsPerPlayer": [
+        6,
+        7,
+        7,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 79
+    },
+    {
+      "matchId": "8178495419",
+      "seriesKey": "opendota:950506",
+      "cutoffAtUs": "1739820480000000",
+      "priorMapsPerPlayer": [
+        10,
+        7,
+        7,
+        7,
+        7,
+        9,
+        7,
+        10,
+        10,
+        10
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 79
+    },
+    {
+      "matchId": "8178503846",
+      "seriesKey": "opendota:950497",
+      "cutoffAtUs": "1739820961000000",
+      "priorMapsPerPlayer": [
+        7,
+        7,
+        7,
+        8,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 79
+    },
+    {
+      "matchId": "8178521185",
+      "seriesKey": "opendota:950508",
+      "cutoffAtUs": "1739822159000000",
+      "priorMapsPerPlayer": [
+        10,
+        10,
+        8,
+        7,
+        10,
+        7,
+        7,
+        7,
+        7,
+        8
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 79
+    },
+    {
+      "matchId": "8178594096",
+      "seriesKey": "opendota:950528",
+      "cutoffAtUs": "1739825706000000",
+      "priorMapsPerPlayer": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        8,
+        8,
+        7,
+        7
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 83
+    },
+    {
+      "matchId": "8179123839",
+      "seriesKey": "opendota:950657",
+      "cutoffAtUs": "1739876100000000",
+      "priorMapsPerPlayer": [
+        12,
+        12,
+        8,
+        8,
+        8,
+        10,
+        8,
+        9,
+        8,
+        8
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 84
+    },
+    {
+      "matchId": "8179129689",
+      "seriesKey": "opendota:950661",
+      "cutoffAtUs": "1739876100000000",
+      "priorMapsPerPlayer": [
+        11,
+        8,
+        10,
+        8,
+        8,
+        9,
+        12,
+        10,
+        10,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 84
+    },
+    {
+      "matchId": "8179129826",
+      "seriesKey": "opendota:950662",
+      "cutoffAtUs": "1739876104000000",
+      "priorMapsPerPlayer": [
+        13,
+        11,
+        11,
+        8,
+        12,
+        9,
+        8,
+        9,
+        8,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 84
+    },
+    {
+      "matchId": "8179125294",
+      "seriesKey": "opendota:950658",
+      "cutoffAtUs": "1739876114000000",
+      "priorMapsPerPlayer": [
+        8,
+        9,
+        8,
+        8,
+        8,
+        10,
+        8,
+        8,
+        8,
+        8
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 84
+    },
+    {
+      "matchId": "8179191377",
+      "seriesKey": "opendota:950657",
+      "cutoffAtUs": "1739879461000000",
+      "priorMapsPerPlayer": [
+        13,
+        13,
+        9,
+        9,
+        9,
+        11,
+        9,
+        10,
+        9,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 88
+    },
+    {
+      "matchId": "8179201399",
+      "seriesKey": "opendota:950661",
+      "cutoffAtUs": "1739880061000000",
+      "priorMapsPerPlayer": [
+        10,
+        13,
+        11,
+        11,
+        12,
+        12,
+        11,
+        9,
+        9,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 88
+    },
+    {
+      "matchId": "8179198444",
+      "seriesKey": "opendota:950658",
+      "cutoffAtUs": "1739880364000000",
+      "priorMapsPerPlayer": [
+        9,
+        10,
+        9,
+        9,
+        9,
+        11,
+        9,
+        9,
+        9,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 88
+    },
+    {
+      "matchId": "8179215784",
+      "seriesKey": "opendota:950662",
+      "cutoffAtUs": "1739881205000000",
+      "priorMapsPerPlayer": [
+        10,
+        9,
+        10,
+        9,
+        10,
+        14,
+        12,
+        12,
+        9,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 88
+    },
+    {
+      "matchId": "8179295960",
+      "seriesKey": "opendota:950690",
+      "cutoffAtUs": "1739885100000000",
+      "priorMapsPerPlayer": [
+        8,
+        9,
+        9,
+        8,
+        8,
+        11,
+        8,
+        8,
+        8,
+        8
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 92
+    },
+    {
+      "matchId": "8179312828",
+      "seriesKey": "opendota:950696",
+      "cutoffAtUs": "1739885100000000",
+      "priorMapsPerPlayer": [
+        8,
+        8,
+        8,
+        9,
+        8,
+        10,
+        8,
+        11,
+        11,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 92
+    },
+    {
+      "matchId": "8179315610",
+      "seriesKey": "opendota:950697",
+      "cutoffAtUs": "1739885701000000",
+      "priorMapsPerPlayer": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 92
+    },
+    {
+      "matchId": "8179356848",
+      "seriesKey": "opendota:950706",
+      "cutoffAtUs": "1739887322000000",
+      "priorMapsPerPlayer": [
+        11,
+        11,
+        9,
+        8,
+        11,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 93
+    },
+    {
+      "matchId": "8179388679",
+      "seriesKey": "opendota:950690",
+      "cutoffAtUs": "1739888460000000",
+      "priorMapsPerPlayer": [
+        9,
+        10,
+        10,
+        9,
+        9,
+        12,
+        9,
+        9,
+        9,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 95
+    },
+    {
+      "matchId": "8179426172",
+      "seriesKey": "opendota:950697",
+      "cutoffAtUs": "1739889541000000",
+      "priorMapsPerPlayer": [
+        9,
+        9,
+        9,
+        9,
+        10,
+        9,
+        9,
+        9,
+        9,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 95
+    },
+    {
+      "matchId": "8179420583",
+      "seriesKey": "opendota:950696",
+      "cutoffAtUs": "1739889542000000",
+      "priorMapsPerPlayer": [
+        11,
+        9,
+        12,
+        12,
+        12,
+        9,
+        9,
+        9,
+        10,
+        9
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 95
+    },
+    {
+      "matchId": "8179504218",
+      "seriesKey": "opendota:950706",
+      "cutoffAtUs": "1739893081000000",
+      "priorMapsPerPlayer": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        12,
+        12,
+        10,
+        9,
+        12
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 99
+    },
+    {
+      "matchId": "8179529448",
+      "seriesKey": "opendota:950735",
+      "cutoffAtUs": "1739894101000000",
+      "priorMapsPerPlayer": [
+        13,
+        12,
+        10,
+        10,
+        10,
+        14,
+        14,
+        10,
+        10,
+        10
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 99
+    },
+    {
+      "matchId": "8179526188",
+      "seriesKey": "opendota:950734",
+      "cutoffAtUs": "1739895121000000",
+      "priorMapsPerPlayer": [
+        12,
+        10,
+        11,
+        10,
+        10,
+        12,
+        10,
+        10,
+        10,
+        10
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 99
+    },
+    {
+      "matchId": "8179557618",
+      "seriesKey": "opendota:950739",
+      "cutoffAtUs": "1739895299000000",
+      "priorMapsPerPlayer": [
+        15,
+        13,
+        13,
+        10,
+        14,
+        10,
+        11,
+        10,
+        10,
+        10
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 99
+    },
+    {
+      "matchId": "8179632650",
+      "seriesKey": "opendota:950754",
+      "cutoffAtUs": "1739898541000000",
+      "priorMapsPerPlayer": [
+        11,
+        14,
+        12,
+        12,
+        13,
+        11,
+        10,
+        11,
+        10,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 103
+    },
+    {
+      "matchId": "8179639324",
+      "seriesKey": "opendota:950735",
+      "cutoffAtUs": "1739898720000000",
+      "priorMapsPerPlayer": [
+        15,
+        15,
+        11,
+        11,
+        11,
+        14,
+        13,
+        11,
+        11,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 103
+    },
+    {
+      "matchId": "8179644342",
+      "seriesKey": "opendota:950734",
+      "cutoffAtUs": "1739898901000000",
+      "priorMapsPerPlayer": [
+        13,
+        11,
+        12,
+        11,
+        11,
+        13,
+        11,
+        11,
+        11,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 103
+    },
+    {
+      "matchId": "8179680428",
+      "seriesKey": "opendota:950739",
+      "cutoffAtUs": "1739899840000000",
+      "priorMapsPerPlayer": [
+        11,
+        12,
+        11,
+        11,
+        11,
+        16,
+        14,
+        14,
+        11,
+        15
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 103
+    },
+    {
+      "matchId": "8179727963",
+      "seriesKey": "opendota:950754",
+      "cutoffAtUs": "1739902561000000",
+      "priorMapsPerPlayer": [
+        12,
+        15,
+        13,
+        13,
+        14,
+        12,
+        11,
+        12,
+        11,
+        12
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 107
+    },
+    {
+      "matchId": "8179735864",
+      "seriesKey": "opendota:950777",
+      "cutoffAtUs": "1739903160000000",
+      "priorMapsPerPlayer": [
+        13,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        11,
+        10
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 107
+    },
+    {
+      "matchId": "8179747680",
+      "seriesKey": "opendota:950780",
+      "cutoffAtUs": "1739903820000000",
+      "priorMapsPerPlayer": [
+        10,
+        11,
+        11,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 107
+    },
+    {
+      "matchId": "8179754432",
+      "seriesKey": "opendota:950781",
+      "cutoffAtUs": "1739903880000000",
+      "priorMapsPerPlayer": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 107
+    },
+    {
+      "matchId": "8179820296",
+      "seriesKey": "opendota:950804",
+      "cutoffAtUs": "1739906881000000",
+      "priorMapsPerPlayer": [
+        13,
+        13,
+        11,
+        10,
+        13,
+        12,
+        10,
+        13,
+        13,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 111
+    },
+    {
+      "matchId": "8179818758",
+      "seriesKey": "opendota:950780",
+      "cutoffAtUs": "1739907120000000",
+      "priorMapsPerPlayer": [
+        11,
+        12,
+        12,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        12
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 111
+    },
+    {
+      "matchId": "8179825453",
+      "seriesKey": "opendota:950777",
+      "cutoffAtUs": "1739907421000000",
+      "priorMapsPerPlayer": [
+        11,
+        11,
+        11,
+        12,
+        11,
+        14,
+        11,
+        11,
+        11,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 111
+    },
+    {
+      "matchId": "8179852572",
+      "seriesKey": "opendota:950781",
+      "cutoffAtUs": "1739908262000000",
+      "priorMapsPerPlayer": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 111
+    },
+    {
+      "matchId": "8179905694",
+      "seriesKey": "opendota:950804",
+      "cutoffAtUs": "1739911441000000",
+      "priorMapsPerPlayer": [
+        14,
+        14,
+        12,
+        11,
+        14,
+        13,
+        11,
+        14,
+        14,
+        14
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 115
+    },
+    {
+      "matchId": "8181154673",
+      "seriesKey": "opendota:951010",
+      "cutoffAtUs": "1739980500000000",
+      "priorMapsPerPlayer": [
+        16,
+        16,
+        12,
+        12,
+        12,
+        14,
+        12,
+        12,
+        12,
+        12
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 116
+    },
+    {
+      "matchId": "8181171260",
+      "seriesKey": "opendota:951012",
+      "cutoffAtUs": "1739980500000000",
+      "priorMapsPerPlayer": [
+        12,
+        13,
+        12,
+        12,
+        12,
+        13,
+        16,
+        14,
+        14,
+        15
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 116
+    },
+    {
+      "matchId": "8181166277",
+      "seriesKey": "opendota:951011",
+      "cutoffAtUs": "1739980502000000",
+      "priorMapsPerPlayer": [
+        14,
+        12,
+        13,
+        12,
+        12,
+        17,
+        15,
+        15,
+        12,
+        16
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 116
+    },
+    {
+      "matchId": "8181185346",
+      "seriesKey": "opendota:951013",
+      "cutoffAtUs": "1739980589000000",
+      "priorMapsPerPlayer": [
+        15,
+        14,
+        12,
+        12,
+        12,
+        13,
+        12,
+        13,
+        12,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 116
+    },
+    {
+      "matchId": "8181273873",
+      "seriesKey": "opendota:951013",
+      "cutoffAtUs": "1739984340000000",
+      "priorMapsPerPlayer": [
+        14,
+        13,
+        14,
+        13,
+        14,
+        16,
+        13,
+        15,
+        13,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 120
+    },
+    {
+      "matchId": "8181284015",
+      "seriesKey": "opendota:951011",
+      "cutoffAtUs": "1739984403000000",
+      "priorMapsPerPlayer": [
+        18,
+        16,
+        16,
+        13,
+        17,
+        15,
+        13,
+        14,
+        13,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 120
+    },
+    {
+      "matchId": "8181275866",
+      "seriesKey": "opendota:951010",
+      "cutoffAtUs": "1739984461000000",
+      "priorMapsPerPlayer": [
+        17,
+        17,
+        13,
+        13,
+        13,
+        15,
+        13,
+        13,
+        13,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 120
+    },
+    {
+      "matchId": "8181307882",
+      "seriesKey": "opendota:951012",
+      "cutoffAtUs": "1739985360000000",
+      "priorMapsPerPlayer": [
+        14,
+        17,
+        15,
+        15,
+        16,
+        13,
+        14,
+        13,
+        13,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 120
+    },
+    {
+      "matchId": "8181400323",
+      "seriesKey": "opendota:951038",
+      "cutoffAtUs": "1739989500000000",
+      "priorMapsPerPlayer": [
+        15,
+        12,
+        12,
+        12,
+        12,
+        15,
+        15,
+        13,
+        12,
+        15
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 124
+    },
+    {
+      "matchId": "8181406947",
+      "seriesKey": "opendota:951040",
+      "cutoffAtUs": "1739989501000000",
+      "priorMapsPerPlayer": [
+        12,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12,
+        12,
+        13,
+        12
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 124
+    },
+    {
+      "matchId": "8181420740",
+      "seriesKey": "opendota:951048",
+      "cutoffAtUs": "1739989501000000",
+      "priorMapsPerPlayer": [
+        14,
+        12,
+        15,
+        15,
+        15,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 124
+    },
+    {
+      "matchId": "8181445296",
+      "seriesKey": "opendota:951051",
+      "cutoffAtUs": "1739990400000000",
+      "priorMapsPerPlayer": [
+        13,
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 124
+    },
+    {
+      "matchId": "8181514705",
+      "seriesKey": "opendota:951048",
+      "cutoffAtUs": "1739993281000000",
+      "priorMapsPerPlayer": [
+        15,
+        13,
+        16,
+        16,
+        16,
+        13,
+        13,
+        13,
+        13,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 128
+    },
+    {
+      "matchId": "8181522405",
+      "seriesKey": "opendota:951038",
+      "cutoffAtUs": "1739993404000000",
+      "priorMapsPerPlayer": [
+        16,
+        13,
+        13,
+        13,
+        13,
+        16,
+        16,
+        14,
+        13,
+        16
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 128
+    },
+    {
+      "matchId": "8181539594",
+      "seriesKey": "opendota:951040",
+      "cutoffAtUs": "1739994001000000",
+      "priorMapsPerPlayer": [
+        13,
+        13,
+        13,
+        14,
+        13,
+        13,
+        14,
+        14,
+        13,
+        13
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 128
+    },
+    {
+      "matchId": "8181545391",
+      "seriesKey": "opendota:951051",
+      "cutoffAtUs": "1739994180000000",
+      "priorMapsPerPlayer": [
+        13,
+        13,
+        13,
+        13,
+        14,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 128
+    },
+    {
+      "matchId": "8182423670",
+      "seriesKey": "opendota:951232",
+      "cutoffAtUs": "1740057900000000",
+      "priorMapsPerPlayer": [
+        17,
+        14,
+        14,
+        14,
+        14,
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 132
+    },
+    {
+      "matchId": "8182543107",
+      "seriesKey": "opendota:951246",
+      "cutoffAtUs": "1740061561000000",
+      "priorMapsPerPlayer": [
+        18,
+        15,
+        15,
+        15,
+        15,
+        16,
+        14,
+        17,
+        17,
+        17
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 133
+    },
+    {
+      "matchId": "8182654920",
+      "seriesKey": "opendota:951258",
+      "cutoffAtUs": "1740065461000000",
+      "priorMapsPerPlayer": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        17,
+        15,
+        18,
+        18,
+        18
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 134
+    },
+    {
+      "matchId": "8182791788",
+      "seriesKey": "opendota:951274",
+      "cutoffAtUs": "1740070681000000",
+      "priorMapsPerPlayer": [
+        19,
+        16,
+        16,
+        16,
+        16,
+        17,
+        17,
+        17,
+        17,
+        17
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 135
+    },
+    {
+      "matchId": "8182907583",
+      "seriesKey": "opendota:951288",
+      "cutoffAtUs": "1740075240000000",
+      "priorMapsPerPlayer": [
+        18,
+        16,
+        19,
+        19,
+        19,
+        18,
+        18,
+        18,
+        18,
+        18
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 136
+    },
+    {
+      "matchId": "8183642521",
+      "seriesKey": "opendota:951498",
+      "cutoffAtUs": "1740131721000000",
+      "priorMapsPerPlayer": [
+        19,
+        19,
+        19,
+        19,
+        19,
+        15,
+        14,
+        15,
+        14,
+        15
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 137
+    },
+    {
+      "matchId": "8183722972",
+      "seriesKey": "opendota:951498",
+      "cutoffAtUs": "1740136266000000",
+      "priorMapsPerPlayer": [
+        16,
+        15,
+        16,
+        15,
+        16,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 138
+    },
+    {
+      "matchId": "8183837907",
+      "seriesKey": "opendota:951498",
+      "cutoffAtUs": "1740141486000000",
+      "priorMapsPerPlayer": [
+        21,
+        21,
+        21,
+        21,
+        21,
+        17,
+        16,
+        17,
+        16,
+        17
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 139
+    },
+    {
+      "matchId": "8183945792",
+      "seriesKey": "opendota:951544",
+      "cutoffAtUs": "1740146405000000",
+      "priorMapsPerPlayer": [
+        14,
+        15,
+        15,
+        14,
+        14,
+        18,
+        18,
+        1,
+        14,
+        14
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 140
+    },
+    {
+      "matchId": "8184093905",
+      "seriesKey": "opendota:951544",
+      "cutoffAtUs": "1740150788000000",
+      "priorMapsPerPlayer": [
+        15,
+        16,
+        16,
+        15,
+        15,
+        19,
+        19,
+        2,
+        15,
+        15
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 141
+    },
+    {
+      "matchId": "8184273990",
+      "seriesKey": "opendota:951597",
+      "cutoffAtUs": "1740156900000000",
+      "priorMapsPerPlayer": [
+        17,
+        17,
+        15,
+        14,
+        17,
+        19,
+        17,
+        17,
+        14,
+        18
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 142
+    },
+    {
+      "matchId": "8184390264",
+      "seriesKey": "opendota:951597",
+      "cutoffAtUs": "1740161340000000",
+      "priorMapsPerPlayer": [
+        18,
+        18,
+        16,
+        15,
+        18,
+        20,
+        18,
+        18,
+        15,
+        19
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 143
+    },
+    {
+      "matchId": "8184590344",
+      "seriesKey": "opendota:951663",
+      "cutoffAtUs": "1740169500000000",
+      "priorMapsPerPlayer": [
+        15,
+        18,
+        16,
+        16,
+        17,
+        14,
+        14,
+        14,
+        15,
+        14
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 144
+    },
+    {
+      "matchId": "8184670170",
+      "seriesKey": "opendota:951663",
+      "cutoffAtUs": "1740173640000000",
+      "priorMapsPerPlayer": [
+        16,
+        19,
+        17,
+        17,
+        18,
+        15,
+        15,
+        15,
+        16,
+        15
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 145
+    },
+    {
+      "matchId": "8184734925",
+      "seriesKey": "opendota:951663",
+      "cutoffAtUs": "1740177840000000",
+      "priorMapsPerPlayer": [
+        17,
+        20,
+        18,
+        18,
+        19,
+        16,
+        16,
+        16,
+        17,
+        16
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 146
+    },
+    {
+      "matchId": "8185278759",
+      "seriesKey": "opendota:951800",
+      "cutoffAtUs": "1740218105000000",
+      "priorMapsPerPlayer": [
+        19,
+        19,
+        17,
+        16,
+        19,
+        18,
+        17,
+        18,
+        17,
+        18
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 147
+    },
+    {
+      "matchId": "8185374108",
+      "seriesKey": "opendota:951800",
+      "cutoffAtUs": "1740222427000000",
+      "priorMapsPerPlayer": [
+        19,
+        18,
+        19,
+        18,
+        19,
+        20,
+        20,
+        18,
+        17,
+        20
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 148
+    },
+    {
+      "matchId": "8185600616",
+      "seriesKey": "opendota:951866",
+      "cutoffAtUs": "1740230710000000",
+      "priorMapsPerPlayer": [
+        22,
+        22,
+        22,
+        22,
+        22,
+        17,
+        17,
+        17,
+        18,
+        17
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 149
+    },
+    {
+      "matchId": "8185744704",
+      "seriesKey": "opendota:951866",
+      "cutoffAtUs": "1740235626000000",
+      "priorMapsPerPlayer": [
+        23,
+        23,
+        23,
+        23,
+        23,
+        18,
+        18,
+        18,
+        19,
+        18
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 150
+    },
+    {
+      "matchId": "8185983891",
+      "seriesKey": "opendota:951935",
+      "cutoffAtUs": "1740243303000000",
+      "priorMapsPerPlayer": [
+        18,
+        21,
+        19,
+        19,
+        20,
+        20,
+        20,
+        3,
+        16,
+        16
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 151
+    },
+    {
+      "matchId": "8186101644",
+      "seriesKey": "opendota:951935",
+      "cutoffAtUs": "1740247623000000",
+      "priorMapsPerPlayer": [
+        21,
+        21,
+        4,
+        17,
+        17,
+        19,
+        22,
+        20,
+        20,
+        21
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 152
+    },
+    {
+      "matchId": "8186212116",
+      "seriesKey": "opendota:951935",
+      "cutoffAtUs": "1740251639000000",
+      "priorMapsPerPlayer": [
+        20,
+        23,
+        21,
+        21,
+        22,
+        22,
+        22,
+        5,
+        18,
+        18
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 153
+    },
+    {
+      "matchId": "8186332629",
+      "seriesKey": "opendota:952017",
+      "cutoffAtUs": "1740257471000000",
+      "priorMapsPerPlayer": [
+        16,
+        17,
+        17,
+        16,
+        16,
+        21,
+        19,
+        19,
+        16,
+        20
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 154
+    },
+    {
+      "matchId": "8186454260",
+      "seriesKey": "opendota:952017",
+      "cutoffAtUs": "1740263400000000",
+      "priorMapsPerPlayer": [
+        17,
+        18,
+        18,
+        17,
+        17,
+        22,
+        20,
+        20,
+        17,
+        21
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 155
+    },
+    {
+      "matchId": "8186524440",
+      "seriesKey": "opendota:952017",
+      "cutoffAtUs": "1740268863000000",
+      "priorMapsPerPlayer": [
+        23,
+        21,
+        21,
+        18,
+        22,
+        18,
+        19,
+        19,
+        18,
+        18
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 156
+    },
+    {
+      "matchId": "8187040217",
+      "seriesKey": "opendota:952116",
+      "cutoffAtUs": "1740307564000000",
+      "priorMapsPerPlayer": [
+        23,
+        23,
+        6,
+        19,
+        19,
+        24,
+        24,
+        24,
+        24,
+        24
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 157
+    },
+    {
+      "matchId": "8187313774",
+      "seriesKey": "opendota:952161",
+      "cutoffAtUs": "1740317106000000",
+      "priorMapsPerPlayer": [
+        21,
+        21,
+        19,
+        18,
+        21,
+        19,
+        19,
+        19,
+        20,
+        19
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 158
+    },
+    {
+      "matchId": "8187522475",
+      "seriesKey": "opendota:952161",
+      "cutoffAtUs": "1740321668000000",
+      "priorMapsPerPlayer": [
+        20,
+        20,
+        20,
+        21,
+        20,
+        22,
+        22,
+        20,
+        19,
+        22
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 159
+    },
+    {
+      "matchId": "8187668360",
+      "seriesKey": "opendota:952161",
+      "cutoffAtUs": "1740326648000000",
+      "priorMapsPerPlayer": [
+        21,
+        21,
+        21,
+        22,
+        21,
+        23,
+        23,
+        21,
+        20,
+        23
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 160
+    },
+    {
+      "matchId": "8187804922",
+      "seriesKey": "opendota:952273",
+      "cutoffAtUs": "1740331803000000",
+      "priorMapsPerPlayer": [
+        20,
+        19,
+        20,
+        19,
+        20,
+        24,
+        22,
+        22,
+        19,
+        23
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 161
+    },
+    {
+      "matchId": "8187923027",
+      "seriesKey": "opendota:952273",
+      "cutoffAtUs": "1740336600000000",
+      "priorMapsPerPlayer": [
+        25,
+        23,
+        23,
+        20,
+        24,
+        21,
+        20,
+        21,
+        20,
+        21
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 162
+    },
+    {
+      "matchId": "8188051616",
+      "seriesKey": "opendota:952377",
+      "cutoffAtUs": "1740342495000000",
+      "priorMapsPerPlayer": [
+        21,
+        24,
+        22,
+        22,
+        23,
+        19,
+        20,
+        20,
+        19,
+        19
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 163
+    },
+    {
+      "matchId": "8188122665",
+      "seriesKey": "opendota:952377",
+      "cutoffAtUs": "1740346560000000",
+      "priorMapsPerPlayer": [
+        20,
+        21,
+        21,
+        20,
+        20,
+        22,
+        25,
+        23,
+        23,
+        24
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 164
+    },
+    {
+      "matchId": "8188590279",
+      "seriesKey": "opendota:952506",
+      "cutoffAtUs": "1740390900000000",
+      "priorMapsPerPlayer": [
+        22,
+        21,
+        22,
+        21,
+        22,
+        22,
+        22,
+        22,
+        23,
+        22
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 165
+    },
+    {
+      "matchId": "8188655840",
+      "seriesKey": "opendota:952506",
+      "cutoffAtUs": "1740394920000000",
+      "priorMapsPerPlayer": [
+        23,
+        23,
+        23,
+        24,
+        23,
+        23,
+        22,
+        23,
+        22,
+        23
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 166
+    },
+    {
+      "matchId": "8188734692",
+      "seriesKey": "opendota:952506",
+      "cutoffAtUs": "1740399180000000",
+      "priorMapsPerPlayer": [
+        24,
+        24,
+        24,
+        25,
+        24,
+        24,
+        23,
+        24,
+        23,
+        24
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 167
+    },
+    {
+      "matchId": "8188913379",
+      "seriesKey": "opendota:952554",
+      "cutoffAtUs": "1740406380000000",
+      "priorMapsPerPlayer": [
+        24,
+        24,
+        22,
+        21,
+        24,
+        24,
+        24,
+        7,
+        20,
+        20
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 168
+    },
+    {
+      "matchId": "8189005792",
+      "seriesKey": "opendota:952554",
+      "cutoffAtUs": "1740410160000000",
+      "priorMapsPerPlayer": [
+        25,
+        25,
+        23,
+        22,
+        25,
+        25,
+        25,
+        8,
+        21,
+        21
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 169
+    },
+    {
+      "matchId": "8189149640",
+      "seriesKey": "opendota:952582",
+      "cutoffAtUs": "1740416099000000",
+      "priorMapsPerPlayer": [
+        21,
+        22,
+        22,
+        21,
+        21,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 170
+    },
+    {
+      "matchId": "8189233392",
+      "seriesKey": "opendota:952582",
+      "cutoffAtUs": "1740419519000000",
+      "priorMapsPerPlayer": [
+        22,
+        23,
+        23,
+        22,
+        22,
+        26,
+        26,
+        26,
+        26,
+        26
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 171
+    },
+    {
+      "matchId": "8189432866",
+      "seriesKey": "opendota:952663",
+      "cutoffAtUs": "1740428700000000",
+      "priorMapsPerPlayer": [
+        26,
+        24,
+        24,
+        21,
+        25,
+        23,
+        26,
+        24,
+        24,
+        25
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 172
+    },
+    {
+      "matchId": "8189491576",
+      "seriesKey": "opendota:952663",
+      "cutoffAtUs": "1740432784000000",
+      "priorMapsPerPlayer": [
+        24,
+        27,
+        25,
+        25,
+        26,
+        27,
+        25,
+        25,
+        22,
+        26
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 173
+    },
+    {
+      "matchId": "8189554620",
+      "seriesKey": "opendota:952663",
+      "cutoffAtUs": "1740437882000000",
+      "priorMapsPerPlayer": [
+        25,
+        28,
+        26,
+        26,
+        27,
+        28,
+        26,
+        26,
+        23,
+        27
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 174
+    },
+    {
+      "matchId": "8189952576",
+      "seriesKey": "opendota:952776",
+      "cutoffAtUs": "1740477334000000",
+      "priorMapsPerPlayer": [
+        25,
+        25,
+        25,
+        26,
+        25,
+        26,
+        26,
+        9,
+        22,
+        22
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 175
+    },
+    {
+      "matchId": "8190011384",
+      "seriesKey": "opendota:952776",
+      "cutoffAtUs": "1740481440000000",
+      "priorMapsPerPlayer": [
+        26,
+        26,
+        26,
+        27,
+        26,
+        27,
+        27,
+        10,
+        23,
+        23
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 176
+    },
+    {
+      "matchId": "8190194573",
+      "seriesKey": "opendota:952804",
+      "cutoffAtUs": "1740489901000000",
+      "priorMapsPerPlayer": [
+        25,
+        24,
+        25,
+        24,
+        25,
+        23,
+        24,
+        24,
+        23,
+        23
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 177
+    },
+    {
+      "matchId": "8190294076",
+      "seriesKey": "opendota:952804",
+      "cutoffAtUs": "1740493800000000",
+      "priorMapsPerPlayer": [
+        24,
+        25,
+        25,
+        24,
+        24,
+        26,
+        25,
+        26,
+        25,
+        26
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 178
+    },
+    {
+      "matchId": "8190432750",
+      "seriesKey": "opendota:952804",
+      "cutoffAtUs": "1740499080000000",
+      "priorMapsPerPlayer": [
+        25,
+        26,
+        26,
+        25,
+        25,
+        27,
+        26,
+        27,
+        26,
+        27
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 179
+    },
+    {
+      "matchId": "8190531017",
+      "seriesKey": "opendota:952856",
+      "cutoffAtUs": "1740503700000000",
+      "priorMapsPerPlayer": [
+        29,
+        27,
+        27,
+        24,
+        28,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 180
+    },
+    {
+      "matchId": "8190630231",
+      "seriesKey": "opendota:952856",
+      "cutoffAtUs": "1740507780000000",
+      "priorMapsPerPlayer": [
+        30,
+        28,
+        28,
+        25,
+        29,
+        28,
+        28,
+        28,
+        28,
+        28
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 181
+    },
+    {
+      "matchId": "8190784614",
+      "seriesKey": "opendota:952910",
+      "cutoffAtUs": "1740515100000000",
+      "priorMapsPerPlayer": [
+        26,
+        26,
+        24,
+        23,
+        26,
+        26,
+        29,
+        27,
+        27,
+        28
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 182
+    },
+    {
+      "matchId": "8190845902",
+      "seriesKey": "opendota:952910",
+      "cutoffAtUs": "1740518940000000",
+      "priorMapsPerPlayer": [
+        27,
+        30,
+        28,
+        28,
+        29,
+        27,
+        27,
+        25,
+        24,
+        27
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 183
+    },
+    {
+      "matchId": "8191296542",
+      "seriesKey": "opendota:953019",
+      "cutoffAtUs": "1740563700000000",
+      "priorMapsPerPlayer": [
+        27,
+        27,
+        27,
+        28,
+        27,
+        31,
+        29,
+        29,
+        26,
+        30
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 184
+    },
+    {
+      "matchId": "8191350491",
+      "seriesKey": "opendota:953019",
+      "cutoffAtUs": "1740567480000000",
+      "priorMapsPerPlayer": [
+        28,
+        28,
+        28,
+        29,
+        28,
+        32,
+        30,
+        30,
+        27,
+        31
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 185
+    },
+    {
+      "matchId": "8191531686",
+      "seriesKey": "opendota:953044",
+      "cutoffAtUs": "1740576300000000",
+      "priorMapsPerPlayer": [
+        28,
+        27,
+        28,
+        27,
+        28,
+        28,
+        28,
+        11,
+        24,
+        24
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 186
+    },
+    {
+      "matchId": "8191660167",
+      "seriesKey": "opendota:953044",
+      "cutoffAtUs": "1740581220000000",
+      "priorMapsPerPlayer": [
+        29,
+        28,
+        29,
+        28,
+        29,
+        29,
+        29,
+        12,
+        25,
+        25
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 187
+    },
+    {
+      "matchId": "8191838350",
+      "seriesKey": "opendota:953101",
+      "cutoffAtUs": "1740588900000000",
+      "priorMapsPerPlayer": [
+        28,
+        28,
+        26,
+        25,
+        28,
+        26,
+        27,
+        27,
+        26,
+        26
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 188
+    },
+    {
+      "matchId": "8191952054",
+      "seriesKey": "opendota:953101",
+      "cutoffAtUs": "1740593340000000",
+      "priorMapsPerPlayer": [
+        27,
+        28,
+        28,
+        27,
+        27,
+        29,
+        29,
+        27,
+        26,
+        29
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 189
+    },
+    {
+      "matchId": "8192113171",
+      "seriesKey": "opendota:953172",
+      "cutoffAtUs": "1740601501000000",
+      "priorMapsPerPlayer": [
+        28,
+        31,
+        29,
+        29,
+        30,
+        29,
+        29,
+        29,
+        29,
+        29
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 190
+    },
+    {
+      "matchId": "8192174540",
+      "seriesKey": "opendota:953172",
+      "cutoffAtUs": "1740605821000000",
+      "priorMapsPerPlayer": [
+        29,
+        32,
+        30,
+        30,
+        31,
+        30,
+        30,
+        30,
+        30,
+        30
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 191
+    },
+    {
+      "matchId": "8192617618",
+      "seriesKey": "opendota:953266",
+      "cutoffAtUs": "1740650110000000",
+      "priorMapsPerPlayer": [
+        28,
+        29,
+        29,
+        28,
+        28,
+        29,
+        29,
+        29,
+        30,
+        29
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 192
+    },
+    {
+      "matchId": "8192678156",
+      "seriesKey": "opendota:953266",
+      "cutoffAtUs": "1740653885000000",
+      "priorMapsPerPlayer": [
+        29,
+        30,
+        30,
+        29,
+        29,
+        30,
+        30,
+        30,
+        31,
+        30
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 193
+    },
+    {
+      "matchId": "8192853077",
+      "seriesKey": "opendota:953308",
+      "cutoffAtUs": "1740662708000000",
+      "priorMapsPerPlayer": [
+        33,
+        31,
+        31,
+        28,
+        32,
+        30,
+        30,
+        13,
+        26,
+        26
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 194
+    },
+    {
+      "matchId": "8192947707",
+      "seriesKey": "opendota:953308",
+      "cutoffAtUs": "1740666428000000",
+      "priorMapsPerPlayer": [
+        34,
+        32,
+        32,
+        29,
+        33,
+        31,
+        31,
+        14,
+        27,
+        27
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 195
+    },
+    {
+      "matchId": "8193165788",
+      "seriesKey": "opendota:953368",
+      "cutoffAtUs": "1740675300000000",
+      "priorMapsPerPlayer": [
+        30,
+        30,
+        28,
+        27,
+        30,
+        31,
+        31,
+        31,
+        31,
+        31
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 196
+    },
+    {
+      "matchId": "8193280233",
+      "seriesKey": "opendota:953368",
+      "cutoffAtUs": "1740679860000000",
+      "priorMapsPerPlayer": [
+        31,
+        31,
+        29,
+        28,
+        31,
+        32,
+        32,
+        32,
+        32,
+        32
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 197
+    },
+    {
+      "matchId": "8193365045",
+      "seriesKey": "opendota:953368",
+      "cutoffAtUs": "1740684240000000",
+      "priorMapsPerPlayer": [
+        32,
+        32,
+        30,
+        29,
+        32,
+        33,
+        33,
+        33,
+        33,
+        33
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 198
+    },
+    {
+      "matchId": "8193463396",
+      "seriesKey": "opendota:953436",
+      "cutoffAtUs": "1740688920000000",
+      "priorMapsPerPlayer": [
+        30,
+        29,
+        30,
+        29,
+        30,
+        30,
+        33,
+        31,
+        31,
+        32
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 199
+    },
+    {
+      "matchId": "8193515068",
+      "seriesKey": "opendota:953436",
+      "cutoffAtUs": "1740692940000000",
+      "priorMapsPerPlayer": [
+        31,
+        34,
+        32,
+        32,
+        33,
+        31,
+        30,
+        31,
+        30,
+        31
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 200
+    },
+    {
+      "matchId": "8193562371",
+      "seriesKey": "opendota:953436",
+      "cutoffAtUs": "1740696481000000",
+      "priorMapsPerPlayer": [
+        32,
+        35,
+        33,
+        33,
+        34,
+        32,
+        31,
+        32,
+        31,
+        32
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 201
+    },
+    {
+      "matchId": "8195843134",
+      "seriesKey": "opendota:953894",
+      "cutoffAtUs": "1740837370000000",
+      "priorMapsPerPlayer": [
+        33,
+        33,
+        31,
+        30,
+        33,
+        31,
+        31,
+        31,
+        32,
+        31
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 202
+    },
+    {
+      "matchId": "8196015197",
+      "seriesKey": "opendota:953894",
+      "cutoffAtUs": "1740843608000000",
+      "priorMapsPerPlayer": [
+        34,
+        34,
+        32,
+        31,
+        34,
+        32,
+        32,
+        32,
+        33,
+        32
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 203
+    },
+    {
+      "matchId": "8196103081",
+      "seriesKey": "opendota:953894",
+      "cutoffAtUs": "1740847207000000",
+      "priorMapsPerPlayer": [
+        35,
+        35,
+        33,
+        32,
+        35,
+        33,
+        33,
+        33,
+        34,
+        33
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 204
+    },
+    {
+      "matchId": "8196288391",
+      "seriesKey": "opendota:953997",
+      "cutoffAtUs": "1740854760000000",
+      "priorMapsPerPlayer": [
+        30,
+        31,
+        31,
+        30,
+        30,
+        35,
+        33,
+        33,
+        30,
+        34
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 205
+    },
+    {
+      "matchId": "8196380751",
+      "seriesKey": "opendota:953997",
+      "cutoffAtUs": "1740858480000000",
+      "priorMapsPerPlayer": [
+        31,
+        32,
+        32,
+        31,
+        31,
+        36,
+        34,
+        34,
+        31,
+        35
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 206
+    },
+    {
+      "matchId": "8196485303",
+      "seriesKey": "opendota:953997",
+      "cutoffAtUs": "1740863340000000",
+      "priorMapsPerPlayer": [
+        32,
+        33,
+        33,
+        32,
+        32,
+        37,
+        35,
+        35,
+        32,
+        36
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 207
+    },
+    {
+      "matchId": "8197311299",
+      "seriesKey": "opendota:954165",
+      "cutoffAtUs": "1740916506000000",
+      "priorMapsPerPlayer": [
+        36,
+        36,
+        34,
+        33,
+        36,
+        33,
+        34,
+        34,
+        33,
+        33
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 208
+    },
+    {
+      "matchId": "8197456312",
+      "seriesKey": "opendota:954165",
+      "cutoffAtUs": "1740921606000000",
+      "priorMapsPerPlayer": [
+        37,
+        37,
+        35,
+        34,
+        37,
+        34,
+        35,
+        35,
+        34,
+        34
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 209
+    },
+    {
+      "matchId": "8197688531",
+      "seriesKey": "opendota:954249",
+      "cutoffAtUs": "1740929174000000",
+      "priorMapsPerPlayer": [
+        38,
+        38,
+        36,
+        35,
+        38,
+        38,
+        36,
+        36,
+        33,
+        37
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 210
+    },
+    {
+      "matchId": "8197793601",
+      "seriesKey": "opendota:954249",
+      "cutoffAtUs": "1740933541000000",
+      "priorMapsPerPlayer": [
+        39,
+        39,
+        37,
+        36,
+        39,
+        39,
+        37,
+        37,
+        34,
+        38
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 211
+    },
+    {
+      "matchId": "8197912154",
+      "seriesKey": "opendota:954249",
+      "cutoffAtUs": "1740938220000000",
+      "priorMapsPerPlayer": [
+        40,
+        40,
+        38,
+        37,
+        40,
+        40,
+        38,
+        38,
+        35,
+        39
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 212
+    },
+    {
+      "matchId": "8198039682",
+      "seriesKey": "opendota:954249",
+      "cutoffAtUs": "1740944100000000",
+      "priorMapsPerPlayer": [
+        41,
+        39,
+        39,
+        36,
+        40,
+        41,
+        41,
+        39,
+        38,
+        41
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 213
+    },
+    {
+      "matchId": "8200366179",
+      "seriesKey": "opendota:954819",
+      "cutoffAtUs": "1741100400000000",
+      "priorMapsPerPlayer": [
+        42,
+        40,
+        40,
+        37,
+        41,
+        42,
+        42,
+        40,
+        39,
+        42
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 214
+    },
+    {
+      "matchId": "8200463236",
+      "seriesKey": "opendota:954819",
+      "cutoffAtUs": "1741104360000000",
+      "priorMapsPerPlayer": [
+        43,
+        43,
+        41,
+        40,
+        43,
+        43,
+        41,
+        41,
+        38,
+        42
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 215
+    },
+    {
+      "matchId": "9052687571",
+      "seriesKey": "opendota:1156918",
+      "cutoffAtUs": "1792425507000000",
+      "priorMapsPerPlayer": [
+        0,
+        0,
+        0,
+        0,
+        14,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 1,
+      "priorEligibleMaps": 216
+    },
+    {
+      "matchId": "9056685103",
+      "seriesKey": "opendota:1157928",
+      "cutoffAtUs": "1792681136000000",
+      "priorMapsPerPlayer": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 217
+    },
+    {
+      "matchId": "9056844521",
+      "seriesKey": "opendota:1157928",
+      "cutoffAtUs": "1792686683000000",
+      "priorMapsPerPlayer": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 218
+    },
+    {
+      "matchId": "9061631640",
+      "seriesKey": "opendota:1159662",
+      "cutoffAtUs": "1792944164000000",
+      "priorMapsPerPlayer": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 5,
+      "priorEligibleMaps": 219
+    },
+    {
+      "matchId": "9061735400",
+      "seriesKey": "opendota:1159662",
+      "cutoffAtUs": "1792947654000000",
+      "priorMapsPerPlayer": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 220
+    },
+    {
+      "matchId": "9067177642",
+      "seriesKey": "opendota:1161402",
+      "cutoffAtUs": "1793286508000000",
+      "priorMapsPerPlayer": [
+        35,
+        0,
+        36,
+        35,
+        35,
+        19,
+        0,
+        28,
+        17,
+        43
+      ],
+      "playersWithHistory": 8,
+      "priorEligibleMaps": 221
+    },
+    {
+      "matchId": "9067346550",
+      "seriesKey": "opendota:1161402",
+      "cutoffAtUs": "1793292852000000",
+      "priorMapsPerPlayer": [
+        36,
+        1,
+        37,
+        36,
+        36,
+        20,
+        1,
+        29,
+        18,
+        44
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 222
+    },
+    {
+      "matchId": "9067412106",
+      "seriesKey": "opendota:1161402",
+      "cutoffAtUs": "1793295577000000",
+      "priorMapsPerPlayer": [
+        37,
+        2,
+        38,
+        37,
+        37,
+        21,
+        2,
+        30,
+        19,
+        45
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 223
+    },
+    {
+      "matchId": "9067617648",
+      "seriesKey": "opendota:1161529",
+      "cutoffAtUs": "1793304354000000",
+      "priorMapsPerPlayer": [
+        14,
+        0,
+        34,
+        4,
+        0,
+        33,
+        0,
+        0,
+        0,
+        0
+      ],
+      "playersWithHistory": 4,
+      "priorEligibleMaps": 224
+    },
+    {
+      "matchId": "9068795274",
+      "seriesKey": "opendota:1161942",
+      "cutoffAtUs": "1793381011000000",
+      "priorMapsPerPlayer": [
+        41,
+        44,
+        42,
+        0,
+        0,
+        20,
+        14,
+        34,
+        34,
+        16
+      ],
+      "playersWithHistory": 8,
+      "priorEligibleMaps": 225
+    },
+    {
+      "matchId": "9068910292",
+      "seriesKey": "opendota:1161942",
+      "cutoffAtUs": "1793385476000000",
+      "priorMapsPerPlayer": [
+        42,
+        45,
+        43,
+        1,
+        1,
+        21,
+        15,
+        35,
+        35,
+        17
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 226
+    },
+    {
+      "matchId": "9069021061",
+      "seriesKey": "opendota:1161942",
+      "cutoffAtUs": "1793390004000000",
+      "priorMapsPerPlayer": [
+        43,
+        46,
+        44,
+        2,
+        2,
+        22,
+        16,
+        36,
+        36,
+        18
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 227
+    },
+    {
+      "matchId": "9069952836",
+      "seriesKey": "opendota:1162416",
+      "cutoffAtUs": "1793451642000000",
+      "priorMapsPerPlayer": [
+        34,
+        1,
+        1,
+        1,
+        1,
+        22,
+        3,
+        31,
+        20,
+        46
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 228
+    },
+    {
+      "matchId": "9070062078",
+      "seriesKey": "opendota:1162416",
+      "cutoffAtUs": "1793455888000000",
+      "priorMapsPerPlayer": [
+        35,
+        2,
+        2,
+        2,
+        2,
+        23,
+        4,
+        32,
+        21,
+        47
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 229
+    },
+    {
+      "matchId": "9070392472",
+      "seriesKey": "opendota:1162593",
+      "cutoffAtUs": "1793467624000000",
+      "priorMapsPerPlayer": [
+        36,
+        3,
+        3,
+        3,
+        3,
+        44,
+        47,
+        45,
+        3,
+        3
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 230
+    },
+    {
+      "matchId": "9070527945",
+      "seriesKey": "opendota:1162593",
+      "cutoffAtUs": "1793472691000000",
+      "priorMapsPerPlayer": [
+        37,
+        4,
+        4,
+        4,
+        4,
+        45,
+        48,
+        46,
+        4,
+        4
+      ],
+      "playersWithHistory": 10,
+      "priorEligibleMaps": 231
+    }
+  ],
+  "assumptions": [
+    "ACTUAL_LINEUPS_RECONSTRUCTED",
+    "CURRENT_SAME_ACCOUNT_IDENTITIES",
+    "EVENT_TIME_OUTCOME_AVAILABILITY_ASSUMED",
+    "ONLY_SELECTED_ELIGIBLE_HISTORY",
+    "REMOTE_SERIES_COMPLETENESS_UNKNOWN"
+  ],
+  "unusedInputs": [
+    "patch",
+    "roles",
+    "heroes",
+    "draft_order",
+    "first_pick",
+    "side_advantage",
+    "cohesion"
+  ],
+  "checks": {
+    "databaseTableFingerprintsUnchanged": 21,
+    "exportReplayBytesIdentical": true,
+    "offlineVerifyPassed": true,
+    "overwriteRejected": true,
+    "protectedArtifactsUnchanged": 3
+  },
+  "providerHttpRequests": 0,
+  "dbWrites": 0,
+  "registryDatasets": 0,
+  "models": 0,
+  "evaluation": "not_performed",
+  "split": "unassigned_development",
+  "trainingReady": false,
+  "deployable": false,
+  "teamAWinProbability": null,
+  "limitations": [
+    "selected existing corpus, not representative pro coverage",
+    "reconstructed lineups and current identities, historical availability not verified",
+    "outcome availability at completion is assumed",
+    "history is restricted to selected eligible maps",
+    "remote series completeness unknown",
+    "no untouched release test or quality gate registered"
+  ]
+}

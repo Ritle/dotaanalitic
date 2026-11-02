@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { z } from 'zod';
+import { EvaluationDiscoveryRowsSchema } from '@dota/contracts';
 import { MatchSchema, MatchSourceSchema, HeroesSchema, LeaguesSchema, PlayerSchema, ProMatchesSchema, ProPlayersSchema, ProviderIdSchema, TeamPlayersSchema, TeamMatchesSchema, TeamSchema } from './schemas.js';
 
 export const OPENDOTA_ADAPTER_VERSION = 'opendota-provider-v2';
@@ -102,6 +103,10 @@ export class OpenDotaClient {
   get requestsUsed() { return this.used; }
   get requestStats() { return { attempts: this.used, httpStatuses: { ...this.httpStatuses }, transportErrors: { ...this.transportErrors } }; }
   getProMatches() { return this.request('/proMatches', ProMatchesSchema); }
+  getProMatchDiscovery(lessThanMatchId?: string) {
+    return this.request('/proMatches' + (lessThanMatchId === undefined ? '' : `?less_than_match_id=${this.id(lessThanMatchId)}`), EvaluationDiscoveryRowsSchema);
+  }
+  getLeagueMatchDiscovery(id: string) { return this.request(`/leagues/${this.id(id)}/matches`, EvaluationDiscoveryRowsSchema); }
   getProPlayers() { return this.request('/proPlayers', ProPlayersSchema); }
   getLeagueMatches(id: string) { return this.request(`/leagues/${this.id(id)}/matches`, ProMatchesSchema); }
   getHeroes() { return this.request('/heroes', HeroesSchema); }

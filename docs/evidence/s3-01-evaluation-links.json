@@ -1,0 +1,471 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-evaluation",
+  "generatedAt": "2026-11-02T12:24:13.801Z",
+  "status": "current_account_and_series_links_reconciled",
+  "matchId": "9072857576",
+  "providerSeriesId": "1163385",
+  "identity": {
+    "accountIds": [
+      "879017980",
+      "262476000",
+      "140251702",
+      "331711578",
+      "206097366",
+      "122817493"
+    ],
+    "created": 6,
+    "accountProofsAdded": 6,
+    "source": {
+      "reportSha256": "73874a4e125f069e2ba1ccf8cbd71a02cabfb9f55e5078d0adbc442309c8d414",
+      "payloadSha256": "6b96636417178be9ee9c5a16e7c81d789e0782f4df5107c85ab39ec1bde4f14e",
+      "url": "https://api.opendota.com/api/proPlayers",
+      "knownAt": "2026-11-01T15:50:43.622Z",
+      "fetchedAt": "2026-11-01T15:50:43.622Z"
+    },
+    "beforeRevision": "394",
+    "afterRevision": "406",
+    "canonicalSlotsBefore": 4,
+    "canonicalSlotsAfter": 10,
+    "policy": "reviewed-current-accounts-v1",
+    "historicalLineupKnownAt": "not_asserted"
+  },
+  "series": {
+    "policy": "reviewed-opendota-series-v3",
+    "created": 1,
+    "bestOf": 3,
+    "sourceSeriesType": 1,
+    "mappings": [
+      {
+        "providerSeriesId": "1163385",
+        "seriesId": "f7c56a4a-ec56-45d7-b78a-13325b9d9709",
+        "mapIds": [
+          "9072857576"
+        ],
+        "created": true
+      }
+    ],
+    "remoteMembershipCompleteness": "unknown"
+  },
+  "before": [
+    {
+      "table": "matches",
+      "n": 233,
+      "fingerprint": "0de8327cf71f278e3df3701efb669cb1"
+    },
+    {
+      "table": "match_players",
+      "n": 2330,
+      "fingerprint": "e1425d739b37d484a78f4a6ee0e223a6"
+    },
+    {
+      "table": "series",
+      "n": 122,
+      "fingerprint": "6912219757a64c539998847cb9d82a9d"
+    },
+    {
+      "table": "series_provision_batches",
+      "n": 5,
+      "fingerprint": "2a8928ef507c7d496bb909f190c5cb0d"
+    },
+    {
+      "table": "provider_ingest_receipts",
+      "n": 745,
+      "fingerprint": "e13bd2e26fdf5c429e8710bed1ef706f"
+    },
+    {
+      "table": "match_quality_assessments",
+      "n": 507,
+      "fingerprint": "7e004c5f13b9d23caf04fba1c70c6c84"
+    },
+    {
+      "table": "players",
+      "n": 197,
+      "fingerprint": "db6b6a547bd44c70219107fc0d8685bb"
+    },
+    {
+      "table": "player_account_evidence",
+      "n": 197,
+      "fingerprint": "7fe2b21cb552e1c7ab8a83fca58c78b2"
+    },
+    {
+      "table": "player_external_accounts",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patches",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_release_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_transition_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_impact_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "draft_rule_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_availability_rules",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "match_field_observations",
+      "n": 11151,
+      "fingerprint": "98dd706924cfec5f8804c332acbd87f2"
+    },
+    {
+      "table": "training_dataset_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "prediction_model_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "game_context_registry_state",
+      "n": 1,
+      "fingerprint": "db672d0480f3402e6e416a4550559e17"
+    },
+    {
+      "table": "identity_registry_state",
+      "n": 1,
+      "fingerprint": "c28d559abe739f1f41885326717ce944"
+    },
+    {
+      "table": "upcoming_source_observations",
+      "n": 2,
+      "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+    }
+  ],
+  "after": [
+    {
+      "table": "matches",
+      "n": 233,
+      "fingerprint": "e8f1fe35505bf57473885e0aec1b258a"
+    },
+    {
+      "table": "match_players",
+      "n": 2330,
+      "fingerprint": "d130a70cb46215bcb19006c1a0ce33b8"
+    },
+    {
+      "table": "series",
+      "n": 123,
+      "fingerprint": "6a63b71f41994f8063a708300bf59dfb"
+    },
+    {
+      "table": "series_provision_batches",
+      "n": 6,
+      "fingerprint": "4d16f5546449463d6352b3d24d43cd32"
+    },
+    {
+      "table": "provider_ingest_receipts",
+      "n": 746,
+      "fingerprint": "e779b0f4ffe25ec3aebc251810a655b0"
+    },
+    {
+      "table": "match_quality_assessments",
+      "n": 508,
+      "fingerprint": "14fcfd4c1ca3acc42621a486c1ad2ef9"
+    },
+    {
+      "table": "players",
+      "n": 203,
+      "fingerprint": "3972a6dbfeb253eb832f055cdb780611"
+    },
+    {
+      "table": "player_account_evidence",
+      "n": 203,
+      "fingerprint": "5f862d52d29cf17eb7abbfc8a160b3e1"
+    },
+    {
+      "table": "player_external_accounts",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patches",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_release_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_transition_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_impact_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "draft_rule_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_availability_rules",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "match_field_observations",
+      "n": 11173,
+      "fingerprint": "9de39187313b257631d90f0bcad705cd"
+    },
+    {
+      "table": "training_dataset_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "prediction_model_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "game_context_registry_state",
+      "n": 1,
+      "fingerprint": "db672d0480f3402e6e416a4550559e17"
+    },
+    {
+      "table": "identity_registry_state",
+      "n": 1,
+      "fingerprint": "064be35e7b72e574ca12c11766afa913"
+    },
+    {
+      "table": "upcoming_source_observations",
+      "n": 2,
+      "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+    }
+  ],
+  "imports": [
+    {
+      "matchId": "9072857576",
+      "receiptId": "1597",
+      "status": "accepted",
+      "duplicate": false,
+      "dataRevision": "2"
+    }
+  ],
+  "replayImports": [
+    {
+      "matchId": "9072857576",
+      "receiptId": "1597",
+      "status": "accepted",
+      "duplicate": true,
+      "dataRevision": "2"
+    }
+  ],
+  "invariants": {
+    "all233MapAndPlayerFactsPreserved": true,
+    "previous232MapsUnchanged": true,
+    "replayAll21TablesIdentical": true,
+    "identityReplayWrites": 0,
+    "seriesReplayWrites": 0,
+    "seriesReplayReturnsStoredInitialCreatedCount": true,
+    "protectedArtifactsUnchanged": true
+  },
+  "reconciliation": {
+    "schemaVersion": 1,
+    "format": "evaluation-candidate-reconciliation-v1",
+    "discoveryFingerprint": "3ffefd86d175b7ee131c5e7bd94d027e575e808e7355cc686368aba738b5d1b5",
+    "datasetFingerprint": "90be9a9a3ccf3b6492aa319c79e2cfcf9e485b86aa455c66f5d697f5d113e773",
+    "snapshotAt": "2026-11-02T12:22:19.269Z",
+    "detailsFingerprint": "d768946f5f96f7396f632f4374ed5d1c653f5656e2171b82e5d12dae736ac3aa",
+    "assessments": [
+      {
+        "matchId": "9072857576",
+        "possibleTarget": true,
+        "seriesKey": "opendota:1163385",
+        "canonicalSeriesKey": "opendota:1163385",
+        "outcomeVerified": true,
+        "dataReady": true,
+        "reasons": []
+      }
+    ],
+    "coverage": {
+      "observedTargetMaps": 1,
+      "dataReadyMaps": 1,
+      "mapCoverage": 1,
+      "observedKnownSeries": 1,
+      "readyKnownSeries": 1,
+      "knownSeriesCoverage": 1,
+      "targetMapsWithVerifiedOutcomes": 1
+    },
+    "remoteCompleteness": "unknown",
+    "eligibility": "current_data_diagnostics_not_e1_or_release_scoring",
+    "metrics": null,
+    "trainingReady": false,
+    "deployable": false,
+    "teamAWinProbability": null,
+    "fingerprint": "b33b3cbc38769d8e4e372ca053e823f685f555856e6f00c8cea7277d37d93996"
+  },
+  "artifacts": [
+    {
+      "path": ".tools/evaluation-links-review.json",
+      "sha256": "1454e00628292e0b9f1f6334740458f0be53403e4a532e3fd64065bee5588105"
+    },
+    {
+      "path": ".tools/evaluation-links-selection.json",
+      "sha256": "155dcbe6c12566c9ad4655e461057fbd8aec23e737b326b1da7d0dab8c9e5670"
+    },
+    {
+      "path": ".tools/evaluation-links-identity-plan.json",
+      "sha256": "72f6dae86b6e4b09b36757f80d9ff0d0d847fb4b2e32ff0d2af0c3795a501ceb"
+    },
+    {
+      "path": ".tools/evaluation-links-identities-applied.json",
+      "sha256": "bf23e13e05d68aa8537adf176ff9969e2b447dcfbf86392aa464945d616d83db"
+    },
+    {
+      "path": ".tools/evaluation-links-identities-replay.json",
+      "sha256": "38e423e81bd97b60cecb9342bebeac173ef625a4786b44d1218f275fd475416b"
+    },
+    {
+      "path": ".tools/evaluation-links-series-request.json",
+      "sha256": "52a2fa9efa8980a65c1addac536ff2be57a3f4d8bc1b770dbc3471b87d34ce33"
+    },
+    {
+      "path": ".tools/evaluation-links-series-plan.json",
+      "sha256": "a4616da9e73941c727faf9305b808b10057284a2d67e72bcb78acab52197d9ce"
+    },
+    {
+      "path": ".tools/evaluation-links-series-applied.json",
+      "sha256": "fd787a0413017cc03787523ae4b4ebc0010d2662f883a678c4c93841bb7b6f13"
+    },
+    {
+      "path": ".tools/evaluation-links-series-replay.json",
+      "sha256": "a2cf0e81b72d2a83547d17d19106db5c1d6cdcac7cdbc83c204bee387745cb71"
+    },
+    {
+      "path": ".tools/evaluation-links-import-20261102/manifest.json",
+      "sha256": "2c64c142dbdb91e468f608ded95085cee1e7ea540e95120243ad5fb17dab82d0"
+    },
+    {
+      "path": ".tools/evaluation-links-import-replay-20261102/manifest.json",
+      "sha256": "e88818206ab1e5a200c21206d86a535a417d47a93541f67bf538ee67f159aa58"
+    },
+    {
+      "path": ".tools/evaluation-links-db-before.json",
+      "sha256": "046f505974d9246c868940594ab761eff05b4f0fb7e27fd19d09320393f9714b"
+    },
+    {
+      "path": ".tools/evaluation-links-db-after.json",
+      "sha256": "bccafb6228d51fc1163b0025834f1760ff23915ca909811fc25930ef56b49bae"
+    },
+    {
+      "path": ".tools/evaluation-links-db-replay.json",
+      "sha256": "bccafb6228d51fc1163b0025834f1760ff23915ca909811fc25930ef56b49bae"
+    },
+    {
+      "path": ".tools/evaluation-links-facts-before.json",
+      "sha256": "add5c0772238905c21d1bf0d63d1f67e2947747d7c19f3dc49fadadaee94669e"
+    },
+    {
+      "path": ".tools/evaluation-links-facts-after.json",
+      "sha256": "c42236110d85f651198017e82e32ea7faab047a423bfb81a1e04e5cd30c5162f"
+    },
+    {
+      "path": ".tools/evaluation-links-reconciliation.json",
+      "sha256": "72d7c820608167ab39f04e9c76df15055b6229076002829cae62c0c5c49afcfb"
+    },
+    {
+      "path": ".tools/s1-21-current-capture.json",
+      "sha256": "73874a4e125f069e2ba1ccf8cbd71a02cabfb9f55e5078d0adbc442309c8d414"
+    },
+    {
+      "path": ".tools/evaluation-details-e1-20261102/manifest.json",
+      "sha256": "8145065b3460c7b76ad3e487b2bf2bb9aa0d7f4ed49b94ca335eedcb7a77b855"
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1-union.json",
+      "sha256": "64cec39d6f2c6e866415f4d193bea45644a95b2b1039d811822d8991864da415"
+    }
+  ],
+  "code": [
+    {
+      "path": "scripts/provision-current-accounts.mjs",
+      "sha256": "1a2878e86617a60492f05a9ff3860b69ab4d21acddcab04e0846a88b53b85928"
+    },
+    {
+      "path": "scripts/provision-series.mjs",
+      "sha256": "428a3eaa6c13d30f7d3c215458bbd04b7a3004c34e1829bcbec08b36019e9af8"
+    },
+    {
+      "path": "scripts/evaluation-details.mjs",
+      "sha256": "8a09640ec44777e8d7b63f632d17b008b54fa2872ca26da208a86a90ba29ec71"
+    },
+    {
+      "path": "packages/db/src/identity-provision.ts",
+      "sha256": "00e9c7142d2758f273ec2d355d038a6e2c2877469b30f34d75a3a000db935303"
+    },
+    {
+      "path": "packages/db/src/series-provision.ts",
+      "sha256": "5f304363b51aa0fd9d0bf2410afdd10828b8150f603e0a20822fa332f7c8dbe4"
+    },
+    {
+      "path": "packages/ingestion/src/opendota/current-accounts.ts",
+      "sha256": "d6f2262a20768eee97a728055b056ae441877257f0a89b366fa416cb5057fb76"
+    },
+    {
+      "path": "packages/ingestion/src/evaluation-details.ts",
+      "sha256": "dfbe4367a36e8da96ce710d4002ac09fcc1f5cc0d29fb7323e592f200dbbf31d"
+    },
+    {
+      "path": ".tools/evaluation-links-evidence.mjs",
+      "sha256": "60588dabb64af0f42bed7a48be830cc09421f745b1d01fb420349c0034c2fd48"
+    }
+  ],
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    }
+  ],
+  "providerRequests": 0,
+  "metrics": null,
+  "trainingReady": false,
+  "deployable": false,
+  "limitations": [
+    "ONE_OBSERVED_TARGET_ONLY",
+    "DISCOVERY_PARTIAL_REMOTE_COMPLETENESS_UNKNOWN",
+    "CURRENT_READINESS_NOT_TEMPORAL_QUALITY_GATE",
+    "E1_FIXED_EXPORT_LEDGER_BINDING_NOT_IMPLEMENTED",
+    "NO_HISTORICAL_PREKNOWN_LINEUP_ASSERTION"
+  ]
+}

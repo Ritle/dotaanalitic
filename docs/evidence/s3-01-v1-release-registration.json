@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T23:49:20.587Z",
+  "scope": "V1_release_policy_registration_not_model_evaluation",
+  "references": [
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "bytes": 11251,
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-request.json",
+      "bytes": 1437,
+      "sha256": "fb81e999f0c039b954effef0a7700ced4de66955078e7d2cec6308368db22116"
+    },
+    {
+      "path": ".tools/v1-release-leagues-20261102.json",
+      "bytes": 1210434,
+      "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+    },
+    {
+      "path": ".tools/v1-release-prior-exposure.json",
+      "bytes": 44163,
+      "sha256": "e9a1498b97c1e55faa67c34ec1b57fd372bda98a417b7fb6e8a8183920bda505"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "bytes": 5093376,
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/v1-release-plan.ts",
+      "bytes": 2107,
+      "sha256": "f70e541045fafd15ade4eb83bc4396dc7f162c3d6b30b92259991f71a9ee698f"
+    },
+    {
+      "path": "packages/db/src/v1-release-plan.ts",
+      "bytes": 7266,
+      "sha256": "79d0fed5a754b841db3ca66a91adaf6b01da8312c7db6d9422eb858be245ed4a"
+    },
+    {
+      "path": "packages/db/src/v1-data.ts",
+      "bytes": 10307,
+      "sha256": "cf5b45b071fb270d330526164c9879f11618698b27c1602cc4b9ba5db5bb2792"
+    },
+    {
+      "path": "packages/db/src/temporal.ts",
+      "bytes": 4652,
+      "sha256": "a5ab4962f410eb4db2b54f1ab97949fe5bba161bcd2e9c2dd89a8760e134a5ca"
+    },
+    {
+      "path": "scripts/plan-v1-release.mjs",
+      "bytes": 3588,
+      "sha256": "344a7f1eca30a35454be1cc8df7da999dfeb925df54c429a523eb25ec7517e57"
+    },
+    {
+      "path": "packages/contracts/dist/v1-release-plan.js",
+      "bytes": 2081,
+      "sha256": "b20ee09921787296b9847c6859ab848837300524e36f98c86edf215dc8170a72"
+    },
+    {
+      "path": "packages/db/dist/v1-release-plan.js",
+      "bytes": 7453,
+      "sha256": "81a4bcf18d81d8f52e7f6217a2334329c5b7d2cefb3b7e6919d434a4834704e3"
+    },
+    {
+      "path": "packages/db/dist/v1-data.js",
+      "bytes": 10785,
+      "sha256": "a2cf66afedd39bacad41e18568ac827071d4d2a659031908bb015b8ce1cf4316"
+    },
+    {
+      "path": "package.json",
+      "bytes": 9492,
+      "sha256": "db87ba756dd731f578bc4fb17b0a563bee208078f2a5f76f89bd75fb352106d6"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "bytes": 74139,
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783"
+    }
+  ],
+  "replay": {
+    "status": "release_plan_verified",
+    "fingerprint": "8ffa8625e3e8cede2505ff79786fd27f7b6eb9c9215fd70e1855938d11dd88b4",
+    "artifactSha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef",
+    "registeredAt": "2026-11-01T23:46:38.285Z",
+    "events": [
+      {
+        "name": "BLAST Slam IX 2026 — main event",
+        "leagueId": "20208"
+      }
+    ],
+    "testFromAt": "2026-11-20T00:00:00.000Z",
+    "evaluateNotBefore": "2026-12-02T00:00:00.000Z",
+    "sample": {
+      "minMaps": 100,
+      "minSeries": 40,
+      "minMapCoverage": 0.8,
+      "minKnownSeriesCoverage": 0.8,
+      "mapCoverageDenominator": "all_observed_target_map_ids_including_unverified_and_unknown_series",
+      "seriesCoverageDenominator": "all_observed_target_known_series_including_ineligible",
+      "identityCoverageWithinScoredMaps": 1
+    },
+    "evaluation": null,
+    "trainingReady": false,
+    "deployable": false
+  },
+  "preservedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-data.json",
+      "sha256": "18ec157396010aa89f5022287576eaa9980a5cb27b0289ad7db1eb152dc48faa"
+    }
+  ],
+  "liveCatalogue": {
+    "requests": 1,
+    "httpStatus": 200,
+    "rows": 10411,
+    "endpoint": "/leagues",
+    "targetLeagueId": "20208",
+    "targetCatalogueName": "BLAST SLAM IX"
+  },
+  "organizerReview": {
+    "url": "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online",
+    "publicationDate": "2026-08-06",
+    "reviewedAt": "2026-11-01T23:46:36.337Z",
+    "observedMainEventDates": [
+      "2026-11-20",
+      "2026-11-29"
+    ],
+    "method": "reviewed_official_notice_not_automatic_tier_classification"
+  },
+  "priorExposureAudit": {
+    "checkedFiles": 209,
+    "consideredLeagueId": "19696",
+    "previouslyCapturedDistinctMaps": 40,
+    "scope": "bounded_known_local_captures_no_global_non_exposure_claim"
+  },
+  "newTargetOutcomeRequests": 0,
+  "canonicalImports": 0,
+  "modelWrites": 0,
+  "quotaAccountingUpdated": true,
+  "evaluation": null,
+  "trainingReady": false,
+  "deployable": false,
+  "teamAWinProbability": null
+}

@@ -20,6 +20,15 @@
 
 См. также прежние ADR-001..024 в `docs/DECISIONS.md`. Утверждение **«принято»** здесь означает архитектурное решение, а не установку пакета или тестирования.
 
+## ADR-039 — First release with conditional player Elo (2026-11-02)
+
+- **Status:** approved by the owner for implementation; runtime changes and model activation are not included in this decision checkpoint.
+- **Decision:** [TECHNICAL_SPEC §0](../TECHNICAL_SPEC.md): expected editable 5v5, one pre-match player-mean Elo model; only used features impose data dependencies. No mandatory patch/role/hero/side/cohesion features or post-draft release dependency.
+- **Evaluation:** separate reconstructed conditional/strict/prospective cohorts, no clock backdating. Fixed policy uses warmup plus untouched series-aware test; tuning/calibrator fitting gets separate earlier data. Register sample/metric/coverage gate before release testing. Preserve E0/E1 as frozen research.
+- **Preserved:** real pro outcomes, verified numeric identity, earlier history only, deduplication/series grouping, model gate/activation and immutable snapshots. Existing nullable schema/descriptive analytics remain.
+- **Trade-off:** conditional evaluation does not measure lineup selection errors, and Elo omits meta/role/cohesion effects. Show that limitation, retain mismatched prospective forecasts and assess temporal drift. No claim of unchanged accuracy from simplification.
+- **Evolution:** new feature schema/artifact/dependencies and independent validation for logistic, patch/role/cohesion, then post-draft. ADR-030/032/035 remain for their relevant profiles; they do not impose unused dependencies on V1.
+
 ## ADR-038 — Separate final heroes, raw picks and validated timeline (v9)
 
 - **Decision P0:** distinct raw draft observation / canonical played heroes / validated timeline; independent versioned quality flags; frozen dataset stage eligibility computed as-of. Persistence in forward migration 006; do not alter 001–005.

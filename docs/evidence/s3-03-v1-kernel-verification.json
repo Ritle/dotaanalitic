@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-03/V1-candidate",
+  "generatedAt": "2026-11-02T13:59:55.878Z",
+  "status": "inactive_kernel_registered_metric_diagnostic_implemented_release_executor_pending",
+  "candidate": {
+    "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+    "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221",
+    "fingerprint": "df182ba5cacb8c74f54307a22ceefc0542a897d5024c2301e04d16aefdf8d109",
+    "codeFingerprint": "2c664c6f03f63a20e4c7004fa20ec16f7ab52877164f73977e4e57de9299bc6c",
+    "codeFiles": 106,
+    "kernelRegisteredAt": "2026-11-02T13:54:45.976Z",
+    "planFingerprint": "8ffa8625e3e8cede2505ff79786fd27f7b6eb9c9215fd70e1855938d11dd88b4",
+    "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+    "evaluateNotBefore": "2026-12-02T00:00:00.000Z",
+    "qualityGate": "not_evaluated",
+    "isActive": false,
+    "deployable": false,
+    "executableFreezeComplete": false,
+    "teamAWinProbability": null
+  },
+  "metricKernel": {
+    "purpose": "unbound_metric_diagnostic",
+    "sourceEvidence": "not_bound",
+    "releaseGatePassed": false,
+    "cases": "synthetic tests only",
+    "resamples": 10000,
+    "seed": 20261102,
+    "baselineDelta": "paired per-map differences before aggregation, exact zero for identical baseline"
+  },
+  "invariants": {
+    "working21TablesUnchanged": true,
+    "frozenArtifactsUnchanged": true,
+    "e0ReplayIdentical": true,
+    "sharedFeatureRowsUnchanged": 232,
+    "newProviderCalls": 0,
+    "canonicalImports": 0,
+    "realReleaseEvaluations": 0,
+    "realE1Evaluations": 0,
+    "modelActivations": 0,
+    "migrationsAdded": 0
+  },
+  "workingState": [
+    {
+      "table": "matches",
+      "n": 233,
+      "fingerprint": "e8f1fe35505bf57473885e0aec1b258a"
+    },
+    {
+      "table": "match_players",
+      "n": 2330,
+      "fingerprint": "d130a70cb46215bcb19006c1a0ce33b8"
+    },
+    {
+      "table": "series",
+      "n": 123,
+      "fingerprint": "6a63b71f41994f8063a708300bf59dfb"
+    },
+    {
+      "table": "series_provision_batches",
+      "n": 6,
+      "fingerprint": "4d16f5546449463d6352b3d24d43cd32"
+    },
+    {
+      "table": "provider_ingest_receipts",
+      "n": 746,
+      "fingerprint": "e779b0f4ffe25ec3aebc251810a655b0"
+    },
+    {
+      "table": "match_quality_assessments",
+      "n": 508,
+      "fingerprint": "14fcfd4c1ca3acc42621a486c1ad2ef9"
+    },
+    {
+      "table": "players",
+      "n": 203,
+      "fingerprint": "3972a6dbfeb253eb832f055cdb780611"
+    },
+    {
+      "table": "player_account_evidence",
+      "n": 203,
+      "fingerprint": "5f862d52d29cf17eb7abbfc8a160b3e1"
+    },
+    {
+      "table": "player_external_accounts",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patches",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_release_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_transition_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_impact_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "draft_rule_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_availability_rules",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "match_field_observations",
+      "n": 11173,
+      "fingerprint": "9de39187313b257631d90f0bcad705cd"
+    },
+    {
+      "table": "training_dataset_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "prediction_model_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "game_context_registry_state",
+      "n": 1,
+      "fingerprint": "db672d0480f3402e6e416a4550559e17"
+    },
+    {
+      "table": "identity_registry_state",
+      "n": 1,
+      "fingerprint": "064be35e7b72e574ca12c11766afa913"
+    },
+    {
+      "table": "upcoming_source_observations",
+      "n": 2,
+      "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+    }
+  ],
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "fullUnitTests": 621,
+    "newTests": 21,
+    "isolatedPostgresTests": 21,
+    "targetedCore": 20,
+    "cliAndPlanRegression": 10,
+    "initialFailuresResolved": [
+      "baseline rounding pseudo-improvement",
+      "synthetic test used Number for bigint ID"
+    ],
+    "e2e": "not run: no UI/HTTP changes",
+    "python": "not run: fixed TS policy, no fitting"
+  },
+  "sourceCoverageReference": {
+    "path": "docs/evidence/s3-02-v1-features.json",
+    "sha256": "9862a582c62d2d48531dbc34df9205efc302d257c36892cc156542019664c9f0",
+    "note": "Prior live source audit: one historical professional map, three HTTP200; not future release coverage"
+  },
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-features-development-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+      "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/v1-candidate.ts",
+      "sha256": "1cccee9822f4b73de3bd588056b96101da95391aac7bb90b042c2f2d1cc6d639"
+    },
+    {
+      "path": "packages/prediction/src/v1-candidate.ts",
+      "sha256": "19eac9e108ae4e9bdd94f9931b371b0ecfb6ce6e12ce79a3daa0c7bb71a8bd17"
+    },
+    {
+      "path": "packages/prediction/src/v1-integrity.ts",
+      "sha256": "cecab89aae12f6cf9afddd127b4e2d0d8434b89eee08474d34b36a97ca505a5c"
+    },
+    {
+      "path": "packages/prediction/src/v1-quality.ts",
+      "sha256": "9d2c8e368fcff5f8d21d1487f581f42514a9f38006b71b2a805237aa705de2ff"
+    },
+    {
+      "path": "packages/prediction/src/v1-quality-policy.ts",
+      "sha256": "97a7b349eab09fb5d41d4f1f7c844583c8437b531acaa11d46faa915f6bb5fe5"
+    },
+    {
+      "path": "packages/db/src/v1-candidate.ts",
+      "sha256": "224929bceee80ca43baa73ca91db2181a6ce4548b9a80ee2465db35105b936ce"
+    },
+    {
+      "path": "packages/db/src/v1-release-plan.ts",
+      "sha256": "560e3bc6aacceeb7c9eceff1d772d4a51d2907fb05f9b866a2652f828992e0b0"
+    },
+    {
+      "path": "packages/prediction/tests/v1-quality.test.ts",
+      "sha256": "536aad4bc7f07cb4d667be100d8025c73cace86b3ff9c0ef6217f5c3e12c10ba"
+    },
+    {
+      "path": "packages/db/tests/v1-candidate.test.ts",
+      "sha256": "29d2b02649b178a46d835a43b46b9b0be850de2a73d94972fdc781fd73174f23"
+    },
+    {
+      "path": "packages/db/tests/v1-candidate-cli.test.ts",
+      "sha256": "7867d38792ad40235bd65758e0f0611c0c8bcbb9e9c01b093a8c8d4d7e3cf6a5"
+    },
+    {
+      "path": "scripts/v1-candidate.mjs",
+      "sha256": "0af8db69ca42603565427e9f9b52dbafca0d68aa9d54155c334b49665e8da76f"
+    },
+    {
+      "path": "scripts/lib/v1-candidate-files.mjs",
+      "sha256": "ec1c761143fe671831f47cc486ffdba6e808c40cce83eb942bf4f57ec694729e"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".tools/v1-candidate-install.log",
+      "sha256": "ad5fd28076dd7f36081cc78f9f99bd3c8874caeb11c3b3e1dd08f3eeb2d81322"
+    },
+    {
+      "path": ".tools/v1-candidate-typecheck.log",
+      "sha256": "a579424e05f69dddd64556a2c7e96753287d77145abf86439351f20a2d638228"
+    },
+    {
+      "path": ".tools/v1-candidate-build.log",
+      "sha256": "89c65711a5778529c9eadae3e0f939011ac9886fd1cdc044b1cf87f85435ae57"
+    },
+    {
+      "path": ".tools/v1-candidate-unit.log",
+      "sha256": "f25ec1c48213b901d48f39b190b3b8ad0436d2a5d1765d06a4e10790f5631d2d"
+    },
+    {
+      "path": ".tools/v1-candidate-targeted.log",
+      "sha256": "f8bdfc1bddd4dfe5f1ff0c979577191b7987bf6f0c4d61b0ca9f304b9f7fc4bf"
+    },
+    {
+      "path": ".tools/v1-candidate-targeted-final.log",
+      "sha256": "16e808626b8ce531ae2459276a95357043448a2cfc71fa8ed145624d2033f168"
+    },
+    {
+      "path": ".tools/v1-candidate-cli-tests.log",
+      "sha256": "3137162d96c1a19536df6e0241fc1c1cd9912e9d045ff0fe91d7cbb84b44cfae"
+    },
+    {
+      "path": ".tools/v1-candidate-pg.log",
+      "sha256": "d41680382a9f0a19a454eba68e98311e2e7e1f9ef2211a143e895fb17b915890"
+    },
+    {
+      "path": ".tools/v1-candidate-create.log",
+      "sha256": "1cf381c847860809a1c0aa9c470f07b6c7072be699c75adfe3efef1904ec0c9d"
+    },
+    {
+      "path": ".tools/v1-candidate-verify.log",
+      "sha256": "0b639b8a9a5b6494ab896025727cd8e69e09fdb9abb72763973d9f049f497843"
+    },
+    {
+      "path": ".tools/v1-candidate-migrations.log",
+      "sha256": "ef364509ddb66bd5ff3e6308c770fc94fbaaf276dddac52c6f0c3bee9f383d78"
+    }
+  ],
+  "nextTask": "S3-03/V1-release-evidence: source-bound capture/executor and first-result journal, then full executable freeze"
+}

@@ -2,7 +2,10 @@ import { beforeAll, afterAll, expect, it } from 'vitest';
 import { testDatabase } from '../../../tests/helpers/postgres.js';
 import { sql, IdentityRepository } from '../src/index.js';
 import { ResearchEloRepository } from '../src/research-elo-repository.js';
-import { evaluateResearchElo } from '../src/research-elo.js';
+import { evaluateResearchElo, evaluateResearchEloWithExclusions, freezeResearchElo } from '../src/research-elo.js';
+import { planResearchElo } from '../src/research-plan.js';
+import { researchExecutionRequest, freezeResearchExecution, evaluateResearchExecution } from '../src/research-execution.js';
+import { planFixture, digest } from './research-plan-fixtures.js';
 import { OpenDotaClient, IngestionService } from '../../ingestion/src/index.js';
 import { researchFixture, date, sourceTime } from './research-elo-fixtures.js';
 let database: Awaited<ReturnType<typeof testDatabase>>;
@@ -66,7 +69,39 @@ it('rejects truncation and future snapshot requests', async () => {
   await expect(reader.export({ ...request, maxMaps: 1 }, code)).rejects.toThrow('research_inventory_limit');
   await expect(reader.export({ ...request, snapshotAt: '2999-01-01T00:00:00.000Z' }, code)).rejects.toThrow('research_snapshot_in_future');
 });
+it('applies source exclusions to a verified PG snapshot without rewriting labels, original evaluation or database state', async () => {
+  const before = await counts(), frozen = await read(), original = evaluateResearchElo(frozen), bytes = JSON.stringify(frozen);
+  const target = original.assessments.find(r => r.split === 'holdout')!;
+  const restricted = evaluateResearchEloWithExclusions(frozen, [{ matchId: target.matchId, reasons: ['EVIDENCE_DETAIL_MISSING'] }]);
+  expect(restricted.summary.scoredMaps).toBe(original.summary.scoredMaps - 1);
+  expect(restricted.assessments.find(r => r.matchId === target.matchId)?.reasons).toContain('EVIDENCE_DETAIL_MISSING');
+  expect(JSON.stringify(frozen)).toBe(bytes); expect(evaluateResearchElo(frozen)).toEqual(original);
+  expect((await read()).fingerprint).toBe(frozen.fingerprint); expect(await counts()).toEqual(before);
+});
 it('an earlier snapshot cannot consume late imports even under the explicitly reconstructed research cohort', async () => {
   const result = await new ResearchEloRepository(database.db, true).export({ ...request, snapshotAt: '2025-01-01T00:00:00.000Z' }, code);
   expect(evaluateResearchElo(result)).toMatchObject({ status: 'unavailable', metrics: null, summary: { eligibleMaps: 0 } });
+});
+
+it('captures the full PostgreSQL inventory under a synthetic preregistered plan and scores without writes', async () => {
+  const fixture = researchFixture();
+  const prior = freezeResearchElo({ ...fixture, candidates: [], aliases: [], identities: [],
+    request: { ...fixture.request, fromAt: '2020-01-01T00:00:00.000Z', holdoutFromAt: '2021-01-01T00:00:00.000Z',
+      toAt: '2022-01-01T00:00:00.000Z', snapshotAt: '2023-01-01T00:00:00.000Z' } });
+  const sources = planFixture(), observedAt = '2024-01-03T22:00:00.000Z';
+  sources.discovery.selection_catalog.source_evidence.fetched_at = observedAt;
+  const cohort = sources.discovery.cohorts[0]!; cohort.source_evidence.fetched_at = observedAt;
+  cohort.matches = [1, 2, 3].map(n => ({ match_id: String(9007199254760000n + BigInt(n)),
+    start_time: Date.parse(date(n)) / 1000, leagueid: '77', series_id: String(n),
+    radiant_team_id: '111', dire_team_id: '222', radiant_win: true }));
+  const plan = planResearchElo({ ...sources.request, holdoutFromAt: request.holdoutFromAt, holdoutUntil: request.toAt,
+    evaluationNotBefore: request.snapshotAt, priorExportSha256: digest(JSON.stringify(prior)),
+    discoverySha256: digest(JSON.stringify(sources.discovery)) }, prior, sources.discovery, '2024-01-03T23:00:00.000Z');
+  const before = await counts();
+  const snapshot = await new ResearchEloRepository(database.db, true).export(researchExecutionRequest(plan), code);
+  const capture = freezeResearchExecution(plan, snapshot, request.snapshotAt, code);
+  const report = evaluateResearchExecution(plan, capture, request.snapshotAt);
+  expect(report).toMatchObject({ deployable: false, releaseGate: 'not_assessed', evaluation: {
+    status: 'research_complete', summary: { candidateMaps: 6, warmupMaps: 3, scoredMaps: 3 } } });
+  expect(await counts()).toEqual(before);
 });

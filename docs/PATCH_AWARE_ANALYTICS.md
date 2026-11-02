@@ -1,5 +1,7 @@
 # Patch-Aware Analytics — требования к версии игры и весам истории
 
+**Область действия после решения V1 от2026-11-02:** [patch-free player Elo](../TECHNICAL_SPEC.md) не зависит от patch registry, точного release timestamp или S1-07 transfer gate. Unknown patch — coverage warning; временная проверка модели остаётся обязательной. Требования ниже сохраняются для release-based аналитики и patch-dependent моделей. Подпись «патч по данным STRATZ/OpenDota» допустима отдельно с provenance, без поиска точного deployment/client-build mapping; она не заполняет canonical interval автоматически и не доказывает hero eligibility. Существующие raw patch filters не менять скрытым fallback.
+
 **Статус:** утверждённое требование Personal MVP 2.0. Реализация по задачам S0-01, S1-02, S2-04, S3-02, S3-04. Это проектирование; значения коэффициентов ниже — стартовые гипотезы, не проверенные параметры модели.
 
 ## 1. Цель и область действия

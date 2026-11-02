@@ -1,5 +1,25 @@
 # Критерии приёмки MVP
 
+## Приёмка первого прогнозного выпуска V1
+
+- Scope уточнён владельцем2026-11-02: будущие прогнозы MVP для явно выбранных Tier 1 events/editions; Tier 2 — после MVP. Event selection фиксируется до новых test outcomes, качество проверяется на target domain. `is_pro`/`premium` не подменяют Tier 1 membership. Другая verified pro-history не удаляется автоматически; вне prediction scope описательная аналитика сохраняется. Runtime scope check и schedule filter ещё предстоит реализовать.
+
+[TECHNICAL_SPEC §0](../TECHNICAL_SPEC.md) определяет отдельный первый выпуск; критерии полного двухмодельного MVP ниже не должны возвращать отложенные зависимости в V1.
+
+- Expected 5v5 можно ввести/изменить без официального roster announcement; ten distinct verified account identities, source/time/revision сохраняются. Unknown/duplicate identity блокирует, missing role/patch/draft — нет.
+- Одна pre-match player-Elo модель без героев, ролей, patch/side/cohesion features. Исторические native sides используются только для корректных lineups/labels; Team A/B сценария не назначаются Radiant/Dire автоматически.
+- Условный historical cohort явно отличается от strict и prospective; поздние source clocks не backdate-ятся. Нет утечки будущих результатов, duplicate maps или серии между splits.
+- Fixed policy проверена на untouched temporal test с baseline, Brier/log loss/calibration, coverage, N карт/серий и зарегистрированными заранее порогами. Fitted calibrator не обязателен; отсутствие gate даёт unavailable/null.
+- Новый выбор игрока создаёт новую ревизию/новый прогноз; предыдущий input/features/model/source snapshot остаётся неизменным. Несовпадение будущего фактического состава не удаляет старый forecast из audit.
+- Только approved active artifact выдаёт числовую оценку с подписью об ожидаемых составах и типе проверки. E0/E1/synthetic никогда не активируются автоматически.
+- **Обязательный S3-07/V1-journal:** каждый выданный forecast сохранён до ответа пользователю с immutable input/features/model/source и server issued_at. Target/real-forecast purpose фиксируются до выдачи. Таблица, фильтры period/version/status, counts расчётов и уникальных карт, verified-result linking и явное обновление результатов работают с owner auth/CSRF.
+- Основная prospective статистика выбирает один forecast на actual canonical map по `last_successful_pre_start_v1` (TECHNICAL_SPEC §0.9); и created_at, и issued_at строго до actual start, cutoff допустим, модель была active на момент выдачи. Повторные расчёты/смена версии не раздувают headline N; старые версии остаются в истории. Нельзя привязать series ID к угаданной карте или задним числом переименовать what-if в реальный прогноз.
+- Verified primary maps дают accuracy с явным знаменателем, Brier/log loss и простую reliability table. N=0→null; p=0.5 не имеет фаворита и отдельно исключён только из accuracy denominator. Pending/cancelled/unlinked/conflicting/failed и unavailable видимы, не считаются проигрышами и не скрываются; historical/research/what-if отдельно от live performance.
+- Roster mismatch/unknown отмечен, но не удаляет корректно связанный pre-start forecast из общей сервисной статистики; matched-lineup conditional срез показан отдельно с N. Идемпотентный refresh не мутирует prediction snapshots; source corrections создают outcome/report revisions. Один map остаётся одним training example независимо от числа forecast runs. Graphs/advanced drilldowns/retraining automation не требуются для базового журнала.
+- Сохранены existing analytics/schema/strict policy и пути добавления logistic, patch/role/cohesion, post-draft. Каждый новый feature profile имеет независимую проверку и versioned artifact; V1 не означает готовность полного MVP.
+
+**Статус:** критерии, включая журнал по решению владельца2026-11-02, утверждены; production V1 pipeline и journal ещё не реализованы. Текущая следующая работа — [план V1](IMPLEMENTATION_PLAN.md), S3-01/V1-evaluation collector/ledger.
+
 ## Data: MUST
 
 - Imports use verified OpenDota data, not mock pro statistics.

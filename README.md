@@ -1,12 +1,28 @@
 # Dota 2 Pro Analytics — Personal MVP / Codex Engineering Kit v9
 
+**S3-06, текущий срез:** `predict:v1 create|get|export` проверяет ручной сценарий, Tier1 scope, verified историю и активную модель, затем сохраняет неизменяемый снимок расчёта или причины недоступности. [Контракт и команды](docs/S3_06_V1_RUNTIME_SNAPSHOTS.md). Пока только локальная CLI для условной одной карты; далее — owner API и UI. Активных моделей0, реальная release-оценка не ранее2 декабря2026,03:00 МСК. [Реестр V1](docs/S3_05_V1_MODEL_REGISTRY.md) и закреплённый оценщик сохранены.
+
+**Новый этап S3-02/V1-features завершён:** общий построитель Elo для offline/runtime и `pnpm features:v1 export`. На замороженных232 development картах признаки готовы для152;80 требуют большей истории игроков. Вероятности не публикуются. [Контракт и команда](docs/S3_02_V1_FEATURES.md). Неактивный kernel и диагностика метрик добавлены в S3-03; далее — source-bound release executor и независимая оценка.
+
 Личный аналитический сервис профессиональной Dota 2: команды, игроки, история карт, Draft Lab, предматчевые и последрафтовые прогнозы **только после реальной проверки моделей**.
 
 > **Статус:** реализованы локальные справочники, расписание, описательная аналитика, ручные сценарии/Draft Lab и версии отчётов. Прогнозные модели пока недоступны: empirical source/model gates остаются открытыми. Точное состояние — [PROJECT_STATE](docs/PROJECT_STATE.md).
 
+**Первый прогнозный выпуск, решение2026-11-02:** ожидаемые редактируемые составы и один player-Elo прогноз карты до драфта, без обязательных patch/role/hero признаков. [Требования V1](TECHNICAL_SPEC.md) утверждены; реализация и независимая проверка модели — следующие задачи. Logistic, сыгранность, патчи/роли и post-draft сохраняются как усиления. Изменение требований не активирует research-модель.
+
+**Подготовка данных V1 реализована:** `pnpm dataset:v1 preview|export|verify` — отдельный conditional development dataset без mandatory patch/roles/draft. Все232 имеющиеся pro-карты прошли data profile; сохранены sources/clock/SHA и ограничения истории. [Команды и результат](docs/S3_00_DATASET_BUILDER.md). Модель и независимая проверка качества ещё впереди; числовых прогнозов пока нет.
+
 Отдельный [offline эксперимент Elo E0](docs/S3_01_E0_RESEARCH.md) выполнен на реальных pro-картах: экспорт, повторяемая хронологическая оценка и aggregate metrics. Команда `pnpm research:elo` работает вне production prediction pipeline; публикация прогнозов остаётся недоступной.
 
 [План E1](docs/S3_01_E1_PROTOCOL.md) фиксирует196 исторических кандидатов и будущий период проверки; `pnpm research:plan` создаёт и воспроизводит план до импорта/оценки.
+
+`pnpm research:execute check|capture|evaluate` проверяет frozen E1 plan и связывает локальную выборку с его условиями. Capture/scoring закрыты до10 ноября2026,03:00 МСК; [команды и ограничения](docs/S3_01_E1_PROTOCOL.md). Discovery доступен отдельной CLI ниже; source binding и журнал реализованы, реальная оценка и runtime release gate ещё впереди. E1 не публикует прогнозы.
+
+`pnpm evaluation:discover collect|verify|merge` сохраняет metadata discovery, исходные receipts и immutable candidate ledger E1/V1. Объединение запусков сохраняет дубли/конфликты/ошибки в audit, unique maps не удваиваются. `pnpm evaluation:details capture|verify|import|reconcile|verify-reconciliation` загружает фиксированные batches, импортирует сохранённые bytes идемпотентно и считает current readiness с учётом missing/failed IDs. [Config, команды и реальные checkpoints](docs/S3_01_E1_PROTOCOL.md). У карты9072857576 подтверждён outcome, связаны10/10 игроков и серия1163385; current data-ready1/1 обнаруженных кандидатов. `research:execute evidence` проверяет источники offline, а `capture/evaluate` требуют все партии pinned union и учитывают отсутствующие/конфликтующие карты в coverage. Ранний scoring закрыт; полнота удалённого корпуса неизвестна, качество модели ещё не оценено. Миграция023 добавляет обязательный PostgreSQL-журнал: evaluate сохраняет первый результат, revise требует parent SHA и причину; research:journal восстанавливает report/capture без пересчёта. Общий V1 feature builder уже реализован; следующий шаг — inactive candidate и release evaluator. Вероятности отдельных карт эти CLI не выдают.
+
+Отдельный [V1 Tier 1 release plan](docs/MODEL_VALIDATION.md) зарегистрирован через `pnpm release:plan create|verify`: BLAST Slam IX2026, фиксированные sample/coverage/quality thresholds до test outcomes. Оценщик и его полный manifest реализованы; реальные метрики и активация ещё впереди. История игроков сохраняет verified pro-карты других тиров; pub-практика остаётся отдельным будущим источником.
+
+По решению владельца базовый журнал собственных прогнозов и проверенных результатов включён в обязательный V1: один основной forecast на карту, история пересчётов, counts/accuracy/Brier/log loss и простая таблица калибровки. [Правила и статус](TECHNICAL_SPEC.md): S3-07/V1-journal запланирован до первого выпуска; backend/UI ещё предстоит реализовать.
 
 Все196 warmup-карт E1 [импортированы с проверкой исходов и duplicate replay](docs/S3_01_E1_IMPORT.md). [Подтверждены32 аккаунта и94 серии](docs/S3_01_E1_LINKS.md): весь корпус232 pro-карты имеет canonical player/series references. Историческая доступность составов, patch и model gates остаются открытыми.
 

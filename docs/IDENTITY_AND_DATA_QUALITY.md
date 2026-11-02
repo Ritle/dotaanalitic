@@ -1,5 +1,7 @@
 # Canonical Identity, Data Provenance & Confidence — P0 contracts
 
+**V1 уточнение2026-11-02:** проверенной numeric привязки к тому же стабильному Steam account достаточно для связывания его retrospective pro-history; архивное доказательство старого nickname не требуется. Время текущего evidence остаётся текущим. Это не доказывает historical pre-known lineup; cross-account merges и конфликты владельца аккаунта по-прежнему требуют отдельной проверки. См. [границы conditional V1](../TECHNICAL_SPEC.md).
+
 ## Канонический игрок и команды
 
 `teams` = организации, не составы. `players` = канонические личности, `player_external_accounts` = источники/account IDs. Сначала связываем по подтверждённым внешним идентификаторам, затем только с проверяемым evidence. Схожий ник, флаг `is_current_team_member` или участие в организации **не разрешают** автоматическое объединение двух личностей. `player_alias_history` — история отображаемых ников, а не primary ID. Спорная связь получает `provisional` и не объединяет статистику до подтверждения.

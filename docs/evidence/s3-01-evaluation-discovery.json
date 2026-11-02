@@ -1,0 +1,358 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-02T11:35:11.509Z",
+  "scope": "bounded_evaluation_metadata_discovery_not_model_evaluation",
+  "references": [
+    {
+      "path": ".tools/evaluation-discovery-e1.json",
+      "sha256": "9393defc2966bf6585ee2763b4b26f7de96430f10c57c2a9ec48fd30b4de4339",
+      "bytes": 319
+    },
+    {
+      "path": ".tools/evaluation-discovery-v1.json",
+      "sha256": "a5a42dbd3d9333d853743f7fc79e8d4722d4f4fe5c03b86b825dbe75230dfab3",
+      "bytes": 324
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1-20261102/manifest.json",
+      "sha256": "014c5cdb4fa7e78c563f54e7a4b140de69bcd301f95740322638089047371f57",
+      "bytes": 19920
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1-20261102-retry/manifest.json",
+      "sha256": "a3a7181afac66e9db5b229e80cba711ffb20b5cceda3659b143367a4055de324",
+      "bytes": 570330
+    },
+    {
+      "path": ".tools/evaluation-discovery-v1-20261102/manifest.json",
+      "sha256": "3301a2abeabbc9da5600c8bd327cfee0017f14e3806577a09b5b08e4fe5ec6a1",
+      "bytes": 19576
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1-runs.json",
+      "sha256": "d40d267e3025e194173ce17364ea4993f87f9f312e28c2d5ca119f7c457b9b0c",
+      "bytes": 325
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1-union.json",
+      "sha256": "64cec39d6f2c6e866415f4d193bea45644a95b2b1039d811822d8991864da415",
+      "bytes": 552635
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1-union-replay.json",
+      "sha256": "64cec39d6f2c6e866415f4d193bea45644a95b2b1039d811822d8991864da415",
+      "bytes": 552635
+    },
+    {
+      "path": ".tools/evaluation-discovery-db-after.json",
+      "sha256": "be4f23ce343818a2e8a57be28a1e4a32baa41855571271b961666d8e6649548c",
+      "bytes": 2375
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/evaluation-discovery.ts",
+      "sha256": "6b2bd13d0bc3bc50bdba8204bd4e6904a41e79b7026f03593e02eafc432adda6",
+      "bytes": 2791
+    },
+    {
+      "path": "packages/ingestion/src/evaluation-discovery.ts",
+      "sha256": "883b4aa06fa9c6a8d53d36bd92b72f7b4e5d85571854d26f0b0fef182c57744e",
+      "bytes": 12094
+    },
+    {
+      "path": "packages/ingestion/src/opendota/client.ts",
+      "sha256": "a3684f50baaec5fb514bfb941c09d0767a04bb25896470389f9b7dd243b977b2",
+      "bytes": 12486
+    },
+    {
+      "path": "scripts/collect-evaluation-discovery.mjs",
+      "sha256": "bd7542313498fe724bcfa35187012ef4b99fddb7e00836cd635b529a2a965a79",
+      "bytes": 10604
+    },
+    {
+      "path": "packages/contracts/dist/evaluation-discovery.js",
+      "sha256": "f29382721af82c35a005155c043797593de728d41f8177ba17c3be209d85c5c7",
+      "bytes": 2570
+    },
+    {
+      "path": "packages/ingestion/dist/evaluation-discovery.js",
+      "sha256": "d3a723f05e452fef9cd17c115087125482a53ab4b233fda9a62d8e0e1cf9c906",
+      "bytes": 12435
+    },
+    {
+      "path": "packages/ingestion/dist/opendota/client.js",
+      "sha256": "1e265cd3ba46129382fa26d14331858af793bcf853f9dc82565e549e51f2b4fe",
+      "bytes": 11721
+    },
+    {
+      "path": "package.json",
+      "sha256": "0ac28c9c0009851c5a9a2715d0356a7ada3ffce202cbf6f028436b8270f3d845",
+      "bytes": 9615
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783",
+      "bytes": 74139
+    }
+  ],
+  "e1Initial": {
+    "summary": {
+      "sourceResponses": 0,
+      "sourceFailures": 1,
+      "returnedRows": 0,
+      "uniqueMaps": 0,
+      "possibleTargetMaps": 0,
+      "pendingDetails": 0,
+      "uncertainMaps": 0,
+      "relatedSeriesMembers": 0
+    },
+    "requestStats": {
+      "attempts": 0,
+      "httpStatuses": {},
+      "transportErrors": {}
+    },
+    "status": "partial",
+    "failureCause": "local_PostgreSQL_cluster_stopped_before_HTTP",
+    "existingClusterStarted": true
+  },
+  "e1Retry": {
+    "summary": {
+      "sourceResponses": 3,
+      "sourceFailures": 0,
+      "returnedRows": 676,
+      "uniqueMaps": 622,
+      "possibleTargetMaps": 1,
+      "pendingDetails": 1,
+      "uncertainMaps": 0,
+      "relatedSeriesMembers": 0
+    },
+    "requestStats": {
+      "attempts": 3,
+      "httpStatuses": {
+        "200": 3
+      },
+      "transportErrors": {}
+    },
+    "status": "partial",
+    "stoppingReasons": [
+      "PRO_PAGE_LIMIT"
+    ],
+    "receipts": [
+      {
+        "status": "captured",
+        "sequence": 0,
+        "endpoint": "/proMatches",
+        "fetchedAt": "2026-11-02T11:31:26.267Z",
+        "payloadSha256": "38f13ad69978d34a3b9e0d45b97b2c9b0e3e06d4e2f9c9d945dc1e0f5f1ab50a"
+      },
+      {
+        "status": "captured",
+        "sequence": 1,
+        "endpoint": "/proMatches?less_than_match_id=9059855376",
+        "fetchedAt": "2026-11-02T11:31:27.351Z",
+        "payloadSha256": "46a7596628ca5a1e5241e3784fb4dfc4ef8135ae7fe34f222d66ce913b678a5d"
+      },
+      {
+        "status": "captured",
+        "sequence": 2,
+        "endpoint": "/leagues/19944/matches",
+        "fetchedAt": "2026-11-02T11:31:28.737Z",
+        "payloadSha256": "107aa246c7d8c67ba35eca1711822fb2c15c01c1e8e97c4eacdcfc7695a8c9e3"
+      }
+    ],
+    "targetCandidates": [
+      {
+        "matchId": "9072857576",
+        "metadata": {
+          "match_id": "9072857576",
+          "start_time": 1793613613,
+          "leagueid": "19944",
+          "series_id": "1163385",
+          "radiant_team_id": "10291652",
+          "dire_team_id": "10149530"
+        },
+        "possibleTarget": true,
+        "disposition": "pending_detail_verification",
+        "seriesKey": "opendota:1163385",
+        "reasons": [],
+        "observations": [
+          {
+            "sequence": 0,
+            "endpoint": "/proMatches",
+            "metadata": {
+              "match_id": "9072857576",
+              "start_time": 1793613613,
+              "leagueid": "19944",
+              "series_id": "1163385",
+              "radiant_team_id": "10291652",
+              "dire_team_id": "10149530"
+            }
+          },
+          {
+            "sequence": 2,
+            "endpoint": "/leagues/19944/matches",
+            "metadata": {
+              "match_id": "9072857576",
+              "start_time": 1793613613,
+              "leagueid": "19944",
+              "series_id": "1163385",
+              "radiant_team_id": "10291652",
+              "dire_team_id": "10149530"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "v1": {
+    "summary": {
+      "sourceResponses": 0,
+      "sourceFailures": 0,
+      "returnedRows": 0,
+      "uniqueMaps": 0,
+      "possibleTargetMaps": 0,
+      "pendingDetails": 0,
+      "uncertainMaps": 0,
+      "relatedSeriesMembers": 0
+    },
+    "status": "not_started",
+    "requestStats": {
+      "attempts": 0,
+      "httpStatuses": {},
+      "transportErrors": {}
+    }
+  },
+  "union": {
+    "summary": {
+      "sourceResponses": 3,
+      "sourceFailures": 1,
+      "returnedRows": 676,
+      "uniqueMaps": 622,
+      "possibleTargetMaps": 1,
+      "pendingDetails": 1,
+      "uncertainMaps": 0,
+      "relatedSeriesMembers": 0
+    },
+    "fingerprint": "466f5e04c9ab28b4900d48e340b1fef72552e2eebe4452cdd0a477ffef1f9b1d",
+    "byteIdenticalReplay": true,
+    "allSuppliedRunsPreserved": true,
+    "sourceHistoryCompleteness": "only_supplied_runs"
+  },
+  "canonicalState": {
+    "comparison": "same_21_table_fingerprints_as_v1_data_checkpoint",
+    "tables": [
+      {
+        "table": "matches",
+        "n": 232
+      },
+      {
+        "table": "match_players",
+        "n": 2320
+      },
+      {
+        "table": "series",
+        "n": 122
+      },
+      {
+        "table": "series_provision_batches",
+        "n": 5
+      },
+      {
+        "table": "provider_ingest_receipts",
+        "n": 743
+      },
+      {
+        "table": "match_quality_assessments",
+        "n": 506
+      },
+      {
+        "table": "players",
+        "n": 197
+      },
+      {
+        "table": "player_account_evidence",
+        "n": 197
+      },
+      {
+        "table": "player_external_accounts",
+        "n": 0
+      },
+      {
+        "table": "patches",
+        "n": 0
+      },
+      {
+        "table": "patch_release_evidence",
+        "n": 0
+      },
+      {
+        "table": "patch_transition_evidence",
+        "n": 0
+      },
+      {
+        "table": "hero_impact_evidence",
+        "n": 0
+      },
+      {
+        "table": "draft_rule_evidence",
+        "n": 0
+      },
+      {
+        "table": "hero_availability_rules",
+        "n": 0
+      },
+      {
+        "table": "match_field_observations",
+        "n": 11129
+      },
+      {
+        "table": "training_dataset_versions",
+        "n": 0
+      },
+      {
+        "table": "prediction_model_versions",
+        "n": 0
+      },
+      {
+        "table": "game_context_registry_state",
+        "n": 1
+      },
+      {
+        "table": "identity_registry_state",
+        "n": 1
+      },
+      {
+        "table": "upcoming_source_observations",
+        "n": 2
+      }
+    ]
+  },
+  "protectedArtifacts": [
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    }
+  ],
+  "canonicalImports": 0,
+  "modelWrites": 0,
+  "quotaAccountingUpdated": true,
+  "remoteCompleteness": "unknown",
+  "detailEligibility": "not_checked",
+  "scoringLedgerIntegration": "not_implemented",
+  "metrics": null,
+  "deployable": false,
+  "teamAWinProbability": null
+}

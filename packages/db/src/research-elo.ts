@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { ELO_POLICY, replayElo, type EloMap } from '@dota/analytics';
-import { ResearchEloBodySchema, ResearchEloExportSchema, type ResearchEloBody, type ResearchEloMap } from '@dota/contracts';
+import { ResearchEloBodySchema, ResearchEloExportSchema, ResearchEvidenceExclusionsSchema, type ResearchEloBody, type ResearchEloMap } from '@dota/contracts';
 import { canonicalContextJson } from './temporal.js';
 import { resolveIdentity } from './identity.js';
 import { assessProviderSeriesAliases } from './dataset-splits.js';
@@ -48,11 +48,24 @@ function mapReasons(m: ResearchEloMap, body: ResearchEloBody) {
 
 /** Aggregate offline diagnostics only. No per-map win probabilities escape this boundary. */
 export function evaluateResearchElo(input: unknown) {
+  return evaluate(input, []);
+}
+
+/** Additional source-evidence exclusions; never changes facts or the legacy Elo/temporal policy. */
+export function evaluateResearchEloWithExclusions(input: unknown, exclusions: unknown) {
+  const rows = ResearchEvidenceExclusionsSchema.parse(exclusions);
+  if (new Set(rows.map(r => r.matchId)).size !== rows.length) throw Error('research_duplicate_exclusion');
+  return evaluate(input, rows);
+}
+
+function evaluate(input: unknown, exclusions: { matchId: string; reasons: string[] }[]) {
   const parsed = ResearchEloExportSchema.parse(input), { fingerprint, ...body } = parsed;
   if (hash(body) !== fingerprint) throw new Error('research_export_fingerprint_mismatch');
   if (canonicalContextJson(body.policy) !== canonicalContextJson(ELO_POLICY)) throw new Error('research_elo_policy_mismatch');
   if (body.candidates.length > body.request.maxMaps || body.aliases.length > body.request.maxMaps) throw new Error('research_inventory_limit');
   if (new Set(body.candidates.map(m => m.matchId)).size !== body.candidates.length) throw new Error('research_duplicate_map');
+  const extra = new Map(exclusions.map(r => [r.matchId, r.reasons]));
+  if (exclusions.some(r => !body.candidates.some(m => m.matchId === r.matchId))) throw Error('research_unknown_exclusion');
   if (new Set(body.identities.map(m => m.observationId)).size !== body.identities.length) throw new Error('research_duplicate_identity_evidence');
   const aliases = assessProviderSeriesAliases(body.aliases), byAlias = new Map(aliases.map(a => [a.seriesId, a]));
   const from = us(body.request.fromAt), boundary = us(body.request.holdoutFromAt), to = us(body.request.toAt);
@@ -60,7 +73,7 @@ export function evaluateResearchElo(input: unknown) {
   const rows = body.candidates.map(map => {
     const m = { ...map, players: [...map.players].sort((a, b) => a.playerSlot - b.playerSlot),
       receiptPlayers: [...map.receiptPlayers].sort((a, b) => a.playerSlot - b.playerSlot) };
-    const reasons = mapReasons(m, body), start = BigInt(m.startedAtUs);
+    const reasons = [...mapReasons(m, body), ...(extra.get(m.matchId) ?? [])], start = BigInt(m.startedAtUs);
     if (start < from || start >= to) reasons.push('OUTSIDE_WINDOW');
     const alias = m.seriesId === null ? undefined : byAlias.get(m.seriesId), key = alias?.providerSeriesKey ?? null;
     if (key === null) reasons.push('SERIES_UNKNOWN');

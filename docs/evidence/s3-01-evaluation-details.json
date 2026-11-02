@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-02T11:57:25.484Z",
+  "scope": "evaluation_detail_capture_import_current_reconciliation_not_scoring",
+  "references": [
+    {
+      "path": ".tools/evaluation-discovery-e1.json",
+      "sha256": "9393defc2966bf6585ee2763b4b26f7de96430f10c57c2a9ec48fd30b4de4339",
+      "bytes": 319
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1-union.json",
+      "sha256": "64cec39d6f2c6e866415f4d193bea45644a95b2b1039d811822d8991864da415",
+      "bytes": 552635
+    },
+    {
+      "path": ".tools/evaluation-details-e1-20261102/manifest.json",
+      "sha256": "8145065b3460c7b76ad3e487b2bf2bb9aa0d7f4ed49b94ca335eedcb7a77b855",
+      "bytes": 23800
+    },
+    {
+      "path": ".tools/evaluation-details-before-import.json",
+      "sha256": "2cdedc260a40cf83acd165921d26265741bffc166611d8cb5137d8d2f84e0449",
+      "bytes": 5426538
+    },
+    {
+      "path": ".tools/evaluation-details-after-import.json",
+      "sha256": "280022dd9f11c93d3fe74d10c9dea704e6c58adbb186ad717b5ccb5e9defaa22",
+      "bytes": 5438146
+    },
+    {
+      "path": ".tools/evaluation-details-import-20261102/manifest.json",
+      "sha256": "7c5502eb712b0654019dfaad6175d2559e38c61562f050ebf152c0ed8ad920a1",
+      "bytes": 22394
+    },
+    {
+      "path": ".tools/evaluation-details-import-replay-20261102/manifest.json",
+      "sha256": "a1b56da8dfa5bd7fe55d06afa96a0fc5ecc5d9a42378e943fb33b0863cf558fc",
+      "bytes": 22393
+    },
+    {
+      "path": ".tools/evaluation-details-db-before.json",
+      "sha256": "be4f23ce343818a2e8a57be28a1e4a32baa41855571271b961666d8e6649548c",
+      "bytes": 2375
+    },
+    {
+      "path": ".tools/evaluation-details-db-after-first.json",
+      "sha256": "046f505974d9246c868940594ab761eff05b4f0fb7e27fd19d09320393f9714b",
+      "bytes": 2375
+    },
+    {
+      "path": ".tools/evaluation-details-db-after-replay.json",
+      "sha256": "046f505974d9246c868940594ab761eff05b4f0fb7e27fd19d09320393f9714b",
+      "bytes": 2375
+    },
+    {
+      "path": ".tools/evaluation-details-links.json",
+      "sha256": "7c49bff3a992cf35583cc1c917adcf069f074f4f6710c2f0abec5a6ce4a8701c",
+      "bytes": 229
+    },
+    {
+      "path": ".tools/evaluation-details-live-source-audit.json",
+      "sha256": "f879407caed6c81ad566f93fdb1af87cd8fc43447f7dcd8a8e4fa2cca5e9458e",
+      "bytes": 13384
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/evaluation-details.ts",
+      "sha256": "c4e8cd6c83beee7a76089c45a2de119fda83c478ec29ef1e074062af29f84c40",
+      "bytes": 1280
+    },
+    {
+      "path": "packages/ingestion/src/evaluation-details.ts",
+      "sha256": "56be73e9d64f112530a099317f21f26712d5dfc5c9461db37c10275590dbcd58",
+      "bytes": 12206
+    },
+    {
+      "path": "scripts/evaluation-details.mjs",
+      "sha256": "8a09640ec44777e8d7b63f632d17b008b54fa2872ca26da208a86a90ba29ec71",
+      "bytes": 10877
+    },
+    {
+      "path": "scripts/lib/evaluation-discovery-files.mjs",
+      "sha256": "8d4a9c7fffc63da273f781d93a5b29fbba8b58c3f9a64cf2a0f85c1ca8f92313",
+      "bytes": 6919
+    },
+    {
+      "path": "scripts/collect-evaluation-discovery.mjs",
+      "sha256": "a1742c94ad563ceacf9d3cca0b2a3475d56ebd5ce8a34756c651dfa9046e3d50",
+      "bytes": 6603
+    },
+    {
+      "path": "packages/ingestion/src/importer.ts",
+      "sha256": "7024a031ed1a6a0c0dab9f4b3bab1e4dd8d0059e2355b9f89f91fe7ba1e31358",
+      "bytes": 20076
+    },
+    {
+      "path": "packages/db/src/v1-data.ts",
+      "sha256": "cf5b45b071fb270d330526164c9879f11618698b27c1602cc4b9ba5db5bb2792",
+      "bytes": 10307
+    },
+    {
+      "path": "packages/db/src/v1-data-repository.ts",
+      "sha256": "c3985826becf1e7ebb6e2f65dd45bf42c3bd9a565511b55eedfc68eb41946ac9",
+      "bytes": 6034
+    },
+    {
+      "path": "packages/db/src/outcome-verifier.ts",
+      "sha256": "f63ef987cea3ca0dc8b57ef2696a22b56f39ae65985519b5a5065c0c6233407f",
+      "bytes": 1700
+    },
+    {
+      "path": "packages/contracts/dist/evaluation-details.js",
+      "sha256": "1f690857a249d4fa2d4d4eff069f16c5b8dafe657626092cb3faaa60d8449943",
+      "bytes": 1227
+    },
+    {
+      "path": "packages/ingestion/dist/evaluation-details.js",
+      "sha256": "daf5774a3bee11a2acd05c56921a21e176fd9ab84298d96ac67f8913f6d03720",
+      "bytes": 12231
+    },
+    {
+      "path": "package.json",
+      "sha256": "d0108dccce8038dda9bf2b75fdf4fd7ccf64aca0d1a481d8131957a3fa4d29e0",
+      "bytes": 9727
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "de9007b6b1b2be895b6fff63eb40f8cfc7cc150827a891710b64700c44c66783",
+      "bytes": 74139
+    }
+  ],
+  "sourceCapture": {
+    "requestStats": {
+      "attempts": 3,
+      "httpStatuses": {
+        "200": 3
+      },
+      "transportErrors": {}
+    },
+    "assessmentFingerprint": "d768946f5f96f7396f632f4374ed5d1c653f5656e2171b82e5d12dae736ac3aa",
+    "selectedIds": [
+      "9072857576"
+    ],
+    "deferredIds": [],
+    "sourceEligible": 1
+  },
+  "liveSourceAudit": {
+    "status": "complete",
+    "received": 1,
+    "selection": {
+      "method": "uniform_rank_by_start_then_match_id_in_league",
+      "league_id": "19944",
+      "selected_match_ids": [
+        "8905035315"
+      ],
+      "duplicate_ids": 0,
+      "invalid_ids": 0,
+      "outside_cohort": 0
+    },
+    "note": "separate_uniform_rank_league_sample_not_the_same_target_map_or_a_representative_quality_benchmark",
+    "confirmedPro": {
+      "count": 1,
+      "of": 1,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "accounts10": {
+      "count": 1,
+      "of": 1,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    }
+  },
+  "firstImport": {
+    "results": [
+      {
+        "matchId": "9072857576",
+        "receiptId": "1594",
+        "status": "accepted",
+        "duplicate": false,
+        "dataRevision": "1"
+      }
+    ],
+    "providerRequests": 0
+  },
+  "secondImport": {
+    "results": [
+      {
+        "matchId": "9072857576",
+        "receiptId": "1594",
+        "status": "accepted",
+        "duplicate": true,
+        "dataRevision": "1"
+      }
+    ],
+    "providerRequests": 0,
+    "canonicalStateByteIdentical": true
+  },
+  "beforeCoverage": {
+    "observedTargetMaps": 1,
+    "dataReadyMaps": 0,
+    "mapCoverage": 0,
+    "observedKnownSeries": 1,
+    "readyKnownSeries": 0,
+    "knownSeriesCoverage": 0,
+    "targetMapsWithVerifiedOutcomes": 0
+  },
+  "afterCoverage": {
+    "observedTargetMaps": 1,
+    "dataReadyMaps": 0,
+    "mapCoverage": 0,
+    "observedKnownSeries": 1,
+    "readyKnownSeries": 0,
+    "knownSeriesCoverage": 0,
+    "targetMapsWithVerifiedOutcomes": 1
+  },
+  "afterAssessments": [
+    {
+      "matchId": "9072857576",
+      "possibleTarget": true,
+      "seriesKey": "opendota:1163385",
+      "canonicalSeriesKey": null,
+      "outcomeVerified": true,
+      "dataReady": false,
+      "reasons": [
+        "CANONICAL_SERIES_MISMATCH",
+        "CURRENT_IDENTITIES_UNVERIFIED",
+        "DISCOVERED_SERIES_HAS_UNREADY_OR_OUTSIDE_MEMBER",
+        "SERIES_SOURCE_UNVERIFIED",
+        "SERIES_UNKNOWN"
+      ]
+    }
+  ],
+  "canonicalLinks": [
+    {
+      "match_id": "9072857576",
+      "is_pro": true,
+      "ingest_state": "accepted",
+      "series_id": null,
+      "slots": 10,
+      "source_accounts": 10,
+      "canonical_player_links": 4,
+      "distinct_source_accounts": 10
+    }
+  ],
+  "offlineVerify": {
+    "status": "reconciliation_verified",
+    "coverage": {
+      "observedTargetMaps": 1,
+      "dataReadyMaps": 0,
+      "mapCoverage": 0,
+      "observedKnownSeries": 1,
+      "readyKnownSeries": 0,
+      "knownSeriesCoverage": 0,
+      "targetMapsWithVerifiedOutcomes": 1
+    },
+    "metrics": null,
+    "deployable": false
+  },
+  "state": {
+    "mapsBefore": 232,
+    "mapsAfter": 233,
+    "playerSlotsBefore": 2320,
+    "playerSlotsAfter": 2330,
+    "importReceiptsBefore": 743,
+    "importReceiptsAfter": 745,
+    "factsBefore": 11129,
+    "factsAfter": 11151,
+    "datasetVersions": 0,
+    "modelVersions": 0,
+    "replayUnchangedTables": 21
+  },
+  "protectedArtifacts": [
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    }
+  ],
+  "currentReadinessOnly": true,
+  "e1ScoringIntegration": "pending",
+  "remoteCompleteness": "unknown",
+  "metrics": null,
+  "trainingReady": false,
+  "deployable": false,
+  "teamAWinProbability": null
+}

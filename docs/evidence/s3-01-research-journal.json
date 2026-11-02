@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-evaluation",
+  "generatedAt": "2026-11-02T13:21:05.260Z",
+  "status": "first_committed_evaluation_journal_implemented_not_scored",
+  "realOperationalCheck": {
+    "generatedAt": "2026-11-02T13:15:14.026Z",
+    "planFingerprint": "7311d2494b0272ae987577873747778b3c665432ad3031859e864be66addde4f",
+    "early": [
+      {
+        "mode": "evaluate",
+        "status": "unavailable",
+        "code": "EXECUTION_TOO_EARLY",
+        "journalMayHaveCommitted": false,
+        "message": "Оценка ещё закрыта по зарегистрированному времени плана.",
+        "outputAbsent": true
+      },
+      {
+        "mode": "revise",
+        "status": "unavailable",
+        "code": "EXECUTION_TOO_EARLY",
+        "journalMayHaveCommitted": false,
+        "message": "Оценка ещё закрыта по зарегистрированному времени плана.",
+        "outputAbsent": true
+      }
+    ],
+    "revisions": [],
+    "state": {
+      "journal_rows": 0,
+      "migrations": 23,
+      "migration_sha256": "1b059414397e08000e03505c068d9e3c4c79d2e36ca96473cc3b5474ba95ab1f"
+    },
+    "existing21TableFingerprintsUnchanged": true,
+    "archivedE0EvaluationIdentical": true,
+    "providerRequests": 0,
+    "realEvaluations": 0,
+    "metrics": null,
+    "deployable": false
+  },
+  "workingState": [
+    {
+      "table": "matches",
+      "n": 233,
+      "fingerprint": "e8f1fe35505bf57473885e0aec1b258a"
+    },
+    {
+      "table": "match_players",
+      "n": 2330,
+      "fingerprint": "d130a70cb46215bcb19006c1a0ce33b8"
+    },
+    {
+      "table": "series",
+      "n": 123,
+      "fingerprint": "6a63b71f41994f8063a708300bf59dfb"
+    },
+    {
+      "table": "series_provision_batches",
+      "n": 6,
+      "fingerprint": "4d16f5546449463d6352b3d24d43cd32"
+    },
+    {
+      "table": "provider_ingest_receipts",
+      "n": 746,
+      "fingerprint": "e779b0f4ffe25ec3aebc251810a655b0"
+    },
+    {
+      "table": "match_quality_assessments",
+      "n": 508,
+      "fingerprint": "14fcfd4c1ca3acc42621a486c1ad2ef9"
+    },
+    {
+      "table": "players",
+      "n": 203,
+      "fingerprint": "3972a6dbfeb253eb832f055cdb780611"
+    },
+    {
+      "table": "player_account_evidence",
+      "n": 203,
+      "fingerprint": "5f862d52d29cf17eb7abbfc8a160b3e1"
+    },
+    {
+      "table": "player_external_accounts",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patches",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_release_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_transition_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_impact_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "draft_rule_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_availability_rules",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "match_field_observations",
+      "n": 11173,
+      "fingerprint": "9de39187313b257631d90f0bcad705cd"
+    },
+    {
+      "table": "training_dataset_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "prediction_model_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "game_context_registry_state",
+      "n": 1,
+      "fingerprint": "db672d0480f3402e6e416a4550559e17"
+    },
+    {
+      "table": "identity_registry_state",
+      "n": 1,
+      "fingerprint": "064be35e7b72e574ca12c11766afa913"
+    },
+    {
+      "table": "upcoming_source_observations",
+      "n": 2,
+      "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+    }
+  ],
+  "invariants": {
+    "protectedArtifactsUnchanged": true,
+    "existing21TablesUnchanged": true,
+    "migrationReplayIdempotent": true,
+    "metricsPublishedOnlyAfterCommit": true,
+    "firstCommittedUnavailablePreserved": true,
+    "researchJournalIsNotForecastJournal": true
+  },
+  "semantics": {
+    "firstResult": "first successfully committed evaluation, including unavailable",
+    "retry": "same plan, exact capture bytes and scorer code returns the original stored bytes",
+    "revision": "changed capture or code requires current parent revision/report SHA and reason",
+    "recovery": "stored report/capture bytes can be exported without scoring",
+    "technicalFailure": "uncommitted transaction rolls back; no metrics are published"
+  },
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitTests": 574,
+    "isolatedPostgresTests": 20,
+    "postgresBreakdown": {
+      "journal": 9,
+      "journalCli": 1,
+      "research": 7,
+      "details": 3
+    },
+    "successfulScoringFixtures": "synthetic, isolated disposable PostgreSQL databases only",
+    "e2e": "not run: no UI change",
+    "python": "not run: no fitting change"
+  },
+  "logs": {
+    "install": {
+      "path": ".tools/research-journal-install.log",
+      "sha256": "6aaf2e1b8fffd0952fbd62094279ed6e42bb06c1e1b2c46598379b200f444ec6"
+    },
+    "typecheck": {
+      "path": ".tools/research-journal-typecheck.log",
+      "sha256": "85786713948baa6dd68e2983705094aee37a85e2a6d291cc084a550e9da9d00c"
+    },
+    "unit": {
+      "path": ".tools/research-journal-unit.log",
+      "sha256": "9c222d5c6e67de000ebc74ef5ace07ee402c3e67e88c36a650f780dd1ac37d31"
+    },
+    "pg-final": {
+      "path": ".tools/research-journal-pg-final.log",
+      "sha256": "a74830f2136be56ed78669df548bbf45887235cebd70da8b8c0ecaff32b9a02f"
+    },
+    "build": {
+      "path": ".tools/research-journal-build.log",
+      "sha256": "4365fd43b74f943b242d5539c7bdfc132fa096e2533332b3101843339d2b89e3"
+    },
+    "migration-replay": {
+      "path": ".tools/research-journal-migration-replay.log",
+      "sha256": "716b149f486eb406468f91d488bbe80b3ed0e662fa4eb46925d90f381f0828b1"
+    }
+  },
+  "artifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/research-evidence-e1-files.json",
+      "sha256": "d5214273c678ae8b97eebb06439950384440ecd2199499bf50e5dec0dee6c6d0"
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/research-journal.ts",
+      "sha256": "428c37c7201f731ee7ca469d1d279a9c46b4c34d19a9536ce1a42b76a4914be2"
+    },
+    {
+      "path": "packages/contracts/dist/research-journal.js",
+      "sha256": "cc407e5fffe86ea693f44f6036b09f9656e459957e4ef3d91694c21048ee8a7e"
+    },
+    {
+      "path": "packages/db/src/research-journal.ts",
+      "sha256": "e344c408208312e6920dea5b448b7e13bbe4fa30dc236e4ea21f7355a68a0620"
+    },
+    {
+      "path": "packages/db/dist/research-journal.js",
+      "sha256": "eda1b702cc39c29288f4f8fe4f8132663092a2a66de2c98ea8f7b35533be50dc"
+    },
+    {
+      "path": "packages/db/migrations/023_research_evaluation_journal.sql",
+      "sha256": "1b059414397e08000e03505c068d9e3c4c79d2e36ca96473cc3b5474ba95ab1f"
+    },
+    {
+      "path": "scripts/execute-research-elo.mjs",
+      "sha256": "5183dc6ee53bf7885e8bbb62a046f4f071d9a60d7df2efd092ae38aedf033ec6"
+    },
+    {
+      "path": "scripts/research-journal.mjs",
+      "sha256": "cade558e4bc20ca7520da83987c6f3d9db5d47c9ad7f208b21f08f9653b6b6a0"
+    },
+    {
+      "path": "packages/db/tests/research-journal-fixtures.ts",
+      "sha256": "634dde52e29e1c9c6e53a3d4b98110a659b42fad987f339ec5c40d9ef7f47eb3"
+    },
+    {
+      "path": "packages/db/tests/research-journal.integration.test.ts",
+      "sha256": "b9acbf485d20882f99d2445056ecac1698d72478665fe21dd416578fa5b34818"
+    },
+    {
+      "path": "packages/ingestion/tests/research-evidence-cli-scenario.ts",
+      "sha256": "8a2e70d51081f2cd037841749fde309a2adc4ebd7e611c2ece2354d480eadfdd"
+    },
+    {
+      "path": "packages/ingestion/tests/research-evidence-cli.test.ts",
+      "sha256": "babfa44f9ce84be823aa6af863bf4f220ad499b6d64aa4598fc474d2a96be2bc"
+    },
+    {
+      "path": "packages/ingestion/tests/research-journal-cli.integration.test.ts",
+      "sha256": "631b715271f6e5a8ddc31700f4c98b024f4246478fa06a63063f2ba696e9428a"
+    },
+    {
+      "path": ".tools/research-journal-live.mjs",
+      "sha256": "2a7215485a1dfb80ac9faab95a3c3db1958c0f637a2b7564cc643977c231a9ac"
+    },
+    {
+      "path": ".tools/research-journal-evidence.mjs",
+      "sha256": "b8d966ecd2d8399477934d8d91751a46ee00d1868a61cc46a9eec8b29294a655"
+    }
+  ],
+  "limits": [
+    "No real E1 evaluation before 2026-11-10T00:00:00.000Z",
+    "No model activation or published probabilities",
+    "Global discovery-run completeness is not established by this journal",
+    "Research journal does not implement the separate S3-07 forecast journal"
+  ],
+  "nextTask": "S3-02/V1-features: independent preparation; S3-01 evaluation remains open"
+}

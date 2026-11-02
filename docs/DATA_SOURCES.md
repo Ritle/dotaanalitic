@@ -1,5 +1,9 @@
 # Источники данных и техническая проверка
 
+## Ranked hero practice — разрешённый отдельный источник
+
+Уточнение владельца2026-11-02: паблики verified игроков можно анализировать отдельно и исследовать как признаки будущей pro-модели; [границы](../TECHNICAL_SPEC.md), §0.8. Официальная [OpenDota OpenAPI-схема](https://api.opendota.com/api) описывает player match history и hero aggregates; перед интеграцией требуется bounded audit ranked/mode/date/role filters, полноты и доступности конкретных аккаунтов. Наличие endpoint не доказывает покрытие нашей выборки. [Dota2ProTracker](https://dota2protracker.com/) отдельно описывает данные высокорейтинговых и профессиональных матчей; это пример доступного аналитического контекста, не доказательство прироста точности нашей модели или разрешение массового scraping. Личные pub-данные в этой задаче не загружались, токены не использовались. No pub/pro pooling, no lifetime aggregate in historical features, verified account links only.
+
 ## STRATZ — авторизованный pilot2026-11-02
 
 Владелец добавил `STRATZ_API_TOKEN` и продолжил предложенный bounded pilot. Запросы шли на стандартный `https://api.stratz.com/graphql` с собственным Bearer, без public Explorer key. [План, SHA, реальные ответы и сверка](evidence/stratz-owner-pilot-2026-11-02.json). Production adapter остаётся OFF; рабочая БД не подключалась и не менялась.

@@ -1,0 +1,262 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-evaluation",
+  "generatedAt": "2026-11-02T12:47:19.379Z",
+  "status": "evidence_bound_execution_implemented_not_scored",
+  "realEvidenceVerification": {
+    "status": "research_evidence_verified",
+    "discoveryFingerprint": "3ffefd86d175b7ee131c5e7bd94d027e575e808e7355cc686368aba738b5d1b5",
+    "observedTargets": 1,
+    "batches": 1,
+    "discoveryStatus": "partial",
+    "remoteCompleteness": "unknown",
+    "metrics": null,
+    "deployable": false
+  },
+  "earlyCapture": {
+    "status": "unavailable",
+    "code": "EXECUTION_TOO_EARLY",
+    "message": "Оценка ещё закрыта по зарегистрированному времени плана."
+  },
+  "invariants": {
+    "earlyCaptureFileAbsent": true,
+    "offlineBrokenDatabaseUrl": true,
+    "all21WorkingTableFingerprintsUnchanged": true,
+    "existingE0EvaluationIdentical": true,
+    "protectedArtifactsUnchanged": true
+  },
+  "workingState": [
+    {
+      "table": "matches",
+      "n": 233,
+      "fingerprint": "e8f1fe35505bf57473885e0aec1b258a"
+    },
+    {
+      "table": "match_players",
+      "n": 2330,
+      "fingerprint": "d130a70cb46215bcb19006c1a0ce33b8"
+    },
+    {
+      "table": "series",
+      "n": 123,
+      "fingerprint": "6a63b71f41994f8063a708300bf59dfb"
+    },
+    {
+      "table": "series_provision_batches",
+      "n": 6,
+      "fingerprint": "4d16f5546449463d6352b3d24d43cd32"
+    },
+    {
+      "table": "provider_ingest_receipts",
+      "n": 746,
+      "fingerprint": "e779b0f4ffe25ec3aebc251810a655b0"
+    },
+    {
+      "table": "match_quality_assessments",
+      "n": 508,
+      "fingerprint": "14fcfd4c1ca3acc42621a486c1ad2ef9"
+    },
+    {
+      "table": "players",
+      "n": 203,
+      "fingerprint": "3972a6dbfeb253eb832f055cdb780611"
+    },
+    {
+      "table": "player_account_evidence",
+      "n": 203,
+      "fingerprint": "5f862d52d29cf17eb7abbfc8a160b3e1"
+    },
+    {
+      "table": "player_external_accounts",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patches",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_release_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_transition_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_impact_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "draft_rule_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_availability_rules",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "match_field_observations",
+      "n": 11173,
+      "fingerprint": "9de39187313b257631d90f0bcad705cd"
+    },
+    {
+      "table": "training_dataset_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "prediction_model_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "game_context_registry_state",
+      "n": 1,
+      "fingerprint": "db672d0480f3402e6e416a4550559e17"
+    },
+    {
+      "table": "identity_registry_state",
+      "n": 1,
+      "fingerprint": "064be35e7b72e574ca12c11766afa913"
+    },
+    {
+      "table": "upcoming_source_observations",
+      "n": 2,
+      "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+    }
+  ],
+  "e0ReplayFingerprint": "16d842229b626d5a221e7b544194779ab533ebaa59b7e50c0dd7e880fdec44b4",
+  "artifacts": [
+    {
+      "path": ".tools/research-evidence-e1-files.json",
+      "sha256": "d5214273c678ae8b97eebb06439950384440ecd2199499bf50e5dec0dee6c6d0"
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1.json",
+      "sha256": "9393defc2966bf6585ee2763b4b26f7de96430f10c57c2a9ec48fd30b4de4339"
+    },
+    {
+      "path": ".tools/evaluation-discovery-e1-union.json",
+      "sha256": "64cec39d6f2c6e866415f4d193bea45644a95b2b1039d811822d8991864da415"
+    },
+    {
+      "path": ".tools/evaluation-details-e1-20261102/manifest.json",
+      "sha256": "8145065b3460c7b76ad3e487b2bf2bb9aa0d7f4ed49b94ca335eedcb7a77b855"
+    },
+    {
+      "path": ".tools/research-evidence-e0-replay.json",
+      "sha256": "de80197242c0a3d28cf371aa7fded5ca3448e047386630d829a83af59fd19d32"
+    },
+    {
+      "path": ".tools/evaluation-links-db-replay.json",
+      "sha256": "bccafb6228d51fc1163b0025834f1760ff23915ca909811fc25930ef56b49bae"
+    },
+    {
+      "path": ".tools/research-evidence-db-after.json",
+      "sha256": "bccafb6228d51fc1163b0025834f1760ff23915ca909811fc25930ef56b49bae"
+    },
+    {
+      "path": ".tools/s3-01-e0-evaluation.json",
+      "sha256": "56088689591d2fdcbb5f6336013f962d1f21149cb282ad55d55d0248fd8a19c4"
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/research-evidence.ts",
+      "sha256": "d09ea8dd8214b12c6c4609f6e6f6296156fff3499ba09d7822f9640082f60536"
+    },
+    {
+      "path": "packages/ingestion/src/research-evidence.ts",
+      "sha256": "cf0bfad47d2829749bd76c4fa6ce256eecb3a683fadc9f2147963315de99af61"
+    },
+    {
+      "path": "packages/db/src/research-elo.ts",
+      "sha256": "d31f6fc5bb6f731eade433da90108729bef7b01bda240f0e8df5c3f0ed0f01f8"
+    },
+    {
+      "path": "scripts/execute-research-elo.mjs",
+      "sha256": "384ced8e5a71609339a8c88bab82ada2885c95d469ed846d62d7cc483e404b5e"
+    },
+    {
+      "path": "scripts/lib/research-evidence-files.mjs",
+      "sha256": "475b6cfca1e3a5157cea9f97fac48dc8e3ece7f0bd7583a29b48bd1e0d93e35b"
+    },
+    {
+      "path": "scripts/lib/evaluation-detail-files.mjs",
+      "sha256": "784ee7893143ce18abf5c3aabf46a9d936225c2f9a058f6545bbaa5fe20e36a6"
+    },
+    {
+      "path": "scripts/lib/evaluation-discovery-files.mjs",
+      "sha256": "8d4a9c7fffc63da273f781d93a5b29fbba8b58c3f9a64cf2a0f85c1ca8f92313"
+    },
+    {
+      "path": "scripts/evaluation-details.mjs",
+      "sha256": "e6c70f24ec72c117726b86cf405c0256c615d81ccd6c0eeeee6e3a8bc0079876"
+    },
+    {
+      "path": "packages/contracts/dist/research-evidence.js",
+      "sha256": "f6284734318f737ad067a5ac0f81b74e0ef70def18f5a49d41061fa3966588e2"
+    },
+    {
+      "path": "packages/ingestion/dist/research-evidence.js",
+      "sha256": "e2d78b8563f11cda62882be339c32d34c756188e797f4de2d87ce0caf066e802"
+    },
+    {
+      "path": "packages/db/dist/research-elo.js",
+      "sha256": "c1d344222cb71be8b12450a355cbbbb1f3bd5d1dee12d926165b8d64179c2d2f"
+    },
+    {
+      "path": "packages/ingestion/tests/research-evidence.test.ts",
+      "sha256": "2a6973fc89bd12541cac6a0a91c5ea4131f7f95666dc9471502d91f90482bbcf"
+    },
+    {
+      "path": "packages/ingestion/tests/research-evidence-cli.test.ts",
+      "sha256": "f8ff7643951c3fd6d555f1533d25f8a614068eee795aba3d5a97e253a82a0bc8"
+    },
+    {
+      "path": "packages/db/tests/research-execution-cli.test.ts",
+      "sha256": "e945cfc5a8d11e74483ffea40baa3872fa2727866b0c664ffbcdbe19723770d5"
+    },
+    {
+      "path": "packages/db/tests/research-elo.integration.test.ts",
+      "sha256": "05221c8d3c2d2b35d8bb94ad824baf7d5c705b35b099e552458cefd18a01d33a"
+    }
+  ],
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    }
+  ],
+  "evaluationNotBefore": "2026-11-10T00:00:00.000Z",
+  "providerRequests": 0,
+  "modelWrites": 0,
+  "metrics": null,
+  "deployable": false,
+  "limitations": [
+    "PARTIAL_DISCOVERY_REMOTE_COMPLETENESS_UNKNOWN",
+    "ONLY_EXPLICITLY_SUPPLIED_RUNS",
+    "ONE_CAPTURE_PER_FIXED_BATCH_ALL_BOUND_TO_SAME_UNION",
+    "FIRST_EVALUATION_REVISION_LEDGER_NOT_IMPLEMENTED",
+    "RESEARCH_ONLY_NOT_V1_RELEASE_QUALITY_GATE"
+  ]
+}

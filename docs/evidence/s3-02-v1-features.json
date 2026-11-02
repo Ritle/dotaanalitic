@@ -1,0 +1,311 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-02/V1-features",
+  "generatedAt": "2026-11-02T13:35:37.316Z",
+  "status": "shared_features_implemented_not_evaluated",
+  "development": {
+    "maps": 232,
+    "featureReady": 152,
+    "unavailable": 80,
+    "sourceFingerprint": "978658a3d46219b7e32f117f16f67a85dc9b0e94785d6cef14e58acf5ab2b2bb",
+    "featureSchemaVersion": "player-mean-elo-completed-strict-v1",
+    "unavailableReason": "INSUFFICIENT_PLAYER_HISTORY",
+    "minCompletedMapsPerPlayer": 5,
+    "byteIdenticalReplay": true,
+    "sharedRuntimeParityRows": 232,
+    "evaluation": "not_performed",
+    "deployable": false,
+    "teamAWinProbability": null
+  },
+  "sourceAudit": {
+    "status": "complete",
+    "generatedAt": "2026-11-02T13:23:45.039Z",
+    "leagueId": "17765",
+    "requested": 1,
+    "detailsReceived": 1,
+    "requests": {
+      "attempts": 3,
+      "httpStatuses": {
+        "200": 3
+      },
+      "transportErrors": {}
+    },
+    "coverage": {
+      "completed_outcome": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "confirmed_pro": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "identity_10": {
+        "count": 1,
+        "of": 1,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "pre_match_lineup_known_at": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "8176324556"
+        ]
+      }
+    }
+  },
+  "workingState": [
+    {
+      "table": "matches",
+      "n": 233,
+      "fingerprint": "e8f1fe35505bf57473885e0aec1b258a"
+    },
+    {
+      "table": "match_players",
+      "n": 2330,
+      "fingerprint": "d130a70cb46215bcb19006c1a0ce33b8"
+    },
+    {
+      "table": "series",
+      "n": 123,
+      "fingerprint": "6a63b71f41994f8063a708300bf59dfb"
+    },
+    {
+      "table": "series_provision_batches",
+      "n": 6,
+      "fingerprint": "4d16f5546449463d6352b3d24d43cd32"
+    },
+    {
+      "table": "provider_ingest_receipts",
+      "n": 746,
+      "fingerprint": "e779b0f4ffe25ec3aebc251810a655b0"
+    },
+    {
+      "table": "match_quality_assessments",
+      "n": 508,
+      "fingerprint": "14fcfd4c1ca3acc42621a486c1ad2ef9"
+    },
+    {
+      "table": "players",
+      "n": 203,
+      "fingerprint": "3972a6dbfeb253eb832f055cdb780611"
+    },
+    {
+      "table": "player_account_evidence",
+      "n": 203,
+      "fingerprint": "5f862d52d29cf17eb7abbfc8a160b3e1"
+    },
+    {
+      "table": "player_external_accounts",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patches",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_release_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_transition_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_impact_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "draft_rule_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_availability_rules",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "match_field_observations",
+      "n": 11173,
+      "fingerprint": "9de39187313b257631d90f0bcad705cd"
+    },
+    {
+      "table": "training_dataset_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "prediction_model_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "game_context_registry_state",
+      "n": 1,
+      "fingerprint": "db672d0480f3402e6e416a4550559e17"
+    },
+    {
+      "table": "identity_registry_state",
+      "n": 1,
+      "fingerprint": "064be35e7b72e574ca12c11766afa913"
+    },
+    {
+      "table": "upcoming_source_observations",
+      "n": 2,
+      "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+    }
+  ],
+  "invariants": {
+    "existing21TablesUnchanged": true,
+    "e0ReplayIdentical": true,
+    "frozenArtifactsUnchanged": true,
+    "canonicalImports": 0,
+    "realE1Evaluations": 0,
+    "releaseEvaluations": 0,
+    "modelActivations": 0,
+    "migrationsAdded": 0,
+    "externalDependencyVersionsChanged": false
+  },
+  "checks": {
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "fullUnitTests": 599,
+    "finalTargetedTests": 26,
+    "currentDistinctTests": 600,
+    "isolatedPostgresTests": 21,
+    "note": "Full suite ran with 18 prediction tests; final immutable-output fix reran all 26 feature/adapter/CLI tests, including 19 prediction tests.",
+    "e2e": "not run: no UI/HTTP changes",
+    "python": "not run: TS fixed Elo, no fitting"
+  },
+  "logs": [
+    {
+      "path": ".tools/v1-features-install-final.log",
+      "sha256": "a86552229a6082d1edfe7e750cb4f4a88dc4f09421ef5cfebce9e5e85b77de80"
+    },
+    {
+      "path": ".tools/v1-features-typecheck.log",
+      "sha256": "26a6b4d650d8781991922560c5a4a346a3d6867c736d127019bb662bcbd20d14"
+    },
+    {
+      "path": ".tools/v1-features-build.log",
+      "sha256": "a4cb5b79e685f7ad717b72dbe8b3dc9d7fa2e3428bcabf5ce16b9e93eda748d7"
+    },
+    {
+      "path": ".tools/v1-features-unit.log",
+      "sha256": "ce88fe8340e66f00be83657464ddde429534822ba5eb554f24affb9ac0a7ffee"
+    },
+    {
+      "path": ".tools/v1-features-pg.log",
+      "sha256": "04619a9d5ad7401536edfbc6ab068123a0e9bb0c3897bcf1e406ae7c853592d9"
+    },
+    {
+      "path": ".tools/v1-features-final-build.log",
+      "sha256": "5be1cb9e00a1163d242286722f164112653b5b22a467c698964c3cdb02261a1a"
+    },
+    {
+      "path": ".tools/v1-features-final-typecheck.log",
+      "sha256": "14dfa349a86040f81216dc4a7ed5f28e9306d6d4ba9dd6516be49f6ae7c976e1"
+    },
+    {
+      "path": ".tools/v1-features-final-targeted.log",
+      "sha256": "4c8312d7cbb4a323c4baaf089931f9ad43f3106d37c19e4540b47713b0a34595"
+    },
+    {
+      "path": ".tools/v1-features-migrations.log",
+      "sha256": "ef364509ddb66bd5ff3e6308c770fc94fbaaf276dddac52c6f0c3bee9f383d78"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-features-development-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": ".tools/v1-features-development-replay-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": ".tools/v1-features-source-audit-live.json",
+      "sha256": "44a9ad75462eb01a6495d7a427a38b9dade0c587e4f692a769355a6606041105"
+    },
+    {
+      "path": ".tools/v1-features-db-state.json",
+      "sha256": "bccafb6228d51fc1163b0025834f1760ff23915ca909811fc25930ef56b49bae"
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/prediction/src/v1-features.ts",
+      "sha256": "fc51493bb6246e4290f4ae87b13050698b93d4c39d4940a9933ba520a5967aa5"
+    },
+    {
+      "path": "packages/prediction/src/index.ts",
+      "sha256": "2ca595bde59d6ad6e4b00ab92955b1c7b1ec313e8aa1634304cb5420c6854cb4"
+    },
+    {
+      "path": "packages/prediction/package.json",
+      "sha256": "7aefde48f908f72dc9755436b46a44da71e1feabea11efa09c0808bad77ca28d"
+    },
+    {
+      "path": "packages/contracts/src/v1-features.ts",
+      "sha256": "9a66c9ec512952296e4a22c5af2779e075256d8d15c7a6de11400207d93c7024"
+    },
+    {
+      "path": "packages/db/src/v1-features.ts",
+      "sha256": "e165d3d1b26ed2bf584e8044f116c088f6a92ab949e87b4e6f75f8229b4c072f"
+    },
+    {
+      "path": "packages/prediction/tests/v1-features.test.ts",
+      "sha256": "2e9927d904b5f95e6d46013dc203e494bcd9def4fc75192c157e9bcd118060b8"
+    },
+    {
+      "path": "packages/db/tests/v1-features.test.ts",
+      "sha256": "bf84b801529dd658f631234ae78839b1cec8a89728d79d2b9e019aeb7e51443b"
+    },
+    {
+      "path": "packages/db/tests/v1-features-cli.test.ts",
+      "sha256": "319e0b6ba70e97954bdbb216c32412651dbd24e37215bd4fc8e29046fb4b601c"
+    },
+    {
+      "path": "scripts/prepare-v1-features.mjs",
+      "sha256": "5ec20ef0ededc32244c705d91e23ecc29f7cc6d0a430d15cb180a330b2d4f21d"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "sha256": "fd459c006bd0c01d261a3aaca131b0c9ce6071c7ca7f936e4071128ea6ede4c2"
+    }
+  ],
+  "nextTask": "S3-03/V1-candidate: inactive artifact and registered release evaluator; real evaluation remains pending"
+}

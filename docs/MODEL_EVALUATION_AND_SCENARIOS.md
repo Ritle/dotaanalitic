@@ -1,5 +1,7 @@
 # Model Evaluation, What-if & Prediction History
 
+**V1 revision2026-11-02:** [условная оценка ожидаемых составов](../TECHNICAL_SPEC.md) выпускается первой, до post-draft. Для fixed Elo — warmup/untouched test и calibration assessment, fitted calibration только при необходимости на отдельных данных. Обязательно разделять retrospective conditional и реальные prospective метрики. Несовпавший с фактическим ожидаемый состав остаётся в audit; показывать все prospective forecasts и matched-lineup subset раздельно, не выбирать удачные прогнозы задним числом. Расширенные абляции ниже применяются при добавлении соответствующих features.
+
 ## P0 — scope оценок
 
 Модель предсказывает **одну карту**: до драфта и после назначения десяти героев. Pre/draft имеют самостоятельные версии, общую pipeline сборку исторических as-of признаков и строгую проверку calibration. Валидация: chronological train/calibration/holdout, grouping по серии (запрет разрыва), source/patch/roster drift assessment.
