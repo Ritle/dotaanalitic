@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { ownerAuth, logout } from '../auth';
 import CatalogSearch from '../components/CatalogSearch.vue';
+import ModelReadiness from '../components/ModelReadiness.vue';
 const router = useRouter();
 const busy = ref(false);
 const error = ref('');
@@ -27,7 +28,8 @@ async function signOut() {
     <p v-if="error" role="alert" class="error">{{ error }}</p>
     <p>Справочники и профессиональная история доступны ниже.</p><RouterLink to="/compare">Сравнить две команды →</RouterLink><p><RouterLink to="/scenarios">Сохранённые сценарии →</RouterLink></p>
     <p><RouterLink to="/upcoming">Предстоящие матчи →</RouterLink></p>
-    <p class="hint">Прогноз недоступен: проверенные модели ещё не опубликованы.</p>
+    <p><RouterLink to="/forecast-journal">Журнал прогнозов →</RouterLink></p>
   </section>
+  <ModelReadiness />
   <CatalogSearch />
 </template>

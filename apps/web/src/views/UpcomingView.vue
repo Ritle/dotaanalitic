@@ -1,23 +1,38 @@
 <script setup lang="ts">
-import {computed,nextTick,ref} from 'vue';
+import {computed,nextTick,ref,watch} from 'vue';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {UpcomingScheduleResponseSchema,UpcomingRostersResponseSchema} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
 import UpcomingScenario from '../components/UpcomingScenario.vue';
+import UpcomingTarget from '../components/UpcomingTarget.vue';
+import {upcomingParticipants,upcomingParticipantKey,upcomingTeamLabel} from '../upcoming-participants';
 const cache=useQueryClient(),selectedId=ref(''),busy=ref(false),error=ref('');
+const eventFilter=ref('');
 const selectedPanel=ref<HTMLElement|null>(null);
 async function selectMatch(id:string){
   selectedId.value=id;error.value='';await nextTick();
   selectedPanel.value?.focus({preventScroll:true});selectedPanel.value?.scrollIntoView({block:'start',behavior:'instant'});
 }
 const schedule=useQuery({queryKey:['upcoming'],queryFn:({signal})=>readCatalog('upcoming',UpcomingScheduleResponseSchema,signal)});
-const matches=computed(()=>(schedule.data.value?.snapshot?.data??[]).filter(m=>m.status==='not_started'&&
+const eventOptions=computed(()=>{
+  const options=new Map<string,string>();
+  for(const m of schedule.data.value?.snapshot?.data??[]){
+    const id=m.tournament.providerTournamentId;
+    if(!options.has(id))options.set(id,[m.league.name,m.eventSeries?.name,m.tournament.name].filter(Boolean).join(' · ')||'Турнир без названия');
+  }
+  return [...options].map(([id,label])=>({id,label}));
+});
+const upcoming=computed(()=>(schedule.data.value?.snapshot?.data??[]).filter(m=>m.status==='not_started'&&
   (m.scheduledAt===null||m.scheduledAt>schedule.data.value!.computedAt)));
+const matches=computed(()=>upcoming.value.filter(m=>!eventFilter.value||m.tournament.providerTournamentId===eventFilter.value));
+watch(eventFilter,()=>{selectedId.value='';error.value='';},{flush:'sync'});
+watch(matches,rows=>{if(selectedId.value&&!rows.some(m=>m.providerMatchId===selectedId.value)){selectedId.value='';error.value='';}},{flush:'sync'});
 const selected=computed(()=>matches.value.find(m=>m.providerMatchId===selectedId.value)),tournament=computed(()=>selected.value?.tournament.providerTournamentId??'');
 const rosters=useQuery({queryKey:computed(()=>['upcoming-rosters',tournament.value]),enabled:computed(()=>!!tournament.value),
   queryFn:({signal})=>readCatalog(`upcoming/tournaments/${tournament.value}`,UpcomingRostersResponseSchema,signal)});
-const expected=computed(()=>selected.value?.opponents.map(t=>({...t,players:rosters.data.value?.snapshot?.data.find(r=>r.providerTeamId===t.providerTeamId)?.players??null}))??[]);
+const participants=computed(()=>selected.value?upcomingParticipants(selected.value):null);
+const expected=computed(()=>participants.value?.teams.map(t=>({...t,players:rosters.data.value?.snapshot?.data.find(r=>r.providerTeamId===t.providerTeamId)?.players??null}))??[]);
 const moscow=(value:string|null)=>value?new Intl.DateTimeFormat('ru-RU',{dateStyle:'medium',timeStyle:'short',timeZone:'Europe/Moscow'}).format(new Date(value))+' МСК':'Время не объявлено';
 const message=(reason:string|null|undefined)=>({not_configured:'Источник расписания не настроен на сервере.',
   source_unavailable:'Не удалось обновить источник. Сохранённые данные показаны ниже.',refresh_in_progress:'Обновление уже выполняется. Перечитайте сохранённые данные через несколько секунд.',
@@ -30,6 +45,13 @@ async function refresh(kind:'schedule'|'rosters'){
     else cache.setQueryData(['upcoming-rosters',id],await readCatalog(`upcoming/tournaments/${id}/refresh`,UpcomingRostersResponseSchema,new AbortController().signal,init));
   }catch(e){error.value=e instanceof Error?e.message:'Не удалось обновить данные.';}finally{busy.value=false;}
 }
+// Selecting a match authorizes its initial roster lookup. Existing/stale snapshots stay manual;
+// errors do not cause a watch/retry loop or a request for every match in the same tournament.
+const initialRosterAttempts=new Set<string>();
+watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.value] as const,([id,loading,fetching,data])=>{
+  if(!id||loading||fetching||!data?.configured||data.snapshot||data.reason!=='not_loaded'||initialRosterAttempts.has(id))return;
+  initialRosterAttempts.add(id);void refresh('rosters');
+});
 </script>
 <template>
   <main class="shell upcoming"><RouterLink to="/">← Личный кабинет</RouterLink>
@@ -39,18 +61,29 @@ async function refresh(kind:'schedule'|'rosters'){
       <div class="account-row"><h2>Ближайшие встречи</h2>
         <button :disabled="busy||!schedule.data.value?.configured" @click="refresh('schedule')">{{busy?'Обновление…':'Обновить расписание'}}</button></div>
       <p class="hint">Источник: PandaScore · первая страница, до 20 встреч. Время в расписании — московское. Источник обновляется не чаще раза в пять минут.</p>
+      <div class="event-filter"><label for="schedule-event-filter">Турнир в сохранённом расписании</label>
+        <select id="schedule-event-filter" v-model="eventFilter" :disabled="!schedule.data.value?.snapshot" aria-describedby="event-filter-note">
+          <option value="">Все турниры на этой странице</option>
+          <option v-if="eventFilter&&!eventOptions.some(o=>o.id===eventFilter)" :value="eventFilter">PandaScore #{{eventFilter}} — отсутствует на странице</option>
+          <option v-for="o in eventOptions" :key="o.id" :value="o.id">PandaScore #{{o.id}} · {{o.label}}</option>
+        </select>
+      </div>
+      <p v-if="eventFilter" class="hint">Выбранный турнир: PandaScore #{{eventFilter}}.</p>
+      <p id="event-filter-note" class="hint">Фильтр действует только на сохранённую страницу, а не на полный календарь. Он не подтверждает уровень Tier 1. При смене фильтра выбранная встреча и несохранённая форма сбрасываются.</p>
       <p v-if="schedule.isPending.value" role="status">Загрузка расписания…</p>
       <div v-else-if="schedule.error.value" role="alert"><p class="error">{{schedule.error.value.message}}</p><button @click="schedule.refetch()">Повторить чтение</button></div>
       <template v-if="schedule.data.value">
         <p v-if="schedule.data.value.reason" :class="schedule.data.value.reason==='source_unavailable'?'error':'hint'" role="status">{{message(schedule.data.value.reason)}}</p>
-        <p v-if="schedule.data.value.snapshot" class="hint">Получено: {{dateLabel(schedule.data.value.snapshot.source.fetchedAt)}} · В ответе: {{schedule.data.value.snapshot.data.length}} · Будущих на странице: {{matches.length}}</p>
+        <p v-if="schedule.data.value.snapshot" class="hint" role="status">Получено: {{dateLabel(schedule.data.value.snapshot.source.fetchedAt)}} · В ответе: {{schedule.data.value.snapshot.data.length}} · Предстоящих на странице: {{upcoming.length}} · Показано: {{matches.length}}</p>
         <p v-if="schedule.data.value.status==='stale'" class="warning">Сохранённое расписание устарело. Время и участники могли измениться.</p>
         <p v-if="schedule.data.value.retryAt" class="hint">Повторить после {{dateLabel(schedule.data.value.retryAt)}}</p>
-        <p v-if="!matches.length">Предстоящих встреч в сохранённых данных нет. Обновите расписание.</p>
+        <p v-if="!matches.length&&eventFilter">На этой странице нет предстоящих встреч выбранного турнира. Это не означает, что их нет в полном расписании.</p>
+        <p v-else-if="!matches.length">Предстоящих встреч в сохранённых данных нет. Обновите расписание.</p>
         <div v-else class="table-scroll"><table><caption class="sr-only">Предстоящие встречи Dota 2</caption>
           <thead><tr><th scope="col">Начало</th><th scope="col">Встреча</th><th scope="col">Турнир</th><th scope="col">Формат</th></tr></thead>
           <tbody><tr v-for="m in matches" :key="m.providerMatchId" :class="{chosen:selectedId===m.providerMatchId}">
-            <td>{{moscow(m.scheduledAt)}}</td><td><span class="match-name">{{m.opponents.map(t=>t.name??'Команда не определена').join(' — ')||m.name||'Участники не определены'}}</span>
+            <td>{{moscow(m.scheduledAt)}}</td><td><span class="match-name">{{upcomingParticipants(m).label}}</span>
+              <span v-if="!upcomingParticipants(m).complete&&m.name" class="hint source-name">Запись источника: {{m.name}}</span>
               <button :aria-pressed="selectedId===m.providerMatchId" @click="selectMatch(m.providerMatchId)">Выбрать</button></td>
             <td>{{m.league.name??'Турнир не назван'}} · {{m.eventSeries?.name}} · {{m.tournament.name??'Стадия не указана'}}</td>
             <td>{{m.seriesBestOf?'BO'+m.seriesBestOf:'Не объявлен'}}</td>
@@ -60,9 +93,12 @@ async function refresh(kind:'schedule'|'rosters'){
     </section>
     <p v-if="error" class="error" role="alert">{{error}}</p>
     <section v-if="selected" ref="selectedPanel" class="panel" tabindex="-1" aria-label="Ожидаемые составы">
-      <div class="account-row"><h2>{{selected.name??'Выбранная встреча'}}</h2><button :disabled="busy||!rosters.data.value?.configured" @click="refresh('rosters')">Обновить составы</button></div>
+      <div class="account-row"><h2>{{participants?.complete?(selected.name??participants.label):participants?.label}}</h2><button :disabled="busy||!rosters.data.value?.configured" @click="refresh('rosters')">Обновить составы</button></div>
       <p>{{moscow(selected.scheduledAt)}} · {{selected.league.name}} · {{selected.tournament.name}}</p>
+      <p v-if="!participants?.complete&&selected.name" class="hint">Запись источника: {{selected.name}}</p>
       <p>Здесь ожидаемые заявки на турнир. Поздние замены могут ещё не попасть в источник. Порядок списка не определяет роли.</p>
+      <p v-if="participants?.message" class="warning" role="status">{{participants.message}}</p>
+      <p v-if="!participants?.complete" class="hint">Для привязки прогноза к этой встрече нужны два разных участника источника. Команда из другой заявки турнира не подставляется вместо соперника.</p>
       <p v-if="rosters.isPending.value" role="status">Загрузка составов…</p><p v-if="rosters.error.value" class="error" role="alert">{{rosters.error.value.message}}</p>
       <template v-if="rosters.data.value">
         <p v-if="rosters.data.value.reason" class="hint" role="status">{{message(rosters.data.value.reason)}}</p>
@@ -71,22 +107,27 @@ async function refresh(kind:'schedule'|'rosters'){
         <p v-if="rosters.data.value.retryAt" class="hint">Повторить после {{dateLabel(rosters.data.value.retryAt)}}</p>
       </template>
       <div class="expected-columns"><article v-for="(t,i) in expected" :key="t.providerTeamId">
-        <h3>Команда {{i===0?'A':'B'}} · {{t.name??'Не названа'}}</h3>
+        <h3>{{participants?.complete?`Команда ${i===0?'A':'B'}`:'Известный участник'}} · {{upcomingTeamLabel(t)}}</h3>
+        <p class="hint">ID PandaScore: {{t.providerTeamId}}</p>
         <p v-if="t.players===null">Заявка ещё не загружена или отсутствует у источника.</p>
         <template v-else><p class="hint">В заявке: {{t.players.length}} игроков</p>
           <p v-if="t.players.length!==5" class="warning">Нужно вручную уточнить пятёрку.</p>
           <ul><li v-for="p in t.players" :key="p.providerPlayerId">{{p.name??'Имя не указано'}}</li></ul>
         </template>
+      </article><article v-if="!participants?.complete" aria-label="Отсутствующий участник">
+        <h3>{{expected.length===1?'Соперник не указан':'Участники не указаны'}}</h3><p>Уточните участников в источнике после обновления расписания.</p>
       </article></div>
-      <p v-if="expected.length!==2" class="warning">Оба соперника ещё не определены. Для сценария выберите две команды вручную.</p>
-      <p class="hint">Связь этих игроков с локальной историей ещё не подтверждена. Выберите записи из справочника вручную.</p>
-      <UpcomingScenario :key="selected.providerMatchId" :match="selected" />
+      <p class="hint">Ниже можно соединить заявку с игровыми аккаунтами и подготовить пятёрки для анализа. Сохранённые связи используются повторно.</p>
+      <UpcomingScenario :key="upcomingParticipantKey(selected)" :match="selected" :roster-version="rosters.data.value?.snapshot?.source.payloadSha256" />
+      <UpcomingTarget :key="'target:'+upcomingParticipantKey(selected)" :match="selected" />
     </section>
   </main>
 </template>
 <style scoped>
+.event-filter{display:grid;gap:var(--space-2);margin-block:var(--space-4);min-width:0}.event-filter select{width:100%;max-width:100%;min-width:0}
 .expected-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6)}article{min-width:0}article li{padding-block:4px;overflow-wrap:anywhere}
 .upcoming td{vertical-align:top;min-width:130px}.chosen{background:var(--color-elevated)}.upcoming h2{overflow-wrap:anywhere}
 .match-name{display:block;margin-bottom:8px}
+.source-name{display:block;margin-bottom:8px}
 @media(max-width:680px){.expected-columns{grid-template-columns:1fr}.upcoming{padding-inline:14px}.panel{padding:16px}}
 </style>

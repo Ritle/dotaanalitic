@@ -60,7 +60,7 @@ export class PostgresProviderBudget implements ProviderBudget {
 
   async observe(status: number, retryAfterMs: number | null, remaining: { minute: number | null; day: number | null; month: number | null }) {
     await sql`UPDATE provider_quotas SET blocked_until=greatest(blocked_until,
-      CASE WHEN ${status} IN (429,503) THEN clock_timestamp()+${retryAfterMs ?? (status===429?60000:0)}*interval '1 millisecond' ELSE '-infinity'::timestamptz END,
+      CASE WHEN ${status}=429 OR ${status}>=500 THEN clock_timestamp()+${retryAfterMs ?? (status===429?60000:0)}*interval '1 millisecond' ELSE '-infinity'::timestamptz END,
       CASE WHEN ${remaining.minute}::integer=0 THEN clock_timestamp()+interval '1 minute' ELSE '-infinity'::timestamptz END,
       CASE WHEN ${remaining.day}::integer=0 THEN date_trunc('day',now(),'UTC')+interval '1 day' ELSE '-infinity'::timestamptz END,
       CASE WHEN ${remaining.month}::integer=0 THEN date_trunc('month',now(),'UTC')+interval '1 month' ELSE '-infinity'::timestamptz END)

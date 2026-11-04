@@ -29,3 +29,5 @@ export * from './evaluation-details.js';
 export * from './research-evidence.js';
 export * from './v1-release-evidence.js';
 export * from './v1-release-evaluation.js';
+export * from './role-profile-client.js';
+export * from './roster-catalogue.js';

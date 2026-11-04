@@ -1,0 +1,536 @@
+{
+  "schemaVersion": 1,
+  "task": "S2-01/role-profile-reader",
+  "clientDate": "2026-11-04",
+  "clientTimezone": "Europe/Moscow",
+  "generatedAt": "2026-11-03T23:47:57.597Z",
+  "status": "implemented_owner_mapping_required_for_real_team",
+  "scope": "Current descriptive profile/history agreement; manual override; no historical role or Elo changes",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCliTests": 750,
+    "unitPackageCounts": [
+      54,
+      20,
+      16,
+      33,
+      347,
+      232,
+      47,
+      1
+    ],
+    "nodeTests": 74,
+    "targetedTests": 19,
+    "pgApiTests": 10,
+    "uniqueChromiumE2e": 6,
+    "newChromiumE2e": 2,
+    "mobileInspected": true,
+    "preflightRed": 1,
+    "preflightFinal": 10,
+    "configuredRetries": 0,
+    "timeoutsIncreased": false,
+    "finalBrowserRun": "6/6 stable dist; isolated diagnostic1/1",
+    "initialBrowserIssues": [
+      "empty-copy compatibility",
+      "HTTP response wait and unsaved form fixture",
+      "intermediate concurrent compile timeout"
+    ],
+    "notExecuted": [
+      "full PostgreSQL suite",
+      "full owner browser suite",
+      "Python",
+      "Docker/Linux/deployment",
+      "restore of new backup"
+    ]
+  },
+  "live": {
+    "stratzRequests": 5,
+    "stratzProfilesWithRoles": 5,
+    "cacheReplayRequests": 0,
+    "pandaRequests": 1,
+    "pandaPlayersWithRoles": 32,
+    "roleAccuracyMeasured": false,
+    "representativeTier1Sample": false,
+    "realBindingRevision": 0,
+    "realAutoApply": false
+  },
+  "preservation": {
+    "previousRelations": 78,
+    "currentRelations": 81,
+    "unchangedPreviousRelations": 76,
+    "allowedChangedPreviousRelations": [
+      "schema_migrations",
+      "pandascore_request_quota"
+    ],
+    "queuedAuroraPreserved": true,
+    "oldNonBarrelRuntimeModulesUnchanged": 150,
+    "protectedArtifacts": 43,
+    "migrationLedgerChecksums": 35,
+    "historicalMigrationsChanged": 0,
+    "compatibleV1Runtime": true,
+    "frozenBundleVerified": true,
+    "roleBindingWrites": 0,
+    "scenarioPredictionTrainingActivationWrites": 0,
+    "progressPrefixPreserved": true,
+    "backup": {
+      "status": "PASS",
+      "file": ".tools/backups/role-profiles-before-035.dump",
+      "sha256": "cb7e0918cc0e6ca0d8236ce88ee7ab697905a24726398ad1a6546a3377058a94",
+      "archiveListChecked": true,
+      "restoreExecuted": false
+    }
+  },
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-release-leagues-20261102.json",
+      "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+    },
+    {
+      "path": ".tools/v1-features-development-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+      "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+      "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evidence.json",
+      "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+      "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+      "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+      "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-verification.json",
+      "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+      "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+      "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+    },
+    {
+      "path": "docs/evidence/s3-05-v1-registry.json",
+      "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+      "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-owner-api-ui.json",
+      "sha256": "543d4a48d36f627af4597462e4c4adb35109de362e2b68d55001b21cc41693eb"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-real-target.json",
+      "sha256": "9f49e3f6394ff9490b98249d717859b058e1df04e8614a165f9add23cd6f1911"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-journal-metrics.json",
+      "sha256": "baf05428a2b2623c9c207d9074e2c0bdc3f8776e232967b1446e06ce09008b38"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-journal-owner-api-ui.json",
+      "sha256": "1f351addda289fcef98de74c40634c61cb9b291e3bc769a7b89186cc63cbd807"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-target-lifecycle.json",
+      "sha256": "740b47a7f2e6f510f9ea95ea513b9f7246502fb7b94c87750d5b541fb80fd98e"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-schedule-target-registration.json",
+      "sha256": "b0b0f67b68632c0395a7d650d813f2f63a5f37c66a2f75ab7c58922d99f10fb8"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-runtime.json",
+      "sha256": "757e2dd402846ab15fe9502a872f3e1525c7ae67c2f1c0366297f2007eb7d29c"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-result.json",
+      "sha256": "19f633fae8a8a4211bbd5eccb836b08e8872684cd949ab899cfb829542b1de0d"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-owner-flow.json",
+      "sha256": "bdfd9eaac593c6aa5d929059da88cfabee62d04b4ac68b052423f01c1700d780"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-binding-owner-flow.json",
+      "sha256": "db330af19571caf5dd95331d204e9d0424844eccc277b393c2afba8877450869"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-target-lifecycle.json",
+      "sha256": "2dec5d4c3af4577b2e9e19fc20f609ab8db0e700ca7cc07081de9be4d267940d"
+    },
+    {
+      "path": "docs/evidence/s4-v1-acceptance-audit.json",
+      "sha256": "4803b1dec3a0081e10bc5ee064ddfdfbe1d023902b45d9dc7684175ad737b668"
+    },
+    {
+      "path": "docs/evidence/s4-v1-backup-restore.json",
+      "sha256": "3f03694f0f3628d4df68c3b86c4e2ff9bd4d3ad017c20368897f1b2db63ac79b"
+    },
+    {
+      "path": "docs/evidence/s4-v1-local-owner-smoke.json",
+      "sha256": "1cf3f62be6185662d7a861b25a608f98c4d77796984b88063ba2fb4b452789d8"
+    },
+    {
+      "path": "docs/evidence/s4-v1-schedule-event-filter.json",
+      "sha256": "7ae62cbf174b4fbff6735bd4b8268c99ec07bad3262b9a0a2c013322db9c5708"
+    },
+    {
+      "path": "docs/evidence/s4-v1-schedule-event-filter-v2.json",
+      "sha256": "4a80b6ce7436da825b457841d4beb2e1af18c5ec42672c68e6926e05029cc0d8"
+    },
+    {
+      "path": "docs/evidence/s4-v1-model-readiness-status.json",
+      "sha256": "905aa2d3ba7637c82dab74465e262084d15549ed6b4465e6947756925755ed13"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-security-review.json",
+      "sha256": "e33be17b1da749b94756b3a8959257c73ccc54dfd0b03b9fcfa4581735b7b7f6"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-queue-coverage.json",
+      "sha256": "bac1dcac838e617c4deaff8a4be71f5e4736cd037f90646407ef402f5973d777"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-provider-resilience.json",
+      "sha256": "305a1c2e90f01f24813f2b411ceb59ce51f07dbd7a8e958e43e2aae4b3f078e8"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-provider-conflicts.json",
+      "sha256": "00016adb4d65c22468c4b2c882c6dd882bee3393b047c5a2345d7c32f4172178"
+    },
+    {
+      "path": "docs/evidence/s4-02-v1-historical-regression.json",
+      "sha256": "595cfbaca6074ee58e89242177b312564a4da9a3fae63b8e9f617cf6909ebf6b"
+    },
+    {
+      "path": "docs/evidence/s4-02-v1-full-owner-e2e.json",
+      "sha256": "a5d206b192c6301da2f81a3234c60ace1ff50914da189b7b394a737eb4aeb744"
+    },
+    {
+      "path": "docs/evidence/s4-03-v1-deployment-preflight.json",
+      "sha256": "61a91f176793c77c387ab410795e86a45dda730b57ca039d7c322febb4ddea18"
+    },
+    {
+      "path": "docs/evidence/s2-01-role-suggestions.json",
+      "sha256": "ed517ebde5194ee53b9eb2decf27ada6218c83bab6a5b23e20fb9d0d3599f7c4"
+    },
+    {
+      "path": "docs/evidence/s2-01-role-api-review.json",
+      "sha256": "c4ecd19748163a4e5dcbca0a40be1d7f387aca504cf00ab60c1d460347811547"
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/role-profiles.ts",
+      "sha256": "956987dc48382738212832492fa63c3eb0d0f423f92a38aa4bbada371a96078f"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "3b3fb2a0b87f14247b004a804d814a249784b261e54e9918b80e58a0788c1092"
+    },
+    {
+      "path": "packages/db/src/role-profile-repository.ts",
+      "sha256": "f0ef74a84f7fa49ab7d81744f81b6eaf0c633a8ec9355728851d540094bfbde7"
+    },
+    {
+      "path": "packages/db/src/role-profile-resolution.ts",
+      "sha256": "a4f897b1a3582a5a3501f6981d066505b6a801a1c5edf5d4fcca2a6f75b58887"
+    },
+    {
+      "path": "packages/db/src/role-suggestion-repository.ts",
+      "sha256": "aed7ab92ed454a3fb53f1c9c01b46c9e51dc6c076dde200c0aac82900866e152"
+    },
+    {
+      "path": "packages/db/src/index.ts",
+      "sha256": "719e352879b9ce7ae91024b2a51fef15e4490f7b1c804d778906f85bd09e80d0"
+    },
+    {
+      "path": "packages/db/migrations/035_role_profile_hints.sql",
+      "sha256": "b4b757258c8b6e205e848cdffab6d01618f8d43f6891f74bd9416178b2ba8d99"
+    },
+    {
+      "path": "packages/ingestion/src/role-profile-client.ts",
+      "sha256": "0137bb21b9863d76c9ea370c907efd5b836128dffb88c62b686e76aef03b88fc"
+    },
+    {
+      "path": "packages/ingestion/src/index.ts",
+      "sha256": "a4e95ad44e4414f987706c01a66a84ab9b672c2e58cd5a7e6a8475be6ba21dae"
+    },
+    {
+      "path": "apps/api/src/modules/catalog/role-profile-service.ts",
+      "sha256": "5f08842b44923879b740075136dd78f84301321c414944ae975875ef2c1ef326"
+    },
+    {
+      "path": "apps/api/src/modules/catalog/role-profiles-http.ts",
+      "sha256": "d45733462b18d6b2de8e9e6644b48e28bac98258d44167a994d156d3fa44b425"
+    },
+    {
+      "path": "apps/api/src/app.ts",
+      "sha256": "0fad2cf9c275c70ade599a2db229e0a5d41e9127f783ab8f21fd9cf15fe02a1c"
+    },
+    {
+      "path": "apps/api/src/config.ts",
+      "sha256": "0252a943886594a3146e317373d9788c54ecdecdf935f5be72976e4f7cef6a75"
+    },
+    {
+      "path": "apps/web/src/components/RoleProfiles.vue",
+      "sha256": "3e5cc3b74e7878ebb3678931ff4322cefa0223d3a48131a7031dfcbab744ae31"
+    },
+    {
+      "path": "apps/web/src/components/UpcomingScenario.vue",
+      "sha256": "930e7d577f7646929bfef24220b228a188a75b5cd3906636f62755cc13fdc46a"
+    },
+    {
+      "path": "apps/web/src/views/ScenariosView.vue",
+      "sha256": "d56cf84e937801c76c12c9c4bfd34eca103780c0ae46414f60813af7253f5cef"
+    },
+    {
+      "path": "packages/db/tests/role-profile-resolution.test.ts",
+      "sha256": "3b3244dff9dc1edd70df13f19c56560cffc311176e293ca3c7218c23b5947cdd"
+    },
+    {
+      "path": "packages/ingestion/tests/role-profile-client.test.ts",
+      "sha256": "c817f57532bf3605246ef17ca479e0df9e48af3ab8fb0437d3df2e0efa20a593"
+    },
+    {
+      "path": "apps/api/tests/role-profiles.integration.test.ts",
+      "sha256": "38e910d22340e6d48408f579754d8b4cb6d97ba4ca2ddc1d1702f252c84b7cff"
+    },
+    {
+      "path": "apps/web/tests/e2e/role-profiles.spec.ts",
+      "sha256": "02593f834433e5f2546cbd23f8d73577335ea7d086a4b3fd3c46124b7e5e78e8"
+    },
+    {
+      "path": "scripts/lib/deployment-preflight.mjs",
+      "sha256": "ed2fff834846b06054656413c52cc426fd8584aead8a178aafd4f3dc69c5a283"
+    },
+    {
+      "path": "tests/node/production-preflight.test.mjs",
+      "sha256": "cca94655fdc8cb56e3fbe3b1ac928607fe495819852d74746c78865d5f2b8ceb"
+    },
+    {
+      "path": "compose.production.yaml",
+      "sha256": "36fae77b1fbeebb527ba96382b10d2e26d5188a2bef9c438e68a15524495feee"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "922e1bcfbcd0054654d0cff54e58333d089a145c7c2fe4c1ff4992f124220dfa"
+    },
+    {
+      "path": ".env.production.example",
+      "sha256": "426971b82a09a5848cc4f6116cd37ce36d3efb406c958e3f2c4b7fe8dc2cfd62"
+    }
+  ],
+  "docs": [
+    {
+      "path": "README.md",
+      "sha256": "abafcb73d72fe39960b9a89d610f3fde512e7cf9422fe07af53999a0c83afcb8"
+    },
+    {
+      "path": "docs/S2_01_ROLE_PROFILES.md",
+      "sha256": "6e5cf15451d43233d3296f4711813cc9b35fb9a1bfbd035e608062be260ad9ea"
+    },
+    {
+      "path": "docs/S2_01_ROLE_API_REVIEW.md",
+      "sha256": "05bd040bd0faac776e9d4dd14b42945ec99656d420c0350224af05370bb5d423"
+    },
+    {
+      "path": "docs/S2_01_ROLE_SUGGESTIONS.md",
+      "sha256": "763eeca0244d1bbb8048a47ac4afe8ba7af48affdfbea2bc78851992a1b9b494"
+    },
+    {
+      "path": "docs/PROJECT_STATE.md",
+      "sha256": "5402db0312de4129dc8b05a68d036e9ced7dbc3616881accd0c2ecd5909bfd0e"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PLAN.md",
+      "sha256": "08d526e36ef6663d92f1eeb76d37b2dc109c6b3e7562c89225f31356a23f36ba"
+    },
+    {
+      "path": "docs/API_CONTRACTS.md",
+      "sha256": "9bde4f121401d64539e5bf264fae7867bd209daa66430e6257b2f18d4352cf30"
+    },
+    {
+      "path": "docs/DATA_MODEL.md",
+      "sha256": "8d996d76de8428e099183e9c49edfbc9d4e3eeab283e93f436715acf50703528"
+    },
+    {
+      "path": "docs/OPERATIONS_RUNBOOK.md",
+      "sha256": "cbd6ebbff2c6fecc138eecaa2cf9dd163e36a19ae18ede58338d0c3614814152"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "6dee9623b24d772603df3f7d98351fc571459eeba04bbe7456d30929cc7e5e60"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".tools/role-profiles-before.json",
+      "sha256": "34cd4de56d4812c48007586d1bd3f27f4086f673a31f2901f0e1ade4023f3a84"
+    },
+    {
+      "path": ".tools/role-profiles-after.json",
+      "sha256": "5670f4c81ba10627c09fd6e2380b34efb64ed45c92a12d02fcac2f7be3d1054d"
+    },
+    {
+      "path": ".tools/role-profiles-live.json",
+      "sha256": "0ec92be3f583fee669867a5df82e9b62fa96b64aae4208ae882ae796c9917060"
+    },
+    {
+      "path": ".tools/role-profiles-panda-live.json",
+      "sha256": "b792b3fe19481430826028827aec459911a2b063e73d28ad5541e51103465ae2"
+    },
+    {
+      "path": ".tools/role-profiles-preservation.json",
+      "sha256": "72cdab66babe7bf3ee6688b2a8015f5006f1540557eb3fb27918183436dea3ce"
+    },
+    {
+      "path": ".tools/role-profiles-backup.json",
+      "sha256": "99e78e2401e47055e3c92e37bac8975d76cde592f049bcd4f0e68fc65870dea3"
+    },
+    {
+      "path": "test-results/role-profiles-mobile.png",
+      "sha256": "af6c4d380bf5830c6ff89d149271fcfa86aa9fac0593e17a014476dc52ebfbf8"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".tools/role-profiles-build.log",
+      "sha256": "45ae1bbc7cc2ebd83b72bc6a76f9fba877d50c5d63c9e955e2216b69737ee5e4"
+    },
+    {
+      "path": ".tools/role-profiles-diff.log",
+      "sha256": "a043f37e2f6191bde4a91a423846b1a5b1886e3c3d354fbf63de28eb764d997f"
+    },
+    {
+      "path": ".tools/role-profiles-e2e-debug.log",
+      "sha256": "9fa03d237a91c72ab574d996c3ee1eada5134700065e130363a3f1b870005781"
+    },
+    {
+      "path": ".tools/role-profiles-e2e-final.log",
+      "sha256": "fb5085d069399cfa8fd36e64e2e458c6ec54a4dce1e6be64e96c41f47cc33911"
+    },
+    {
+      "path": ".tools/role-profiles-e2e-verified.log",
+      "sha256": "411f0f485706a0693d4f2463864a23afe7afd8a2a01a772d952af3ee078b53c0"
+    },
+    {
+      "path": ".tools/role-profiles-e2e.log",
+      "sha256": "3d397a9de5e0320e01afcd1aea0ea6982cf813cec62fc9ce098179be09fb7981"
+    },
+    {
+      "path": ".tools/role-profiles-install.log",
+      "sha256": "65b77fca5549809f15733477104996b3ebf38d3ab72195e487389cd02811fe21"
+    },
+    {
+      "path": ".tools/role-profiles-migrate.log",
+      "sha256": "1092904c9964d8a17bf4b4f66c5e7e644b2a984dd7f03452ae64f79e775c2dce"
+    },
+    {
+      "path": ".tools/role-profiles-migrations-check.log",
+      "sha256": "ea9580186defcb373bfddc8b4d7e05c6d9b638395c70b5ccc8873ddac8f62f83"
+    },
+    {
+      "path": ".tools/role-profiles-node.log",
+      "sha256": "c8f33f2108d74943402bc30ae8f19216154aa52d1f1529f38427935d07e58130"
+    },
+    {
+      "path": ".tools/role-profiles-preflight-final.log",
+      "sha256": "b23bd06fe8f06739546d704bc91d86bac311130c9bc5262acbabe1864dde453c"
+    },
+    {
+      "path": ".tools/role-profiles-preflight-red.log",
+      "sha256": "5a3954544c7bd7615b26db00c18ed446709442a12a3051e5a3a955f18316f014"
+    },
+    {
+      "path": ".tools/role-profiles-targeted-final.log",
+      "sha256": "83540f0ac5304a9797a972b9f27b5e9071b8e71cd591f71d12d1f62d0a68f923"
+    },
+    {
+      "path": ".tools/role-profiles-targeted.log",
+      "sha256": "5fc4d715762d26d584418960bd1d25b37a8b52ee3c2d025e4d14d4d090295938"
+    },
+    {
+      "path": ".tools/role-profiles-typecheck-final.log",
+      "sha256": "bbbaf3e3a07889123b8682ab7983ad2dc83a2ccc3df3dbfeb85346bc612870d6"
+    },
+    {
+      "path": ".tools/role-profiles-typecheck-initial.log",
+      "sha256": "7e84df0198af5fb95ad63f72e7061ea79de674a2911a36dbbdc41a5cc5cc4ba0"
+    },
+    {
+      "path": ".tools/role-profiles-typecheck.log",
+      "sha256": "08023bdb8f98bab3ba59854993b013b8e50350cc4c658198d54797d587685fb5"
+    },
+    {
+      "path": ".tools/role-profiles-unit.log",
+      "sha256": "637d7ade3d5e682158b1c54dbcb08191313efe1a30ccdd720e987212746cc671"
+    }
+  ],
+  "harness": [
+    {
+      "path": ".tools/role-profiles-backup.mjs",
+      "sha256": "6d3fa80622604c9ce30324a2a5ab7e4b0a1e5d3e25aabccf403eb10aaa586647"
+    },
+    {
+      "path": ".tools/role-profiles-enable.mjs",
+      "sha256": "2440d4fdf0d1edd7cb08a75d6b280482da93c4c585dccd970fc0bb2a28be119a"
+    },
+    {
+      "path": ".tools/role-profiles-finalize.mjs",
+      "sha256": "a6599e19dbe6077da172593e7c57e0ac68cfacfde4219550641b4f87788badb8"
+    },
+    {
+      "path": ".tools/role-profiles-live.mjs",
+      "sha256": "bc57dceb2ad828ba0a4f006541940694aedcfa89c8243114a7d41e12008abecd"
+    },
+    {
+      "path": ".tools/role-profiles-panda-live.mjs",
+      "sha256": "b88218f67054d95298fff046fb158746c33aa0e9e70782165c538c675455008c"
+    },
+    {
+      "path": ".tools/role-profiles-preservation.mjs",
+      "sha256": "9c5535fd40427952f8621395b8082a9af33e2c4cfbbd3704d615691bdf411710"
+    }
+  ],
+  "nextTask": "S2-01/role-owner-check",
+  "nextModel": "GPT-6.1 Sol / High",
+  "deploymentDeferred": true
+}

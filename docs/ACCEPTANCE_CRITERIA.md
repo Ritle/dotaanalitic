@@ -1,8 +1,10 @@
 # Критерии приёмки MVP
 
+**S4/V1 audit, 2026-11-03:** [матрица требований и доказательств](S4_V1_ACCEPTANCE_AUDIT.md) отделяет реализованные протоколы от условий выпуска. Журнал V1, [проверка владельца](S4_V1_LOCAL_OWNER_SMOKE.md), [фильтр турниров](S4_V1_SCHEDULE_EVENT_FILTER.md), [Home registry status](S4_V1_MODEL_READINESS_STATUS.md), [owner HTTP security review](S4_01_V1_SECURITY_REVIEW.md), [native pg-boss queue restore coverage](S4_01_V1_QUEUE_COVERAGE.md) и [upstream resilience review](S4_01_V1_PROVIDER_RESILIENCE.md) реализованы/проверены в описанной области. Home probability всегда null, реальный forecast требует собственных gates. Полная78-entry сверка закрыла S4-SEC-03 текущего verifier; durable Retry-After OpenDota исправлен для всех 5xx. [Review провайдерских конфликтов](S4_01_V1_PROVIDER_CONFLICTS.md) завершён: новые8 cases включены в test:pro-maps/CI, runtime не менялся; S4-01 закрыт в текущей localhost V1 области. [S4-02 historical regression](S4_02_V1_HISTORICAL_REGRESSION.md) пройдена на frozen232-map development snapshot; это совпадение признаков, не независимая оценка точности. [Full owner E2E](S4_02_V1_FULL_OWNER_E2E.md)57/57 пройден на изолированных данных; S4-02 закрыт в текущей localhost V1 области. Общая приёмка ждёт независимой оценки модели и restore с реальной active моделью; Docker/VPS/remote CI этим не подтверждены.
+
 ## Приёмка первого прогнозного выпуска V1
 
-- Scope уточнён владельцем2026-11-02: будущие прогнозы MVP для явно выбранных Tier 1 events/editions; Tier 2 — после MVP. Event selection фиксируется до новых test outcomes, качество проверяется на target domain. `is_pro`/`premium` не подменяют Tier 1 membership. Другая verified pro-history не удаляется автоматически; вне prediction scope описательная аналитика сохраняется. Runtime scope check и schedule filter ещё предстоит реализовать.
+- Scope уточнён владельцем2026-11-02: будущие прогнозы MVP для явно выбранных Tier 1 events/editions; Tier 2 — после MVP. Event selection фиксируется до новых test outcomes, качество проверяется на target domain. `is_pro`/`premium` не подменяют Tier 1 membership. Другая verified pro-history не удаляется автоматически; вне prediction scope описательная аналитика сохраняется. Owner-reviewed Tier 1 scope проверяется runtime; фильтр по provider tournament ID реализован локально для сохранённой первой страницы, с явным partial scope и без присвоения Tier1. Качество на целевом домене ещё требует независимого release test.
 
 [TECHNICAL_SPEC §0](../TECHNICAL_SPEC.md) определяет отдельный первый выпуск; критерии полного двухмодельного MVP ниже не должны возвращать отложенные зависимости в V1.
 
@@ -18,7 +20,7 @@
 - Roster mismatch/unknown отмечен, но не удаляет корректно связанный pre-start forecast из общей сервисной статистики; matched-lineup conditional срез показан отдельно с N. Идемпотентный refresh не мутирует prediction snapshots; source corrections создают outcome/report revisions. Один map остаётся одним training example независимо от числа forecast runs. Graphs/advanced drilldowns/retraining automation не требуются для базового журнала.
 - Сохранены existing analytics/schema/strict policy и пути добавления logistic, patch/role/cohesion, post-draft. Каждый новый feature profile имеет независимую проверку и versioned artifact; V1 не означает готовность полного MVP.
 
-**Статус:** критерии, включая журнал по решению владельца2026-11-02, утверждены; production V1 pipeline и journal ещё не реализованы. Текущая следующая работа — [план V1](IMPLEMENTATION_PLAN.md), S3-01/V1-evaluation collector/ledger.
+**Статус:** feature builder, inactive candidate, registry/runtime snapshots и базовый журнал реализованы и имеют отдельные проверки. Release test и подтверждение качества не выполнены, активной модели нет. Выпуск V1 и общий двухмодельный MVP не объявлены готовыми. Точный следующий срез — в [PROJECT_STATE](PROJECT_STATE.md).
 
 ## Data: MUST
 

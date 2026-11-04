@@ -4,7 +4,7 @@ import { resolveIdentity } from './identity.js';
 import type { verifyV1RegistryArtifact } from './v1-registry.js';
 export const runtimeUs = (time: string) => (BigInt(Date.parse(time)) * 1000n).toString();
 
-export function runtimeTargetReasons(request: V1RuntimeRequest, scenario: ScenarioSnapshot, now: string, providerLeagueId: string | null) {
+export function runtimeTargetReasons(request: Pick<V1RuntimeRequest, 'targetScope'>, scenario: ScenarioSnapshot, now: string, providerLeagueId: string | null) {
   const reasons: string[] = [], input = scenario.input, scope = request.targetScope;
   if (!input.scheduledAt) reasons.push('TARGET_START_UNKNOWN');
   else if (input.scheduledAt <= now) reasons.push('TARGET_ALREADY_STARTED');

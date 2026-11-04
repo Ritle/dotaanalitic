@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "task": "S2-01/role-api-review",
+  "clientDate": "2026-11-04",
+  "generatedAt": "2026-11-03T23:10:08.449Z",
+  "status": "research_completed_integration_not_implemented",
+  "requests": {
+    "total": 4,
+    "pandascore": 2,
+    "stratzBulk": 1,
+    "stratzSingle": 1,
+    "http200": 4,
+    "graphqlErrorResponses": 1,
+    "automaticRetries": 0
+  },
+  "pandascore": {
+    "endpoint": "/tournaments/22247/rosters",
+    "tournamentId": "22247",
+    "teams": 6,
+    "players": 32,
+    "nonNullRoleFields": 32,
+    "hasSixPlayerRosters": true,
+    "hasDuplicatePositionsWithinRoster": true,
+    "roleAccuracyMeasured": false,
+    "representativeTier1Sample": false
+  },
+  "stratz": {
+    "bulkUsable": false,
+    "singleProfile": {
+      "steamAccountId": "56351509",
+      "name": "DM",
+      "reportedTeamId": "9824702",
+      "position": "POSITION_3"
+    },
+    "currentOrganizationVerified": false,
+    "profileCoverageOfOtherPlayersAssessed": false
+  },
+  "preservation": {
+    "productionIntegrationChanged": false,
+    "previousRuntimeSourcesUnchanged": 15,
+    "databaseConnections": 0,
+    "databaseWrites": 0,
+    "realTrainingEvaluationActivation": 0,
+    "oldEvidenceUnchanged": {
+      "path": "docs/evidence/s2-01-role-suggestions.json",
+      "sha256": "ed517ebde5194ee53b9eb2decf27ada6218c83bab6a5b23e20fb9d0d3599f7c4"
+    },
+    "progressPrefixPreserved": true
+  },
+  "sources": [
+    {
+      "name": "PandaScore roles",
+      "url": "https://developers.pandascore.co/docs/dota-2"
+    },
+    {
+      "name": "STRATZ API",
+      "url": "https://stratz.com/api"
+    },
+    {
+      "name": "OpenDota position estimator",
+      "url": "https://github.com/odota/core/blob/master/svc/util/compute.ts"
+    },
+    {
+      "name": "Cito roster claims",
+      "url": "https://citoapi.com/microsites/dota-2-api/dota-2-team-roster-api/"
+    },
+    {
+      "name": "BALLDONTLIE roster docs",
+      "url": "https://dota2.balldontlie.io/#tournament-roster"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".tools/role-api-probe-20261104.json",
+      "sha256": "8308d06c073028e0a3c1bfd7504b9f9568d7355607911cd6c34118c259dd1a4f"
+    },
+    {
+      "path": ".tools/role-api-stratz-single-20261104.json",
+      "sha256": "41c0710d98e3477200d675b77fd631ae31d7e96a6b5357994d6610e4ade4955a"
+    },
+    {
+      "path": ".tools/role-api-probe.mjs",
+      "sha256": "260905af804d087d760aa862761c993e9618cb1044425a38ae306a29b7de8321"
+    },
+    {
+      "path": ".tools/role-api-stratz-single.mjs",
+      "sha256": "afb210a7d16c200cc282b6caba1bcad6332ef005b685273af84385cb0664f713"
+    }
+  ],
+  "docs": [
+    {
+      "path": "docs/S2_01_ROLE_API_REVIEW.md",
+      "sha256": "02ce783b638f8a399a994e87979aa042fb0fde0ccc315de6496cae8ac60219b0"
+    },
+    {
+      "path": "docs/PROJECT_STATE.md",
+      "sha256": "3b6b870a772704441fb3b5bd0d450fcb4a22db417dae524d2e1f1250c0b2c373"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PLAN.md",
+      "sha256": "52fa934191b82bd465dc914301e40084fa95c7687dce26cda8585c1c291f31ff"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "d0063fe7b8faf74246d82e1310d2ec10c1f4a9219e865a827014e516c9b5d251"
+    }
+  ],
+  "nextProposedTask": "S2-01/role-profile-reader",
+  "nextModel": "GPT-6.1 Sol / High"
+}

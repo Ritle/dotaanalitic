@@ -195,3 +195,30 @@ Provider client/schema теперь находятся в `packages/ingestion/sr
 ## S0-08 — bounded source coverage
 
 2026-10-31 выполнены 20 recent и 20 исторических карт TI-лиг 2021–2024 через --league. Клиент использует typed /leagues/{id}/matches, те же quota/timeout/retry ограничения; requestStats считает все HTTP attempts, включая recovered 429/5xx. Audit schema 3 публикует observability, source hashes и отдельную coverage для confirmed-pro subset; historic known-at остаётся неоценённым. [Evidence и ограничения](S0_08_SOURCE_AUDIT.md).
+
+
+## 2026-11-04 — доступность состава Team Spirit Academy
+
+Локальный поиск команды/игрока и карточка организации читают только существующий каталог и импортированные pro-карты. Они не выполняют поиск текущего состава у провайдера. Ожидаемые заявки в расписании приходят из PandaScore /tournaments/:id/rosters; первый явный выбор встречи теперь загружает отсутствующую configured заявку через existing owner/CSRF endpoint. Готовые/устаревшие снимки и ошибки не вызывают автоматический polling; ручной refresh и shared quota действуют.
+
+В живой проверке OpenDota9948367=Team Spirit Academy, Panda137540=Spirit Academy/tournament22347; это разные пространства ID. Academy отсутствовала в локальном каталоге, её текущие5 OpenDota accounts тоже. Panda возвращает Kiseki/aidar/KAE/86/sailyn; OpenDota current-member flags/registry включают kyford. Membership metadata — предложение для текущего выбора, не фактический состав будущей карты, не verified role и не основание связывать Steam/Panda по имени. API-заявка сама по себе не создаёт canonical игроков и не объединяет историю.
+
+[D2PT Academy](https://dota2protracker.com/teams/team-spirit-academy-9948367) описывает roster statistics из собственной истории в выбранном scope. Cached web page доступна, direct live HTTP403; полный свежий состав D2PT не подтверждён, ограничение не обходилось. Новый D2PT scraper не реализован. [Фактические запросы, часы и сохранность](evidence/s2-01-team-roster-loading.json).
+
+
+## 2026-11-04 — аудит запросов и надёжности
+
+[Evidence:9 findings, actual counters, source hashes and limits](evidence/s1-09-api-usage-reliability-audit.json). Production не менялся, внешних data API запросов с ключами0. Подтверждены отдельные кэши одного Panda roster endpoint (cold2/fresh repeat0) и повторные reference/detail reads перед DB dedup. Batch history10 уже делает13 provider methods, а не33: importer внутри batch использует память. Не пропускать известные карты навсегда — corrections/partial maps требуют управляемого нового source snapshot.
+
+Real target preview допускает источник возрастом268.41мин без max-age predicate. UI stale warning не заменяет guard новых real forecasts; независимые model/actual-start/lifecycle gates сохраняются. Предлагается versioned freshness policy + один bounded shared refresh вне SQL transaction, без изменения старых snapshots/exact retries. Старое расписание остаётся доступным для чтения.
+
+[Panda FAQ](https://developers.pandascore.co/docs/frequently-asked-questions) определяет tournament rosters как expected. Current OpenDota member flags, STRATZ current position и latest actual map нельзя смешивать в один подтверждённый текущий состав. Для catalogue нужны verified numeric IDs; имена/равные provider IDs не identity proof. [Panda pagination](https://developers.pandascore.co/docs/pagination) поддерживает до100/page и navigation headers; current adapter ограничен20. Для нужных турниров полезны targeted tournament matches из [официального guide](https://developers.pandascore.co/docs/getting-started), после bounded coverage audit и versioned adapter.
+
+Production quotas/leases/retries есть, но счётчики хранят last claimed time bucket, не полный журнал запросов или billing. Ручной audit-upcoming CLI имеет per-run limit, но не общий PG budget. GET аналитики и polling истории читают свой backend; сами не расходуют upstream quota. Очередь не означает импорт: Aurora run ожидает attempt0. Новые источники не устраняют разрыв catalogue/worker/shared-cache; подходящие существующие OpenDota profile/catalogue tools и optional targeted STRATZ стоит использовать адресно.
+
+
+## 2026-11-04 — Cybersport current/former roster semantics (Yangon/MOMO)
+
+[Captured source/state/getter checks](evidence/s1-09-yangon-momo-roster-review.json). [Public UI code](https://www.cybersport.ru/_nuxt/b4afe3b.js) partitions teamPlayers by truthiness of attributes.till, not by a fresh inference from matches. MOMO has closed intervals2026-08-27→09-12 and2026-10-15→10-16; the [team page](https://www.cybersport.ru/teams/dota-2/yangon-galacticos) therefore puts him under former. No open MOMO interval in captured state. Who/how the backend updates those intervals is unknown; do not assert manual newsroom curation or automatic match-derived departure without evidence.
+
+Our existing Panda22247 roster has6 players including MOMO and LuN; an expected tournament registration is a different assertion from a website membership interval. Keep intervals/source clocks, current expected choice and actual pro-map five separate. No automatic exclusion or nickname/cross-provider ID join. Cybersport player10011884, Panda52777 and Steam identities are distinct namespaces. Source conflict is reviewable metadata, not a verified transfer fact or an Elo penalty.

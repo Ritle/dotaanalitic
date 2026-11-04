@@ -38,3 +38,4 @@ export {sampleEvidence,weightedSample,shrinkObservedRate} from './sample.js';
 export {historyWeight,historyWeightSummary} from './history-weight.js';
 export {pairObservations,type HeroPairMap} from './hero-pairs.js';
 export {heroMetaSample} from './hero-meta.js';
+export { forecastMetrics, FORECAST_METRIC_POLICY, FORECAST_LOG_LOSS_CLIP } from './forecast-metrics.js';

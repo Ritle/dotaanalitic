@@ -46,7 +46,7 @@ test('real PostgreSQL login, reload, CSRF logout and back navigation', async ({ 
   await page.getByRole('button', { name: 'Войти', exact: true }).click();
   await expect(page).toHaveURL('http://127.0.0.1:5179/');
   await expect(page.getByRole('heading', { name: 'Личный кабинет' })).toBeVisible();
-  await expect(page.getByText('Прогноз недоступен:')).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Статус модели', exact: true })).toContainText('Нет активной проверенной модели.');
   const cookie = (await context.cookies()).find(value => value.name === 'dota_session');
   expect(cookie?.httpOnly).toBe(true);
   expect(await page.evaluate(() => localStorage.length + sessionStorage.length)).toBe(0);

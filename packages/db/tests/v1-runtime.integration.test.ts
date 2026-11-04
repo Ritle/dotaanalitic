@@ -85,6 +85,15 @@ it('bounded history failure is an explicit attempt, without partial data or prob
   expect(result.snapshot.reasons).toContain('HISTORY_INVENTORY_LIMIT');
   expect(result.snapshot.source).toBeNull(); expect(result.snapshot.teamAWinProbability).toBeNull();
 });
+it('refuses publication after files differ from the long-running server startup fingerprint', async () => {
+  const f = await scenario(), startup = await compatibility.readV1RuntimeCode();
+  startup.runtime.node = 'v0.0.0';
+  const staleProcess = new V1RuntimeRepository(database.db, startup);
+  const result = await staleProcess.create(owner, f.request);
+  expect(result.snapshot.reasons).toContain('SERVER_CODE_CHANGED_RESTART_REQUIRED');
+  expect(result.snapshot.teamAWinProbability).toBeNull();
+  expect(result.snapshot.code).toHaveProperty('startupFingerprint');
+});
 it('positive contract persists before returning, retains probability precision and activation evidence', async () => {
   const f = await scenario(), c = await positiveContract(), result = await repo.create(owner, f.request);
   expect(result.snapshot.status).toBe('done');

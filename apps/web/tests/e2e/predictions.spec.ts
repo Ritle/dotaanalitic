@@ -1,0 +1,96 @@
+import { test, expect } from '@playwright/test';
+import { randomBytes } from 'node:crypto';
+import type { FastifyInstance } from 'fastify';
+import { testDatabase } from '../../../../tests/helpers/postgres';
+import { seedPredictionScenario } from '../../../../tests/helpers/predictions';
+import { predictionViewFixture } from '../../../../tests/helpers/prediction-view';
+import { runtimeFixture } from '../../../../packages/db/tests/v1-runtime-fixtures';
+import { ScenarioRepository, sql } from '../../../../packages/db/src/index';
+import { buildApp } from '../../../api/src/app';
+import { readConfig } from '../../../api/src/config';
+import { AuthService } from '../../../api/src/modules/auth/service';
+let database: Awaited<ReturnType<typeof testDatabase>>, api: FastifyInstance, password: string, owner: string, id: string;
+test.beforeAll(async () => {
+  database = await testDatabase(); await seedPredictionScenario(database.db); password = randomBytes(24).toString('base64url');
+  owner = (await new AuthService(database.db).provision('synthetic-predictions-browser', password)).id;
+  api = await buildApp(readConfig({ DATABASE_URL: database.url, WEB_ORIGIN: 'http://127.0.0.1:5179' }), { db: database.db, logger: false });
+  await api.listen({ host: '127.0.0.1', port: 3151 });
+});
+test.beforeEach(async ({ page }) => {
+  id = (await new ScenarioRepository(database.db).save(owner, runtimeFixture().input)).id;
+  await page.goto('/login'); await page.getByLabel('Логин').fill('synthetic-predictions-browser'); await page.getByLabel('Пароль').fill(password);
+  await page.getByRole('button', { name: 'Войти', exact: true }).click(); await expect(page.getByRole('heading', { name: 'Справочники', exact: true })).toBeVisible();
+});
+test.afterAll(async () => { await api?.close(); await database?.close(); });
+test('real owner API saves unavailable attempts, frozen lineups and history across edits at desktop/mobile', async ({ page }) => {
+  const errors: string[] = []; page.on('pageerror', e => errors.push(e.message));
+  await page.goto(`/scenarios/${id}`); await page.getByRole('link', { name: 'Открыть расчёт одной карты', exact: true }).click();
+  const history = page.getByRole('region', { name: 'История расчётов', exact: true }), result = page.getByRole('article', { name: 'Сохранённый расчёт', exact: true });
+  await expect(history).toContainText('Сохранённых расчётов пока нет');
+  await page.getByRole('button', { name: 'Рассчитать и сохранить попытку', exact: true }).click();
+  await expect(result.getByRole('heading', { name: 'Прогноз недоступен', exact: true })).toBeVisible();
+  await expect(result).toContainText('Нет активной проверенной модели'); await expect(result).toContainText('Турнир ещё не подтверждён');
+  await expect(result.getByRole('region', { name: 'Сохранённый состав A', exact: true })).toContainText('Игрок #101');
+  await expect(result).not.toContainText('50%'); await expect(history.getByRole('link')).toHaveCount(1);
+  const firstUrl = page.url(); await page.screenshot({ path: 'test-results/prediction-desktop.png', fullPage: true });
+  await page.setViewportSize({ width: 360, height: 800 }); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await result.screenshot({ path: 'test-results/prediction-mobile.png' });
+  const old = await new ScenarioRepository(database.db).get(owner, id);
+  await new ScenarioRepository(database.db).save(owner, { ...old.input, title: 'Synthetic new revision' }, { id, expectedRevision: 1 });
+  await page.reload(); await expect(page.getByText('Текущая редакция сценария 2.', { exact: false })).toBeVisible();
+  await expect(result).toContainText('Synthetic single map');
+  await page.getByLabel('Я проверил, что карта относится к основному событию Tier 1').check();
+  await page.getByLabel('ID лиги OpenDota', { exact: true }).fill('999');
+  await page.getByLabel('Название события', { exact: true }).fill('Synthetic reviewed event');
+  await page.getByLabel('Начало события UTC', { exact: true }).fill('2099-02-01T00:00');
+  await page.getByLabel('Конец периода события UTC', { exact: true }).fill('2099-01-01T00:00');
+  await page.getByLabel('Источник проверки · HTTPS', { exact: true }).fill('https://example.test/synthetic-event');
+  await page.getByLabel('Обоснование Tier 1', { exact: true }).fill('Synthetic owner-reviewed tournament scope');
+  await page.getByRole('button', { name: 'Рассчитать и сохранить попытку', exact: true }).click();
+  await expect(page.getByRole('alert')).toContainText('Заполните проверку турнира');
+  await expect(history.getByRole('link')).toHaveCount(1);
+  await page.getByLabel('Начало события UTC', { exact: true }).fill('2099-01-01T00:00');
+  await page.getByLabel('Конец периода события UTC', { exact: true }).fill('2099-02-01T00:00');
+  await page.getByRole('button', { name: 'Рассчитать и сохранить попытку', exact: true }).click();
+  await expect(result).toContainText('Synthetic new revision'); await expect(result).toContainText('Лига или дата карты не совпадает');
+  await expect(history.getByRole('link')).toHaveCount(2);
+  await page.goto(firstUrl); await expect(result).toContainText('Synthetic single map'); expect(errors).toEqual([]);
+});
+test('lost POST response retries the same request and does not duplicate the committed snapshot', async ({ page }) => {
+  let requestId = '', blockRead = true;
+  await page.route(`**/api/v1/scenarios/${id}/predictions/*`, async route => {
+    if (blockRead) return route.fulfill({ status: 503, json: { error: { code: 'SYNTHETIC_CONNECTION_FAILURE' } } });
+    return route.continue();
+  });
+  await page.route(`**/api/v1/scenarios/${id}/predictions`, async route => {
+    if (route.request().method() !== 'POST' || requestId) return route.continue();
+    requestId = route.request().postDataJSON().requestId;
+    await route.fetch(); await route.abort('failed');
+  });
+  await page.goto(`/scenarios/${id}/prediction`);
+  await page.getByRole('button', { name: 'Рассчитать и сохранить попытку', exact: true }).click();
+  await expect(page.getByRole('button', { name: 'Повторить тот же запрос', exact: true })).toBeEnabled(); blockRead = false;
+  await page.getByRole('button', { name: 'Повторить тот же запрос', exact: true }).click();
+  const result = page.getByRole('article', { name: 'Сохранённый расчёт', exact: true }); await expect(result).toContainText('Прогноз недоступен');
+  expect(new URL(page.url()).searchParams.get('prediction')).toBe(requestId);
+  expect((await sql`SELECT id FROM prediction_runs WHERE scenario_id=${id}`.execute(database.db)).rows).toHaveLength(1);
+});
+test('synthetic display fixture shows exact favourite logic, N and provenance without becoming a real forecast', async ({ page }) => {
+  const fixture = predictionViewFixture(id);
+  await page.route(`**/api/v1/scenarios/${id}/predictions/${fixture.requestId}`, route => route.fulfill({ json: fixture }));
+  await page.goto(`/scenarios/${id}/prediction?prediction=${fixture.requestId}`);
+  const result = page.getByRole('article', { name: 'Сохранённый расчёт', exact: true });
+  await expect(result).toContainText('Синтетический пример'); await expect(result).toContainText('Фаворит: команда A');
+  await expect(result).toContainText('N=6'); await expect(result).toContainText('Полнота удалённой истории неизвестна');
+  await page.setViewportSize({ width: 360, height: 800 }); expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await result.screenshot({ path: 'test-results/prediction-synthetic-positive.png' });
+  expect((await sql`SELECT id FROM prediction_runs WHERE scenario_id=${id}`.execute(database.db)).rows).toHaveLength(0);
+});
+test('an expired owner session redirects to login without creating an attempt', async ({ page }) => {
+  await page.goto(`/scenarios/${id}/prediction`); await expect(page.getByRole('button', { name: 'Рассчитать и сохранить попытку', exact: true })).toBeVisible();
+  const me = await page.request.get('/api/v1/auth/me'), csrf = (await me.json()).csrfToken;
+  await page.request.post('/api/v1/auth/logout', { headers: { origin: 'http://127.0.0.1:5179', 'x-csrf-token': csrf } });
+  await page.getByRole('button', { name: 'Рассчитать и сохранить попытку', exact: true }).click();
+  await expect(page).toHaveURL(/\/login$/);
+  expect((await sql`SELECT id FROM prediction_runs WHERE scenario_id=${id}`.execute(database.db)).rows).toHaveLength(0);
+});

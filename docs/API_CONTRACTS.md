@@ -1,5 +1,23 @@
 # API контракт MVP — `/api/v1`
 
+## S2-01 — подготовка заявки в каталоге (2026-11-04)
+
+Owner-only `GET /upcoming/:id/catalogue`, CSRF-protected `POST /upcoming/:id/catalogue/search` и `/apply`. Search возвращает до25 кандидатов OpenDota с числовым ID и source clock/hash. Apply принимает явно выбранный **OpenDota** `teamId`, пять разных PandaScore-player/Steam32 пар, owner confirmation, request UUID, expected revision и source SHA; ответ содержит **локальный** `teamId` и canonical player IDs. Namespace запросов и ответа различаются явно по контракту. Не передавать PandaScore ID в поле OpenDota account ID. Полные Zod-контракты: `packages/contracts/src/roster-catalogue.ts`; [поведение, ограничения и replay](S2_01_EXPECTED_ROSTER_CATALOGUE.md). Никаких вероятностей, импорта карт или автоматической идентификации по нику на этих маршрутах.
+
+S4-01 implemented: ранний router malformed URL →400 VALIDATION_ERROR, oversized path parameter →414 URI_TOO_LONG, внутренняя framework failure →500 INTERNAL_ERROR. Ответ `{error:{code,message,requestId}}` на русском, no-store, без переданного path/error.message. Эти parse errors происходят до owner hooks и не выдают private data. Private route/session/CSRF/Origin протоколы прежние. [Матрица49 routes и ошибки](S4_01_V1_SECURITY_REVIEW.md).
+
+**S4/V1 model readiness (implemented):** GET `/models/readiness`, owner session/no-store, strict empty query. DTO `V1ModelReadinessSchema`: pre_match, checkedAt UTC, unavailable + NO_ACTIVE_MODEL/ACTIVE_MODEL_EVIDENCE_INVALID или model_eligible + reason:null; modelId/reportSha256 связаны со статусом, teamAWinProbability всегда null. Прежний registry gate, без inference/training/activation. Max20/min и одна concurrent check на API;429/Retry-After, MODEL_CHECK_BUSY при занятом admission. Ошибки чтения/DTO — безопасный500, не ложный NO_ACTIVE_MODEL. [Семантика и Home](S4_V1_MODEL_READINESS_STATUS.md). Другие model/admin routes ниже остаются planned, если явно не отмечены реализованными.
+
+**S3-07 scheduled lifecycle:** GET/POST `/schedule-targets/:targetId/lifecycle`. Body requestId/expectedRevision/action/eventAt/sourceUrl/reason/confirmedByOwner:true; owner/target из сессии и пути. Owner/session/no-store, POST Origin/CSRF/6min и bounded admission. History20 с exclusive beforeRevision, без ownerId; состояние общее для всех редакций встречи. Journal view допускает lifecycle PandaScore и policy v2; optional verifiedScheduleBindingKnown сообщает о ранее подтверждённой связи до outcome refresh. [Полный контракт](S3_07_V1_SCHEDULED_TARGET_LIFECYCLE.md).
+
+**S3-07 scheduled binding owner flow:** scoped `/schedule-targets/:targetId/forecasts/:forecastId/result-binding` GET/POST и `/outcomes` GET/POST. Owner/session/no-store; POST Origin/CSRF/6min и общая result-write admission. Bind body requestId/matchId/providerSeriesId/sourceUrl/rationale/confirmedByOwner:true; refresh — только requestId/expectedRevision. Owner/forecast/target/map выводятся сервером, scope проверяется до repo retry lookup. Outcome history20 с exclusive beforeRevision cursor. HTTP projection исключает raw observation JSON/owner/code/payloads. [Контракт](S3_07_V1_SCHEDULED_BINDING_OWNER_FLOW.md).
+
+**S3-07 scheduled owner flow:** POST/GET `/schedule-targets/:targetId/forecasts`, GET `/schedule-targets/:targetId/forecasts/:requestId` — owner/session/no-store; POST Origin/CSRF,6/min, общая admission с what-if. Строгий body requestId/scenarioId/expectedRevision/targetSha256/targetScope; provider selector строится сервером из immutable target. Отдельная real_map projection и bounded history20; прежний what-if контракт сохранён. [Подробности и границы](S3_07_V1_SCHEDULED_OWNER_FLOW.md).
+
+**S3-07 scheduled result:** owner CLI forecast:v1 bind принимает requestId/predictionRequestId/targetSha256/matchId/providerSeriesId/sourceUrl/rationale, binding читает сохранённый request ID. Победитель и reviewedAt во входе запрещены. После сохранения связи прежний refresh работает для PandaScore target. Outcome и journal view получили optional scheduleBinding/scheduleResultBinding с SHA, IDs, source URL, server review time и owner-reviewed basis; прежние payloads совместимы. Новых HTTP mutation routes нет. [Контракт](S3_07_V1_SCHEDULED_RESULT.md).
+
+**S3-07 scheduled runtime:** owner CLI `forecast:v1 create|get` принимает `real_map` с `realTarget:{provider:"pandascore",bindingVersion:1,providerMatchId,mapNumber:1,targetRequestId,targetSha256}`. SHA/UUID ссылаются на сохранённую последнюю редакцию назначения. Старый OpenDota selector сохранён. `V1JournalView` дополнен этой разновидностью target и ссылкой на saved target; никаких новых HTTP create routes, сценарный endpoint остаётся what-if. Refresh такого исхода пока возвращает `forecast_schedule_binding_required`; target provider ID не подставляется в OpenDota series ID. [Полный контракт](S3_07_V1_SCHEDULED_RUNTIME.md).
+
 Все private endpoints требуют авторизованный HttpOnly session cookie. Исключение: `GET /health`, `POST /api/v1/auth/login` и CORS preflight (без приватных данных). JSON BIGINT IDs — **strings** (`"123456789"`). Времена — ISO UTC `Z`.
 
 ## Основные маршруты (auth S0-03, S1-01..06, S1-08 и S2-01/02 реализованы; остальные планируются)
@@ -34,13 +52,17 @@ S1-08: `POST /teams/compare` — stateless read-only comparison с teamAId/teamB
 | POST | `/scenarios/:id/analyses` | S2-04 synchronous snapshot:201 + immutable report;200 unavailable,409 stale revision |
 | GET | `/scenarios/:id/analyses` | S2-04 history summaries, offset/20 + hasMore |
 | GET | `/analyses/:id` | S2-04 immutable full report, owner scoped |
-| POST | `/scenarios/:id/predictions/pre-match` | Предматчевый расчёт |
-| POST | `/scenarios/:id/predictions/post-draft` | Расчёт по полному драфту |
-| GET | `/scenarios/:id/predictions` | История |
-| GET | `/predictions/:id` | Снимок и результат |
+| POST | `/scenarios/:id/predictions` | S3-06: условная одна карта, immutable attempt и exact requestId retry |
+| GET | `/scenarios/:id/predictions?offset=0` | S3-06: история владельца, 20 записей + hasMore |
+| GET | `/scenarios/:id/predictions/:requestId` | S3-06: сохранённый результат без пересчёта |
+| POST | `/scenarios/:id/predictions/pre-match` | Planned; V1 использует POST выше |
+| POST | `/scenarios/:id/predictions/post-draft` | Planned: расчёт по полному драфту |
+| GET | `/predictions/:id` | Planned; V1 читает по scenario/requestId выше |
 | GET | `/models/status` | Качество и readiness моделей |
 | POST | `/admin/sync/teams/:id` | Триггер импорта |
 | GET | `/jobs/:id` | Статус импорта |
+
+S3-06 V1 predictions: strict `{requestId,expectedRevision,purpose:'what_if_single_map',targetScope}`; owner берётся из сессии, scenarioId из URL. `200` содержит неизменяемую ограниченную проекцию снимка с null probability при unavailable; exact retry возвращает прежний результат после правок сценария. POST: owner/CSRF/Origin, 6 запросов/минуту, один активный расчёт; 409 conflict, 429 busy/rate limit. GET не пересчитывает историю. [Подробный контракт и UI](S3_06_V1_OWNER_API_UI.md). Реальная карта, её outcome и prospective performance пока не подключены.
 
 S2-03 `hero-matchups`: `{expectedRevision,fromAt?,patchScope?:'all'|'current'|'specific',patchId?,leagueId?,weights?}`. Saved scenario supplies cutoff and selected heroes; stale revision409, invalid filters400, absent/foreign scenario404. Report200 has per-pair raw N/nullable WR, earlier same-patch reference counts, optional explicit unvalidated draft weights/Kish N_eff, coverage/provenance/fingerprint and null probability. Insufficient draft/unknown current patch/>5000 candidate maps return explicit unavailable; reference overflow disables smoothing only. No snapshot or training writes. [Полный контракт](S2_03_HERO_PAIRS.md).
 
@@ -102,6 +124,14 @@ Codes: `UNAUTHORIZED`, `FORBIDDEN`, `NOT_FOUND`, `VALIDATION_ERROR`, `CONFLICT`,
 `winRate` is decimal fraction **0..1**, not percentage in transport. UI may display `100 × winRate`%. In response `null` is not a 0% win chance.
 
 ## DTO: prediction
+
+S3-07 backend/CLI дополнительно принимает `real_map` с immutable explicit target и versioned verified-outcome refresh. **Это не расширение HTTP create прогноза:** существующий scenario owner API/UI принимает только `what_if_single_map`, история фильтрует этот purpose и не выдаёт real-map snapshot через старый route. Отдельные HTTP endpoints aggregate journal реализованы ниже; создание real-map назначения и первичный outcome refresh пока CLI. [Backend-контракт и ограничения](S3_07_V1_REAL_TARGET.md).
+
+S3-07 metrics backend/CLI: `V1JournalRequestSchema` принимает requestId и filters (`fromAt`, exclusive `until`, modelId, status); `V1ForecastJournalReportSchema` сохраняет frozen input SHA, revision/parent и summary. `journal:v1 create|get|export` использует одного активного CLI-owner. Репозиторий выбирает global primary до фильтров, перепроверяет локальные bound outcomes в repeatable-read capture, возвращает исходный отчёт при exact retry. В старом v1 report `cancelled:null` сохраняется; новые отчёты v2 используют числовой счётчик ручных отмен. Защищённые create/read/history endpoints описаны ниже. [Полные правила](S3_07_V1_JOURNAL_METRICS.md).
+
+S3-07 owner HTTP реализован2026-11-03: POST `/api/v1/forecast-journal` принимает `V1JournalCurrentRequestSchema` (включая `status:"cancelled"`); GET того же пути — `V1JournalHistorySchema` (exclusive beforeRevision,20 версий); GET `/:requestId?offset=0` — `V1JournalViewSchema` (50 строк). Session owner, CSRF/Origin POST, no-store; шесть POST/min и admission одного создания. Full-summary метрики сохраняются при пагинации; raw input/code/payload/owner UUID не возвращаются. Строки содержат expected5v5, original calculation status/reasons, snapshot SHA, outcome receipt metadata и roster status. Exact retry/409 conflict,422 limit,503 integrity; invalid input400/foreign404. [Полный контракт и экран](S3_07_V1_JOURNAL_OWNER_API_UI.md). Real-target create/первичный refresh пока остаются CLI.
+
+Startup fingerprint service/repository проверяется до нового journal INSERT; изменённый расчётный код даёт503/JOURNAL_CODE_CHANGED без записи, сохранённые GET/exact retry не требуют новой capture. Клиент распознаёт только проверенный code и показывает фиксированное русское сообщение о перезапуске; server error message не отображается напрямую.
 
 ```json
 {
@@ -166,6 +196,8 @@ User forecasts/guesses (future) are **not** verified labels. `prediction_outcome
 
 ## S1-10 — private upcoming schedule
 
+S3-07 дополнение: [schedule-target registration](S3_07_V1_SCHEDULE_TARGET_REGISTRATION.md). GET `/api/v1/upcoming/:id/target-preview`, GET `/api/v1/upcoming/:id/targets?beforeRevision=…`, POST `/api/v1/schedule-targets`, GET `/api/v1/schedule-targets/:requestId`. Owner session/no-store; POST CSRF/Origin, max12/min. Strict request содержит source observation ID/SHA, expectedRevision, map1 и ручное provider→canonical A/B сопоставление. Ответ record/SHA immutable; exact retry возвращает прежнюю запись. Это pending назначение, probability:null, без прогнозного расчёта. Идентификаторы PandaScore не преобразуются в OpenDota ID. Часы устанавливает сервер; source/revision conflict409, повреждение integrity503, чужая сохранённая запись404.
+
 GET `/api/v1/upcoming` и GET `/api/v1/upcoming/tournaments/:id` читают только кэш; соответствующие POST routes с `/refresh` обновляют отсутствующий/истёкший snapshot. Требуются owner session, для POST также Origin/CSRF и пустой JSON body. GET/POST ответы no-store. Турнир разрешён только при наличии ID в сохранённом расписании; unknown query/body fields и невалидный decimal ID дают400, отсутствующий турнир404.
 
 DTO в `packages/contracts/src/upcoming.ts`: status ready/stale/unavailable, snapshot с data/source или null, computedAt/expiresAt/retryAt, configured/refreshing и безопасный reason. API хранит отдельные provider IDs как строки; не выдаёт token/raw provider error body. Snapshot содержит expected tournament roster, не actual map lineup/roles. Создание сценария использует существующий POST `/scenarios` с ручными canonical IDs и confirmedByOwner, не импортирует PandaScore IDs. [TTL/leases/quota и UI](S1_10_UPCOMING_UI.md).
@@ -175,3 +207,9 @@ DTO в `packages/contracts/src/upcoming.ts`: status ready/stale/unavailable, sna
 GET/POST `/api/v1/teams/:id/history-refresh` возвращают `HistoryRefreshResponseSchema` (`packages/contracts/src/history-refresh.ts`): canonical teamId, available, retryAt, nullable run и безопасное сообщение. Run: UUID, queued/running/completed/partial/error, timestamps, attempt, selected/processed/accepted/duplicates/excluded/sourceErrors/conflicts. Provider payloads, credentials и pg-boss error output не возвращаются.
 
 Owner обязателен для обоих методов; POST дополнительно требует Origin/CSRF и пустые query/body, возвращает202 с новым либо прежним run. Невалидные поля400, отсутствующая организация404, очередь недоступна503. Без source numeric ID — available:false/run:null без enqueue. GET не вызывает провайдера; может согласовать cancelled/failed/lost queue job с сохранённым состоянием run. POST атомарно сохраняет run+job, deduplicate по canonical организации, cooldown5мин после completed. Worker использует общий bounded S1-13 pipeline и per-map idempotent importer. [Запуск, retry/fencing и UI](S1_14_HISTORY_REFRESH.md).
+
+
+S3-07 lifecycle2026-11-03: [контракт отмен](S3_07_V1_TARGET_LIFECYCLE.md), `V1LifecycleRequestSchema` / owner CLI `target:lifecycle append|history`. Новых HTTP mutation routes нет. Journal projection содержит nullable lifecycle (последний frozen event без ownerId + SHA), original calculation reasons и предупреждение о приоритете verified binding. Current filters/status расширены отдельно от прежнего v1 schema; v1/v2 reports читаются по своей версии. Legacy cancelled null не превращается в0.
+## S2-01: текущие профили ролей (owner-approved2026-11-04)
+
+`POST /api/v1/lineup-role-profiles` — owner/CSRF/no-store, `teamId`, до5 разных локальных `playerIds`, optional UTC cutoff и `refreshProfiles=false`. Versioned role-only report содержит profile source clocks/hash/status, verified account resolution, owner-selected binding revision, pro-history alternatives, nullable conflicts и `canAutoApply`; это не historical feature reader и не probability endpoint. `GET/POST /api/v1/teams/:id/role-profile-binding` читает/добавляет owner/team binding revision; POST требует UUID requestId, expectedRevision и явный owner selection, replay идемпотентен, stale→409. [Полный контракт](S2_01_ROLE_PROFILES.md).

@@ -4,6 +4,8 @@
 
 Logger для Fastify: Pino (`logger:true` in scaffold). Никаких token_hash, cookie, API_KEY, сырого user request payload, полных upstream headers в логах. ID корреляции в HTTP и ingest jobs.
 
+S4-01 implemented: request `url` — только зарегистрированный route template (например `/api/v1/teams/:id`) или `[unmatched]`; raw path parameters/query не логируются. Ранние router rejects также получают безопасный request_rejected/code/status/request_id без исходного error.message/path. [Проверка и область покрытия](S4_01_V1_SECURITY_REVIEW.md).
+
 Обязательные поля события: `event`, `request_id` или `job_id`, `source_provider`, `match_id`, `model_version`, `duration_ms`, `status`, `attempt` — только там, где применимо.
 
 Метрики: 429/5xx per provider, ingestion lag, percent full 10-slot maps, drafts completeness, active patch coverage, job retries/dead letters, DB disk size, latest successful backup, model prediction count, prospective Brier by patch. Пороговые значения определять из реальной нагрузки, не выдумывать.

@@ -1,0 +1,1423 @@
+{
+  "schemaVersion": 1,
+  "task": "S4-02/V1-full-owner-e2e",
+  "generatedAt": "2026-11-03T20:13:22.929Z",
+  "status": "PASS",
+  "scope": "Complete current localhost V1 browser suite with isolated PostgreSQL/source fixtures; no model quality evaluation or deployment",
+  "browser": {
+    "expected": 57,
+    "passed": 57,
+    "files": 26,
+    "duration": "6.5m",
+    "workers": 1,
+    "automaticRetries": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "lastRun": "passed",
+    "everyCaseMatchesCollectedList": true,
+    "byFile": {
+      "auth.spec.ts": 5,
+      "compare.spec.ts": 1,
+      "draft.spec.ts": 1,
+      "hero-matchups.spec.ts": 1,
+      "history.spec.ts": 2,
+      "journal.spec.ts": 5,
+      "model-readiness.spec.ts": 2,
+      "player-hero.spec.ts": 1,
+      "predictions.spec.ts": 4,
+      "reports.spec.ts": 1,
+      "roster.spec.ts": 1,
+      "sample.spec.ts": 1,
+      "scenarios.spec.ts": 1,
+      "schedule-filter.spec.ts": 4,
+      "schedule-targets.spec.ts": 1,
+      "scheduled-lifecycle.spec.ts": 3,
+      "scheduled-owner.spec.ts": 4,
+      "scheduled-results.spec.ts": 3,
+      "scheduled-runtime.spec.ts": 2,
+      "strength.spec.ts": 1,
+      "upcoming-compare.spec.ts": 3,
+      "upcoming-filters.spec.ts": 2,
+      "upcoming-navigation.spec.ts": 1,
+      "upcoming-workflow.spec.ts": 1,
+      "upcoming.spec.ts": 5,
+      "v1-acceptance.spec.ts": 1
+    },
+    "visuallyInspected": [
+      ".tools/s4-e2e-screenshots/model-readiness-mobile.png",
+      ".tools/s4-e2e-screenshots/journal-mobile.png"
+    ],
+    "screenshots": 64,
+    "testPorts": [
+      3151,
+      5179
+    ],
+    "data": "synthetic and isolated; compiled owner CLI/API restart journey included"
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCliTests": 730,
+    "nodeFixtureTests": 64,
+    "nodeFileConcurrency": 1,
+    "unitNodeRetries": 0,
+    "changedExistingTimeouts": 0,
+    "sourceTestConfigChanges": 0,
+    "pg": "real temporary DBs used by57 browser cases; separate integration suite not rerun",
+    "pythonDockerVPSRemoteCI": "not run",
+    "docsLinks": "PASS",
+    "progressAppendOnly": true,
+    "secretsAbsentFromLogs": true
+  },
+  "preservation": {
+    "status": "PASS",
+    "protectedArtifacts": 39,
+    "workingState": {
+      "scenarios": 0,
+      "predictions": 0,
+      "snapshots": 0,
+      "reports": 1,
+      "activemodels": 0,
+      "artifacts": 1,
+      "activations": 0,
+      "releaseevaluations": 0,
+      "researchevaluations": 0
+    },
+    "reportSha256": "bd42a60064c42daa4281bcb0e8972eba79d72737a4fccffe480d8a8725767398",
+    "unchangedRelationEntries": 78,
+    "ownerPendingRefresh": {
+      "team_id": "321",
+      "status": "queued",
+      "attempt": 0,
+      "processed": 0,
+      "accepted": 0,
+      "state": "created",
+      "started_on": null,
+      "retry_count": 0
+    },
+    "frozenRuntimeCompatible": true,
+    "migrationLedgerChecksums": 34,
+    "providerCalls": 0,
+    "realModelTrainingEvaluationActivation": 0
+  },
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-release-leagues-20261102.json",
+      "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+    },
+    {
+      "path": ".tools/v1-features-development-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+      "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+      "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evidence.json",
+      "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+      "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+      "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+      "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-verification.json",
+      "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+      "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+      "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+    },
+    {
+      "path": "docs/evidence/s3-05-v1-registry.json",
+      "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+      "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-owner-api-ui.json",
+      "sha256": "543d4a48d36f627af4597462e4c4adb35109de362e2b68d55001b21cc41693eb"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-real-target.json",
+      "sha256": "9f49e3f6394ff9490b98249d717859b058e1df04e8614a165f9add23cd6f1911"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-journal-metrics.json",
+      "sha256": "baf05428a2b2623c9c207d9074e2c0bdc3f8776e232967b1446e06ce09008b38"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-journal-owner-api-ui.json",
+      "sha256": "1f351addda289fcef98de74c40634c61cb9b291e3bc769a7b89186cc63cbd807"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-target-lifecycle.json",
+      "sha256": "740b47a7f2e6f510f9ea95ea513b9f7246502fb7b94c87750d5b541fb80fd98e"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-schedule-target-registration.json",
+      "sha256": "b0b0f67b68632c0395a7d650d813f2f63a5f37c66a2f75ab7c58922d99f10fb8"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-runtime.json",
+      "sha256": "757e2dd402846ab15fe9502a872f3e1525c7ae67c2f1c0366297f2007eb7d29c"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-result.json",
+      "sha256": "19f633fae8a8a4211bbd5eccb836b08e8872684cd949ab899cfb829542b1de0d"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-owner-flow.json",
+      "sha256": "bdfd9eaac593c6aa5d929059da88cfabee62d04b4ac68b052423f01c1700d780"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-binding-owner-flow.json",
+      "sha256": "db330af19571caf5dd95331d204e9d0424844eccc277b393c2afba8877450869"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-target-lifecycle.json",
+      "sha256": "2dec5d4c3af4577b2e9e19fc20f609ab8db0e700ca7cc07081de9be4d267940d"
+    },
+    {
+      "path": "docs/evidence/s4-v1-acceptance-audit.json",
+      "sha256": "4803b1dec3a0081e10bc5ee064ddfdfbe1d023902b45d9dc7684175ad737b668"
+    },
+    {
+      "path": "docs/evidence/s4-v1-backup-restore.json",
+      "sha256": "3f03694f0f3628d4df68c3b86c4e2ff9bd4d3ad017c20368897f1b2db63ac79b"
+    },
+    {
+      "path": "docs/evidence/s4-v1-local-owner-smoke.json",
+      "sha256": "1cf3f62be6185662d7a861b25a608f98c4d77796984b88063ba2fb4b452789d8"
+    },
+    {
+      "path": "docs/evidence/s4-v1-schedule-event-filter.json",
+      "sha256": "7ae62cbf174b4fbff6735bd4b8268c99ec07bad3262b9a0a2c013322db9c5708"
+    },
+    {
+      "path": "docs/evidence/s4-v1-schedule-event-filter-v2.json",
+      "sha256": "4a80b6ce7436da825b457841d4beb2e1af18c5ec42672c68e6926e05029cc0d8"
+    },
+    {
+      "path": "docs/evidence/s4-v1-model-readiness-status.json",
+      "sha256": "905aa2d3ba7637c82dab74465e262084d15549ed6b4465e6947756925755ed13"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-security-review.json",
+      "sha256": "e33be17b1da749b94756b3a8959257c73ccc54dfd0b03b9fcfa4581735b7b7f6"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-queue-coverage.json",
+      "sha256": "bac1dcac838e617c4deaff8a4be71f5e4736cd037f90646407ef402f5973d777"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-provider-resilience.json",
+      "sha256": "305a1c2e90f01f24813f2b411ceb59ce51f07dbd7a8e958e43e2aae4b3f078e8"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-provider-conflicts.json",
+      "sha256": "00016adb4d65c22468c4b2c882c6dd882bee3393b047c5a2345d7c32f4172178"
+    },
+    {
+      "path": "docs/evidence/s4-02-v1-historical-regression.json",
+      "sha256": "595cfbaca6074ee58e89242177b312564a4da9a3fae63b8e9f617cf6909ebf6b"
+    }
+  ],
+  "runtimeCompatibility": {
+    "policy": "v1-runtime-kernel-compatibility-v1",
+    "code": [
+      {
+        "path": "packages/analytics/dist/elo.js",
+        "sha256": "ca3c4b1129f9e10fd352bc074dbd04b787f2183ea4e635499d839609836f2e20"
+      },
+      {
+        "path": "packages/analytics/dist/forecast-metrics.js",
+        "sha256": "7d143ba959d2a57875efd290cefe5bc6af33111adb246fd6d192c5fbac9e1ecb"
+      },
+      {
+        "path": "packages/analytics/dist/hero-meta.js",
+        "sha256": "b18ce3af700ac76ea77fafb58ae3a1ac9fc1d616e5afcc0df40b9dde07861c15"
+      },
+      {
+        "path": "packages/analytics/dist/hero-pairs.js",
+        "sha256": "c0c409964abcdd5e6ebf7bcd4eb939f5a07813e752095450a09710bb0f4602af"
+      },
+      {
+        "path": "packages/analytics/dist/history-weight.js",
+        "sha256": "5dd4716bee0f78345eafc6f4b8dbd76295eb174b4e29f0123b09c7651db30fb7"
+      },
+      {
+        "path": "packages/analytics/dist/index.js",
+        "sha256": "bac4127fe4cee8077768a7a555db4e7a8a7aa419ee1c7c019de96c5aad8eac80"
+      },
+      {
+        "path": "packages/analytics/dist/model-inference.js",
+        "sha256": "541313e65be9f792e23e1c434cfb3ef37805101a5c3b84681f43f5b107c0b975"
+      },
+      {
+        "path": "packages/analytics/dist/player-hero.js",
+        "sha256": "c36bdc3b574135112bfcaf1b28a64ba97423d9497cd7af2f9bca73bd11b5e0e2"
+      },
+      {
+        "path": "packages/analytics/dist/roster-report.js",
+        "sha256": "5f331bc2cd190f3ffd2250cdb7f015e1def3e69712e44f9fcbcf0b0b921fbe1d"
+      },
+      {
+        "path": "packages/analytics/dist/roster.js",
+        "sha256": "4607384a840b8647dfd3b3d978770ec54512b4c2d40b30cba3631e9f8d815af0"
+      },
+      {
+        "path": "packages/analytics/dist/sample.js",
+        "sha256": "0bbf5d7d3345fb3f19814e992a1d29265e9b264dda7312c76e0ec3f4d0858664"
+      },
+      {
+        "path": "packages/analytics/package.json",
+        "sha256": "43ffd9a6b8b68e2f55f8e18cf5a986c7f32fc3955760e742c9490259fc17523e"
+      },
+      {
+        "path": "packages/contracts/dist/catalog.js",
+        "sha256": "66a4759983c45d104bd93534e75aa4f6480ecc345667fd6e55828d822a1c2c00"
+      },
+      {
+        "path": "packages/contracts/dist/compare.js",
+        "sha256": "400615ffaa15bb37df6cbc59070cf03cf4f5ef2f03b319804eab46e034c3d31c"
+      },
+      {
+        "path": "packages/contracts/dist/corpus-audit.js",
+        "sha256": "4b2d9aa123128092b41125f8d43ecb232e2b9d0cea62d3daf7420b004b57fdb2"
+      },
+      {
+        "path": "packages/contracts/dist/corpus-quality.js",
+        "sha256": "21cb11f40ae2f6ba72ed9326b0d4e30f044efb96e185ce1184b179de0a3d214c"
+      },
+      {
+        "path": "packages/contracts/dist/dataset-audit.js",
+        "sha256": "6db5beded6a869263ef6117b402040b2257b3eb4839c54a831751f75e68103f5"
+      },
+      {
+        "path": "packages/contracts/dist/dataset-build.js",
+        "sha256": "3043a55feaccaabe0f8aa8ff7996144e04d920372d32d731ad566fe7265355de"
+      },
+      {
+        "path": "packages/contracts/dist/dataset.js",
+        "sha256": "b6d3b1906144b4b89c6914fe88fcd3ec1233900ec7931ffecdae02eabb558fbd"
+      },
+      {
+        "path": "packages/contracts/dist/draft.js",
+        "sha256": "114e24f047fc14b0d43bb88bda8a9928f0bbab140ecb7048ba0ed50155ca485a"
+      },
+      {
+        "path": "packages/contracts/dist/evaluation-details.js",
+        "sha256": "1f690857a249d4fa2d4d4eff069f16c5b8dafe657626092cb3faaa60d8449943"
+      },
+      {
+        "path": "packages/contracts/dist/evaluation-discovery.js",
+        "sha256": "f29382721af82c35a005155c043797593de728d41f8177ba17c3be209d85c5c7"
+      },
+      {
+        "path": "packages/contracts/dist/game-context.js",
+        "sha256": "2a720871ab7265ebda4e56853ad9558052624263dfd249f7e82b1bc00aaac142"
+      },
+      {
+        "path": "packages/contracts/dist/hero-matchups.js",
+        "sha256": "3387bfa3604b2461cdad07c92b7e96e7096611e4d91f2a737c621a1a83f12262"
+      },
+      {
+        "path": "packages/contracts/dist/history-refresh.js",
+        "sha256": "94d4b3e788081de54d0e11636ed61ec276724b2bf1f17ce3585be02d74a9db32"
+      },
+      {
+        "path": "packages/contracts/dist/identity-provision.js",
+        "sha256": "d3c4b383e554599fc94d54b3beb3ce883692797144a4c590ce873986ea0ce280"
+      },
+      {
+        "path": "packages/contracts/dist/identity.js",
+        "sha256": "728a65b76cb9dc72091248990c6f8244546eeac376ac63e239b237f6de237b7a"
+      },
+      {
+        "path": "packages/contracts/dist/index.js",
+        "sha256": "3211ff5d83081e8e80afd48c657b40dbafd536a10db6cf3818f31f15a5e09c02"
+      },
+      {
+        "path": "packages/contracts/dist/patch-diagnostics.js",
+        "sha256": "90447e92b8db2d401779010330a2d6e56822d22c7395d8b71bc953962c3e143e"
+      },
+      {
+        "path": "packages/contracts/dist/patch-history.js",
+        "sha256": "bf33e5300e8135884432474326a01c333a4759520771107f90e2412aa4060360"
+      },
+      {
+        "path": "packages/contracts/dist/player-hero.js",
+        "sha256": "92ae1df17d6ac94556822dfd7071f193231b046bee2b835ec1acbe73d31ff3c3"
+      },
+      {
+        "path": "packages/contracts/dist/pro-maps.js",
+        "sha256": "00222367a3402383cfbe18c66f44e130b5950406ce94e9ca377c934f7a024332"
+      },
+      {
+        "path": "packages/contracts/dist/prospective-patch.js",
+        "sha256": "86e00d5031ab82940bf715ddd8c15c48a1f671af6c71aed3631c19e770745bf6"
+      },
+      {
+        "path": "packages/contracts/dist/readiness.js",
+        "sha256": "c11079c1d7747cfbf62f33d420662b834bb73a09743a96eae7948b49d968e32e"
+      },
+      {
+        "path": "packages/contracts/dist/research-elo.js",
+        "sha256": "d1aa85934736ca5cf931b796615f80ba92251bed000f6a8a25b6626a3da7a31a"
+      },
+      {
+        "path": "packages/contracts/dist/research-evidence.js",
+        "sha256": "f6284734318f737ad067a5ac0f81b74e0ef70def18f5a49d41061fa3966588e2"
+      },
+      {
+        "path": "packages/contracts/dist/research-execution.js",
+        "sha256": "658abbfb3807262efb6b86785fd7a9070eaed311f4df4ed035aff75ac24098d2"
+      },
+      {
+        "path": "packages/contracts/dist/research-journal.js",
+        "sha256": "cc407e5fffe86ea693f44f6036b09f9656e459957e4ef3d91694c21048ee8a7e"
+      },
+      {
+        "path": "packages/contracts/dist/research-plan.js",
+        "sha256": "bd67c6d552dbd9cddd25b668d7a5376d23b0e0e92fd6e54a8f3688b9395808e6"
+      },
+      {
+        "path": "packages/contracts/dist/roster.js",
+        "sha256": "f9aeec1aa494bb0906014562719210f21effb69ee81eacc8905028bc7ca16f18"
+      },
+      {
+        "path": "packages/contracts/dist/sample.js",
+        "sha256": "281d4c77c6dfcaec4e71cc8fc93671e52790a6e2dc18f89ad6a932f2fa9cde4d"
+      },
+      {
+        "path": "packages/contracts/dist/scenario-report.js",
+        "sha256": "726cb71385c83d9488eb9b73851e86cc3dc11b5619765b4210572376aeac1176"
+      },
+      {
+        "path": "packages/contracts/dist/scenario.js",
+        "sha256": "a44999e828527623ae707c44e22dbae73faa41d298c4128c80976e0904e07cb4"
+      },
+      {
+        "path": "packages/contracts/dist/series-provision.js",
+        "sha256": "5b9855b91f26b450d2df51c2e1f30f7bb6b8d43f4ada37add62721826c716bd3"
+      },
+      {
+        "path": "packages/contracts/dist/strength.js",
+        "sha256": "c759b2cd5087c5157b671546b9b29918a170c4d50c6d40b244fd338805bd9911"
+      },
+      {
+        "path": "packages/contracts/dist/temporal.js",
+        "sha256": "78f85b06844921b056615b90338c660c791d3037f672b7faf7591649b958fda9"
+      },
+      {
+        "path": "packages/contracts/dist/upcoming-evidence.js",
+        "sha256": "58238bf1f3ad0837fae5d4eb4419678d224df23bd6dbd822d79806fb3f290d4c"
+      },
+      {
+        "path": "packages/contracts/dist/upcoming.js",
+        "sha256": "c51316c214fd2066df12bff85e6ae8cb61e2aa43da2477c81cd2f3c1299a839b"
+      },
+      {
+        "path": "packages/contracts/dist/v1-candidate.js",
+        "sha256": "9585c6635cc2511780ec85d6e414d1fcb61b634521f98ed62475e3eb01211e45"
+      },
+      {
+        "path": "packages/contracts/dist/v1-data.js",
+        "sha256": "bd0f11ae27999d5ae2f8772af6d459657f2581de0001c887bbe3e1133ee1381d"
+      },
+      {
+        "path": "packages/contracts/dist/v1-executable-freeze.js",
+        "sha256": "b6d4ddbe216e3e69248a1dd809607d6e3411464b591816c921952a06682e90f2"
+      },
+      {
+        "path": "packages/contracts/dist/v1-features.js",
+        "sha256": "77d1fe4bd55db8db0c419ba1dfad7805bc6aa541b7b15a2e42aa28e661e1b275"
+      },
+      {
+        "path": "packages/contracts/dist/v1-forecast.js",
+        "sha256": "320bf817bdc67336c02964754a319a39ed21e5fe4925195bd40893147ee9a557"
+      },
+      {
+        "path": "packages/contracts/dist/v1-journal-v2.js",
+        "sha256": "97ad7cb772dcd7f59ed947181e56389a0fc3b9c78501bae39796f86149a50039"
+      },
+      {
+        "path": "packages/contracts/dist/v1-journal-v3.js",
+        "sha256": "8bb1e96086a0aae759308465d48ddc1ff49e5c464282c8152316e73024b075c8"
+      },
+      {
+        "path": "packages/contracts/dist/v1-journal-view.js",
+        "sha256": "a4c961c9aa71d23f9aa8f421ddf0edf751a2cafb77e4b9ddc9a8a028f225d570"
+      },
+      {
+        "path": "packages/contracts/dist/v1-journal.js",
+        "sha256": "a17ffd66880798c66e7299c1f8ce43994a4c86013123499d4f90425a1aa8a50e"
+      },
+      {
+        "path": "packages/contracts/dist/v1-model-readiness.js",
+        "sha256": "49aa5553e633e4124250a7e0976617b985fe3c46691fd45857a2506cfa2dd37b"
+      },
+      {
+        "path": "packages/contracts/dist/v1-prediction-view.js",
+        "sha256": "ae44d049a2fb0eb1314f1b97f7b644a3c2b2ac62765d7f286379a658f6dd14a8"
+      },
+      {
+        "path": "packages/contracts/dist/v1-registry.js",
+        "sha256": "35f0631e5d33297fd110142353ecd1f2a41992795ebc9f03c4632b1b9eec6beb"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-evaluation.js",
+        "sha256": "e706d929a08bc5d93a44fa202ec211227367ee7ebfef30002594645beb7f5ef2"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-evidence.js",
+        "sha256": "099980986ee1f7002322d4b60e9da783a705bde0f35dbb8dd5f001707e85d8ce"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-plan.js",
+        "sha256": "41ac451c78ea786167ebcb38a810b14f3874b2c866d4c60382584fbc5d52f7a7"
+      },
+      {
+        "path": "packages/contracts/dist/v1-runtime.js",
+        "sha256": "743a99a891e7a95b9f7eaa90b7d6298821e68071444eb65ca5ab889ce304848a"
+      },
+      {
+        "path": "packages/contracts/dist/v1-schedule-result.js",
+        "sha256": "5801d4f294461d63aba849e682ce6bdb2d3555700e272e60674f00b587c91efa"
+      },
+      {
+        "path": "packages/contracts/dist/v1-schedule-target.js",
+        "sha256": "ff83ce5230c4cc9b3c78ce9105f0eb31348ff4fb48e876429176b8fd4a7e46cb"
+      },
+      {
+        "path": "packages/contracts/dist/v1-scheduled-lifecycle.js",
+        "sha256": "9157c7f6d767c37a5e6535dbd7ce98170c70a80ce9b7c6f42b5f352c5eda8b05"
+      },
+      {
+        "path": "packages/contracts/dist/v1-scheduled-result-view.js",
+        "sha256": "4b5b46ee04fbc8309e1abe33648c0e3a4dca87966f029526afc03c24d702e9d4"
+      },
+      {
+        "path": "packages/contracts/dist/v1-scheduled-view.js",
+        "sha256": "150ed672a1e7b6f3fa7c9d09fe1b7196b7fb8088431569b8d78f2b4de09e6ec3"
+      },
+      {
+        "path": "packages/contracts/dist/v1-target-lifecycle.js",
+        "sha256": "25ad89f5a8b04a75649794243ea40257bd69827b07a6f7e66bde71b6ca60bf40"
+      },
+      {
+        "path": "packages/contracts/package.json",
+        "sha256": "6bde23c4387eee1be0fac18f55034d345dfab925bafb518a6e7c1d82970e0053"
+      },
+      {
+        "path": "packages/db/dist/catalog-repository.js",
+        "sha256": "803c95001b6eee27247e98c25e352a769b14d6bf0fa314512241b86d88f278bb"
+      },
+      {
+        "path": "packages/db/dist/compare-report.js",
+        "sha256": "ded7c5ba6d53473e6898026cb55bc22bf0e9399319aa09cbf3148f907d38bd74"
+      },
+      {
+        "path": "packages/db/dist/compare-repository.js",
+        "sha256": "bb908b07dcbb302dea34447b7d73af808be8fd1368e48955a91b42965a796400"
+      },
+      {
+        "path": "packages/db/dist/context-repository.js",
+        "sha256": "32327e56b3240d03aaf2c95a40e736e2b3d30f753efee048b14c862dea6ebfd0"
+      },
+      {
+        "path": "packages/db/dist/corpus-audit.js",
+        "sha256": "1c0b9d1f3f0d24aa1902121f0b45ee365b44bf984d6876822ce6a8ca0b3d6375"
+      },
+      {
+        "path": "packages/db/dist/corpus-quality.js",
+        "sha256": "a168da5a3057fa989d9597868749ca08a6acd5eef33706356da05ca0df1a4056"
+      },
+      {
+        "path": "packages/db/dist/dataset-audit.js",
+        "sha256": "53bfb86a8f99c2c1833440aafced21fae047702d21222588d2638f86eddb5d3b"
+      },
+      {
+        "path": "packages/db/dist/dataset-builder.js",
+        "sha256": "7c3b9903ccff0e79be5cfaa683daf3f8232843b11e302958ca797c4d282568f2"
+      },
+      {
+        "path": "packages/db/dist/dataset-repository.js",
+        "sha256": "f8517f8bdf228e2789871b7f3e450dff31f475cb44cab08d665cf45ece981f69"
+      },
+      {
+        "path": "packages/db/dist/dataset-splits.js",
+        "sha256": "3875e37729e5827c4b3a2e304565f0ee89eba4a7b341ae32527bcde5914a081a"
+      },
+      {
+        "path": "packages/db/dist/game-context-repository.js",
+        "sha256": "08ea6aa061e409e4c4a1d8e1dd74b0418af73d8626c1f8174da87f4fa4aedd0e"
+      },
+      {
+        "path": "packages/db/dist/game-context.js",
+        "sha256": "b1e537e39b2c500f604cf574484da7f98c97f1445d96aa1eaf3009cfe1e11114"
+      },
+      {
+        "path": "packages/db/dist/hero-matchup-repository.js",
+        "sha256": "81a562ffaa4f29598c0564891afe79b31bcfe44606b447acfae9b5d2bbe36e3a"
+      },
+      {
+        "path": "packages/db/dist/hero-matchups.js",
+        "sha256": "c9c44b28ca03dc506652a4f9792530b77c480877d31d3792a0d389de9de47821"
+      },
+      {
+        "path": "packages/db/dist/history-refresh.js",
+        "sha256": "bb4f4cff34b54885e386d816e2f781996d4ec7a4dea8cd8e8d3b1964ee424ffa"
+      },
+      {
+        "path": "packages/db/dist/identity-provision.js",
+        "sha256": "e5186a4dbb0afc3692e905b21e0d1513176499f32c4590d726a81f6428137581"
+      },
+      {
+        "path": "packages/db/dist/identity-repository.js",
+        "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+      },
+      {
+        "path": "packages/db/dist/identity.js",
+        "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "sha256": "651400889098aa960acbd49166f8bda3a05033638b11dbaa966f1753c5dfacc1"
+      },
+      {
+        "path": "packages/db/dist/outcome-verifier.js",
+        "sha256": "604ed065ce7a277cdfba9b4d166416e7fd460d4760755268b3de0e5ece44225b"
+      },
+      {
+        "path": "packages/db/dist/patch-history.js",
+        "sha256": "327ec6619a17b38b6a98c70e04a9bc19b4dbbdc29a8343d76f644df5566f184d"
+      },
+      {
+        "path": "packages/db/dist/patch-meta-repository.js",
+        "sha256": "b3bbcc554ad85e92f8b36e597b79ff5a4b1c31822f8fc1e70c1f8360cb15cb68"
+      },
+      {
+        "path": "packages/db/dist/patch-weight-evaluation.js",
+        "sha256": "7ef97e31f13ad3168074d5cef2cf23f2c48ee6b2f4351293b548e75b0d42ea6e"
+      },
+      {
+        "path": "packages/db/dist/player-hero-report.js",
+        "sha256": "037409c76b41f61aebde3e95b9b23d6d725fe80b42d07b87c46e6cadde94006d"
+      },
+      {
+        "path": "packages/db/dist/player-hero-repository.js",
+        "sha256": "6a90dcfc84a3ff08aed8bc48f0f05c60841da9de6bdd2e39bdbb364899e96383"
+      },
+      {
+        "path": "packages/db/dist/pro-map-reader.js",
+        "sha256": "83391c746f48e9106e55e6a967aba6e1a84b3aca7494e74eb740dd83b00ed782"
+      },
+      {
+        "path": "packages/db/dist/pro-map-repository.js",
+        "sha256": "689ff80247db901dd6748544aeb870e903ee36880570327fd9b23b38f038f994"
+      },
+      {
+        "path": "packages/db/dist/pro-maps.js",
+        "sha256": "ff640d76ba361659729d80c2da4c4c9ba6fe533ac9f14b81453f4eeb12c06076"
+      },
+      {
+        "path": "packages/db/dist/prospective-patch.js",
+        "sha256": "f2e1cfb76bbc01505c35e5c1f166c67963b5750fd35a8948a7b1bb3b921fdb08"
+      },
+      {
+        "path": "packages/db/dist/readiness-repository.js",
+        "sha256": "adcd3e0132897ade8d766f1b2e95fb6f391e442e30a3bb2f2598cf0c3f3855c9"
+      },
+      {
+        "path": "packages/db/dist/readiness.js",
+        "sha256": "be3faf0e94513693a063e1671ea17d421dd98d5e46b59a8387b49b3c3a5c0f7b"
+      },
+      {
+        "path": "packages/db/dist/reference-pool.js",
+        "sha256": "c4e4fc2e0c327e7d93ba5e026c3a1ec21dc8db5d1836f0bf5a7a42ef88df379c"
+      },
+      {
+        "path": "packages/db/dist/research-elo-repository.js",
+        "sha256": "8c6a4b72b0119dbcd9749021cb2eb7b9e40761b4c3d3606b24bce7726762135b"
+      },
+      {
+        "path": "packages/db/dist/research-elo.js",
+        "sha256": "c1d344222cb71be8b12450a355cbbbb1f3bd5d1dee12d926165b8d64179c2d2f"
+      },
+      {
+        "path": "packages/db/dist/research-execution.js",
+        "sha256": "9adb330243989d39de4f0ff044517b2314fd20102f72da65ef69f5052b8eb760"
+      },
+      {
+        "path": "packages/db/dist/research-journal.js",
+        "sha256": "eda1b702cc39c29288f4f8fe4f8132663092a2a66de2c98ea8f7b35533be50dc"
+      },
+      {
+        "path": "packages/db/dist/research-plan.js",
+        "sha256": "871f270426157a44f93cd4b2863bbb815dcb18852f56eda8d4239b3bd72fa051"
+      },
+      {
+        "path": "packages/db/dist/roster-report.js",
+        "sha256": "4522b825594e08717487f3d8f481b57cd1da1653c90b4e7b919076b9f9f472e6"
+      },
+      {
+        "path": "packages/db/dist/roster-repository.js",
+        "sha256": "6f1ec04caee84961fc6cfe87a99590af568da4531e766c9743b8124a9133bdbd"
+      },
+      {
+        "path": "packages/db/dist/scenario-draft.js",
+        "sha256": "7d22610a5c10bd0acafdc7e2dbec7d70975ca21341339f244b88225f16c8024d"
+      },
+      {
+        "path": "packages/db/dist/scenario-report-repository.js",
+        "sha256": "25808a50821a05d378d41aaf5f3174bbf4c2df9860cbdd47dad273c0fcb249bf"
+      },
+      {
+        "path": "packages/db/dist/scenario-repository.js",
+        "sha256": "a9cb545b2eee24681dae1f52c6844ada2d33ad006d503391faf9a3f19d67e518"
+      },
+      {
+        "path": "packages/db/dist/schedule-cache.js",
+        "sha256": "6193b043c6facefaf9a48fab7008ed21281a2cec31041442967826151c136979"
+      },
+      {
+        "path": "packages/db/dist/series-provision.js",
+        "sha256": "f36fa8ac3e993f9ccb7515d545f7e370737e85a03163e53e67cf5156772d004d"
+      },
+      {
+        "path": "packages/db/dist/strength-report.js",
+        "sha256": "70982fb47cf9a134b1d0578dda4357ff2e4e30c70e45d07674a3a98508e45444"
+      },
+      {
+        "path": "packages/db/dist/strength-repository.js",
+        "sha256": "794f2e948d45856a1aa133bf23bc4a4c18d42c7cae9b8f5753d65826afb33295"
+      },
+      {
+        "path": "packages/db/dist/temporal.js",
+        "sha256": "c37f882da18ecc5694d168cdd146c4905cb001cab3829bed13947215fbb92bcb"
+      },
+      {
+        "path": "packages/db/dist/upcoming-evidence.js",
+        "sha256": "f88980e36fb066cacab5f299b4616a16056d26ee3d926155d3b15bfb21a5b032"
+      },
+      {
+        "path": "packages/db/dist/v1-candidate.js",
+        "sha256": "1c2a174408c63037bbc387c5aaa90b58850e188c8270152d9a4e41f69d97984a"
+      },
+      {
+        "path": "packages/db/dist/v1-data-repository.js",
+        "sha256": "223b380f1aa16c82350ca481edf03fe766061707ff08e44a60e18ee658f7f1cc"
+      },
+      {
+        "path": "packages/db/dist/v1-data.js",
+        "sha256": "ef0132909ab8c03115660d707a7628f70bd875fdf565dba7de31925d5e13c82a"
+      },
+      {
+        "path": "packages/db/dist/v1-executable-freeze.js",
+        "sha256": "2ec0db2a4372aad95f938cdc46f3909c54570078cc131af8940f1f91028b02a6"
+      },
+      {
+        "path": "packages/db/dist/v1-features.js",
+        "sha256": "81171837c4dd3c5ad64d61309fb5fbf08f9388ce3f3e78ae316253b0fd764986"
+      },
+      {
+        "path": "packages/db/dist/v1-forecast-outcomes.js",
+        "sha256": "85da508f2a40f127b705d605e9437cfc203870896c46b66e48068c34565f88d1"
+      },
+      {
+        "path": "packages/db/dist/v1-journal-reader.js",
+        "sha256": "691590c4a9de0074c0c5739c63e7d7b14a8d46506e20af0cd46752979227fcc9"
+      },
+      {
+        "path": "packages/db/dist/v1-journal-repository.js",
+        "sha256": "442359d87a5f0b5aef2b906cdf89e1e567c6d8b86131ebd26f9fe79d9b8b855b"
+      },
+      {
+        "path": "packages/db/dist/v1-journal-v2.js",
+        "sha256": "3e30d4c369a08e7c55779ee155445058240e64a0dc75907eec2c4b919835392a"
+      },
+      {
+        "path": "packages/db/dist/v1-journal-v3.js",
+        "sha256": "688a0e670b98d20e4dee1a7ed78b7a0046ac9d13672e88947089aa10e726d15d"
+      },
+      {
+        "path": "packages/db/dist/v1-journal.js",
+        "sha256": "f3dd1f61b15aa5ffa1d23cf94bdf8fd23dacc0540067c6eadec665103b1d7f54"
+      },
+      {
+        "path": "packages/db/dist/v1-prediction-reader.js",
+        "sha256": "07d98ed2d648e1f856332786031f1de09a7b46a725cba79d90a1e5eee68660aa"
+      },
+      {
+        "path": "packages/db/dist/v1-registry-repository.js",
+        "sha256": "d0f6f9a852ef7f0d47e3519f40e08b5a06fb29b6d4e73563d38071485cd47db6"
+      },
+      {
+        "path": "packages/db/dist/v1-registry.js",
+        "sha256": "1251fb31d6708a3ff21fa6ae158330e6ba758356c8ea43d453b63a07ab881f34"
+      },
+      {
+        "path": "packages/db/dist/v1-release-inventory.js",
+        "sha256": "fba6ab436ce32b3ddbaf3ddfd133a38f006bce4a331177ca5d29fb82f1edb4e3"
+      },
+      {
+        "path": "packages/db/dist/v1-release-journal.js",
+        "sha256": "78a04afa76f9fb68f64d626303f2cf3f1d105a9d8ada386372a496607e45d834"
+      },
+      {
+        "path": "packages/db/dist/v1-release-plan.js",
+        "sha256": "ab1fc7eb3a28e6e5d696ef43776c33a37988069323c90021da3a0279b256f093"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime-code.js",
+        "sha256": "e555e7c6f239c12f8923597cd90dae7a4ebc8f06b8df6fc5bb8bf3a219f0cb0b"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime-repository.js",
+        "sha256": "9f6b1974c1389363687930a18237ed7dca48330b2e062110ab8b6d04e0d6d9f3"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime.js",
+        "sha256": "621c701927c1a823af71e23b588281039e92ea34671ea8346ecce3acdb61831b"
+      },
+      {
+        "path": "packages/db/dist/v1-schedule-result.js",
+        "sha256": "600c427540e1804fc758b71b1925419d49ef0db09f90ea2206aefe9fef61582b"
+      },
+      {
+        "path": "packages/db/dist/v1-schedule-target.js",
+        "sha256": "375c6e182ac4c2b1aa24087caf0e4e157c1378a5290bbbed676d4445c6b523ea"
+      },
+      {
+        "path": "packages/db/dist/v1-scheduled-lifecycle.js",
+        "sha256": "66bdec658136ad42f481f858bfe035d9071fdad7895693665574501d11e4fa16"
+      },
+      {
+        "path": "packages/db/dist/v1-scheduled-result-service.js",
+        "sha256": "0b922c2e26713c81e3e896d352a33b44ba35a3d37f6621451454024e1c513227"
+      },
+      {
+        "path": "packages/db/dist/v1-scheduled-runtime.js",
+        "sha256": "d39b28fb7ba231d9d412f8b97a2263ca85b762e39d1954693e12c596c2d776ae"
+      },
+      {
+        "path": "packages/db/dist/v1-target-lifecycle.js",
+        "sha256": "7f0874f0bf61d40988197aa05b71d299d1fbc4b44489caa5ae3bf90bafd247b8"
+      },
+      {
+        "path": "packages/db/package.json",
+        "sha256": "2d48875617c2c47bc289dad94b75c912a27935adfc3f421a9fd511631aab8b66"
+      },
+      {
+        "path": "packages/prediction/dist/index.js",
+        "sha256": "92109f2d18e74db7b8052c2a3ba7e3b600c169b2a684d2cd38a7da9451ba1d25"
+      },
+      {
+        "path": "packages/prediction/dist/v1-candidate.js",
+        "sha256": "debb9c64633d13d314791a68cd72577f8afd4c212c84a6d2fea305cae9e46618"
+      },
+      {
+        "path": "packages/prediction/dist/v1-features.js",
+        "sha256": "72d353e52f1ac3ccb553006173e90caf5b0e3015c5557e191a6ab5924ade4cd3"
+      },
+      {
+        "path": "packages/prediction/dist/v1-integrity.js",
+        "sha256": "eb9fe3918a6bbf4e61cd9c630f1cf30f4cfb99c4ee49703af856e5e7684e8bdc"
+      },
+      {
+        "path": "packages/prediction/dist/v1-quality-policy.js",
+        "sha256": "010eb124e62d9363204d17175b0bc5cfde040593e7bd665d08de2a429f2d0aba"
+      },
+      {
+        "path": "packages/prediction/dist/v1-quality.js",
+        "sha256": "43c5b60850a647761eaf36a6df36f26ec50a93929406e789f3ee5f8af23ee7b2"
+      },
+      {
+        "path": "packages/prediction/package.json",
+        "sha256": "7aefde48f908f72dc9755436b46a44da71e1feabea11efa09c0808bad77ca28d"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "0297a50b1d23f5550d66fa0d305d332869316316fbd3c1014e4570d411be089d"
+      }
+    ],
+    "barrels": [
+      {
+        "path": "packages/contracts/dist/index.js",
+        "text": "import { z } from 'zod';\nexport * from './temporal.js';\nexport * from './identity.js';\nexport * from './game-context.js';\nexport * from './dataset.js';\nexport * from './readiness.js';\nexport * from './catalog.js';\nexport * from './pro-maps.js';\n// API-facing BIGINT identifiers travel as strings; do not coerce via Number.\nexport const IdSchema = z.string().regex(/^[1-9]\\d*$/);\nexport const SideSchema = z.enum(['radiant', 'dire']);\nexport const StageSchema = z.enum(['pre_match', 'post_draft']);\nexport const ScenarioSlotSchema = z.enum(['A', 'B']);\nexport const PredictionStatusSchema = z.enum(['pending', 'running', 'done', 'failed', 'unavailable']);\nexport const StatResultSchema = z.object({\n    games: z.number().int().nonnegative(),\n    wins: z.number().int().nonnegative(),\n    winRate: z.number().min(0).max(1).nullable(),\n    updatedAt: z.string().datetime().nullable(),\n    warnings: z.array(z.string())\n}).refine(value => value.wins <= value.games);\nexport const CreateScenarioSchema = z.object({\n    teamAId: IdSchema,\n    teamBId: IdSchema,\n    cutoffAt: z.string().datetime(),\n    scheduledAt: z.string().datetime().optional(),\n    radiantSlot: ScenarioSlotSchema.nullable().optional()\n}).refine(value => value.teamAId !== value.teamBId, { message: 'Teams must differ' });\nexport const OwnerLoginSchema = z.string().trim().toLowerCase().regex(/^[a-z0-9_.-]{3,120}$/);\nexport const OwnerPasswordSchema = z.string().min(12).max(128);\nexport const LoginSchema = z.object({ login: OwnerLoginSchema, password: z.string().min(1).max(128) }).strict();\nexport const OwnerSchema = z.object({ id: z.uuid(), login: OwnerLoginSchema });\nexport const AuthResponseSchema = z.object({\n    owner: OwnerSchema,\n    expiresAt: z.iso.datetime(),\n    csrfToken: z.string().min(1).max(512)\n});\nexport * from './roster.js';\nexport * from './player-hero.js';\nexport * from './strength.js';\nexport * from './sample.js';\nexport * from './patch-history.js';\nexport * from './compare.js';\nexport * from './scenario.js';\nexport * from './draft.js';\nexport * from './hero-matchups.js';\nexport * from './scenario-report.js';\nexport * from './dataset-build.js';\nexport * from './corpus-audit.js';\nexport * from './corpus-quality.js';\nexport * from './series-provision.js';\nexport * from './dataset-audit.js';\nexport * from './identity-provision.js';\nexport * from './upcoming.js';\nexport * from './upcoming-evidence.js';\nexport * from './history-refresh.js';\nexport * from './patch-diagnostics.js';\nexport * from './prospective-patch.js';\nexport * from './research-elo.js';\nexport * from './research-plan.js';\nexport * from './v1-data.js';\nexport * from './research-execution.js';\nexport * from './v1-release-plan.js';\nexport * from './evaluation-discovery.js';\nexport * from './evaluation-details.js';\nexport * from './research-evidence.js';\nexport * from './research-journal.js';\nexport * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-release-evidence.js';\nexport * from './v1-release-evaluation.js';\nexport * from './v1-executable-freeze.js';\nexport * from './v1-registry.js';\nexport * from './v1-runtime.js';\nexport * from './v1-forecast.js';\nexport * from './v1-journal.js';\nexport * from './v1-journal-view.js';\nexport * from './v1-prediction-view.js';\nexport * from './v1-target-lifecycle.js';\nexport * from './v1-journal-v2.js';\nexport * from './v1-schedule-target.js';\nexport * from './v1-schedule-result.js';\nexport * from './v1-scheduled-view.js';\nexport * from './v1-scheduled-result-view.js';\nexport * from './v1-scheduled-lifecycle.js';\nexport * from './v1-journal-v3.js';\nexport * from './v1-model-readiness.js';\n"
+      },
+      {
+        "path": "packages/analytics/dist/index.js",
+        "text": "export function winRate(records) {\n    const games = records.length;\n    const wins = records.filter(row => row.won).length;\n    return { games, wins, winRate: games === 0 ? null : wins / games };\n}\nexport function aggregateKda(records) {\n    if (records.length === 0)\n        return null;\n    const killsAndAssists = records.reduce((sum, row) => sum + row.kills + row.assists, 0);\n    const deaths = records.reduce((sum, row) => sum + row.deaths, 0);\n    return killsAndAssists / Math.max(1, deaths);\n}\n/** Stable unordered hero pair key (hero IDs are safe positive 32-bit ints). */\nexport function allyHeroPairKey(a, b) {\n    if (a === b)\n        throw new Error('A hero cannot be paired with itself');\n    if (!Number.isInteger(a) || !Number.isInteger(b) || a <= 0 || b <= 0)\n        throw new Error('Invalid hero ID');\n    return `${Math.min(a, b)}:${Math.max(a, b)}`;\n}\nexport function enemyMatchupKey(heroA, heroB) {\n    if (heroA === heroB)\n        throw new Error('Duplicate hero in same match');\n    return `${heroA}:${heroB}`;\n}\nexport { rosterOverlap, rosterCoplay } from './roster.js';\nexport { describeRoster, compareRosters, describeChurn } from './roster-report.js';\nexport { playerHeroSample } from './player-hero.js';\nexport { predictLogistic } from './model-inference.js';\nexport { replayElo, ELO_POLICY } from './elo.js';\nexport { sampleEvidence, weightedSample, shrinkObservedRate } from './sample.js';\nexport { historyWeight, historyWeightSummary } from './history-weight.js';\nexport { pairObservations } from './hero-pairs.js';\nexport { heroMetaSample } from './hero-meta.js';\nexport { forecastMetrics, FORECAST_METRIC_POLICY, FORECAST_LOG_LOSS_CLIP } from './forecast-metrics.js';\n"
+      },
+      {
+        "path": "packages/prediction/dist/index.js",
+        "text": "export * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-quality-policy.js';\nexport * from './v1-quality.js';\n"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "text": "import { Kysely, PostgresDialect } from 'kysely';\nimport pg from 'pg';\nexport { sql, CompiledQuery } from 'kysely';\n// SQL migrations remain the authority. SQL-first repositories use typed result\n// rows via sql<T>, with the query builder for supported table projections.\nexport function createDatabase(connectionString) {\n    return new Kysely({ dialect: new PostgresDialect({ pool: new pg.Pool({\n                connectionString, max: 5, connectionTimeoutMillis: 5000, idleTimeoutMillis: 10000\n            }) }) });\n}\nexport * from './temporal.js';\nexport * from './context-repository.js';\nexport * from './identity.js';\nexport * from './identity-repository.js';\nexport * from './identity-provision.js';\nexport * from './game-context.js';\nexport * from './game-context-repository.js';\nexport * from './dataset-repository.js';\nexport * from './dataset-builder.js';\nexport * from './corpus-audit.js';\nexport * from './corpus-quality.js';\nexport * from './series-provision.js';\nexport * from './dataset-audit.js';\nexport * from './dataset-splits.js';\nexport * from './outcome-verifier.js';\nexport * from './readiness.js';\nexport * from './readiness-repository.js';\nexport * from './catalog-repository.js';\nexport * from './pro-maps.js';\nexport * from './pro-map-repository.js';\nexport { RosterRepository, RosterQueryError } from './roster-repository.js';\nexport { PlayerHeroRepository, PlayerHeroQueryError } from './player-hero-repository.js';\nexport { StrengthRepository, StrengthQueryError } from './strength-repository.js';\nexport * from './patch-history.js';\nexport * from './patch-meta-repository.js';\nexport * from './patch-weight-evaluation.js';\nexport { CompareRepository, CompareQueryError } from './compare-repository.js';\nexport { ScenarioRepository, ScenarioError } from './scenario-repository.js';\nexport { assessScenarioDraft } from './scenario-draft.js';\nexport { HeroMatchupRepository } from './hero-matchup-repository.js';\nexport { ScenarioReportRepository } from './scenario-report-repository.js';\nexport * from './schedule-cache.js';\nexport * from './upcoming-evidence.js';\nexport * from './history-refresh.js';\nexport * from './prospective-patch.js';\nexport * from './research-elo.js';\nexport * from './research-elo-repository.js';\nexport * from './research-plan.js';\nexport * from './v1-data.js';\nexport * from './v1-data-repository.js';\nexport * from './research-execution.js';\nexport * from './research-journal.js';\nexport * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-release-inventory.js';\nexport * from './v1-release-journal.js';\nexport * from './v1-executable-freeze.js';\nexport * from './v1-registry.js';\nexport * from './v1-registry-repository.js';\nexport * from './v1-runtime-repository.js';\nexport * from './v1-prediction-reader.js';\nexport * from './v1-forecast-outcomes.js';\nexport * from './v1-journal.js';\nexport * from './v1-journal-repository.js';\nexport * from './v1-journal-reader.js';\nexport * from './v1-release-plan.js';\nexport * from './v1-target-lifecycle.js';\nexport * from './v1-journal-v2.js';\nexport * from './v1-schedule-target.js';\nexport * from './v1-schedule-result.js';\nexport * from './v1-scheduled-result-service.js';\nexport * from './v1-scheduled-lifecycle.js';\nexport * from './v1-journal-v3.js';\n"
+      }
+    ],
+    "runtime": {
+      "node": "v22.15.0",
+      "platform": "win32",
+      "arch": "x64",
+      "nodeBinarySha256": "77bdff912b1c569b3e693fe126f619337c3e9d73dafbc4d0bf1d4f1f6a145761"
+    }
+  },
+  "code": [
+    {
+      "path": "apps/web/playwright.config.ts",
+      "sha256": "ed2dba78d398cfcd7b743c0be70a5c9cf97f5dfe18789cb56b6a6517efcaa3d1"
+    },
+    {
+      "path": "package.json",
+      "sha256": "869a272cc0b286eed468286713e906d0555041be397e046c5579ba556462de88"
+    },
+    {
+      "path": "apps/web/tests/e2e/auth.spec.ts",
+      "sha256": "627a30affba0655264cd42d9e4d5c3e67c87d020dc346706be25a153df5919ef"
+    },
+    {
+      "path": "apps/web/tests/e2e/compare.spec.ts",
+      "sha256": "e8eb14ba05ca5891f621ba91bfbe2ff95add2f50083236ab9c3c4ddc1e193d51"
+    },
+    {
+      "path": "apps/web/tests/e2e/draft.spec.ts",
+      "sha256": "adbca18385fb882492d6c79f94ae56e444c7ed6ba88c721b7984d0979a2a21f5"
+    },
+    {
+      "path": "apps/web/tests/e2e/hero-matchups.spec.ts",
+      "sha256": "353489826216f0dd725691fad358d50e2dbc7f4560d8ff76ca6bc8ab226e3a5d"
+    },
+    {
+      "path": "apps/web/tests/e2e/history.spec.ts",
+      "sha256": "77ee83159b37f7475da547aae20a4975ef0d224f89e392b0783f654f1bea613f"
+    },
+    {
+      "path": "apps/web/tests/e2e/journal.spec.ts",
+      "sha256": "3098d26ea5cdbd15e08772c9be1fdc8edb7d864f3b1d44485fef8e8818e28660"
+    },
+    {
+      "path": "apps/web/tests/e2e/model-readiness.spec.ts",
+      "sha256": "704ad90cd18e52ad977800814acbc8661aee95a65c94d9c642b5713ad4c80fd9"
+    },
+    {
+      "path": "apps/web/tests/e2e/player-hero.spec.ts",
+      "sha256": "e4d1e01d911ee430c900f0daff1e6a44cba58313607923de61c610b76bfc3af9"
+    },
+    {
+      "path": "apps/web/tests/e2e/predictions.spec.ts",
+      "sha256": "bdcd376db40a52ba9a9e4a1014443cadaaa8b5fb238a2792a793d28dbccadb37"
+    },
+    {
+      "path": "apps/web/tests/e2e/reports.spec.ts",
+      "sha256": "2df2e8a0c12dca45340d90c0af96a7fdc398a5140e470882365fb179e486e58a"
+    },
+    {
+      "path": "apps/web/tests/e2e/roster.spec.ts",
+      "sha256": "4db38380b11f8aaa81163a6655ae9c37571eee568fbc8f89a1f5b91a0f8e469e"
+    },
+    {
+      "path": "apps/web/tests/e2e/sample.spec.ts",
+      "sha256": "b8bb2f83210a0d940ab709c39f480187e1b7083654fd9d37ccbf6b94ca638d60"
+    },
+    {
+      "path": "apps/web/tests/e2e/scenarios.spec.ts",
+      "sha256": "ce607c406eeca49017d225226b432007382c8608a7fa01487cb8b55222a1eef1"
+    },
+    {
+      "path": "apps/web/tests/e2e/schedule-filter.spec.ts",
+      "sha256": "1b7d447988c9af6ab67697384c5cdda610fcba5794a3aca7aa9bc68bcf834319"
+    },
+    {
+      "path": "apps/web/tests/e2e/schedule-targets.spec.ts",
+      "sha256": "56fa0ae5634338ac1208de13e4b4cc6723479ee7cdc3ccdd69afe1b4c5a6be0a"
+    },
+    {
+      "path": "apps/web/tests/e2e/scheduled-lifecycle.spec.ts",
+      "sha256": "18667ac5e59fbedd58a7221c01fee6d7f4504e48de2100489b7b643dead5032a"
+    },
+    {
+      "path": "apps/web/tests/e2e/scheduled-owner.spec.ts",
+      "sha256": "4fac5e4f7f03dc7b86835dd51eb351a8165e9e31c19eb1bad20cad793d969dac"
+    },
+    {
+      "path": "apps/web/tests/e2e/scheduled-results.spec.ts",
+      "sha256": "949d1d625803c181d30b12a4d0664c9783e779c3ffe6045ef58acfebee8598c0"
+    },
+    {
+      "path": "apps/web/tests/e2e/scheduled-runtime.spec.ts",
+      "sha256": "aea4356ea73db7eea6f547cf65f7377e40ab5800231f999765920e3a60fef3b5"
+    },
+    {
+      "path": "apps/web/tests/e2e/strength.spec.ts",
+      "sha256": "5c7590e7a1cacf236570d5dbdc885b65e5f08c9a49a4d428a771c1780e9b9e38"
+    },
+    {
+      "path": "apps/web/tests/e2e/upcoming-compare.spec.ts",
+      "sha256": "48795724e9ac5790cad64a9610c8c9aed8d1468c572e82373986ab9a0f6c1814"
+    },
+    {
+      "path": "apps/web/tests/e2e/upcoming-filters.spec.ts",
+      "sha256": "f73db0e72b09d64b026b96a06c34e46442fd9459e35a5388b7228b9ec2643d46"
+    },
+    {
+      "path": "apps/web/tests/e2e/upcoming-navigation.spec.ts",
+      "sha256": "f6e89562e517a9d5e9a378fa87ddcc075955f26e43dbbf1a135efca02452ed99"
+    },
+    {
+      "path": "apps/web/tests/e2e/upcoming-workflow.spec.ts",
+      "sha256": "0d48a6b770d9bcf73235541662ea87a980329736bd2286de2b9f04d9eacf4a66"
+    },
+    {
+      "path": "apps/web/tests/e2e/upcoming.spec.ts",
+      "sha256": "5609ca2c2ac5a71e113974a36f457fc8c2a3d7b1e9c3b1d38d3dd4297854f16a"
+    },
+    {
+      "path": "apps/web/tests/e2e/v1-acceptance.spec.ts",
+      "sha256": "5a246bbba475631a4e95673cf887b407cc064c47e2ef6885b6d02332a63010d1"
+    }
+  ],
+  "docs": [
+    {
+      "path": "README.md",
+      "sha256": "3a9fe90b3f4d8f9c1175ba4edd9d31248cbe1a349b7ebc585f654af89f46c9da"
+    },
+    {
+      "path": "docs/S4_02_V1_FULL_OWNER_E2E.md",
+      "sha256": "9801fad1dc43a12ffa06a86f66f904db3b95acfb75b09f959c2d091c2075756f"
+    },
+    {
+      "path": "docs/S4_V1_ACCEPTANCE_AUDIT.md",
+      "sha256": "c52889853038132409fe3f052b14b8538c2f75dc8ba2548a38111cb267691783"
+    },
+    {
+      "path": "docs/ACCEPTANCE_CRITERIA.md",
+      "sha256": "145e90f3f4446ec8678cf7737666568dc114237e634e38ce97e611650051e01b"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PLAN.md",
+      "sha256": "423556574c6a6f8ffd7b7a107225c29646f5922187d5caf94f440de475f441b8"
+    },
+    {
+      "path": "docs/PROJECT_STATE.md",
+      "sha256": "f862125dc90e0e9aeb8ccb76f02a5c6523fa1dca560075e34b4cf183e1335d8f"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "4d2e304995c3da42fe8138789e576127010b28f5449b0804829fc60e45a073e8"
+    }
+  ],
+  "harness": [
+    {
+      "path": ".tools/s4-e2e-baseline.mjs",
+      "sha256": "431295ab11f05d5ca2d35776711c1bff94d96b278bd92e5abb4fd8087eafe389"
+    },
+    {
+      "path": ".tools/s4-e2e-check.ps1",
+      "sha256": "abdcd5e071bf436eeccfe82400f156e095ab1b07f937b35c0946738b42f07160"
+    },
+    {
+      "path": ".tools/s4-e2e-manifest.mjs",
+      "sha256": "7f4b7ab523611f641f0f88534baa0c0fbaad35c8df4a8ac2f347d7b652af1685"
+    },
+    {
+      "path": ".tools/s4-e2e-preserve.mjs",
+      "sha256": "692889f3e3c66865160c24baa07c66341270dad57f9670ad86981646e86a4996"
+    },
+    {
+      "path": ".tools/s4-e2e-finalize.mjs",
+      "sha256": "d378f630c4a676fc232744355dd905f3d428c567e5b984388f5330397f464dae"
+    },
+    {
+      "path": ".tools/s4-e2e-docs.mjs",
+      "sha256": "e4653beb8c9bde637d1cac966f561598aef75034b3c70a92132095fe02968046"
+    },
+    {
+      "path": ".tools/s4-e2e-evidence.mjs",
+      "sha256": "7daaa5b686ae3de63965d9a47d12dc2ed2f84cea303427224080a43e021fc368"
+    },
+    {
+      "path": ".tools/s4-queue-state.mjs",
+      "sha256": "03c53613f8b2fdadba59b52013a7cbc68b4be45fbfd104bea592d1269a5ffd56"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".tools/s4-e2e-baseline.json",
+      "sha256": "35dffad29307c88263597df937868c1cb5726d7c59aa18ac26d30233856466bd"
+    },
+    {
+      "path": ".tools/s4-e2e-all-before.json",
+      "sha256": "686358cabedc5a86797a9ff3e4161ee0d04a06eaa2529047a9419c643b879784"
+    },
+    {
+      "path": ".tools/s4-e2e-all-after.json",
+      "sha256": "f847d9a965420c6de444fb32aef88e5bc1fe47daa5c1317dbdc8d653562d80eb"
+    },
+    {
+      "path": ".tools/s4-e2e-preservation.json",
+      "sha256": "a19ab92707981b0701176616c3624f81ee0d6102654896478d129f9386034f4d"
+    },
+    {
+      "path": ".tools/s4-e2e-manifest.json",
+      "sha256": "1ac78e8bf220f2b4e3136a8bb5acb4f4fe77409325ceb38d1eb03f5c5016a0d9"
+    },
+    {
+      "path": ".tools/s4-e2e-browser-exit.json",
+      "sha256": "6041df3e9b345d68be886f995c452395674ea950cd3ca9992c13b64f3aa9cbd0"
+    },
+    {
+      "path": ".tools/s4-e2e-last-run.json",
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": ".tools/s4-e2e-screenshots/auth-dashboard.png",
+      "sha256": "a0904380dcd799863772d297bd48aee29da028d8dc1dd865e591c47980e7bd26"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/auth-login-mobile.png",
+      "sha256": "fd885bb88ea4b168ea1d32ef6e6fde8e27a087f67d58d9e2aaaffed917522b3f"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/catalog-desktop.png",
+      "sha256": "6136d93e46aa635b21c8a09fe12c7e966e4fef43f88f325b39091d48576c7d50"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/catalog-mobile.png",
+      "sha256": "e5734af02e7dae77b869ec454fe3da8adc805b1bf29c41c13a1546b46cd3c058"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/compare-desktop.png",
+      "sha256": "86d38662b4ec244d79eab460038b01bab26636cf9c7620e2e6a35aad76358a11"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/compare-mobile.png",
+      "sha256": "d04eefcc7e05f1ac0ce740ad6d276d544f9b435272fc1aee9f5f2606c34d94c4"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/draft-desktop.png",
+      "sha256": "501aa52886bc0d701a92b778b12787e787996857c4a4674e0a23d774f4f70a0c"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/draft-mobile.png",
+      "sha256": "179b458d999f814ac94615f9560dfee927cb52b7efec4faeae7e03abfac7bc58"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/history-refresh-desktop.png",
+      "sha256": "cf3019c016126a08941d4bbfb1e5191018cf82bd95de5ef67d98618666cdead6"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/history-refresh-mobile.png",
+      "sha256": "6ddd95deab23c73c915440139120f3ac72bd7c9a7a341f659724a44c5148b4c4"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/journal-cancellation-mobile.png",
+      "sha256": "555bc4133818d1982561b70f4557e063efd9222fb043d501bbe8485964b77ee5"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/journal-desktop.png",
+      "sha256": "789b0f562521bc8b2b56096bac7c1d83656e0e11a8a63543e004d7d7730de14b"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/journal-mobile.png",
+      "sha256": "3c6279295db7686f4883722bb1a2ce55a7c04d3e547ca73180910c6693c73fa5"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/journal-synthetic-positive.png",
+      "sha256": "10491bb6617cb97672eb1cd38076ec448cf1a7e740eea4dbcf627f90f0472166"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/model-readiness-desktop.png",
+      "sha256": "55ff7a9425bb16646787c935cb8756f59056a462d80c0ede0080fe78c9e4aab8"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/model-readiness-mobile.png",
+      "sha256": "99de275e2d16ee105c949f44cba2ffb0cf8bc5e96e3088b72193794917f14fbb"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/pairs-desktop.png",
+      "sha256": "253f7d66f6bc0d0ad543bb97d69be7d46eeb9cf3d3876bf35b3d313494b90162"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/pairs-mobile.png",
+      "sha256": "ab713217f13fc9a8877745cace4d7d3817f147cc3c6ab443b285632e6c54dc23"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/player-hero-desktop.png",
+      "sha256": "d3425ffaa64f452a7caf6e0b4fd5d78e978a435ddcfe6f6efd2a70a3e3ddb2ab"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/player-hero-mobile.png",
+      "sha256": "e603fb9b9ffc3edabd4ef43f89394da7660e047925da61177e72dcdf936dd9b9"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/prediction-desktop.png",
+      "sha256": "b372bf01cb4cccc619c5c48d8d5481a0bd0b443e49ff6967520c25bd79338692"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/prediction-mobile.png",
+      "sha256": "8e1bec0b7aefffd3de601da0a6544302e6ca6a4326ec5585d56b7cf432862b68"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/prediction-synthetic-positive.png",
+      "sha256": "d463e2bbaa4f56a9bec0b811beaa73b0a1fdbadd72758c36059c60ffc9751813"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/pro-maps-desktop.png",
+      "sha256": "d200f31a08ad1c701baa922f9518c283dabbda04bcfd0f419eb3771cbac993f9"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/pro-maps-mobile.png",
+      "sha256": "d436efd7215d7b435fe4395fd5c25243947168b9cb84661b2fdbfc0c21ced0f2"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/report-desktop.png",
+      "sha256": "e21857e8f0a3fdc0820833fa1f73df28a3e903ebd6f2fd8a3d4c825f1b66388e"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/report-mobile.png",
+      "sha256": "37c240af8bc8ca6053785476f81698da62757a7a766221b3298e2743f3a49a47"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/roster-desktop.png",
+      "sha256": "2fcc518557f4bf6b63613d8e768749913f16ddd872ce1a99c38e99a89431f243"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/roster-mobile.png",
+      "sha256": "039a1eec94f5ad3cd98b5e4d384b35278845e3119153acc87fe8fe249ff218f4"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/sample-desktop.png",
+      "sha256": "46ce9fcbab18bd3314fb0f55ce72ac33e3db8e2a9a8810377a39b20053cbb07a"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/sample-mobile.png",
+      "sha256": "1718f65e2764b0000f9fb5e2cfd2f4ccc1ba042b3e993476c86a1bd6c474b4ac"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scenarios-desktop.png",
+      "sha256": "15e1cbdf4ad9fd1cf9dd457ef6ac267ddd0c79b1a2e1558aa0fcba5c67679849"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scenarios-mobile.png",
+      "sha256": "28620cf52b1bc905a3fd312a2dc337e37b2d4a4711a16478393034857bddedf8"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/schedule-filter-desktop.png",
+      "sha256": "f594a56048cad8dd4dd5425e6c683e2a390c27c214abd5b5c57888cddbb16c43"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/schedule-filter-mobile.png",
+      "sha256": "353b41cd8a1fc2cecbba3d510f758e34484206648e3255b4715e6bb70c4926d2"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/schedule-result-desktop.png",
+      "sha256": "9724ea3ad1021ef4443ce5d81b49930564f2631b6416b83e5dbd297c463035b0"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/schedule-result-mobile.png",
+      "sha256": "c68d08e962fb235136535fe69c77190bac0ef52c8627d3a3e1b03942074e1b83"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/schedule-target-desktop.png",
+      "sha256": "cfcafd654937a887ed105d1bc0c9ccb1d52f311e1d095b088c69a728be9b07df"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/schedule-target-form-desktop.png",
+      "sha256": "11d57fe84e777291719c0836bdff0c39865b17751d1928d2edc5134fb2e2d60d"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/schedule-target-form-mobile.png",
+      "sha256": "828b4c139a6c789a81195d2b16331aface2c004e3d1b97e07aefaec61a0b6f35"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/schedule-target-mobile.png",
+      "sha256": "64573c39c52e1bd8e1114f3d8e9d0a41bf3ddb8ee2855d61d73d47b27fdd69d7"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scheduled-lifecycle-desktop.png",
+      "sha256": "4c30d1a171d78a52ea2e75c4f6aa9cf76de78d8e52460fbd168089b6159cfdb6"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scheduled-lifecycle-mobile.png",
+      "sha256": "4aed77857040612eb2be08f828164b06527b41e43c39563bd73a32b6dd136b74"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scheduled-owner-desktop.png",
+      "sha256": "55424c17eb46eb481500f9c7892c622d351833507d7575b6789138e66aa49dde"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scheduled-owner-mobile.png",
+      "sha256": "4e7ad0cb7e7b524cc9c2a50ba6e408f9654e21ee05d4328aa1106143c0f232eb"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scheduled-result-owner-desktop.png",
+      "sha256": "7923271b22868136d142c676452d985636b3bdfd19bf00a18658a01fb4307ec6"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scheduled-result-owner-mobile.png",
+      "sha256": "f8e313b2f41514e09064f3e301259c87ec56a2ca96f7093060f2f4ec9a49a4d8"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scheduled-runtime-journal-desktop.png",
+      "sha256": "5b8752a8a056aa3079ad876e6eecf75e0bd27075ddb1e0a0a2c1c31b75335ab0"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/scheduled-runtime-journal-mobile.png",
+      "sha256": "bbcb14ecc97843b065f578592298ade985f937b9229a890b87513c3223698609"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/strength-desktop.png",
+      "sha256": "441d6f3cfd345fda42b9650e1263b7e540308e94725ac200c0bf7627e502072c"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/strength-mobile.png",
+      "sha256": "c8259ef09ebdc115db1c0adb7546b7b5d27601f31553e796872030b15b3e7e11"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-desktop.png",
+      "sha256": "4f5ce996471c0b13e2e7ef38b857258577b20fcc495ff6d0c7196007e17c9981"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-filters-desktop.png",
+      "sha256": "50122d15510d6cf7c1444d8d28633118e7ffb4debd34683e75800d8252ffdcc4"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-filters-mobile.png",
+      "sha256": "29521df9a56427cfd62add5f3ce4ec2a14cae27a00b5b883219da5e246f0fe4f"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-lineups-desktop.png",
+      "sha256": "55f346783cd69e9aa47ac749f957cc385b8e1bfa77dc413bd535b857d1e28f4c"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-lineups-mobile.png",
+      "sha256": "5201575ddf2aa5d8e045e65acc3cf23b7f06d84a67f0528b3ae7de0d859f12f5"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-mobile.png",
+      "sha256": "48313806f53c28ceecc7b8660aad1f2fc0b0e89602b2c4be3adcdf5e4a02de3b"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-picker-desktop.png",
+      "sha256": "1815071b35cd3c4ce2fc2638ac4d8c9f2302408ca37ce950f1bcad458824fb02"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-picker-mobile.png",
+      "sha256": "a0187ddf0204cc036557165afc205068aa2fc40c8379255674081bf1c62dbf8e"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-selection-mobile.png",
+      "sha256": "db3567636432bfb41d4a676e46b8475eec39e267996b331b00a5675ecf8ffa4a"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-summary-desktop.png",
+      "sha256": "78161551658fbafca4c39a0a6c501f7ac72795302690803f0ad18e737e39fabd"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/upcoming-summary-mobile.png",
+      "sha256": "8024e20e2a33fe3c90ffeaa29fa6a8dccdfcb4c41a6ef8a4652ff613758026f4"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/v1-acceptance-desktop.png",
+      "sha256": "fbb2a5947176d909a85b3a8784c9419da5953990ffe4bfcc057934b9626a0ba0"
+    },
+    {
+      "path": ".tools/s4-e2e-screenshots/v1-acceptance-mobile.png",
+      "sha256": "aa39487e78293a3246ec374cf8ba4b87f69dcc6bdd49e4bf4b727d0d8d1737b5"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".tools/s4-e2e-list.log",
+      "sha256": "36c84c5166217202e82883751afc3a5f0a1c051e99a31e5c7986568b154036ef"
+    },
+    {
+      "path": ".tools/s4-e2e-browser.log",
+      "sha256": "1dac9e5ae0fa05083db6c31dea684801f4a56ce131976662810623c2cc06f1da"
+    },
+    {
+      "path": ".tools/s4-e2e-install.log",
+      "sha256": "d5fac4e90611ad6f2dc815ea5b490be4906fc897a8ca8a6664cbe9076d26b927"
+    },
+    {
+      "path": ".tools/s4-e2e-typecheck.log",
+      "sha256": "bbbaf3e3a07889123b8682ab7983ad2dc83a2ccc3df3dbfeb85346bc612870d6"
+    },
+    {
+      "path": ".tools/s4-e2e-build.log",
+      "sha256": "e211a40f38861902ce82bfaa65c214fd4cbc8161cf4424b0abcdedeed978dcdb"
+    },
+    {
+      "path": ".tools/s4-e2e-unit.log",
+      "sha256": "9d042b2adad37a4ad380897df65d207f58ba8a3a87ce79c1dd823eb8dc4d8130"
+    },
+    {
+      "path": ".tools/s4-e2e-node.log",
+      "sha256": "0b3e1850b9176e0ed3f00da234b205f7f087e4b0b7da33df947ff99b51b48c18"
+    },
+    {
+      "path": ".tools/s4-e2e-preservation.log",
+      "sha256": "b74dc6f894e376bf109cfb8988279b92a30a83b242beb5ff05dddc06a6db5e31"
+    },
+    {
+      "path": ".tools/s4-e2e-docs.log",
+      "sha256": "b5ad16a1671f2d511bcffbedae89ec4133b7357247afb1c64a6e8b825ca88a3c"
+    },
+    {
+      "path": ".tools/s4-e2e-diff.log",
+      "sha256": "68efbfcdbf98bead04cb993507b018e8f8ce0a66ba5fca3ffec1ea0218914166"
+    }
+  ],
+  "limitations": [
+    "Local Chromium Vite/compiled-API behavior is not remote CI, Docker/VPS/HTTPS or real-model performance evidence",
+    "Independent Tier1 release quality/activation and real active-model restore gates remain open",
+    "Only2 screenshots manually inspected;64 archived"
+  ],
+  "localS402": "complete with historical regression and prior native queue restore; no new restore in this checkpoint",
+  "nextTask": "S4-03/V1-deployment-preflight: local production config/tools/reproducibility audit; no actual deploy, publishing or model activation",
+  "nextModel": "GPT-6.1 Sol · High"
+}

@@ -1,0 +1,1044 @@
+{
+  "schemaVersion": 1,
+  "task": "S4-01/V1-provider-conflict-review",
+  "generatedAt": "2026-11-03T19:37:48.368Z",
+  "status": "PASS",
+  "scope": "Existing identity/map outcome/series/draft/provenance conflict paths and safe owner report API, synthetic responses and isolated PostgreSQL only",
+  "result": "8 new full importer-to-API regressions passed without production fixes; legacy exclusion-counter priority documented",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCliTests": 727,
+    "nodeFixtureTests": 64,
+    "nodeFileConcurrency": 1,
+    "selectedPgTests": 79,
+    "newPgTests": 8,
+    "existingPgTests": 71,
+    "unitNodeRetries": 0,
+    "changedTimeouts": 0,
+    "ciWiring": "New file included in existing test:pro-maps; unchanged CI invokes this script",
+    "remoteCI": "not run",
+    "browserPythonDockerVPS": "not run: no UI/ML/runtime/deployment changes",
+    "docsLinks": "PASS",
+    "progressAppendOnly": true,
+    "secretsAbsentFromLogs": true
+  },
+  "limitations": [
+    "Live provider completeness and correctness not measured",
+    "Quarantined source-conflict maps with is_pro NULL count as unknownPro before conflict in mutually exclusive legacy counters",
+    "Local S4-01 completion does not pass model/release, active-model restore or production deployment gates"
+  ],
+  "preservation": {
+    "status": "PASS",
+    "protectedArtifacts": 37,
+    "workingState": {
+      "scenarios": 0,
+      "predictions": 0,
+      "snapshots": 0,
+      "reports": 1,
+      "activemodels": 0,
+      "artifacts": 1,
+      "activations": 0,
+      "releaseevaluations": 0,
+      "researchevaluations": 0
+    },
+    "reportSha256": "bd42a60064c42daa4281bcb0e8972eba79d72737a4fccffe480d8a8725767398",
+    "unchangedRelationEntries": 78,
+    "ownerPendingRefresh": {
+      "team_id": "321",
+      "status": "queued",
+      "attempt": 0,
+      "processed": 0,
+      "accepted": 0,
+      "state": "created",
+      "started_on": null,
+      "retry_count": 0
+    },
+    "productionCodeChanges": 0,
+    "migrationLedgerChecksums": 34,
+    "providerCalls": 0,
+    "modelTrainingEvaluationActivation": 0
+  },
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-release-leagues-20261102.json",
+      "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+    },
+    {
+      "path": ".tools/v1-features-development-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+      "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+      "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evidence.json",
+      "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+      "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+      "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+      "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-verification.json",
+      "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+      "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+      "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+    },
+    {
+      "path": "docs/evidence/s3-05-v1-registry.json",
+      "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+      "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-owner-api-ui.json",
+      "sha256": "543d4a48d36f627af4597462e4c4adb35109de362e2b68d55001b21cc41693eb"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-real-target.json",
+      "sha256": "9f49e3f6394ff9490b98249d717859b058e1df04e8614a165f9add23cd6f1911"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-journal-metrics.json",
+      "sha256": "baf05428a2b2623c9c207d9074e2c0bdc3f8776e232967b1446e06ce09008b38"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-journal-owner-api-ui.json",
+      "sha256": "1f351addda289fcef98de74c40634c61cb9b291e3bc769a7b89186cc63cbd807"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-target-lifecycle.json",
+      "sha256": "740b47a7f2e6f510f9ea95ea513b9f7246502fb7b94c87750d5b541fb80fd98e"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-schedule-target-registration.json",
+      "sha256": "b0b0f67b68632c0395a7d650d813f2f63a5f37c66a2f75ab7c58922d99f10fb8"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-runtime.json",
+      "sha256": "757e2dd402846ab15fe9502a872f3e1525c7ae67c2f1c0366297f2007eb7d29c"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-result.json",
+      "sha256": "19f633fae8a8a4211bbd5eccb836b08e8872684cd949ab899cfb829542b1de0d"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-owner-flow.json",
+      "sha256": "bdfd9eaac593c6aa5d929059da88cfabee62d04b4ac68b052423f01c1700d780"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-binding-owner-flow.json",
+      "sha256": "db330af19571caf5dd95331d204e9d0424844eccc277b393c2afba8877450869"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-target-lifecycle.json",
+      "sha256": "2dec5d4c3af4577b2e9e19fc20f609ab8db0e700ca7cc07081de9be4d267940d"
+    },
+    {
+      "path": "docs/evidence/s4-v1-acceptance-audit.json",
+      "sha256": "4803b1dec3a0081e10bc5ee064ddfdfbe1d023902b45d9dc7684175ad737b668"
+    },
+    {
+      "path": "docs/evidence/s4-v1-backup-restore.json",
+      "sha256": "3f03694f0f3628d4df68c3b86c4e2ff9bd4d3ad017c20368897f1b2db63ac79b"
+    },
+    {
+      "path": "docs/evidence/s4-v1-local-owner-smoke.json",
+      "sha256": "1cf3f62be6185662d7a861b25a608f98c4d77796984b88063ba2fb4b452789d8"
+    },
+    {
+      "path": "docs/evidence/s4-v1-schedule-event-filter.json",
+      "sha256": "7ae62cbf174b4fbff6735bd4b8268c99ec07bad3262b9a0a2c013322db9c5708"
+    },
+    {
+      "path": "docs/evidence/s4-v1-schedule-event-filter-v2.json",
+      "sha256": "4a80b6ce7436da825b457841d4beb2e1af18c5ec42672c68e6926e05029cc0d8"
+    },
+    {
+      "path": "docs/evidence/s4-v1-model-readiness-status.json",
+      "sha256": "905aa2d3ba7637c82dab74465e262084d15549ed6b4465e6947756925755ed13"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-security-review.json",
+      "sha256": "e33be17b1da749b94756b3a8959257c73ccc54dfd0b03b9fcfa4581735b7b7f6"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-queue-coverage.json",
+      "sha256": "bac1dcac838e617c4deaff8a4be71f5e4736cd037f90646407ef402f5973d777"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-provider-resilience.json",
+      "sha256": "305a1c2e90f01f24813f2b411ceb59ce51f07dbd7a8e958e43e2aae4b3f078e8"
+    }
+  ],
+  "runtimeCompatibility": {
+    "policy": "v1-runtime-kernel-compatibility-v1",
+    "code": [
+      {
+        "path": "packages/analytics/dist/elo.js",
+        "sha256": "ca3c4b1129f9e10fd352bc074dbd04b787f2183ea4e635499d839609836f2e20"
+      },
+      {
+        "path": "packages/analytics/dist/forecast-metrics.js",
+        "sha256": "7d143ba959d2a57875efd290cefe5bc6af33111adb246fd6d192c5fbac9e1ecb"
+      },
+      {
+        "path": "packages/analytics/dist/hero-meta.js",
+        "sha256": "b18ce3af700ac76ea77fafb58ae3a1ac9fc1d616e5afcc0df40b9dde07861c15"
+      },
+      {
+        "path": "packages/analytics/dist/hero-pairs.js",
+        "sha256": "c0c409964abcdd5e6ebf7bcd4eb939f5a07813e752095450a09710bb0f4602af"
+      },
+      {
+        "path": "packages/analytics/dist/history-weight.js",
+        "sha256": "5dd4716bee0f78345eafc6f4b8dbd76295eb174b4e29f0123b09c7651db30fb7"
+      },
+      {
+        "path": "packages/analytics/dist/index.js",
+        "sha256": "bac4127fe4cee8077768a7a555db4e7a8a7aa419ee1c7c019de96c5aad8eac80"
+      },
+      {
+        "path": "packages/analytics/dist/model-inference.js",
+        "sha256": "541313e65be9f792e23e1c434cfb3ef37805101a5c3b84681f43f5b107c0b975"
+      },
+      {
+        "path": "packages/analytics/dist/player-hero.js",
+        "sha256": "c36bdc3b574135112bfcaf1b28a64ba97423d9497cd7af2f9bca73bd11b5e0e2"
+      },
+      {
+        "path": "packages/analytics/dist/roster-report.js",
+        "sha256": "5f331bc2cd190f3ffd2250cdb7f015e1def3e69712e44f9fcbcf0b0b921fbe1d"
+      },
+      {
+        "path": "packages/analytics/dist/roster.js",
+        "sha256": "4607384a840b8647dfd3b3d978770ec54512b4c2d40b30cba3631e9f8d815af0"
+      },
+      {
+        "path": "packages/analytics/dist/sample.js",
+        "sha256": "0bbf5d7d3345fb3f19814e992a1d29265e9b264dda7312c76e0ec3f4d0858664"
+      },
+      {
+        "path": "packages/analytics/package.json",
+        "sha256": "43ffd9a6b8b68e2f55f8e18cf5a986c7f32fc3955760e742c9490259fc17523e"
+      },
+      {
+        "path": "packages/contracts/dist/catalog.js",
+        "sha256": "66a4759983c45d104bd93534e75aa4f6480ecc345667fd6e55828d822a1c2c00"
+      },
+      {
+        "path": "packages/contracts/dist/compare.js",
+        "sha256": "400615ffaa15bb37df6cbc59070cf03cf4f5ef2f03b319804eab46e034c3d31c"
+      },
+      {
+        "path": "packages/contracts/dist/corpus-audit.js",
+        "sha256": "4b2d9aa123128092b41125f8d43ecb232e2b9d0cea62d3daf7420b004b57fdb2"
+      },
+      {
+        "path": "packages/contracts/dist/corpus-quality.js",
+        "sha256": "21cb11f40ae2f6ba72ed9326b0d4e30f044efb96e185ce1184b179de0a3d214c"
+      },
+      {
+        "path": "packages/contracts/dist/dataset-audit.js",
+        "sha256": "6db5beded6a869263ef6117b402040b2257b3eb4839c54a831751f75e68103f5"
+      },
+      {
+        "path": "packages/contracts/dist/dataset-build.js",
+        "sha256": "3043a55feaccaabe0f8aa8ff7996144e04d920372d32d731ad566fe7265355de"
+      },
+      {
+        "path": "packages/contracts/dist/dataset.js",
+        "sha256": "b6d3b1906144b4b89c6914fe88fcd3ec1233900ec7931ffecdae02eabb558fbd"
+      },
+      {
+        "path": "packages/contracts/dist/draft.js",
+        "sha256": "114e24f047fc14b0d43bb88bda8a9928f0bbab140ecb7048ba0ed50155ca485a"
+      },
+      {
+        "path": "packages/contracts/dist/evaluation-details.js",
+        "sha256": "1f690857a249d4fa2d4d4eff069f16c5b8dafe657626092cb3faaa60d8449943"
+      },
+      {
+        "path": "packages/contracts/dist/evaluation-discovery.js",
+        "sha256": "f29382721af82c35a005155c043797593de728d41f8177ba17c3be209d85c5c7"
+      },
+      {
+        "path": "packages/contracts/dist/game-context.js",
+        "sha256": "2a720871ab7265ebda4e56853ad9558052624263dfd249f7e82b1bc00aaac142"
+      },
+      {
+        "path": "packages/contracts/dist/hero-matchups.js",
+        "sha256": "3387bfa3604b2461cdad07c92b7e96e7096611e4d91f2a737c621a1a83f12262"
+      },
+      {
+        "path": "packages/contracts/dist/history-refresh.js",
+        "sha256": "94d4b3e788081de54d0e11636ed61ec276724b2bf1f17ce3585be02d74a9db32"
+      },
+      {
+        "path": "packages/contracts/dist/identity-provision.js",
+        "sha256": "d3c4b383e554599fc94d54b3beb3ce883692797144a4c590ce873986ea0ce280"
+      },
+      {
+        "path": "packages/contracts/dist/identity.js",
+        "sha256": "728a65b76cb9dc72091248990c6f8244546eeac376ac63e239b237f6de237b7a"
+      },
+      {
+        "path": "packages/contracts/dist/index.js",
+        "sha256": "3211ff5d83081e8e80afd48c657b40dbafd536a10db6cf3818f31f15a5e09c02"
+      },
+      {
+        "path": "packages/contracts/dist/patch-diagnostics.js",
+        "sha256": "90447e92b8db2d401779010330a2d6e56822d22c7395d8b71bc953962c3e143e"
+      },
+      {
+        "path": "packages/contracts/dist/patch-history.js",
+        "sha256": "bf33e5300e8135884432474326a01c333a4759520771107f90e2412aa4060360"
+      },
+      {
+        "path": "packages/contracts/dist/player-hero.js",
+        "sha256": "92ae1df17d6ac94556822dfd7071f193231b046bee2b835ec1acbe73d31ff3c3"
+      },
+      {
+        "path": "packages/contracts/dist/pro-maps.js",
+        "sha256": "00222367a3402383cfbe18c66f44e130b5950406ce94e9ca377c934f7a024332"
+      },
+      {
+        "path": "packages/contracts/dist/prospective-patch.js",
+        "sha256": "86e00d5031ab82940bf715ddd8c15c48a1f671af6c71aed3631c19e770745bf6"
+      },
+      {
+        "path": "packages/contracts/dist/readiness.js",
+        "sha256": "c11079c1d7747cfbf62f33d420662b834bb73a09743a96eae7948b49d968e32e"
+      },
+      {
+        "path": "packages/contracts/dist/research-elo.js",
+        "sha256": "d1aa85934736ca5cf931b796615f80ba92251bed000f6a8a25b6626a3da7a31a"
+      },
+      {
+        "path": "packages/contracts/dist/research-evidence.js",
+        "sha256": "f6284734318f737ad067a5ac0f81b74e0ef70def18f5a49d41061fa3966588e2"
+      },
+      {
+        "path": "packages/contracts/dist/research-execution.js",
+        "sha256": "658abbfb3807262efb6b86785fd7a9070eaed311f4df4ed035aff75ac24098d2"
+      },
+      {
+        "path": "packages/contracts/dist/research-journal.js",
+        "sha256": "cc407e5fffe86ea693f44f6036b09f9656e459957e4ef3d91694c21048ee8a7e"
+      },
+      {
+        "path": "packages/contracts/dist/research-plan.js",
+        "sha256": "bd67c6d552dbd9cddd25b668d7a5376d23b0e0e92fd6e54a8f3688b9395808e6"
+      },
+      {
+        "path": "packages/contracts/dist/roster.js",
+        "sha256": "f9aeec1aa494bb0906014562719210f21effb69ee81eacc8905028bc7ca16f18"
+      },
+      {
+        "path": "packages/contracts/dist/sample.js",
+        "sha256": "281d4c77c6dfcaec4e71cc8fc93671e52790a6e2dc18f89ad6a932f2fa9cde4d"
+      },
+      {
+        "path": "packages/contracts/dist/scenario-report.js",
+        "sha256": "726cb71385c83d9488eb9b73851e86cc3dc11b5619765b4210572376aeac1176"
+      },
+      {
+        "path": "packages/contracts/dist/scenario.js",
+        "sha256": "a44999e828527623ae707c44e22dbae73faa41d298c4128c80976e0904e07cb4"
+      },
+      {
+        "path": "packages/contracts/dist/series-provision.js",
+        "sha256": "5b9855b91f26b450d2df51c2e1f30f7bb6b8d43f4ada37add62721826c716bd3"
+      },
+      {
+        "path": "packages/contracts/dist/strength.js",
+        "sha256": "c759b2cd5087c5157b671546b9b29918a170c4d50c6d40b244fd338805bd9911"
+      },
+      {
+        "path": "packages/contracts/dist/temporal.js",
+        "sha256": "78f85b06844921b056615b90338c660c791d3037f672b7faf7591649b958fda9"
+      },
+      {
+        "path": "packages/contracts/dist/upcoming-evidence.js",
+        "sha256": "58238bf1f3ad0837fae5d4eb4419678d224df23bd6dbd822d79806fb3f290d4c"
+      },
+      {
+        "path": "packages/contracts/dist/upcoming.js",
+        "sha256": "c51316c214fd2066df12bff85e6ae8cb61e2aa43da2477c81cd2f3c1299a839b"
+      },
+      {
+        "path": "packages/contracts/dist/v1-candidate.js",
+        "sha256": "9585c6635cc2511780ec85d6e414d1fcb61b634521f98ed62475e3eb01211e45"
+      },
+      {
+        "path": "packages/contracts/dist/v1-data.js",
+        "sha256": "bd0f11ae27999d5ae2f8772af6d459657f2581de0001c887bbe3e1133ee1381d"
+      },
+      {
+        "path": "packages/contracts/dist/v1-executable-freeze.js",
+        "sha256": "b6d4ddbe216e3e69248a1dd809607d6e3411464b591816c921952a06682e90f2"
+      },
+      {
+        "path": "packages/contracts/dist/v1-features.js",
+        "sha256": "77d1fe4bd55db8db0c419ba1dfad7805bc6aa541b7b15a2e42aa28e661e1b275"
+      },
+      {
+        "path": "packages/contracts/dist/v1-forecast.js",
+        "sha256": "320bf817bdc67336c02964754a319a39ed21e5fe4925195bd40893147ee9a557"
+      },
+      {
+        "path": "packages/contracts/dist/v1-journal-v2.js",
+        "sha256": "97ad7cb772dcd7f59ed947181e56389a0fc3b9c78501bae39796f86149a50039"
+      },
+      {
+        "path": "packages/contracts/dist/v1-journal-v3.js",
+        "sha256": "8bb1e96086a0aae759308465d48ddc1ff49e5c464282c8152316e73024b075c8"
+      },
+      {
+        "path": "packages/contracts/dist/v1-journal-view.js",
+        "sha256": "a4c961c9aa71d23f9aa8f421ddf0edf751a2cafb77e4b9ddc9a8a028f225d570"
+      },
+      {
+        "path": "packages/contracts/dist/v1-journal.js",
+        "sha256": "a17ffd66880798c66e7299c1f8ce43994a4c86013123499d4f90425a1aa8a50e"
+      },
+      {
+        "path": "packages/contracts/dist/v1-model-readiness.js",
+        "sha256": "49aa5553e633e4124250a7e0976617b985fe3c46691fd45857a2506cfa2dd37b"
+      },
+      {
+        "path": "packages/contracts/dist/v1-prediction-view.js",
+        "sha256": "ae44d049a2fb0eb1314f1b97f7b644a3c2b2ac62765d7f286379a658f6dd14a8"
+      },
+      {
+        "path": "packages/contracts/dist/v1-registry.js",
+        "sha256": "35f0631e5d33297fd110142353ecd1f2a41992795ebc9f03c4632b1b9eec6beb"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-evaluation.js",
+        "sha256": "e706d929a08bc5d93a44fa202ec211227367ee7ebfef30002594645beb7f5ef2"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-evidence.js",
+        "sha256": "099980986ee1f7002322d4b60e9da783a705bde0f35dbb8dd5f001707e85d8ce"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-plan.js",
+        "sha256": "41ac451c78ea786167ebcb38a810b14f3874b2c866d4c60382584fbc5d52f7a7"
+      },
+      {
+        "path": "packages/contracts/dist/v1-runtime.js",
+        "sha256": "743a99a891e7a95b9f7eaa90b7d6298821e68071444eb65ca5ab889ce304848a"
+      },
+      {
+        "path": "packages/contracts/dist/v1-schedule-result.js",
+        "sha256": "5801d4f294461d63aba849e682ce6bdb2d3555700e272e60674f00b587c91efa"
+      },
+      {
+        "path": "packages/contracts/dist/v1-schedule-target.js",
+        "sha256": "ff83ce5230c4cc9b3c78ce9105f0eb31348ff4fb48e876429176b8fd4a7e46cb"
+      },
+      {
+        "path": "packages/contracts/dist/v1-scheduled-lifecycle.js",
+        "sha256": "9157c7f6d767c37a5e6535dbd7ce98170c70a80ce9b7c6f42b5f352c5eda8b05"
+      },
+      {
+        "path": "packages/contracts/dist/v1-scheduled-result-view.js",
+        "sha256": "4b5b46ee04fbc8309e1abe33648c0e3a4dca87966f029526afc03c24d702e9d4"
+      },
+      {
+        "path": "packages/contracts/dist/v1-scheduled-view.js",
+        "sha256": "150ed672a1e7b6f3fa7c9d09fe1b7196b7fb8088431569b8d78f2b4de09e6ec3"
+      },
+      {
+        "path": "packages/contracts/dist/v1-target-lifecycle.js",
+        "sha256": "25ad89f5a8b04a75649794243ea40257bd69827b07a6f7e66bde71b6ca60bf40"
+      },
+      {
+        "path": "packages/contracts/package.json",
+        "sha256": "6bde23c4387eee1be0fac18f55034d345dfab925bafb518a6e7c1d82970e0053"
+      },
+      {
+        "path": "packages/db/dist/catalog-repository.js",
+        "sha256": "803c95001b6eee27247e98c25e352a769b14d6bf0fa314512241b86d88f278bb"
+      },
+      {
+        "path": "packages/db/dist/compare-report.js",
+        "sha256": "ded7c5ba6d53473e6898026cb55bc22bf0e9399319aa09cbf3148f907d38bd74"
+      },
+      {
+        "path": "packages/db/dist/compare-repository.js",
+        "sha256": "bb908b07dcbb302dea34447b7d73af808be8fd1368e48955a91b42965a796400"
+      },
+      {
+        "path": "packages/db/dist/context-repository.js",
+        "sha256": "32327e56b3240d03aaf2c95a40e736e2b3d30f753efee048b14c862dea6ebfd0"
+      },
+      {
+        "path": "packages/db/dist/corpus-audit.js",
+        "sha256": "1c0b9d1f3f0d24aa1902121f0b45ee365b44bf984d6876822ce6a8ca0b3d6375"
+      },
+      {
+        "path": "packages/db/dist/corpus-quality.js",
+        "sha256": "a168da5a3057fa989d9597868749ca08a6acd5eef33706356da05ca0df1a4056"
+      },
+      {
+        "path": "packages/db/dist/dataset-audit.js",
+        "sha256": "53bfb86a8f99c2c1833440aafced21fae047702d21222588d2638f86eddb5d3b"
+      },
+      {
+        "path": "packages/db/dist/dataset-builder.js",
+        "sha256": "7c3b9903ccff0e79be5cfaa683daf3f8232843b11e302958ca797c4d282568f2"
+      },
+      {
+        "path": "packages/db/dist/dataset-repository.js",
+        "sha256": "f8517f8bdf228e2789871b7f3e450dff31f475cb44cab08d665cf45ece981f69"
+      },
+      {
+        "path": "packages/db/dist/dataset-splits.js",
+        "sha256": "3875e37729e5827c4b3a2e304565f0ee89eba4a7b341ae32527bcde5914a081a"
+      },
+      {
+        "path": "packages/db/dist/game-context-repository.js",
+        "sha256": "08ea6aa061e409e4c4a1d8e1dd74b0418af73d8626c1f8174da87f4fa4aedd0e"
+      },
+      {
+        "path": "packages/db/dist/game-context.js",
+        "sha256": "b1e537e39b2c500f604cf574484da7f98c97f1445d96aa1eaf3009cfe1e11114"
+      },
+      {
+        "path": "packages/db/dist/hero-matchup-repository.js",
+        "sha256": "81a562ffaa4f29598c0564891afe79b31bcfe44606b447acfae9b5d2bbe36e3a"
+      },
+      {
+        "path": "packages/db/dist/hero-matchups.js",
+        "sha256": "c9c44b28ca03dc506652a4f9792530b77c480877d31d3792a0d389de9de47821"
+      },
+      {
+        "path": "packages/db/dist/history-refresh.js",
+        "sha256": "bb4f4cff34b54885e386d816e2f781996d4ec7a4dea8cd8e8d3b1964ee424ffa"
+      },
+      {
+        "path": "packages/db/dist/identity-provision.js",
+        "sha256": "e5186a4dbb0afc3692e905b21e0d1513176499f32c4590d726a81f6428137581"
+      },
+      {
+        "path": "packages/db/dist/identity-repository.js",
+        "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+      },
+      {
+        "path": "packages/db/dist/identity.js",
+        "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "sha256": "651400889098aa960acbd49166f8bda3a05033638b11dbaa966f1753c5dfacc1"
+      },
+      {
+        "path": "packages/db/dist/outcome-verifier.js",
+        "sha256": "604ed065ce7a277cdfba9b4d166416e7fd460d4760755268b3de0e5ece44225b"
+      },
+      {
+        "path": "packages/db/dist/patch-history.js",
+        "sha256": "327ec6619a17b38b6a98c70e04a9bc19b4dbbdc29a8343d76f644df5566f184d"
+      },
+      {
+        "path": "packages/db/dist/patch-meta-repository.js",
+        "sha256": "b3bbcc554ad85e92f8b36e597b79ff5a4b1c31822f8fc1e70c1f8360cb15cb68"
+      },
+      {
+        "path": "packages/db/dist/patch-weight-evaluation.js",
+        "sha256": "7ef97e31f13ad3168074d5cef2cf23f2c48ee6b2f4351293b548e75b0d42ea6e"
+      },
+      {
+        "path": "packages/db/dist/player-hero-report.js",
+        "sha256": "037409c76b41f61aebde3e95b9b23d6d725fe80b42d07b87c46e6cadde94006d"
+      },
+      {
+        "path": "packages/db/dist/player-hero-repository.js",
+        "sha256": "6a90dcfc84a3ff08aed8bc48f0f05c60841da9de6bdd2e39bdbb364899e96383"
+      },
+      {
+        "path": "packages/db/dist/pro-map-reader.js",
+        "sha256": "83391c746f48e9106e55e6a967aba6e1a84b3aca7494e74eb740dd83b00ed782"
+      },
+      {
+        "path": "packages/db/dist/pro-map-repository.js",
+        "sha256": "689ff80247db901dd6748544aeb870e903ee36880570327fd9b23b38f038f994"
+      },
+      {
+        "path": "packages/db/dist/pro-maps.js",
+        "sha256": "ff640d76ba361659729d80c2da4c4c9ba6fe533ac9f14b81453f4eeb12c06076"
+      },
+      {
+        "path": "packages/db/dist/prospective-patch.js",
+        "sha256": "f2e1cfb76bbc01505c35e5c1f166c67963b5750fd35a8948a7b1bb3b921fdb08"
+      },
+      {
+        "path": "packages/db/dist/readiness-repository.js",
+        "sha256": "adcd3e0132897ade8d766f1b2e95fb6f391e442e30a3bb2f2598cf0c3f3855c9"
+      },
+      {
+        "path": "packages/db/dist/readiness.js",
+        "sha256": "be3faf0e94513693a063e1671ea17d421dd98d5e46b59a8387b49b3c3a5c0f7b"
+      },
+      {
+        "path": "packages/db/dist/reference-pool.js",
+        "sha256": "c4e4fc2e0c327e7d93ba5e026c3a1ec21dc8db5d1836f0bf5a7a42ef88df379c"
+      },
+      {
+        "path": "packages/db/dist/research-elo-repository.js",
+        "sha256": "8c6a4b72b0119dbcd9749021cb2eb7b9e40761b4c3d3606b24bce7726762135b"
+      },
+      {
+        "path": "packages/db/dist/research-elo.js",
+        "sha256": "c1d344222cb71be8b12450a355cbbbb1f3bd5d1dee12d926165b8d64179c2d2f"
+      },
+      {
+        "path": "packages/db/dist/research-execution.js",
+        "sha256": "9adb330243989d39de4f0ff044517b2314fd20102f72da65ef69f5052b8eb760"
+      },
+      {
+        "path": "packages/db/dist/research-journal.js",
+        "sha256": "eda1b702cc39c29288f4f8fe4f8132663092a2a66de2c98ea8f7b35533be50dc"
+      },
+      {
+        "path": "packages/db/dist/research-plan.js",
+        "sha256": "871f270426157a44f93cd4b2863bbb815dcb18852f56eda8d4239b3bd72fa051"
+      },
+      {
+        "path": "packages/db/dist/roster-report.js",
+        "sha256": "4522b825594e08717487f3d8f481b57cd1da1653c90b4e7b919076b9f9f472e6"
+      },
+      {
+        "path": "packages/db/dist/roster-repository.js",
+        "sha256": "6f1ec04caee84961fc6cfe87a99590af568da4531e766c9743b8124a9133bdbd"
+      },
+      {
+        "path": "packages/db/dist/scenario-draft.js",
+        "sha256": "7d22610a5c10bd0acafdc7e2dbec7d70975ca21341339f244b88225f16c8024d"
+      },
+      {
+        "path": "packages/db/dist/scenario-report-repository.js",
+        "sha256": "25808a50821a05d378d41aaf5f3174bbf4c2df9860cbdd47dad273c0fcb249bf"
+      },
+      {
+        "path": "packages/db/dist/scenario-repository.js",
+        "sha256": "a9cb545b2eee24681dae1f52c6844ada2d33ad006d503391faf9a3f19d67e518"
+      },
+      {
+        "path": "packages/db/dist/schedule-cache.js",
+        "sha256": "6193b043c6facefaf9a48fab7008ed21281a2cec31041442967826151c136979"
+      },
+      {
+        "path": "packages/db/dist/series-provision.js",
+        "sha256": "f36fa8ac3e993f9ccb7515d545f7e370737e85a03163e53e67cf5156772d004d"
+      },
+      {
+        "path": "packages/db/dist/strength-report.js",
+        "sha256": "70982fb47cf9a134b1d0578dda4357ff2e4e30c70e45d07674a3a98508e45444"
+      },
+      {
+        "path": "packages/db/dist/strength-repository.js",
+        "sha256": "794f2e948d45856a1aa133bf23bc4a4c18d42c7cae9b8f5753d65826afb33295"
+      },
+      {
+        "path": "packages/db/dist/temporal.js",
+        "sha256": "c37f882da18ecc5694d168cdd146c4905cb001cab3829bed13947215fbb92bcb"
+      },
+      {
+        "path": "packages/db/dist/upcoming-evidence.js",
+        "sha256": "f88980e36fb066cacab5f299b4616a16056d26ee3d926155d3b15bfb21a5b032"
+      },
+      {
+        "path": "packages/db/dist/v1-candidate.js",
+        "sha256": "1c2a174408c63037bbc387c5aaa90b58850e188c8270152d9a4e41f69d97984a"
+      },
+      {
+        "path": "packages/db/dist/v1-data-repository.js",
+        "sha256": "223b380f1aa16c82350ca481edf03fe766061707ff08e44a60e18ee658f7f1cc"
+      },
+      {
+        "path": "packages/db/dist/v1-data.js",
+        "sha256": "ef0132909ab8c03115660d707a7628f70bd875fdf565dba7de31925d5e13c82a"
+      },
+      {
+        "path": "packages/db/dist/v1-executable-freeze.js",
+        "sha256": "2ec0db2a4372aad95f938cdc46f3909c54570078cc131af8940f1f91028b02a6"
+      },
+      {
+        "path": "packages/db/dist/v1-features.js",
+        "sha256": "81171837c4dd3c5ad64d61309fb5fbf08f9388ce3f3e78ae316253b0fd764986"
+      },
+      {
+        "path": "packages/db/dist/v1-forecast-outcomes.js",
+        "sha256": "85da508f2a40f127b705d605e9437cfc203870896c46b66e48068c34565f88d1"
+      },
+      {
+        "path": "packages/db/dist/v1-journal-reader.js",
+        "sha256": "691590c4a9de0074c0c5739c63e7d7b14a8d46506e20af0cd46752979227fcc9"
+      },
+      {
+        "path": "packages/db/dist/v1-journal-repository.js",
+        "sha256": "442359d87a5f0b5aef2b906cdf89e1e567c6d8b86131ebd26f9fe79d9b8b855b"
+      },
+      {
+        "path": "packages/db/dist/v1-journal-v2.js",
+        "sha256": "3e30d4c369a08e7c55779ee155445058240e64a0dc75907eec2c4b919835392a"
+      },
+      {
+        "path": "packages/db/dist/v1-journal-v3.js",
+        "sha256": "688a0e670b98d20e4dee1a7ed78b7a0046ac9d13672e88947089aa10e726d15d"
+      },
+      {
+        "path": "packages/db/dist/v1-journal.js",
+        "sha256": "f3dd1f61b15aa5ffa1d23cf94bdf8fd23dacc0540067c6eadec665103b1d7f54"
+      },
+      {
+        "path": "packages/db/dist/v1-prediction-reader.js",
+        "sha256": "07d98ed2d648e1f856332786031f1de09a7b46a725cba79d90a1e5eee68660aa"
+      },
+      {
+        "path": "packages/db/dist/v1-registry-repository.js",
+        "sha256": "d0f6f9a852ef7f0d47e3519f40e08b5a06fb29b6d4e73563d38071485cd47db6"
+      },
+      {
+        "path": "packages/db/dist/v1-registry.js",
+        "sha256": "1251fb31d6708a3ff21fa6ae158330e6ba758356c8ea43d453b63a07ab881f34"
+      },
+      {
+        "path": "packages/db/dist/v1-release-inventory.js",
+        "sha256": "fba6ab436ce32b3ddbaf3ddfd133a38f006bce4a331177ca5d29fb82f1edb4e3"
+      },
+      {
+        "path": "packages/db/dist/v1-release-journal.js",
+        "sha256": "78a04afa76f9fb68f64d626303f2cf3f1d105a9d8ada386372a496607e45d834"
+      },
+      {
+        "path": "packages/db/dist/v1-release-plan.js",
+        "sha256": "ab1fc7eb3a28e6e5d696ef43776c33a37988069323c90021da3a0279b256f093"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime-code.js",
+        "sha256": "e555e7c6f239c12f8923597cd90dae7a4ebc8f06b8df6fc5bb8bf3a219f0cb0b"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime-repository.js",
+        "sha256": "9f6b1974c1389363687930a18237ed7dca48330b2e062110ab8b6d04e0d6d9f3"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime.js",
+        "sha256": "621c701927c1a823af71e23b588281039e92ea34671ea8346ecce3acdb61831b"
+      },
+      {
+        "path": "packages/db/dist/v1-schedule-result.js",
+        "sha256": "600c427540e1804fc758b71b1925419d49ef0db09f90ea2206aefe9fef61582b"
+      },
+      {
+        "path": "packages/db/dist/v1-schedule-target.js",
+        "sha256": "375c6e182ac4c2b1aa24087caf0e4e157c1378a5290bbbed676d4445c6b523ea"
+      },
+      {
+        "path": "packages/db/dist/v1-scheduled-lifecycle.js",
+        "sha256": "66bdec658136ad42f481f858bfe035d9071fdad7895693665574501d11e4fa16"
+      },
+      {
+        "path": "packages/db/dist/v1-scheduled-result-service.js",
+        "sha256": "0b922c2e26713c81e3e896d352a33b44ba35a3d37f6621451454024e1c513227"
+      },
+      {
+        "path": "packages/db/dist/v1-scheduled-runtime.js",
+        "sha256": "d39b28fb7ba231d9d412f8b97a2263ca85b762e39d1954693e12c596c2d776ae"
+      },
+      {
+        "path": "packages/db/dist/v1-target-lifecycle.js",
+        "sha256": "7f0874f0bf61d40988197aa05b71d299d1fbc4b44489caa5ae3bf90bafd247b8"
+      },
+      {
+        "path": "packages/db/package.json",
+        "sha256": "2d48875617c2c47bc289dad94b75c912a27935adfc3f421a9fd511631aab8b66"
+      },
+      {
+        "path": "packages/prediction/dist/index.js",
+        "sha256": "92109f2d18e74db7b8052c2a3ba7e3b600c169b2a684d2cd38a7da9451ba1d25"
+      },
+      {
+        "path": "packages/prediction/dist/v1-candidate.js",
+        "sha256": "debb9c64633d13d314791a68cd72577f8afd4c212c84a6d2fea305cae9e46618"
+      },
+      {
+        "path": "packages/prediction/dist/v1-features.js",
+        "sha256": "72d353e52f1ac3ccb553006173e90caf5b0e3015c5557e191a6ab5924ade4cd3"
+      },
+      {
+        "path": "packages/prediction/dist/v1-integrity.js",
+        "sha256": "eb9fe3918a6bbf4e61cd9c630f1cf30f4cfb99c4ee49703af856e5e7684e8bdc"
+      },
+      {
+        "path": "packages/prediction/dist/v1-quality-policy.js",
+        "sha256": "010eb124e62d9363204d17175b0bc5cfde040593e7bd665d08de2a429f2d0aba"
+      },
+      {
+        "path": "packages/prediction/dist/v1-quality.js",
+        "sha256": "43c5b60850a647761eaf36a6df36f26ec50a93929406e789f3ee5f8af23ee7b2"
+      },
+      {
+        "path": "packages/prediction/package.json",
+        "sha256": "7aefde48f908f72dc9755436b46a44da71e1feabea11efa09c0808bad77ca28d"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "0297a50b1d23f5550d66fa0d305d332869316316fbd3c1014e4570d411be089d"
+      }
+    ],
+    "barrels": [
+      {
+        "path": "packages/contracts/dist/index.js",
+        "text": "import { z } from 'zod';\nexport * from './temporal.js';\nexport * from './identity.js';\nexport * from './game-context.js';\nexport * from './dataset.js';\nexport * from './readiness.js';\nexport * from './catalog.js';\nexport * from './pro-maps.js';\n// API-facing BIGINT identifiers travel as strings; do not coerce via Number.\nexport const IdSchema = z.string().regex(/^[1-9]\\d*$/);\nexport const SideSchema = z.enum(['radiant', 'dire']);\nexport const StageSchema = z.enum(['pre_match', 'post_draft']);\nexport const ScenarioSlotSchema = z.enum(['A', 'B']);\nexport const PredictionStatusSchema = z.enum(['pending', 'running', 'done', 'failed', 'unavailable']);\nexport const StatResultSchema = z.object({\n    games: z.number().int().nonnegative(),\n    wins: z.number().int().nonnegative(),\n    winRate: z.number().min(0).max(1).nullable(),\n    updatedAt: z.string().datetime().nullable(),\n    warnings: z.array(z.string())\n}).refine(value => value.wins <= value.games);\nexport const CreateScenarioSchema = z.object({\n    teamAId: IdSchema,\n    teamBId: IdSchema,\n    cutoffAt: z.string().datetime(),\n    scheduledAt: z.string().datetime().optional(),\n    radiantSlot: ScenarioSlotSchema.nullable().optional()\n}).refine(value => value.teamAId !== value.teamBId, { message: 'Teams must differ' });\nexport const OwnerLoginSchema = z.string().trim().toLowerCase().regex(/^[a-z0-9_.-]{3,120}$/);\nexport const OwnerPasswordSchema = z.string().min(12).max(128);\nexport const LoginSchema = z.object({ login: OwnerLoginSchema, password: z.string().min(1).max(128) }).strict();\nexport const OwnerSchema = z.object({ id: z.uuid(), login: OwnerLoginSchema });\nexport const AuthResponseSchema = z.object({\n    owner: OwnerSchema,\n    expiresAt: z.iso.datetime(),\n    csrfToken: z.string().min(1).max(512)\n});\nexport * from './roster.js';\nexport * from './player-hero.js';\nexport * from './strength.js';\nexport * from './sample.js';\nexport * from './patch-history.js';\nexport * from './compare.js';\nexport * from './scenario.js';\nexport * from './draft.js';\nexport * from './hero-matchups.js';\nexport * from './scenario-report.js';\nexport * from './dataset-build.js';\nexport * from './corpus-audit.js';\nexport * from './corpus-quality.js';\nexport * from './series-provision.js';\nexport * from './dataset-audit.js';\nexport * from './identity-provision.js';\nexport * from './upcoming.js';\nexport * from './upcoming-evidence.js';\nexport * from './history-refresh.js';\nexport * from './patch-diagnostics.js';\nexport * from './prospective-patch.js';\nexport * from './research-elo.js';\nexport * from './research-plan.js';\nexport * from './v1-data.js';\nexport * from './research-execution.js';\nexport * from './v1-release-plan.js';\nexport * from './evaluation-discovery.js';\nexport * from './evaluation-details.js';\nexport * from './research-evidence.js';\nexport * from './research-journal.js';\nexport * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-release-evidence.js';\nexport * from './v1-release-evaluation.js';\nexport * from './v1-executable-freeze.js';\nexport * from './v1-registry.js';\nexport * from './v1-runtime.js';\nexport * from './v1-forecast.js';\nexport * from './v1-journal.js';\nexport * from './v1-journal-view.js';\nexport * from './v1-prediction-view.js';\nexport * from './v1-target-lifecycle.js';\nexport * from './v1-journal-v2.js';\nexport * from './v1-schedule-target.js';\nexport * from './v1-schedule-result.js';\nexport * from './v1-scheduled-view.js';\nexport * from './v1-scheduled-result-view.js';\nexport * from './v1-scheduled-lifecycle.js';\nexport * from './v1-journal-v3.js';\nexport * from './v1-model-readiness.js';\n"
+      },
+      {
+        "path": "packages/analytics/dist/index.js",
+        "text": "export function winRate(records) {\n    const games = records.length;\n    const wins = records.filter(row => row.won).length;\n    return { games, wins, winRate: games === 0 ? null : wins / games };\n}\nexport function aggregateKda(records) {\n    if (records.length === 0)\n        return null;\n    const killsAndAssists = records.reduce((sum, row) => sum + row.kills + row.assists, 0);\n    const deaths = records.reduce((sum, row) => sum + row.deaths, 0);\n    return killsAndAssists / Math.max(1, deaths);\n}\n/** Stable unordered hero pair key (hero IDs are safe positive 32-bit ints). */\nexport function allyHeroPairKey(a, b) {\n    if (a === b)\n        throw new Error('A hero cannot be paired with itself');\n    if (!Number.isInteger(a) || !Number.isInteger(b) || a <= 0 || b <= 0)\n        throw new Error('Invalid hero ID');\n    return `${Math.min(a, b)}:${Math.max(a, b)}`;\n}\nexport function enemyMatchupKey(heroA, heroB) {\n    if (heroA === heroB)\n        throw new Error('Duplicate hero in same match');\n    return `${heroA}:${heroB}`;\n}\nexport { rosterOverlap, rosterCoplay } from './roster.js';\nexport { describeRoster, compareRosters, describeChurn } from './roster-report.js';\nexport { playerHeroSample } from './player-hero.js';\nexport { predictLogistic } from './model-inference.js';\nexport { replayElo, ELO_POLICY } from './elo.js';\nexport { sampleEvidence, weightedSample, shrinkObservedRate } from './sample.js';\nexport { historyWeight, historyWeightSummary } from './history-weight.js';\nexport { pairObservations } from './hero-pairs.js';\nexport { heroMetaSample } from './hero-meta.js';\nexport { forecastMetrics, FORECAST_METRIC_POLICY, FORECAST_LOG_LOSS_CLIP } from './forecast-metrics.js';\n"
+      },
+      {
+        "path": "packages/prediction/dist/index.js",
+        "text": "export * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-quality-policy.js';\nexport * from './v1-quality.js';\n"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "text": "import { Kysely, PostgresDialect } from 'kysely';\nimport pg from 'pg';\nexport { sql, CompiledQuery } from 'kysely';\n// SQL migrations remain the authority. SQL-first repositories use typed result\n// rows via sql<T>, with the query builder for supported table projections.\nexport function createDatabase(connectionString) {\n    return new Kysely({ dialect: new PostgresDialect({ pool: new pg.Pool({\n                connectionString, max: 5, connectionTimeoutMillis: 5000, idleTimeoutMillis: 10000\n            }) }) });\n}\nexport * from './temporal.js';\nexport * from './context-repository.js';\nexport * from './identity.js';\nexport * from './identity-repository.js';\nexport * from './identity-provision.js';\nexport * from './game-context.js';\nexport * from './game-context-repository.js';\nexport * from './dataset-repository.js';\nexport * from './dataset-builder.js';\nexport * from './corpus-audit.js';\nexport * from './corpus-quality.js';\nexport * from './series-provision.js';\nexport * from './dataset-audit.js';\nexport * from './dataset-splits.js';\nexport * from './outcome-verifier.js';\nexport * from './readiness.js';\nexport * from './readiness-repository.js';\nexport * from './catalog-repository.js';\nexport * from './pro-maps.js';\nexport * from './pro-map-repository.js';\nexport { RosterRepository, RosterQueryError } from './roster-repository.js';\nexport { PlayerHeroRepository, PlayerHeroQueryError } from './player-hero-repository.js';\nexport { StrengthRepository, StrengthQueryError } from './strength-repository.js';\nexport * from './patch-history.js';\nexport * from './patch-meta-repository.js';\nexport * from './patch-weight-evaluation.js';\nexport { CompareRepository, CompareQueryError } from './compare-repository.js';\nexport { ScenarioRepository, ScenarioError } from './scenario-repository.js';\nexport { assessScenarioDraft } from './scenario-draft.js';\nexport { HeroMatchupRepository } from './hero-matchup-repository.js';\nexport { ScenarioReportRepository } from './scenario-report-repository.js';\nexport * from './schedule-cache.js';\nexport * from './upcoming-evidence.js';\nexport * from './history-refresh.js';\nexport * from './prospective-patch.js';\nexport * from './research-elo.js';\nexport * from './research-elo-repository.js';\nexport * from './research-plan.js';\nexport * from './v1-data.js';\nexport * from './v1-data-repository.js';\nexport * from './research-execution.js';\nexport * from './research-journal.js';\nexport * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-release-inventory.js';\nexport * from './v1-release-journal.js';\nexport * from './v1-executable-freeze.js';\nexport * from './v1-registry.js';\nexport * from './v1-registry-repository.js';\nexport * from './v1-runtime-repository.js';\nexport * from './v1-prediction-reader.js';\nexport * from './v1-forecast-outcomes.js';\nexport * from './v1-journal.js';\nexport * from './v1-journal-repository.js';\nexport * from './v1-journal-reader.js';\nexport * from './v1-release-plan.js';\nexport * from './v1-target-lifecycle.js';\nexport * from './v1-journal-v2.js';\nexport * from './v1-schedule-target.js';\nexport * from './v1-schedule-result.js';\nexport * from './v1-scheduled-result-service.js';\nexport * from './v1-scheduled-lifecycle.js';\nexport * from './v1-journal-v3.js';\n"
+      }
+    ],
+    "runtime": {
+      "node": "v22.15.0",
+      "platform": "win32",
+      "arch": "x64",
+      "nodeBinarySha256": "77bdff912b1c569b3e693fe126f619337c3e9d73dafbc4d0bf1d4f1f6a145761"
+    }
+  },
+  "code": [
+    {
+      "path": "apps/api/tests/provider-conflicts.integration.test.ts",
+      "sha256": "7ecef4db271d41cde4df708a396a8b32e8fc327ec9c149c634285a6018204162"
+    },
+    {
+      "path": "package.json",
+      "sha256": "7508eec15406df8dd55166da013765a1aa6c571faf6a69c654c67da1b939bbb1"
+    }
+  ],
+  "reviewedSources": [
+    {
+      "path": "packages/ingestion/src/importer.ts",
+      "sha256": "7024a031ed1a6a0c0dab9f4b3bab1e4dd8d0059e2355b9f89f91fe7ba1e31358"
+    },
+    {
+      "path": "packages/ingestion/src/quality.ts",
+      "sha256": "08934f270bd9455b42bd04457b82dda35912743bd6f1c3688cb374a4c8e14f72"
+    },
+    {
+      "path": "packages/db/src/identity.ts",
+      "sha256": "80264467afadb04ae257addc12f69fdb68d3262875e77c1f0941ef4cfe046888"
+    },
+    {
+      "path": "packages/db/src/identity-repository.ts",
+      "sha256": "67e054026b14aa23340642cd1efbb607fcad6703a5fc6eb5d5fdd8f78107edd2"
+    },
+    {
+      "path": "packages/db/src/pro-maps.ts",
+      "sha256": "daff274a47dd9b5e816cdfa262adad1e2ce6fda637cee1474761c27b4fb8dca4"
+    },
+    {
+      "path": "packages/db/src/pro-map-reader.ts",
+      "sha256": "7cda52a58c9355d7f56eed41599a12578e4be40fe90aab57370b8cb26f4a5040"
+    },
+    {
+      "path": "packages/db/src/pro-map-repository.ts",
+      "sha256": "55bb7b7bdca0224de3bb1d2e6b32252c87895d1e9dab31a74e44cad7bccab2d1"
+    },
+    {
+      "path": "packages/db/src/series-provision.ts",
+      "sha256": "5f304363b51aa0fd9d0bf2410afdd10828b8150f603e0a20822fa332f7c8dbe4"
+    },
+    {
+      "path": "packages/db/src/v1-runtime.ts",
+      "sha256": "6f4c117de5947e7f38a33067bf1fbba837284d430ef893dd01053b47a1b18dcd"
+    },
+    {
+      "path": "packages/db/src/v1-forecast-outcomes.ts",
+      "sha256": "9045b75d46fd55d85f94d1df88a8924869faec2ad3b80e96e382a9d3e4340146"
+    },
+    {
+      "path": "packages/db/src/v1-scheduled-result-service.ts",
+      "sha256": "3fbf77a7d42a08c36743ecc98a472afe0fddba5f1113935fb4359cb2b6e82a9a"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "994b97e1ac9a61ce14cb339d9c10347081af324e472d91c731ec7a2569b9f5bb"
+    }
+  ],
+  "docs": [
+    {
+      "path": "README.md",
+      "sha256": "922204aa8c11e995cd3205c8322acd888d47f7be9550cd343eecee1e177d5d55"
+    },
+    {
+      "path": "docs/S4_01_V1_PROVIDER_CONFLICTS.md",
+      "sha256": "d2118683fbe00d806746ced42db27e849243459272870a3ad1c6d582711338b8"
+    },
+    {
+      "path": "docs/S4_V1_ACCEPTANCE_AUDIT.md",
+      "sha256": "1a6836f1ce6e46f23a9372b11466761719b5000ed99c13707e564cb18eba5fa9"
+    },
+    {
+      "path": "docs/ACCEPTANCE_CRITERIA.md",
+      "sha256": "d1637fd2b7145816c2118095c112b669443286c82d85fcbe0b5c25790266b150"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PLAN.md",
+      "sha256": "043e00e89ee23d9a44904def5d63179790e63cbbcf1830aeee6d89936b5cf46a"
+    },
+    {
+      "path": "docs/PROJECT_STATE.md",
+      "sha256": "bef28651f858d6fd0a294f6d6d9742a1e037597f7a12b0df4e6122c944167272"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "d7754d9c222aa14547fdc99f14ac98e8fd7c838d2dbc796d9355af87eced7d3f"
+    }
+  ],
+  "harness": [
+    {
+      "path": ".tools/s4-conflict-baseline.mjs",
+      "sha256": "0321f7b8c4088b0db604e945d2ff800f293722907edaaf3de78923973ecc3a2b"
+    },
+    {
+      "path": ".tools/s4-conflict-check.ps1",
+      "sha256": "5ac014fc9e90b005f8b590c9666a0242fa1df6902b37ce9ab0a0e8fa370d36ac"
+    },
+    {
+      "path": ".tools/s4-conflict-preserve.mjs",
+      "sha256": "b1a6aac7a2f6ee04866c42c877c438b8d2c343fb0837c24c315010c0c9c5f7c5"
+    },
+    {
+      "path": ".tools/s4-conflict-finalize.mjs",
+      "sha256": "08b6a7aca26e7c5adc569edc02fb3142ed0d14fd2a1333e31f9e90744cbd7405"
+    },
+    {
+      "path": ".tools/s4-conflict-docs.mjs",
+      "sha256": "edadcb3696f57d1a2264861338413b5cfefcf4e38e92562fc1de99cd98d55cea"
+    },
+    {
+      "path": ".tools/s4-conflict-evidence.mjs",
+      "sha256": "05e1312eb9300d0579a77dfb1239cabd12760d91834a981594b9e13406206fcf"
+    },
+    {
+      "path": ".tools/s4-queue-state.mjs",
+      "sha256": "03c53613f8b2fdadba59b52013a7cbc68b4be45fbfd104bea592d1269a5ffd56"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".tools/s4-conflict-baseline.json",
+      "sha256": "1d99a4e0e9cdd4a145d666beed2c4327418b4b91369665fab85d4b7384e9aad6"
+    },
+    {
+      "path": ".tools/s4-conflict-package-before.json",
+      "sha256": "8e780d3462e2a46393fd6fe81f5ab389b8a3db5b3ef4ae1220882e44bc4aef52"
+    },
+    {
+      "path": ".tools/s4-conflict-all-before.json",
+      "sha256": "13ee7cdb5901691ebcefed1c4351afbc5f01e5e71466b7499564d62fca6aaf21"
+    },
+    {
+      "path": ".tools/s4-conflict-all-after.json",
+      "sha256": "fdebbe121f19a2b15be613ef665975fb59687c0f7ea48a1348a7bad88454d2ca"
+    },
+    {
+      "path": ".tools/s4-conflict-preservation.json",
+      "sha256": "3a4b12516e26dc104e89e918dace705ccd95f68ad4b4d713a4f6ab21ae2b584b"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".tools/s4-conflict-targeted.log",
+      "sha256": "7499036f16270f76a119ea518612d5f230db9859186dcf09d777bc3ea62781f2"
+    },
+    {
+      "path": ".tools/s4-conflict-pg.log",
+      "sha256": "1e0b49f0f0378d5277881eb23e711138558fd3a3bfdebcf4a51060477af36c55"
+    },
+    {
+      "path": ".tools/s4-conflict-install.log",
+      "sha256": "896b5039d8540cd988abbb59cdaa05af3c453202b7bb998c6f7e641d998e4fec"
+    },
+    {
+      "path": ".tools/s4-conflict-typecheck.log",
+      "sha256": "fcdd91d7487b3d8b5d20de38b1cfeee7c8b27aac95101f860c26a78d409676dc"
+    },
+    {
+      "path": ".tools/s4-conflict-build.log",
+      "sha256": "ad625380b0a25aa9902ac0e17cbcadd7857dc136bce6f4678e04d1fc330c75ac"
+    },
+    {
+      "path": ".tools/s4-conflict-unit.log",
+      "sha256": "522dcc6bff6084598a66520ddab0e70609a2edcd972149f1bb2aa57e4ca56f7c"
+    },
+    {
+      "path": ".tools/s4-conflict-node.log",
+      "sha256": "19063fb2e78c888d65e5f6ab39383569e63f3bc4c87958de096cc9df417cc490"
+    },
+    {
+      "path": ".tools/s4-conflict-preservation.log",
+      "sha256": "d4e600a333de163769da89f811d6d97a3348f1b2d5b75152591d4fb81d535754"
+    },
+    {
+      "path": ".tools/s4-conflict-docs.log",
+      "sha256": "d611f6bed150399fffd4a93794980980b35cd2faf6e8c29e2cb84eac5ebcf81a"
+    },
+    {
+      "path": ".tools/s4-conflict-diff.log",
+      "sha256": "7dd5cf1367807a8b49347a5a35ec56b61b6bd6cc64dbdb0283e15faedc75625e"
+    }
+  ],
+  "nextTask": "S4-02/V1-historical-regression: current V1/frozen data and temporal-series-identity regression gates; no early future-window evaluation, frozen policy changes or activation",
+  "nextModel": "GPT-6.1 Sol · High"
+}

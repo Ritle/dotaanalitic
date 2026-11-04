@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "task": "S2-01/role-suggestions",
+  "clientDate": "2026-11-04",
+  "clientTimezone": "Europe/Moscow",
+  "generatedAt": "2026-11-03T23:03:23.731Z",
+  "status": "implemented",
+  "scope": "Current descriptive role hints with explicit apply/manual override; no Elo/historical fact changes",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCliTests": 741,
+    "unitPackageCounts": [
+      54,
+      20,
+      16,
+      33,
+      342,
+      228,
+      47,
+      1
+    ],
+    "nodeTests": 73,
+    "newPgApiTests": 4,
+    "uniqueChromiumE2e": 4,
+    "newChromiumE2e": 2,
+    "configuredRetries": 0,
+    "mobileScreenshotInspected": true,
+    "correctedFixtureIssues": [
+      "Corepack environment lookup",
+      "DB zod moved to contracts without dependencies",
+      "new browser login setup awaited before navigation"
+    ],
+    "notExecuted": [
+      "full PostgreSQL integration suite",
+      "full owner browser suite",
+      "Python",
+      "Docker/Linux",
+      "deployment"
+    ]
+  },
+  "liveCoverage": {
+    "verifiedPlayers": 60,
+    "suggestedPlayers": 60,
+    "uniqueEvidenceMaps": 17,
+    "usedPlayerMaps": 160,
+    "heuristicPlayers": 60,
+    "playersWithOneOrTwoAssessedMaps": 35,
+    "roleAccuracyMeasured": false
+  },
+  "preservation": {
+    "protectedArtifacts": 40,
+    "oldRuntimeModulesUnchanged": 150,
+    "compatibleV1Runtime": true,
+    "relationEntries": 78,
+    "allWorkingFingerprintsUnchanged": true,
+    "queuedAuroraPreserved": true,
+    "migrationLedgerChecksums": 34,
+    "frozenBundleVerified": true,
+    "providerRequests": 0,
+    "realImports": 0,
+    "realTrainingEvaluationActivation": 0,
+    "progressPrefixPreserved": true
+  },
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-release-leagues-20261102.json",
+      "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+    },
+    {
+      "path": ".tools/v1-features-development-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+      "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+      "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evidence.json",
+      "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+      "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+      "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+      "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-verification.json",
+      "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+      "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+      "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+    },
+    {
+      "path": "docs/evidence/s3-05-v1-registry.json",
+      "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+      "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-owner-api-ui.json",
+      "sha256": "543d4a48d36f627af4597462e4c4adb35109de362e2b68d55001b21cc41693eb"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-real-target.json",
+      "sha256": "9f49e3f6394ff9490b98249d717859b058e1df04e8614a165f9add23cd6f1911"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-journal-metrics.json",
+      "sha256": "baf05428a2b2623c9c207d9074e2c0bdc3f8776e232967b1446e06ce09008b38"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-journal-owner-api-ui.json",
+      "sha256": "1f351addda289fcef98de74c40634c61cb9b291e3bc769a7b89186cc63cbd807"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-target-lifecycle.json",
+      "sha256": "740b47a7f2e6f510f9ea95ea513b9f7246502fb7b94c87750d5b541fb80fd98e"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-schedule-target-registration.json",
+      "sha256": "b0b0f67b68632c0395a7d650d813f2f63a5f37c66a2f75ab7c58922d99f10fb8"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-runtime.json",
+      "sha256": "757e2dd402846ab15fe9502a872f3e1525c7ae67c2f1c0366297f2007eb7d29c"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-result.json",
+      "sha256": "19f633fae8a8a4211bbd5eccb836b08e8872684cd949ab899cfb829542b1de0d"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-owner-flow.json",
+      "sha256": "bdfd9eaac593c6aa5d929059da88cfabee62d04b4ac68b052423f01c1700d780"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-binding-owner-flow.json",
+      "sha256": "db330af19571caf5dd95331d204e9d0424844eccc277b393c2afba8877450869"
+    },
+    {
+      "path": "docs/evidence/s3-07-v1-scheduled-target-lifecycle.json",
+      "sha256": "2dec5d4c3af4577b2e9e19fc20f609ab8db0e700ca7cc07081de9be4d267940d"
+    },
+    {
+      "path": "docs/evidence/s4-v1-acceptance-audit.json",
+      "sha256": "4803b1dec3a0081e10bc5ee064ddfdfbe1d023902b45d9dc7684175ad737b668"
+    },
+    {
+      "path": "docs/evidence/s4-v1-backup-restore.json",
+      "sha256": "3f03694f0f3628d4df68c3b86c4e2ff9bd4d3ad017c20368897f1b2db63ac79b"
+    },
+    {
+      "path": "docs/evidence/s4-v1-local-owner-smoke.json",
+      "sha256": "1cf3f62be6185662d7a861b25a608f98c4d77796984b88063ba2fb4b452789d8"
+    },
+    {
+      "path": "docs/evidence/s4-v1-schedule-event-filter.json",
+      "sha256": "7ae62cbf174b4fbff6735bd4b8268c99ec07bad3262b9a0a2c013322db9c5708"
+    },
+    {
+      "path": "docs/evidence/s4-v1-schedule-event-filter-v2.json",
+      "sha256": "4a80b6ce7436da825b457841d4beb2e1af18c5ec42672c68e6926e05029cc0d8"
+    },
+    {
+      "path": "docs/evidence/s4-v1-model-readiness-status.json",
+      "sha256": "905aa2d3ba7637c82dab74465e262084d15549ed6b4465e6947756925755ed13"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-security-review.json",
+      "sha256": "e33be17b1da749b94756b3a8959257c73ccc54dfd0b03b9fcfa4581735b7b7f6"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-queue-coverage.json",
+      "sha256": "bac1dcac838e617c4deaff8a4be71f5e4736cd037f90646407ef402f5973d777"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-provider-resilience.json",
+      "sha256": "305a1c2e90f01f24813f2b411ceb59ce51f07dbd7a8e958e43e2aae4b3f078e8"
+    },
+    {
+      "path": "docs/evidence/s4-01-v1-provider-conflicts.json",
+      "sha256": "00016adb4d65c22468c4b2c882c6dd882bee3393b047c5a2345d7c32f4172178"
+    },
+    {
+      "path": "docs/evidence/s4-02-v1-historical-regression.json",
+      "sha256": "595cfbaca6074ee58e89242177b312564a4da9a3fae63b8e9f617cf6909ebf6b"
+    },
+    {
+      "path": "docs/evidence/s4-02-v1-full-owner-e2e.json",
+      "sha256": "a5d206b192c6301da2f81a3234c60ace1ff50914da189b7b394a737eb4aeb744"
+    },
+    {
+      "path": "docs/evidence/s4-03-v1-deployment-preflight.json",
+      "sha256": "61a91f176793c77c387ab410795e86a45dda730b57ca039d7c322febb4ddea18"
+    }
+  ],
+  "code": [
+    {
+      "path": "packages/contracts/src/role-suggestions.ts",
+      "sha256": "4a24dc63317a774aaca842091bcfdc819a6e48c2737c8cb0deae8bd37298362e"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "4651938a8cad6128918dfb09f05e044f64ca1099ad6184e5d3db6e6fb9a92ec4"
+    },
+    {
+      "path": "packages/db/src/role-suggestions.ts",
+      "sha256": "d5806c4bc1aa5340009b1ffda881a82e336b1d9724ff105c799175f047bc8700"
+    },
+    {
+      "path": "packages/db/src/role-suggestion-repository.ts",
+      "sha256": "3336021539ce0459ef81dab7ebc4b85429e4481717b912c9c1552c0498f59214"
+    },
+    {
+      "path": "packages/db/src/index.ts",
+      "sha256": "62fdd7ac5d03bf0b850fe3c66920d8aea253fdc4d3cc56c9ef76c3d26a1cd577"
+    },
+    {
+      "path": "apps/api/src/app.ts",
+      "sha256": "682bcacae52ff851cc5319a6e7116d775e50ec6b8963f411fd1630baf40a61ff"
+    },
+    {
+      "path": "apps/api/src/modules/catalog/role-suggestions-http.ts",
+      "sha256": "73c86df2311e94c9034a04c46bd0e2883c9c810a648d0c7829a9a19e1ad955e2"
+    },
+    {
+      "path": "apps/web/src/role-suggestions.ts",
+      "sha256": "26e815627c6cc4ad303da15c56bc289dc90152a6a85d5ef7ab8fc3e566193c98"
+    },
+    {
+      "path": "apps/web/src/components/RoleSuggestions.vue",
+      "sha256": "86c30cb60b9e4da6ee721e17dc3b3e6578c84776bdd615953eabc579e60481fc"
+    },
+    {
+      "path": "apps/web/src/components/UpcomingScenario.vue",
+      "sha256": "cfa705f66ebf648d432ae1c993039e42cd3da8e9ec278dd140da4f4c6fe48678"
+    },
+    {
+      "path": "apps/web/src/views/ScenariosView.vue",
+      "sha256": "4c27b59dd4c39e870312145c3607778d32767298660171912e0e3c93dcf0502c"
+    },
+    {
+      "path": "packages/db/tests/role-suggestions.test.ts",
+      "sha256": "c48a0c20f04a778393c5f523fa5b53f8b2263476df487e47d0745f0e1708c96f"
+    },
+    {
+      "path": "apps/api/tests/role-suggestions.integration.test.ts",
+      "sha256": "b9243c48f54a1df7328657536980729f7da5d4e62e74a037f101d5ac15843d0d"
+    },
+    {
+      "path": "apps/web/tests/role-suggestions.test.ts",
+      "sha256": "fb4be5f55910b5c915f078d66a0a1839787faede41d4668f027c854baa4c77d7"
+    },
+    {
+      "path": "apps/web/tests/e2e/role-suggestions.spec.ts",
+      "sha256": "9a7d7ee4b5b3a8eefb73e08c51f6fa8d8f977b81123a85f90c988cddd7e114d5"
+    }
+  ],
+  "docs": [
+    {
+      "path": "README.md",
+      "sha256": "9b6d443b95b360a929773eeff764d2246c256eacba3a4549dec76564927e10c1"
+    },
+    {
+      "path": "docs/S2_01_ROLE_SUGGESTIONS.md",
+      "sha256": "ac8ef165daf4757608f0829573888e5fc40831374ddd941fca35730a97e14bcf"
+    },
+    {
+      "path": "docs/PROJECT_STATE.md",
+      "sha256": "ccc56b9fe2a9ec411d9cc24dc372894f8a5450151a65d279fc849e5add425332"
+    },
+    {
+      "path": "docs/IMPLEMENTATION_PLAN.md",
+      "sha256": "669f653ccd908ac7fd65d17f4415d7ff9d67ee8f09f5cd15241d485e3faedcc6"
+    },
+    {
+      "path": "docs/PROGRESS.md",
+      "sha256": "4ff5599ace2cd798efe794421b85e72a2610759a6915cb69c66a9839e098d2a8"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".tools/roles-baseline.json",
+      "sha256": "1d11324b20dd5f88b0041c463c9102e4b386a8a4fa7e7c8b483d50e90b47d887"
+    },
+    {
+      "path": ".tools/roles-state-before.json",
+      "sha256": "c8219fbded94f8d2c09d2a8116b6de126e0dc2772b375fd177989e596a7eb90e"
+    },
+    {
+      "path": ".tools/roles-state-after.json",
+      "sha256": "e1d72ba776d65c0a8c235c95c5aea85ff885488c8a2692085ee05facc039a7f6"
+    },
+    {
+      "path": ".tools/roles-live-final.json",
+      "sha256": "abde1ddfcac069244790a8e20e746e6a3958b726ce73f0b2f2ccb068bcd4ddd0"
+    },
+    {
+      "path": ".tools/roles-preservation.json",
+      "sha256": "8ea2ac071079470dba5cf62a822edaa36688ebdedf7921f34489088a968d8b14"
+    },
+    {
+      "path": ".tools/roles-migration-ledger.json",
+      "sha256": "2890bf1b5f74359cd61f89ee6d8957888777f959e85b9bf4c3f7e3b7478c0df7"
+    },
+    {
+      "path": "test-results/role-suggestions-mobile.png",
+      "sha256": "05eb35256db90b1630cb30e4d90426f0946e08dc9d6b53382835bbd6c90a0ed6"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".tools/roles-build.log",
+      "sha256": "ef22aefd29e65338518667e354f85038d0875e75d72930afb2990873682dc462"
+    },
+    {
+      "path": ".tools/roles-e2e-final.log",
+      "sha256": "cfc951ab6b07b4cded558bcab596fbdcccf004e5293c80fd405e737c3e620dd3"
+    },
+    {
+      "path": ".tools/roles-e2e.log",
+      "sha256": "8c50fbc13ba007790d7532fcd9703fa61176902f467b8a4b7d8398d6037ff665"
+    },
+    {
+      "path": ".tools/roles-install.log",
+      "sha256": "e4e03595bf551a00cd9fb850fd177381be02fe7f3fd28b0638f86e811e6ab7cc"
+    },
+    {
+      "path": ".tools/roles-migrations.log",
+      "sha256": "d7d3b73b8287ed240474a3a5f4be0fedd31704a6f8aed30a74e59227a79a5983"
+    },
+    {
+      "path": ".tools/roles-node.log",
+      "sha256": "5e251a304cf725bdf57c24be8b6ffab258e4252e2750eefead27133a7f47ba49"
+    },
+    {
+      "path": ".tools/roles-targeted-final.log",
+      "sha256": "c9bec5df9972df2ac698d1a92600d17249cce7bb5aaa00278cd8dfdf59b391fd"
+    },
+    {
+      "path": ".tools/roles-targeted.log",
+      "sha256": "63828a4e8287e568df3572f0f66a46b6a9235251caf49795d87e571b12129d18"
+    },
+    {
+      "path": ".tools/roles-typecheck-final.log",
+      "sha256": "08023bdb8f98bab3ba59854993b013b8e50350cc4c658198d54797d587685fb5"
+    },
+    {
+      "path": ".tools/roles-typecheck-initial.log",
+      "sha256": "7c49acfe9b016612fcbf8ba3a57cfe41c609a34b1318f0311e56baa7b798011e"
+    },
+    {
+      "path": ".tools/roles-typecheck.log",
+      "sha256": "cc79020b752679af93470658cb0543e78bf18035febc41e0ab435d77c7d3b435"
+    },
+    {
+      "path": ".tools/roles-unit.log",
+      "sha256": "f1b98e47004dac069bc1fecf648b55d87921c193ad80b8794b7a5cbdf39131c8"
+    }
+  ],
+  "nextTask": "S2-01/role-owner-check",
+  "nextModel": "GPT-6.1 Sol / High",
+  "deploymentDeferred": true
+}

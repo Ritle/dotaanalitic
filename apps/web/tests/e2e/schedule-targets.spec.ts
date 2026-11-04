@@ -1,0 +1,51 @@
+import {test,expect,type Page} from '@playwright/test';
+import {randomBytes} from 'node:crypto';
+import type {FastifyInstance} from 'fastify';
+import {testDatabase} from '../../../../tests/helpers/postgres';
+import {seedTargetCatalog,publishTargetSchedule,syntheticTargetMatch} from '../../../../tests/helpers/schedule-target';
+import {sql} from '../../../../packages/db/src/index';
+import {buildApp} from '../../../api/src/app';
+import {readConfig} from '../../../api/src/config';
+import {AuthService} from '../../../api/src/modules/auth/service';
+let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string;
+const match=syntheticTargetMatch();
+test.beforeAll(async()=>{
+  database=await testDatabase();await seedTargetCatalog(database.db);await publishTargetSchedule(database.db,[match]);
+  password=randomBytes(24).toString('base64url');await new AuthService(database.db).provision('synthetic-target-browser',password);
+  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179'}),{db:database.db,logger:false});
+  await api.listen({host:'127.0.0.1',port:3151});
+});
+test.afterAll(async()=>{await api?.close();await database?.close();});
+async function pick(page:Page,label:string,id:string){const region=page.getByRole('region',{name:label,exact:true});
+  await region.getByRole('searchbox').fill(id);await region.getByRole('searchbox').press('Enter');
+  await region.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();}
+test('owner pins future source, recovers a lost response and reads the original after it leaves the schedule',async({page})=>{
+  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-target-browser');await page.getByLabel('Пароль').fill(password);
+  await page.getByRole('button',{name:'Войти',exact:true}).click();await page.getByRole('link',{name:'Предстоящие матчи →',exact:true}).click();
+  await page.getByRole('button',{name:'Выбрать',exact:true}).click();await page.getByText('Зафиксировать назначение первой карты',{exact:true}).click();
+  await page.getByLabel('Участник источника для команды A',{exact:true}).selectOption('75');
+  await pick(page,'Назначение: локальная команда A','22');await pick(page,'Назначение: локальная команда B','11');
+  await page.getByLabel('Источник сопоставления · HTTPS',{exact:true}).fill('https://example.test/synthetic-review');
+  await page.getByLabel('Обоснование сопоставления',{exact:true}).fill('Синтетическое сопоставление по явным ID источника и локального справочника');
+  await page.getByLabel('Подтверждаю соответствие участников и назначение карты 1',{exact:true}).check();
+  await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:'test-results/schedule-target-form-mobile.png',fullPage:true});
+  await page.setViewportSize({width:1280,height:900});await page.screenshot({path:'test-results/schedule-target-form-desktop.png',fullPage:true});
+  let requestId='';await page.route('**/api/v1/schedule-targets',async route=>{
+    if(route.request().method()!=='POST'||requestId)return route.continue();requestId=route.request().postDataJSON().requestId;
+    await route.fetch();await route.abort('failed');
+  });
+  await page.getByRole('button',{name:'Сохранить назначение карты 1',exact:true}).click();
+  await page.getByRole('button',{name:'Повторить сохранение того же назначения',exact:true}).click();
+  const article=page.getByRole('article',{name:'Сохранённое назначение карты',exact:true});await expect(article).toContainText('Само сохранение назначения не запускает расчёт');
+  await expect(article).toContainText('A: Synthetic Target B');
+  await page.getByRole('link',{name:'Открыть сохранённое назначение →',exact:true}).click();await expect(article).toContainText('назначение 1');
+  await page.getByText('Источник и сопоставление',{exact:true}).click();await expect(article).toContainText('Это не OpenDota series_id');
+  await page.screenshot({path:'test-results/schedule-target-desktop.png',fullPage:true});
+  await publishTargetSchedule(database.db,[]);await page.reload();await expect(article).toContainText(match.name!);
+  await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.getByText('Источник и сопоставление',{exact:true}).click();await page.screenshot({path:'test-results/schedule-target-mobile.png',fullPage:true});
+  expect((await sql`SELECT 1 FROM v1_schedule_targets`.execute(database.db)).rows).toHaveLength(1);
+  expect((await sql`SELECT 1 FROM prediction_runs`.execute(database.db)).rows).toHaveLength(0);expect(errors).toEqual([]);
+});

@@ -4,7 +4,7 @@ import {useQuery} from '@tanstack/vue-query';
 import {CatalogListSchema,type CatalogList} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 type Item=CatalogList['items'][number];
-const props=defineProps<{kind:'teams'|'players';label:string;modelValue:string;excludedIds?:string[]}>();
+const props=defineProps<{kind:'teams'|'players';label:string;modelValue:string;excludedIds?:string[];selectedLabel?:string}>();
 const emit=defineEmits<{'update:modelValue':[value:string]}>();
 const uid=useId(),query=ref(''),term=ref<string|null>(null),chosen=ref<Item|null>(null);
 const results=useQuery({queryKey:computed(()=>['catalog-picker',props.kind,term.value]),enabled:computed(()=>term.value!==null),
@@ -30,6 +30,7 @@ function clear(){edit('');}
     <div v-if="chosen&&chosen.id===modelValue" class="picked" role="status">
       <span>Выбрано: {{chosen.name||'Без имени'}} · ID {{chosen.id}}</span><button type="button" @click="clear">Сбросить</button>
     </div>
+    <div v-else-if="modelValue" class="picked" role="status"><span>Выбрано: {{selectedLabel??modelValue}} · ID {{modelValue}}</span><button type="button" @click="clear">Сбросить</button></div>
     <template v-if="term!==null">
       <p v-if="results.isPending.value||results.isFetching.value" role="status">Поиск в локальном справочнике…</p>
       <div v-else-if="results.error.value" role="alert"><p class="error">{{results.error.value.message}}</p><button type="button" @click="results.refetch()">Повторить поиск</button></div>

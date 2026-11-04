@@ -52,6 +52,25 @@ jobs:
           node-version: '22'
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Validate production Compose with isolated synthetic settings
+        shell: bash
+        run: |
+          unset DATABASE_URL POSTGRES_DB POSTGRES_USER POSTGRES_PASSWORD SITE_HOST WEB_ORIGIN AUTH_COOKIE_SECRET PANDASCORE_API_TOKEN OPENDOTA_API_KEY OPENDOTA_RPM_BUDGET OPENDOTA_DAILY_BUDGET OPENDOTA_MONTHLY_BUDGET
+          task_envfile=$(mktemp)
+          trap 'rm -f -- "$task_envfile"' EXIT
+          cat > "$task_envfile" <<'SYNTHETIC_ENV'
+          # Synthetic configuration only; no app, provider request or deployment is started.
+          NODE_ENV=production
+          SITE_HOST=analytics.personal-domain.net
+          WEB_ORIGIN=https://analytics.personal-domain.net
+          POSTGRES_DB=dota
+          POSTGRES_USER=owner
+          POSTGRES_PASSWORD=synthetic-production-password
+          DATABASE_URL=postgresql://owner:synthetic-production-password@postgres:5432/dota
+          AUTH_COOKIE_SECRET=synthetic-cookie-key-at-least-thirty-two-characters
+          PANDASCORE_API_TOKEN=synthetic-provider-token
+          SYNTHETIC_ENV
+          node scripts/preflight.mjs --production --strict --env-file "$task_envfile" --json
       - run: node scripts/migrate.mjs
       - run: node scripts/migrate.mjs # must be idempotent
       - run: pnpm test:integration

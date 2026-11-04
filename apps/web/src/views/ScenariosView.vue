@@ -2,10 +2,13 @@
 import {computed,reactive,ref,watch} from 'vue';
 import {useRoute,useRouter} from 'vue-router';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
-import {ScenarioInputSchema,ScenarioSnapshotSchema,ScenarioListSchema,ScenarioHistorySchema,DraftAssessmentSchema,type ScenarioInput,type ScenarioSnapshot,type DraftInput,type DraftAssessment as Assessment} from '@dota/contracts';
+import {ScenarioInputSchema,ScenarioSnapshotSchema,ScenarioListSchema,ScenarioHistorySchema,DraftAssessmentSchema,V1ScheduleTargetSavedSchema,type ScenarioInput,type ScenarioSnapshot,type DraftInput,type DraftAssessment as Assessment} from '@dota/contracts';
 import DraftEditor from '../components/DraftEditor.vue';
 import DraftAssessment from '../components/DraftAssessment.vue';
 import HeroMatchups from '../components/HeroMatchups.vue';
+import RoleSuggestions from '../components/RoleSuggestions.vue';
+import RoleProfiles from '../components/RoleProfiles.vue';
+import {moveRoleDraft,type RoleMember} from '../role-suggestions';
 import {readCatalog,dateLabel,CatalogRequestError} from '../catalog';
 import {ownerAuth} from '../auth';
 const route=useRoute(),router=useRouter(),cache=useQueryClient();
@@ -20,6 +23,9 @@ const error=ref(''),busy=ref(false),conflict=ref(false),revision=ref<number|null
 const list=useQuery({queryKey:computed(()=>['scenarios',offset.value]),queryFn:({signal})=>readCatalog(`scenarios?offset=${offset.value}`,ScenarioListSchema,signal)});
 const current=useQuery({queryKey:computed(()=>['scenario',id.value]),enabled:computed(()=>!!id.value&&!isNew.value),
   queryFn:({signal})=>readCatalog(`scenarios/${id.value}`,ScenarioSnapshotSchema,signal)});
+const originTargetId=computed(()=>typeof route.query.scheduleTarget==='string'?route.query.scheduleTarget:'');
+const originTarget=useQuery({queryKey:computed(()=>['schedule-target',originTargetId.value]),enabled:computed(()=>isNew.value&&!!originTargetId.value),
+  queryFn:({signal})=>readCatalog(`schedule-targets/${encodeURIComponent(originTargetId.value)}`,V1ScheduleTargetSavedSchema,signal)});
 const history=useQuery({queryKey:computed(()=>['scenario-history',id.value,historyOffset.value]),enabled:computed(()=>!!id.value&&!isNew.value),
   queryFn:({signal})=>readCatalog(`scenarios/${id.value}/history?offset=${historyOffset.value}`,ScenarioHistorySchema,signal)});
 const utc=(key:'cutoffAt'|'scheduledAt')=>computed({get:()=>form[key]?.replace(/Z$/,'')??'',set:(v:string)=>{
@@ -40,8 +46,21 @@ watch(id,()=>{error.value='';conflict.value=false;revision.value=null;loadedId.v
   draft.value={assignments:[],bans:[]};dirty.value=false;
   if(current.data.value)hydrate(current.data.value);
 });
+watch([()=>originTarget.data.value,isNew],([target,newScenario])=>{
+  if(!newScenario||dirty.value||!target||target.record.request.requestId!==originTargetId.value)return;
+  const r=target.record,b=blank();
+  Object.assign(form,{...b,title:(r.observation.match.name??'Первая карта встречи').slice(0,120),teamAId:r.request.teamAId,teamBId:r.request.teamBId,
+    cutoffAt:r.observation.match.scheduledAt??b.cutoffAt,scheduledAt:r.observation.match.scheduledAt,
+    context:{...b.context,leagueId:r.request.leagueId,mapNumber:1}});
+  confirmed.value=false;dirty.value=false;
+},{immediate:true});
 async function reload(){
   error.value='';const r=await current.refetch();if(r.data){hydrate(r.data);conflict.value=false;}else error.value='Не удалось загрузить редакцию.';
+}
+function applyRoles(slot:'A'|'B',rows:RoleMember[]){
+  const before=slot==='A'?form.lineupA:form.lineupB;
+  draft.value=moveRoleDraft(draft.value,slot,before,rows);
+  if(slot==='A')form.lineupA=rows;else form.lineupB=rows;
 }
 function collect(requireConfirmation=true){
   const raw=JSON.parse(JSON.stringify(form));raw.confirmedByOwner=requireConfirmation?confirmed.value:true;raw.draft=JSON.parse(JSON.stringify(draft.value));
@@ -67,7 +86,7 @@ async function save(){
       {method:isNew.value?'POST':'PUT',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},
         body:JSON.stringify(isNew.value?input:{expectedRevision:revision.value,input})});
     cache.setQueryData(['scenario',s.id],s);await cache.invalidateQueries({queryKey:['scenarios']});
-    if(isNew.value)await router.replace(`/scenarios/${s.id}`);
+    if(isNew.value)await router.replace({path:`/scenarios/${s.id}`,query:originTargetId.value?{scheduleTarget:originTargetId.value}:{}});
     hydrate(s);await cache.invalidateQueries({queryKey:['scenario-history',s.id]});
   }catch(e){error.value=e instanceof Error?e.message:'Не удалось сохранить сценарий.';conflict.value=e instanceof CatalogRequestError&&e.status===409;}
   finally{busy.value=false;}
@@ -76,7 +95,11 @@ async function save(){
 <template>
   <main class="shell">
     <RouterLink to="/">← Справочники</RouterLink><p class="eyebrow">DOTA 2 · ОДНА КАРТА</p><h1>Сценарии</h1>
-    <p>Сохраните ручные составы и контекст карты. Подтверждение означает ваш выбор для сценария, а не официальную заявку турнира. Прогноз недоступен.</p>
+    <p v-if="originTargetId"><RouterLink :to="{path:`/schedule-targets/${originTargetId}`,query:saved?{scenario:saved.id}:{}}">← Вернуться к назначению карты</RouterLink></p>
+    <p v-if="isNew&&originTargetId&&originTarget.isFetching.value" role="status">Загрузка назначения карты…</p>
+    <p v-if="isNew&&originTargetId&&originTarget.error.value" role="alert" class="error">{{originTarget.error.value.message}}</p>
+    <p v-if="isNew&&originTarget.data.value">Проверьте команды, турнир и время назначения. Выберите десять игроков вручную и подтвердите состав.</p>
+    <p>Сохраните ручные составы и контекст карты. Подтверждение означает ваш выбор для сценария; фактическое участие игроков может измениться. Расчёт запускается отдельно.</p>
     <section class="panel" aria-label="Сохранённые сценарии">
       <div class="account-row"><h2>Мои сценарии</h2><RouterLink to="/scenarios/new">Создать сценарий →</RouterLink></div>
       <p v-if="list.isPending.value" role="status">Загрузка сценариев…</p><p v-else-if="list.error.value" class="error" role="alert">{{ list.error.value.message }}</p>
@@ -103,6 +126,8 @@ async function save(){
                 <label :for="`${slot}-${p.rolePos}`">{{slot}}: игрок роли {{p.rolePos}}</label><input :id="`${slot}-${p.rolePos}`" v-model="p.playerId" inputmode="numeric" required />
                 <label class="check-row"><input v-model="p.isStandin" type="checkbox" />{{slot}}: замена роли {{p.rolePos}}</label>
               </div>
+              <component :is="(slot==='A'?form.teamAId:form.teamBId)?RoleProfiles:RoleSuggestions" :key="id+':'+slot+':roles:'+(slot==='A'?form.teamAId:form.teamBId)"
+                :team-id="slot==='A'?form.teamAId:form.teamBId" :preserve-manual="!isNew" :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot" :cutoff-at="form.cutoffAt" @apply="(rows:RoleMember[])=>applyRoles(slot,rows)" />
               <label class="check-row"><input v-if="slot==='A'" v-model="baselineA" type="checkbox" /><input v-else v-model="baselineB" type="checkbox" />Ожидаемый состав {{slot}}</label>
               <div v-if="slot==='A'?baselineA:baselineB"><p class="hint">Необязательная ручная база сравнения. Фиксированного штрафа за замену нет.</p>
                 <label v-for="p in (slot==='A'?expectedA:expectedB)" :key="p.rolePos">{{slot}}: ожидаемый игрок роли {{p.rolePos}}<input v-model="p.playerId" inputmode="numeric" required /></label>
@@ -134,6 +159,8 @@ async function save(){
       </div>
       <DraftAssessment v-if="saved?.draftAssessment" :assessment="saved.draftAssessment" saved />
       <RouterLink v-if="saved" :to="`/scenarios/${saved.id}/report`">Открыть отчёты сценария</RouterLink>
+      <p v-if="saved && !dirty"><RouterLink :to="`/scenarios/${saved.id}/prediction`">Открыть расчёт одной карты</RouterLink></p>
+      <p v-else-if="saved" class="hint">Сохраните изменения, чтобы перейти к расчёту выбранного состава.</p>
     </section>
     <HeroMatchups v-if="saved&&!dirty" :key="saved.id+':'+saved.revision" :scenario="saved" />
     <section v-if="id&&!isNew" class="panel" aria-label="История сценария"><h2>Сохранённые редакции</h2>

@@ -35,6 +35,9 @@ services:
       WEB_ORIGIN: ${WEB_ORIGIN:?}
       AUTH_COOKIE_SECRET: ${AUTH_COOKIE_SECRET:?}
       DATABASE_URL: ${DATABASE_URL:?}
+      PANDASCORE_API_TOKEN: ${PANDASCORE_API_TOKEN:-}
+      ROLE_PROFILES_ENABLED: ${ROLE_PROFILES_ENABLED:-false}
+      STRATZ_API_TOKEN: ${STRATZ_API_TOKEN:-}
     depends_on:
       migrate: {condition: service_completed_successfully}
     expose: ['3000']

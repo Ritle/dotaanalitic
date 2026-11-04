@@ -41,7 +41,7 @@ test('owner loads schedule and all expected players, manually chooses canonical 
   await page.getByRole('button',{name:'Выбрать',exact:true}).click();await page.getByRole('button',{name:'Обновить составы',exact:true}).click();
   const rosters=page.getByRole('region',{name:'Ожидаемые составы'});await expect(rosters.getByText('В заявке: 6 игроков',{exact:true})).toBeVisible();
   await expect(rosters.getByText('Синтетический игрок 1-6',{exact:true})).toBeVisible();await expect(rosters.getByText('Нужно вручную уточнить пятёрку.',{exact:true})).toBeVisible();
-  await expect(rosters.getByText('Связь этих игроков с локальной историей ещё не подтверждена.',{exact:false})).toBeVisible();
+  await expect(rosters.getByText('Ниже можно соединить заявку с игровыми аккаунтами и подготовить пятёрки для анализа.',{exact:false})).toBeVisible();
   await page.screenshot({path:'test-results/upcoming-desktop.png',fullPage:true});await page.setViewportSize({width:360,height:800});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:'test-results/upcoming-mobile.png',fullPage:true});
   await rosters.getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();const q=scenarioInput();

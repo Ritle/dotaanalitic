@@ -8,10 +8,24 @@ import {ownerAuth} from '../auth';
 import CatalogPicker from './CatalogPicker.vue';
 import UpcomingTeamSummary from './UpcomingTeamSummary.vue';
 import UpcomingLineupCompare from './UpcomingLineupCompare.vue';
-const props=defineProps<{match:UpcomingMatch}>(),router=useRouter(),cache=useQueryClient();
+import RoleSuggestions from './RoleSuggestions.vue';
+import RoleProfiles from './RoleProfiles.vue';
+import ExpectedRosterCatalogue from './ExpectedRosterCatalogue.vue';
+import type {RosterCatalogueBinding} from '@dota/contracts';
+import {upcomingParticipants,upcomingProviderForSlot,upcomingTeamLabel} from '../upcoming-participants';
+const props=defineProps<{match:UpcomingMatch;rosterVersion?:string}>(),router=useRouter(),cache=useQueryClient();
+const manualOpen=ref(false);
+const preparedLabels=reactive<Record<string,string>>({});
 const five=()=>Array.from({length:5},(_,i)=>({rolePos:i+1,playerId:'',isStandin:false}));
 const form=reactive({title:(props.match.name??'Сценарий встречи').slice(0,120),teamAId:'',teamBId:'',lineupA:five(),lineupB:five()});
 const confirmed=ref(false),busy=ref(false),error=ref('');
+const participants=computed(()=>upcomingParticipants(props.match));
+function useBinding(slot:'A'|'B',binding:RosterCatalogueBinding){
+ preparedLabels['team:'+binding.teamId]=binding.teamName;for(const p of binding.players)preparedLabels['player:'+p.playerId]=p.name;
+ const lineup=binding.players.map((p,i)=>({rolePos:i+1,playerId:p.playerId,isStandin:false}));
+ if(slot==='A'){form.teamAId=binding.teamId;form.lineupA=lineup;}else{form.teamBId=binding.teamId;form.lineupB=lineup;}
+ confirmed.value=false;manualOpen.value=true;
+}
 watch(form,()=>{confirmed.value=false;},{deep:true,flush:'sync'});
 const usedPlayers=(current:typeof form.lineupA[number])=>[...form.lineupA,...form.lineupB].filter(p=>p!==current&&p.playerId).map(p=>p.playerId);
 const input=computed(()=>ScenarioInputSchema.safeParse({...form,cutoffAt:new Date().toISOString(),scheduledAt:props.match.scheduledAt,
@@ -36,21 +50,27 @@ async function create(){
 }
 </script>
 <template>
-  <details class="manual-scenario"><summary>Выбрать игроков для анализа одной карты</summary>
+  <ExpectedRosterCatalogue v-if="participants.complete" :match-id="match.providerMatchId" :roster-version="rosterVersion" @apply="useBinding" />
+  <details class="manual-scenario" :open="manualOpen" @toggle="manualOpen=($event.target as HTMLDetailsElement).open"><summary>Выбрать игроков для анализа одной карты</summary>
     <p>Задайте игроков и их роли по локальному справочнику. Заявка турнира служит ориентиром; состав сценария подтверждаете вы.</p>
     <p class="hint">Найдите запись по имени или ID и выберите её из списка. Если записи нет в локальной базе, состав остаётся неполным.</p>
+    <p v-if="!participants.complete" class="warning">Это гипотетический сценарий с выбранными вами командами. Он не подтверждает участников этой встречи и не привязывает к ней реальный прогноз.</p>
     <form @submit.prevent="create"><fieldset :disabled="busy" class="scenario-fields">
       <label>Название сценария<input v-model="form.title" maxlength="120" required @input="confirmed=false" /></label>
       <div class="manual-columns"><fieldset v-for="slot in (['A','B'] as const)" :key="slot">
-        <legend>Команда {{slot}} · {{match.opponents[slot==='A'?0:1]?.name??'не определена'}}</legend>
-        <CatalogPicker v-if="slot==='A'" v-model="form.teamAId" kind="teams" label="Команда A в локальной базе" :excluded-ids="[form.teamBId]" />
-        <CatalogPicker v-else v-model="form.teamBId" kind="teams" label="Команда B в локальной базе" :excluded-ids="[form.teamAId]" />
+        <legend>Команда {{slot}} · {{participants.complete?upcomingTeamLabel(match.opponents[slot==='A'?0:1]!):'выберите вручную'}}</legend>
+        <CatalogPicker v-if="slot==='A'" v-model="form.teamAId" kind="teams" label="Команда A в локальной базе" :selected-label="preparedLabels['team:'+form.teamAId]" :excluded-ids="[form.teamBId]" />
+        <CatalogPicker v-else v-model="form.teamBId" kind="teams" label="Команда B в локальной базе" :selected-label="preparedLabels['team:'+form.teamBId]" :excluded-ids="[form.teamAId]" />
         <UpcomingTeamSummary v-if="slot==='A'?form.teamAId:form.teamBId" :key="slot+':'+(slot==='A'?form.teamAId:form.teamBId)"
           :team-id="slot==='A'?form.teamAId:form.teamBId" :side-label="slot" />
         <div v-for="p in slot==='A'?form.lineupA:form.lineupB" :key="p.rolePos">
-          <CatalogPicker v-model="p.playerId" kind="players" :label="`${slot}: игрок роли ${p.rolePos}`" :excluded-ids="usedPlayers(p)" />
+          <CatalogPicker v-model="p.playerId" kind="players" :label="`${slot}: игрок роли ${p.rolePos}`" :selected-label="preparedLabels['player:'+p.playerId]" :excluded-ids="usedPlayers(p)" />
           <label class="check-row"><input v-model="p.isStandin" type="checkbox" @change="confirmed=false" />{{slot}}: замена роли {{p.rolePos}}</label>
         </div>
+        <component :is="(slot==='A'?form.teamAId:form.teamBId)?RoleProfiles:RoleSuggestions" :key="slot+':roles:'+(slot==='A'?form.teamAId:form.teamBId)"
+          :team-id="slot==='A'?form.teamAId:form.teamBId" :panda-tournament-id="match.tournament.providerTournamentId" :panda-team-id="upcomingProviderForSlot(match,slot)"
+          :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot"
+          @apply="rows=>{if(slot==='A')form.lineupA=rows.map(p=>({...p,playerId:p.playerId??''}));else form.lineupB=rows.map(p=>({...p,playerId:p.playerId??''}));}" />
       </fieldset></div>
       <p v-if="form.teamAId&&form.teamBId"><RouterLink :to="{path:'/compare',query:{teamA:form.teamAId,teamB:form.teamBId}}">Открыть сравнение организаций →</RouterLink></p>
       <label class="check-row"><input v-model="confirmed" type="checkbox" required />Подтверждаю выбранных игроков и роли для одной карты</label>

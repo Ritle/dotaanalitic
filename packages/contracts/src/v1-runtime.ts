@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { ScenarioSnapshotSchema } from './scenario.js';
+import { V1AnyRealTargetSchema } from './v1-forecast.js';
 const Time = z.iso.datetime({ precision: 3 });
 const Id = z.string().regex(/^[1-9]\d{0,18}$/).refine(v => BigInt(v) <= 9223372036854775807n);
 /** Owner-reviewed scope is frozen per request, never inferred from a provider's professional flag. */
@@ -14,7 +15,10 @@ export const V1RuntimeRequestSchema = z.object({
   }).strict().refine(s => s.fromAt < s.until).nullable()
 }).strict();
 export type V1RuntimeRequest = z.infer<typeof V1RuntimeRequestSchema>;
-export const V1RuntimeSnapshotSchema = z.object({ format: z.literal('v1-runtime-snapshot-v1'), request: V1RuntimeRequestSchema,
+export const V1ForecastRequestSchema = V1RuntimeRequestSchema.extend({ purpose: z.literal('real_map'), realTarget: V1AnyRealTargetSchema });
+export const V1AnyRuntimeRequestSchema = z.union([V1RuntimeRequestSchema, V1ForecastRequestSchema]);
+export type V1ForecastRequest = z.infer<typeof V1ForecastRequestSchema>;
+export const V1RuntimeSnapshotSchema = z.object({ format: z.literal('v1-runtime-snapshot-v1'), request: V1AnyRuntimeRequestSchema,
   scenario: ScenarioSnapshotSchema, createdAt: z.iso.datetime({ precision: 6 }),
   issuedAt: z.iso.datetime({ precision: 6 }).nullable(), cutoffAt: Time,
   status: z.enum(['done', 'unavailable']), teamAWinProbability: z.number().min(0).max(1).nullable(),

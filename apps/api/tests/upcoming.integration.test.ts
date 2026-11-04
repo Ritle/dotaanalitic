@@ -7,12 +7,13 @@ import {UpcomingScheduleResponseSchema} from '@dota/contracts';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 import {scheduleToken,syntheticSchedule,syntheticRosters} from '../../../tests/helpers/upcoming.js';
 import {buildApp} from '../src/app.js';import {readConfig} from '../src/config.js';import {AuthService} from '../src/modules/auth/service.js';
-let database:Awaited<ReturnType<typeof testDatabase>>,app:FastifyInstance,cookie:string,csrf:string,calls:string[],failure:boolean,echo:boolean;
+let database:Awaited<ReturnType<typeof testDatabase>>,app:FastifyInstance,cookie:string,csrf:string,calls:string[],failure:boolean,echo:boolean,failureStatus:number;
 const cookieSecret='synthetic-upcoming-persistent-cookie-secret';
 const fetcher=async(url:URL)=>{calls.push(url.pathname);return new Response(JSON.stringify(failure?{error:scheduleToken}:
-  url.pathname.endsWith('/rosters')?syntheticRosters():echo?[{...syntheticSchedule()[0],name:scheduleToken}]:syntheticSchedule()),{status:failure?403:200});};
+  url.pathname.endsWith('/rosters')?syntheticRosters():echo?[{...syntheticSchedule()[0],name:scheduleToken}]:syntheticSchedule()),
+  {status:failure?failureStatus:200,headers:failure&&failureStatus!==403?{'Retry-After':'120'}:{}});};
 beforeEach(async()=>{
-  database=await testDatabase();calls=[];failure=false;echo=false;const password=randomBytes(20).toString('hex');
+  database=await testDatabase();calls=[];failure=false;echo=false;failureStatus=403;const password=randomBytes(20).toString('hex');
   await new AuthService(database.db).provision('synthetic-upcoming',password);
   app=await buildApp(readConfig({DATABASE_URL:database.url,PANDASCORE_API_TOKEN:scheduleToken,AUTH_COOKIE_SECRET:cookieSecret}),{db:database.db,logger:false,pandascoreFetch:fetcher});
   const r=await app.inject({method:'POST',url:'/api/v1/auth/login',headers:{origin:'http://localhost:5173'},payload:{login:'synthetic-upcoming',password}});
@@ -73,6 +74,17 @@ test('stale snapshot survives provider failure and durable cooldown prevents ret
   const first=(await refresh()).json();await expire();failure=true;
   const r=await refresh();expect(r.json()).toMatchObject({status:'stale',reason:'source_unavailable'});expect(r.json().snapshot).toEqual(first.snapshot);expect(r.body).not.toContain(scheduleToken);
   expect(r.json().retryAt).not.toBeNull();const n=calls.length;await refresh();expect(calls).toHaveLength(n);
+});
+test.each([429,503])('HTTP %s preserves stale schedule and a durable Retry-After across service instances',async status=>{
+  const first=(await refresh()).json();await expire();failure=true;failureStatus=status;
+  const response=await refresh(),body=response.json();
+  expect(body).toMatchObject({status:'stale',reason:'source_unavailable',snapshot:first.snapshot});
+  expect(response.body).not.toContain(scheduleToken);
+  expect(Date.parse(body.retryAt)-Date.parse(body.computedAt)).toBeGreaterThan(110000);
+  const freshQuota=await new PandaScoreQuotaRepository(database.db).claim();
+  expect(freshQuota).toMatchObject({allowed:false});expect(freshQuota.retryAfterMs).toBeGreaterThan(110000);
+  const n=calls.length;await refresh();await get();expect(calls).toHaveLength(n);
+  expect((await sql`SELECT count(*)::int AS n FROM upcoming_source_observations`.execute(database.db)).rows[0]).toMatchObject({n:1});
 });
 test('a reflected credential is rejected before caching or responding',async()=>{
   echo=true;const r=await refresh();expect(r.json().snapshot).toBeNull();expect(r.json().reason).toBe('source_unavailable');expect(r.body).not.toContain(scheduleToken);

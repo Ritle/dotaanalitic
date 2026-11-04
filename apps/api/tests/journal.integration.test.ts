@@ -1,0 +1,74 @@
+import {randomBytes,randomUUID} from 'node:crypto';
+import {beforeEach,afterEach,expect,test,vi} from 'vitest';
+import type {FastifyInstance} from 'fastify';
+import {V1JournalViewSchema,V1JournalHistorySchema} from '@dota/contracts';
+import {ScenarioRepository,V1RuntimeRepository,V1JournalRepository,V1JournalService,sql} from '@dota/db';
+import {testDatabase} from '../../../tests/helpers/postgres.js';
+import {seedPredictionScenario} from '../../../tests/helpers/predictions.js';
+import {buildApp} from '../src/app.js';
+import {readConfig} from '../src/config.js';
+import {AuthService} from '../src/modules/auth/service.js';
+let database:Awaited<ReturnType<typeof testDatabase>>,app:FastifyInstance,cookie:string,csrf:string,owner:string,scenarioId:string;
+const base='/api/v1/forecast-journal',body=()=>({requestId:randomUUID(),filters:{}});
+const headers=()=>({cookie,origin:'http://localhost:5173','x-csrf-token':csrf});
+const post=(payload:unknown=body())=>app.inject({method:'POST',url:base,headers:headers(),payload});
+const get=(url=base)=>app.inject({url,headers:{cookie}});
+beforeEach(async()=>{
+  database=await testDatabase();const input=await seedPredictionScenario(database.db),password=randomBytes(24).toString('base64url');
+  owner=(await new AuthService(database.db).provision('synthetic-journal-owner',password)).id;
+  scenarioId=(await new ScenarioRepository(database.db).save(owner,input)).id;
+  app=await buildApp(readConfig({DATABASE_URL:database.url}),{db:database.db,logger:false});
+  const login=await app.inject({method:'POST',url:'/api/v1/auth/login',headers:{origin:'http://localhost:5173'},payload:{login:'synthetic-journal-owner',password}});
+  const cookies=login.headers['set-cookie'];cookie=(Array.isArray(cookies)?cookies:[cookies??'']).map(c=>c.split(';')[0]).join('; ');csrf=login.json().csrfToken;
+},30000);
+afterEach(async()=>{vi.restoreAllMocks();await app?.close();await database?.close();},30000);
+test('requires owner/session/CSRF/origin and rejects forged labels, owners and filters',async()=>{
+  for(const url of [base,base+'/'+randomUUID()])expect((await app.inject({url})).statusCode).toBe(401);
+  expect((await app.inject({method:'POST',url:base,headers:{cookie,origin:'http://localhost:5173'},payload:body()})).statusCode).toBe(403);
+  expect((await app.inject({method:'POST',url:base,headers:{...headers(),origin:'https://example.test'},payload:body()})).statusCode).toBe(403);
+  for(const payload of [{...body(),ownerId:owner},{...body(),winner:'A'},{...body(),filters:{probability:0.9}}])expect((await post(payload)).statusCode).toBe(400);
+  expect((await sql`SELECT 1 FROM v1_journal_reports`.execute(database.db)).rows).toHaveLength(0);
+});
+test('persists an empty nullable report, recovers exact retries and keeps snapshots across new attempts',async()=>{
+  const request=body(),response=await post(request);expect(response.statusCode).toBe(200);expect(response.headers['cache-control']).toBe('no-store');
+  const first=V1JournalViewSchema.parse(response.json());expect(first.summary.metrics).toMatchObject({n:0,accuracy:null,brier:null,logLoss:null});
+  await new V1RuntimeRepository(database.db).create(owner,{requestId:randomUUID(),scenarioId,expectedRevision:1,purpose:'what_if_single_map',targetScope:null});
+  expect((await post(request)).json()).toEqual(first);expect((await get(base+'/'+request.requestId)).json()).toEqual(first);
+  expect((await post({...request,filters:{status:'what_if'}})).statusCode).toBe(409);
+  const second=V1JournalViewSchema.parse((await post()).json());expect(second.revision).toBe(2);expect(second.previousSha256).toBe(first.sha256);
+  expect(second.summary.counts).toMatchObject({attempts:1,whatIfAttempts:1,primaryMaps:0,cancelled:0});expect(second.rows[0]?.status).toBe('what_if');
+  expect(second.rows[0]).toMatchObject({calculationStatus:'unavailable',attemptReasons:expect.arrayContaining(['NO_ACTIVE_MODEL'])});
+  expect(JSON.stringify(second)).not.toMatch(/ownerId|barrels|code\/|lineupA|sourceEvidence|"binding"/);
+  expect((await sql`SELECT 1 FROM v1_forecast_outcome_revisions`.execute(database.db)).rows).toHaveLength(0);
+});
+test('validates paging and hides foreign-owner reports while mapping bounded failures safely',async()=>{
+  const saved=V1JournalViewSchema.parse((await post()).json()),foreign=randomUUID(),service=await V1JournalService.open(database.db);
+  await expect(service.get(foreign,saved.requestId)).rejects.toThrow('NOT_FOUND');expect((await service.history(foreign)).items).toHaveLength(0);
+  expect((await get(base+'/'+randomUUID())).statusCode).toBe(404);
+  for(const url of [base+'?beforeRevision=0',base+'?ownerId='+foreign,base+'/bad',base+'/'+saved.requestId+'?offset=-1'])expect((await get(url)).statusCode).toBe(400);
+  const count=(await sql`SELECT count(*)::int n FROM v1_journal_reports`.execute(database.db)).rows[0]!.n;
+  const stale=new V1JournalRepository(database.db,'0'.repeat(64));
+  expect((await stale.create(owner,{requestId:saved.requestId,filters:saved.summary.filters})).sha256).toBe(saved.sha256);
+  await expect(stale.create(owner,body())).rejects.toThrow('journal_server_code_changed');
+  expect((await sql`SELECT count(*)::int n FROM v1_journal_reports`.execute(database.db)).rows[0]!.n).toBe(count);
+  vi.spyOn(V1JournalRepository.prototype,'create').mockRejectedValueOnce(Error('journal_inventory_limit'));
+  const limited=await post();expect(limited.statusCode).toBe(422);expect(limited.json().error.code).toBe('JOURNAL_LIMIT');
+  vi.spyOn(V1JournalRepository.prototype,'get').mockRejectedValueOnce(Error('journal_integrity'));
+  const broken=await get(base+'/'+saved.requestId);expect(broken.statusCode).toBe(503);expect(broken.body).not.toContain('journal_integrity');
+  vi.spyOn(V1JournalRepository.prototype,'create').mockRejectedValueOnce(Error('journal_server_code_changed'));
+  expect((await post()).json().error.code).toBe('JOURNAL_CODE_CHANGED');
+});
+test('pages report history by immutable revision without duplicates when new reports arrive',async()=>{
+  const repo=new V1JournalRepository(database.db);
+  for(let i=0;i<21;i++)await repo.create(owner,body());
+  const first=V1JournalHistorySchema.parse((await get()).json());expect(first.items).toHaveLength(20);expect(first.nextBeforeRevision).toBe(2);
+  await repo.create(owner,body());
+  const last=V1JournalHistorySchema.parse((await get(base+'?beforeRevision='+first.nextBeforeRevision)).json());
+  expect(last.items.map(r=>r.revision)).toEqual([1]);expect(last.nextBeforeRevision).toBeNull();
+  expect(new Set([...first.items,...last.items].map(r=>r.requestId)).size).toBe(21);
+},30000);
+test('rate limits report creation while keeping saved reads available',async()=>{
+  const request=body();for(let i=0;i<6;i++)expect((await post(request)).statusCode).toBe(200);
+  const limited=await post(request);expect(limited.statusCode).toBe(429);expect(limited.headers['retry-after']).toBeDefined();
+  expect((await get(base+'/'+request.requestId)).statusCode).toBe(200);
+});

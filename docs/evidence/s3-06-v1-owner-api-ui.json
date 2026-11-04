@@ -1,0 +1,938 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-06/V1-owner-API-UI",
+  "generatedAt": "2026-11-02T20:00:58.989Z",
+  "status": "owner_api_and_scenario_ui_implemented_for_conditional_what_if_only",
+  "workingState": {
+    "models": 1,
+    "active": 0,
+    "artifacts": 1,
+    "activations": 0,
+    "e1": 0,
+    "release": 0,
+    "scenarios": 0,
+    "predictions": 0,
+    "snapshots": 0
+  },
+  "checks": {
+    "frozenInstall": "PASS",
+    "fullTypecheck": "PASS",
+    "fullBuild": "PASS",
+    "finalWebTypecheckBuildTests": "PASS",
+    "unitCliTests": 664,
+    "newUnitTests": 7,
+    "postgresTests": 55,
+    "newPostgresTests": 6,
+    "browserTests": 11,
+    "newBrowserTests": 4,
+    "initialFailures": [
+      "Legacy research CLI test exceeded20s during overlapping runs; unchanged timeout, isolated2-test retry PASS",
+      "New ownership fixture attempted second app owner forbidden by single-owner index; corrected to foreign UUID service predicates and HTTP forged owner rejection,5-test retry PASS",
+      "New lost-response browser test released read failure before retry became enabled; corrected wait, final4 browser tests PASS"
+    ],
+    "positiveTests": "Synthetic contract doubles in disposable PostgreSQL; synthetic browser response fixture never persisted as a real forecast",
+    "visualInspection": "Desktop and360px; unavailable and explicitly synthetic positive views; no horizontal overflow",
+    "migrations": 26,
+    "newMigrations": 0,
+    "python": "not run: no fitting",
+    "sourceAudit": "not repeated: no importer, feature kernel or provider changes; prior live audit remains archived, not new coverage evidence"
+  },
+  "invariants": {
+    "oldSqlUnchanged": 26,
+    "oldDataTablesUnchanged": 21,
+    "protectedArtifactsUnchanged": 17,
+    "e0ReplayIdentical": true,
+    "developmentRowsUnchanged": 232,
+    "archivedExecutableReplay": "PASS",
+    "runtimeCodeCompatible": true,
+    "realEvaluations": 0,
+    "actualActivations": 0,
+    "workingSnapshotsCreated": 0,
+    "sourceImports": 0
+  },
+  "protectedArtifacts": [
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+    },
+    {
+      "path": "docs/evidence/s3-01-e1-plan.json",
+      "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-release-plan.json",
+      "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+    },
+    {
+      "path": ".tools/v1-release-leagues-20261102.json",
+      "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+    },
+    {
+      "path": ".tools/v1-features-development-final.json",
+      "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+      "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+      "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evidence.json",
+      "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+      "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+      "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+      "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-verification.json",
+      "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+      "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+    },
+    {
+      "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+      "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+    },
+    {
+      "path": "docs/evidence/s3-05-v1-registry.json",
+      "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+    },
+    {
+      "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+      "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+    }
+  ],
+  "runtimeCompatibility": {
+    "policy": "v1-runtime-kernel-compatibility-v1",
+    "code": [
+      {
+        "path": "packages/analytics/dist/elo.js",
+        "sha256": "ca3c4b1129f9e10fd352bc074dbd04b787f2183ea4e635499d839609836f2e20"
+      },
+      {
+        "path": "packages/analytics/dist/hero-meta.js",
+        "sha256": "b18ce3af700ac76ea77fafb58ae3a1ac9fc1d616e5afcc0df40b9dde07861c15"
+      },
+      {
+        "path": "packages/analytics/dist/hero-pairs.js",
+        "sha256": "c0c409964abcdd5e6ebf7bcd4eb939f5a07813e752095450a09710bb0f4602af"
+      },
+      {
+        "path": "packages/analytics/dist/history-weight.js",
+        "sha256": "5dd4716bee0f78345eafc6f4b8dbd76295eb174b4e29f0123b09c7651db30fb7"
+      },
+      {
+        "path": "packages/analytics/dist/index.js",
+        "sha256": "9bfd3040ba48f15c6c74126c25c33eef5630559dcbc5353fc5a05e084214aa2c"
+      },
+      {
+        "path": "packages/analytics/dist/model-inference.js",
+        "sha256": "541313e65be9f792e23e1c434cfb3ef37805101a5c3b84681f43f5b107c0b975"
+      },
+      {
+        "path": "packages/analytics/dist/player-hero.js",
+        "sha256": "c36bdc3b574135112bfcaf1b28a64ba97423d9497cd7af2f9bca73bd11b5e0e2"
+      },
+      {
+        "path": "packages/analytics/dist/roster-report.js",
+        "sha256": "5f331bc2cd190f3ffd2250cdb7f015e1def3e69712e44f9fcbcf0b0b921fbe1d"
+      },
+      {
+        "path": "packages/analytics/dist/roster.js",
+        "sha256": "4607384a840b8647dfd3b3d978770ec54512b4c2d40b30cba3631e9f8d815af0"
+      },
+      {
+        "path": "packages/analytics/dist/sample.js",
+        "sha256": "0bbf5d7d3345fb3f19814e992a1d29265e9b264dda7312c76e0ec3f4d0858664"
+      },
+      {
+        "path": "packages/analytics/package.json",
+        "sha256": "43ffd9a6b8b68e2f55f8e18cf5a986c7f32fc3955760e742c9490259fc17523e"
+      },
+      {
+        "path": "packages/contracts/dist/catalog.js",
+        "sha256": "66a4759983c45d104bd93534e75aa4f6480ecc345667fd6e55828d822a1c2c00"
+      },
+      {
+        "path": "packages/contracts/dist/compare.js",
+        "sha256": "400615ffaa15bb37df6cbc59070cf03cf4f5ef2f03b319804eab46e034c3d31c"
+      },
+      {
+        "path": "packages/contracts/dist/corpus-audit.js",
+        "sha256": "4b2d9aa123128092b41125f8d43ecb232e2b9d0cea62d3daf7420b004b57fdb2"
+      },
+      {
+        "path": "packages/contracts/dist/corpus-quality.js",
+        "sha256": "21cb11f40ae2f6ba72ed9326b0d4e30f044efb96e185ce1184b179de0a3d214c"
+      },
+      {
+        "path": "packages/contracts/dist/dataset-audit.js",
+        "sha256": "6db5beded6a869263ef6117b402040b2257b3eb4839c54a831751f75e68103f5"
+      },
+      {
+        "path": "packages/contracts/dist/dataset-build.js",
+        "sha256": "3043a55feaccaabe0f8aa8ff7996144e04d920372d32d731ad566fe7265355de"
+      },
+      {
+        "path": "packages/contracts/dist/dataset.js",
+        "sha256": "b6d3b1906144b4b89c6914fe88fcd3ec1233900ec7931ffecdae02eabb558fbd"
+      },
+      {
+        "path": "packages/contracts/dist/draft.js",
+        "sha256": "114e24f047fc14b0d43bb88bda8a9928f0bbab140ecb7048ba0ed50155ca485a"
+      },
+      {
+        "path": "packages/contracts/dist/evaluation-details.js",
+        "sha256": "1f690857a249d4fa2d4d4eff069f16c5b8dafe657626092cb3faaa60d8449943"
+      },
+      {
+        "path": "packages/contracts/dist/evaluation-discovery.js",
+        "sha256": "f29382721af82c35a005155c043797593de728d41f8177ba17c3be209d85c5c7"
+      },
+      {
+        "path": "packages/contracts/dist/game-context.js",
+        "sha256": "2a720871ab7265ebda4e56853ad9558052624263dfd249f7e82b1bc00aaac142"
+      },
+      {
+        "path": "packages/contracts/dist/hero-matchups.js",
+        "sha256": "3387bfa3604b2461cdad07c92b7e96e7096611e4d91f2a737c621a1a83f12262"
+      },
+      {
+        "path": "packages/contracts/dist/history-refresh.js",
+        "sha256": "94d4b3e788081de54d0e11636ed61ec276724b2bf1f17ce3585be02d74a9db32"
+      },
+      {
+        "path": "packages/contracts/dist/identity-provision.js",
+        "sha256": "d3c4b383e554599fc94d54b3beb3ce883692797144a4c590ce873986ea0ce280"
+      },
+      {
+        "path": "packages/contracts/dist/identity.js",
+        "sha256": "728a65b76cb9dc72091248990c6f8244546eeac376ac63e239b237f6de237b7a"
+      },
+      {
+        "path": "packages/contracts/dist/index.js",
+        "sha256": "c36b0a65722957f6d41afef55ce8cbd54b4de9d20ccf62170bb08afbcbd57ccb"
+      },
+      {
+        "path": "packages/contracts/dist/patch-diagnostics.js",
+        "sha256": "90447e92b8db2d401779010330a2d6e56822d22c7395d8b71bc953962c3e143e"
+      },
+      {
+        "path": "packages/contracts/dist/patch-history.js",
+        "sha256": "bf33e5300e8135884432474326a01c333a4759520771107f90e2412aa4060360"
+      },
+      {
+        "path": "packages/contracts/dist/player-hero.js",
+        "sha256": "92ae1df17d6ac94556822dfd7071f193231b046bee2b835ec1acbe73d31ff3c3"
+      },
+      {
+        "path": "packages/contracts/dist/pro-maps.js",
+        "sha256": "00222367a3402383cfbe18c66f44e130b5950406ce94e9ca377c934f7a024332"
+      },
+      {
+        "path": "packages/contracts/dist/prospective-patch.js",
+        "sha256": "86e00d5031ab82940bf715ddd8c15c48a1f671af6c71aed3631c19e770745bf6"
+      },
+      {
+        "path": "packages/contracts/dist/readiness.js",
+        "sha256": "c11079c1d7747cfbf62f33d420662b834bb73a09743a96eae7948b49d968e32e"
+      },
+      {
+        "path": "packages/contracts/dist/research-elo.js",
+        "sha256": "d1aa85934736ca5cf931b796615f80ba92251bed000f6a8a25b6626a3da7a31a"
+      },
+      {
+        "path": "packages/contracts/dist/research-evidence.js",
+        "sha256": "f6284734318f737ad067a5ac0f81b74e0ef70def18f5a49d41061fa3966588e2"
+      },
+      {
+        "path": "packages/contracts/dist/research-execution.js",
+        "sha256": "658abbfb3807262efb6b86785fd7a9070eaed311f4df4ed035aff75ac24098d2"
+      },
+      {
+        "path": "packages/contracts/dist/research-journal.js",
+        "sha256": "cc407e5fffe86ea693f44f6036b09f9656e459957e4ef3d91694c21048ee8a7e"
+      },
+      {
+        "path": "packages/contracts/dist/research-plan.js",
+        "sha256": "bd67c6d552dbd9cddd25b668d7a5376d23b0e0e92fd6e54a8f3688b9395808e6"
+      },
+      {
+        "path": "packages/contracts/dist/roster.js",
+        "sha256": "f9aeec1aa494bb0906014562719210f21effb69ee81eacc8905028bc7ca16f18"
+      },
+      {
+        "path": "packages/contracts/dist/sample.js",
+        "sha256": "281d4c77c6dfcaec4e71cc8fc93671e52790a6e2dc18f89ad6a932f2fa9cde4d"
+      },
+      {
+        "path": "packages/contracts/dist/scenario-report.js",
+        "sha256": "726cb71385c83d9488eb9b73851e86cc3dc11b5619765b4210572376aeac1176"
+      },
+      {
+        "path": "packages/contracts/dist/scenario.js",
+        "sha256": "a44999e828527623ae707c44e22dbae73faa41d298c4128c80976e0904e07cb4"
+      },
+      {
+        "path": "packages/contracts/dist/series-provision.js",
+        "sha256": "5b9855b91f26b450d2df51c2e1f30f7bb6b8d43f4ada37add62721826c716bd3"
+      },
+      {
+        "path": "packages/contracts/dist/strength.js",
+        "sha256": "c759b2cd5087c5157b671546b9b29918a170c4d50c6d40b244fd338805bd9911"
+      },
+      {
+        "path": "packages/contracts/dist/temporal.js",
+        "sha256": "78f85b06844921b056615b90338c660c791d3037f672b7faf7591649b958fda9"
+      },
+      {
+        "path": "packages/contracts/dist/upcoming-evidence.js",
+        "sha256": "58238bf1f3ad0837fae5d4eb4419678d224df23bd6dbd822d79806fb3f290d4c"
+      },
+      {
+        "path": "packages/contracts/dist/upcoming.js",
+        "sha256": "c51316c214fd2066df12bff85e6ae8cb61e2aa43da2477c81cd2f3c1299a839b"
+      },
+      {
+        "path": "packages/contracts/dist/v1-candidate.js",
+        "sha256": "9585c6635cc2511780ec85d6e414d1fcb61b634521f98ed62475e3eb01211e45"
+      },
+      {
+        "path": "packages/contracts/dist/v1-data.js",
+        "sha256": "bd0f11ae27999d5ae2f8772af6d459657f2581de0001c887bbe3e1133ee1381d"
+      },
+      {
+        "path": "packages/contracts/dist/v1-executable-freeze.js",
+        "sha256": "b6d4ddbe216e3e69248a1dd809607d6e3411464b591816c921952a06682e90f2"
+      },
+      {
+        "path": "packages/contracts/dist/v1-features.js",
+        "sha256": "77d1fe4bd55db8db0c419ba1dfad7805bc6aa541b7b15a2e42aa28e661e1b275"
+      },
+      {
+        "path": "packages/contracts/dist/v1-prediction-view.js",
+        "sha256": "ae44d049a2fb0eb1314f1b97f7b644a3c2b2ac62765d7f286379a658f6dd14a8"
+      },
+      {
+        "path": "packages/contracts/dist/v1-registry.js",
+        "sha256": "35f0631e5d33297fd110142353ecd1f2a41992795ebc9f03c4632b1b9eec6beb"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-evaluation.js",
+        "sha256": "e706d929a08bc5d93a44fa202ec211227367ee7ebfef30002594645beb7f5ef2"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-evidence.js",
+        "sha256": "099980986ee1f7002322d4b60e9da783a705bde0f35dbb8dd5f001707e85d8ce"
+      },
+      {
+        "path": "packages/contracts/dist/v1-release-plan.js",
+        "sha256": "41ac451c78ea786167ebcb38a810b14f3874b2c866d4c60382584fbc5d52f7a7"
+      },
+      {
+        "path": "packages/contracts/dist/v1-runtime.js",
+        "sha256": "ad02d89eb7c1c55736b8cfc105e5e61fe04cdcb05f429750ddd80f251b331a6c"
+      },
+      {
+        "path": "packages/contracts/package.json",
+        "sha256": "6bde23c4387eee1be0fac18f55034d345dfab925bafb518a6e7c1d82970e0053"
+      },
+      {
+        "path": "packages/db/dist/catalog-repository.js",
+        "sha256": "803c95001b6eee27247e98c25e352a769b14d6bf0fa314512241b86d88f278bb"
+      },
+      {
+        "path": "packages/db/dist/compare-report.js",
+        "sha256": "ded7c5ba6d53473e6898026cb55bc22bf0e9399319aa09cbf3148f907d38bd74"
+      },
+      {
+        "path": "packages/db/dist/compare-repository.js",
+        "sha256": "bb908b07dcbb302dea34447b7d73af808be8fd1368e48955a91b42965a796400"
+      },
+      {
+        "path": "packages/db/dist/context-repository.js",
+        "sha256": "32327e56b3240d03aaf2c95a40e736e2b3d30f753efee048b14c862dea6ebfd0"
+      },
+      {
+        "path": "packages/db/dist/corpus-audit.js",
+        "sha256": "1c0b9d1f3f0d24aa1902121f0b45ee365b44bf984d6876822ce6a8ca0b3d6375"
+      },
+      {
+        "path": "packages/db/dist/corpus-quality.js",
+        "sha256": "a168da5a3057fa989d9597868749ca08a6acd5eef33706356da05ca0df1a4056"
+      },
+      {
+        "path": "packages/db/dist/dataset-audit.js",
+        "sha256": "53bfb86a8f99c2c1833440aafced21fae047702d21222588d2638f86eddb5d3b"
+      },
+      {
+        "path": "packages/db/dist/dataset-builder.js",
+        "sha256": "7c3b9903ccff0e79be5cfaa683daf3f8232843b11e302958ca797c4d282568f2"
+      },
+      {
+        "path": "packages/db/dist/dataset-repository.js",
+        "sha256": "f8517f8bdf228e2789871b7f3e450dff31f475cb44cab08d665cf45ece981f69"
+      },
+      {
+        "path": "packages/db/dist/dataset-splits.js",
+        "sha256": "3875e37729e5827c4b3a2e304565f0ee89eba4a7b341ae32527bcde5914a081a"
+      },
+      {
+        "path": "packages/db/dist/game-context-repository.js",
+        "sha256": "08ea6aa061e409e4c4a1d8e1dd74b0418af73d8626c1f8174da87f4fa4aedd0e"
+      },
+      {
+        "path": "packages/db/dist/game-context.js",
+        "sha256": "b1e537e39b2c500f604cf574484da7f98c97f1445d96aa1eaf3009cfe1e11114"
+      },
+      {
+        "path": "packages/db/dist/hero-matchup-repository.js",
+        "sha256": "81a562ffaa4f29598c0564891afe79b31bcfe44606b447acfae9b5d2bbe36e3a"
+      },
+      {
+        "path": "packages/db/dist/hero-matchups.js",
+        "sha256": "c9c44b28ca03dc506652a4f9792530b77c480877d31d3792a0d389de9de47821"
+      },
+      {
+        "path": "packages/db/dist/history-refresh.js",
+        "sha256": "bb4f4cff34b54885e386d816e2f781996d4ec7a4dea8cd8e8d3b1964ee424ffa"
+      },
+      {
+        "path": "packages/db/dist/identity-provision.js",
+        "sha256": "e5186a4dbb0afc3692e905b21e0d1513176499f32c4590d726a81f6428137581"
+      },
+      {
+        "path": "packages/db/dist/identity-repository.js",
+        "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+      },
+      {
+        "path": "packages/db/dist/identity.js",
+        "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "sha256": "492ed101f9ee7fc73fdde4a59cac854e9c16e1520686c4e57af3ac82361d292b"
+      },
+      {
+        "path": "packages/db/dist/outcome-verifier.js",
+        "sha256": "604ed065ce7a277cdfba9b4d166416e7fd460d4760755268b3de0e5ece44225b"
+      },
+      {
+        "path": "packages/db/dist/patch-history.js",
+        "sha256": "327ec6619a17b38b6a98c70e04a9bc19b4dbbdc29a8343d76f644df5566f184d"
+      },
+      {
+        "path": "packages/db/dist/patch-meta-repository.js",
+        "sha256": "b3bbcc554ad85e92f8b36e597b79ff5a4b1c31822f8fc1e70c1f8360cb15cb68"
+      },
+      {
+        "path": "packages/db/dist/patch-weight-evaluation.js",
+        "sha256": "7ef97e31f13ad3168074d5cef2cf23f2c48ee6b2f4351293b548e75b0d42ea6e"
+      },
+      {
+        "path": "packages/db/dist/player-hero-report.js",
+        "sha256": "037409c76b41f61aebde3e95b9b23d6d725fe80b42d07b87c46e6cadde94006d"
+      },
+      {
+        "path": "packages/db/dist/player-hero-repository.js",
+        "sha256": "6a90dcfc84a3ff08aed8bc48f0f05c60841da9de6bdd2e39bdbb364899e96383"
+      },
+      {
+        "path": "packages/db/dist/pro-map-reader.js",
+        "sha256": "83391c746f48e9106e55e6a967aba6e1a84b3aca7494e74eb740dd83b00ed782"
+      },
+      {
+        "path": "packages/db/dist/pro-map-repository.js",
+        "sha256": "689ff80247db901dd6748544aeb870e903ee36880570327fd9b23b38f038f994"
+      },
+      {
+        "path": "packages/db/dist/pro-maps.js",
+        "sha256": "ff640d76ba361659729d80c2da4c4c9ba6fe533ac9f14b81453f4eeb12c06076"
+      },
+      {
+        "path": "packages/db/dist/prospective-patch.js",
+        "sha256": "f2e1cfb76bbc01505c35e5c1f166c67963b5750fd35a8948a7b1bb3b921fdb08"
+      },
+      {
+        "path": "packages/db/dist/readiness-repository.js",
+        "sha256": "adcd3e0132897ade8d766f1b2e95fb6f391e442e30a3bb2f2598cf0c3f3855c9"
+      },
+      {
+        "path": "packages/db/dist/readiness.js",
+        "sha256": "be3faf0e94513693a063e1671ea17d421dd98d5e46b59a8387b49b3c3a5c0f7b"
+      },
+      {
+        "path": "packages/db/dist/reference-pool.js",
+        "sha256": "c4e4fc2e0c327e7d93ba5e026c3a1ec21dc8db5d1836f0bf5a7a42ef88df379c"
+      },
+      {
+        "path": "packages/db/dist/research-elo-repository.js",
+        "sha256": "8c6a4b72b0119dbcd9749021cb2eb7b9e40761b4c3d3606b24bce7726762135b"
+      },
+      {
+        "path": "packages/db/dist/research-elo.js",
+        "sha256": "c1d344222cb71be8b12450a355cbbbb1f3bd5d1dee12d926165b8d64179c2d2f"
+      },
+      {
+        "path": "packages/db/dist/research-execution.js",
+        "sha256": "9adb330243989d39de4f0ff044517b2314fd20102f72da65ef69f5052b8eb760"
+      },
+      {
+        "path": "packages/db/dist/research-journal.js",
+        "sha256": "eda1b702cc39c29288f4f8fe4f8132663092a2a66de2c98ea8f7b35533be50dc"
+      },
+      {
+        "path": "packages/db/dist/research-plan.js",
+        "sha256": "871f270426157a44f93cd4b2863bbb815dcb18852f56eda8d4239b3bd72fa051"
+      },
+      {
+        "path": "packages/db/dist/roster-report.js",
+        "sha256": "4522b825594e08717487f3d8f481b57cd1da1653c90b4e7b919076b9f9f472e6"
+      },
+      {
+        "path": "packages/db/dist/roster-repository.js",
+        "sha256": "6f1ec04caee84961fc6cfe87a99590af568da4531e766c9743b8124a9133bdbd"
+      },
+      {
+        "path": "packages/db/dist/scenario-draft.js",
+        "sha256": "7d22610a5c10bd0acafdc7e2dbec7d70975ca21341339f244b88225f16c8024d"
+      },
+      {
+        "path": "packages/db/dist/scenario-report-repository.js",
+        "sha256": "25808a50821a05d378d41aaf5f3174bbf4c2df9860cbdd47dad273c0fcb249bf"
+      },
+      {
+        "path": "packages/db/dist/scenario-repository.js",
+        "sha256": "a9cb545b2eee24681dae1f52c6844ada2d33ad006d503391faf9a3f19d67e518"
+      },
+      {
+        "path": "packages/db/dist/schedule-cache.js",
+        "sha256": "6193b043c6facefaf9a48fab7008ed21281a2cec31041442967826151c136979"
+      },
+      {
+        "path": "packages/db/dist/series-provision.js",
+        "sha256": "f36fa8ac3e993f9ccb7515d545f7e370737e85a03163e53e67cf5156772d004d"
+      },
+      {
+        "path": "packages/db/dist/strength-report.js",
+        "sha256": "70982fb47cf9a134b1d0578dda4357ff2e4e30c70e45d07674a3a98508e45444"
+      },
+      {
+        "path": "packages/db/dist/strength-repository.js",
+        "sha256": "794f2e948d45856a1aa133bf23bc4a4c18d42c7cae9b8f5753d65826afb33295"
+      },
+      {
+        "path": "packages/db/dist/temporal.js",
+        "sha256": "c37f882da18ecc5694d168cdd146c4905cb001cab3829bed13947215fbb92bcb"
+      },
+      {
+        "path": "packages/db/dist/upcoming-evidence.js",
+        "sha256": "f88980e36fb066cacab5f299b4616a16056d26ee3d926155d3b15bfb21a5b032"
+      },
+      {
+        "path": "packages/db/dist/v1-candidate.js",
+        "sha256": "1c2a174408c63037bbc387c5aaa90b58850e188c8270152d9a4e41f69d97984a"
+      },
+      {
+        "path": "packages/db/dist/v1-data-repository.js",
+        "sha256": "223b380f1aa16c82350ca481edf03fe766061707ff08e44a60e18ee658f7f1cc"
+      },
+      {
+        "path": "packages/db/dist/v1-data.js",
+        "sha256": "ef0132909ab8c03115660d707a7628f70bd875fdf565dba7de31925d5e13c82a"
+      },
+      {
+        "path": "packages/db/dist/v1-executable-freeze.js",
+        "sha256": "2ec0db2a4372aad95f938cdc46f3909c54570078cc131af8940f1f91028b02a6"
+      },
+      {
+        "path": "packages/db/dist/v1-features.js",
+        "sha256": "81171837c4dd3c5ad64d61309fb5fbf08f9388ce3f3e78ae316253b0fd764986"
+      },
+      {
+        "path": "packages/db/dist/v1-prediction-reader.js",
+        "sha256": "49f2691da372edae06b2e5c5cfa834b94d1d2430806585ee420b4ef1a284e36a"
+      },
+      {
+        "path": "packages/db/dist/v1-registry-repository.js",
+        "sha256": "d0f6f9a852ef7f0d47e3519f40e08b5a06fb29b6d4e73563d38071485cd47db6"
+      },
+      {
+        "path": "packages/db/dist/v1-registry.js",
+        "sha256": "1251fb31d6708a3ff21fa6ae158330e6ba758356c8ea43d453b63a07ab881f34"
+      },
+      {
+        "path": "packages/db/dist/v1-release-inventory.js",
+        "sha256": "fba6ab436ce32b3ddbaf3ddfd133a38f006bce4a331177ca5d29fb82f1edb4e3"
+      },
+      {
+        "path": "packages/db/dist/v1-release-journal.js",
+        "sha256": "78a04afa76f9fb68f64d626303f2cf3f1d105a9d8ada386372a496607e45d834"
+      },
+      {
+        "path": "packages/db/dist/v1-release-plan.js",
+        "sha256": "ab1fc7eb3a28e6e5d696ef43776c33a37988069323c90021da3a0279b256f093"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime-code.js",
+        "sha256": "e555e7c6f239c12f8923597cd90dae7a4ebc8f06b8df6fc5bb8bf3a219f0cb0b"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime-repository.js",
+        "sha256": "4cc8f6f6835ed1990e74843cac0356a5f4845814f2d31de37b635eb2305c7ae9"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime.js",
+        "sha256": "621c701927c1a823af71e23b588281039e92ea34671ea8346ecce3acdb61831b"
+      },
+      {
+        "path": "packages/db/package.json",
+        "sha256": "2d48875617c2c47bc289dad94b75c912a27935adfc3f421a9fd511631aab8b66"
+      },
+      {
+        "path": "packages/prediction/dist/index.js",
+        "sha256": "92109f2d18e74db7b8052c2a3ba7e3b600c169b2a684d2cd38a7da9451ba1d25"
+      },
+      {
+        "path": "packages/prediction/dist/v1-candidate.js",
+        "sha256": "debb9c64633d13d314791a68cd72577f8afd4c212c84a6d2fea305cae9e46618"
+      },
+      {
+        "path": "packages/prediction/dist/v1-features.js",
+        "sha256": "72d353e52f1ac3ccb553006173e90caf5b0e3015c5557e191a6ab5924ade4cd3"
+      },
+      {
+        "path": "packages/prediction/dist/v1-integrity.js",
+        "sha256": "eb9fe3918a6bbf4e61cd9c630f1cf30f4cfb99c4ee49703af856e5e7684e8bdc"
+      },
+      {
+        "path": "packages/prediction/dist/v1-quality-policy.js",
+        "sha256": "010eb124e62d9363204d17175b0bc5cfde040593e7bd665d08de2a429f2d0aba"
+      },
+      {
+        "path": "packages/prediction/dist/v1-quality.js",
+        "sha256": "43c5b60850a647761eaf36a6df36f26ec50a93929406e789f3ee5f8af23ee7b2"
+      },
+      {
+        "path": "packages/prediction/package.json",
+        "sha256": "7aefde48f908f72dc9755436b46a44da71e1feabea11efa09c0808bad77ca28d"
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "sha256": "0297a50b1d23f5550d66fa0d305d332869316316fbd3c1014e4570d411be089d"
+      }
+    ],
+    "barrels": [
+      {
+        "path": "packages/contracts/dist/index.js",
+        "text": "import { z } from 'zod';\nexport * from './temporal.js';\nexport * from './identity.js';\nexport * from './game-context.js';\nexport * from './dataset.js';\nexport * from './readiness.js';\nexport * from './catalog.js';\nexport * from './pro-maps.js';\n// API-facing BIGINT identifiers travel as strings; do not coerce via Number.\nexport const IdSchema = z.string().regex(/^[1-9]\\d*$/);\nexport const SideSchema = z.enum(['radiant', 'dire']);\nexport const StageSchema = z.enum(['pre_match', 'post_draft']);\nexport const ScenarioSlotSchema = z.enum(['A', 'B']);\nexport const PredictionStatusSchema = z.enum(['pending', 'running', 'done', 'failed', 'unavailable']);\nexport const StatResultSchema = z.object({\n    games: z.number().int().nonnegative(),\n    wins: z.number().int().nonnegative(),\n    winRate: z.number().min(0).max(1).nullable(),\n    updatedAt: z.string().datetime().nullable(),\n    warnings: z.array(z.string())\n}).refine(value => value.wins <= value.games);\nexport const CreateScenarioSchema = z.object({\n    teamAId: IdSchema,\n    teamBId: IdSchema,\n    cutoffAt: z.string().datetime(),\n    scheduledAt: z.string().datetime().optional(),\n    radiantSlot: ScenarioSlotSchema.nullable().optional()\n}).refine(value => value.teamAId !== value.teamBId, { message: 'Teams must differ' });\nexport const OwnerLoginSchema = z.string().trim().toLowerCase().regex(/^[a-z0-9_.-]{3,120}$/);\nexport const OwnerPasswordSchema = z.string().min(12).max(128);\nexport const LoginSchema = z.object({ login: OwnerLoginSchema, password: z.string().min(1).max(128) }).strict();\nexport const OwnerSchema = z.object({ id: z.uuid(), login: OwnerLoginSchema });\nexport const AuthResponseSchema = z.object({\n    owner: OwnerSchema,\n    expiresAt: z.iso.datetime(),\n    csrfToken: z.string().min(1).max(512)\n});\nexport * from './roster.js';\nexport * from './player-hero.js';\nexport * from './strength.js';\nexport * from './sample.js';\nexport * from './patch-history.js';\nexport * from './compare.js';\nexport * from './scenario.js';\nexport * from './draft.js';\nexport * from './hero-matchups.js';\nexport * from './scenario-report.js';\nexport * from './dataset-build.js';\nexport * from './corpus-audit.js';\nexport * from './corpus-quality.js';\nexport * from './series-provision.js';\nexport * from './dataset-audit.js';\nexport * from './identity-provision.js';\nexport * from './upcoming.js';\nexport * from './upcoming-evidence.js';\nexport * from './history-refresh.js';\nexport * from './patch-diagnostics.js';\nexport * from './prospective-patch.js';\nexport * from './research-elo.js';\nexport * from './research-plan.js';\nexport * from './v1-data.js';\nexport * from './research-execution.js';\nexport * from './v1-release-plan.js';\nexport * from './evaluation-discovery.js';\nexport * from './evaluation-details.js';\nexport * from './research-evidence.js';\nexport * from './research-journal.js';\nexport * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-release-evidence.js';\nexport * from './v1-release-evaluation.js';\nexport * from './v1-executable-freeze.js';\nexport * from './v1-registry.js';\nexport * from './v1-runtime.js';\nexport * from './v1-prediction-view.js';\n"
+      },
+      {
+        "path": "packages/analytics/dist/index.js",
+        "text": "export function winRate(records) {\n    const games = records.length;\n    const wins = records.filter(row => row.won).length;\n    return { games, wins, winRate: games === 0 ? null : wins / games };\n}\nexport function aggregateKda(records) {\n    if (records.length === 0)\n        return null;\n    const killsAndAssists = records.reduce((sum, row) => sum + row.kills + row.assists, 0);\n    const deaths = records.reduce((sum, row) => sum + row.deaths, 0);\n    return killsAndAssists / Math.max(1, deaths);\n}\n/** Stable unordered hero pair key (hero IDs are safe positive 32-bit ints). */\nexport function allyHeroPairKey(a, b) {\n    if (a === b)\n        throw new Error('A hero cannot be paired with itself');\n    if (!Number.isInteger(a) || !Number.isInteger(b) || a <= 0 || b <= 0)\n        throw new Error('Invalid hero ID');\n    return `${Math.min(a, b)}:${Math.max(a, b)}`;\n}\nexport function enemyMatchupKey(heroA, heroB) {\n    if (heroA === heroB)\n        throw new Error('Duplicate hero in same match');\n    return `${heroA}:${heroB}`;\n}\nexport { rosterOverlap, rosterCoplay } from './roster.js';\nexport { describeRoster, compareRosters, describeChurn } from './roster-report.js';\nexport { playerHeroSample } from './player-hero.js';\nexport { predictLogistic } from './model-inference.js';\nexport { replayElo, ELO_POLICY } from './elo.js';\nexport { sampleEvidence, weightedSample, shrinkObservedRate } from './sample.js';\nexport { historyWeight, historyWeightSummary } from './history-weight.js';\nexport { pairObservations } from './hero-pairs.js';\nexport { heroMetaSample } from './hero-meta.js';\n"
+      },
+      {
+        "path": "packages/prediction/dist/index.js",
+        "text": "export * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-quality-policy.js';\nexport * from './v1-quality.js';\n"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "text": "import { Kysely, PostgresDialect } from 'kysely';\nimport pg from 'pg';\nexport { sql, CompiledQuery } from 'kysely';\n// SQL migrations remain the authority. SQL-first repositories use typed result\n// rows via sql<T>, with the query builder for supported table projections.\nexport function createDatabase(connectionString) {\n    return new Kysely({ dialect: new PostgresDialect({ pool: new pg.Pool({\n                connectionString, max: 5, connectionTimeoutMillis: 5000, idleTimeoutMillis: 10000\n            }) }) });\n}\nexport * from './temporal.js';\nexport * from './context-repository.js';\nexport * from './identity.js';\nexport * from './identity-repository.js';\nexport * from './identity-provision.js';\nexport * from './game-context.js';\nexport * from './game-context-repository.js';\nexport * from './dataset-repository.js';\nexport * from './dataset-builder.js';\nexport * from './corpus-audit.js';\nexport * from './corpus-quality.js';\nexport * from './series-provision.js';\nexport * from './dataset-audit.js';\nexport * from './dataset-splits.js';\nexport * from './outcome-verifier.js';\nexport * from './readiness.js';\nexport * from './readiness-repository.js';\nexport * from './catalog-repository.js';\nexport * from './pro-maps.js';\nexport * from './pro-map-repository.js';\nexport { RosterRepository, RosterQueryError } from './roster-repository.js';\nexport { PlayerHeroRepository, PlayerHeroQueryError } from './player-hero-repository.js';\nexport { StrengthRepository, StrengthQueryError } from './strength-repository.js';\nexport * from './patch-history.js';\nexport * from './patch-meta-repository.js';\nexport * from './patch-weight-evaluation.js';\nexport { CompareRepository, CompareQueryError } from './compare-repository.js';\nexport { ScenarioRepository, ScenarioError } from './scenario-repository.js';\nexport { assessScenarioDraft } from './scenario-draft.js';\nexport { HeroMatchupRepository } from './hero-matchup-repository.js';\nexport { ScenarioReportRepository } from './scenario-report-repository.js';\nexport * from './schedule-cache.js';\nexport * from './upcoming-evidence.js';\nexport * from './history-refresh.js';\nexport * from './prospective-patch.js';\nexport * from './research-elo.js';\nexport * from './research-elo-repository.js';\nexport * from './research-plan.js';\nexport * from './v1-data.js';\nexport * from './v1-data-repository.js';\nexport * from './research-execution.js';\nexport * from './research-journal.js';\nexport * from './v1-features.js';\nexport * from './v1-candidate.js';\nexport * from './v1-release-inventory.js';\nexport * from './v1-release-journal.js';\nexport * from './v1-executable-freeze.js';\nexport * from './v1-registry.js';\nexport * from './v1-registry-repository.js';\nexport * from './v1-runtime-repository.js';\nexport * from './v1-prediction-reader.js';\nexport * from './v1-release-plan.js';\n"
+      }
+    ],
+    "runtime": {
+      "node": "v22.15.0",
+      "platform": "win32",
+      "arch": "x64",
+      "nodeBinarySha256": "77bdff912b1c569b3e693fe126f619337c3e9d73dafbc4d0bf1d4f1f6a145761"
+    }
+  },
+  "workingTableState": [
+    {
+      "table": "matches",
+      "n": 233,
+      "fingerprint": "e8f1fe35505bf57473885e0aec1b258a"
+    },
+    {
+      "table": "match_players",
+      "n": 2330,
+      "fingerprint": "d130a70cb46215bcb19006c1a0ce33b8"
+    },
+    {
+      "table": "series",
+      "n": 123,
+      "fingerprint": "6a63b71f41994f8063a708300bf59dfb"
+    },
+    {
+      "table": "series_provision_batches",
+      "n": 6,
+      "fingerprint": "4d16f5546449463d6352b3d24d43cd32"
+    },
+    {
+      "table": "provider_ingest_receipts",
+      "n": 746,
+      "fingerprint": "e779b0f4ffe25ec3aebc251810a655b0"
+    },
+    {
+      "table": "match_quality_assessments",
+      "n": 508,
+      "fingerprint": "14fcfd4c1ca3acc42621a486c1ad2ef9"
+    },
+    {
+      "table": "players",
+      "n": 203,
+      "fingerprint": "3972a6dbfeb253eb832f055cdb780611"
+    },
+    {
+      "table": "player_account_evidence",
+      "n": 203,
+      "fingerprint": "5f862d52d29cf17eb7abbfc8a160b3e1"
+    },
+    {
+      "table": "player_external_accounts",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patches",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_release_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "patch_transition_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_impact_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "draft_rule_evidence",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "hero_availability_rules",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "match_field_observations",
+      "n": 11173,
+      "fingerprint": "9de39187313b257631d90f0bcad705cd"
+    },
+    {
+      "table": "training_dataset_versions",
+      "n": 0,
+      "fingerprint": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    {
+      "table": "prediction_model_versions",
+      "n": 1,
+      "fingerprint": "102bdabeb0a6713e0a62953ba121ba28"
+    },
+    {
+      "table": "game_context_registry_state",
+      "n": 1,
+      "fingerprint": "db672d0480f3402e6e416a4550559e17"
+    },
+    {
+      "table": "identity_registry_state",
+      "n": 1,
+      "fingerprint": "064be35e7b72e574ca12c11766afa913"
+    },
+    {
+      "table": "upcoming_source_observations",
+      "n": 2,
+      "fingerprint": "7a076e2a0ceb793e116a67b2de2b7a47"
+    }
+  ],
+  "code": [
+    {
+      "path": "apps/api/src/app.ts",
+      "sha256": "33658a049d3bd76ed09af66b0a2b73d21833eec3b82f9459e5781d42531d9cb2"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/predictions-http.ts",
+      "sha256": "b77db5c8893441c2d82a99a41447840c2209859be7b1268d2bf7e7c9c00337d6"
+    },
+    {
+      "path": "apps/api/tests/predictions.integration.test.ts",
+      "sha256": "f8f7dd450dfc240ecc2768557a96efab66e6192b59d1297a4e4b0f2a4705d167"
+    },
+    {
+      "path": "apps/web/src/router.ts",
+      "sha256": "8b5a66c100c5ed9da82dd34abe46e4825dcb910b69d5c929e8a1fe7c5b9b0ca7"
+    },
+    {
+      "path": "apps/web/src/views/ScenariosView.vue",
+      "sha256": "e75e45041750a4aaf2eeb0a88121fd969bbeda22dff25b890be6fd9e2faff2f5"
+    },
+    {
+      "path": "apps/web/src/views/ScenarioPredictionView.vue",
+      "sha256": "35d46efc6f82f00f7174e7ea76343f51fbca26fe28de80d1a13786dc85a19ec2"
+    },
+    {
+      "path": "apps/web/src/components/PredictionResult.vue",
+      "sha256": "6cad9fe8880ada2de42446c50d470e619dac405bfdce0caa1bd0f4fc61111e6c"
+    },
+    {
+      "path": "apps/web/src/predictions.ts",
+      "sha256": "b67bc12e3ae4c27c4e195cb7ec32c7c8646655b118d733e988e70b4af5e3b741"
+    },
+    {
+      "path": "apps/web/tests/predictions.test.ts",
+      "sha256": "994fb424bff7c66505401a67ac522d878cf0f6c392dd48f54911502359e26c3d"
+    },
+    {
+      "path": "apps/web/tests/e2e/predictions.spec.ts",
+      "sha256": "bdcd376db40a52ba9a9e4a1014443cadaaa8b5fb238a2792a793d28dbccadb37"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "f3e99a5cd814ff51805da07ed856a6b7f5c4f7ea0708359d7030cd14b207083b"
+    },
+    {
+      "path": "packages/contracts/src/v1-prediction-view.ts",
+      "sha256": "6cde500bcd3b0bff802dd5b8b008ab7fe91f28c152f2400c9b071cfb3e3c6691"
+    },
+    {
+      "path": "packages/db/src/index.ts",
+      "sha256": "4f4e893c766b8fced091806e4874e4b9e20cf380b9c80010c4952f345f658f61"
+    },
+    {
+      "path": "packages/db/src/v1-runtime-repository.ts",
+      "sha256": "07c33ba20dcff6c653129f14b1385326538432f3c29e75175ebe6977db984935"
+    },
+    {
+      "path": "packages/db/src/v1-prediction-reader.ts",
+      "sha256": "c83882127b292dc719d5d562f18552f9afd3de569717b9b95ed3c2186456bf1e"
+    },
+    {
+      "path": "packages/db/tests/v1-prediction-reader.test.ts",
+      "sha256": "cc5dae95696d6100a0d449518a70cda0ebb4aa463c5685b04caf894c39538e66"
+    },
+    {
+      "path": "packages/db/tests/v1-runtime.integration.test.ts",
+      "sha256": "167c20ca8f216bf5f0d1f8feec7f72224850e2c4d06de0fa1073f40443b295fc"
+    },
+    {
+      "path": "tests/helpers/predictions.ts",
+      "sha256": "42bf125525eecd2d3d8649c036481bb33be0546be9bbe1690337de9cbb809a04"
+    },
+    {
+      "path": "tests/helpers/prediction-view.ts",
+      "sha256": "7ee44147560a154985efe33244b902c4b38d1992ec793a2b9c5bced278d3aee2"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".tools/s3-06-ui-install.log",
+      "sha256": "896b5039d8540cd988abbb59cdaa05af3c453202b7bb998c6f7e641d998e4fec"
+    },
+    {
+      "path": ".tools/s3-06-ui-typecheck.log",
+      "sha256": "34e3f944eb2801f9512a7d4cf5abbcf69da6b1902f5b7b458708995445a92cff"
+    },
+    {
+      "path": ".tools/s3-06-ui-build.log",
+      "sha256": "cbb748132fef5171e7d02f8ec16d14762b3fc3b5484f11d3437dbe71cef9406b"
+    },
+    {
+      "path": ".tools/s3-06-ui-unit.log",
+      "sha256": "4b01f1b35702d0ae7fad41658fca73965f3603d06a55d8d2b281a0fe28b7e0f7"
+    },
+    {
+      "path": ".tools/s3-06-ui-cli-retry.log",
+      "sha256": "e66fb2f2f66e4869f52a8b99fbdb9a9fdfe43cab37a3b5f3b78b093b062b5006"
+    },
+    {
+      "path": ".tools/s3-06-ui-unit-remaining.log",
+      "sha256": "de52042bc9c5ba122e095ac8bc77c16bf49919b8955fc817974d509534a5aad3"
+    },
+    {
+      "path": ".tools/s3-06-ui-targeted.log",
+      "sha256": "9390b10b8e862f0785ae97c5ae53127a74ea8f2ee6cd1d988c840fc247c8ffc3"
+    },
+    {
+      "path": ".tools/s3-06-ui-pg.log",
+      "sha256": "0a5e9cd796923308ae1ed91ec89eade9fde8a94b9a6d3bafd710f9cab3d3065b"
+    },
+    {
+      "path": ".tools/s3-06-ui-pg-retry.log",
+      "sha256": "c3576782f934c8c2c7b7883b8f7226bc0579b8bc298cc2e92e02cb01c411d6ee"
+    },
+    {
+      "path": ".tools/s3-06-ui-e2e.log",
+      "sha256": "f6e289334e9c018d227e14c4627728827f8e67a09ac5dd2e4a4cc60a9b40baed"
+    },
+    {
+      "path": ".tools/s3-06-ui-e2e-retry.log",
+      "sha256": "68d5c5e30670657645f7f32ebdf635260605cf6f255f64e7fd251c8bfe9a3200"
+    },
+    {
+      "path": ".tools/s3-06-ui-web-final-typecheck.log",
+      "sha256": "b28a7c864293d7cc955d4bd033c9aca6b3da33bc5d87601e17c4a8082be512e5"
+    },
+    {
+      "path": ".tools/s3-06-ui-web-final-build.log",
+      "sha256": "b70d9b39e0a152a78e031b18a41d998e01282806d0aedd1d483e945443428bdb"
+    },
+    {
+      "path": ".tools/s3-06-ui-web-final-test.log",
+      "sha256": "dc11382bdd97cfc9276504ad3df01dac76dd903add8e6630e9b3f9e1334e5287"
+    },
+    {
+      "path": ".tools/s3-06-ui-migrations.log",
+      "sha256": "7398d7ba41dd742d24910a0d54f2dc6f15aa82998a71577784bb8b7aeb3d72eb"
+    },
+    {
+      "path": ".tools/s3-06-ui-verification.log",
+      "sha256": "db8da1e6b9a446b6abc8323ba81438047115b210f51adfd7e699fa669e4ad12a"
+    },
+    {
+      "path": ".tools/s3-06-ui-db-state.log",
+      "sha256": "a271a8f3f098e1be4347b344c6707f11a42800247e208abd9f0cc68772ca9832"
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "test-results/prediction-desktop.png",
+      "sha256": "fd97359f619c50181b21ca9e0074055ef6c2137fe3abcf7c3167aaf35e61fc79"
+    },
+    {
+      "path": "test-results/prediction-mobile.png",
+      "sha256": "1d1c2ab6be0bda1d0da3cad11fb426b35b35dfa48ea525fb8842f90fa8bfa47a"
+    },
+    {
+      "path": "test-results/prediction-synthetic-positive.png",
+      "sha256": "d463e2bbaa4f56a9bec0b811beaa73b0a1fdbadd72758c36059c60ffc9751813"
+    }
+  ],
+  "nextTask": "S3-07/V1-journal-real-target: freeze actual future map purpose before issuance and verified outcome association; keep old what-if excluded from prospective statistics"
+}

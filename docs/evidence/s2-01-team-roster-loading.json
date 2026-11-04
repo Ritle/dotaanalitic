@@ -1,0 +1,686 @@
+{
+  "task": "S2-01/team-roster-loading",
+  "status": "PASS",
+  "completedAt": "2026-11-04T00:48:20.686Z",
+  "request": "Investigate unavailable Team Spirit Academy roster, compared with Dota2ProTracker",
+  "findings": {
+    "catalogue": "Local-only search/team overview, not provider team roster lookup",
+    "canonicalAcademyTeam": null,
+    "localAcademyMaps": 0,
+    "mainSpirit": [
+      {
+        "id": "1",
+        "opendota_team_id": "7119388",
+        "name": "Team Spirit"
+      }
+    ],
+    "localCurrentOpenDotaAccounts": [],
+    "initialPandaTournamentCache": null,
+    "identityCheck": {
+      "capturedAt": "2026-11-04T00:46:18.981Z",
+      "accounts": [
+        "164047347",
+        "188351504",
+        "482364904",
+        "892486081",
+        "450454900"
+      ],
+      "links": [],
+      "scope": "All stored identity claims, including provisional/rejected; no nickname joins or writes"
+    },
+    "opendotaTeam": {
+      "method": "getTeam",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/teams/9948367",
+        "fetchedAt": "2026-11-04T00:33:40.619Z",
+        "knownAt": null,
+        "payloadSha256": "0c3b83fc68275be39c381152b40db41eea96c7aae9bcc2572b3f9f3fb95d2248",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 59,
+          "day": 2999,
+          "month": null
+        }
+      },
+      "data": {
+        "team_id": "9948367",
+        "name": "Team Spirit Academy",
+        "tag": "TSA",
+        "last_match_time": 1792254590
+      }
+    },
+    "opendotaMembership": {
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/teams/9948367/players",
+        "fetchedAt": "2026-11-04T00:33:41.731Z",
+        "knownAt": null,
+        "payloadSha256": "9a5f32d267112ec69cc47f83563f64c550ad29902921257fdd8721c623940a3f",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 58,
+          "day": 2998,
+          "month": null
+        }
+      },
+      "totalHistoricalMembers": 16,
+      "currentFlags": [
+        {
+          "account_id": "164047347",
+          "games_played": 223,
+          "wins": 82,
+          "is_current_team_member": true
+        },
+        {
+          "account_id": "188351504",
+          "games_played": 207,
+          "wins": 77,
+          "is_current_team_member": true
+        },
+        {
+          "account_id": "482364904",
+          "games_played": 166,
+          "wins": 59,
+          "is_current_team_member": true
+        },
+        {
+          "account_id": "892486081",
+          "games_played": 126,
+          "wins": 44,
+          "is_current_team_member": true
+        },
+        {
+          "account_id": "450454900",
+          "games_played": 66,
+          "wins": 27,
+          "is_current_team_member": true
+        }
+      ],
+      "note": "Not a confirmed future lineup; not used for roles or account merging"
+    },
+    "opendotaCurrentRegistry": {
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/proPlayers",
+        "fetchedAt": "2026-11-04T00:34:40.062Z",
+        "knownAt": null,
+        "payloadSha256": "a44ba993f35a18ea5ea42b087592b2d7ac83a05ff4fc4c73c2d572940b64095c",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 59,
+          "day": 2997,
+          "month": null
+        }
+      },
+      "rows": 5742,
+      "selected": [
+        {
+          "account_id": "164047347",
+          "steamid": "76561198124313075",
+          "name": " 86",
+          "personaname": "Spiral",
+          "team_id": "9948367",
+          "team_name": "Team Spirit Academy",
+          "team_tag": "TSA",
+          "is_pro": null,
+          "is_locked": null
+        },
+        {
+          "account_id": "188351504",
+          "steamid": "76561198148617232",
+          "name": "Aidar",
+          "personaname": "Aidar",
+          "team_id": "9948367",
+          "team_name": "Team Spirit Academy",
+          "team_tag": "TSA",
+          "is_pro": null,
+          "is_locked": null
+        },
+        {
+          "account_id": "450454900",
+          "steamid": "76561198410720628",
+          "name": "Kiseki`",
+          "personaname": "I S SF 46",
+          "team_id": "9948367",
+          "team_name": "Team Spirit Academy",
+          "team_tag": "TSA",
+          "is_pro": null,
+          "is_locked": null
+        },
+        {
+          "account_id": "482364904",
+          "steamid": "76561198442630632",
+          "name": "kyford",
+          "personaname": "зомби прокуратура 2.0",
+          "team_id": "9948367",
+          "team_name": "Team Spirit Academy",
+          "team_tag": "TSA",
+          "is_pro": null,
+          "is_locked": null
+        },
+        {
+          "account_id": "892486081",
+          "steamid": "76561198852751809",
+          "name": "kae",
+          "personaname": "THE GÓD COMMANDMENTS",
+          "team_id": "9948367",
+          "team_name": "Team Spirit Academy",
+          "team_tag": "TSA",
+          "is_pro": null,
+          "is_locked": null
+        }
+      ]
+    },
+    "panda": {
+      "source": {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/tournaments/22347/rosters",
+        "fetchedAt": "2026-11-04T00:37:42.737Z",
+        "knownAt": null,
+        "payloadSha256": "2f6c5c71686a1a8027c14e8b22762fbdbf4e1c98e2b96a02a8fe2c57e4f0142a",
+        "attempts": 1,
+        "rateLimitRemaining": 998
+      },
+      "team": {
+        "providerTeamId": "137540",
+        "name": "Spirit Academy",
+        "players": [
+          {
+            "providerPlayerId": "53672",
+            "name": "Kiseki"
+          },
+          {
+            "providerPlayerId": "55018",
+            "name": "aidar"
+          },
+          {
+            "providerPlayerId": "61912",
+            "name": "KAE"
+          },
+          {
+            "providerPlayerId": "62278",
+            "name": "86"
+          },
+          {
+            "providerPlayerId": "66284",
+            "name": "sailyn"
+          }
+        ]
+      },
+      "status": "ready",
+      "receipt": [
+        {
+          "id": "7",
+          "cache_key": "tournament:22347",
+          "source_endpoint": "/tournaments/22347/rosters",
+          "source_fetched_at": "2026-11-04T00:37:42.737Z",
+          "source_payload_sha256": "2f6c5c71686a1a8027c14e8b22762fbdbf4e1c98e2b96a02a8fe2c57e4f0142a",
+          "snapshot_sha256": "1c5abc5e7a1a22a75e1e6ad13ca8370d0b05a1a73b35f38d9edc3b3ef9fbe108"
+        }
+      ]
+    },
+    "sourceDifference": "OpenDota member flags/registry include kyford; Panda roster includes sailyn. No nickname-based identity join or automatic lineup chosen.",
+    "d2pt": {
+      "url": "https://dota2protracker.com/teams/team-spirit-academy-9948367",
+      "directHttpStatus": 403,
+      "cachedWebPageReviewed": true,
+      "fullFreshRosterVerified": false,
+      "note": "Direct HTTP403 respected; no challenge bypass, bulk scraping, or production integration"
+    }
+  },
+  "changes": {
+    "files": [
+      {
+        "path": "apps/web/src/views/UpcomingView.vue",
+        "sha256": "62a219a3d37a7a311f38aadd6bb8828c08d002f98db1ca762ccaf9e59a274d53"
+      },
+      {
+        "path": "apps/web/tests/e2e/initial-rosters.spec.ts",
+        "sha256": "b146d8a3002c30e8cb61d88dae10cd51e1826d06e165b186777cd20878e252ec"
+      }
+    ],
+    "behavior": "Initial selection of a scheduled match loads an absent configured tournament roster via the existing owner/CSRF POST. Once per tournament per page. Existing/stale/error snapshots are not automatically refreshed; manual refresh remains.",
+    "serverContractsChanged": false,
+    "migrationsAdded": 0,
+    "canonicalOrIdentityWrites": 0,
+    "scenarioOrPredictionWrites": 0,
+    "modelFeaturesChanged": false
+  },
+  "liveProbes": {
+    "opendotaRequests": 3,
+    "pandaRequests": 2,
+    "publicD2ptRequests": 1,
+    "publicD2ptStatus": 403,
+    "scope": "Backend diagnostics, separate from web-tool cached page/search reads. Panda requests honor shared durable quota; normal refresh stores snapshot/provenance."
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 755,
+    "unitPackageCounts": [
+      54,
+      20,
+      21,
+      33,
+      347,
+      232,
+      47,
+      1
+    ],
+    "nodeSerial": 74,
+    "chromium": 11,
+    "retries": 0,
+    "newChromium": 2,
+    "externalNetworkInTests": 0,
+    "initialBrowserRed": "New test exited 1 before fix: first selection did not fetch a roster",
+    "sequencing": "Browser finished before typecheck/build; all compile/unit/Node checks sequential; no timeout changes"
+  },
+  "commands": [
+    "pnpm install --frozen-lockfile --offline",
+    "pnpm typecheck",
+    "pnpm build",
+    "pnpm --workspace-concurrency=1 -r --if-present test --maxWorkers=1 --no-file-parallelism",
+    "node --test --test-concurrency=1 tests/node/*.test.mjs",
+    "playwright test --config apps/web/playwright.config.ts initial-rosters.spec.ts incomplete-opponents.spec.ts schedule-filter.spec.ts upcoming-workflow.spec.ts schedule-targets.spec.ts"
+  ],
+  "preservation": {
+    "status": "PASS",
+    "beforeRelations": 81,
+    "afterRelations": 81,
+    "unchangedRelations": 78,
+    "changedRelations": [
+      "pandascore_request_quota",
+      "upcoming_source_cache",
+      "upcoming_source_observations"
+    ],
+    "allowedChangedRelations": [
+      "pandascore_request_quota",
+      "upcoming_source_cache",
+      "upcoming_source_observations"
+    ],
+    "queuedAuroraPreserved": true,
+    "protectedArtifacts": [
+      {
+        "path": ".tools/s3-01-e0-export.json",
+        "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+      },
+      {
+        "path": "docs/evidence/s3-01-e1-plan.json",
+        "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+      },
+      {
+        "path": ".tools/v1-data-export.json",
+        "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+      },
+      {
+        "path": "docs/evidence/s3-01-v1-release-plan.json",
+        "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+      },
+      {
+        "path": ".tools/v1-release-leagues-20261102.json",
+        "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+      },
+      {
+        "path": ".tools/v1-features-development-final.json",
+        "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+        "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+        "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-release-evidence.json",
+        "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+        "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+        "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+        "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-executable-verification.json",
+        "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+        "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+        "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+      },
+      {
+        "path": "docs/evidence/s3-05-v1-registry.json",
+        "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+      },
+      {
+        "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+        "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+      },
+      {
+        "path": "docs/evidence/s3-06-v1-owner-api-ui.json",
+        "sha256": "543d4a48d36f627af4597462e4c4adb35109de362e2b68d55001b21cc41693eb"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-real-target.json",
+        "sha256": "9f49e3f6394ff9490b98249d717859b058e1df04e8614a165f9add23cd6f1911"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-journal-metrics.json",
+        "sha256": "baf05428a2b2623c9c207d9074e2c0bdc3f8776e232967b1446e06ce09008b38"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-journal-owner-api-ui.json",
+        "sha256": "1f351addda289fcef98de74c40634c61cb9b291e3bc769a7b89186cc63cbd807"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-target-lifecycle.json",
+        "sha256": "740b47a7f2e6f510f9ea95ea513b9f7246502fb7b94c87750d5b541fb80fd98e"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-schedule-target-registration.json",
+        "sha256": "b0b0f67b68632c0395a7d650d813f2f63a5f37c66a2f75ab7c58922d99f10fb8"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-runtime.json",
+        "sha256": "757e2dd402846ab15fe9502a872f3e1525c7ae67c2f1c0366297f2007eb7d29c"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-result.json",
+        "sha256": "19f633fae8a8a4211bbd5eccb836b08e8872684cd949ab899cfb829542b1de0d"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-owner-flow.json",
+        "sha256": "bdfd9eaac593c6aa5d929059da88cfabee62d04b4ac68b052423f01c1700d780"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-binding-owner-flow.json",
+        "sha256": "db330af19571caf5dd95331d204e9d0424844eccc277b393c2afba8877450869"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-target-lifecycle.json",
+        "sha256": "2dec5d4c3af4577b2e9e19fc20f609ab8db0e700ca7cc07081de9be4d267940d"
+      },
+      {
+        "path": "docs/evidence/s4-v1-acceptance-audit.json",
+        "sha256": "4803b1dec3a0081e10bc5ee064ddfdfbe1d023902b45d9dc7684175ad737b668"
+      },
+      {
+        "path": "docs/evidence/s4-v1-backup-restore.json",
+        "sha256": "3f03694f0f3628d4df68c3b86c4e2ff9bd4d3ad017c20368897f1b2db63ac79b"
+      },
+      {
+        "path": "docs/evidence/s4-v1-local-owner-smoke.json",
+        "sha256": "1cf3f62be6185662d7a861b25a608f98c4d77796984b88063ba2fb4b452789d8"
+      },
+      {
+        "path": "docs/evidence/s4-v1-schedule-event-filter.json",
+        "sha256": "7ae62cbf174b4fbff6735bd4b8268c99ec07bad3262b9a0a2c013322db9c5708"
+      },
+      {
+        "path": "docs/evidence/s4-v1-schedule-event-filter-v2.json",
+        "sha256": "4a80b6ce7436da825b457841d4beb2e1af18c5ec42672c68e6926e05029cc0d8"
+      },
+      {
+        "path": "docs/evidence/s4-v1-model-readiness-status.json",
+        "sha256": "905aa2d3ba7637c82dab74465e262084d15549ed6b4465e6947756925755ed13"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-security-review.json",
+        "sha256": "e33be17b1da749b94756b3a8959257c73ccc54dfd0b03b9fcfa4581735b7b7f6"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-queue-coverage.json",
+        "sha256": "bac1dcac838e617c4deaff8a4be71f5e4736cd037f90646407ef402f5973d777"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-provider-resilience.json",
+        "sha256": "305a1c2e90f01f24813f2b411ceb59ce51f07dbd7a8e958e43e2aae4b3f078e8"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-provider-conflicts.json",
+        "sha256": "00016adb4d65c22468c4b2c882c6dd882bee3393b047c5a2345d7c32f4172178"
+      },
+      {
+        "path": "docs/evidence/s4-02-v1-historical-regression.json",
+        "sha256": "595cfbaca6074ee58e89242177b312564a4da9a3fae63b8e9f617cf6909ebf6b"
+      },
+      {
+        "path": "docs/evidence/s4-02-v1-full-owner-e2e.json",
+        "sha256": "a5d206b192c6301da2f81a3234c60ace1ff50914da189b7b394a737eb4aeb744"
+      },
+      {
+        "path": "docs/evidence/s4-03-v1-deployment-preflight.json",
+        "sha256": "61a91f176793c77c387ab410795e86a45dda730b57ca039d7c322febb4ddea18"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-suggestions.json",
+        "sha256": "ed517ebde5194ee53b9eb2decf27ada6218c83bab6a5b23e20fb9d0d3599f7c4"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-api-review.json",
+        "sha256": "c4ecd19748163a4e5dcbca0a40be1d7f387aca504cf00ab60c1d460347811547"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-profile-reader.json",
+        "sha256": "f609597010eb6d1410eda4ac4ff2cdc13f824251f008127759385062c5596f53"
+      },
+      {
+        "path": "docs/evidence/s4-02-upcoming-incomplete-opponents.json",
+        "sha256": "9c3f001615686f3eed04d86abee82b94f70595f924b250ff19448d287142d62a"
+      }
+    ],
+    "oldNonBarrelRuntimeModulesUnchanged": 150,
+    "compatibleV1Runtime": true,
+    "frozenBundleVerified": true,
+    "migrationLedger": [
+      {
+        "filename": "001_initial.sql",
+        "checksum": "8b1505e143bc200ce1e5ef167e6315557b1c1eb3fc8e0fa2035e59c00d55d4f4"
+      },
+      {
+        "filename": "002_patch_awareness.sql",
+        "checksum": "2c332db16f6e40212f0c07f06f45918e1566a1158029392776e9eabae4ffa6b2"
+      },
+      {
+        "filename": "003_roster_continuity.sql",
+        "checksum": "c230707713b8cfe35a55a5a48aa9f81d9c9375ffeb4aed67c315d5235ca0c0fb"
+      },
+      {
+        "filename": "004_context_identity_provenance.sql",
+        "checksum": "184e24d7e95656e1be115c2010a8946a3d88633ca5d9c554b0b4e7c5cf1f294d"
+      },
+      {
+        "filename": "005_training_pipeline.sql",
+        "checksum": "b79dc2586d5d3bcbeb8d290045362fe14639a63b409f52da6c6bb3cc6f965f3c"
+      },
+      {
+        "filename": "006_draft_data_quality.sql",
+        "checksum": "76af6b156a25eedcdf64a6d2a8b33161d79a9fac011c8de81a3cdb6dde013e6a"
+      },
+      {
+        "filename": "007_idempotent_ingestion.sql",
+        "checksum": "ecfa1aea0ef631f016b797580b0598892af5c15bc09a7a907b0e90cd674628ac"
+      },
+      {
+        "filename": "008_owner_auth.sql",
+        "checksum": "8a459ca949428c827bfe8744b92acf870954155ccf7ce4d867b364ddcdad5238"
+      },
+      {
+        "filename": "009_temporal_context.sql",
+        "checksum": "2fe9f7f28150127bacc78fb972266de9cc15c30ca82e2a5d306cdba08c8de830"
+      },
+      {
+        "filename": "010_identity_evidence.sql",
+        "checksum": "43b41db24f20f3258b03788408eefee66cac312dde6e4691db89a7497dc7e280"
+      },
+      {
+        "filename": "011_game_context_registry.sql",
+        "checksum": "b87ce903ff12aa4bf1b2569d9106961f222ab0f2a57e71eae2e9e10d8502a7f2"
+      },
+      {
+        "filename": "012_verified_dataset_boundary.sql",
+        "checksum": "a406136a38c2f9399c0a913f17abeb77ee0296c641d3426041e03cf9938b4269"
+      },
+      {
+        "filename": "013_context_recorded_time.sql",
+        "checksum": "4f28693720367ec681e07229c9b28d81517a3629823c54ef8d456de691bedfce"
+      },
+      {
+        "filename": "014_patch_transfer_evidence.sql",
+        "checksum": "8666a3576f4e997685afc2a8a5535ad9771143849a8c380b113a80f3988443a7"
+      },
+      {
+        "filename": "015_scenario_snapshots.sql",
+        "checksum": "c743257c561ae725f3191867f9118905a6136902165465dda3d651359f81d103"
+      },
+      {
+        "filename": "016_scenario_draft.sql",
+        "checksum": "e597a4ddbda5fb822284eb3ff8671d0a25cf9e03cc13002dad71f44c77e0724c"
+      },
+      {
+        "filename": "017_scenario_reports.sql",
+        "checksum": "7cf013a6bcb8e5d59696f327433bb2b3143fe03a50143eea14ab9c81dfcafd2e"
+      },
+      {
+        "filename": "018_outcome_verifier.sql",
+        "checksum": "a534be6670a699d6e7e4dd9df4efb493ff070b1b3833a3c11609f926e156e0c1"
+      },
+      {
+        "filename": "019_upcoming_schedule.sql",
+        "checksum": "07c209cbc751a091588016aab82006aa50fd4c42c024cb858a79e3ec184db5d6"
+      },
+      {
+        "filename": "020_history_refresh.sql",
+        "checksum": "738a45096172ccb489079247ff55777a2a08fe18cbf4271fb929f1bc97721a34"
+      },
+      {
+        "filename": "021_upcoming_source_observations.sql",
+        "checksum": "6a03eb941c15574f79fbb70b98d6ee3e695693965449d44098b973428ab4295c"
+      },
+      {
+        "filename": "022_series_provision.sql",
+        "checksum": "91d4883d4de3d4459cd82116cb20540d74427437a167dc87b7da1e0d3db7ce06"
+      },
+      {
+        "filename": "023_research_evaluation_journal.sql",
+        "checksum": "1b059414397e08000e03505c068d9e3c4c79d2e36ca96473cc3b5474ba95ab1f"
+      },
+      {
+        "filename": "024_v1_release_evaluation_journal.sql",
+        "checksum": "5be6bb15ed1f7ff2695a62e555d6476dbd32eb81c1ce0b368def80b975559cdc"
+      },
+      {
+        "filename": "025_v1_model_registry.sql",
+        "checksum": "d14ed21f41f576c72bfd3da5eaced7f5ea4274bab8f052181d14a45ee2327952"
+      },
+      {
+        "filename": "026_v1_runtime_snapshots.sql",
+        "checksum": "2aac1ae2a413dd8194486e3b1f6c2bddd3bc47c9c6a2472bd339816c91ec55b8"
+      },
+      {
+        "filename": "027_v1_forecast_outcomes.sql",
+        "checksum": "dbb418ea4fb53deaa472cd02bba232f078a86947de3c79f65f0bc94406dc134b"
+      },
+      {
+        "filename": "028_v1_journal_reports.sql",
+        "checksum": "de7aa7f8016bfda2a7686d4d9f935bb786ce716549729727d2083c05d6218298"
+      },
+      {
+        "filename": "029_v1_target_lifecycle.sql",
+        "checksum": "5c46bf775a8f4367b66eb1a0e08b975a2e335396a55d173a44752e1396449380"
+      },
+      {
+        "filename": "030_v1_schedule_targets.sql",
+        "checksum": "5e936f2f8b6067310abec307098766b689921cffc1c639ab95ea69579303be1a"
+      },
+      {
+        "filename": "031_v1_scheduled_runtime.sql",
+        "checksum": "7f2d8ddef1b8085ab6f85473fd3baa5c7ec6ed8ebd096241fde4b0175811b03f"
+      },
+      {
+        "filename": "032_v1_schedule_results.sql",
+        "checksum": "49e1051afcd49c25c6e073a371c942634361f64e778757a9f92f1a83da099fd1"
+      },
+      {
+        "filename": "033_v1_schedule_started_guard.sql",
+        "checksum": "d67574ddd92efa1962bcc042f140dc607781a2f29afb56a1101a997273b31494"
+      },
+      {
+        "filename": "034_v1_scheduled_lifecycle.sql",
+        "checksum": "670cc6384b04161b1c97761a2bfbaecb93f3e9b3cc802696aa783e0a5db9f5bf"
+      },
+      {
+        "filename": "035_role_profile_hints.sql",
+        "checksum": "b4b757258c8b6e205e848cdffab6d01618f8d43f6891f74bd9416178b2ba8d99"
+      }
+    ],
+    "receipt": [
+      {
+        "id": "7",
+        "cache_key": "tournament:22347",
+        "source_endpoint": "/tournaments/22347/rosters",
+        "source_fetched_at": "2026-11-04T00:37:42.737Z",
+        "source_payload_sha256": "2f6c5c71686a1a8027c14e8b22762fbdbf4e1c98e2b96a02a8fe2c57e4f0142a",
+        "snapshot_sha256": "1c5abc5e7a1a22a75e1e6ad13ca8370d0b05a1a73b35f38d9edc3b3ef9fbe108"
+      }
+    ],
+    "progressPrefixPreserved": true
+  },
+  "logs": [
+    {
+      "path": ".tools/spirit-rosters-install.log",
+      "sha256": "896b5039d8540cd988abbb59cdaa05af3c453202b7bb998c6f7e641d998e4fec"
+    },
+    {
+      "path": ".tools/spirit-rosters-typecheck.log",
+      "sha256": "34e3f944eb2801f9512a7d4cf5abbcf69da6b1902f5b7b458708995445a92cff"
+    },
+    {
+      "path": ".tools/spirit-rosters-build.log",
+      "sha256": "f0b57bb17e49ca7aee389438b6ed1d616b12e96187f4a604839e2e031d0b3919"
+    },
+    {
+      "path": ".tools/spirit-rosters-unit.log",
+      "sha256": "7856a4fd45a770247952d5eedf0b4c68114f115e7c781817d0f132170c0567fa"
+    },
+    {
+      "path": ".tools/spirit-rosters-node.log",
+      "sha256": "4dc8fdb29ac226d9f512afa97cb2e73d9e616c69f4c5a7e654d64941c87b0951"
+    },
+    {
+      "path": ".tools/spirit-rosters-e2e.log",
+      "sha256": "d4b967dfec76ccf3f0b8c685f124dfe27edaa4bccb3e49329d2ada104f1433c6"
+    },
+    {
+      "path": ".tools/spirit-rosters-browser-red.log",
+      "sha256": "a23363ab49b9cfb8923dd827462657bdb356489630238bbf1c7108ae17a23ea9"
+    }
+  ],
+  "notExecuted": [
+    "Full PG integration suite",
+    "Full owner browser suite",
+    "Python/model evaluation",
+    "Docker/Linux deployment"
+  ],
+  "nextTask": "S2-01/expected-roster-catalogue",
+  "nextScope": "Bounded selected-team/player provisioning into local catalogue using verified numeric account evidence, explicit ambiguous membership review, no nickname joins or forced five",
+  "nextModel": "GPT-6 Astra · High"
+}

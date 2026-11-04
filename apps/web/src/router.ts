@@ -5,7 +5,10 @@ import EntityView from './views/EntityView.vue';
 import CompareView from './views/CompareView.vue';
 import ScenariosView from './views/ScenariosView.vue';
 import ScenarioReportView from './views/ScenarioReportView.vue';
+import ScenarioPredictionView from './views/ScenarioPredictionView.vue';
+import ForecastJournalView from './views/ForecastJournalView.vue';
 import UpcomingView from './views/UpcomingView.vue';
+import ScheduleTargetView from './views/ScheduleTargetView.vue';
 import { ownerAuth, restoreAuth } from './auth';
 
 export const router = createRouter({
@@ -14,11 +17,14 @@ export const router = createRouter({
     { path: '/login', component: LoginView },
     { path: '/', component: HomeView, meta: { requiresAuth: true } },
     { path: '/upcoming', component: UpcomingView, meta: { requiresAuth: true } },
+    { path: '/schedule-targets/:requestId', component: ScheduleTargetView, meta: { requiresAuth: true } },
+    { path: '/forecast-journal', component: ForecastJournalView, meta: { requiresAuth: true } },
     { path: '/compare', name: 'compare', component: CompareView, meta: { requiresAuth: true } },
     { path: '/scenarios', component: ScenariosView, meta: { requiresAuth: true } },
     { path: '/scenarios/:id', component: ScenariosView, meta: { requiresAuth: true } },
     { path: '/scenarios/:id/draft', component: ScenariosView, meta: { requiresAuth: true } },
     { path: '/scenarios/:id/report', component: ScenarioReportView, meta: { requiresAuth: true } },
+    { path: '/scenarios/:id/prediction', component: ScenarioPredictionView, meta: { requiresAuth: true } },
     { path: '/teams/:id', name: 'team', component: EntityView, meta: { requiresAuth: true } },
     { path: '/players/:id', name: 'player', component: EntityView, meta: { requiresAuth: true } },
     { path: '/:pathMatch(.*)*', redirect: '/' }
