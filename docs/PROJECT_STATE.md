@@ -1,5 +1,11 @@
 # Текущее состояние репозитория — Codex handoff
 
+**Checkpoint commit99c2b4a + role-owner diagnostic (2026-11-04):** committed261 accumulated files; no push. Restored local PG/API/web, no worker. Read-only diagnostic:60 verified players with hints from17 pro maps; two historical fives auto-arrange and retain manual edits across report reload.8 real UI assertions/mobile PASS,0 profile refreshes/scenario writes. Stale STRATZ profiles excluded; sparse lane/GPM hints are not validated role accuracy. [Evidence](evidence/s2-01-role-owner-diagnostic.json).
+
+**S2-01/role-owner-check remains unchecked:** no owner roster bindings/scenarios exist, and PuckChamp/ICxI13:00 MSK start has elapsed. Next: owner selects a future5+5, then verifies roles/history; GPT-6.1 Sol · High. No active model.
+
+## Previous checkpoint — catalogue bridge
+
 **S2-01/expected-roster-catalogue implemented (2026-11-04):** «Подготовить составы» connects expected Panda rows to explicitly selected verified numeric OpenDota accounts; canonical provisioning, saved owner associations/role mapping and five-player prefill. Names alone never merge identities. Source cache/quotas/replay/conflict guards, explicit saved reuse/manual override, missing local history shown. SQL036 applied, API watcher reloaded. [Guide](S2_01_EXPECTED_ROSTER_CATALOGUE.md) · [Evidence](evidence/s2-01-expected-roster-catalogue.json).
 
 **QA:** frozen offline install/typecheck/build,767 unit/CLI,74 Node,7 new PG/API,24 unique Chromium PASS. Live PuckChamp/ICxI search verified, no real bindings or predictions saved.79/81 original relations unchanged (quota+ledger only),50 artifacts/150 original modules preserved; archived V1 compatible.

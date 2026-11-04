@@ -8,6 +8,7 @@
 
 - [x] **S2-01/team-roster-loading (owner request2026-11-04):** проверен Academy case; configured missing roster загружается при выборе встречи, cached/error не зацикливаются. Реальная Panda заявка22347 сохранена; каталог/identity не импортированы.755 unit/CLI,74 Node,11 Chromium PASS. [Evidence](evidence/s2-01-team-roster-loading.json).
 - [x] **S2-01/expected-roster-catalogue (2026-11-04):** verified numeric catalogue provisioning, explicit ambiguous account/five selection, persistent owner bindings and manual override; SQL036,767 unit/CLI,74 Node,7 PG/API,24 unique Chromium PASS. [Evidence](evidence/s2-01-expected-roster-catalogue.json).
+- [x] **S2-01/role-owner-check/read-only-diagnostic (2026-11-04):**60 verified players/17 pro maps,8 live UI assertions on2 historical fives PASS; no source/identity/scenario writes. [Evidence](evidence/s2-01-role-owner-diagnostic.json). Does not replace actual owner acceptance.
 - [ ] **S2-01/role-owner-check:** review prepared real fives, role suggestions/manual corrections and available local pro-history. Suggested GPT-6.1 Sol · High; Linux deployment remains deferred.
 
 - [x] **S4-02/upcoming-incomplete-opponents (owner request2026-11-04):** явные0/1/2 участника, missing-opponent UI/нет A-B role prefill, ручной hypothetical scenario, reset при смене участников, existing backend409 guard проверен.755 unit/CLI,74 Node,9 unique Chromium PASS; без backend/SQL/model изменений. [Evidence](evidence/s4-02-upcoming-incomplete-opponents.json). Следующий точный шаг — **S2-01/role-owner-check**; Linux deployment отложен.
