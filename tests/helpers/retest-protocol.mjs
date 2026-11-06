@@ -1,0 +1,47 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,writeFile,readFile,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join,resolve,dirname,basename} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {registerRetestProtocol,verifyRetestProtocol,retestMetadata,readRetestInputs,save,sha} from '../../scripts/lib/v1-retest-protocol.mjs';
+import {registerHistoricalProtocol,verifyHistoricalProtocol} from '../../scripts/lib/v1-historical-protocol.mjs';
+import {V1HistoricalRequestSchema} from '../../packages/contracts/dist/v1-historical-protocol.js';
+import {V1_RELEASE_QUALITY_POLICY} from '../../packages/prediction/dist/v1-quality-policy.js';
+import {canonicalContextJson} from '../../packages/db/dist/temporal.js';
+const text=v=>JSON.stringify(v,null,2)+'\n',hash=v=>sha(canonicalContextJson(v)),stamp=v=>({...v,fingerprint:hash(v)});
+const ref=(path,data)=>({path,sha256:sha(text(data))});
+const at='2025-11-06T12:05:00.000Z';
+export function protocolFixture(){
+  const rawBody=JSON.stringify([{leagueid:77,name:'Synthetic Prior Main',tier:'professional'},
+    ...Array.from({length:7},(_,i)=>({leagueid:100+i,name:`Synthetic Main ${i}`,tier:'professional'}))]);
+  const catalogue={source:{provider:'opendota',endpoint:'/leagues',fetchedAt:'2025-11-06T09:00:00.000Z',knownAt:null,payloadSha256:sha(rawBody)},rawBody};
+  const exposure={schemaVersion:1,format:'v1-prior-exposure-v1',capturedAt:'2025-11-06T09:30:00.000Z',fileManifestSha256:'a'.repeat(64),databaseSnapshotSha256:'b'.repeat(64),declaredFileCount:0,blockedMatchIds:[],opendotaSeriesIds:[],limitations:['Synthetic fixture'],syntheticOnly:true};
+  const event={eventKey:'synthetic-prior',name:'Synthetic Prior Main',provider:'opendota',leagueId:'77',catalogueName:'Synthetic Prior Main',stage:'main_event',fromAt:'2025-09-01T00:00:00.000Z',until:'2025-10-01T00:00:00.000Z',tierDecision:{basis:'reviewed_event_scope',sourceUrl:'https://example.invalid/prior',reviewedAt:'2025-11-06T09:00:00.000Z',rationale:'Synthetic prior protocol, never deployable'},scheduleSourceUrl:'https://example.invalid/prior'};
+  const oldRequest={schemaVersion:1,protocolKey:'synthetic-prior-protocol',evaluationBasis:'conditional_retrospective_unexposed_series',warmupFromAt:'2024-01-01T00:00:00.000Z',eventCutoffAt:'2025-11-01T00:00:00.000Z',maxInventoryMaps:5000,baseQualityPolicySha256:hash(V1_RELEASE_QUALITY_POLICY),catalogueSha256:sha(text(catalogue)),exposureSha256:sha(text(exposure)),exposureAcknowledgement:'bounded_local_audit_not_global_blindness_proof',earlierProtocolsUse:'archive_or_separate_monitoring_no_best_result_selection',events:[event]};
+  const protocol=registerHistoricalProtocol(oldRequest,catalogue,exposure,'2025-11-06T10:00:00.000Z');
+  const freeze=stamp({format:'v1-historical-executable-freeze-v1',registeredAt:'2025-11-06T10:01:00.000Z',protocolSha256:sha(text(protocol)),protocolFingerprint:protocol.fingerprint,qualityPolicySha256:protocol.qualityPolicySha256,capsuleSha256:'c'.repeat(64),datasetFingerprint:'d'.repeat(64),candidateFingerprint:'e'.repeat(64)});
+  const started={format:'v1-historical-first-scoring-v1',startedAt:'2025-11-06T11:00:00.000Z',freezeSha256:sha(text(freeze)),freezeFingerprint:freeze.fingerprint,capsuleSha256:freeze.capsuleSha256};
+  const common={freezeSha256:sha(text(freeze)),freezeFingerprint:freeze.fingerprint,protocolFingerprint:protocol.fingerprint,datasetFingerprint:freeze.datasetFingerprint,candidateFingerprint:freeze.candidateFingerprint,qualityPolicySha256:protocol.qualityPolicySha256};
+  const report=stamp({format:'v1-historical-evaluation-v1',...common,capsuleSha256:freeze.capsuleSha256,firstScoring:started,qualityDecision:'failed',releaseGatePassed:false});
+  const registry=stamp({format:'v1-historical-registry-binding-v1',...common,evaluationFingerprint:report.fingerprint,qualityDecision:'failed',eligibleForActivation:false,isActive:false,deployable:false});
+  const events=Array.from({length:7},(_,i)=>({leagueId:String(100+i),name:`Synthetic Main ${i}`,fromAt:'2025-02-01T00:00:00.000Z',until:'2025-03-01T00:00:00.000Z',sourceUrl:'https://example.invalid/main'}));
+  const intent={format:'v1-retest-proposal-intent-v1',createdAt:'2025-11-06T12:00:00.000Z',status:'proposal_not_registered_release_protocol',priorReport:{...ref('old-report.json',report),decision:'failed'},events,warmupFromAt:'2024-01-01T00:00:00.000Z',eventCutoffAt:'2025-07-01T00:00:00.000Z',wholeEventExclusions:[{leagueId:'77',reason:'previous failed cohort'}],limits:{maxDiscoveryHttpRequests:14,maxUniqueMaps:5000,maxDetailAttemptsPerMap:3,proposedCollectionDeadline:'2025-11-13T00:00:00.000Z'},unchangedModel:{initialRating:1500,k:32,scale:400,minPriorMapsPerPlayer:5,calibrator:false},qualityPolicySha256:protocol.qualityPolicySha256,disclosures:['Synthetic only, no global blindness claim'],freshEvaluationPerformed:false,automaticActivation:false};
+  const fileExposure={capturedAt:'2025-11-06T12:01:00.000Z',files:[],potentialMapIds:['100000001'],opendotaSeriesIds:['31']};
+  const databaseExposure={capturedAt:'2025-11-06T12:01:01.000Z',maps:[{matchId:'100000009',leagueId:null,provider:'pandascore',providerSeriesId:'33'}]};
+  const row=(id,series,leagueId='100',extra={})=>({match_id:id,series_id:series,leagueid:leagueId,start_time:Date.parse('2025-02-10T00:00:00Z')/1000,radiant_team_id:'1',dire_team_id:'2',...extra});
+  const make=(leagueId,rows)=>{const rawBody=JSON.stringify(rows);return {source:{provider:'opendota',endpoint:`/leagues/${leagueId}/matches`,fetchedAt:'2025-11-06T12:02:00.000Z',knownAt:null,payloadSha256:sha(rawBody)},rawBody};};
+  const captures=events.map((e,i)=>make(e.leagueId,i?[]:[row('100000001','30'),row('100000002','30'),row('100000003','31'),row('100000004','32'),row('100000005','32','100',{radiant_team_id:'2',dire_team_id:'1'}),row('100000006',null),row('100000007','33')]));
+  const normalized={capturedAt:databaseExposure.capturedAt,blockedMatchIds:['100000001','100000009'],opendotaSeriesIds:['31']};
+  const review=retestMetadata(intent,normalized,captures,'2025-11-06T12:03:00.000Z');
+  const metadataReview={intentSha256:sha(text(intent)),summary:review.summary,ledger:review.ledger,detailEligibilityVerified:false,newModelEvaluationPerformed:false};
+  const collection={historyWarmupFromAt:intent.warmupFromAt,historyRequestBeforeAt:events[0].fromAt,historyWindowDays:730,historyMaxMapsPerAccount:10,maxMaps:5000,maxDetailAttemptsPerMap:3,maxRequestsPerRun:50,collectionDeadline:intent.limits.proposedCollectionDeadline,stop:'all_work_terminal_or_deadline',evaluation:'one_after_terminal_collection_and_verified_freeze',missingTargets:'retain_in_coverage_denominator',historySelection:'latest_completed_before_global_cutoff_numeric_account_groups_of_five',perMapFeatureCutoff:'completed_at_strictly_before_target_start',extendAfterScoring:false,automaticActivation:false};
+  const captureIndex={captures:captures.map((c,i)=>ref(`capture-${i}.json`,c)),completedAt:'2025-11-06T12:02:30.000Z'};
+  const proposal={format:'v1-retest-proposal-checkpoint-v1',checkedAt:'2025-11-06T12:03:00.000Z',status:'metadata_feasible_registration_pending',protocolRegistered:false,freshModelEvaluationPerformed:false,deployable:false,teamAWinProbability:null,intent:ref('intent.json',intent),catalogue:ref('catalogue.json',catalogue),pilotReport:ref('old-report.json',report),pilotDecision:'failed',qualityPolicySha256:protocol.qualityPolicySha256,exposure:{fileManifest:ref('file-exposure.json',fileExposure),databaseSnapshot:ref('db-exposure.json',databaseExposure),capturedAt:fileExposure.capturedAt,fileCount:0},sourceCapture:ref('captures.json',captureIndex),metadataReview:ref('metadata.json',metadataReview),proposal:{eventCount:7,...collection},summary:review.summary,syntheticOnly:true};
+  const accessEvidence={syntheticOnly:true,scope:'fixture'};
+  const accessReview={schemaVersion:1,proposalSha256:sha(text(proposal)),checkedAt:'2025-11-06T12:04:00.000Z',basis:'bounded_local_file_and_database_review',newOutcomeOrModelAccess:false,additionalExposedMatchIds:[],additionalExposedSeriesIds:[],evidence:ref('access-evidence.json',accessEvidence),limitations:['Synthetic fixture only']};
+  const request={schemaVersion:2,protocolKey:'synthetic-retest-seven',proposalSha256:sha(text(proposal)),collection,priorAttempt:'preserve_first_fail_no_best_result_selection',exposureAcknowledgement:'bounded_local_audit_not_global_blindness_proof'};
+  const refs={schemaVersion:2,request:ref('request.json',request),proposal:ref('proposal.json',proposal),intent:proposal.intent,catalogue:proposal.catalogue,fileExposure:proposal.exposure.fileManifest,databaseExposure:proposal.exposure.databaseSnapshot,captureIndex:proposal.sourceCapture,metadataReview:proposal.metadataReview,accessReview:ref('access.json',accessReview),previous:{inputs:ref('old-inputs.json',{}),protocol:ref('old-protocol.json',protocol),freeze:ref('old-freeze.json',freeze),started:ref('old-started.json',started),report:proposal.pilotReport,registry:ref('old-registry.json',registry)}};
+  const ctx={refs,request,proposal,intent,catalogue,fileExposure,databaseExposure,captureIndex,metadataReview,accessReview,captures,previous:{inputs:{request:oldRequest,catalogue,exposure},protocol,freeze,started,report,registry}};
+  return {ctx,normalized,row,make,accessEvidence,plan:()=>registerRetestProtocol(ctx,at)};
+}
