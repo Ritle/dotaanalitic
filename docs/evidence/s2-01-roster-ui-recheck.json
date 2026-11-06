@@ -1,0 +1,217 @@
+{
+  "format": "s2-01-roster-ui-recheck-v1",
+  "checkedAt": "2026-11-06T11:18:18.761Z",
+  "status": "PASS",
+  "cases": [
+    {
+      "page": 1,
+      "teams": [
+        "angry birds",
+        "PuckChamp"
+      ],
+      "available": true,
+      "mobileOverflow": false
+    },
+    {
+      "page": 1,
+      "teams": [
+        "CyberHero",
+        "Inner Circle x Insanity"
+      ],
+      "available": true,
+      "mobileOverflow": false
+    },
+    {
+      "page": 2,
+      "teams": [
+        "Inner Circle x Insanity",
+        "Spirit Academy"
+      ],
+      "available": true,
+      "mobileOverflow": false
+    }
+  ],
+  "comparisons": {
+    "count": 3,
+    "hypotheticalUnsaved": true,
+    "roleSwapResetsConfirmation": true,
+    "filterResetsReport": true,
+    "windows": [
+      {
+        "fromAt": "2026-08-08T11:18:16.890Z",
+        "cutoffAt": "2026-11-06T11:18:16.890Z",
+        "playersA": [
+          {
+            "id": "268",
+            "nRaw": 5
+          },
+          {
+            "id": "234",
+            "nRaw": 2
+          },
+          {
+            "id": "269",
+            "nRaw": 5
+          },
+          {
+            "id": "243",
+            "nRaw": 5
+          },
+          {
+            "id": "253",
+            "nRaw": 2
+          }
+        ],
+        "playersB": [
+          {
+            "id": "211",
+            "nRaw": 18
+          },
+          {
+            "id": "210",
+            "nRaw": 18
+          },
+          {
+            "id": "212",
+            "nRaw": 18
+          },
+          {
+            "id": "209",
+            "nRaw": 24
+          },
+          {
+            "id": "213",
+            "nRaw": 17
+          }
+        ]
+      },
+      {
+        "fromAt": "2026-08-08T11:18:17.805Z",
+        "cutoffAt": "2026-11-06T11:18:17.805Z",
+        "playersA": [
+          {
+            "id": "234",
+            "nRaw": 2
+          },
+          {
+            "id": "268",
+            "nRaw": 5
+          },
+          {
+            "id": "269",
+            "nRaw": 5
+          },
+          {
+            "id": "243",
+            "nRaw": 5
+          },
+          {
+            "id": "253",
+            "nRaw": 2
+          }
+        ],
+        "playersB": [
+          {
+            "id": "211",
+            "nRaw": 18
+          },
+          {
+            "id": "210",
+            "nRaw": 18
+          },
+          {
+            "id": "212",
+            "nRaw": 18
+          },
+          {
+            "id": "209",
+            "nRaw": 24
+          },
+          {
+            "id": "213",
+            "nRaw": 17
+          }
+        ]
+      },
+      {
+        "fromAt": "2025-11-06T11:18:18.142Z",
+        "cutoffAt": "2026-11-06T11:18:18.150Z",
+        "playersA": [
+          {
+            "id": "234",
+            "nRaw": 3
+          },
+          {
+            "id": "268",
+            "nRaw": 5
+          },
+          {
+            "id": "269",
+            "nRaw": 5
+          },
+          {
+            "id": "243",
+            "nRaw": 5
+          },
+          {
+            "id": "253",
+            "nRaw": 2
+          }
+        ],
+        "playersB": [
+          {
+            "id": "211",
+            "nRaw": 18
+          },
+          {
+            "id": "210",
+            "nRaw": 18
+          },
+          {
+            "id": "212",
+            "nRaw": 18
+          },
+          {
+            "id": "209",
+            "nRaw": 24
+          },
+          {
+            "id": "213",
+            "nRaw": 17
+          }
+        ]
+      }
+    ]
+  },
+  "preservation": {
+    "publicTables": 83,
+    "unchangedTables": 81,
+    "changedTables": [
+      "provider_quotas",
+      "roster_catalogue_cache"
+    ],
+    "proMaps": 340,
+    "queueStatesUnchanged": true,
+    "rosterOrIdentityWrites": 0,
+    "scenarioOrForecastWrites": 0
+  },
+  "checks": {
+    "liveCases": 3,
+    "comparisonCalculations": 3,
+    "pageErrors": 0,
+    "newLogins": 0,
+    "protectedFiles": 245,
+    "originalModules": 150,
+    "migrations": 49,
+    "frozenRuntimeCompatible": true
+  },
+  "limitations": [
+    "Cached schedule and roster snapshots; no current attendance verification or schedule refresh",
+    "Exact upstream request count was not instrumented; provider quota/catalogue cache changed during initial preparation",
+    "No new unit/API/PG/Chromium test-suite run; live Playwright checks only",
+    "Initial helper reads preceded async completion; final rerun explicitly waited for preparation to finish",
+    "Desktop controller unavailable (Windows platform directory); installed local Playwright used",
+    "No release scoring or activation; low history is separate from the model quality gate"
+  ],
+  "next": "S2-01/role-owner-check/history-coverage: verified local players 234 (Norma) and 253 (Hyuga); preserve source identity and frozen V1. Release collection still starts 2026-11-20T00:00:00Z."
+}
