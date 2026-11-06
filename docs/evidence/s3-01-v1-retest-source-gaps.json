@@ -1,0 +1,357 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-retest-source-gaps-checkpoint-v1",
+  "task": "S3-01/V1-retest/source-gaps",
+  "checkedAt": "2026-11-06T20:24:18.569Z",
+  "status": "review_complete_collection_still_open",
+  "ownerDecision": "Point 3: analyze saved source gaps and contradictions without new provider calls or model evaluation.",
+  "collectionCheckpoint": {
+    "path": "docs/evidence/s3-01-v1-retest-collection.json",
+    "sha256": "35969c79d53cb0a60dab933a4662a80b288bb30859b2220775a6d6f681a396f8"
+  },
+  "sourceReport": {
+    "path": ".tools/v1-retest-collection-20261106/status-final.json",
+    "sha256": "b98448a00490749d5af75ebdcb0b147a9a69a5ee1701696b17faa9a2b65a0105"
+  },
+  "sourceAsOf": "2026-11-06T18:55:43.812Z",
+  "inputs": {
+    "collectionSha256": "916da747453e2bdb02bf58dc3c7b6aaa07991b20e214c5f9646bdbc98fd5378d",
+    "protocol": {
+      "path": "docs/evidence/s3-01-v1-retest-protocol.json",
+      "sha256": "14353a129616d4757638ca91916aeb356e3944b45cdb64ab56cb8e21238452f1"
+    },
+    "proofConfig": {
+      "path": ".tools/v1-historical-import-20261106/config.json",
+      "sha256": "6efb4721dd0fda8326be05a3e5914927043a9eebdd14182be58331b3d2c9d7de"
+    },
+    "registry": {
+      "path": ".tools/v1-historical-import-20261106/registry.json",
+      "sha256": "fadcd4fe8aa8268a8344ff6a299892c61bf2f6e4b013a9977f1d91b7f17fb4bf"
+    }
+  },
+  "findings": {
+    "sourceSummary": {
+      "observedMaps": 967,
+      "capturedTargetMaps": 967,
+      "deferredTargetMaps": 0,
+      "settledTargetMaps": 967,
+      "sourceEligibleMaps": 961,
+      "priorExposedMaps": 297,
+      "unexposedMaps": 670,
+      "unexposedKnownSeries": 333,
+      "sourceHistoryReadyMaps": 669,
+      "currentIdentityReadyMaps": 658,
+      "provisionalReadyMaps": 652,
+      "historyJobs": 24,
+      "missingHistoryJobs": 0,
+      "discoveredHistoryMaps": 334,
+      "capturedHistoryMaps": 309,
+      "invalidHistoryMaps": 11,
+      "pendingHistoryMaps": 25,
+      "deferredHistoryMaps": 0
+    },
+    "queryDetailConflicts": 0,
+    "targetIdentity": {
+      "distinctAccounts": 120,
+      "unresolvedAccounts": 6,
+      "mapsAffected": 12,
+      "savedNumericProofs": 5,
+      "mapsWithLocallyRecoverableIdentityGap": 10,
+      "proofMissing": {
+        "accountId": "103812784",
+        "targetMaps": [
+          "8719206511",
+          "8719282248"
+        ],
+        "knownSeries": "1071797"
+      },
+      "scope": "Current canonical snapshot plus saved registry/profile references from the historical import config; not an exhaustive search of all providers."
+    },
+    "historyMinimum": [
+      {
+        "matchId": "8693723587",
+        "seriesId": "1065279",
+        "accountId": "172099728",
+        "priorCount": 4,
+        "priorMapIds": [
+          "8653426326",
+          "8669248491",
+          "8669345323",
+          "8669433999"
+        ],
+        "pendingQueriedHistoryMaps": [
+          "8670814187",
+          "8670889688",
+          "8670959477",
+          "8671707286",
+          "8671820075",
+          "8671894019"
+        ],
+        "queryRows": 10
+      }
+    ],
+    "unknownSeries": {
+      "allCapturedTargets": 6,
+      "unexposedTargets": 4,
+      "maps": [
+        {
+          "matchId": "8706393740",
+          "leagueId": "19269",
+          "reasons": [
+            "SERIES_ID_REQUIRED"
+          ]
+        },
+        {
+          "matchId": "8741939284",
+          "leagueId": "19422",
+          "reasons": [
+            "SERIES_ID_REQUIRED"
+          ]
+        },
+        {
+          "matchId": "8818365999",
+          "leagueId": "19696",
+          "reasons": [
+            "SERIES_ID_REQUIRED"
+          ]
+        },
+        {
+          "matchId": "8821169334",
+          "leagueId": "19696",
+          "reasons": [
+            "SERIES_ID_REQUIRED"
+          ]
+        }
+      ],
+      "action": "Retain in coverage denominator, exclude with reason under the registered policy; no inferred series IDs."
+    },
+    "invalidHistory": {
+      "maps": 11,
+      "reasons": {
+        "SERIES_ID_REQUIRED": 11,
+        "TEAM_CONTEXT_REQUIRED": 11
+      },
+      "queryDetailConflicts": 0
+    },
+    "pendingHistory": {
+      "maps": 25,
+      "allNotAttempted": true,
+      "alreadyCached": 0,
+      "alreadyCanonical": 0,
+      "resumeNotBeforeAt": "2026-11-07T00:00:00.001Z"
+    },
+    "capturedAccountProofCoverage": {
+      "accounts": 372,
+      "unresolved": 92,
+      "unresolvedWithSavedProof": 47,
+      "unresolvedWithoutSavedProof": 45,
+      "conflicts": 0
+    },
+    "identityImpact": {
+      "status": "diagnostic_only_not_canonical_eligibility",
+      "sourceValidMapsMissingProof": 33,
+      "historyMapsMissingProof": 31,
+      "targetMapsMissingProof": 2,
+      "belowMinimumWithSavedProofs": [
+        {
+          "matchId": "8693723587",
+          "seriesId": "1065279",
+          "sourceMin": 4,
+          "availableProofMin": 4,
+          "accounts": [
+            "172099728"
+          ]
+        },
+        {
+          "matchId": "8719206511",
+          "seriesId": "1071797",
+          "sourceMin": 7,
+          "availableProofMin": 0,
+          "accounts": [
+            "103812784"
+          ]
+        },
+        {
+          "matchId": "8719282248",
+          "seriesId": "1071797",
+          "sourceMin": 8,
+          "availableProofMin": 0,
+          "accounts": [
+            "103812784"
+          ]
+        }
+      ],
+      "limitation": "All other source-valid maps retained provisionally; canonical outcome, series and identity validation has not been executed for this collection."
+    },
+    "unusedV1Fields": {
+      "missingDraftActions": 7,
+      "missingPatchLabel": 0,
+      "missingLaneRoleHint": 0,
+      "effect": "No V1 veto: draft, patch and roles are unused. A lane_role hint does not verify Pos 1-5."
+    },
+    "events": [
+      {
+        "leagueId": "19099",
+        "name": "BLAST SLAM VI",
+        "targetMaps": 54,
+        "provisionalSourceReady": 54
+      },
+      {
+        "leagueId": "19269",
+        "name": "DreamLeague Season 28",
+        "targetMaps": 155,
+        "provisionalSourceReady": 142
+      },
+      {
+        "leagueId": "19435",
+        "name": "PGL Wallachia 2026 Season 7",
+        "targetMaps": 83,
+        "provisionalSourceReady": 81
+      },
+      {
+        "leagueId": "19422",
+        "name": "ESL One Birmingham 2026",
+        "targetMaps": 86,
+        "provisionalSourceReady": 85
+      },
+      {
+        "leagueId": "19543",
+        "name": "PGL Wallachia 2026 Season 8",
+        "targetMaps": 86,
+        "provisionalSourceReady": 86
+      },
+      {
+        "leagueId": "19696",
+        "name": "DreamLeague Season 29",
+        "targetMaps": 141,
+        "provisionalSourceReady": 139
+      },
+      {
+        "leagueId": "19101",
+        "name": "BLAST SLAM VII",
+        "targetMaps": 65,
+        "provisionalSourceReady": 65
+      }
+    ]
+  },
+  "actions": [
+    {
+      "order": 1,
+      "task": "S3-01/V1-retest/collection",
+      "action": "Resume the existing 25 pending history jobs after quota reset; preserve scope, attempt limits and deadline."
+    },
+    {
+      "order": 2,
+      "task": "S3-01/V1-retest/canonical-import",
+      "action": "Verify and reuse saved numeric proofs; prioritize missing proof for account 103812784 and inspect actual canonical coverage. No nickname matching or per-player code fixes."
+    },
+    {
+      "order": 3,
+      "task": "S3-01/V1-retest/canonical-import",
+      "action": "If gaps remain, keep explicit unavailable maps and whole-series exclusions. Additional source evidence requires its own bounded, timestamped capture; no silent correction of the current collection."
+    },
+    {
+      "order": 4,
+      "task": "S3-01/V1-retest/executable-freeze",
+      "action": "After final canonical reconciliation, freeze separately and run the registered independent evaluation once."
+    }
+  ],
+  "policy": {
+    "sample": {
+      "minMaps": 100,
+      "minSeries": 40,
+      "minMapCoverage": 0.8,
+      "minKnownSeriesCoverage": 0.8,
+      "mapCoverageDenominator": "all_unexposed_target_ids_including_pending_or_ineligible_metadata",
+      "seriesCoverageDenominator": "all_unexposed_target_known_series_including_ineligible",
+      "identityCoverageWithinScoredMaps": 1
+    },
+    "qualityPolicySha256": "f13ddd38c451fa53bae4f37ffaeea4c2ac852a4d50cb7cdd1156f53175737d4b",
+    "changed": false,
+    "firstFailedEvaluationPreserved": true
+  },
+  "checks": {
+    "sourceReplay": "PASS",
+    "independentRawCrosscheck": "PASS",
+    "offlineIdentityImpact": "PASS",
+    "migrationChecksums": {"status": "PASS", "count": 49},
+    "relativeMarkdownLinks": "PASS",
+    "secretAndPrivatePathScan": "PASS",
+    "publicTablesUnchanged": 83,
+    "canonicalMaps": 939,
+    "queueUnchanged": true,
+    "collectionFilesUnchanged": 2632,
+    "protectedArtifacts": 245,
+    "firstFrozenAndCurrentCodeFiles": 373,
+    "activeModels": 0,
+    "health": {
+      "api": 200,
+      "web": 200
+    },
+    "implementationRegression": "Not rerun: analysis and documentation only; production code, SQL and dependencies unchanged."
+  },
+  "artifacts": [
+    {
+      "path": ".tools/v1-retest-source-gaps-20261106/review.json",
+      "sha256": "05022a153117bc8d4704e98c4f7d82f7f2d22d4bd3af0a224c0c44d324d3460a"
+    },
+    {
+      "path": ".tools/v1-retest-source-gaps-20261106/crosscheck.json",
+      "sha256": "ddc9133106123907cdfc928bcc09dcf5e03af8876866f93a4675dd99c212e6b1"
+    },
+    {
+      "path": ".tools/v1-retest-source-gaps-20261106/identity-impact.json",
+      "sha256": "dcf1c85c3c26380d6975d6c701dc958fe35f439a4f4085689332c3c33dc1adbc"
+    },
+    {
+      "path": ".tools/v1-retest-source-gaps-20261106/before.json",
+      "sha256": "2c8d63ce2d9afadd325a0d9605aac622c7d96df0f3df1046b6d3c7cd902cc7fb"
+    },
+    {
+      "path": ".tools/v1-retest-source-gaps-20261106/after.json",
+      "sha256": "45575317448eaea9c008ccce498ca3f7c7047e8377e3280b7aff502720bc38af"
+    }
+  ],
+  "localAuditCode": [
+    {
+      "path": ".tools/review-v1-retest-source-gaps.mjs",
+      "sha256": "38a7fec180718ced5fe3a0888374d74442574d791c404a849789d94704a2aefd"
+    },
+    {
+      "path": ".tools/crosscheck-v1-retest-source-gaps.mjs",
+      "sha256": "3eacf082ebd3c24ef779cd734766510355090c8b9de02441b2625f250c2d9d03"
+    },
+    {
+      "path": ".tools/project-v1-retest-source-gaps.mjs",
+      "sha256": "19d563d565aca93c6251049dba1050436126f30f3f095ba03e0b18e53f401a45"
+    },
+    {
+      "path": ".tools/audit-v1-retest-source-gaps.mjs",
+      "sha256": "b542a8e9dcf6ff5b54a8074bdb0432a92f96dc9ba31687162d2481bdd2ccac9f"
+    }
+  ],
+  "commandsExecuted": [
+    "node .tools/review-v1-retest-source-gaps.mjs",
+    "node .tools/crosscheck-v1-retest-source-gaps.mjs",
+    "node .tools/project-v1-retest-source-gaps.mjs",
+    "node --env-file-if-exists=.env .tools/audit-v1-retest-source-gaps.mjs before",
+    "node --env-file-if-exists=.env .tools/audit-v1-retest-source-gaps.mjs after",
+    "node scripts/check-doc-links.mjs",
+    "node scripts/verify-migrations.mjs",
+    "node --env-file-if-exists=.env .tools/checkpoint-audit.mjs"
+  ],
+  "runtimeEffects": {
+    "providerRequests": 0,
+    "workingDatabaseWrites": 0,
+    "collectionClosed": false,
+    "liveImportedMaps": 0,
+    "scoring": 0,
+    "activatedModels": 0,
+    "servicesRestarted": false
+  },
+  "evaluationPerformed": false,
+  "metrics": null,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "nextTask": "S3-01/V1-retest/collection"
+}

@@ -2395,3 +2395,13 @@ Checks PASS: 73 tests across six PostgreSQL suites (six retest cases), offline f
 Before/after audit: 83 working tables / 939 maps / queue / 2632 collection files unchanged; 245 protected artifacts / 373 frozen+current code files preserved, active models 0, API/Web 200. No additional test DB remains; pre-existing test DBs retained. No provider HTTP, working import, scoring, activation or service restart. Real closed-collection CLI import/export and full API/browser/Python/Docker/Linux suites remain unexecuted in this slice. [Evidence](evidence/s3-01-v1-retest-import-isolated-validation.json), [guide](S3_01_V1_RETEST_IMPORT_PREPARATION.md).
 
 Next exact: **S3-01/V1-retest/collection** — remaining 25 history maps after 7 November 03:00 MSK, then closure and import. **GPT-6 Astra · Extra High**.
+
+### 2026-11-06 — S3-01/V1-retest/source-gaps
+
+Owner selected point 3: offline review of saved source gaps. Replayed the saved journal exactly; independently checked raw SHA/slots/numeric proof relations/query-detail consistency. 652/670 targets provisionally source-ready; 18 blocked. Six canonical account gaps affect 12 targets; five proofs already saved (10 maps), one missing proof for 103812784 (two maps). One map has four prior maps, affecting both maps of its series; six pending history details may resolve it if validated. Four unexposed targets lack series; 11 history maps lack team/series metadata, with no observed query/detail conflicts.
+
+Across 372 captured accounts: 92 unresolved canonical links, 47 with saved proof and 45 without. Diagnostic exclusion removes 31 history and two target maps; no extra below-five cases among other target players. This is not final canonical eligibility, evaluation or a reason to tune policy. Denominators, scope and prior failed evaluation preserved. No per-player code fixes or provider calls.
+
+Checks PASS: exact source replay, independent raw crosscheck and read-only before/after preservation of 83 public tables / 939 maps / queue / 2632 collection files / 245 protected artifacts / 373 frozen+current code entries. Active models 0, API/Web 200. No production code, SQL, dependency or source edits. Implementation suites were not rerun for this analysis-only slice; prior test results are linked, not relabelled. An automatic approval service usage-limit interruption occurred before creating the identity-impact helper; after owner continuation the action completed normally. [Review](S3_01_V1_RETEST_SOURCE_GAPS.md), [evidence](evidence/s3-01-v1-retest-source-gaps.json).
+
+Next exact: **S3-01/V1-retest/collection** — remaining 25 history maps after 7 November 03:00 MSK, then canonical import/reconciliation. Suggested model: **GPT-6 Astra · Extra High**.
