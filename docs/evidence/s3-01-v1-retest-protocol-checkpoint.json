@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-retest-protocol-checkpoint-v1",
+  "task": "S3-01/V1-retest/protocol",
+  "checkedAt": "2026-11-06T16:36:11.324Z",
+  "status": "protocol_registered_collection_pending",
+  "protocol": {
+    "path": "docs/evidence/s3-01-v1-retest-protocol.json",
+    "sha256": "14353a129616d4757638ca91916aeb356e3944b45cdb64ab56cb8e21238452f1"
+  },
+  "protocolFingerprint": "0d1518cc6446685ddabb4afb880fae72821e93c4aa8444ab1cdb834d853168a9",
+  "registeredAt": "2026-11-06T16:27:26.589Z",
+  "inputs": {
+    "path": ".tools/v1-retest-protocol-20261106/inputs.json",
+    "sha256": "df251694f13f300ef0865b7a10a70c0422ac3e506d8e41910ba8f7760e58cbe9"
+  },
+  "localAccessAudit": {
+    "path": ".tools/v1-retest-protocol-20261106/local-access-audit.json",
+    "sha256": "b2180160dc25d9e77cffdb814b863f39c53ccb4e34e2a6d81e68867d356aa644"
+  },
+  "summary": {
+    "observed": {
+      "maps": 967,
+      "knownSeries": 490
+    },
+    "priorExposed": {
+      "maps": 297,
+      "knownSeries": 157
+    },
+    "metadataCandidates": {
+      "maps": 666,
+      "knownSeries": 333
+    },
+    "unresolved": {
+      "maps": 4,
+      "knownSeries": 0
+    },
+    "outOfWindow": {
+      "maps": 0,
+      "knownSeries": 0
+    },
+    "missingSeriesMaps": 6
+  },
+  "denominator": {
+    "maps": 670,
+    "knownSeries": 333,
+    "unknownSeriesMaps": 4
+  },
+  "collection": {
+    "historyWarmupFromAt": "2024-01-01T00:00:00.000Z",
+    "historyRequestBeforeAt": "2026-02-01T00:00:00.000Z",
+    "historyWindowDays": 730,
+    "historyMaxMapsPerAccount": 10,
+    "maxMaps": 5000,
+    "maxDetailAttemptsPerMap": 3,
+    "maxRequestsPerRun": 50,
+    "collectionDeadline": "2026-11-13T00:00:00.000Z",
+    "stop": "all_work_terminal_or_deadline",
+    "evaluation": "one_after_terminal_collection_and_verified_freeze",
+    "missingTargets": "retain_in_coverage_denominator",
+    "historySelection": "latest_completed_before_global_cutoff_numeric_account_groups_of_five",
+    "perMapFeatureCutoff": "completed_at_strictly_before_target_start",
+    "extendAfterScoring": false,
+    "automaticActivation": false
+  },
+  "qualityPolicySha256": "f13ddd38c451fa53bae4f37ffaeea4c2ac852a4d50cb7cdd1156f53175737d4b",
+  "previousAttempt": {
+    "protocolSha256": "80e27f796ff1f97d47422d7120d090dec7dddf7b3df4e88855230e7b62a75739",
+    "protocolFingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1",
+    "freezeSha256": "0b632fecd6db7860937e3c94923b20ce24d891cf22bc4a864b442557a7bbaf34",
+    "startedSha256": "cee03fbf08dfe53463f6f1f50756774b4b9a25d6e2e5f4cf3e73b7584debd450",
+    "reportSha256": "bef9a6915c960cef621d028327aef19d1e302a48c7cec355373a348d98bc219c",
+    "reportFingerprint": "f5298c14dd158e1be1b15a482222e64e1bc7d77602299b6e4ac30ac399c1c25a",
+    "registrySha256": "683cef6993cb37de8b46a06301b854c8ba0d3d1106fa3e22a56e8273f3bd95d1",
+    "firstScoringAt": "2026-11-06T15:38:52.181Z",
+    "qualityDecision": "failed",
+    "preserved": true
+  },
+  "previousReplay": {
+    "path": ".tools/v1-retest-protocol-20261106/previous-replay.log",
+    "sha256": "8b0449b0dfe065b047e02ed76e426a149becec3b7eaf5f2d3dd043297cf296ef"
+  },
+  "previousReplayResult": {
+    "status": "historical_evaluation_replayed",
+    "qualityDecision": "failed",
+    "reportFingerprint": "f5298c14dd158e1be1b15a482222e64e1bc7d77602299b6e4ac30ac399c1c25a",
+    "releaseGatePassed": false,
+    "deployable": false,
+    "teamAWinProbability": null
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 892,
+      "execution": "pnpm --recursive --workspace-concurrency=1 --if-present test --maxWorkers=1"
+    },
+    "node": {
+      "status": "PASS",
+      "count": 181,
+      "newCases": 10,
+      "execution": "node --test --test-concurrency=1 tests/node/*.test.mjs"
+    },
+    "registration": "PASS",
+    "protocolReplay": "PASS",
+    "repeatCreate": {
+      "status": "EXPECTED_REFUSAL",
+      "code": "OUTPUT_EXISTS",
+      "exitCode": 1,
+      "originalShaUnchanged": true
+    },
+    "protectedArtifacts": 245,
+    "firstFrozenAndCurrentCodeFiles": 373,
+    "firstEvaluationHashesUnchanged": true,
+    "publicTables": 83,
+    "changedTables": [],
+    "queueUnchanged": true,
+    "activeModels": 0,
+    "health": {
+      "api": 200,
+      "web": 200
+    }
+  },
+  "runtimeEffects": {
+    "providerRequests": 0,
+    "importedMaps": 0,
+    "newScoring": 0,
+    "workerStarted": false,
+    "servicesRestarted": false,
+    "activatedModels": 0
+  },
+  "limitations": [
+    "v2 collector adapter and runtime attempt/deadline/terminal enforcement remain the next task; existing v1 collector safely rejects v2.",
+    "Metadata availability is not verified ten-account/pro-outcome/history coverage; remote completeness remains unknown.",
+    "No prospective accuracy/familywise95 claim; earlier failed test retained; no best-result selection.",
+    "PG integration/browser/Python/Docker/Linux suites not rerun: no persistence/API/UI/dependency changes."
+  ],
+  "nextTask": "S3-01/V1-retest/collection"
+}
