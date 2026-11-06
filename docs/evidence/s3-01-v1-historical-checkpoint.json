@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-historical/protocol",
+  "checkedAt": "2026-11-06T13:30:49.316Z",
+  "status": "protocol_registered_metadata_review_complete",
+  "protocolFingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1",
+  "registeredAt": "2026-11-06T13:15:58.455Z",
+  "files": [
+    {
+      "path": "docs/evidence/s3-01-v1-historical-request.json",
+      "sha256": "0e9665a622a879281c2122c1922c4bc4c104bd046332a2a89949e89ee23cf204"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-historical-protocol.json",
+      "sha256": "80e27f796ff1f97d47422d7120d090dec7dddf7b3df4e88855230e7b62a75739"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-historical-discovery.json",
+      "sha256": "c410f59bc54d413e474cff8b0af267a94ab1c1452d5ce092ede5fcd84cec9628"
+    },
+    {
+      "path": "docs/evidence/s3-01-v1-historical-live-audit.json",
+      "sha256": "f4ec1211fda8706ec24e30f321929ba66e7710ff6181df4f65932de6b14960be"
+    }
+  ],
+  "privateReplayInputs": {
+    "configSha256": "ee17928194467ac460c68ab6518fee985d4e1a89a6ee7626a92f67856d1d3017",
+    "captureConfigSha256": "3d790e258d06ffcbb045481c49886b4d46b8a6154643b5e004518baad3953455",
+    "exposureSha256": "e84b23d5ff11fd323334fe42509a621f79561cc2dc43a33c665f969de8e75ebb",
+    "fileManifestSha256": "1ebd8f2ecb860ca1f3a0906eac051e35197b0f4fa4461cd946f893a0d4c641c3",
+    "databaseBeforeSha256": "c380ad56e448ddf3ee7adbc271ac4c3256b596156288dbc2bb0d84b2650c8230",
+    "databaseAfterSha256": "aaee559db102b41834ec6ec60486fac5885d6bc0d3fc287403aa453a8ae88ad0"
+  },
+  "exposure": {
+    "fileCount": 1511,
+    "fileBytes": 371615009,
+    "blockedNumericTokens": 40625,
+    "knownOpendotaSeries": 174,
+    "unparsedBodies": 4,
+    "limitations": [
+      "Bounded local repository captures/evidence plus working database; not proof of zero external or human exposure.",
+      "Conservative 8-11 digit numeric tokens supplement explicit match IDs; a token hit excludes the whole series without examining model error.",
+      "Only explicitly OpenDota-tagged provider series IDs are used; untagged or other-provider series numbers are not merged.",
+      "Runtime/binary/backup/auth/private directories and files are excluded as listed in the hashed local file manifest.",
+      "4 files remain non-JSON (HTML/errors/command output); their decoded numeric tokens are included.",
+      "Public historical tournament results can be known; no candidate model errors or comparative metrics on the new cohort have been computed.",
+      "Previous team-history discovery overrepresents some teams; exclusions may make the resulting cohort unrepresentative of all Tier1 teams."
+    ]
+  },
+  "summary": {
+    "observedMaps": 261,
+    "targetWindowMaps": 261,
+    "knownSeries": 106,
+    "priorExposedMaps": 116,
+    "priorExposedSeries": 46,
+    "unexposedObservedMaps": 145,
+    "unexposedTargetMaps": 145,
+    "metadataCandidateMaps": 145,
+    "metadataCandidateSeries": 60,
+    "unresolvedMaps": 0
+  },
+  "events": [
+    {
+      "eventKey": "the-international-2026-main",
+      "leagueId": "19719",
+      "observedMaps": 147,
+      "knownSeries": 58,
+      "unknownSeriesMaps": 1,
+      "excludedMaps": 77,
+      "excludedKnownSeries": 30,
+      "metadataCandidateMaps": 70,
+      "metadataCandidateSeries": 28
+    },
+    {
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "leagueId": "20279",
+      "observedMaps": 114,
+      "knownSeries": 48,
+      "unknownSeriesMaps": 1,
+      "excludedMaps": 39,
+      "excludedKnownSeries": 16,
+      "metadataCandidateMaps": 75,
+      "metadataCandidateSeries": 32
+    }
+  ],
+  "sourceAudit": {
+    "sample": 3,
+    "confirmedPro": 3,
+    "completedOutcomes": 3,
+    "tenDistinctSourceAccounts": 3,
+    "canonicalIdentitiesVerified": false,
+    "fullTargetEligibilityVerified": false
+  },
+  "providerHttp": {
+    "attempts": 7,
+    "status200": 7,
+    "retries": 0,
+    "discovery": 2,
+    "standardSourceAudit": 5
+  },
+  "database": {
+    "tables": 83,
+    "unchangedTables": 82,
+    "changedTables": [
+      "provider_quotas"
+    ],
+    "maps": 340,
+    "queueUnchanged": true
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitTests": 889,
+    "nodeTests": 136,
+    "newHistoricalNodeTests": 12,
+    "protectedFiles": 245,
+    "originalCompiledModules": 150,
+    "oldFrozenBundle": "PASS",
+    "runtimeCompatibility": "PASS",
+    "apiPgBrowserSuites": "not_rerun_cli_only_change",
+    "linuxDockerPython": "not_run"
+  },
+  "evaluationPerformed": false,
+  "executableFreezeRegistered": false,
+  "registryCompatible": false,
+  "modelRegistered": false,
+  "modelActivated": false,
+  "teamAWinProbability": null,
+  "nextTask": "S3-01/V1-historical/collection",
+  "nextScope": "resumable sources, full series closure, current numeric identity binding, earlier pro history and eligibility/coverage before scoring"
+}

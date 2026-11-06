@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-historical-protocol-v1",
+  "registeredAt": "2026-11-06T13:15:58.455Z",
+  "request": {
+    "schemaVersion": 1,
+    "protocolKey": "tier1-historical-ti26-wallachia9-20261106",
+    "evaluationBasis": "conditional_retrospective_unexposed_series",
+    "warmupFromAt": "2024-01-01T00:00:00.000Z",
+    "eventCutoffAt": "2026-11-01T00:00:00.000Z",
+    "maxInventoryMaps": 5000,
+    "baseQualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+    "catalogueSha256": "aa78ad03391647371923135504f184741fbc350c73b44038e3de592290112033",
+    "exposureSha256": "e84b23d5ff11fd323334fe42509a621f79561cc2dc43a33c665f969de8e75ebb",
+    "exposureAcknowledgement": "bounded_local_audit_not_global_blindness_proof",
+    "events": [
+      {
+        "eventKey": "the-international-2026-main",
+        "name": "The International 2026",
+        "provider": "opendota",
+        "leagueId": "19719",
+        "catalogueName": "The International 2026",
+        "stage": "main_event",
+        "fromAt": "2026-08-01T00:00:00.000Z",
+        "until": "2026-09-01T00:00:00.000Z",
+        "tierDecision": {
+          "basis": "reviewed_event_scope",
+          "sourceUrl": "https://store.steampowered.com/news/posts/?appids=570",
+          "reviewedAt": "2026-11-06T13:13:04.470Z",
+          "rationale": "Explicit Tier1 review: Valve international championship,16 teams,August2026 group stage and August20-23 arena playoffs. Full August is a conservative UTC selection window for the main league; regional qualifiers are separate IDs/outside this window. Public news results are acknowledged; no Elo performance used for event selection."
+        },
+        "scheduleSourceUrl": "https://store.steampowered.com/news/posts/?appids=570"
+      },
+      {
+        "eventKey": "pgl-wallachia-season-9-2026-main",
+        "name": "PGL Wallachia 2026 Season 9",
+        "provider": "opendota",
+        "leagueId": "20279",
+        "catalogueName": "PGL Wallachia 2026 Season 9",
+        "stage": "main_event",
+        "fromAt": "2026-09-18T00:00:00.000Z",
+        "until": "2026-09-29T00:00:00.000Z",
+        "tierDecision": {
+          "basis": "reviewed_event_scope",
+          "sourceUrl": "https://www.pglesports.com/dota2/wallachia-s9-2026/",
+          "reviewedAt": "2026-11-06T13:13:04.470Z",
+          "rationale": "Explicit Tier1 review: PGL international16-team main event in Bucharest,announced September19-27,2026,Swiss plus double-elimination. Selection window includes one UTC calendar day either side; template result widgets are not used as Dota match evidence. Qualifiers excluded. No Elo performance used for selection."
+        },
+        "scheduleSourceUrl": "https://www.pglesports.com/dota2/wallachia-s9-2026/"
+      }
+    ],
+    "earlierProtocolsUse": "archive_or_separate_monitoring_no_best_result_selection"
+  },
+  "catalogueEvidence": {
+    "provider": "opendota",
+    "endpoint": "/leagues",
+    "fetchedAt": "2026-11-06T12:32:23.631Z",
+    "knownAt": null,
+    "payloadSha256": "517195e47af370b46a0f7992095a025c6f31eca9af09a024cf0bcc9125e239b4"
+  },
+  "catalogueContentFingerprint": "3891b2a6c3b28b95508651b4c770aa836e7fd3fda1a322987f060b8b42c8c755",
+  "exposure": {
+    "capturedAt": "2026-11-06T13:13:04.385Z",
+    "contentFingerprint": "6951bee5a6e6d3264259ee08b29c4f497a0491647c7efff682b255ac9dc71220",
+    "fileManifestSha256": "1ebd8f2ecb860ca1f3a0906eac051e35197b0f4fa4461cd946f893a0d4c641c3",
+    "databaseSnapshotSha256": "c380ad56e448ddf3ee7adbc271ac4c3256b596156288dbc2bb0d84b2650c8230",
+    "declaredFileCount": 1511,
+    "blockedMatchIds": 40625,
+    "knownOpendotaSeries": 174,
+    "limitations": [
+      "Bounded local repository captures/evidence plus working database; not proof of zero external or human exposure.",
+      "Conservative 8-11 digit numeric tokens supplement explicit match IDs; a token hit excludes the whole series without examining model error.",
+      "Only explicitly OpenDota-tagged provider series IDs are used; untagged or other-provider series numbers are not merged.",
+      "Runtime/binary/backup/auth/private directories and files are excluded as listed in the hashed local file manifest.",
+      "4 files remain non-JSON (HTML/errors/command output); their decoded numeric tokens are included.",
+      "Public historical tournament results can be known; no candidate model errors or comparative metrics on the new cohort have been computed.",
+      "Previous team-history discovery overrepresents some teams; exclusions may make the resulting cohort unrepresentative of all Tier1 teams."
+    ]
+  },
+  "qualityPolicy": {
+    "version": "conditional-elo-tier1-historical-v1",
+    "model": {
+      "initialRating": 1500,
+      "k": 32,
+      "scale": 400,
+      "sideAdvantage": false,
+      "fittedCalibrator": false,
+      "tuningOnTest": "forbidden",
+      "featureProfile": "player-mean-elo-completed-strict-v1"
+    },
+    "history": {
+      "minCompletedProMapsPerPlayer": 5,
+      "playerCount": 10,
+      "minDistinctPlayers": 10,
+      "organizations": "all_verified_pro",
+      "unusedFields": [
+        "patch",
+        "roles",
+        "heroes",
+        "draft_order",
+        "first_pick",
+        "pubs",
+        "cohesion"
+      ],
+      "cutoff": "completed_at_strictly_before_target_start",
+      "outcomeAvailability": "event_time_assumed",
+      "identity": "current_verified_same_numeric_account",
+      "replay": "chronological_prequential",
+      "simultaneousCompletionOrder": "completed_at_then_numeric_match_id",
+      "update": "equal_K_delta_for_each_player_against_opposing_mean",
+      "historyUniverse": "all_eligible_maps_in_frozen_inventory_since_warmupFromAt",
+      "coldStart": "history_updates_allowed_but_target_prediction_unavailable"
+    },
+    "selection": {
+      "unit": "one_map",
+      "target": "all_observed_unexposed_whole_series_in_registered_event_windows",
+      "series": "whole_known_series_no_crossing_windows_no_missing_siblings",
+      "unknownSeries": "exclude_with_reason",
+      "unrelatedOverlappingSeries": "allowed_with_strict_completed_history",
+      "overflow": "fail_without_truncation",
+      "candidateLedger": "every_discovered_id_has_a_frozen_disposition",
+      "failuresInCoverageDenominator": true,
+      "remoteCompleteness": "report_unknown_unless_demonstrated",
+      "externalAccounts": "no_nickname_merge",
+      "baselineAndCandidateUseIdenticalMaps": true
+    },
+    "sample": {
+      "minMaps": 100,
+      "minSeries": 40,
+      "minMapCoverage": 0.8,
+      "minKnownSeriesCoverage": 0.8,
+      "mapCoverageDenominator": "all_unexposed_target_ids_including_pending_or_ineligible_metadata",
+      "seriesCoverageDenominator": "all_unexposed_target_known_series_including_ineligible",
+      "identityCoverageWithinScoredMaps": 1
+    },
+    "scoring": {
+      "orientation": "teamA_is_lower_numeric_canonical_team_id",
+      "aggregation": "equal_weight_per_map",
+      "baselineProbability": 0.5,
+      "baselineBrier": 0.25,
+      "baselineLogLoss": 0.6931471805599453,
+      "logBase": "natural",
+      "logLossClip": 1e-15,
+      "maxBrier": 0.245,
+      "maxLogLoss": 0.685,
+      "maxBrierDeltaUpper95": 0,
+      "maxLogLossDeltaUpper95": 0,
+      "deltaUpperComparison": "strictly_less"
+    },
+    "calibration": {
+      "bins": [
+        0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1
+      ],
+      "intervals": "left_closed_right_open_last_closed",
+      "emptyBinRate": null,
+      "aggregation": "sum_bin_n_over_total_times_abs_mean_probability_minus_win_rate",
+      "maxEce": 0.08,
+      "maxEceUpper95": 0.15,
+      "maxAbsoluteMeanProbabilityMinusWinRate": 0.05,
+      "reportPerBinSample": true,
+      "fitOnTest": "forbidden"
+    },
+    "uncertainty": {
+      "method": "paired_whole_series_percentile_bootstrap",
+      "resamples": 10000,
+      "seed": 20261102,
+      "rng": "mulberry32_uint32",
+      "seriesOrder": "provider_then_numeric_series_id",
+      "sampleSize": "observed_series_count_with_replacement",
+      "statistic": "map_weighted_no_refit_or_replay",
+      "upperQuantile": 0.95,
+      "quantile": "sorted_linear_interpolation_index_(n-1)*q",
+      "scope": "conditional_on_observed_events_and_history_cross_series_dependence_not_removed"
+    },
+    "stability": {
+      "partition": "series_ordered_by_first_start_then_key_first_floor_half_vs_remainder",
+      "minMapsPerHalf": 25,
+      "minSeriesPerHalf": 10,
+      "maxBrierDeltaPerHalf": 0.02,
+      "maxLogLossDeltaPerHalf": 0.04
+    },
+    "decision": {
+      "allChecksRequired": true,
+      "insufficientSampleOrCoverage": "insufficient_evidence",
+      "missingOrNonFiniteMetric": "unavailable",
+      "metricFailure": "failed",
+      "successfulEvaluation": "eligible_for_separate_activation_review",
+      "probabilityUntilActivation": null,
+      "automaticActivation": false,
+      "extendWindowAfterResults": false,
+      "lowerThresholdsAfterResults": false,
+      "corrections": "new_revision_keep_first_evaluation",
+      "retest": "new_preregistered_untouched_cohort",
+      "executableFreeze": "before_first_model_scoring_with_historical_protocol_and_exposure_manifest",
+      "prospectiveAccuracyClaim": false,
+      "generalization": "pilot_scope_not_universal_tier1_accuracy"
+    }
+  },
+  "qualityPolicySha256": "f13ddd38c451fa53bae4f37ffaeea4c2ac852a4d50cb7cdd1156f53175737d4b",
+  "independence": {
+    "basis": "before_model_scoring_not_before_historical_event",
+    "selection": "exclude_whole_series_if_any_prior_map_or_provider_series_exposed",
+    "publicHistoricalResultsMayBeKnown": true,
+    "sourceAuditMayInspectStructureButNotModelErrors": true,
+    "noTuningOrFittedCalibration": true,
+    "additionalExclusionsAfterScoring": "forbidden",
+    "unknownSeries": "pending_until_detail_binding_not_silently_clean",
+    "coverageIncludesNonExposureQualityFailures": true,
+    "exposureExclusionsReportedSeparately": true
+  },
+  "status": "historical_protocol_registered_not_evaluated",
+  "syntheticOnly": false,
+  "executableFreezeRegistered": false,
+  "registryCompatible": false,
+  "evaluation": null,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "fingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1"
+}

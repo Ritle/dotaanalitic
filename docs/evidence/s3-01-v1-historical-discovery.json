@@ -1,0 +1,3672 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-historical-discovery-review-v1",
+  "protocolFingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1",
+  "checkedAt": "2026-11-06T13:16:52.498Z",
+  "sources": [
+    {
+      "provider": "opendota",
+      "endpoint": "/leagues/19719/matches",
+      "fetchedAt": "2026-11-06T13:16:41.695Z",
+      "knownAt": null,
+      "payloadSha256": "dbcd5129747a7bb5f32847be497adebeb2624ba9c8a8c937c0a01b25f1f89736"
+    },
+    {
+      "provider": "opendota",
+      "endpoint": "/leagues/20279/matches",
+      "fetchedAt": "2026-11-06T13:16:42.611Z",
+      "knownAt": null,
+      "payloadSha256": "b0cdbfa0b0341178747fa1950c656f2cdb09a997a697e53df13ea8021ed1a680"
+    }
+  ],
+  "missingEvents": [],
+  "duplicates": 0,
+  "ledger": [
+    {
+      "matchId": "8942993144",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786590206,
+      "providerSeriesId": "1130024",
+      "radiantTeamId": "9247354",
+      "direTeamId": "10150538",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943000927",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786591134,
+      "providerSeriesId": "1130028",
+      "radiantTeamId": "10136357",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943010675",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786592010,
+      "providerSeriesId": "1130027",
+      "radiantTeamId": "5017210",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943013334",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786592330,
+      "providerSeriesId": "1130032",
+      "radiantTeamId": "8255888",
+      "direTeamId": "2586976",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943034557",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786594684,
+      "providerSeriesId": "1130024",
+      "radiantTeamId": "9247354",
+      "direTeamId": "10150538",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943038404",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786595088,
+      "providerSeriesId": "1130028",
+      "radiantTeamId": "10136357",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943053016",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786596660,
+      "providerSeriesId": "1130027",
+      "radiantTeamId": "9572001",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943055466",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786596926,
+      "providerSeriesId": "1130032",
+      "radiantTeamId": "2586976",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943072784",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786598736,
+      "providerSeriesId": "1130024",
+      "radiantTeamId": "9247354",
+      "direTeamId": "10150538",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943091110",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786600669,
+      "providerSeriesId": "1130045",
+      "radiantTeamId": "2163",
+      "direTeamId": "726228",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943097729",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786601346,
+      "providerSeriesId": "1130047",
+      "radiantTeamId": "9964962",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8943098449",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786601421,
+      "providerSeriesId": "1130027",
+      "radiantTeamId": "9572001",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943142948",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786605492,
+      "providerSeriesId": "1130053",
+      "radiantTeamId": "9823272",
+      "direTeamId": "10149530",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8943143428",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786605530,
+      "providerSeriesId": "1130051",
+      "radiantTeamId": "7119388",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8943148045",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786606106,
+      "providerSeriesId": "1130045",
+      "radiantTeamId": "726228",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943171995",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786607948,
+      "providerSeriesId": "1130047",
+      "radiantTeamId": "9467224",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8943182700",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786608823,
+      "providerSeriesId": "1130053",
+      "radiantTeamId": "9823272",
+      "direTeamId": "10149530",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8943200897",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786610497,
+      "providerSeriesId": "1130051",
+      "radiantTeamId": "8261500",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8943202720",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786610593,
+      "providerSeriesId": "1130060",
+      "radiantTeamId": "8255888",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943235603",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786612632,
+      "providerSeriesId": "1130063",
+      "radiantTeamId": "5017210",
+      "direTeamId": "10150538",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943244303",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786613552,
+      "providerSeriesId": "1130066",
+      "radiantTeamId": "10136357",
+      "direTeamId": "2586976",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943267925",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786615605,
+      "providerSeriesId": "1130069",
+      "radiantTeamId": "9247354",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943278347",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786615720,
+      "providerSeriesId": "1130060",
+      "radiantTeamId": "8255888",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943324841",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786618471,
+      "providerSeriesId": "1130066",
+      "radiantTeamId": "2586976",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943332564",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786618550,
+      "providerSeriesId": "1130063",
+      "radiantTeamId": "10150538",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943357930",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786620125,
+      "providerSeriesId": "1130060",
+      "radiantTeamId": "8255888",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943364918",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786620502,
+      "providerSeriesId": "1130069",
+      "radiantTeamId": "9247354",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943466067",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786624784,
+      "providerSeriesId": "1130063",
+      "radiantTeamId": "10150538",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8943477775",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786625439,
+      "providerSeriesId": "1130069",
+      "radiantTeamId": "9572001",
+      "direTeamId": "9247354",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944475884",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786672933,
+      "providerSeriesId": "1130278",
+      "radiantTeamId": "7119388",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944475901",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786672825,
+      "providerSeriesId": "1130279",
+      "radiantTeamId": "726228",
+      "direTeamId": "10149530",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944475950",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786672925,
+      "providerSeriesId": "1130281",
+      "radiantTeamId": "9823272",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944476051",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786672883,
+      "providerSeriesId": "1130282",
+      "radiantTeamId": "9964962",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944506550",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786675968,
+      "providerSeriesId": "1130282",
+      "radiantTeamId": "8261500",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944521792",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786677307,
+      "providerSeriesId": "1130278",
+      "radiantTeamId": "9467224",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944521919",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786677347,
+      "providerSeriesId": "1130279",
+      "radiantTeamId": "726228",
+      "direTeamId": "10149530",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944525313",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786677744,
+      "providerSeriesId": "1130281",
+      "radiantTeamId": "2163",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944553935",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786680697,
+      "providerSeriesId": "1130301",
+      "radiantTeamId": "10150538",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944565060",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786682030,
+      "providerSeriesId": "1130305",
+      "radiantTeamId": "8255888",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944566156",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786682065,
+      "providerSeriesId": "1130279",
+      "radiantTeamId": "726228",
+      "direTeamId": "10149530",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944570404",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786682263,
+      "providerSeriesId": "1130281",
+      "radiantTeamId": "2163",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944602781",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786685531,
+      "providerSeriesId": "1130301",
+      "radiantTeamId": "10150538",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944611964",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786686441,
+      "providerSeriesId": "1130309",
+      "radiantTeamId": "10150413",
+      "direTeamId": "9247354",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944612322",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786686316,
+      "providerSeriesId": "1130305",
+      "radiantTeamId": "9572001",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944628326",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786687826,
+      "providerSeriesId": "1130312",
+      "radiantTeamId": "5017210",
+      "direTeamId": "2586976",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944676424",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786691652,
+      "providerSeriesId": "1130317",
+      "radiantTeamId": "726228",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944680063",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786692382,
+      "providerSeriesId": "1130320",
+      "radiantTeamId": "2163",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944692094",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786693080,
+      "providerSeriesId": "1130312",
+      "radiantTeamId": "2586976",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944695348",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786693317,
+      "providerSeriesId": "1130309",
+      "radiantTeamId": "10150413",
+      "direTeamId": "9247354",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944738770",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786696586,
+      "providerSeriesId": "1130324",
+      "radiantTeamId": "8261500",
+      "direTeamId": "10149530",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944742846",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786696721,
+      "providerSeriesId": "1130317",
+      "radiantTeamId": "9964962",
+      "direTeamId": "726228",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944752572",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786697516,
+      "providerSeriesId": "1130320",
+      "radiantTeamId": "7119388",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944764687",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786698124,
+      "providerSeriesId": "1130309",
+      "radiantTeamId": "10150413",
+      "direTeamId": "9247354",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944814087",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786701394,
+      "providerSeriesId": "1130324",
+      "radiantTeamId": "8261500",
+      "direTeamId": "10149530",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8944819470",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786701688,
+      "providerSeriesId": "1130320",
+      "radiantTeamId": "2163",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944834423",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786702624,
+      "providerSeriesId": "1130317",
+      "radiantTeamId": "9964962",
+      "direTeamId": "726228",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944841068",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786703093,
+      "providerSeriesId": "1130328",
+      "radiantTeamId": "9823272",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8944931337",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786707707,
+      "providerSeriesId": "1130328",
+      "radiantTeamId": "9467224",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8945052416",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786712063,
+      "providerSeriesId": "1130328",
+      "radiantTeamId": "9823272",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946161629",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786759328,
+      "providerSeriesId": "1130533",
+      "radiantTeamId": "5017210",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946161660",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786759222,
+      "providerSeriesId": "1130534",
+      "radiantTeamId": "9964962",
+      "direTeamId": "9247354",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946161784",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786759285,
+      "providerSeriesId": "1130535",
+      "radiantTeamId": "10150538",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946161801",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786759216,
+      "providerSeriesId": "1130536",
+      "radiantTeamId": "10149530",
+      "direTeamId": "2586976",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946227017",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786764831,
+      "providerSeriesId": "1130536",
+      "radiantTeamId": "10149530",
+      "direTeamId": "2586976",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946228107",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786764957,
+      "providerSeriesId": "1130533",
+      "radiantTeamId": "9823272",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946228708",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786765003,
+      "providerSeriesId": "1130534",
+      "radiantTeamId": "9247354",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946231092",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786764955,
+      "providerSeriesId": "1130535",
+      "radiantTeamId": "10150538",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946260898",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786767834,
+      "providerSeriesId": "1130533",
+      "radiantTeamId": "9823272",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946283971",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786769610,
+      "providerSeriesId": "1130536",
+      "radiantTeamId": "10149530",
+      "direTeamId": "2586976",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946285985",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786769907,
+      "providerSeriesId": "1130534",
+      "radiantTeamId": "9247354",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946288549",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786769944,
+      "providerSeriesId": "1130535",
+      "radiantTeamId": "10150538",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946303764",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786771584,
+      "providerSeriesId": "1130559",
+      "radiantTeamId": "726228",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946337070",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786773738,
+      "providerSeriesId": "1130564",
+      "radiantTeamId": "2163",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946343023",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786774196,
+      "providerSeriesId": "1130566",
+      "radiantTeamId": "8255888",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946351114",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786774766,
+      "providerSeriesId": "1130567",
+      "radiantTeamId": "7119388",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946386614",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786777019,
+      "providerSeriesId": "1130559",
+      "radiantTeamId": "10136357",
+      "direTeamId": "726228",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946414154",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786778689,
+      "providerSeriesId": "1130564",
+      "radiantTeamId": "2163",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946416702",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786778846,
+      "providerSeriesId": "1130566",
+      "radiantTeamId": "9467224",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946428867",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786779523,
+      "providerSeriesId": "1130567",
+      "radiantTeamId": "9572001",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946495628",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786783228,
+      "providerSeriesId": "1130564",
+      "radiantTeamId": "2163",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946552436",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786786408,
+      "providerSeriesId": "1130619",
+      "radiantTeamId": "5017210",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946563158",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786786469,
+      "providerSeriesId": "1130622",
+      "radiantTeamId": "9964962",
+      "direTeamId": "2586976",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946572751",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786786867,
+      "providerSeriesId": "1130625",
+      "radiantTeamId": "726228",
+      "direTeamId": "10150538",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946648249",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786790506,
+      "providerSeriesId": "1130641",
+      "radiantTeamId": "9247354",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946649932",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786790443,
+      "providerSeriesId": "1130622",
+      "radiantTeamId": "2586976",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946650558",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786790337,
+      "providerSeriesId": "1130619",
+      "radiantTeamId": "8261500",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946690366",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786792121,
+      "providerSeriesId": "1130625",
+      "radiantTeamId": "10150538",
+      "direTeamId": "726228",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946735226",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786794277,
+      "providerSeriesId": "1130665",
+      "radiantTeamId": "9823272",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946740853",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786794757,
+      "providerSeriesId": "1130669",
+      "radiantTeamId": "9467224",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946758310",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786795120,
+      "providerSeriesId": "1130641",
+      "radiantTeamId": "9247354",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946858055",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786798574,
+      "providerSeriesId": "1130710",
+      "radiantTeamId": "10136357",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946860406",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786798489,
+      "providerSeriesId": "1130669",
+      "radiantTeamId": "2163",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946872708",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786798842,
+      "providerSeriesId": "1130665",
+      "radiantTeamId": "9823272",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8946889239",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786799308,
+      "providerSeriesId": "1130641",
+      "radiantTeamId": "9247354",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8946996385",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786802614,
+      "providerSeriesId": "1130669",
+      "radiantTeamId": "9467224",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8947008125",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786802990,
+      "providerSeriesId": "1130665",
+      "radiantTeamId": "9823272",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8947050343",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786804080,
+      "providerSeriesId": "1130710",
+      "radiantTeamId": "7119388",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8947983249",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786845606,
+      "providerSeriesId": "1130919",
+      "radiantTeamId": "726228",
+      "direTeamId": "9247354",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8948026518",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786849200,
+      "providerSeriesId": "1130934",
+      "radiantTeamId": "8255888",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8948040486",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786850291,
+      "providerSeriesId": "1130919",
+      "radiantTeamId": "9247354",
+      "direTeamId": "726228",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8948094346",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786854758,
+      "providerSeriesId": "1130941",
+      "radiantTeamId": "7119388",
+      "direTeamId": "5017210",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8948094765",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786854606,
+      "providerSeriesId": "1130934",
+      "radiantTeamId": "9467224",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8948151326",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786858265,
+      "providerSeriesId": "1130941",
+      "radiantTeamId": "5017210",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8948155771",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786859192,
+      "providerSeriesId": "1130950",
+      "radiantTeamId": "9964962",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8948235815",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786863004,
+      "providerSeriesId": "1130941",
+      "radiantTeamId": "5017210",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8948244379",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786863431,
+      "providerSeriesId": "1130950",
+      "radiantTeamId": "9964962",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8948311007",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786867685,
+      "providerSeriesId": "1130974",
+      "radiantTeamId": "10150538",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8948420293",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786871584,
+      "providerSeriesId": "1130974",
+      "radiantTeamId": "9823272",
+      "direTeamId": "10150538",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8948533452",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1786875866,
+      "providerSeriesId": "1130974",
+      "radiantTeamId": "10150538",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8955197224",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787193389,
+      "providerSeriesId": null,
+      "radiantTeamId": "7119388",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES",
+        "SERIES_ID_PENDING"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8955247801",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787199123,
+      "providerSeriesId": "1132142",
+      "radiantTeamId": "10150413",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8955304019",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787204896,
+      "providerSeriesId": "1132161",
+      "radiantTeamId": "8255888",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8955383956",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787211862,
+      "providerSeriesId": "1132161",
+      "radiantTeamId": "9572001",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8955456108",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787216747,
+      "providerSeriesId": "1132161",
+      "radiantTeamId": "8255888",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8955549026",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787221768,
+      "providerSeriesId": "1132178",
+      "radiantTeamId": "9823272",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8955653541",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787226963,
+      "providerSeriesId": "1132178",
+      "radiantTeamId": "2163",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8955796155",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787232121,
+      "providerSeriesId": "1132197",
+      "radiantTeamId": "9247354",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8955934230",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787236699,
+      "providerSeriesId": "1132197",
+      "radiantTeamId": "10136357",
+      "direTeamId": "9247354",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8956096810",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787241894,
+      "providerSeriesId": "1132197",
+      "radiantTeamId": "9247354",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8956780728",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787278164,
+      "providerSeriesId": "1132343",
+      "radiantTeamId": "8255888",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8956821666",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787282487,
+      "providerSeriesId": "1132343",
+      "radiantTeamId": "8255888",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8956877335",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787287281,
+      "providerSeriesId": "1132343",
+      "radiantTeamId": "8255888",
+      "direTeamId": "10150413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8956943534",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787292976,
+      "providerSeriesId": "1132374",
+      "radiantTeamId": "2163",
+      "direTeamId": "9247354",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8957013760",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787298340,
+      "providerSeriesId": "1132374",
+      "radiantTeamId": "9247354",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8957086928",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787302363,
+      "providerSeriesId": "1132374",
+      "radiantTeamId": "9247354",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8957180942",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787307607,
+      "providerSeriesId": "1132388",
+      "radiantTeamId": "9572001",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8957272720",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787312111,
+      "providerSeriesId": "1132388",
+      "radiantTeamId": "7119388",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8957364447",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787315667,
+      "providerSeriesId": "1132388",
+      "radiantTeamId": "7119388",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8957527957",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787321521,
+      "providerSeriesId": "1132426",
+      "radiantTeamId": "9823272",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8957749452",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787328610,
+      "providerSeriesId": "1132426",
+      "radiantTeamId": "10136357",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8957890399",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787333216,
+      "providerSeriesId": "1132426",
+      "radiantTeamId": "10136357",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8958478716",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787364744,
+      "providerSeriesId": "1132622",
+      "radiantTeamId": "2163",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8958538533",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787369791,
+      "providerSeriesId": "1132622",
+      "radiantTeamId": "7119388",
+      "direTeamId": "2163",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8958607830",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787374948,
+      "providerSeriesId": "1132647",
+      "radiantTeamId": "8255888",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8958667855",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787379080,
+      "providerSeriesId": "1132647",
+      "radiantTeamId": "10136357",
+      "direTeamId": "8255888",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8958734008",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787383043,
+      "providerSeriesId": "1132647",
+      "radiantTeamId": "8255888",
+      "direTeamId": "10136357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "8958842370",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787388429,
+      "providerSeriesId": "1132678",
+      "radiantTeamId": "9823272",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8958950792",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787393500,
+      "providerSeriesId": "1132678",
+      "radiantTeamId": "9572001",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8959067169",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787398152,
+      "providerSeriesId": "1132678",
+      "radiantTeamId": "9572001",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8959222564",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787404089,
+      "providerSeriesId": "1132773",
+      "radiantTeamId": "8255888",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8960365292",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787451068,
+      "providerSeriesId": "1132977",
+      "radiantTeamId": "9823272",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8960411225",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787455201,
+      "providerSeriesId": "1132977",
+      "radiantTeamId": "7119388",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8960577698",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787465757,
+      "providerSeriesId": "1133004",
+      "radiantTeamId": "7119388",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8960655084",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787470563,
+      "providerSeriesId": "1133004",
+      "radiantTeamId": "9572001",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8960762254",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787476452,
+      "providerSeriesId": "1133004",
+      "radiantTeamId": "7119388",
+      "direTeamId": "9572001",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8960882635",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787482181,
+      "providerSeriesId": "1133004",
+      "radiantTeamId": "9572001",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "8960991322",
+      "leagueId": "19719",
+      "eventKey": "the-international-2026-main",
+      "startTime": 1787486918,
+      "providerSeriesId": "1133004",
+      "radiantTeamId": "9572001",
+      "direTeamId": "7119388",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9005874165",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789801237,
+      "providerSeriesId": "1143900",
+      "radiantTeamId": "9691969",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9005881535",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789801350,
+      "providerSeriesId": "1143901",
+      "radiantTeamId": "8261500",
+      "direTeamId": "10208608",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9005944925",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789805066,
+      "providerSeriesId": "1143901",
+      "radiantTeamId": "10208608",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9005981988",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789806966,
+      "providerSeriesId": "1143900",
+      "radiantTeamId": "9691969",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006010487",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789808484,
+      "providerSeriesId": "1143923",
+      "radiantTeamId": "7119077",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006060043",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789810690,
+      "providerSeriesId": "1143900",
+      "radiantTeamId": "9691969",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006097685",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789812381,
+      "providerSeriesId": "1143923",
+      "radiantTeamId": "7119077",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006147431",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789814903,
+      "providerSeriesId": "1143982",
+      "radiantTeamId": "10020555",
+      "direTeamId": "10261180",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006189153",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789817042,
+      "providerSeriesId": "1144012",
+      "radiantTeamId": "9964962",
+      "direTeamId": "10250936",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9006247693",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789818945,
+      "providerSeriesId": "1143982",
+      "radiantTeamId": "10261180",
+      "direTeamId": "10020555",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006317450",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789821628,
+      "providerSeriesId": "1144012",
+      "radiantTeamId": "10250936",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9006404234",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789824671,
+      "providerSeriesId": "1143982",
+      "radiantTeamId": "10261180",
+      "direTeamId": "10020555",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006455479",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789826396,
+      "providerSeriesId": "1144161",
+      "radiantTeamId": "15",
+      "direTeamId": "9351740",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006599615",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789830916,
+      "providerSeriesId": "1144161",
+      "radiantTeamId": "9351740",
+      "direTeamId": "15",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006604405",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789831125,
+      "providerSeriesId": "1144223",
+      "radiantTeamId": "9467224",
+      "direTeamId": "10150633",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006715157",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789835049,
+      "providerSeriesId": "1144161",
+      "radiantTeamId": "9351740",
+      "direTeamId": "15",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006723487",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789835140,
+      "providerSeriesId": "1144223",
+      "radiantTeamId": "10150633",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9006901973",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789841578,
+      "providerSeriesId": "1144223",
+      "radiantTeamId": "10150633",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9007028187",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789846790,
+      "providerSeriesId": "1144336",
+      "radiantTeamId": "9823272",
+      "direTeamId": "9338413",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9007118998",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789850046,
+      "providerSeriesId": "1144336",
+      "radiantTeamId": "9338413",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9007208887",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789854247,
+      "providerSeriesId": "1144336",
+      "radiantTeamId": "9338413",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9007618656",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789887746,
+      "providerSeriesId": "1144466",
+      "radiantTeamId": "10261180",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9007618767",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789887632,
+      "providerSeriesId": "1144467",
+      "radiantTeamId": "10250936",
+      "direTeamId": "10020555",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9007700576",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789892471,
+      "providerSeriesId": "1144466",
+      "radiantTeamId": "8261500",
+      "direTeamId": "10261180",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9007720090",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789893534,
+      "providerSeriesId": "1144467",
+      "radiantTeamId": "10020555",
+      "direTeamId": "10250936",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9007784381",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789896827,
+      "providerSeriesId": "1144466",
+      "radiantTeamId": "8261500",
+      "direTeamId": "10261180",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9007800408",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789897544,
+      "providerSeriesId": "1144467",
+      "radiantTeamId": "10250936",
+      "direTeamId": "10020555",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9007874144",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789901138,
+      "providerSeriesId": "1144525",
+      "radiantTeamId": "7119077",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9007918871",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789902884,
+      "providerSeriesId": "1144540",
+      "radiantTeamId": "15",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9007989894",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789905945,
+      "providerSeriesId": "1144525",
+      "radiantTeamId": "7119077",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9008041645",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789907444,
+      "providerSeriesId": "1144540",
+      "radiantTeamId": "9964962",
+      "direTeamId": "15",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9008125103",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789910221,
+      "providerSeriesId": "1144631",
+      "radiantTeamId": "9351740",
+      "direTeamId": "10150633",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9008160103",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789911497,
+      "providerSeriesId": "1144646",
+      "radiantTeamId": "9467224",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9008292090",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789915631,
+      "providerSeriesId": "1144631",
+      "radiantTeamId": "10150633",
+      "direTeamId": "9351740",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9008297395",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789915788,
+      "providerSeriesId": "1144646",
+      "radiantTeamId": "9467224",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9008413867",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789919542,
+      "providerSeriesId": "1144740",
+      "radiantTeamId": "9691969",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9008436237",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789920390,
+      "providerSeriesId": "1144747",
+      "radiantTeamId": "10150633",
+      "direTeamId": "9351740",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9008510292",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789922766,
+      "providerSeriesId": "1144740",
+      "radiantTeamId": "9691969",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9008635677",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789927432,
+      "providerSeriesId": "1144805",
+      "radiantTeamId": "9338413",
+      "direTeamId": "10208608",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9008730653",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789930989,
+      "providerSeriesId": "1144805",
+      "radiantTeamId": "10208608",
+      "direTeamId": "9338413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009267022",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789974028,
+      "providerSeriesId": "1144978",
+      "radiantTeamId": "9467224",
+      "direTeamId": "10250936",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009267070",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789974013,
+      "providerSeriesId": "1144979",
+      "radiantTeamId": "9964962",
+      "direTeamId": "10150633",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9009315261",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789977986,
+      "providerSeriesId": "1144978",
+      "radiantTeamId": "10250936",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009316435",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789978206,
+      "providerSeriesId": "1144979",
+      "radiantTeamId": "9964962",
+      "direTeamId": "10150633",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9009368871",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789982416,
+      "providerSeriesId": "1144990",
+      "radiantTeamId": "10261180",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009369303",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789982077,
+      "providerSeriesId": "1144979",
+      "radiantTeamId": "10150633",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9009429875",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789986291,
+      "providerSeriesId": "1144999",
+      "radiantTeamId": "9338413",
+      "direTeamId": "9691969",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009436210",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789986495,
+      "providerSeriesId": "1144990",
+      "radiantTeamId": "10182357",
+      "direTeamId": "10261180",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009517003",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789990954,
+      "providerSeriesId": "1144999",
+      "radiantTeamId": "9691969",
+      "direTeamId": "9338413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009540955",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789992255,
+      "providerSeriesId": "1144990",
+      "radiantTeamId": "10261180",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009607812",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789995366,
+      "providerSeriesId": "1145039",
+      "radiantTeamId": "10020555",
+      "direTeamId": "9351740",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009679500",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1789997967,
+      "providerSeriesId": "1145064",
+      "radiantTeamId": "8261500",
+      "direTeamId": "15",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009747865",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790000210,
+      "providerSeriesId": "1145039",
+      "radiantTeamId": "9351740",
+      "direTeamId": "10020555",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009814362",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790002727,
+      "providerSeriesId": "1145064",
+      "radiantTeamId": "15",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009863450",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790004857,
+      "providerSeriesId": "1145115",
+      "radiantTeamId": "10208608",
+      "direTeamId": "7119077",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9009924057",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790006825,
+      "providerSeriesId": "1145136",
+      "radiantTeamId": "9823272",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9010014985",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790010215,
+      "providerSeriesId": "1145136",
+      "radiantTeamId": "36",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9010021798",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790010373,
+      "providerSeriesId": "1145115",
+      "radiantTeamId": "7119077",
+      "direTeamId": "10208608",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9010695250",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790060462,
+      "providerSeriesId": null,
+      "radiantTeamId": "9964962",
+      "direTeamId": "9691969",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES",
+        "SERIES_ID_PENDING"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9010695310",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790060657,
+      "providerSeriesId": "1145356",
+      "radiantTeamId": "10261180",
+      "direTeamId": "9351740",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9010740459",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790064314,
+      "providerSeriesId": "1145356",
+      "radiantTeamId": "9351740",
+      "direTeamId": "10261180",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9010744805",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790064539,
+      "providerSeriesId": "1145355",
+      "radiantTeamId": "9691969",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9010793762",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790068484,
+      "providerSeriesId": "1145366",
+      "radiantTeamId": "10150633",
+      "direTeamId": "10250936",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9010797995",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790068753,
+      "providerSeriesId": "1145355",
+      "radiantTeamId": "9964962",
+      "direTeamId": "9691969",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9010847796",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790072434,
+      "providerSeriesId": "1145377",
+      "radiantTeamId": "36",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9010850705",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790072414,
+      "providerSeriesId": "1145366",
+      "radiantTeamId": "10250936",
+      "direTeamId": "10150633",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9010913001",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790076124,
+      "providerSeriesId": "1145377",
+      "radiantTeamId": "10182357",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9010940591",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790077557,
+      "providerSeriesId": "1145366",
+      "radiantTeamId": "10250936",
+      "direTeamId": "10150633",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9010993339",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790080160,
+      "providerSeriesId": "1145377",
+      "radiantTeamId": "10182357",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9011023151",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790081410,
+      "providerSeriesId": "1145411",
+      "radiantTeamId": "9338413",
+      "direTeamId": "7119077",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9011102813",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790084545,
+      "providerSeriesId": "1145441",
+      "radiantTeamId": "9467224",
+      "direTeamId": "15",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9011114952",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790084850,
+      "providerSeriesId": "1145411",
+      "radiantTeamId": "7119077",
+      "direTeamId": "9338413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9011229961",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790088907,
+      "providerSeriesId": "1145441",
+      "radiantTeamId": "15",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9012123019",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790146818,
+      "providerSeriesId": "1145708",
+      "radiantTeamId": "10150633",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9012167647",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790150778,
+      "providerSeriesId": "1145708",
+      "radiantTeamId": "10150633",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9012243731",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790156719,
+      "providerSeriesId": "1145719",
+      "radiantTeamId": "10261180",
+      "direTeamId": "9691969",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9012316577",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790161466,
+      "providerSeriesId": "1145719",
+      "radiantTeamId": "9691969",
+      "direTeamId": "10261180",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9012384862",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790165286,
+      "providerSeriesId": "1145719",
+      "radiantTeamId": "9691969",
+      "direTeamId": "10261180",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9012488967",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790169650,
+      "providerSeriesId": "1145780",
+      "radiantTeamId": "15",
+      "direTeamId": "9338413",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9012612710",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790174274,
+      "providerSeriesId": "1145780",
+      "radiantTeamId": "9338413",
+      "direTeamId": "15",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9013522151",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790233315,
+      "providerSeriesId": "1146080",
+      "radiantTeamId": "9691969",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9013571077",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790237358,
+      "providerSeriesId": "1146080",
+      "radiantTeamId": "8261500",
+      "direTeamId": "9691969",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9013623742",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790241678,
+      "providerSeriesId": "1146094",
+      "radiantTeamId": "15",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9013680828",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790245374,
+      "providerSeriesId": "1146094",
+      "radiantTeamId": "15",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9013743409",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790249044,
+      "providerSeriesId": "1146094",
+      "radiantTeamId": "15",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9013860061",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790254560,
+      "providerSeriesId": "1146136",
+      "radiantTeamId": "9467224",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9013968851",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790258657,
+      "providerSeriesId": "1146136",
+      "radiantTeamId": "9964962",
+      "direTeamId": "9467224",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9014106505",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790263492,
+      "providerSeriesId": "1146200",
+      "radiantTeamId": "10182357",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9014237664",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790268221,
+      "providerSeriesId": "1146200",
+      "radiantTeamId": "9823272",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9014985952",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790319598,
+      "providerSeriesId": "1146472",
+      "radiantTeamId": "9691969",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9015048075",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790323953,
+      "providerSeriesId": "1146472",
+      "radiantTeamId": "9691969",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9015110394",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790328149,
+      "providerSeriesId": "1146472",
+      "radiantTeamId": "9691969",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9015175653",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790332472,
+      "providerSeriesId": "1146494",
+      "radiantTeamId": "9964962",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9015251447",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790336650,
+      "providerSeriesId": "1146494",
+      "radiantTeamId": "9964962",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9015395119",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790342792,
+      "providerSeriesId": "1146494",
+      "radiantTeamId": "9964962",
+      "direTeamId": "10182357",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9015520660",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790347266,
+      "providerSeriesId": "1146566",
+      "radiantTeamId": "15",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9015670863",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790352807,
+      "providerSeriesId": "1146566",
+      "radiantTeamId": "8261500",
+      "direTeamId": "15",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9015786726",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790357270,
+      "providerSeriesId": "1146669",
+      "radiantTeamId": "9467224",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9015896010",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790361232,
+      "providerSeriesId": "1146669",
+      "radiantTeamId": "9467224",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9015977795",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790364415,
+      "providerSeriesId": "1146669",
+      "radiantTeamId": "9467224",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9016550276",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790406001,
+      "providerSeriesId": "1146895",
+      "radiantTeamId": "9964962",
+      "direTeamId": "8261500",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9016621041",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790410317,
+      "providerSeriesId": "1146895",
+      "radiantTeamId": "8261500",
+      "direTeamId": "9964962",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9016711241",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790415237,
+      "providerSeriesId": "1146945",
+      "radiantTeamId": "9467224",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9016800066",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790419555,
+      "providerSeriesId": "1146945",
+      "radiantTeamId": "9467224",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9016905513",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790424327,
+      "providerSeriesId": "1147011",
+      "radiantTeamId": "15",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9017026154",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790428814,
+      "providerSeriesId": "1147011",
+      "radiantTeamId": "15",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9017174132",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790433837,
+      "providerSeriesId": "1147128",
+      "radiantTeamId": "8261500",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9017299527",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790438025,
+      "providerSeriesId": "1147128",
+      "radiantTeamId": "8261500",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": false,
+      "reasons": [],
+      "metadataCandidate": true
+    },
+    {
+      "matchId": "9018330255",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790496122,
+      "providerSeriesId": "1147473",
+      "radiantTeamId": "15",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9018419766",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790500332,
+      "providerSeriesId": "1147473",
+      "radiantTeamId": "15",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9018525157",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790505144,
+      "providerSeriesId": "1147473",
+      "radiantTeamId": "15",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9018736585",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790513527,
+      "providerSeriesId": "1147599",
+      "radiantTeamId": "36",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9018837779",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790516819,
+      "providerSeriesId": "1147599",
+      "radiantTeamId": "36",
+      "direTeamId": "9823272",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    },
+    {
+      "matchId": "9018969340",
+      "leagueId": "20279",
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "startTime": 1790521184,
+      "providerSeriesId": "1147599",
+      "radiantTeamId": "9823272",
+      "direTeamId": "36",
+      "inTargetWindow": true,
+      "exposureExcluded": true,
+      "reasons": [
+        "PRIOR_EXPOSURE_WHOLE_SERIES"
+      ],
+      "metadataCandidate": false
+    }
+  ],
+  "summary": {
+    "observedMaps": 261,
+    "targetWindowMaps": 261,
+    "knownSeries": 106,
+    "priorExposedMaps": 116,
+    "priorExposedSeries": 46,
+    "unexposedObservedMaps": 145,
+    "unexposedTargetMaps": 145,
+    "metadataCandidateMaps": 145,
+    "metadataCandidateSeries": 60,
+    "unresolvedMaps": 0
+  },
+  "providerCompleteness": "unknown",
+  "eligibilityVerified": false,
+  "coverageGateCalculated": false,
+  "evaluationPerformed": false,
+  "teamAWinProbability": null,
+  "metrics": null,
+  "deployable": false
+}

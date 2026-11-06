@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "protocolKey": "tier1-historical-ti26-wallachia9-20261106",
+  "evaluationBasis": "conditional_retrospective_unexposed_series",
+  "warmupFromAt": "2024-01-01T00:00:00.000Z",
+  "eventCutoffAt": "2026-11-01T00:00:00.000Z",
+  "maxInventoryMaps": 5000,
+  "baseQualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+  "catalogueSha256": "aa78ad03391647371923135504f184741fbc350c73b44038e3de592290112033",
+  "exposureSha256": "e84b23d5ff11fd323334fe42509a621f79561cc2dc43a33c665f969de8e75ebb",
+  "exposureAcknowledgement": "bounded_local_audit_not_global_blindness_proof",
+  "events": [
+    {
+      "eventKey": "the-international-2026-main",
+      "name": "The International 2026",
+      "provider": "opendota",
+      "leagueId": "19719",
+      "catalogueName": "The International 2026",
+      "stage": "main_event",
+      "fromAt": "2026-08-01T00:00:00.000Z",
+      "until": "2026-09-01T00:00:00.000Z",
+      "tierDecision": {
+        "basis": "reviewed_event_scope",
+        "sourceUrl": "https://store.steampowered.com/news/posts/?appids=570",
+        "reviewedAt": "2026-11-06T13:13:04.470Z",
+        "rationale": "Explicit Tier1 review: Valve international championship,16 teams,August2026 group stage and August20-23 arena playoffs. Full August is a conservative UTC selection window for the main league; regional qualifiers are separate IDs/outside this window. Public news results are acknowledged; no Elo performance used for event selection."
+      },
+      "scheduleSourceUrl": "https://store.steampowered.com/news/posts/?appids=570"
+    },
+    {
+      "eventKey": "pgl-wallachia-season-9-2026-main",
+      "name": "PGL Wallachia 2026 Season 9",
+      "provider": "opendota",
+      "leagueId": "20279",
+      "catalogueName": "PGL Wallachia 2026 Season 9",
+      "stage": "main_event",
+      "fromAt": "2026-09-18T00:00:00.000Z",
+      "until": "2026-09-29T00:00:00.000Z",
+      "tierDecision": {
+        "basis": "reviewed_event_scope",
+        "sourceUrl": "https://www.pglesports.com/dota2/wallachia-s9-2026/",
+        "reviewedAt": "2026-11-06T13:13:04.470Z",
+        "rationale": "Explicit Tier1 review: PGL international16-team main event in Bucharest,announced September19-27,2026,Swiss plus double-elimination. Selection window includes one UTC calendar day either side; template result widgets are not used as Dota match evidence. Qualifiers excluded. No Elo performance used for selection."
+      },
+      "scheduleSourceUrl": "https://www.pglesports.com/dota2/wallachia-s9-2026/"
+    }
+  ],
+  "earlierProtocolsUse": "archive_or_separate_monitoring_no_best_result_selection"
+}

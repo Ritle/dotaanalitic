@@ -1,0 +1,726 @@
+{
+  "schema_version": 3,
+  "mode": "live_opendota",
+  "generated_at": "2026-11-06T13:17:16.657Z",
+  "status": "complete",
+  "requested": 3,
+  "discovered": 3,
+  "discovery_candidates": 114,
+  "selection": {
+    "method": "uniform_rank_by_start_then_match_id_in_league",
+    "league_id": "20279",
+    "selected_match_ids": [
+      "9005874165",
+      "9010014985",
+      "9018969340"
+    ],
+    "duplicate_ids": 0,
+    "invalid_ids": 0,
+    "outside_cohort": 0
+  },
+  "details_received": 3,
+  "details_failed": 0,
+  "coverage": {
+    "match_id_consistent": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "start_time": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "outcome": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "completed_outcome": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "confirmed_pro": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "teams_2": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "league": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "series": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "patch": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "players_10": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "identity_10": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "canonical_identity_10": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "heroes_10_unique": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "picks_10": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_actions": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "role_hint_10": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "game_mode": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "lobby_type": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "final_heroes_valid": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_picks_exact": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_heroes_match": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_teams_match": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_order_integrity": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_structurally_consistent": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_order_valid": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "verified_patch": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "pre_match_lineup_known_at": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "post_draft_heroes_known_at": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "discovery_cohort_consistent": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    }
+  },
+  "confirmed_pro_coverage": {
+    "match_id_consistent": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "start_time": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "outcome": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "completed_outcome": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "confirmed_pro": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "teams_2": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "league": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "series": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "patch": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "players_10": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "identity_10": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "canonical_identity_10": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "heroes_10_unique": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "picks_10": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_actions": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "role_hint_10": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "game_mode": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "lobby_type": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "final_heroes_valid": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_picks_exact": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_heroes_match": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_teams_match": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_order_integrity": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_structurally_consistent": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    },
+    "draft_order_valid": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "verified_patch": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "pre_match_lineup_known_at": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "post_draft_heroes_known_at": {
+      "count": 0,
+      "of": 0,
+      "ratio": null,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": [
+        "9005874165",
+        "9010014985",
+        "9018969340"
+      ]
+    },
+    "discovery_cohort_consistent": {
+      "count": 3,
+      "of": 3,
+      "ratio": 1,
+      "missing_match_ids": [],
+      "not_assessed_match_ids": []
+    }
+  },
+  "strata": {
+    "provider_patch": {
+      "60": 3
+    },
+    "league": {
+      "20279": 3
+    },
+    "game_mode": {
+      "2": 3
+    },
+    "lobby_type": {
+      "1": 3
+    },
+    "started_at_min": "2026-09-19T07:00:37.000Z",
+    "started_at_max": "2026-09-27T14:59:44.000Z"
+  },
+  "requests": {
+    "attempts": 5,
+    "httpStatuses": {
+      "200": 5
+    },
+    "transportErrors": {}
+  },
+  "source_evidence": [
+    {
+      "endpoint": "/leagues",
+      "fetched_at": "2026-11-06T13:17:11.833Z",
+      "payload_sha256": "f4140c662715737142bb98358ad1dc93d88881a53fa998b926475bb5adcd05cc",
+      "adapter_version": "opendota-provider-v2",
+      "attempts": 1,
+      "rate_limit_remaining": {
+        "minute": 59,
+        "day": 2993,
+        "month": null
+      }
+    },
+    {
+      "endpoint": "/leagues/20279/matches",
+      "fetched_at": "2026-11-06T13:17:12.554Z",
+      "payload_sha256": "b0cdbfa0b0341178747fa1950c656f2cdb09a997a697e53df13ea8021ed1a680",
+      "adapter_version": "opendota-provider-v2",
+      "attempts": 1,
+      "rate_limit_remaining": {
+        "minute": 58,
+        "day": 2992,
+        "month": null
+      }
+    }
+  ],
+  "anomalies": {},
+  "observations": [
+    {
+      "match_id": "9005874165",
+      "started_at": "2026-09-19T07:00:37.000Z",
+      "provider_patch_id": 60,
+      "league_id": "20279",
+      "game_mode": 2,
+      "lobby_type": 1,
+      "league_tier": "professional",
+      "flags": {
+        "match_id_consistent": true,
+        "start_time": true,
+        "outcome": true,
+        "teams_2": true,
+        "league": true,
+        "series": true,
+        "patch": true,
+        "players_10": true,
+        "identity_10": true,
+        "heroes_10_unique": true,
+        "picks_10": true,
+        "draft_actions": true,
+        "role_hint_10": true,
+        "final_heroes_valid": true,
+        "draft_picks_exact": true,
+        "draft_heroes_match": true,
+        "draft_teams_match": true,
+        "draft_order_integrity": true,
+        "draft_structurally_consistent": true,
+        "draft_order_valid": null,
+        "confirmed_pro": true,
+        "completed_outcome": true,
+        "discovery_cohort_consistent": true,
+        "game_mode": true,
+        "lobby_type": true,
+        "canonical_identity_10": null,
+        "verified_patch": null,
+        "pre_match_lineup_known_at": null,
+        "post_draft_heroes_known_at": null
+      },
+      "anomalies": [],
+      "diagnostics": {
+        "final_heroes_count": 10,
+        "pick_events": 10,
+        "unique_picked_heroes": 10,
+        "draft_events": 24,
+        "extra_hero_ids": [],
+        "missing_hero_ids": [],
+        "game_mode": 2,
+        "lobby_type": 1
+      },
+      "source_evidence": {
+        "endpoint": "/matches/9005874165",
+        "fetched_at": "2026-11-06T13:17:14.445Z",
+        "payload_sha256": "c9cef19048cc7492347efa452881a51c6de3f740c6b220238da5bf6e883b3e27",
+        "adapter_version": "opendota-provider-v2",
+        "attempts": 1,
+        "rate_limit_remaining": {
+          "minute": 57,
+          "day": 2991,
+          "month": null
+        }
+      }
+    },
+    {
+      "match_id": "9010014985",
+      "started_at": "2026-09-21T17:03:35.000Z",
+      "provider_patch_id": 60,
+      "league_id": "20279",
+      "game_mode": 2,
+      "lobby_type": 1,
+      "league_tier": "professional",
+      "flags": {
+        "match_id_consistent": true,
+        "start_time": true,
+        "outcome": true,
+        "teams_2": true,
+        "league": true,
+        "series": true,
+        "patch": true,
+        "players_10": true,
+        "identity_10": true,
+        "heroes_10_unique": true,
+        "picks_10": true,
+        "draft_actions": true,
+        "role_hint_10": true,
+        "final_heroes_valid": true,
+        "draft_picks_exact": true,
+        "draft_heroes_match": true,
+        "draft_teams_match": true,
+        "draft_order_integrity": true,
+        "draft_structurally_consistent": true,
+        "draft_order_valid": null,
+        "confirmed_pro": true,
+        "completed_outcome": true,
+        "discovery_cohort_consistent": true,
+        "game_mode": true,
+        "lobby_type": true,
+        "canonical_identity_10": null,
+        "verified_patch": null,
+        "pre_match_lineup_known_at": null,
+        "post_draft_heroes_known_at": null
+      },
+      "anomalies": [],
+      "diagnostics": {
+        "final_heroes_count": 10,
+        "pick_events": 10,
+        "unique_picked_heroes": 10,
+        "draft_events": 24,
+        "extra_hero_ids": [],
+        "missing_hero_ids": [],
+        "game_mode": 2,
+        "lobby_type": 1
+      },
+      "source_evidence": {
+        "endpoint": "/matches/9010014985",
+        "fetched_at": "2026-11-06T13:17:16.443Z",
+        "payload_sha256": "642a6d234c3768447ac82e96c6883317e1721f0fef88efac3061579d2eedfa53",
+        "adapter_version": "opendota-provider-v2",
+        "attempts": 1,
+        "rate_limit_remaining": {
+          "minute": 56,
+          "day": 2990,
+          "month": null
+        }
+      }
+    },
+    {
+      "match_id": "9018969340",
+      "started_at": "2026-09-27T14:59:44.000Z",
+      "provider_patch_id": 60,
+      "league_id": "20279",
+      "game_mode": 2,
+      "lobby_type": 1,
+      "league_tier": "professional",
+      "flags": {
+        "match_id_consistent": true,
+        "start_time": true,
+        "outcome": true,
+        "teams_2": true,
+        "league": true,
+        "series": true,
+        "patch": true,
+        "players_10": true,
+        "identity_10": true,
+        "heroes_10_unique": true,
+        "picks_10": true,
+        "draft_actions": true,
+        "role_hint_10": true,
+        "final_heroes_valid": true,
+        "draft_picks_exact": true,
+        "draft_heroes_match": true,
+        "draft_teams_match": true,
+        "draft_order_integrity": true,
+        "draft_structurally_consistent": true,
+        "draft_order_valid": null,
+        "confirmed_pro": true,
+        "completed_outcome": true,
+        "discovery_cohort_consistent": true,
+        "game_mode": true,
+        "lobby_type": true,
+        "canonical_identity_10": null,
+        "verified_patch": null,
+        "pre_match_lineup_known_at": null,
+        "post_draft_heroes_known_at": null
+      },
+      "anomalies": [],
+      "diagnostics": {
+        "final_heroes_count": 10,
+        "pick_events": 10,
+        "unique_picked_heroes": 10,
+        "draft_events": 24,
+        "extra_hero_ids": [],
+        "missing_hero_ids": [],
+        "game_mode": 2,
+        "lobby_type": 1
+      },
+      "source_evidence": {
+        "endpoint": "/matches/9018969340",
+        "fetched_at": "2026-11-06T13:17:16.653Z",
+        "payload_sha256": "6faac7ccd3a65f062bdcbff0eea5ad268a4b28139fbf552130580ef4a43137fd",
+        "adapter_version": "opendota-provider-v2",
+        "attempts": 1,
+        "rate_limit_remaining": {
+          "minute": 55,
+          "day": 2989,
+          "month": null
+        }
+      }
+    }
+  ],
+  "details": [],
+  "errors": [],
+  "limitations": [
+    "Coverage is observational, not prediction eligibility or model accuracy",
+    "Historical league sample is selected by time ranks, not representative of all leagues or patches",
+    "Provider patch IDs are unverified; no verified release-time registry is populated",
+    "identity_10 means ten distinct source Steam32 accounts, not verified canonical identities",
+    "Current league tier evidence does not prove tier or roster availability before historical map start",
+    "lane_role is a hint, not verified Pos 1-5; draft_order_valid remains unassessed",
+    "Final heroes and completed lineups are retrospective facts without cutoff availability evidence",
+    "No model trained; no raw payloads, profile names or account IDs saved in the report"
+  ]
+}
