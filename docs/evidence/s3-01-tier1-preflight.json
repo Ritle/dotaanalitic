@@ -1,0 +1,1162 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-evaluation/tier1-preflight",
+  "observedAt": "2026-11-06T11:32:08.623Z",
+  "status": "partial_sources",
+  "teamDiscoverySource": "https://bo3.gg/dota2/news/all-participants-blast-slam-ix",
+  "teamDiscoveryAuthority": "secondary_names_only_not_numeric_bindings",
+  "registrySource": {
+    "endpoint": "/proPlayers",
+    "fetchedAt": "2026-11-06T11:15:03.133Z",
+    "payloadSha256": "28750237ff1043b5e77a72d53b54f7bd6cadc55612a6fdfabc6e9aefc2646670"
+  },
+  "identityRevision": "643",
+  "inventoryFingerprint": "221f04ab839a99874611821b10c81f5f55f9311333d1ff8fe199c901aaa6b706",
+  "assumptions": [
+    "registry_team_membership_is_suggestion_not_current_five",
+    "team_name_discovery_is_not_identity_proof",
+    "all_tiers_verified_pro_history_retained",
+    "history_limited_to_local_inventory",
+    "no_release_test_scoring"
+  ],
+  "summary": {
+    "discoveryTeamNames": 16,
+    "registryCandidateGroups": 15,
+    "eventRostersAvailable": 0,
+    "candidateAccounts": 70,
+    "localVerifiedAccounts": 60,
+    "accountsMeetingFiveMapMinimum": 44,
+    "verifiedAccountsBelowMinimum": 16,
+    "accountsWithoutVerifiedLocalLink": 10,
+    "inventoryMaps": 340,
+    "eligibleMapHistory": 320,
+    "featureEligibleHistoryMaps": 320
+  },
+  "teams": [
+    {
+      "discoveryName": "Team Spirit",
+      "registryCandidate": {
+        "id": "7119388",
+        "name": "Team Spirit"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 5,
+      "localVerifiedAccounts": 5,
+      "accountsMeetingFiveMapMinimum": 5,
+      "players": [
+        {
+          "name": "Larl",
+          "accountId": "106305042",
+          "steam64Consistent": true,
+          "localPlayerId": "14",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 47,
+          "eligibleEloMaps": 46,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Batyuk",
+          "accountId": "140835095",
+          "steam64Consistent": true,
+          "localPlayerId": "15",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 5,
+          "eligibleEloMaps": 5,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "not_me",
+          "accountId": "218231587",
+          "steam64Consistent": true,
+          "localPlayerId": "18",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 13,
+          "eligibleEloMaps": 13,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Yatoro",
+          "accountId": "321580662",
+          "steam64Consistent": true,
+          "localPlayerId": "20",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 57,
+          "eligibleEloMaps": 54,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "rue",
+          "accountId": "847565596",
+          "steam64Consistent": true,
+          "localPlayerId": "21",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 46,
+          "eligibleEloMaps": 46,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "PARIVISION",
+      "registryCandidate": {
+        "id": "9824702",
+        "name": "PARIVISION"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 6,
+      "localVerifiedAccounts": 6,
+      "accountsMeetingFiveMapMinimum": 5,
+      "players": [
+        {
+          "name": "Dukalis",
+          "accountId": "73401082",
+          "steam64Consistent": true,
+          "localPlayerId": "35",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 38,
+          "eligibleEloMaps": 38,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "No[o]ne-",
+          "accountId": "106573901",
+          "steam64Consistent": true,
+          "localPlayerId": "38",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 39,
+          "eligibleEloMaps": 39,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "9Class",
+          "accountId": "164199202",
+          "steam64Consistent": true,
+          "localPlayerId": "40",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 38,
+          "eligibleEloMaps": 38,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Noticed",
+          "accountId": "195108598",
+          "steam64Consistent": true,
+          "localPlayerId": "45",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 3,
+          "eligibleEloMaps": 3,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "SSS",
+          "accountId": "402583877",
+          "steam64Consistent": true,
+          "localPlayerId": "50",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 9,
+          "eligibleEloMaps": 9,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Satanic",
+          "accountId": "1044002267",
+          "steam64Consistent": true,
+          "localPlayerId": "56",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 38,
+          "eligibleEloMaps": 38,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "Team Yandex",
+      "registryCandidate": {
+        "id": "9823272",
+        "name": "Team Yandex"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 6,
+      "localVerifiedAccounts": 6,
+      "accountsMeetingFiveMapMinimum": 6,
+      "players": [
+        {
+          "name": "DM",
+          "accountId": "56351509",
+          "steam64Consistent": true,
+          "localPlayerId": "11",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 36,
+          "eligibleEloMaps": 36,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Maladych",
+          "accountId": "93817671",
+          "steam64Consistent": true,
+          "localPlayerId": "12",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 23,
+          "eligibleEloMaps": 23,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Saksa",
+          "accountId": "103735745",
+          "steam64Consistent": true,
+          "localPlayerId": "13",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 49,
+          "eligibleEloMaps": 46,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "医者watson`",
+          "accountId": "171262902",
+          "steam64Consistent": true,
+          "localPlayerId": "16",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 25,
+          "eligibleEloMaps": 24,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "AMMAR_THE_F",
+          "accountId": "183719386",
+          "steam64Consistent": true,
+          "localPlayerId": "17",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 35,
+          "eligibleEloMaps": 35,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "CHIRA_JUNIOR",
+          "accountId": "312436974",
+          "steam64Consistent": true,
+          "localPlayerId": "19",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 6,
+          "eligibleEloMaps": 6,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "BetBoom Team",
+      "registryCandidate": {
+        "id": "8255888",
+        "name": "BETBOOM TEAM"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 5,
+      "localVerifiedAccounts": 4,
+      "accountsMeetingFiveMapMinimum": 3,
+      "players": [
+        {
+          "name": "MieRo",
+          "accountId": "165564598",
+          "steam64Consistent": true,
+          "localPlayerId": "113",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 33,
+          "eligibleEloMaps": 32,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Kiritych~",
+          "accountId": "172099728",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        },
+        {
+          "name": "swedenstrong",
+          "accountId": "175311897",
+          "steam64Consistent": true,
+          "localPlayerId": "231",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 2,
+          "eligibleEloMaps": 2,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "Kataomi`",
+          "accountId": "196878136",
+          "steam64Consistent": true,
+          "localPlayerId": "122",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 33,
+          "eligibleEloMaps": 33,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Save-",
+          "accountId": "317880638",
+          "steam64Consistent": true,
+          "localPlayerId": "190",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 32,
+          "eligibleEloMaps": 32,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "Team Liquid",
+      "registryCandidate": {
+        "id": "2163",
+        "name": "Team Liquid"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 5,
+      "localVerifiedAccounts": 4,
+      "accountsMeetingFiveMapMinimum": 4,
+      "players": [
+        {
+          "name": "tOfu",
+          "accountId": "16497807",
+          "steam64Consistent": true,
+          "localPlayerId": "33",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 25,
+          "eligibleEloMaps": 23,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Jabbz",
+          "accountId": "60943014",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        },
+        {
+          "name": "Boxi",
+          "accountId": "77490514",
+          "steam64Consistent": true,
+          "localPlayerId": "36",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 39,
+          "eligibleEloMaps": 39,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "m1CKe",
+          "accountId": "152962063",
+          "steam64Consistent": true,
+          "localPlayerId": "105",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 34,
+          "eligibleEloMaps": 34,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Malr1ne",
+          "accountId": "898455820",
+          "steam64Consistent": true,
+          "localPlayerId": "55",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 19,
+          "eligibleEloMaps": 19,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "1w Team",
+      "registryCandidate": {
+        "id": "10182357",
+        "name": "1win"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 5,
+      "localVerifiedAccounts": 5,
+      "accountsMeetingFiveMapMinimum": 4,
+      "players": [
+        {
+          "name": "33",
+          "accountId": "86698277",
+          "steam64Consistent": true,
+          "localPlayerId": "2",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 46,
+          "eligibleEloMaps": 42,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "bzm",
+          "accountId": "93618577",
+          "steam64Consistent": true,
+          "localPlayerId": "168",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 41,
+          "eligibleEloMaps": 41,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Whitemon",
+          "accountId": "136829091",
+          "steam64Consistent": true,
+          "localPlayerId": "7",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 44,
+          "eligibleEloMaps": 42,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Pure",
+          "accountId": "331855530",
+          "steam64Consistent": true,
+          "localPlayerId": "132",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 35,
+          "eligibleEloMaps": 35,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Ari",
+          "accountId": "346412363",
+          "steam64Consistent": true,
+          "localPlayerId": "10",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 3,
+          "eligibleEloMaps": 2,
+          "needsHistoryIfSelected": true
+        }
+      ]
+    },
+    {
+      "discoveryName": "Aurora Gaming",
+      "registryCandidate": {
+        "id": "9467224",
+        "name": "Aurora Gaming"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 6,
+      "localVerifiedAccounts": 5,
+      "accountsMeetingFiveMapMinimum": 1,
+      "players": [
+        {
+          "name": "skiter",
+          "accountId": "100058342",
+          "steam64Consistent": true,
+          "localPlayerId": "6",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 32,
+          "eligibleEloMaps": 28,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Ws`",
+          "accountId": "126842529",
+          "steam64Consistent": true,
+          "localPlayerId": "222",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 2,
+          "eligibleEloMaps": 2,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "Mira",
+          "accountId": "256156323",
+          "steam64Consistent": true,
+          "localPlayerId": "128",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 5,
+          "eligibleEloMaps": 2,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "Mikoto",
+          "accountId": "301750126",
+          "steam64Consistent": true,
+          "localPlayerId": "129",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 3,
+          "eligibleEloMaps": 2,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "kaori",
+          "accountId": "320219866",
+          "steam64Consistent": true,
+          "localPlayerId": "249",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 2,
+          "eligibleEloMaps": 2,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "Palos",
+          "accountId": "389022189",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        }
+      ]
+    },
+    {
+      "discoveryName": "Astra Invicta",
+      "registryCandidate": null,
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 0,
+      "localVerifiedAccounts": 0,
+      "accountsMeetingFiveMapMinimum": 0,
+      "players": []
+    },
+    {
+      "discoveryName": "OG",
+      "registryCandidate": {
+        "id": "2586976",
+        "name": "OG"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 3,
+      "localVerifiedAccounts": 3,
+      "accountsMeetingFiveMapMinimum": 2,
+      "players": [
+        {
+          "name": "Ceb",
+          "accountId": "88271237",
+          "steam64Consistent": true,
+          "localPlayerId": "68",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 1,
+          "eligibleEloMaps": 0,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "skem",
+          "accountId": "100594231",
+          "steam64Consistent": true,
+          "localPlayerId": "37",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 23,
+          "eligibleEloMaps": 23,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Natsumi",
+          "accountId": "355168766",
+          "steam64Consistent": true,
+          "localPlayerId": "48",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 9,
+          "eligibleEloMaps": 9,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "LGD Gaming",
+      "registryCandidate": {
+        "id": "15",
+        "name": "LGD Gaming"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 4,
+      "localVerifiedAccounts": 3,
+      "accountsMeetingFiveMapMinimum": 2,
+      "players": [
+        {
+          "name": "Sneyking",
+          "accountId": "10366616",
+          "steam64Consistent": true,
+          "localPlayerId": "1",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 32,
+          "eligibleEloMaps": 28,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "SumaiL-",
+          "accountId": "111620041",
+          "steam64Consistent": true,
+          "localPlayerId": "82",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 15,
+          "eligibleEloMaps": 14,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Davai",
+          "accountId": "138880576",
+          "steam64Consistent": true,
+          "localPlayerId": "100",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 3,
+          "eligibleEloMaps": 2,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "Wits",
+          "accountId": "363758022",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        }
+      ]
+    },
+    {
+      "discoveryName": "GamerLegion",
+      "registryCandidate": {
+        "id": "9964962",
+        "name": "GamerLegion"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 5,
+      "localVerifiedAccounts": 5,
+      "accountsMeetingFiveMapMinimum": 5,
+      "players": [
+        {
+          "name": "Bignum",
+          "accountId": "90423751",
+          "steam64Consistent": true,
+          "localPlayerId": "22",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 25,
+          "eligibleEloMaps": 25,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "RCY",
+          "accountId": "154974246",
+          "steam64Consistent": true,
+          "localPlayerId": "24",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 25,
+          "eligibleEloMaps": 25,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Fayde",
+          "accountId": "160119017",
+          "steam64Consistent": true,
+          "localPlayerId": "25",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 25,
+          "eligibleEloMaps": 25,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Yuma",
+          "accountId": "177203952",
+          "steam64Consistent": true,
+          "localPlayerId": "26",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 58,
+          "eligibleEloMaps": 57,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Speeed",
+          "accountId": "191362875",
+          "steam64Consistent": true,
+          "localPlayerId": "27",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 25,
+          "eligibleEloMaps": 25,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "Pipsqueak+4",
+      "registryCandidate": {
+        "id": "10150633",
+        "name": "Pipsqueak + 4"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 1,
+      "localVerifiedAccounts": 1,
+      "accountsMeetingFiveMapMinimum": 1,
+      "players": [
+        {
+          "name": "aik",
+          "accountId": "1202267677",
+          "steam64Consistent": true,
+          "localPlayerId": "57",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 28,
+          "eligibleEloMaps": 28,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "Natus Vincere",
+      "registryCandidate": {
+        "id": "36",
+        "name": "Natus Vincere"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 8,
+      "localVerifiedAccounts": 6,
+      "accountsMeetingFiveMapMinimum": 0,
+      "players": [
+        {
+          "name": "nefrit",
+          "accountId": "116249155",
+          "steam64Consistent": true,
+          "localPlayerId": "39",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 4,
+          "eligibleEloMaps": 4,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "Riddys",
+          "accountId": "130991304",
+          "steam64Consistent": true,
+          "localPlayerId": "300",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 4,
+          "eligibleEloMaps": 4,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "Niku",
+          "accountId": "185590374",
+          "steam64Consistent": true,
+          "localPlayerId": "301",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 4,
+          "eligibleEloMaps": 4,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "ILZH",
+          "accountId": "238146811",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        },
+        {
+          "name": "pma",
+          "accountId": "835864135",
+          "steam64Consistent": true,
+          "localPlayerId": "302",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 4,
+          "eligibleEloMaps": 4,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "daze",
+          "accountId": "919735867",
+          "steam64Consistent": true,
+          "localPlayerId": "303",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 4,
+          "eligibleEloMaps": 4,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "gotthejuice",
+          "accountId": "957204049",
+          "steam64Consistent": true,
+          "localPlayerId": "304",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 4,
+          "eligibleEloMaps": 4,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "qmis1k",
+          "accountId": "1252636032",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        }
+      ]
+    },
+    {
+      "discoveryName": "Dawn Bulls",
+      "registryCandidate": {
+        "id": "10251056",
+        "name": "Dawn Bulls"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 1,
+      "localVerifiedAccounts": 0,
+      "accountsMeetingFiveMapMinimum": 0,
+      "players": [
+        {
+          "name": "Ingvard ",
+          "accountId": "278309950",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        }
+      ]
+    },
+    {
+      "discoveryName": "Xtreme Gaming",
+      "registryCandidate": {
+        "id": "8261500",
+        "name": "Xtreme Gaming"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 3,
+      "localVerifiedAccounts": 3,
+      "accountsMeetingFiveMapMinimum": 2,
+      "players": [
+        {
+          "name": "Xm",
+          "accountId": "137129583",
+          "steam64Consistent": true,
+          "localPlayerId": "97",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 15,
+          "eligibleEloMaps": 15,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "XinQ",
+          "accountId": "157475523",
+          "steam64Consistent": true,
+          "localPlayerId": "108",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 3,
+          "eligibleEloMaps": 1,
+          "needsHistoryIfSelected": true
+        },
+        {
+          "name": "Ame",
+          "accountId": "898754153",
+          "steam64Consistent": true,
+          "localPlayerId": "141",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 20,
+          "eligibleEloMaps": 18,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    },
+    {
+      "discoveryName": "Team Nemesis",
+      "registryCandidate": {
+        "id": "9691969",
+        "name": "Team Nemesis"
+      },
+      "teamBindingVerified": false,
+      "eventRosterAvailable": false,
+      "rosterReadiness": "unknown",
+      "candidatePlayers": 7,
+      "localVerifiedAccounts": 4,
+      "accountsMeetingFiveMapMinimum": 4,
+      "players": [
+        {
+          "name": "J",
+          "accountId": "100471531",
+          "steam64Consistent": true,
+          "localPlayerId": "73",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 16,
+          "eligibleEloMaps": 15,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Mac",
+          "accountId": "104512126",
+          "steam64Consistent": true,
+          "localPlayerId": "171",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 14,
+          "eligibleEloMaps": 14,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Jaunuel",
+          "accountId": "148526973",
+          "steam64Consistent": true,
+          "localPlayerId": "104",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 15,
+          "eligibleEloMaps": 14,
+          "needsHistoryIfSelected": false
+        },
+        {
+          "name": "Jhocam",
+          "accountId": "152859296",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        },
+        {
+          "name": "Ken",
+          "accountId": "218367241",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        },
+        {
+          "name": "NARMAN",
+          "accountId": "343084576",
+          "steam64Consistent": true,
+          "localPlayerId": null,
+          "localIdentityVerified": false,
+          "rawCompletedProMaps": 0,
+          "eligibleEloMaps": null,
+          "needsHistoryIfSelected": null
+        },
+        {
+          "name": "JACKBOYS",
+          "accountId": "392565237",
+          "steam64Consistent": true,
+          "localPlayerId": "193",
+          "localIdentityVerified": true,
+          "rawCompletedProMaps": 14,
+          "eligibleEloMaps": 14,
+          "needsHistoryIfSelected": false
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "deterministicReplay": true,
+    "countsAgreeWithFeatureBuilder": true,
+    "strictCompletedCutoff": true,
+    "probabilityNull": true,
+    "deployableFalse": true,
+    "sourceHashes": true,
+    "formatArithmetic": true,
+    "dbPreservation": true,
+    "queuePreservation": true
+  },
+  "evaluation": "not_performed",
+  "teamAWinProbability": null,
+  "deployable": false,
+  "providerCalls": {
+    "pandascore": 5,
+    "opendota": 1,
+    "stratz": 0,
+    "rosterRegistryReused": true,
+    "rawPrivateCapturesCommitted": false
+  },
+  "pandaSources": [
+    {
+      "endpoint": "/dota2/series/upcoming?sort=begin_at,id&page=1&per_page=100",
+      "fetchedAt": "2026-11-06T11:27:30.737Z",
+      "knownAt": null,
+      "sha256": "0c289236b802571d7ee775dda370503102813cc0bc1205e008c894c1e84a0a8c",
+      "status": 200,
+      "attempt": 1,
+      "resultRows": 3
+    },
+    {
+      "endpoint": "/tournaments/22404/rosters",
+      "fetchedAt": "2026-11-06T11:28:28.204Z",
+      "knownAt": null,
+      "sha256": "651818fbac0f100a1e8104e65990bb182b0b562257bac1d0643082348995cb35",
+      "status": 200,
+      "attempt": 1,
+      "resultRows": 0
+    },
+    {
+      "endpoint": "/tournaments/22405/rosters",
+      "fetchedAt": "2026-11-06T11:28:32.228Z",
+      "knownAt": null,
+      "sha256": "651818fbac0f100a1e8104e65990bb182b0b562257bac1d0643082348995cb35",
+      "status": 200,
+      "attempt": 1,
+      "resultRows": 0
+    },
+    {
+      "endpoint": "/tournaments/22406/rosters",
+      "fetchedAt": "2026-11-06T11:28:36.248Z",
+      "knownAt": null,
+      "sha256": "651818fbac0f100a1e8104e65990bb182b0b562257bac1d0643082348995cb35",
+      "status": 200,
+      "attempt": 1,
+      "resultRows": 0
+    },
+    {
+      "endpoint": "/tournaments/22407/rosters",
+      "fetchedAt": "2026-11-06T11:28:40.268Z",
+      "knownAt": null,
+      "sha256": "651818fbac0f100a1e8104e65990bb182b0b562257bac1d0643082348995cb35",
+      "status": 200,
+      "attempt": 1,
+      "resultRows": 0
+    }
+  ],
+  "leagueCatalogue": {
+    "source": {
+      "provider": "opendota",
+      "adapterVersion": "opendota-provider-v2",
+      "endpoint": "/leagues",
+      "fetchedAt": "2026-11-06T11:35:38.882Z",
+      "knownAt": null,
+      "payloadSha256": "480e50471eb45bc42628faf13b7486f01cc789f363033a293f9a48773018c7d7",
+      "attempts": 1,
+      "rateLimitRemaining": {
+        "minute": 59,
+        "day": 2997,
+        "month": null
+      }
+    },
+    "candidates": [
+      {
+        "leagueId": "20250",
+        "name": "BLAST Slam IX China Qualifier",
+        "tier": "professional"
+      },
+      {
+        "leagueId": "20359",
+        "name": "DreamLeague Season 30 Qualifiers",
+        "tier": "professional"
+      },
+      {
+        "leagueId": "20208",
+        "name": "BLAST SLAM IX",
+        "tier": "professional"
+      },
+      {
+        "leagueId": "20389",
+        "name": "BLAST Slam IX China Qualifier",
+        "tier": "excluded"
+      }
+    ],
+    "mainDreamLeague30Found": false
+  },
+  "planFeasibility": {
+    "status": "announced_format_below_registered_series_floor",
+    "planFingerprint": "8ffa8625e3e8cede2505ff79786fd27f7b6eb9c9215fd70e1855938d11dd88b4",
+    "planFileSha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef",
+    "observedAt": "2026-11-06T11:38:17.778Z",
+    "registeredMinMaps": 100,
+    "registeredMinSeries": 40,
+    "announcedFormatDerivedSeries": 34,
+    "theoreticalMaps": {
+      "min": 69,
+      "max": 104
+    },
+    "formula": "4*5 GSL + 2 seeding + 2 last-chance + 10 six-team playoffs",
+    "basis": "IX organizer explicitly references VIII format; VIII official bracket has 34 series",
+    "futureOutcomesInspected": false,
+    "sources": [
+      "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online",
+      "https://blast.tv/dota/news/blast-slam-viii-malta",
+      "https://blast.tv/dota/tournaments/blast-slam-viii/series?view=results"
+    ]
+  },
+  "replacementProposal": {
+    "status": "not_registered",
+    "events": [
+      "BLAST Slam IX main",
+      "DreamLeague Season 30 main"
+    ],
+    "proposedSnapshotAt": "2026-12-16T00:00:00.000Z",
+    "thresholdChanges": false,
+    "source": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+    "missing": [
+      "main_event_numeric_binding",
+      "event_window_review",
+      "new_plan_and_freeze_registration",
+      "collection_budget_review"
+    ]
+  },
+  "preservation": {
+    "publicTables": 83,
+    "unchangedTables": 81,
+    "changedTables": [
+      "pandascore_request_quota",
+      "provider_quotas"
+    ],
+    "jobsUnchanged": true,
+    "jobs": [
+      {
+        "name": "opendota-map-import",
+        "state": "completed",
+        "count": 2
+      },
+      {
+        "name": "opendota-player-history",
+        "state": "completed",
+        "count": 10
+      },
+      {
+        "name": "opendota-team-history",
+        "state": "created",
+        "count": 1
+      }
+    ],
+    "maps": 340,
+    "newImports": 0,
+    "newIdentityBindings": 0,
+    "newRosterBindings": 0,
+    "newScenarios": 0,
+    "newForecasts": 0,
+    "newModelActivations": 0,
+    "servicesRestarted": false,
+    "oldProtocolRewritten": false
+  },
+  "qa": {
+    "migrationVerifier": { "status": "PASS", "orderedMigrations": 49 },
+    "frozenPreservation": { "status": "PASS", "protectedFiles": 245, "originalModules": 150, "runtimeCompatible": true },
+    "markdownLinks": "PASS",
+    "gitDiffCheck": "PASS",
+    "secretAndPrivatePathScan": { "status": "PASS", "files": 9, "secretMatches": 0, "privatePaths": 0 },
+    "functionalSuites": "not_rerun_no_production_code_changes",
+    "installTypecheckBuild": "not_rerun_no_production_code_or_dependency_changes"
+  },
+  "nextTask": "S3-01/V1-evaluation/protocol-feasibility"
+}
