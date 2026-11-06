@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-retest-collection-checkpoint-v1",
+  "task": "S3-01/V1-retest/collection",
+  "checkedAt": "2026-11-06T18:58:12.911Z",
+  "status": "collection_partial",
+  "protocol": {
+    "path": "docs/evidence/s3-01-v1-retest-protocol.json",
+    "sha256": "14353a129616d4757638ca91916aeb356e3944b45cdb64ab56cb8e21238452f1"
+  },
+  "config": {
+    "path": ".tools/v1-retest-collection-20261106/config.json",
+    "sha256": "5efe9bf805ff0c59c706df4c9da21db0bff725f46845f02e632577763cd7020a"
+  },
+  "store": {
+    "path": ".tools/v1-retest-collection-20261106/store/collection.json",
+    "sha256": "916da747453e2bdb02bf58dc3c7b6aaa07991b20e214c5f9646bdbc98fd5378d"
+  },
+  "summary": {
+    "observedMaps": 967,
+    "capturedTargetMaps": 967,
+    "deferredTargetMaps": 0,
+    "settledTargetMaps": 967,
+    "sourceEligibleMaps": 961,
+    "priorExposedMaps": 297,
+    "unexposedMaps": 670,
+    "unexposedKnownSeries": 333,
+    "sourceHistoryReadyMaps": 669,
+    "currentIdentityReadyMaps": 658,
+    "provisionalReadyMaps": 652,
+    "historyJobs": 24,
+    "missingHistoryJobs": 0,
+    "discoveredHistoryMaps": 334,
+    "capturedHistoryMaps": 309,
+    "invalidHistoryMaps": 11,
+    "pendingHistoryMaps": 25,
+    "deferredHistoryMaps": 0
+  },
+  "collection": {
+    "terminal": false,
+    "deadlineReached": false,
+    "deadline": "2026-11-13T00:00:00.000Z",
+    "httpAttempts": 1297,
+    "cacheRecords": 7,
+    "liveRecords": 1293,
+    "interruptedAttempts": 0,
+    "lateResponses": 0,
+    "terminalHistoryJobs": 24,
+    "pendingHistoryJobs": 0
+  },
+  "journal": {
+    "admissions": 1297,
+    "outcomes": 1297,
+    "maxPerKey": 3,
+    "maxPerRun": 50,
+    "runs": 30,
+    "httpStatuses": {
+      "200": 1294,
+      "500": 1
+    },
+    "cached": 7,
+    "pendingFiles": 0
+  },
+  "sourceCoverage": {
+    "mode": "saved_live_opendota_responses",
+    "mapRecords": 1276,
+    "flags": {
+      "match_id_consistent": 1276,
+      "start_time": 1276,
+      "outcome": 1276,
+      "teams_2": 1265,
+      "league": 1276,
+      "series": 1259,
+      "patch": 1276,
+      "players_10": 1276,
+      "identity_10": 1276,
+      "heroes_10_unique": 1276,
+      "picks_10": 1269,
+      "draft_actions": 1269,
+      "role_hint_10": 1276,
+      "final_heroes_valid": 1276,
+      "draft_picks_exact": 1269,
+      "draft_heroes_match": 1269,
+      "draft_teams_match": 1269,
+      "draft_order_integrity": 1269,
+      "draft_structurally_consistent": 1269
+    },
+    "additionalHttp": 0
+  },
+  "report": {
+    "path": ".tools/v1-retest-collection-20261106/status-final.json",
+    "sha256": "b98448a00490749d5af75ebdcb0b147a9a69a5ee1701696b17faa9a2b65a0105"
+  },
+  "closure": null,
+  "operatorRuns": [
+    {
+      "file": {
+        "path": ".tools/v1-retest-collection-20261106/operator-targets-c8f92a41-cc26-4581-91f1-c10d8d31bba5.json",
+        "sha256": "d1f7acc371074662a9aa58186da64e0e2955442a4b2aa10b33ba1f139791a3e8"
+      },
+      "phase": "targets",
+      "runs": 14,
+      "httpRequests": 653,
+      "lastStop": "source_timeout",
+      "resumeNotBeforeAt": null
+    },
+    {
+      "file": {
+        "path": ".tools/v1-retest-collection-20261106/operator-targets-4a171c95-93d5-44d5-bde5-9d325ea3f98d.json",
+        "sha256": "d9c7b887cc92a0a8a2331834b08748eadc322c50b4033b60d5ce880011d292df"
+      },
+      "phase": "targets",
+      "runs": 7,
+      "httpRequests": 310,
+      "lastStop": null,
+      "resumeNotBeforeAt": null
+    },
+    {
+      "file": {
+        "path": ".tools/v1-retest-collection-20261106/operator-history-17fb93dd-a856-4e07-a4df-a3d60b37f465.json",
+        "sha256": "fc1fe957d71b61e9a801018a9b457796464232f178aeb058ae5c4d5c1f679c78"
+      },
+      "phase": "history",
+      "runs": 2,
+      "httpRequests": 75,
+      "lastStop": "source_timeout",
+      "resumeNotBeforeAt": null
+    },
+    {
+      "file": {
+        "path": ".tools/v1-retest-collection-20261106/operator-history-c25449f8-4ea4-4e12-badf-42f07b0e8e9e.json",
+        "sha256": "719bc916469d654dadc69a414f6c2102b4931d1914c46d2e70cd7ce44ad3bdab"
+      },
+      "phase": "history",
+      "runs": 1,
+      "httpRequests": 1,
+      "lastStop": "source_timeout",
+      "resumeNotBeforeAt": null
+    },
+    {
+      "file": {
+        "path": ".tools/v1-retest-collection-20261106/operator-history-f5be8173-3952-43c2-b504-e1fd6466fff2.json",
+        "sha256": "e72dcacf715523b94cab3479842fab884f5a1567b9dcaa5b2f2cf8b6cd5974b9"
+      },
+      "phase": "history",
+      "runs": 6,
+      "httpRequests": 258,
+      "lastStop": "request_budget_exhausted",
+      "resumeNotBeforeAt": "2026-11-07T00:00:00.001Z"
+    }
+  ],
+  "cache": {
+    "availableMaps": 836,
+    "targetMatches": 5,
+    "origins": {
+      "path": ".tools/v1-retest-collection-20261106/cache-origins.json",
+      "sha256": "a8d95a1b20cd9a2e620abb1394ac2a56d791b401b88b8063e46fab3e1f4af590"
+    }
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 892
+    },
+    "node": {
+      "status": "PASS",
+      "count": 200,
+      "newCases": 19
+    },
+    "sourceReplay": "PASS",
+    "repeatStatus": "PASS",
+    "liveCliStatus": "PASS",
+    "repeatCapture": {
+      "status": "cooldown",
+      "providerRequests": 0,
+      "receipt": {
+        "path": ".tools/v1-retest-collection-20261106/repeat-capture.json",
+        "sha256": "391171219ffaa66f1e6c15874b177f41c5909108afe30190e537e627d087a46e"
+      }
+    },
+    "protectedArtifacts": 245,
+    "firstFrozenAndCurrentCodeFiles": 373,
+    "firstEvaluationHashesUnchanged": true,
+    "publicTables": 83,
+    "changedTables": [
+      "provider_quotas"
+    ],
+    "queueUnchanged": true,
+    "canonicalMaps": 939,
+    "activeModels": 0,
+    "health": {
+      "api": 200,
+      "web": 200
+    }
+  },
+  "quotaBefore": {
+    "minute_used": 7,
+    "day_used": 703,
+    "month_used": 1421,
+    "day_start": "2026-11-06T00:00:00.000Z",
+    "blocked_until": "2026-11-06T14:05:03.406Z"
+  },
+  "quotaAfter": {
+    "minute_used": 8,
+    "day_used": 2000,
+    "month_used": 2718,
+    "day_start": "2026-11-06T00:00:00.000Z",
+    "blocked_until": "2026-11-06T18:45:17.972Z"
+  },
+  "runtimeEffects": {
+    "importedMaps": 0,
+    "newScoring": 0,
+    "activatedModels": 0,
+    "servicesRestarted": false,
+    "generalWorkerStarted": false
+  },
+  "limitations": [
+    "Source eligibility is not canonical identity/outcome verification or model quality.",
+    "Previous failed evaluation retained; no interim metrics, retuning, or prospective accuracy claim.",
+    "No PG integration/browser/Python/Docker/Linux suite rerun: production DB/API/UI and dependencies unchanged."
+  ],
+  "nextTask": "S3-01/V1-retest/collection"
+}

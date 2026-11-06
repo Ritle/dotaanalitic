@@ -2363,3 +2363,15 @@ Actual registration:2026-11-06T16:27:26.589Z,protocol SHA14353a129616d4757638ca9
 Checks actually executed: frozen offline install,root typecheck/build PASS; full serial unit/CLI892 and Node181 including10new PASS,without changing timeouts. Live create/verify PASS; repeat create expectedOUTPUT_EXISTS/exit1,original SHA unchanged. Archived frozen bundle replay PASS and quality stillFAIL;245protected artifacts/373first frozen and current code entries plus first evaluation SHA unchanged. Read-only final DB83tables changed=[],queue retained,939maps,activeModels0,API/WebHTTP200.0providerHTTP,no jobs/imports/source collection/service restart/new scoring.49migrations/docs links/whitespace/private-secret checks recorded before commit. PG integration/browser/Python/Docker/Linux suites not rerun for this file-only CLI boundary.
 
 Next exact: **S3-01/V1-retest/collection** — bounded v2 adapter and terminal/deadline/cumulative HTTP-attempt enforcement with cache/source replay and old-format regressions; then real collection under registered protocol. Canonical import/new executable freeze/evaluation remain subsequent tasks, no automatic promotion. Suggested model: **GPT-6 Astra · Extra High**.
+
+### 2026-11-06 — S3-01/V1-retest/collection
+
+Goal / implemented / changed files: additive v2 collector contract,source adapter,durable store,provider quota hooks,CLI and19 Node cases; docs/runbook/evidence/README/state/plan updated. 967/967 target details,0 terminal missing;24/24 history queries,309/334 history maps. HTTP attempts1297,cache7;max3/key,50/run. Real collection remains open.
+
+Checks actually executed (PASS): frozen offline install,typecheck,build,892unit/CLI+200Node; source replay/repeat status,49migration hashes,docs links;245protected artifacts/373first frozen+current files/first result preserved.83public tables,only provider_quotas changed;939canonical maps/queue unchanged,active0,API/Web200. Initial new cache deadline fuzz reproduced record-binding error; fixed one stable acceptance timestamp; final19 targeted and200 full Node passed.
+
+Architecture: protocol/policy/firstFAIL preserved,<=3 per-key HTTP attempts cumulative incl internal retries/crashes,<=50/run,shared quota/Retry-After,deadline13Nov00UTC,cache provenance,all target IDs retained. No raw payload/secrets tracked,canonical import/scoring/activation/service restart/general worker absent. No SQL/dependency changes. PG/browser/Python/Docker/Linux not rerun.
+
+Known blockers / compatibility: provider stop request_budget_exhausted, resume 2026-11-07T00:00:00.001Z; captured records retained and no quota increase. Old v1 collector/importer/frozen artifacts unchanged; new importer must explicitly accept v2.
+
+Next exact: **S3-01/V1-retest/collection** — Продолжить history после cooldown 2026-11-07T00:00:00.001Z, сохранив журнал и квоту. Deadline13Nov00:00UTC; частичная загрузка не считается выполненным сбором. Suggested model: **GPT-6 Astra · Extra High**.
