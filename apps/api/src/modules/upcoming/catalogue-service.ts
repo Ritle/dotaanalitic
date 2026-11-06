@@ -9,7 +9,7 @@ export class RosterCatalogueService{
  readonly repository:RosterCatalogueRepository;
  private readonly pending=new Map<string,Promise<CatalogueObservation>>();
  constructor(private readonly db:Db,private readonly upcoming:UpcomingService,private readonly provider:CatalogueProvider){this.repository=new RosterCatalogueRepository(db);}
- private async context(matchId:string){const schedule=await this.upcoming.schedule(),match=schedule.snapshot?.data.find(m=>m.providerMatchId===matchId);
+ private async context(matchId:string){const match=await this.upcoming.findMatch(matchId);
   if(!match||match.opponents.length!==2||match.status!=='not_started'||match.scheduledAt!==null&&match.scheduledAt<=new Date().toISOString())throw new RosterCatalogueError('invalid');
   const rosters=await this.upcoming.tournament(match.tournament.providerTournamentId);return {match,rosters};
  }

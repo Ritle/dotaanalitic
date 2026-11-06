@@ -1,0 +1,148 @@
+{
+  "checkedAt": "2026-11-06T00:41:50.337Z",
+  "task": "S1-16/schedule-pages",
+  "ownerSelected": true,
+  "initialCommits": [
+    {
+      "commit": "7f255a52016807c1a2561e6180f5c7b95e9df6df",
+      "subject": "feat: complete player data workflows and V1 collection tooling",
+      "files": 139
+    },
+    {
+      "commit": "72c0be270ebfa753168cb5d894da8a7508662b5c",
+      "subject": "fix: complete PostgreSQL regression and scale research manifests",
+      "files": 8
+    },
+    {
+      "commit": "bbc54f6313a838d54229beb2eb49add285ac4fc1",
+      "subject": "docs: record source validation and full local regression",
+      "files": 73
+    }
+  ],
+  "scope": {
+    "pageSize": 20,
+    "maxPage": 50,
+    "explicitNavigation": true,
+    "perPageCacheMinutes": 5,
+    "sharedProviderQuota": true,
+    "automaticCrawl": false,
+    "additionalPages": "schedule_rosters_descriptive_comparison",
+    "v1ForecastTargets": "original_page_one_only",
+    "pageOneContractUnchanged": true
+  },
+  "checks": {
+    "frozenOfflineInstall": "passed",
+    "rootTypecheck": "passed",
+    "rootBuild": "passed",
+    "finalApiTypecheck": "passed",
+    "workspaceUnitCli": {
+      "tests": 887,
+      "passed": 887,
+      "newTests": 3
+    },
+    "postgres": {
+      "uniqueTests": 31,
+      "baseline": 4,
+      "upcoming": 13,
+      "scheduleFreshness": 6,
+      "schedulePages": 8
+    },
+    "targetedInitial": {
+      "tests": 29,
+      "passed": 29,
+      "note": "included three pure tests and the first seven page cases; final eight-case repeat is deduplicated"
+    },
+    "chromium": {
+      "tests": 12,
+      "passed": 12,
+      "newTests": 3,
+      "automaticRetries": 0
+    },
+    "protectedArtifacts": 245,
+    "originalModules": 150,
+    "frozenBundleAndRuntime": "preserved",
+    "orderedMigrations": 47
+  },
+  "live": {
+    "checkedAt": "2026-11-06T00:37:25.653Z",
+    "page": 2,
+    "matches": 20,
+    "status": "ready",
+    "source": {
+      "provider": "pandascore",
+      "adapterVersion": "pandascore-schedule-audit-v1",
+      "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=2&per_page=20",
+      "fetchedAt": "2026-11-06T00:37:21.625Z",
+      "knownAt": null,
+      "payloadSha256": "d5567a3d0ff5fa6f778726fe4a02dc4d7a3407795ef7b3cbbd5e6000d6d7d7c2",
+      "attempts": 1,
+      "rateLimitRemaining": 999
+    },
+    "providerRequests": 1,
+    "repeatProviderRequests": 0,
+    "pageErrors": 0,
+    "newLogins": 0,
+    "mobileOverflow": false,
+    "refreshQueries": [
+      "?page=2"
+    ],
+    "changedOldTables": [
+      "pandascore_request_quota",
+      "schema_migrations"
+    ],
+    "oldPublicTables": 80,
+    "newPublicTables": 82,
+    "jobStateCountsUnchanged": true
+  },
+  "runtime": {
+    "oldApiPid": 22464,
+    "newApiPid": 27864,
+    "webPid": 24592,
+    "historyOnlyWorkerPid": 9904,
+    "generalWorkerStarted": false,
+    "appliedMigration": "047_schedule_pages.sql"
+  },
+  "harnessCorrections": [
+    "PowerShell scalar splatting accidentally expanded typecheck into characters; stopped before tests and corrected to typed string array",
+    "Restart guard initially refused relative server path before any DB/process mutation; verified known PID and creation time before scoped restart",
+    "Live quota audit initially used reserved SQL alias hour; fixed before provider action"
+  ],
+  "limitations": {
+    "fullPostgresSuite": "not_rerun_previous_S4_report_remains_separate",
+    "fullBrowserSuite": "not_rerun_targeted12_only",
+    "nodeStandaloneSuite": "not_rerun",
+    "python": "not_rerun",
+    "linuxDockerDeployment": "deferred",
+    "realModelEvaluation": false,
+    "activation": false,
+    "completeCalendarClaim": false
+  },
+  "next": {
+    "task": "S3-01/V1-evaluation/collection",
+    "collectionStartsAt": "2026-11-20T00:00:00.000Z",
+    "evaluationNotBefore": "2026-12-02T00:00:00.000Z",
+    "recommendedModel": "GPT-6 Astra · Extra High"
+  },
+  "sourceFiles": {
+    "packages/contracts/src/schedule-pages.ts": "3f857c6aeefdc1c27b68a022a9fdead0723ea3c0aa648b81b60495da297daf20",
+    "packages/db/src/schedule-pages.ts": "0c3fdc5df35bfe383003283cd5d9b373f1af18b9e2f1cb32c4014645341989a1",
+    "packages/db/migrations/047_schedule_pages.sql": "7c5a4e0a54aac90476965b841aa28420b8f6520450ec465cf78dfd312f39df4d",
+    "packages/ingestion/src/pandascore/client.ts": "3f549152ec7afec1e72025c730c28a590955a8143873b4c360086e2721ae5879",
+    "apps/api/src/modules/upcoming/service.ts": "333210d1e986f36283824bda148ba894aaabc810a4d8bf97b21af7b0fe08f71d",
+    "apps/api/src/modules/upcoming/http.ts": "42be81425c33ee65d7d30f2821be486c438b9a524f9e975c89eff5886b5c4cc7",
+    "apps/api/src/modules/upcoming/catalogue-service.ts": "f49bd3d8c713a90c0f1d892cf8972a74476ba68dca8266c4900182974e7939bc",
+    "apps/web/src/views/UpcomingView.vue": "a790417fa4bbf0b1900e4cae099ec21ddc1ec5e3ffc033776175128d849ba420"
+  },
+  "logs": {
+    "install": "a9446a7bdf6bf55b44d35d155556a63be13a6af6b5edd62d2c7197844a584644",
+    "typecheck": "12308a1a50cf719911d5a318fad923c9716daa3ebacd6771d11124b4de79c328",
+    "build": "49f534b857b0db39b0e7206f1c68804a552405fa285fecc9b467ab17bf377062",
+    "targeted": "64134b3fb2f710152fecf3a99c6f368ede93f3273666fc18d9dcaeae87a2bf4c",
+    "api-final": "4fb2c0a502dc82d0b8503dd81ce6fc9ec997fe3dba56a905bc99e232c7bd45fc",
+    "baseline": "908fe3b4838aef5c752d1e8967b85162ee15479989f1fb7304ca5ad37b030493",
+    "browser": "d86311fab3515e9c363665a275277ed095b84225266a7f8424bc37f46cf41bf7",
+    "unit": "de54065d8c7f40d6e2eff14dadae8d496c4ca916b901d4eccb56c2a6062e69e0",
+    "typecheck-final": "7c7fa49e5d8a9d809b0935f00f67c26ee3b3a292f18a7c828d5fceb6faefeca6",
+    "migrate": "46be6fba346b990f5bcff01dfe4447e0da2e5d5704d09312c9897b1c1dcf1e20"
+  }
+}

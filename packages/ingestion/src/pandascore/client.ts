@@ -33,7 +33,10 @@ export class PandaScoreClient{
     this.budget=dependencies.budget;
   }
   get requestStats(){return {attempts:this.used,httpStatuses:{...this.statuses},transportErrors:{...this.transport}};}
-  getUpcomingMatches(){return this.request('/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20',PandaUpcomingSchema);}
+  getUpcomingMatches(page=1){
+    if(!Number.isInteger(page)||page<1||page>50)throw new PandaScoreError('invalid_configuration');
+    return this.request(`/dota2/matches/upcoming?sort=scheduled_at,id&page=${page}&per_page=20`,PandaUpcomingSchema);
+  }
   getTournamentRosters(id:string){
     const parsed=PandaIdSchema.safeParse(id);if(!parsed.success)throw new PandaScoreError('invalid_id');
     return this.request(`/tournaments/${parsed.data}/rosters`,PandaRostersSchema);

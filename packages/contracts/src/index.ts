@@ -55,6 +55,7 @@ export * from './series-provision.js';
 export * from './dataset-audit.js';
 export * from './identity-provision.js';
 export * from './upcoming.js';
+export * from './schedule-pages.js';
 export * from './upcoming-evidence.js';
 export * from './history-refresh.js';
 export * from './patch-diagnostics.js';

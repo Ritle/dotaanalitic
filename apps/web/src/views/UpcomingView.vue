@@ -1,20 +1,36 @@
 <script setup lang="ts">
 import {computed,nextTick,ref,watch} from 'vue';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
-import {UpcomingScheduleResponseSchema,UpcomingRostersResponseSchema} from '@dota/contracts';
+import {SchedulePageResponseSchema,UpcomingRostersResponseSchema,SCHEDULE_PAGE_LIMIT} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
 import UpcomingScenario from '../components/UpcomingScenario.vue';
 import UpcomingTarget from '../components/UpcomingTarget.vue';
 import {upcomingParticipants,upcomingParticipantKey,upcomingTeamLabel} from '../upcoming-participants';
 const cache=useQueryClient(),selectedId=ref(''),busy=ref(false),error=ref('');
-const eventFilter=ref('');
+const eventFilter=ref(''),page=ref(1);
+const pageKey=(number:number)=>number===1?['upcoming']:['upcoming',number];
+const pagePath=(number:number,refresh=false)=>`upcoming${refresh?'/refresh':''}${number===1?'':`?page=${number}`}`;
+const mutation=()=>({method:'POST',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},body:'{}'});
 const selectedPanel=ref<HTMLElement|null>(null);
 async function selectMatch(id:string){
   selectedId.value=id;error.value='';await nextTick();
   selectedPanel.value?.focus({preventScroll:true});selectedPanel.value?.scrollIntoView({block:'start',behavior:'instant'});
 }
-const schedule=useQuery({queryKey:['upcoming'],queryFn:({signal})=>readCatalog('upcoming',UpcomingScheduleResponseSchema,signal)});
+const schedule=useQuery({queryKey:computed(()=>pageKey(page.value)),
+  queryFn:({signal,queryKey})=>readCatalog(pagePath(Number(queryKey[1]??1)),SchedulePageResponseSchema,signal),
+  staleTime:60000,refetchOnWindowFocus:false,refetchOnReconnect:false});
+async function changePage(number:number){
+  if(busy.value||number<1||number>SCHEDULE_PAGE_LIMIT)return;
+  busy.value=true;error.value='';
+  try{
+    const key=pageKey(number),saved=await cache.fetchQuery({queryKey:key,staleTime:60000,
+      queryFn:({signal})=>readCatalog(pagePath(number),SchedulePageResponseSchema,signal)});
+    if(saved.configured&&saved.reason==='not_loaded')cache.setQueryData(key,
+      await readCatalog(pagePath(number,true),SchedulePageResponseSchema,new AbortController().signal,mutation()));
+    selectedId.value='';eventFilter.value='';page.value=number;
+  }catch(e){error.value=e instanceof Error?e.message:'Не удалось загрузить страницу.';}finally{busy.value=false;}
+}
 const eventOptions=computed(()=>{
   const options=new Map<string,string>();
   for(const m of schedule.data.value?.snapshot?.data??[]){
@@ -40,8 +56,8 @@ const message=(reason:string|null|undefined)=>({not_configured:'Источник
 async function refresh(kind:'schedule'|'rosters'){
   busy.value=true;error.value='';const id=tournament.value;
   try{
-    const init={method:'POST',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},body:'{}'};
-    if(kind==='schedule')cache.setQueryData(['upcoming'],await readCatalog('upcoming/refresh',UpcomingScheduleResponseSchema,new AbortController().signal,init));
+    const init=mutation(),number=page.value;
+    if(kind==='schedule')cache.setQueryData(pageKey(number),await readCatalog(pagePath(number,true),SchedulePageResponseSchema,new AbortController().signal,init));
     else cache.setQueryData(['upcoming-rosters',id],await readCatalog(`upcoming/tournaments/${id}/refresh`,UpcomingRostersResponseSchema,new AbortController().signal,init));
   }catch(e){error.value=e instanceof Error?e.message:'Не удалось обновить данные.';}finally{busy.value=false;}
 }
@@ -60,7 +76,14 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
     <section class="panel" aria-label="Расписание встреч">
       <div class="account-row"><h2>Ближайшие встречи</h2>
         <button :disabled="busy||!schedule.data.value?.configured" @click="refresh('schedule')">{{busy?'Обновление…':'Обновить расписание'}}</button></div>
-      <p class="hint">Источник: PandaScore · первая страница, до 20 встреч. Время в расписании — московское. Источник обновляется не чаще раза в пять минут.</p>
+      <p class="hint">Источник: PandaScore · до 20 встреч на странице. Время — московское. Каждая страница обновляется не чаще раза в пять минут.</p>
+      <nav class="schedule-pages" aria-label="Страницы расписания">
+        <button :disabled="busy||schedule.isFetching.value||page===1" @click="changePage(page-1)">Предыдущая страница</button>
+        <span role="status">Страница {{page}}</span>
+        <button :disabled="busy||schedule.isFetching.value||page===SCHEDULE_PAGE_LIMIT||schedule.data.value?.snapshot?.data.length!==20" @click="changePage(page+1)">Следующая страница</button>
+      </nav>
+      <p v-if="busy" role="status">Загрузка данных…</p>
+      <p v-if="page===SCHEDULE_PAGE_LIMIT" class="hint">Достигнут предел просмотра — {{SCHEDULE_PAGE_LIMIT}} страниц. Полнота календаря не подтверждена.</p>
       <div class="event-filter"><label for="schedule-event-filter">Турнир в сохранённом расписании</label>
         <select id="schedule-event-filter" v-model="eventFilter" :disabled="!schedule.data.value?.snapshot" aria-describedby="event-filter-note">
           <option value="">Все турниры на этой странице</option>
@@ -69,7 +92,7 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
         </select>
       </div>
       <p v-if="eventFilter" class="hint">Выбранный турнир: PandaScore #{{eventFilter}}.</p>
-      <p id="event-filter-note" class="hint">Фильтр действует только на сохранённую страницу, а не на полный календарь. Он не подтверждает уровень Tier 1. При смене фильтра выбранная встреча и несохранённая форма сбрасываются.</p>
+      <p id="event-filter-note" class="hint">Фильтр действует только на текущую страницу, а не на полный календарь. Он не подтверждает уровень Tier 1. При смене страницы или фильтра выбранная встреча и несохранённая форма сбрасываются. Состав страниц может меняться при обновлении источника.</p>
       <p v-if="schedule.isPending.value" role="status">Загрузка расписания…</p>
       <div v-else-if="schedule.error.value" role="alert"><p class="error">{{schedule.error.value.message}}</p><button @click="schedule.refetch()">Повторить чтение</button></div>
       <template v-if="schedule.data.value">
@@ -78,7 +101,7 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
         <p v-if="schedule.data.value.status==='stale'" class="warning">Сохранённое расписание устарело. Время и участники могли измениться.</p>
         <p v-if="schedule.data.value.retryAt" class="hint">Повторить после {{dateLabel(schedule.data.value.retryAt)}}</p>
         <p v-if="!matches.length&&eventFilter">На этой странице нет предстоящих встреч выбранного турнира. Это не означает, что их нет в полном расписании.</p>
-        <p v-else-if="!matches.length">Предстоящих встреч в сохранённых данных нет. Обновите расписание.</p>
+        <p v-else-if="!matches.length">На этой странице предстоящих встреч нет. Вернитесь на предыдущую страницу или обновите расписание.</p>
         <div v-else class="table-scroll"><table><caption class="sr-only">Предстоящие встречи Dota 2</caption>
           <thead><tr><th scope="col">Начало</th><th scope="col">Встреча</th><th scope="col">Турнир</th><th scope="col">Формат</th></tr></thead>
           <tbody><tr v-for="m in matches" :key="m.providerMatchId" :class="{chosen:selectedId===m.providerMatchId}">
@@ -120,7 +143,8 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
         <h3>{{expected.length===1?'Соперник не указан':'Участники не указаны'}}</h3><p>Уточните участников в источнике после обновления расписания.</p>
       </article></div>
       </details>
-      <UpcomingTarget :key="'target:'+upcomingParticipantKey(selected)" :match="selected" />
+      <UpcomingTarget v-if="page===1" :key="'target:'+upcomingParticipantKey(selected)" :match="selected" />
+      <p v-else class="hint">На этой странице доступны составы и сравнение. Привязка прогноза V1 поддерживается для встреч первой страницы расписания.</p>
     </section>
   </section>
 </template>
@@ -130,6 +154,7 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
 .upcoming td{vertical-align:top;min-width:130px}.chosen{background:var(--color-elevated)}.upcoming h2{overflow-wrap:anywhere}
 .match-name{display:block;margin-bottom:8px}
 .source-name{display:block;margin-bottom:8px}
+.schedule-pages{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-block:16px}.schedule-pages button{white-space:normal}
 summary{cursor:pointer;min-height:44px;padding-block:12px}
 @media(max-width:680px){.expected-columns{grid-template-columns:1fr}.upcoming{padding-inline:14px}.panel{padding:16px}}
 </style>

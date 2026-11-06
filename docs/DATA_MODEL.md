@@ -187,6 +187,10 @@ SQL042 adds validated player_history_runs.options with90/10 defaults for existin
 
 `schedule_source_freshness_reason_v1` закрепляет operational policy `schedule-source-age-v1`: non-future source clock и возраст строго меньше 5 минут. Новые independent AFTER INSERT triggers на `v1_schedule_targets` и `v1_runtime_snapshots` сверяют связанное immutable наблюдение с `clock_timestamp()` после existing validators/locks. Stale/future source вызывает исключение и rollback всей новой операции. Схемы/bytes прежних записей, exact retries, SQL001–043, prediction/release guards и frozen executable не переписываются. [Контракт](S4_V1_SCHEDULE_FRESHNESS.md).
 
+### SQL047 — additional schedule pages
+
+`upcoming_page_cache` stores pages2–50 independently with bounded payload, TTL, retry and lease. `upcoming_page_observations` stores immutable successful receipts with exact page/endpoint binding, source and normalized snapshot SHA, separate fetched/recorded clocks; knownAt stays null in the snapshot. Publication and receipt insertion share a transaction; expired/replaced lease writers cannot publish. Existing page1/tournament tables, source observations, frozen schemas and model admission are unchanged. These are descriptive schedule observations, not canonical maps, historical lineup proofs or labels. [Contract](S1_16_SCHEDULE_PAGES.md).
+
 ### SQL043 — evidence-only player history continuation
 
 player_history_runs adds operation (import default/evidence_resume), parent_run_id and scope_map_ids. Resume children refer to an owned terminal original import with identical bindings/options/lineup key; accepted/duplicate scope is checked by SQL. Original parent report is frozen after child creation; terminal resume reports immutable except operational next_allowed_at. player_history_projection_replays stores run/attempt/map -> original receipt, hero/league references -> derived receipt/SHA/time; update/delete/truncate rejected. Derived bytes never masquerade under the original payload SHA. Old SQL001–042 and old event/known/fetched clocks remain unchanged. [Details](S2_01_HISTORY_ENRICHMENT_RESUME.md).
