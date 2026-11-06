@@ -1,0 +1,119 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-evaluation/protocol-feasibility/format-review",
+  "recordedAt": "2026-11-06T12:26:03.034Z",
+  "status": "format_capacity_verified_event_binding_pending",
+  "intent": {
+    "path": "docs/evidence/s3-01-v1-release-revision-intent.json",
+    "sha256": "cbdd4c6b4d4e023dac6e69b7842f5ca109fcdd7012a48e8da2c7c14fa11f2f57",
+    "modified": false
+  },
+  "rulebook": {
+    "url": "https://drive.google.com/file/d/1xTw9urVnsnVqePg_F46M6drprR8vK_Sz/view",
+    "linkedFrom": "https://pro.eslgaming.com/tour/dota2/season26-27/",
+    "linkTitle": "EPT Rulebook (V5.0 18/09/26).pdf",
+    "httpStatus": 200,
+    "localFileWrittenAt": "2026-11-06T12:20:49.890Z",
+    "bytes": 1102210,
+    "sha256": "e7b6263127e6aaf0ba516e8954ca2879e908d72b3601177246b4094a5a2a9ea5",
+    "pageCount": 57,
+    "visuallyReviewedPdfPages": [
+      36,
+      37,
+      56
+    ],
+    "sections": [
+      "7.2.4",
+      "7.2.4.3",
+      "8.3"
+    ],
+    "format": {
+      "teams": 24,
+      "bo3PerTeam": 6,
+      "swissSeries": 72,
+      "playoffTeams": 8,
+      "playoffFormat": "double_elimination",
+      "additionalBo3TiebreakersPossible": true
+    },
+    "calendarSource": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+    "calendarDates": [
+      "2026-12-02",
+      "2026-12-13"
+    ]
+  },
+  "capacity": {
+    "basis": "announced_format_arithmetic_not_observed_or_eligible_maps",
+    "assumptions": [
+      "all scheduled regular series completed",
+      "no walkovers or technical outcomes",
+      "published format unchanged"
+    ],
+    "dreamleagueSwiss": {
+      "series": 72,
+      "mapsMin": 144,
+      "mapsMax": 216
+    },
+    "blastPlusDreamleagueSwiss": {
+      "series": 106,
+      "mapsMin": 213,
+      "mapsMax": 320
+    },
+    "excludedFromCapacityArithmetic": [
+      "DreamLeague playoffs",
+      "DreamLeague possible additional tiebreakers"
+    ],
+    "exclusionFromActualTestScope": false,
+    "requiredMaps": 100,
+    "requiredSeries": 40,
+    "structurallyFeasible": true,
+    "actualEligibleMaps": null,
+    "actualEligibleSeries": null,
+    "actualSourceCoverage": null
+  },
+  "sourceCorrections": {
+    "prizeFundBasedSeriesInferenceWithdrawn": true,
+    "perSeriesPrizeConflict": {
+      "septemberAnnouncementUsd": 2500,
+      "seasonLandingPageUsd": 10000
+    },
+    "seasonLandingExploreDreamLeagueTarget": "https://pro.eslgaming.com/dreamleague/season27/",
+    "staleEventLinkUsedForFormat": false
+  },
+  "binding": {
+    "catalogueFetchedAt": "2026-11-06T11:35:38.882Z",
+    "catalogueRawSha256": "480e50471eb45bc42628faf13b7486f01cc789f363033a293f9a48773018c7d7",
+    "dreamleagueMainLeagueId": null,
+    "excludedQualifierLeagueId": "20359",
+    "freshCatalogueReused": true,
+    "supplementaryOldStratzFutureListsRead": 2,
+    "stratzEventCandidatesFound": 0,
+    "providerApiCalls": 0
+  },
+  "timeBoundaryReview": {
+    "status": "pending",
+    "officialFirstMapUtcVerified": false,
+    "intentBoundariesAreDeclaredSelectionWindows": true,
+    "fullFutureMapScheduleRequired": false,
+    "blastEditionMetadataStart": "2026-11-19T23:00:00.000Z",
+    "blastIntentFromAt": "2026-11-20T00:00:00.000Z",
+    "editionTimestampIsNotMapStartEvidence": true,
+    "requiredAction": "Resolve event boundary discrepancy before freeze. Any changed window requires a separate intent before the first event, never rewriting the preserved intent."
+  },
+  "checks": {
+    "pdfTextAndRelevantPageImagesReviewed": true,
+    "sourceHashesAndArithmetic": "PASS",
+    "orderedMigrations": 49,
+    "protectedFiles": 245,
+    "originalCompiledModules": 150,
+    "oldFrozenBundleAndRuntimeCompatible": true,
+    "applicationSuitesRerun": false,
+    "applicationSuiteReason": "Documentation/source review only; no application code/schema/lockfile change."
+  },
+  "databaseConnections": 0,
+  "registrationPerformed": false,
+  "evaluationPerformed": false,
+  "teamAWinProbability": null,
+  "metrics": null,
+  "deployable": false,
+  "nextTask": "S3-01/V1-evaluation/protocol-feasibility/binding"
+}
