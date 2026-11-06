@@ -73,6 +73,7 @@
     "verify:docs": "node scripts/check-doc-links.mjs",
     "test:fixtures": "node --test tests/node/*.test.mjs",
     "test:integration": "node --env-file-if-exists=.env --test tests/integration/*.test.mjs",
+    "test:postgres": "pnpm --filter @dota/api... --filter @dota/worker... --if-present build && node --env-file-if-exists=.env scripts/test-postgres.mjs",
     "test:e2e": "pnpm --filter @dota/api... --if-present build && pnpm --filter @dota/web test:e2e",
     "smoke": "node scripts/smoke-test.mjs",
     "lockfile:bootstrap": "node scripts/bootstrap-lockfile.mjs",

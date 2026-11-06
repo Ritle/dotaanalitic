@@ -1,28 +1,56 @@
-import { test } from 'node:test';
+import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import pg from 'pg';
-import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
+import { createHash, randomBytes } from 'node:crypto';
+import { readFile, readdir } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
-const URL = process.env.DATABASE_URL;
-if (!URL) throw new Error('DATABASE_URL must be set; refusing to silently skip PostgreSQL integration tests');
+const adminUrl = process.env.DATABASE_URL;
+if (!adminUrl) throw new Error('DATABASE_URL must be set; refusing to silently skip PostgreSQL integration tests');
+const testName = 'codex_bootstrap_' + randomBytes(6).toString('hex');
+assert.match(testName, /^codex_bootstrap_[a-f0-9]{12}$/);
+const testUrl = new URL(adminUrl);
+testUrl.pathname = '/' + testName;
+const connectionString = testUrl.toString();
+const admin = new pg.Client({ connectionString: adminUrl });
+let created = false;
+function migrate() {
+ return execFileSync(process.execPath, [fileURLToPath(new URL('../../scripts/migrate.mjs', import.meta.url))], {
+  env: { ...process.env, DATABASE_URL: connectionString }, encoding: 'utf8', timeout: 30000, stdio: 'pipe'
+ });
+}
+before(async () => {
+ await admin.connect();
+ await admin.query(`CREATE DATABASE "${testName}"`);
+ created = true;
+ migrate();
+}, { timeout: 60000 });
+after(async () => {
+ try { if (created) await admin.query(`DROP DATABASE "${testName}" WITH (FORCE)`); }
+ finally { await admin.end(); }
+}, { timeout: 30000 });
 
-test('all baseline migrations applied with authoritative checksums', async () => {
- const client=new pg.Client({connectionString:URL});
+test('all current migrations applied with authoritative checksums and idempotent replay', async () => {
+ const client=new pg.Client({connectionString});
  await client.connect();
  try{
-  const {rows}=await client.query('SELECT filename, checksum FROM schema_migrations ORDER BY filename');
-  assert.equal(rows.length,20);
-  assert.deepEqual(rows.map(x=>x.filename),[
-   '001_initial.sql','002_patch_awareness.sql','003_roster_continuity.sql',
-   '004_context_identity_provenance.sql','005_training_pipeline.sql',
-   '006_draft_data_quality.sql','007_idempotent_ingestion.sql','008_owner_auth.sql','009_temporal_context.sql','010_identity_evidence.sql',
-   '011_game_context_registry.sql','012_verified_dataset_boundary.sql','013_context_recorded_time.sql','014_patch_transfer_evidence.sql','015_scenario_snapshots.sql','016_scenario_draft.sql','017_scenario_reports.sql','018_outcome_verifier.sql','019_upcoming_schedule.sql','020_history_refresh.sql'
-  ]);
+  const migrationsDir = new URL('../../packages/db/migrations/', import.meta.url);
+  const files = (await readdir(migrationsDir)).filter(name => /^\d{3}_.+\.sql$/.test(name)).sort();
+  assert.ok(files.length >= 5);
+  assert.deepEqual(files.map(name => Number(name.slice(0, 3))), files.map((_, index) => index + 1));
+  const {rows}=await client.query('SELECT filename, checksum, applied_at FROM schema_migrations ORDER BY filename');
+  assert.deepEqual(rows.map(x=>x.filename),files);
+  const golden = JSON.parse(await readFile(new URL('../golden/migrations-v6.sha256.json', import.meta.url), 'utf8'));
+  for (const [filename, checksum] of Object.entries(golden)) {
+   assert.equal(rows.find(row => row.filename === filename)?.checksum, checksum, filename);
+  }
   for(const {filename,checksum} of rows) {
     const sql=await readFile(new globalThis.URL(`../../packages/db/migrations/${filename}`,import.meta.url));
     assert.equal(checksum,createHash('sha256').update(sql).digest('hex'),filename);
   }
+  migrate();
+  assert.deepEqual((await client.query('SELECT filename, checksum, applied_at FROM schema_migrations ORDER BY filename')).rows, rows);
   const {rows: objects}=await client.query(`SELECT
      to_regclass('public.matches')::text AS matches,
      to_regclass('public.match_players')::text AS players,
@@ -32,13 +60,16 @@ test('all baseline migrations applied with authoritative checksums', async () =>
      to_regclass('public.match_draft_source_observations')::text AS draft_raw,
      to_regclass('public.upcoming_source_cache')::text AS schedule_cache,
      to_regclass('public.pandascore_request_quota')::text AS schedule_quota,
-     to_regclass('public.history_refresh_runs')::text AS history_refresh`);
+     to_regclass('public.history_refresh_runs')::text AS history_refresh,
+     to_regclass('public.ranked_context_receipts')::text AS ranked_receipts,
+     to_regclass('public.ranked_context_map_cache')::text AS ranked_cache,
+     to_regclass('public.ranked_context_leases')::text AS ranked_leases`);
   assert.ok(Object.values(objects[0]).every(Boolean), 'Critical tables missing');
  }finally{await client.end()}
 });
 
 test('terminal training dataset cannot be rewritten',async()=>{
- const client=new pg.Client({connectionString:URL});
+ const client=new pg.Client({connectionString});
  await client.connect();
  try{
   await client.query('BEGIN');
@@ -65,7 +96,7 @@ test('terminal training dataset cannot be rewritten',async()=>{
 });
 
 test('map slots, canonical identities and BIGINT values retain database guarantees',async()=>{
- const client=new pg.Client({connectionString:URL});
+ const client=new pg.Client({connectionString});
  await client.connect();
  try {
   await client.query('BEGIN');
@@ -97,7 +128,7 @@ test('map slots, canonical identities and BIGINT values retain database guarante
 
 
 test('raw draft and quality records preserve anomalous provider observations (append-only)',async()=>{
- const client=new pg.Client({connectionString:URL});
+ const client=new pg.Client({connectionString});
  await client.connect();
  try {
   await client.query('BEGIN');

@@ -1,5 +1,7 @@
 import { open, readFile, readdir } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+import { researchCodeReferences } from './lib/research-code-files.mjs';
 import { ResearchJournalRevisionSchema } from '../packages/contracts/dist/index.js';
 import { readResearchEvidence, loadResearchEvidence } from './lib/research-evidence-files.mjs';
 import { freezeEvidenceResearchExecution, evaluateEvidenceResearchExecution } from '../packages/ingestion/dist/index.js';
@@ -21,12 +23,13 @@ async function read(path, limit, expected, raw = false) {
 }
 async function codeManifest() {
   const paths = ['scripts/execute-research-elo.mjs', 'scripts/research-journal.mjs', 'scripts/lib/research-evidence-files.mjs',
-    'scripts/lib/evaluation-discovery-files.mjs', 'scripts/lib/evaluation-detail-files.mjs', 'package.json', 'pnpm-lock.yaml'];
+    'scripts/lib/evaluation-discovery-files.mjs', 'scripts/lib/evaluation-detail-files.mjs', 'scripts/lib/research-code-files.mjs', 'package.json', 'pnpm-lock.yaml'];
   for (const directory of ['packages/contracts/dist', 'packages/analytics/dist', 'packages/db/dist', 'packages/ingestion/dist', 'packages/db/migrations']) {
     for (const name of (await readdir(new URL('../' + directory + '/', import.meta.url), { recursive: true })).sort())
       if (name.endsWith('.js') || name.endsWith('.sql')) paths.push(directory + '/' + name.replaceAll('\\', '/'));
   }
-  return Promise.all(paths.sort().map(async path => ({ path, sha256: sha(await readFile(new URL('../' + path, import.meta.url))) })));
+  const files = await Promise.all(paths.sort().map(async path => ({ path, sha256: sha(await readFile(new URL('../' + path, import.meta.url))) })));
+  return { files, references: await researchCodeReferences(fileURLToPath(new URL('../', import.meta.url)), files) };
 }
 const [mode, planPath, planSha, priorPath, discoveryPath, ...rest] = process.argv.slice(2);
 if (!planPath || !/^[a-f0-9]{64}$/.test(planSha ?? '') || !priorPath || !discoveryPath ||
@@ -60,21 +63,21 @@ try {
       const evidence = await readResearchEvidence(rest[0], rest[1], planSha);
       if (!process.env.DATABASE_URL) throw Error('execution_database_required');
       const code = await codeManifest();
-      // Legacy snapshot schema permits 12 references; the full executable manifest lives in the outer envelope.
-      const snapshotCode = code.filter(c => ['packages/db/dist/research-elo.js', 'packages/db/dist/research-elo-repository.js',
+      // Legacy snapshot keeps 12 direct references; the outer envelope also binds the full file inventory.
+      const snapshotCode = code.files.filter(c => ['packages/db/dist/research-elo.js', 'packages/db/dist/research-elo-repository.js',
         'packages/db/dist/identity.js', 'packages/db/dist/identity-repository.js', 'packages/db/dist/outcome-verifier.js',
         'packages/db/dist/dataset-splits.js', 'packages/db/dist/temporal.js', 'packages/contracts/dist/research-elo.js',
         'packages/analytics/dist/elo.js', 'scripts/execute-research-elo.mjs',
         'packages/db/migrations/012_verified_dataset_boundary.sql', 'packages/db/migrations/018_outcome_verifier.sql'].includes(c.path));
       db = createDatabase(process.env.DATABASE_URL);
       const snapshot = await new ResearchEloRepository(db).export(researchExecutionRequest(plan), snapshotCode);
-      artifact = freezeEvidenceResearchExecution(plan, snapshot, new Date().toISOString(), code, evidence.files, evidence.ledger, evidence.batches);
+      artifact = freezeEvidenceResearchExecution(plan, snapshot, new Date().toISOString(), code.references, evidence.files, evidence.ledger, evidence.batches);
     } else {
       const { data: capture, text: captureText } = await read(rest[0], 67108864, rest[1], true);
       const evidence = await loadResearchEvidence(capture?.evidence, planSha);
       const revision = mode === 'revise' ? ResearchJournalRevisionSchema.parse(await read(rest[2], 65536, rest[3])) : null;
       if (!process.env.DATABASE_URL) throw Error('execution_database_required');
-      const scorerCode = await codeManifest();
+      const { references: scorerCode } = await codeManifest();
       const { canonicalContextJson } = await import('../packages/db/dist/index.js');
       // Reserve output before computing; a later disk failure is recoverable from the committed journal.
       destination = await open(rest.at(-1), 'wx');

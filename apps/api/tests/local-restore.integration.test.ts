@@ -12,6 +12,7 @@ import {runLocalRestoreDrill} from '../../../scripts/lib/local-restore-drill.mjs
 let database:Awaited<ReturnType<typeof testDatabase>>,auth:AuthService,token:string,sourceHash:unknown;
 const pgBin=process.env.PG_BIN||fileURLToPath(new URL('../../../.tools/pgsql/bin/',import.meta.url));
 async function targets(){return (await sql`SELECT datname FROM pg_database WHERE datname LIKE 'codex_restore_%' ORDER BY datname`.execute(database.db)).rows;}
+async function migrations(db:typeof database.db){return (await sql`SELECT filename,checksum,applied_at FROM schema_migrations ORDER BY filename`.execute(db)).rows;}
 async function fingerprints(db:typeof database.db){return (await sql`SELECT
   (SELECT md5(string_agg(to_jsonb(t)::text,'' ORDER BY request_id)) FROM v1_runtime_snapshots t) forecast,
   (SELECT md5(string_agg(to_jsonb(t)::text,'' ORDER BY request_id)) FROM v1_journal_reports t) report,
@@ -27,12 +28,14 @@ beforeAll(async()=>{
 afterAll(async()=>{await database?.close();},30000);
 test('native dump/restore preserves every table and immutable snapshots, revokes copied sessions and keeps source usable',async()=>{
   const before=await targets();
+  const sourceMigrations=await migrations(database.db);expect(sourceMigrations.length).toBeGreaterThan(0);
   const r=await runLocalRestoreDrill({databaseUrl:database.url,pgBin},async(db:typeof database.db,{databaseUrl}:{databaseUrl:string})=>{
     expect(await new AuthService(db).authenticate(token)).toBeNull();expect(await fingerprints(db)).toEqual(sourceHash);
-    expect((await sql`SELECT count(*)::int AS n FROM schema_migrations`.execute(db)).rows[0]!.n).toBe(34);
+    expect(await migrations(db)).toEqual(sourceMigrations);
     const out=execFileSync(process.execPath,[fileURLToPath(new URL('../../../scripts/migrate.mjs',import.meta.url))],{
       env:{...process.env,DATABASE_URL:databaseUrl},encoding:'utf8',windowsHide:true});
-    expect(out.match(/SKIP /g)).toHaveLength(34);expect(out).not.toContain('APPLIED');
+    expect(out.match(/SKIP /g)).toHaveLength(sourceMigrations.length);expect(out).not.toContain('APPLIED');
+    expect(await migrations(db)).toEqual(sourceMigrations);
     // Restored append-only protection is present, not just equal row counts.
     await expect(sql`DELETE FROM v1_runtime_snapshots`.execute(db)).rejects.toThrow();
   });
