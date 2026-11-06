@@ -13,7 +13,7 @@ test.beforeAll(async()=>{
   await new AuthService(database.db).provision('synthetic-navigation-browser',password);
   const row=syntheticSchedule()[0]!,schedule=Array.from({length:20},(_,i)=>({...row,id:70001+i,name:`Синтетическая встреча навигации ${i+1}`}));
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),
-    {db:database.db,logger:false,pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():schedule))});
+    {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():schedule))});
   await api.listen({host:'127.0.0.1',port:3151});
 });
 test.afterAll(async()=>{await api?.close();await database?.close();});
@@ -22,6 +22,7 @@ test('mobile and keyboard selection move focus and viewport to the chosen match 
   await page.getByLabel('Логин').fill('synthetic-navigation-browser');await page.getByLabel('Пароль').fill(password);
   await page.getByRole('button',{name:'Войти',exact:true}).click();await page.getByRole('link',{name:'Предстоящие матчи →'}).click();
   await page.getByRole('button',{name:'Обновить расписание',exact:true}).click();
+  await expect(page.getByRole('main')).toHaveCount(1);
   const buttons=page.getByRole('button',{name:'Выбрать',exact:true});await expect(buttons).toHaveCount(20);
   const panel=page.getByRole('region',{name:'Ожидаемые составы',exact:true});
   await buttons.first().click();await expect(panel).toBeFocused();

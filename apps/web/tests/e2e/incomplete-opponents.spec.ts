@@ -19,7 +19,7 @@ test.beforeEach(async({page})=>{
    {providerTeamId:'75',name:'Synthetic roster-only team',players:[]}],source:{...source.snapshot.source,endpoint:'/tournaments/71/rosters'}})}::jsonb,clock_timestamp()+interval '5 minutes')`.execute(database.db);
  const password=randomBytes(24).toString('base64url');await new AuthService(database.db).provision('synthetic-incomplete-owner',password);
  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:'synthetic-incomplete-token'}),
-  {db:database.db,logger:false,pandascoreFetch:async()=>{providerCalls++;throw Error('Unexpected provider call');}});await api.listen({host:'127.0.0.1',port:3151});
+  {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async()=>{providerCalls++;throw Error('Unexpected provider call');}});await api.listen({host:'127.0.0.1',port:3151});
  await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-incomplete-owner');await page.getByLabel('Пароль').fill(password);
  const [login]=await Promise.all([page.waitForResponse(r=>r.url().endsWith('/auth/login')),page.getByRole('button',{name:'Войти',exact:true}).click()]);csrf=(await login.json()).csrfToken;
  await page.getByRole('link',{name:'Предстоящие матчи →',exact:true}).click();
@@ -53,6 +53,7 @@ test('zero participants ignores stale match name; unnamed teams with two IDs are
  const empty=page.getByRole('row').filter({hasText:'Участники не указаны'});await expect(empty).toHaveCount(1);await empty.getByRole('button',{name:'Выбрать',exact:true}).click();
  await expect(panel(page).getByText('В источнике пока не указаны обе команды.',{exact:true})).toBeVisible();
  const two=page.getByRole('row').filter({hasText:'Команда PandaScore #74 — Команда PandaScore #75'});await two.getByRole('button',{name:'Выбрать',exact:true}).click();
+ await panel(page).getByText('Заявка турнира и участники источника',{exact:true}).click();
  await expect(panel(page).getByRole('heading',{name:'Команда A · Команда PandaScore #74',exact:true})).toBeVisible();
  await expect(panel(page).getByRole('heading',{name:'Соперник не указан',exact:true})).toHaveCount(0);await noSavedTargets();
 });

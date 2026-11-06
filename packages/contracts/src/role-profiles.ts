@@ -30,7 +30,9 @@ export const RoleProfilesReportSchema=z.object({policyVersion:z.literal('role-pr
   canAutoApply:z.boolean(),warnings:z.array(z.string())});
 export const StratzRolePayloadSchema=z.object({errors:z.array(z.object({message:z.string().optional()})).optional(),data:z.object({player:z.object({
   steamAccountId:z.number().int().positive().max(4294967295),steamAccount:z.object({proSteamAccount:z.object({
-    id:z.number().int().positive().max(4294967295),name:z.string().max(200).nullable(),teamId:z.number().int().positive().nullable(),
+    id:z.number().int().positive().max(4294967295),name:z.string().max(200).nullable(),
+    // STRATZ can return 0 for an unassigned team. Never expose it as a team ID.
+    teamId:z.number().int().nonnegative().safe().nullable().transform(id=>id===0?null:id),
     position:z.string().max(40).nullable()}).nullable()}).nullable()}).nullable()}).nullable().optional()});
 export const PandaRolePayloadSchema=z.object({type:z.literal('Team'),rosters:z.array(z.object({id:z.union([Id,z.number().int().positive().safe()]).transform(String),
   name:z.string().max(200).nullable(),players:z.array(z.object({id:z.union([Id,z.number().int().positive().safe()]).transform(String),

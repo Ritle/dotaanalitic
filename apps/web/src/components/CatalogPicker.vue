@@ -5,7 +5,7 @@ import {CatalogListSchema,type CatalogList} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 type Item=CatalogList['items'][number];
 const props=defineProps<{kind:'teams'|'players';label:string;modelValue:string;excludedIds?:string[];selectedLabel?:string}>();
-const emit=defineEmits<{'update:modelValue':[value:string]}>();
+const emit=defineEmits<{'update:modelValue':[value:string];selected:[item:Item]}>();
 const uid=useId(),query=ref(''),term=ref<string|null>(null),chosen=ref<Item|null>(null);
 const results=useQuery({queryKey:computed(()=>['catalog-picker',props.kind,term.value]),enabled:computed(()=>term.value!==null),
   queryFn:({signal})=>readCatalog(`${props.kind}?${new URLSearchParams({query:term.value??'',limit:'10',offset:'0'})}`,CatalogListSchema,signal)});
@@ -17,7 +17,7 @@ function search(){const next=query.value.trim();if(!next)return;
 }
 function pick(item:Item){
   if(props.excludedIds?.includes(item.id))return;
-  chosen.value=item;query.value=(item.name||item.id).slice(0,80);term.value=null;emit('update:modelValue',item.id);
+  chosen.value=item;query.value=(item.name||item.id).slice(0,80);term.value=null;emit('selected',item);emit('update:modelValue',item.id);
 }
 function clear(){edit('');}
 </script>

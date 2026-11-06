@@ -20,7 +20,7 @@ test.beforeAll(async()=>{
   await sql`UPDATE teams SET opendota_team_id=31 WHERE id=${scenarioInput().teamAId}`.execute(database.db);
   await new AuthService(database.db).provision('synthetic-filter-browser',password);
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),
-    {db:database.db,logger:false,pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()))});
+    {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()))});
   await api.listen({host:'127.0.0.1',port:3151});boss=await createHistoryQueue(database.url);
   await registerHistoryWorker(boss,database.db,()=>syntheticHistoryProvider());
 });
@@ -40,6 +40,7 @@ async function prepare(page:Page){
   await pick('Команда A в локальной базе',q.teamAId);await pick('Команда B в локальной базе',q.teamBId);
   for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(`${slot}: игрок роли ${p.rolePos}`,p.playerId!);
   await confirmation(page).check();
+  await page.getByText('Точные даты, патч и лига',{exact:true}).click();
 }
 async function window2024(page:Page){await field(page,'начало UTC').fill('2024-01-01T00:00');await field(page,'срез UTC').fill('2024-01-03T00:00');}
 const exactA=(page:Page)=>result(page).getByRole('group',{name:'Точная пятёрка A в любых организациях',exact:true});

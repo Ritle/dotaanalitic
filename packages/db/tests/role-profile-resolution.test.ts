@@ -28,6 +28,12 @@ test('a single profile without history remains a manual suggestion; mixed roles 
  expect(r.players[0]).toMatchObject({rolePos:1,basis:'profile_only',autoEligible:false});expect(r.canAutoApply).toBe(false);
  const sources=observations();sources[0]!.observation!.players[0]!.roles=[1,2];expect(run(sources,h,h).players[0]!.rolePos).toBeNull();
 });
+test('unknown source team retains the reported role for inspection but never matches a saved team',()=>{
+ const sources=observations();sources[0]!.observation!.players[0]!.providerTeamId=null;
+ const r=run(sources);
+ expect(r.players[0]!.candidates.find(c=>c.source==='stratz')).toEqual({source:'stratz',roles:[1],eligible:false,reason:'PROFILE_TEAM_MISMATCH'});
+ expect(r.players[0]).toMatchObject({basis:'history_fallback',autoEligible:false});expect(r.canAutoApply).toBe(false);
+});
 test('PandaScore uses explicit provider identity mapping, not name or equal-looking IDs',()=>{
  const observation:RoleProfileObservation={provider:'pandascore',sourceKey:'pandascore:roster:40',fetchedAt:now,eventAt:null,knownAt:null,payloadSha256:'b'.repeat(64),
  players:ids.map((id,i)=>({providerPlayerId:String(101+i),accountId:null,providerTeamId:'30',name:'Same nickname',roles:[i+1]}))};

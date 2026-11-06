@@ -6,6 +6,31 @@ type Source=Evidence['candidates'][number]['source'];
 const priority:readonly Source[]=['pandascore','stratz','pro_history'];
 export const roleSourceName=(source:Source)=>({pandascore:'PandaScore',stratz:'STRATZ',pro_history:'Pro-история'}[source]);
 
+/** Display labels only: never resolve or merge identities by a provider nickname. */
+export function rolePlayerName(report:Pick<RoleProfilesReport,'binding'|'sources'>,
+ player:Pick<RoleProfilesReport['players'][number],'playerId'|'accountIds'|'identityStatus'>):string|null{
+ if(player.identityStatus!=='verified'||player.accountIds.length!==1)return null;
+ const binding=report.binding.binding,link=binding.pandaPlayers.find(p=>p.playerId===player.playerId),account=player.accountIds[0]!;
+ const observations=report.sources.filter(s=>s.status==='ready'&&s.observation?.provider===s.provider&&s.observation.sourceKey===s.sourceKey);
+ const panda=link&&binding.pandaTournamentId&&binding.pandaTeamId?observations.filter(s=>s.provider==='pandascore'&&s.sourceKey===`pandascore:roster:${binding.pandaTournamentId}`)
+  .flatMap(s=>s.observation!.players.filter(p=>p.providerPlayerId===link.providerPlayerId&&p.providerTeamId===binding.pandaTeamId)):[];
+ if(panda.length===1&&panda[0]!.name?.trim())return panda[0]!.name!.trim();
+ const steam=observations.filter(s=>s.provider==='stratz'&&s.sourceKey===`stratz:player:${account}`)
+  .flatMap(s=>s.observation!.players.filter(p=>p.accountId===account&&p.providerPlayerId===account));
+ return steam.length===1?steam[0]!.name?.trim()||null:null;
+}
+
+/** A selected catalogue name is a display label, never new identity or provider evidence. */
+const readableRoleName=(name:string|undefined|null)=>!!name&&/[\p{L}\p{N}\p{P}\p{S}]/u.test(name);
+export function selectedRolePlayerLabel(playerId:string,selectedLabel?:string):string{
+ const name=selectedLabel?.trim();return readableRoleName(name)?`Выбранный игрок: ${name} · ID ${playerId}`:`Игрок ${playerId}`;
+}
+export function rolePlayerLabel(report:Pick<RoleProfilesReport,'binding'|'sources'>,
+ player:Pick<RoleProfilesReport['players'][number],'playerId'|'accountIds'|'identityStatus'>,selectedLabel?:string):string{
+ const name=rolePlayerName(report,player);
+ return readableRoleName(name)?`${name} · ID ${player.playerId}`:selectedRolePlayerLabel(player.playerId,selectedLabel);
+}
+
 /** Editor suggestions only. Server consensus/identity eligibility and historical facts are unchanged. */
 export function roleEditorHints<T extends Evidence>(players:readonly T[]){
   const hints=players.map(player=>{

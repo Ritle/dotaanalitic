@@ -54,7 +54,7 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
 });
 </script>
 <template>
-  <main class="shell upcoming"><RouterLink to="/">← Личный кабинет</RouterLink>
+  <section class="shell upcoming"><RouterLink to="/">← Личный кабинет</RouterLink>
     <p class="eyebrow">DOTA 2 · РАСПИСАНИЕ</p><h1>Предстоящие матчи</h1>
     <p>Выберите встречу, сверьте ожидаемые составы и подготовьте свой сценарий одной карты.</p>
     <section class="panel" aria-label="Расписание встреч">
@@ -96,7 +96,6 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
       <div class="account-row"><h2>{{participants?.complete?(selected.name??participants.label):participants?.label}}</h2><button :disabled="busy||!rosters.data.value?.configured" @click="refresh('rosters')">Обновить составы</button></div>
       <p>{{moscow(selected.scheduledAt)}} · {{selected.league.name}} · {{selected.tournament.name}}</p>
       <p v-if="!participants?.complete&&selected.name" class="hint">Запись источника: {{selected.name}}</p>
-      <p>Здесь ожидаемые заявки на турнир. Поздние замены могут ещё не попасть в источник. Порядок списка не определяет роли.</p>
       <p v-if="participants?.message" class="warning" role="status">{{participants.message}}</p>
       <p v-if="!participants?.complete" class="hint">Для привязки прогноза к этой встрече нужны два разных участника источника. Команда из другой заявки турнира не подставляется вместо соперника.</p>
       <p v-if="rosters.isPending.value" role="status">Загрузка составов…</p><p v-if="rosters.error.value" class="error" role="alert">{{rosters.error.value.message}}</p>
@@ -106,6 +105,9 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
         <p v-if="rosters.data.value.status==='stale'" class="warning">Заявки устарели. Проверьте актуальный состав.</p>
         <p v-if="rosters.data.value.retryAt" class="hint">Повторить после {{dateLabel(rosters.data.value.retryAt)}}</p>
       </template>
+      <UpcomingScenario :key="upcomingParticipantKey(selected)" :match="selected" :roster-version="rosters.data.value?.snapshot?.source.payloadSha256" />
+      <details :open="!participants?.complete"><summary>Заявка турнира и участники источника</summary>
+      <p>Здесь ожидаемые заявки на турнир. Поздние замены могут ещё не попасть в источник. Порядок списка не определяет роли.</p>
       <div class="expected-columns"><article v-for="(t,i) in expected" :key="t.providerTeamId">
         <h3>{{participants?.complete?`Команда ${i===0?'A':'B'}`:'Известный участник'}} · {{upcomingTeamLabel(t)}}</h3>
         <p class="hint">ID PandaScore: {{t.providerTeamId}}</p>
@@ -117,11 +119,10 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
       </article><article v-if="!participants?.complete" aria-label="Отсутствующий участник">
         <h3>{{expected.length===1?'Соперник не указан':'Участники не указаны'}}</h3><p>Уточните участников в источнике после обновления расписания.</p>
       </article></div>
-      <p class="hint">Ниже можно соединить заявку с игровыми аккаунтами и подготовить пятёрки для анализа. Сохранённые связи используются повторно.</p>
-      <UpcomingScenario :key="upcomingParticipantKey(selected)" :match="selected" :roster-version="rosters.data.value?.snapshot?.source.payloadSha256" />
+      </details>
       <UpcomingTarget :key="'target:'+upcomingParticipantKey(selected)" :match="selected" />
     </section>
-  </main>
+  </section>
 </template>
 <style scoped>
 .event-filter{display:grid;gap:var(--space-2);margin-block:var(--space-4);min-width:0}.event-filter select{width:100%;max-width:100%;min-width:0}
@@ -129,5 +130,6 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
 .upcoming td{vertical-align:top;min-width:130px}.chosen{background:var(--color-elevated)}.upcoming h2{overflow-wrap:anywhere}
 .match-name{display:block;margin-bottom:8px}
 .source-name{display:block;margin-bottom:8px}
+summary{cursor:pointer;min-height:44px;padding-block:12px}
 @media(max-width:680px){.expected-columns{grid-template-columns:1fr}.upcoming{padding-inline:14px}.panel{padding:16px}}
 </style>

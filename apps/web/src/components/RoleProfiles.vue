@@ -5,8 +5,9 @@ import {CatalogIdSchema,RoleProfilesReportSchema,RoleProfileBindingSavedSchema,R
 import {ownerAuth} from '../auth';
 import {readCatalog,dateLabel} from '../catalog';
 import {arrangeSuggestedRoles,roleName,type RoleMember} from '../role-suggestions';
-import {roleEditorHints,roleSourceName} from '../role-editor';
-const props=defineProps<{teamId:string;lineup:RoleMember[];slot:'A'|'B';cutoffAt?:string;preserveManual?:boolean;pandaTournamentId?:string;pandaTeamId?:string}>();
+import {roleEditorHints,roleSourceName,rolePlayerLabel} from '../role-editor';
+import {roleCandidateStatus,roleSourceStatus} from '../role-source-status';
+const props=defineProps<{teamId:string;lineup:RoleMember[];slot:'A'|'B';cutoffAt?:string;preserveManual?:boolean;pandaTournamentId?:string;pandaTeamId?:string;playerLabels?:Record<string,string>}>();
 const emit=defineEmits<{apply:[lineup:RoleMember[]]}>(),cache=useQueryClient();
 const ids=computed(()=>props.lineup.map(p=>p.playerId??'').filter(Boolean)),idsKey=computed(()=>[...ids.value].sort().join(':'));
 const validTeam=computed(()=>CatalogIdSchema.safeParse(props.teamId).success);
@@ -29,6 +30,9 @@ async function load(signal:AbortSignal,refreshProfiles=false){return readCatalog
 const query=useQuery({queryKey:requestKey,enabled:complete,staleTime:60_000,queryFn:({signal})=>load(signal)});
 const report=computed(()=>complete.value?query.data.value:undefined);
 const editor=computed(()=>report.value?roleEditorHints(report.value.players):null);
+const historyCoverage=computed(()=>report.value?.history.players.filter(p=>p.nRaw>0).length??0);
+function playerLabel(player:NonNullable<typeof editor.value>['players'][number]){
+ return report.value?rolePlayerLabel(report.value,player,props.playerLabels?.['player:'+player.playerId]):`Игрок ${player.playerId}`;}
 const bindingQuery=useQuery({queryKey:computed(()=>['role-profile-binding',props.teamId]),enabled:validTeam,
   queryFn:({signal})=>readCatalog(`teams/${props.teamId}/role-profile-binding`,RoleProfileBindingSavedSchema,signal)});
 const fields=reactive({stratzTeamId:'',pandaTournamentId:props.pandaTournamentId??'',pandaTeamId:props.pandaTeamId??'',players:{} as Record<string,string>});
@@ -70,7 +74,7 @@ async function saveBinding(){
   }catch(e){error.value=e instanceof Error?e.message:'Не удалось сохранить сопоставление.';}finally{busy.value=false;}
 }
 const reason=(code:string)=>({IDENTITY_UNRESOLVED:'аккаунт не подтверждён однозначно',TEAM_BINDING_MISSING:'команда источника не сопоставлена',SOURCE_NOT_FRESH:'нет свежих данных источника',
-  PLAYER_BINDING_MISSING:'игрок PandaScore не сопоставлен',PROFILE_MISSING_OR_DUPLICATE:'профиль отсутствует или неоднозначен',PROFILE_TEAM_MISMATCH:'в профиле другая команда',
+  PLAYER_BINDING_MISSING:'игрок PandaScore не сопоставлен',PROFILE_MISSING_OR_DUPLICATE:'профиль отсутствует или неоднозначен',PROFILE_TEAM_MISMATCH:'команда профиля неизвестна или не совпадает',
   PROFILE_ROLE_UNKNOWN:'позиция профиля неизвестна',HISTORY_ROLE_UNKNOWN:'нет преобладающей позиции в истории',ROLE_SOURCES_CONFLICT:'источники расходятся',
   NO_ELIGIBLE_PRO_HISTORY:'нет pro-истории',ROLE_COVERAGE_PARTIAL:'неполное покрытие ролей',SMALL_SAMPLE:'мало карт',AMBIGUOUS_ROLE:'неоднозначная история',UNVALIDATED_HEURISTIC:'оценка по линии/GPM',
   disabled:'источник выключен',not_configured:'ключ не настроен',not_loaded:'данные ещё не загружены',cooldown:'ожидание перед новым запросом',refresh_in_progress:'обновляется',
@@ -88,21 +92,29 @@ const reason=(code:string)=>({IDENTITY_UNRESOLVED:'аккаунт не подт�
     <p v-else-if="query.isFetching.value" role="status">Проверяем роли…</p>
     <template v-if="report">
       <p class="hint">Срез истории {{dateLabel(report.history.cutoffAt)}} · последние {{report.history.windowDays}} дней, до 20 карт. Кэш и история проверены {{dateLabel(report.snapshotAt)}}. Время получения профилей указано отдельно.</p>
+      <p class="hint">Локальная pro-история: {{historyCoverage}} / {{report.history.players.length}} игроков с подходящими картами за {{report.history.windowDays}} дней.</p>
+      <p v-if="historyCoverage===0" class="warning">В текущей локальной выборке нет подходящих pro-карт игроков. Подсказки профилей API отображаются отдельно от истории карт.</p>
       <p v-if="!report.configured.enabled">Профили API выключены настройкой ROLE_PROFILES_ENABLED. Доступны локальные подсказки.</p>
       <button type="button" :disabled="busy||!report.configured.enabled" @click="refresh">{{busy?'Обновление…':`Обновить профили API ${slot}`}}</button>
+      <p v-if="report.sources.some(s=>s.status!=='ready')" class="hint" role="status">Не все профили доступны для автоподстановки. Проверьте состояние источников ниже. Доступная pro-история и ручной выбор ролей сохраняются.</p>
       <ul><li v-for="p in editor?.players??[]" :key="p.playerId">
-        Игрок {{p.playerId}}: <strong :class="{warning:p.editorDuplicate}">{{p.rolePos===null?'Роль не определена':`${p.rolePos} · ${roleName(p.rolePos)}`}}</strong>
+        {{playerLabel(p)}}: <strong :class="{warning:p.editorDuplicate}">{{p.rolePos===null?'Роль не определена':`${p.rolePos} · ${roleName(p.rolePos)}`}}</strong>
         <span v-if="p.editorSource" class="hint role-source">Определено автоматически · {{roleSourceName(p.editorSource)}}</span>
         <span class="hint"> · pro-карт с оценкой {{p.historyMaps}} · {{p.historyScope==='selected_team'?'в выбранной команде':'за все организации'}}</span>
         <p v-if="p.editorConflict" class="warning">Источники расходятся. Подсказка выбрана по приоритету; проверьте роль и при необходимости исправьте её вручную.</p>
         <p v-if="p.editorAmbiguous" class="warning">Доступные источники не задают однозначную позицию. Выберите роль вручную.</p>
         <p v-if="p.identityStatus!=='verified'" class="warning">Аккаунт не подтверждён однозначно. Автоматическая подсказка недоступна.</p>
-        <p v-if="p.reasons.length" class="hint">{{p.reasons.filter(r=>r!=='ROLE_SOURCES_CONFLICT').map(reason).join('; ')}}</p>
-        <details><summary>Основания игрока {{p.playerId}}</summary><p v-for="(c,i) in p.candidates" :key="i">{{c.source}}: {{c.roles.join('/')||'неизвестно'}} · {{c.eligible?'учтено':reason(c.reason??'')}}</p></details>
+        <details><summary>Основания игрока {{p.playerId}}</summary>
+          <p class="hint">{{p.reasons.filter(r=>r!=='ROLE_SOURCES_CONFLICT'&&!p.candidates.some(c=>c.reason===r)).map(reason).join('; ')}}</p>
+          <p v-for="(c,i) in p.candidates" :key="i">{{roleSourceName(c.source)}}: {{c.roles.join('/')||'неизвестно'}} · {{c.eligible?'учтено':roleCandidateStatus(report,p,c)??reason(c.reason??'')}}</p>
+        </details>
       </li></ul>
       <p v-if="editor?.hasDuplicates" role="status">Совпали позиции нескольких игроков. Расставьте их вручную.</p>
       <button type="button" :disabled="!selectedRoles||busy" @click="apply(false)">Применить роли {{slot}}</button>
-      <details><summary>Время обновления источников {{slot}}</summary><p v-for="s in report.sources" :key="s.sourceKey">{{s.provider}} · ID {{s.sourceKey.split(':')[2]}} · {{s.status==='ready'?'актуально':s.status==='stale'?'устарело':'нет данных'}} · {{dateLabel(s.fetchedAt)}} · {{s.reason?reason(s.reason):'ответ сохранён'}}</p></details>
+      <details><summary>Время обновления источников {{slot}}</summary><div v-for="s in report.sources" :key="s.sourceKey">
+        <p>{{roleSourceName(s.provider)}} · ID {{s.sourceKey.split(':')[2]}} · {{s.status==='ready'?'ответ актуален':s.status==='stale'?'устарело':'нет данных'}} · {{dateLabel(s.fetchedAt)}}</p>
+        <p class="hint">{{roleSourceStatus(s)}}<span v-if="s.reason"> Причина: {{reason(s.reason)}}.</span></p>
+      </div></details>
       <p class="hint">Профиль может устареть после трансфера. При расхождениях подсказка следует приоритету источников — проверьте спорные позиции. Точность ролей не измерена. V1 Elo от ролей не зависит.</p>
     </template>
     <details v-if="validTeam"><summary>Сопоставление источников {{slot}}</summary>

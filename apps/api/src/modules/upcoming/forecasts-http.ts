@@ -1,13 +1,15 @@
 import {z} from 'zod';
 import type {FastifyInstance,FastifyReply} from 'fastify';
 import {V1ScheduledPredictionCreateSchema,V1ScheduledPredictionViewSchema,V1PredictionHistorySchema} from '@dota/contracts';
-import {ScenarioError,type V1PredictionService} from '@dota/db';
+import {ScenarioError,type V1PredictionService,type FreshScheduleTargetRepository} from '@dota/db';
 const Id=z.uuid().transform(v=>v.toLowerCase()),Params=z.object({targetId:Id}).strict(),Saved=Params.extend({requestId:Id});
 const Paging=z.object({offset:z.coerce.number().int().min(0).max(10000).default(0)}).strict(),Empty=z.object({}).strict();
-export function registerScheduledForecasts(app:FastifyInstance,service:V1PredictionService){
+export function registerScheduledForecasts(app:FastifyInstance,service:V1PredictionService,freshness:FreshScheduleTargetRepository){
   function handle(reply:FastifyReply,requestId:string,error:unknown){
     const code=error instanceof ScenarioError?error.code:error instanceof Error?error.message:'';
     const messages:Record<string,string>={NOT_FOUND:'Назначение, сценарий или расчёт не найден.',CONFLICT:'Сценарий изменён. Загрузите сохранённую редакцию.',
+      schedule_source_stale:'Сведения об этой встрече старше 5 минут. Обновите расписание перед новым прогнозом.',
+      schedule_source_clock_invalid:'Время получения расписания некорректно. Обновите источник и проверьте часы сервера.',
       runtime_request_conflict:'Этот запрос уже сохранён с другим содержимым. Для новой попытки нужен новый запрос.',
       runtime_request_busy:'Другой расчёт ещё выполняется. Повторите запрос после его завершения.',
       scheduled_target_reference_mismatch:'Сохранённое назначение не совпало с запросом. Перечитайте эту редакцию.',
@@ -20,13 +22,14 @@ export function registerScheduledForecasts(app:FastifyInstance,service:V1Predict
       schedule_target_not_observed:'Встреча не найдена в сохранённых наблюдениях. Обновите расписание.'};
     if(error instanceof z.ZodError)return reply.code(400).send({error:{code:'VALIDATION_ERROR',requestId,message:'Проверьте сценарий, редакцию назначения и сведения о турнире.'}});
     if(!messages[code])throw error;
-    const status=code==='NOT_FOUND'?404:code==='runtime_request_busy'?429:code.includes('invalid')?503:409;
+    const status=code==='NOT_FOUND'?404:code==='runtime_request_busy'?429:code.includes('invalid')&&code!=='schedule_source_clock_invalid'?503:409;
     if(status===429)reply.header('Retry-After','1');
     return reply.code(status).send({error:{code,requestId,message:messages[code]}});
   }
   const root='/api/v1/schedule-targets/:targetId/forecasts';
   app.post(root,{config:{rateLimit:{max:6,timeWindow:'1 minute'}}},async(req,reply)=>{
     try{Empty.parse(req.query);const p=Params.parse(req.params),r=V1ScheduledPredictionCreateSchema.parse(req.body);
+      await freshness.assertForecastFresh(req.ownerSession!.owner.id,p.targetId,r.requestId);
       return V1ScheduledPredictionViewSchema.parse(await service.createScheduled(req.ownerSession!.owner.id,p.targetId,r));
     }catch(e){return handle(reply,req.id,e);}
   });

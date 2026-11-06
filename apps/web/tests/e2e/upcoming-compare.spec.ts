@@ -21,7 +21,7 @@ test.beforeAll(async()=>{
   await sql`INSERT INTO players(id,nickname) VALUES(1200,'Синтетическая неизвестная личность')`.execute(database.db);
   await new AuthService(database.db).provision('synthetic-lineup-browser',password);
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),
-    {db:database.db,logger:false,pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()))});
+    {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()))});
   await api.listen({host:'127.0.0.1',port:3151});boss=await createHistoryQueue(database.url);
   await registerHistoryWorker(boss,database.db,()=>syntheticHistoryProvider());
 });
@@ -46,10 +46,16 @@ async function prepare(page:Page){
 test('explicit confirmed comparison separates organization and exact-five history, preserves the form on refresh and handles observed zero',async({page})=>{
   const requests:unknown[]=[];page.on('request',r=>{if(r.url().endsWith('/teams/compare'))requests.push(r.postDataJSON());});
   const before=(await sql`SELECT id FROM scenarios`.execute(database.db)).rows.length;await prepare(page);
+  for(const [slot,lineup] of [['A',scenarioInput().lineupA],['B',scenarioInput().lineupB]] as const)for(const p of lineup){
+    const row=(await sql<{nickname:string}>`SELECT nickname FROM players WHERE id=${p.playerId}`.execute(database.db)).rows[0]!;
+    await expect(page.getByRole('region',{name:`Автоопределение ролей ${slot}`,exact:true}).getByRole('listitem')
+      .filter({hasText:`Выбранный игрок: ${row.nickname} · ID ${p.playerId}`})).toHaveCount(1);
+  }
   expect(requests).toHaveLength(0);await expect(compare(page)).toBeDisabled();await confirm(page).check();await expect(compare(page)).toBeEnabled();
   expect(requests).toHaveLength(0);await compare(page).click();await expect(result(page)).toBeVisible();
   const q=scenarioInput();expect(requests[0]).toEqual({teamAId:q.teamAId,teamBId:q.teamBId,lineupA:q.lineupA,lineupB:q.lineupB});
   const a=result(page).getByRole('article',{name:'Пятёрка A',exact:true});
+  await a.getByText('A · Организация и сыгранность',{exact:true}).click();
   await expect(a.getByRole('group',{name:'Организация A за период',exact:true})).toContainText('N = 2');
   await expect(a.getByRole('group',{name:'Точная пятёрка A в любых организациях',exact:true})).toContainText('N = 2');
   await expect(result(page)).toContainText('Период:');await expect(result(page)).toContainText('источник: нормализованные локальные pro-карты');
@@ -67,6 +73,7 @@ test('explicit confirmed comparison separates organization and exact-five histor
   await expect(page.getByRole('region',{name:'A: игрок роли 1',exact:true}).getByRole('status')).toContainText(q.lineupA[0]!.playerId!);
   await pick(page,'A: игрок роли 5',String(BigInt(catalogPlayerId)+10n));await expect(result(page)).toHaveCount(0);await expect(compare(page)).toBeDisabled();
   await confirm(page).check();await compare(page).click();await expect(result(page)).toBeVisible();
+  await a.getByText('A · Организация и сыгранность',{exact:true}).click();
   await expect(a.getByRole('group',{name:'Организация A за период',exact:true})).toContainText('N = 2');
   const zero=a.getByRole('group',{name:'Точная пятёрка A в любых организациях',exact:true});await expect(zero).toContainText('N = 0');await expect(zero).toContainText('неизвестно');
   expect((await sql`SELECT id FROM scenarios`.execute(database.db)).rows).toHaveLength(before);
@@ -91,6 +98,7 @@ test('edits and unconfirmation discard pending results; retry and unavailable re
 test('a selected canonical record without verified identity keeps exact-five unknown and never invents zero history',async({page})=>{
   await prepare(page);await pick(page,'A: игрок роли 1','1200');await confirm(page).check();await compare(page).click();await expect(result(page)).toBeVisible();
   const a=result(page).getByRole('article',{name:'Пятёрка A',exact:true}),exact=a.getByRole('group',{name:'Точная пятёрка A в любых организациях',exact:true});
+  await a.getByText('A · Организация и сыгранность',{exact:true}).click();
   await expect(exact).toContainText('N = неизвестно');await expect(a).toContainText('Исторические личности подтверждены для 4/5 игроков');
   await expect(a.getByRole('group',{name:'Организация A за период',exact:true})).toContainText('N = 2');
 });

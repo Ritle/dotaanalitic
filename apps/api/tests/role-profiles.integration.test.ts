@@ -9,7 +9,7 @@ import {catalogPlayerId,catalogTeamId} from '../../../tests/helpers/catalog.js';
 import {buildApp} from '../src/app.js';
 import {readConfig} from '../src/config.js';
 import {AuthService} from '../src/modules/auth/service.js';
-let database:Awaited<ReturnType<typeof testDatabase>>,app:FastifyInstance,cookie:string,csrf:string,calls=0,failStratz=false;
+let database:Awaited<ReturnType<typeof testDatabase>>,app:FastifyInstance,cookie:string,csrf:string,calls=0,failStratz=false,unknownTeam=false;
 const ids=Array.from({length:5},(_,i)=>String(BigInt(catalogPlayerId)+BigInt(i)));
 const binding={stratzTeamId:'77',pandaTournamentId:'55',pandaTeamId:'88',pandaPlayers:ids.map((playerId,i)=>({playerId,providerPlayerId:String(2000+i)}))};
 const route='/api/v1/lineup-role-profiles',link=`/api/v1/teams/${catalogTeamId}/role-profile-binding`;
@@ -20,7 +20,7 @@ beforeAll(async()=>{
  app=await buildApp(readConfig({DATABASE_URL:database.url,ROLE_PROFILES_ENABLED:'true',STRATZ_API_TOKEN:'synthetic-stratz-profile-token',PANDASCORE_API_TOKEN:'synthetic-panda-profile-token'}),{
   db:database.db,logger:false,roleProfileFetch:async(url,init)=>{calls++;
    if(String(url).includes('stratz')){if(failStratz)return new Response('{}',{status:503});const account=Number(String(init?.body).match(/steamAccountId:(\d+)/)?.[1]);
-    return new Response(JSON.stringify({data:{player:{steamAccountId:account,steamAccount:{proSteamAccount:{id:account,name:'Synthetic',teamId:77,position:`POSITION_${account-999}`}}}}}));}
+    return new Response(JSON.stringify({data:{player:{steamAccountId:account,steamAccount:{proSteamAccount:{id:account,name:'Synthetic',teamId:unknownTeam?0:77,position:`POSITION_${account-999}`}}}}}));}
    return new Response(JSON.stringify({type:'Team',rosters:[{id:88,name:'Synthetic',players:ids.map((_,i)=>({id:2000+i,name:'Synthetic Twin',role:String(i+1)}))}]}));
   }});
  const r=await app.inject({method:'POST',url:'/api/v1/auth/login',headers:{origin:'http://localhost:5173'},payload:{login:'synthetic-role-profiles',password}});
@@ -55,6 +55,18 @@ test('bounded single-profile refresh plus explicit Panda links reaches agreement
  await post({...input,refreshProfiles:true});expect(calls).toBe(6);
  expect(response.body).not.toMatch(/synthetic-(stratz|panda)-profile-token/);
 },30000);
+test('zero-team profile is cached successfully but cannot override the saved team; repeat refresh uses cache',async()=>{
+ unknownTeam=true;
+ await sql`UPDATE role_profile_cache SET expires_at=clock_timestamp()-interval '1 second' WHERE source_key='stratz:player:1001'`.execute(database.db);
+ const before=calls,r=RoleProfilesReportSchema.parse((await post({...input,refreshProfiles:true})).json());
+ expect(calls).toBe(before+1);
+ const s=r.sources.find(s=>s.sourceKey==='stratz:player:1001')!;
+ expect(s).toMatchObject({status:'ready',reason:null});expect(s.observation!.players[0]).toMatchObject({accountId:'1001',providerTeamId:null,roles:[2]});
+ expect(r.players[1]!.candidates.find(c=>c.source==='stratz')).toMatchObject({roles:[2],eligible:false,reason:'PROFILE_TEAM_MISMATCH'});
+ await post({...input,refreshProfiles:true});expect(calls).toBe(before+1);
+ expect((await sql<{binding:unknown}>`SELECT binding FROM role_profile_bindings`.execute(database.db)).rows[0]!.binding).toEqual(binding);
+ unknownTeam=false;
+});
 test('stale provider is excluded while two remaining sources can agree; cooldown prevents retry loops',async()=>{
  await sql`UPDATE role_profile_cache SET expires_at=clock_timestamp()-interval '1 second' WHERE source_key='stratz:player:1000'`.execute(database.db);failStratz=true;
  const r=RoleProfilesReportSchema.parse((await post({...input,refreshProfiles:true})).json());expect(r.canAutoApply).toBe(true);

@@ -46,6 +46,7 @@ test('API agreement automatically assigns roles, moves hero/stand-in, resets con
  try{await Promise.all([page.waitForResponse(r=>r.url().endsWith('/lineup-role-profiles')&&r.request().method()==='POST'&&r.request().postDataJSON()?.refreshProfiles===true),region.getByRole('button',{name:'Обновить профили API A',exact:true}).click()]);}
  catch(e){console.log(JSON.stringify({roleBrowserDebug:debug}));throw e;}
  await region.getByLabel('Автоподстановка ролей A',{exact:true}).check();
+ await expect(region).toContainText(`Synthetic player 0 · ID ${q.lineupA[0]!.playerId}`);
  await expect(page.getByLabel('A: игрок роли 1',{exact:true})).toHaveValue(q.lineupA[0]!.playerId!);
  await expect(page.getByLabel('A: замена роли 1',{exact:true})).toBeChecked();await expect(page.getByRole('combobox',{name:'A: герой роли 1',exact:true})).toHaveValue('1');await expect(confirm).not.toBeChecked();
  await page.getByLabel('A: игрок роли 1',{exact:true}).fill(q.lineupA[4]!.playerId!);await page.getByLabel('A: игрок роли 5',{exact:true}).fill(q.lineupA[0]!.playerId!);
@@ -70,4 +71,36 @@ test('owner can edit explicit provider bindings from roster choices and persist 
  await page.getByLabel('Команда A: ID организации',{exact:true}).fill(q.teamAId);
  const after=page.getByRole('region',{name:'Автоопределение ролей A',exact:true});await after.getByText('Сопоставление источников A',{exact:true}).click();
  await expect(after.getByLabel('ID команды STRATZ A',{exact:true})).toHaveValue('78');
+});
+test('source diagnostics separate missing profile, unknown team and stale cache without refreshing or changing manual roles',async({page})=>{
+ const q=scenarioInput(),refreshes:boolean[]=[],errors:string[]=[];
+ page.on('pageerror',e=>errors.push(e.message));
+ await page.route('**/api/v1/lineup-role-profiles',async route=>{
+  const input=route.request().postDataJSON();refreshes.push(input.refreshProfiles===true);
+  const response=await route.fetch(),body=await response.json();
+  if(input.teamId===q.teamAId){
+   // Synthetic response states only; no live provider requests or saved binding changes.
+   for(const [index,p] of body.players.entries()){
+    const source=body.sources.find((s:{sourceKey:string})=>s.sourceKey===`stratz:player:${p.accountIds[0]}`);
+    if(!source||index>2)continue;
+    source.status=index===2?'stale':'ready';source.reason=null;
+    source.observation={provider:'stratz',sourceKey:source.sourceKey,fetchedAt:'2026-11-05T00:00:00.000Z',knownAt:null,eventAt:null,payloadSha256:'a'.repeat(64),players:index===1?[]:[{accountId:p.accountIds[0],providerPlayerId:p.accountIds[0],providerTeamId:null,name:'Synthetic unknown team',roles:[3]}]};
+    const candidate=p.candidates.find((c:{source:string})=>c.source==='stratz');
+    candidate.eligible=false;candidate.reason='TEAM_BINDING_MISSING';candidate.roles=index===1?[]:[3];
+   }
+  }
+  await route.fulfill({response,json:body});
+ });
+ await prepare(page);const region=page.getByRole('region',{name:'Автоопределение ролей A',exact:true});
+ for(const p of q.lineupA)await region.getByText(`Основания игрока ${p.playerId}`,{exact:true}).click();
+ await expect(region).toContainText('STRATZ не указал команду игрока');
+ await expect(region).toContainText('STRATZ не вернул профессиональный профиль');
+ await expect(region).toContainText('Данные устарели и не участвуют в автоподстановке');
+ await region.getByText('Время обновления источников A',{exact:true}).click();
+ await expect(region).toContainText('Ответ получен, но профиль не найден');
+ expect(refreshes.every(v=>!v)).toBe(true);
+ await expect(page.getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
+ for(const p of q.lineupA)await expect(page.getByLabel(`A: игрок роли ${6-p.rolePos}`,{exact:true})).toHaveValue(p.playerId!);
+ await page.setViewportSize({width:360,height:900});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await region.screenshot({path:'test-results/role-source-status-mobile.png'});expect(errors).toEqual([]);
 });

@@ -41,6 +41,10 @@ test('Panda wins over conflicting history; manual correction locks auto until ex
  expect((await response.json()).canAutoApply).toBe(false); // The versioned server consensus policy is deliberately unchanged.
  await expect(page.getByLabel('A: игрок роли 1',{exact:true})).toHaveValue(q.lineupA[4]!.playerId!);
  await expect(region(page).getByText('Определено автоматически · PandaScore',{exact:true})).toHaveCount(5);
+ const grounds=region(page).locator('details').filter({has:page.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true})});
+ await expect(grounds.getByText(/^STRATZ:/)).not.toBeVisible();await grounds.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true}).click();
+ await expect(grounds.getByText('PandaScore: 5 · учтено',{exact:true})).toBeVisible();await expect(grounds.getByText(/^STRATZ:/)).toContainText('Источник не настроен');
+ await grounds.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true}).click();
  await expect(region(page).getByText('Источники расходятся',{exact:false}).first()).toBeVisible();
  await page.getByLabel('A: игрок роли 1',{exact:true}).fill(q.lineupA[0]!.playerId!);await page.getByLabel('A: игрок роли 5',{exact:true}).fill(q.lineupA[4]!.playerId!);
  const auto=region(page).getByLabel('Автоподстановка ролей A',{exact:true});await expect(auto).not.toBeChecked();

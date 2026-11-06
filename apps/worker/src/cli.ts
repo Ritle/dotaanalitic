@@ -1,5 +1,5 @@
 import { parseArgs } from 'node:util';
-import { createProviderRuntime, IngestionService, registerHistoryWorker } from '@dota/ingestion';
+import { createProviderRuntime, IngestionService, registerHistoryWorker,registerPlayerHistoryWorker,livePlayerHistoryProvider } from '@dota/ingestion';
 import { createQueue, enqueue, registerWorker, IMPORT_QUEUE } from './queue.js';
 
 async function main(){
@@ -23,6 +23,7 @@ async function main(){
     }
     await registerWorker(boss,runtime.db,(id,signal)=>new IngestionService(runtime.db,runtime.clientForJob(signal)).ingest(id));
     if(command==='work')await registerHistoryWorker(boss,runtime.db,signal=>runtime.clientForJob(signal));
+    if(command==='work')await registerPlayerHistoryWorker(boss,runtime.db,signal=>livePlayerHistoryProvider(runtime.db,process.env,signal));
     if(command==='once'){
       const deadline=Date.now()+180000;
       while(Date.now()<deadline){

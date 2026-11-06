@@ -7,8 +7,9 @@ import {scheduleTargetCall} from '../schedule-targets';
 import {dateLabel} from '../catalog';
 import CatalogPicker from './CatalogPicker.vue';
 import ScheduleTargetDetails from './ScheduleTargetDetails.vue';
+import ScheduleFreshness from './ScheduleFreshness.vue';
 import {upcomingParticipants,upcomingTeamLabel} from '../upcoming-participants';
-const props=defineProps<{match:UpcomingMatch}>(),cache=useQueryClient(),open=ref(false),busy=ref(false),error=ref(''),conflict=ref(false);
+const props=defineProps<{match:UpcomingMatch}>(),cache=useQueryClient(),open=ref(false),busy=ref(false),error=ref(''),conflict=ref(false),fresh=ref(false);
 const preview=useQuery({queryKey:computed(()=>['schedule-target-preview',props.match.providerMatchId]),enabled:open,
   queryFn:({signal})=>scheduleTargetCall(`upcoming/${props.match.providerMatchId}/target-preview`,V1ScheduleTargetPreviewSchema,signal)});
 const history=useQuery({queryKey:computed(()=>['schedule-target-history',props.match.providerMatchId]),enabled:open,
@@ -26,7 +27,7 @@ async function refresh(){await Promise.all([preview.refetch(),history.refetch()]
 async function submit(retry=false){
   if(busy.value)return;error.value='';conflict.value=false;let body=retry?pending.value:null;
   if(!body)try{
-    if(!completeParticipants.value||!form.confirmed||!preview.data.value?.eligible||!history.data.value)throw Error();
+    if(!completeParticipants.value||!form.confirmed||!fresh.value||!preview.data.value?.eligible||!history.data.value)throw Error();
     body=V1ScheduleTargetRequestSchema.parse({requestId:crypto.randomUUID(),providerMatchId:props.match.providerMatchId,
       observationId:preview.data.value.observation.id,observationSha256:preview.data.value.observation.snapshotSha256,
       expectedRevision:history.data.value.items[0]?.record.revision??0,mapNumber:1,providerTeamAId:form.providerTeamAId,providerTeamBId:providerB.value,
@@ -43,13 +44,14 @@ async function submit(retry=false){
 <template>
   <details class="target" @toggle="open=($event.target as HTMLDetailsElement).open"><summary>Зафиксировать назначение первой карты</summary>
     <p>Сохраните встречу до начала игры. Это отдельная запись назначения, пока без вероятности и связи с сыгранной картой.</p>
+    <ScheduleFreshness v-if="open" :match-id="match.providerMatchId" @eligible="fresh=$event" />
     <p v-if="preview.isFetching.value||history.isFetching.value" role="status">Загрузка сохранённого источника…</p>
     <p v-if="preview.error.value||history.error.value" role="alert">{{preview.error.value?.message??history.error.value?.message}}</p>
     <template v-if="preview.data.value">
       <p>По источнику: {{preview.data.value.observation.match.name??'Встреча'}} · {{dateLabel(preview.data.value.observation.match.scheduledAt)}}. Получено {{dateLabel(preview.data.value.observation.fetchedAt)}}.</p>
-      <p v-if="!completeParticipants||!preview.data.value.eligible" class="warning">Нужны два определённых участника, будущее время начала и статус предстоящей встречи. Обновите расписание.</p>
+      <p v-if="!completeParticipants||preview.data.value.reasons.some(r=>!r.startsWith('SCHEDULE_SOURCE_'))" class="warning">Нужны два определённых участника, будущее время начала и статус предстоящей встречи. Обновите расписание.</p>
       <p v-if="preview.data.value.omittingLaterPages" class="warning">Более поздние частичные ответы не содержат эту встречу. Проверьте актуальность по источнику; отсутствие не означает отмену.</p>
-      <form @submit.prevent="submit()"><fieldset :disabled="busy||!completeParticipants||!preview.data.value.eligible||!history.data.value">
+      <form @submit.prevent="submit()"><fieldset :disabled="busy||!fresh||!completeParticipants||!preview.data.value.eligible||!history.data.value">
         <label for="target-provider-a">Участник источника для команды A</label><select id="target-provider-a" v-model="form.providerTeamAId" required @change="form.confirmed=false">
           <option value="">Выберите участника</option><option v-for="team in opponents" :key="team.providerTeamId" :value="team.providerTeamId">{{team.name??team.providerTeamId}}</option></select>
         <p>Участник B: {{participantB?upcomingTeamLabel(participantB):'не выбран'}}.</p>

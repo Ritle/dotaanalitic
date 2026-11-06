@@ -21,7 +21,7 @@ import {registerJournal} from './modules/scenarios/journal-http.js';
 import type { FastifyServerOptions, FastifyReply } from 'fastify';
 import {UpcomingService} from './modules/upcoming/service.js';
 import {registerUpcoming} from './modules/upcoming/http.js';
-import {V1ScheduleTargetRepository} from '@dota/db';
+import {FreshScheduleTargetRepository} from '@dota/db';
 import {registerScheduleTargets} from './modules/upcoming/targets-http.js';
 import {registerScheduledForecasts} from './modules/upcoming/forecasts-http.js';
 import {registerScheduledResults} from './modules/upcoming/results-http.js';
@@ -30,16 +30,18 @@ import {V1ScheduledLifecycleService} from '@dota/db';
 import {V1ScheduledResultService} from '@dota/db';
 import {HistoryRefreshService} from './modules/history/service.js';
 import {registerHistoryRefresh} from './modules/history/http.js';
+import {registerPlayerHistory,PlayerHistoryService} from './modules/history/player-history.js';
 import {V1ModelRegistry} from '@dota/db';
 import {registerModelReadiness} from './modules/models/readiness-http.js';
 import {RoleSuggestionRepository} from '@dota/db';
 import {registerRoleSuggestions} from './modules/catalog/role-suggestions-http.js';
 import {RoleProfileService} from './modules/catalog/role-profile-service.js';
 import {registerRoleProfiles} from './modules/catalog/role-profiles-http.js';
+import {RankedPracticeService,registerRankedPractice} from './modules/catalog/ranked-practice.js';
 import {registerRosterCatalogue} from './modules/upcoming/catalogue-http.js';
 import {RosterCatalogueService,liveCatalogueProvider,type CatalogueProvider} from './modules/upcoming/catalogue-service.js';
 
-export async function buildApp(config = readConfig(), options: { db?: Db; logger?: FastifyServerOptions['logger'];pandascoreFetch?:(url:URL,init:RequestInit)=>Promise<Response>;roleProfileFetch?:typeof fetch;catalogueProvider?:CatalogueProvider } = {}) {
+export async function buildApp(config = readConfig(), options: { db?: Db; logger?: FastifyServerOptions['logger'];pandascoreFetch?:(url:URL,init:RequestInit)=>Promise<Response>;roleProfileFetch?:typeof fetch;rankedPracticeFetch?:typeof fetch;catalogueProvider?:CatalogueProvider } = {}) {
   const app = Fastify({ bodyLimit: 8192, trustProxy: false, logger: options.logger === false ? false : {
     ...(typeof options.logger === 'object' ? options.logger : {}),
     redact: ['req.headers.cookie', 'req.headers.authorization', 'req.headers["x-csrf-token"]', 'res.headers["set-cookie"]'],
@@ -84,9 +86,13 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   });
   app.get('/health', async () => ({ status: 'ok', service: 'dota2-pro-analytics-api' }));
   await registerAuth(app, config, new AuthService(db));
+  const playerHistory=new PlayerHistoryService(db,config.DATABASE_URL);
+  registerPlayerHistory(app,playerHistory);
+  app.addHook('onClose',()=>playerHistory.close());
   registerCatalog(app, new CatalogRepository(db));
   registerRoleSuggestions(app,new RoleSuggestionRepository(db));
   registerRoleProfiles(app,new RoleProfileService(db,config,options.roleProfileFetch));
+  registerRankedPractice(app,new RankedPracticeService(db,config,options.rankedPracticeFetch));
   registerProMaps(app, new ProMapRepository(db));
   registerRoster(app, new RosterRepository(db));
   registerPlayerHeroes(app, new PlayerHeroRepository(db));
@@ -97,14 +103,15 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   registerReports(app,new ScenarioReportRepository(db));
   const predictions=await V1PredictionService.open(db);
   registerPredictions(app,predictions);
-  registerScheduledForecasts(app,predictions);
+  const freshScheduleTargets=new FreshScheduleTargetRepository(db);
+  registerScheduledForecasts(app,predictions,freshScheduleTargets);
   registerScheduledResults(app,new V1ScheduledResultService(db,predictions));
   registerScheduledLifecycle(app,new V1ScheduledLifecycleService(db));
   registerJournal(app,await V1JournalService.open(db));
   const upcomingService=new UpcomingService(db,config.PANDASCORE_API_TOKEN,options.pandascoreFetch);
   registerUpcoming(app,upcomingService);
   registerRosterCatalogue(app,new RosterCatalogueService(db,upcomingService,options.catalogueProvider??liveCatalogueProvider(config.DATABASE_URL)));
-  registerScheduleTargets(app,new V1ScheduleTargetRepository(db));
+  registerScheduleTargets(app,freshScheduleTargets);
   const history=new HistoryRefreshService(db,config.DATABASE_URL);
   app.addHook('onClose',async()=>history.close());
   registerHistoryRefresh(app,history);

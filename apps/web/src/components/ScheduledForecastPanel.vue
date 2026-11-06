@@ -9,9 +9,10 @@ import {readPrediction,PredictionRequestError} from '../predictions';
 import {createScheduledForecast,scheduledScenarioWarning} from '../scheduled-forecasts';
 import PredictionResult from './PredictionResult.vue';
 import ScheduledResultPanel from './ScheduledResultPanel.vue';
+import ScheduleFreshness from './ScheduleFreshness.vue';
 const props=defineProps<{target:V1ScheduleTargetSaved}>(),route=useRoute(),router=useRouter(),cache=useQueryClient();
 const id=computed(()=>props.target.record.request.requestId),selectedId=computed(()=>typeof route.query.forecast==='string'?route.query.forecast:'');
-const scenarioId=ref(typeof route.query.scenario==='string'?route.query.scenario:''),page=ref(0),offset=ref(0),busy=ref(false),error=ref(''),conflict=ref(false),reviewed=ref(false);
+const scenarioId=ref(typeof route.query.scenario==='string'?route.query.scenario:''),page=ref(0),offset=ref(0),busy=ref(false),error=ref(''),conflict=ref(false),reviewed=ref(false),fresh=ref(false);
 const pending=ref<V1ScheduledPredictionCreate|null>(null),scope=reactive({leagueId:'',eventName:'',from:'',until:'',sourceUrl:'',rationale:''});
 let controller:AbortController|null=null;
 const scenarios=useQuery({queryKey:computed(()=>['scenarios',page.value]),queryFn:({signal})=>readCatalog(`scenarios?offset=${page.value}`,ScenarioListSchema,signal)});
@@ -30,7 +31,7 @@ async function submit(retry=false){
   if(busy.value)return;error.value='';conflict.value=false;
   let body=retry?pending.value:null;
   if(!body){
-    if(!chosen.value||warning.value)return;
+    if(!chosen.value||warning.value||!fresh.value)return;
     try{body=V1ScheduledPredictionCreateSchema.parse({requestId:crypto.randomUUID(),scenarioId:chosen.value.id,expectedRevision:chosen.value.revision,
       targetSha256:props.target.sha256,targetScope:reviewed.value?{provider:'opendota',leagueId:scope.leagueId,eventName:scope.eventName,
         fromAt:new Date(scope.from+'Z').toISOString(),until:new Date(scope.until+'Z').toISOString(),tier:1,stage:'main_event',sourceUrl:scope.sourceUrl,rationale:scope.rationale}:null});}
@@ -52,6 +53,7 @@ async function refresh(){
 </script>
 <template><section class="panel" aria-label="Прогноз назначенной карты">
   <h2>Прогноз первой карты</h2><p>Выберите сохранённые 5v5. Попытка закрепит эту редакцию назначения и состава.</p>
+  <ScheduleFreshness :key="id" :match-id="target.record.request.providerMatchId" @eligible="fresh=$event" />
   <p><RouterLink :to="{path:'/scenarios/new',query:{scheduleTarget:id}}">Подготовить новый сценарий для этой встречи →</RouterLink></p>
   <p v-if="scenarios.isFetching.value" role="status">Загрузка сценариев…</p><p v-if="scenarios.error.value" role="alert" class="error">{{scenarios.error.value.message}}</p>
   <form @submit.prevent="submit()"><fieldset :disabled="busy||!!pending">
@@ -69,7 +71,7 @@ async function refresh(){
       <label>Конец периода события UTC<input v-model="scope.until" type="datetime-local" required /></label><label>Источник проверки · HTTPS<input v-model="scope.sourceUrl" type="url" required /></label>
       <label>Обоснование Tier 1<input v-model="scope.rationale" minlength="20" maxlength="2000" required /></label></div>
     <p>Без проверки турнира или активной модели попытка сохранится с причинами недоступности.</p>
-    <button type="submit" :disabled="!chosen||!!warning||scenario.isFetching.value">{{busy?'Расчёт и сохранение…':'Рассчитать назначенную карту'}}</button>
+    <button type="submit" :disabled="!fresh||!chosen||!!warning||scenario.isFetching.value">{{busy?'Расчёт и сохранение…':'Рассчитать назначенную карту'}}</button>
   </fieldset></form>
   <p v-if="busy" role="status">Проверяем назначение, модель и профессиональную историю…</p><p v-if="error" role="alert" class="error">{{error}}</p>
   <button v-if="pending&&!conflict&&!busy" @click="submit(true)">Повторить тот же запрос</button><button :disabled="busy" @click="refresh">Обновить состав и историю</button>

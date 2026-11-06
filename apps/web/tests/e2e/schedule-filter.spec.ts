@@ -31,7 +31,7 @@ test.beforeEach(async({page})=>{
   await sql`INSERT INTO upcoming_source_cache(cache_key,payload,expires_at) VALUES(${'tournament:'+id},${JSON.stringify(payload)}::jsonb,clock_timestamp()+interval '5 minutes')`.execute(database.db);
  }
  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:'synthetic-filter-token'}),
-  {db:database.db,logger:false,pandascoreFetch:async()=>{providerCalls++;throw Error('Unexpected synthetic provider request');}});
+  {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async()=>{providerCalls++;throw Error('Unexpected synthetic provider request');}});
  await api.listen({host:'127.0.0.1',port:3151});await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-filter-browser');await page.getByLabel('Пароль').fill(password);
  await page.getByRole('button',{name:'Войти',exact:true}).click();await page.getByRole('link',{name:'Предстоящие матчи →',exact:true}).click();
  await expect(filter(page)).toBeEnabled();

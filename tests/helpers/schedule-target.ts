@@ -9,8 +9,8 @@ export async function seedTargetCatalog(db:Db){
 export function syntheticTargetMatch(patch:Partial<UpcomingMatch>={}):UpcomingMatch{return {providerMatchId:'9007199254742999',name:'Synthetic Target Match',status:'not_started',
   scheduledAt:new Date(Date.now()+3600000).toISOString(),tournament:{providerTournamentId:'71',name:'Synthetic Stage'},league:{providerLeagueId:'72',name:'Synthetic Event'},
   eventSeries:null,seriesBestOf:3,opponents:[{providerTeamId:'74',name:'Synthetic Target A'},{providerTeamId:'75',name:'Synthetic Target B'}],...patch};}
-export async function publishTargetSchedule(db:Db,data:UpcomingMatch[]){
-  const fetchedAt=new Date(Date.now()-1000).toISOString(),snapshot={data,source:{provider:'pandascore',adapterVersion:'synthetic-target-test',
+export async function publishTargetSchedule(db:Db,data:UpcomingMatch[],fetchedAt=new Date(Date.now()-1000).toISOString()){
+  const snapshot={data,source:{provider:'pandascore',adapterVersion:'synthetic-target-test',
     endpoint:'/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20',fetchedAt,knownAt:null,payloadSha256:'a'.repeat(64),attempts:1,rateLimitRemaining:null}};
   const text=JSON.stringify(snapshot),sha=registrySha(text);
   const row=(await sql<{id:string}>`INSERT INTO upcoming_source_observations(cache_key,provider,source_endpoint,source_payload_sha256,source_fetched_at,snapshot_sha256,snapshot_text)

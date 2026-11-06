@@ -14,6 +14,29 @@ test('mixed Panda positions remain alternatives and missing roles are unknown',a
    {id:7,name:'Synthetic',role:'1/2'},{id:8,name:null}]}]}))).read('10');
  expect(r.players.map(p=>p.roles)).toEqual([[1,2],[]]);expect(parsePandaRoles('carry')).toEqual([]);expect(parsePandaRoles('2/2')).toEqual([2]);
 });
+test('STRATZ zero team sentinel preserves account and role but normalizes unknown team to null',async()=>{
+ for(const teamId of [0,null]){
+  const raw={data:{player:{steamAccountId:1000,steamAccount:{proSteamAccount:{id:1000,name:'Synthetic',teamId,position:'POSITION_3'}}}}};
+  const original=JSON.stringify(raw),b=budget();
+  const r=await new RoleProfileClient('stratz','synthetic-token',b,async()=>new Response(original)).read('1000');
+  expect(r.players).toEqual([{accountId:'1000',providerPlayerId:'1000',providerTeamId:null,name:'Synthetic',roles:[3]}]);
+  expect(r.knownAt).toBeNull();expect(r.eventAt).toBeNull();expect(b.calls).toBe(1);expect(JSON.stringify(raw)).toBe(original);
+ }
+});
+test('unknown STRATZ team does not weaken account matching or accept malformed numeric IDs',async()=>{
+ for(const teamId of [-1,1.5,'0',Number.MAX_SAFE_INTEGER+1]){
+  const raw={data:{player:{steamAccountId:1000,steamAccount:{proSteamAccount:{id:1000,name:null,teamId,position:null}}}}};
+  await expect(new RoleProfileClient('stratz','synthetic-token',budget(),async()=>new Response(JSON.stringify(raw))).read('1000')).rejects.toMatchObject({code:'source_schema_invalid'});
+ }
+ const raw=profile(1001);raw.data.player.steamAccount.proSteamAccount.teamId=0;
+ await expect(new RoleProfileClient('stratz','synthetic-token',budget(),async()=>new Response(JSON.stringify(raw))).read('1000')).rejects.toMatchObject({code:'source_id_mismatch'});
+});
+test('STRATZ missing player or professional profile remains a valid empty observation',async()=>{
+ for(const player of [null,{steamAccountId:1000,steamAccount:null},{steamAccountId:1000,steamAccount:{proSteamAccount:null}}]){
+  const r=await new RoleProfileClient('stratz','synthetic-token',budget(),async()=>new Response(JSON.stringify({data:{player}}))).read('1000');
+  expect(r.players).toEqual([]);
+ }
+});
 test('GraphQL errors, account mismatch, invalid JSON and echoed secrets are sanitized',async()=>{
  for(const [payload,code] of [[{errors:[{message:'private detail'}]},'source_graphql_error'],[profile(1001),'source_id_mismatch'],
    [{...profile(),token:'synthetic-token'},'source_invalid_payload'],[{},'source_schema_invalid']] as const){

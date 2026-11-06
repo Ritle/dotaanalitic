@@ -18,6 +18,8 @@ export async function createScheduledForecast(targetId:string,body:V1ScheduledPr
   if(r.status===401){ownerAuth.value=null;queryClient.clear();throw new AuthRequestError(401,'Сессия завершена. Войдите снова.');}
   if(!r.ok){
     const messages:Record<string,string>={scheduled_target_revision_changed:'Появилась новая редакция назначения. Откройте её из расписания.',
+      schedule_source_stale:'Сведения об этой встрече старше 5 минут. Обновите расписание перед новым прогнозом.',
+      schedule_source_clock_invalid:'Время получения расписания некорректно. Обновите источник и проверьте часы сервера.',
       scheduled_target_source_changed:'Расписание изменилось. Проверьте и сохраните новую редакцию назначения.',
       scheduled_target_not_upcoming:'Встреча началась или её время и участники не подтверждены расписанием.',
       scheduled_target_scenario_mismatch:'Команды, турнир, время и карта 1 сценария должны совпадать с назначением.'};

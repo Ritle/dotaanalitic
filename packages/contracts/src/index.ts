@@ -92,3 +92,8 @@ export * from './v1-model-readiness.js';
 export * from './role-suggestions.js';
 export * from './role-profiles.js';
 export * from './roster-catalogue.js';
+export * from './player-history.js';
+export * from './schedule-freshness.js';
+export * from './managed-import.js';
+export * from './ranked-practice.js';
+export * from './ranked-context.js';

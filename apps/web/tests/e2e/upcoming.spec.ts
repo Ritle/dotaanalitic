@@ -19,7 +19,7 @@ test.beforeAll(async()=>{
     (1105,NULL,'Синтетический повтор чтения'),(1106,NULL,'Синтетическое большое окно')`.execute(database.db);
   await new AuthService(database.db).provision('synthetic-upcoming-browser',password);
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),
-    {db:database.db,logger:false,pandascoreFetch:async url=>new Response(JSON.stringify(failed?{}:url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()),{status:failed?403:200})});
+    {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(failed?{}:url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()),{status:failed?403:200})});
   await api.listen({host:'127.0.0.1',port:3151});
   boss=await createHistoryQueue(database.url);await registerHistoryWorker(boss,database.db,
     ()=>syntheticHistoryProvider({onRequest:()=>historyRequests++}));
@@ -39,9 +39,9 @@ test('owner loads schedule and all expected players, manually chooses canonical 
   await signIn(page);await expect(page.getByText('Данные ещё не загружены.',{exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Обновить расписание',exact:true}).click();await expect(page.getByText('Синтетическая Alpha — Синтетическая Beta',{exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Выбрать',exact:true}).click();await page.getByRole('button',{name:'Обновить составы',exact:true}).click();
-  const rosters=page.getByRole('region',{name:'Ожидаемые составы'});await expect(rosters.getByText('В заявке: 6 игроков',{exact:true})).toBeVisible();
+  const rosters=page.getByRole('region',{name:'Ожидаемые составы'});await rosters.getByText('Заявка турнира и участники источника',{exact:true}).click();await expect(rosters.getByText('В заявке: 6 игроков',{exact:true})).toBeVisible();
   await expect(rosters.getByText('Синтетический игрок 1-6',{exact:true})).toBeVisible();await expect(rosters.getByText('Нужно вручную уточнить пятёрку.',{exact:true})).toBeVisible();
-  await expect(rosters.getByText('Ниже можно соединить заявку с игровыми аккаунтами и подготовить пятёрки для анализа.',{exact:false})).toBeVisible();
+  await expect(rosters.getByRole('button',{name:'Подготовить составы',exact:true})).toBeVisible();
   await page.screenshot({path:'test-results/upcoming-desktop.png',fullPage:true});await page.setViewportSize({width:360,height:800});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:'test-results/upcoming-mobile.png',fullPage:true});
   await rosters.getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();const q=scenarioInput();

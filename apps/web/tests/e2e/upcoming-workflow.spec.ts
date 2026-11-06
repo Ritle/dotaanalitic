@@ -22,7 +22,7 @@ test.beforeAll(async()=>{
   await new AuthService(database.db).provision('synthetic-workflow-browser',password);
   const schedule=syntheticSchedule();scheduledAt=schedule[0]!.scheduled_at;
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),
-    {db:database.db,logger:false,pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():schedule))});
+    {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():schedule))});
   await api.listen({host:'127.0.0.1',port:3151});boss=await createHistoryQueue(database.url);
   await registerHistoryWorker(boss,database.db,()=>syntheticHistoryProvider());
 });
@@ -45,6 +45,7 @@ test('schedule to manual scenario, full draft and immutable report keeps lineups
   for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(page,`${slot}: игрок роли ${p.rolePos}`,p.playerId!);
   await page.getByLabel('A: замена роли 5',{exact:true}).check();
   await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
+  await page.getByText('Точные даты, патч и лига',{exact:true}).click();
   await page.getByLabel('Пятёрки: начало UTC',{exact:true}).fill('2024-01-02T00:00');
   await page.getByLabel('Пятёрки: срез UTC',{exact:true}).fill('2024-01-03T00:00');
   const compareResponse=page.waitForResponse(r=>r.url().endsWith('/teams/compare')&&r.request().method()==='POST');
