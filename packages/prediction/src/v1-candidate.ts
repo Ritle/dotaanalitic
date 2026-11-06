@@ -3,7 +3,8 @@ import { buildV1Features, V1_FEATURE_POLICY } from './v1-features.js';
 import { V1_RELEASE_QUALITY_POLICY } from './v1-quality-policy.js';
 import { canonicalV1Json, compareText, hashV1 } from './v1-integrity.js';
 
-function eloLink(difference: number) {
+/** Shared fixed inference arithmetic; this primitive does not grant publication authority. */
+export function eloLink(difference: number) {
   if (!Number.isFinite(difference)) throw Error('v1_candidate_nonfinite_feature');
   return 1 / (1 + 10 ** (-difference / V1_FEATURE_POLICY.scale));
 }

@@ -62,7 +62,8 @@ it('rejects the archived reader freeze and requires exact current code, barrel b
   const actual = await readV1RuntimeCode();
   expect(compatibleV1Runtime(archived, actual)).toBe(false);
   expect(V1_RUNTIME_KERNEL_PATHS.filter(path => archived.code.find((c: {path:string;sha256:string}) => c.path === path)?.sha256 !==
-    actual.code.find(c => c.path === path)?.sha256)).toEqual(['packages/db/dist/v1-data-repository.js','packages/db/dist/v1-fact-pages.js']);
+    actual.code.find(c => c.path === path)?.sha256)).toEqual(['packages/db/dist/v1-data-repository.js','packages/db/dist/v1-fact-pages.js',
+    'packages/prediction/dist/v1-candidate.js']);
   // In-memory test fixture only: no new model freeze or release approval is created.
   const freeze = { ...archived, code: actual.code };
   expect(compatibleV1Runtime(freeze, actual)).toBe(true);

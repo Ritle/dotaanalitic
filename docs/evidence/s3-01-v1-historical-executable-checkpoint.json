@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-historical/executable-freeze",
+  "checkedAt": "2026-11-06T15:36:46.606Z",
+  "status": "registered_and_verified_before_first_scoring",
+  "bundleDirectory": ".tools/v1-historical-freeze-20261106/bundle",
+  "configSha256": "0077ea764f18e473a1f71d173544066dc48199f72d2e850b97fefed48527d6e6",
+  "format": "v1-historical-executable-checkpoint-v1",
+  "capsuleSha256": "34d35e9f9a626c355d82916211226f3ab944a5072dbc1e7a0e40119907c1bfd6",
+  "capsuleFingerprint": "0b61734b1d6c7f5dfa2565af2c5d7859b3e7f4fa1417c372801a6836c434a242",
+  "freezeSha256": "0b632fecd6db7860937e3c94923b20ce24d891cf22bc4a864b442557a7bbaf34",
+  "freezeFingerprint": "5ebfc8844c350deb90786776973273074ca341ddcfda4768c17c3e7edd683edc",
+  "codeFiles": 373,
+  "dependenciesIncluded": false,
+  "secretsCopied": false,
+  "evaluationPerformed": false,
+  "deployable": false,
+  "registeredAt": "2026-11-06T15:35:16.050Z",
+  "protocolFingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1",
+  "datasetSha256": "6396235552a52691b7611e35c0900ee70eaae139ea07370b89cf561212b53045",
+  "datasetFingerprint": "d6fbae61b67341bb7627afb374216e1bd28c258f52c5029ba35e2ed53fbd8e0b",
+  "candidateFingerprint": "15db1b4ccfd1a37796b441a4e0d79fa036c9597d3bd50abd3a42b783b38da887",
+  "qualityPolicySha256": "f13ddd38c451fa53bae4f37ffaeea4c2ac852a4d50cb7cdd1156f53175737d4b",
+  "targetLedgerFingerprint": "85ddc78f9b88d382b249209803b6dabe022960faf520f098009f8f13b8e9cc77",
+  "runtime": {
+    "node": "v22.15.0",
+    "platform": "win32",
+    "arch": "x64",
+    "nodeBinarySha256": "77bdff912b1c569b3e693fe126f619337c3e9d73dafbc4d0bf1d4f1f6a145761"
+  },
+  "coverage": {
+    "inventoryMaps": 939,
+    "historyEligibleMaps": 899,
+    "targetMaps": 145,
+    "targetSeries": 60,
+    "canonicalTargetMaps": 143,
+    "historyReadyMaps": 143,
+    "readyMaps": 140,
+    "readySeries": 58
+  },
+  "checks": {
+    "offlineFrozenInstall": "PASS",
+    "typecheck": "PASS",
+    "unitSerial": {
+      "status": "PASS",
+      "tests": 892
+    },
+    "node": {
+      "status": "PASS",
+      "tests": 171
+    },
+    "build": "PASS",
+    "frozenBundleOfflineInstall": "PASS",
+    "frozenBundleVerification": "PASS",
+    "orderedMigrationChecksums": 49,
+    "docLinks": "PASS",
+    "initialParallelUnit": "2 existing CLI cases timed out at 20000 ms; full unchanged suite passed sequentially",
+    "initialSandboxBundleTest": "EPERM creating junction; rerun in native Windows passed",
+    "postgresIntegration": "not_run_this_slice",
+    "browser": "not_run",
+    "python": "not_run",
+    "linuxDocker": "not_run"
+  },
+  "preservation": {
+    "status": "PASS",
+    "protectedArtifacts": 245,
+    "originalModulesUnchanged": 147,
+    "changedOriginalModules": [
+      "packages/db/dist/v1-data-repository.js",
+      "packages/db/dist/v1-runtime-code.js",
+      "packages/prediction/dist/v1-candidate.js"
+    ],
+    "archivedExecutableBundleVerified": true,
+    "currentRuntimeCompatibleWithArchivedFreeze": false,
+    "reason": "Paged history export and exported shared Elo arithmetic require separate historical freeze; archived artifacts remain unchanged."
+  },
+  "database": {
+    "tables": 83,
+    "changed": [],
+    "queueUnchanged": true,
+    "activeModels": 0,
+    "health": {
+      "status": 200
+    },
+    "web": {
+      "status": 200
+    }
+  },
+  "providerRequests": 0,
+  "productionRegistryCompatible": false,
+  "qualityGateCalculated": false,
+  "releaseGatePassed": false,
+  "activeModelCreated": false,
+  "teamAWinProbability": null,
+  "nextTask": "S3-03/V1-historical/independent-evaluation"
+}
