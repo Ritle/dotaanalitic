@@ -10,7 +10,7 @@ export const V1_RUNTIME_KERNEL_PATHS = [
   ...['v1-candidate', 'v1-features', 'v1-data', 'v1-release-evidence', 'v1-release-plan',
     'identity', 'research-elo', 'research-evidence', 'temporal', 'game-context', 'dataset', 'dataset-build',
     'roster', 'catalog', 'sample'].map(n => `packages/contracts/dist/${n}.js`),
-  ...['v1-data', 'v1-data-repository', 'v1-features', 'v1-release-inventory', 'identity', 'identity-repository',
+  ...['v1-data', 'v1-data-repository', 'v1-fact-pages', 'v1-features', 'v1-release-inventory', 'identity', 'identity-repository',
     'temporal', 'dataset-splits', 'outcome-verifier'].map(n => `packages/db/dist/${n}.js`)
 ].sort();
 const orchestration = ['packages/contracts/dist/v1-runtime.js', 'packages/db/dist/v1-runtime.js',

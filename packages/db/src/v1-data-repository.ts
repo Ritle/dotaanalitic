@@ -6,6 +6,7 @@ import { OutcomeVerifier } from './outcome-verifier.js';
 import { readAccountEvidence } from './identity-repository.js';
 import { prepareV1Data } from './v1-data.js';
 import { freezeV1ReleaseInventory } from './v1-release-inventory.js';
+import { readV1FactPages } from './v1-fact-pages.js';
 
 /** SELECT-only export. Existing OutcomeVerifier takes FOR SHARE locks; no dataset/model writes. */
 export class V1DataRepository {
@@ -41,14 +42,14 @@ export class V1DataRepository {
       const players = (await sql<ResearchEloMap['players'][number] & { matchId: string }>`SELECT match_id::text AS "matchId",
         player_slot AS "playerSlot",source_account_id::text AS "sourceAccountId" FROM match_players
         WHERE match_id=ANY(${ids}::bigint[]) ORDER BY match_id,player_slot`.execute(tx)).rows;
-      const facts = (await sql<ResearchEloMap['facts'][number] & { matchId: string }>`SELECT match_id::text AS "matchId",id::text,
+      const facts = await readV1FactPages(async (afterId, limit) => (await sql<ResearchEloMap['facts'][number] & { matchId: string }>`SELECT match_id::text AS "matchId",id::text,
         field_name AS field,(extract(epoch from event_at)*1000000)::bigint::text AS "eventAtUs",
         (extract(epoch from known_at)*1000000)::bigint::text AS "knownAtUs",
         (extract(epoch from fetched_at)*1000000)::bigint::text AS "fetchedAtUs",
         (extract(epoch from recorded_at)*1000000)::bigint::text AS "recordedAtUs",
         review_state AS "reviewState",availability_class AS availability FROM match_field_observations
-        WHERE match_id=ANY(${ids}::bigint[]) AND fetched_at<=${request.snapshotAt}::timestamptz ORDER BY id LIMIT 20001`.execute(tx)).rows;
-      if (facts.length > 20000) throw new Error('v1_fact_inventory_limit');
+        WHERE match_id=ANY(${ids}::bigint[]) AND fetched_at<=${request.snapshotAt}::timestamptz
+          AND id>${afterId}::bigint ORDER BY match_field_observations.id LIMIT ${limit}`.execute(tx)).rows);
       const identities = (await readAccountEvidence(tx, [...new Set(players.flatMap(row => row.sourceAccountId ?? []))]))
         .filter(row => row.fetchedAt <= request.snapshotAt);
       const identityRevision = (await sql<{ revision: string }>`SELECT revision::text FROM identity_registry_state WHERE singleton`.execute(tx)).rows[0]!.revision;

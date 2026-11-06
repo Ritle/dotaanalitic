@@ -3,7 +3,7 @@ import { expect, it } from 'vitest';
 import { buildV1Features } from '@dota/prediction';
 import { V1RuntimeRequestSchema, V1RuntimeSnapshotSchema } from '@dota/contracts';
 import { runtimeFeatureScenario, runtimeTargetReasons, computeV1RuntimeFeatures } from '../src/v1-runtime.js';
-import { compatibleV1Runtime, readV1RuntimeCode } from '../src/v1-runtime-code.js';
+import { compatibleV1Runtime, readV1RuntimeCode, V1_RUNTIME_KERNEL_PATHS } from '../src/v1-runtime-code.js';
 import { prepareV1PerMapFeatureHistory } from '../src/v1-features.js';
 import { runtimeFixture } from './v1-runtime-fixtures.js';
 import { v1Fixture } from './v1-data-fixtures.js';
@@ -57,9 +57,14 @@ it('forbids prospective relabeling, caller probabilities, invalid scope and malf
     { ...request, targetScope: { ...request.targetScope, tier: 2 } }]) expect(V1RuntimeRequestSchema.safeParse(input).success).toBe(false);
   expect(V1RuntimeSnapshotSchema.safeParse({ status: 'unavailable', teamAWinProbability: 0.5 }).success).toBe(false);
 });
-it('matches unchanged frozen inference/history modules and rejects changed code, barrel bindings or runtime', async () => {
-  const freeze = JSON.parse(await readFile(new URL('../../../docs/evidence/s3-03-v1-executable-freeze.json', import.meta.url), 'utf8'));
+it('rejects the archived reader freeze and requires exact current code, barrel bindings and runtime', async () => {
+  const archived = JSON.parse(await readFile(new URL('../../../docs/evidence/s3-03-v1-executable-freeze.json', import.meta.url), 'utf8'));
   const actual = await readV1RuntimeCode();
+  expect(compatibleV1Runtime(archived, actual)).toBe(false);
+  expect(V1_RUNTIME_KERNEL_PATHS.filter(path => archived.code.find((c: {path:string;sha256:string}) => c.path === path)?.sha256 !==
+    actual.code.find(c => c.path === path)?.sha256)).toEqual(['packages/db/dist/v1-data-repository.js','packages/db/dist/v1-fact-pages.js']);
+  // In-memory test fixture only: no new model freeze or release approval is created.
+  const freeze = { ...archived, code: actual.code };
   expect(compatibleV1Runtime(freeze, actual)).toBe(true);
   const altered = structuredClone(actual); altered.code.find(c => c.path.endsWith('prediction/dist/v1-features.js'))!.sha256 = '0'.repeat(64);
   expect(compatibleV1Runtime(freeze, altered)).toBe(false);

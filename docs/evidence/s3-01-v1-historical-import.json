@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-historical/canonical-import",
+  "checkedAt": "2026-11-06T15:06:43.862Z",
+  "status": "canonical_import_and_coverage_complete",
+  "protocolFingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1",
+  "planFingerprint": "be118711648a460d9c83d94d90b1bf00b1d7f1c1578b6c7d56db70bf070b664a",
+  "code": [
+    {
+      "path": "packages/contracts/src/v1-historical-import.ts",
+      "sha256": "0d251507074bbc8bfb1633d81f2e3af2c60fd75f86e2a7b1415834d411de1b7e"
+    },
+    {
+      "path": "packages/db/src/v1-data-repository.ts",
+      "sha256": "56e52dc105dd13ad93239d4bb91f8b8f3858895ee967d37427bcbdf005d13f1d"
+    },
+    {
+      "path": "packages/db/src/v1-fact-pages.ts",
+      "sha256": "15ce2ef1c1d5b34bad916b9df629491c1283da8bb923253e15ec5fe75d503d92"
+    },
+    {
+      "path": "packages/db/src/v1-runtime-code.ts",
+      "sha256": "2863ea175cb87d250bceb6fae0ad29f7c207d43cc672d4cf5c2cbc6e2cab043d"
+    },
+    {
+      "path": "scripts/import-v1-historical.mjs",
+      "sha256": "c72e00b70ee932afa6a8cf385ba715e712da5ca2379fe6e00fdede7e531a847c"
+    },
+    {
+      "path": "scripts/lib/v1-historical-import.mjs",
+      "sha256": "df86ca15d572697ee80037fb5b578553053ad4bdbcee0f5b4f58404ca584b889"
+    }
+  ],
+  "privateArtifacts": [
+    {
+      "path": ".tools/v1-historical-import-20261106/config.json",
+      "sha256": "6efb4721dd0fda8326be05a3e5914927043a9eebdd14182be58331b3d2c9d7de"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/plan.json",
+      "sha256": "95669a756978fef81bf0a2200de4c1699fbccf07c3cde69da3a3b2aa0d649255"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/profile-capture-summary.json",
+      "sha256": "1465228d43632641ce2b59bd5c547b09ae9fcdc806742bca0c3efb2bc0014a09"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/identities-01/result.json",
+      "sha256": "b726db95a5fc3ed141bc8ff661d540903b0ba5ffca43cef26ca56bbedd6fd829"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/maps-01/result.json",
+      "sha256": "18b61027e533de636a117b666db3d1f93861f6bd1b718d4677bab41824d01d7c"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/series-01/result.json",
+      "sha256": "9ef2a1ebaec6fa9bd4146ebd0e20ea0beaeb2becbee1075bcd273a5a8d797f1b"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/maps-02/result.json",
+      "sha256": "723861b126d3bebc04476af34a080c90ffff85fd62152441bc9296ee9557f0cf"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/maps-replay/result.json",
+      "sha256": "b351443d40ff8af9c7336f18e7a7f740377d78ad97cacc27181575d180a855c8"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/export-01/dataset.json",
+      "sha256": "6396235552a52691b7611e35c0900ee70eaae139ea07370b89cf561212b53045"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/export-01/coverage.json",
+      "sha256": "f0baaaf490b50ac6454d5b650f2965d123c1007650bae18f6ff92529a08abe76"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/replay-check.json",
+      "sha256": "0182ba17755a9e03d34cf018435355da4c432ad0c1351694d9240444925a058b"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/preservation-final.json",
+      "sha256": "f727401d0bb7c8aa17aa00498b0e944f4e265f0f0415c3b178b2f089ef3252a9"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/database-before.json",
+      "sha256": "1424456dd6339e2934453865e63caad4892bb76f6e5e554ce0674e88cb5e9097"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/database-final.json",
+      "sha256": "c281aa280ecf6a987e9dc7be7d6dc50d41972bea9c1d6d6a51b01ff0d2a2713c"
+    }
+  ],
+  "coverage": {
+    "inventoryMaps": 939,
+    "historyEligibleMaps": 899,
+    "targetMaps": 145,
+    "targetSeries": 60,
+    "canonicalTargetMaps": 143,
+    "historyReadyMaps": 143,
+    "readyMaps": 140,
+    "readySeries": 58
+  },
+  "excludedTargets": [
+    {
+      "matchId": "9010847796",
+      "seriesId": "1145377",
+      "reasons": [
+        "OBSERVED_SERIES_HAS_UNREADY_MEMBER",
+        "SERIES_NOT_READY"
+      ]
+    },
+    {
+      "matchId": "9010913001",
+      "seriesId": "1145377",
+      "reasons": [
+        "OBSERVED_SERIES_HAS_UNREADY_MEMBER",
+        "SERIES_NOT_READY"
+      ]
+    },
+    {
+      "matchId": "9010993339",
+      "seriesId": "1145377",
+      "reasons": [
+        "CANONICAL_HISTORY_BELOW_MINIMUM",
+        "CANONICAL_MAP_MISSING",
+        "DETAIL_MISSING",
+        "OBSERVED_SERIES_HAS_UNREADY_MEMBER",
+        "SERIES_NOT_READY",
+        "SOURCE_UNAVAILABLE_AFTER_BOUNDED_ATTEMPTS"
+      ]
+    },
+    {
+      "matchId": "9011023151",
+      "seriesId": "1145411",
+      "reasons": [
+        "CANONICAL_HISTORY_BELOW_MINIMUM",
+        "CANONICAL_MAP_MISSING",
+        "DETAIL_MISSING",
+        "OBSERVED_SERIES_HAS_UNREADY_MEMBER",
+        "SERIES_NOT_READY",
+        "SOURCE_UNAVAILABLE_AFTER_BOUNDED_ATTEMPTS"
+      ]
+    },
+    {
+      "matchId": "9011114952",
+      "seriesId": "1145411",
+      "reasons": [
+        "OBSERVED_SERIES_HAS_UNREADY_MEMBER",
+        "SERIES_NOT_READY"
+      ]
+    }
+  ],
+  "identities": {
+    "considered": 381,
+    "alreadyVerified": 193,
+    "applied": 188,
+    "playersCreated": 188,
+    "proofsAdded": 188,
+    "aliasesAdded": 188
+  },
+  "series": {
+    "reviewed": 273,
+    "created": 273,
+    "blocked": 0
+  },
+  "datasetSha256": "6396235552a52691b7611e35c0900ee70eaae139ea07370b89cf561212b53045",
+  "datasetFingerprint": "d6fbae61b67341bb7627afb374216e1bd28c258f52c5029ba35e2ed53fbd8e0b",
+  "coverageReplayEqual": true,
+  "providerRequests": {
+    "attempts": 50,
+    "httpStatuses": {
+      "200": 50
+    },
+    "transportErrors": {}
+  },
+  "minimums": {
+    "maps": 100,
+    "series": 40,
+    "coverage": 0.8,
+    "requiredMapsFor145": 116
+  },
+  "evaluationPerformed": false,
+  "import": {
+    "firstPass": {
+      "accepted": 599
+    },
+    "afterSeries": {
+      "accepted": 599
+    },
+    "newMaps": 599,
+    "totalCanonicalMaps": 939,
+    "fieldObservations": 45031,
+    "providerRequests": 0
+  },
+  "replay": {
+    "status": "PASS",
+    "maps": 599,
+    "allDuplicate": true,
+    "receiptIdsAndRevisionsUnchanged": true,
+    "publicTablesUnchanged": 83,
+    "queueUnchanged": true
+  },
+  "preservation": {
+    "status": "PASS",
+    "protectedArtifacts": 245,
+    "originalModulesUnchanged": 148,
+    "changedOriginalModules": [
+      "packages/db/dist/v1-data-repository.js",
+      "packages/db/dist/v1-runtime-code.js"
+    ],
+    "archivedExecutableBundleVerified": true,
+    "currentRuntimeCompatibleWithArchivedFreeze": false,
+    "reason": "Bounded paginated provenance export replaces the 20,000-fact limit. New historical executor freeze is required; archived artifacts remain immutable."
+  },
+  "services": {
+    "apiPid": 24272,
+    "previousApiPid": 22784,
+    "webPid": 7216,
+    "at": "2026-11-06T15:01:23.1273811Z",
+    "previousHistoryWorkerPid": 10272,
+    "historyWorkerPid": 21432,
+    "generalWorkerStarted": false,
+    "webStatus": 200,
+    "apiHealth": "ok"
+  },
+  "database": {
+    "publicTables": 83,
+    "changedTables": [
+      "identity_registry_state",
+      "leagues",
+      "match_draft_source_observations",
+      "match_field_observations",
+      "match_players",
+      "match_quality_assessments",
+      "match_source_snapshots",
+      "matches",
+      "player_account_evidence",
+      "player_alias_history",
+      "players",
+      "provider_ingest_receipts",
+      "provider_quotas",
+      "provider_reference_snapshots",
+      "series",
+      "series_provision_batches",
+      "teams"
+    ],
+    "unchangedTables": 66,
+    "afterReplayAndRestartUnchangedTables": 83,
+    "queueUnchanged": true,
+    "activeModels": 0,
+    "modelOrForecastWrites": false
+  },
+  "checks": {
+    "offlineFrozenInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "finalDbBuild": "PASS",
+    "uniqueUnitCliTests": 892,
+    "nodeTests": 160,
+    "postgresTests": 68,
+    "newCases": {
+      "purePagination": 3,
+      "postgresPagination": 1,
+      "nodeImport": 8
+    },
+    "orderedMigrations": 49,
+    "unitExecution": "183 earlier workspace tests + 351 DB tests + corrected runtime guard separately (6-case file passed) + 357 remaining workspace tests. Unique total 892; not a single green recursive run.",
+    "initialFailures": [
+      "20,000-fact overflow reproduced before fix; initial keyset used text alias ordering, then corrected to numeric table column and passed 20,020-fact regression.",
+      "Archived-runtime test expected compatibility before the reader changed. It now requires rejection and checks exact current dependency closure. An in-flight rerun saw the earlier expected dependency list; final targeted run passed after build."
+    ],
+    "apiBrowserPythonDockerLinuxSuites": "not_run_for_this_backend_import_slice; actual API health and Web HTTP checked"
+  },
+  "limitations": [
+    "Historical reconstructed lineups with current same-account identity links; no invented historical known_at.",
+    "Bounded 10 earlier maps/account and unknown remote completeness. Prior local exposure exclusions may bias teams; no claim of globally blind or representative Tier1 sample.",
+    "Two source-unavailable maps and three siblings remain in the original 145-map denominator; whole-series rule retained.",
+    "Current runtime differs from archived freeze; a new historical executable freeze and evaluator/registry integration are required before scoring. Old artifacts are unchanged.",
+    "Raw sources, proofs and labeled dataset remain local and ignored. Git checkout alone cannot reproduce live evidence."
+  ],
+  "qualityGateCalculated": false,
+  "metrics": null,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "nextTask": "S3-01/V1-historical/executable-freeze"
+}
