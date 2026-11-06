@@ -1,7 +1,7 @@
 import {randomBytes,randomUUID} from 'node:crypto';
 import {beforeEach,afterEach,expect,test,vi} from 'vitest';
 import type {FastifyInstance} from 'fastify';
-import {ScenarioRepository,V1ScheduleTargetRepository,V1PredictionService,V1DataRepository,sql} from '@dota/db';
+import {ScenarioRepository,V1ScheduleTargetRepository,PageScheduleTargetRepository,V1PredictionService,V1DataRepository,sql} from '@dota/db';
 import {scheduleFreshnessReason} from '@dota/contracts';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 import {seedPredictionScenario} from '../../../tests/helpers/predictions.js';
@@ -39,7 +39,7 @@ test('future source clocks are ineligible and rejected independently by SQL',asy
   const future=new Date(Date.now()+60_000).toISOString();
   await expect(publishTargetSchedule(database.db,[match],future)).rejects.toThrow('upcoming_source_observations_check');
   const p=await new V1ScheduleTargetRepository(database.db).preview(match.providerMatchId);
-  vi.spyOn(V1ScheduleTargetRepository.prototype,'preview').mockResolvedValue({...p,observation:{...p.observation,fetchedAt:future}});
+  vi.spyOn(PageScheduleTargetRepository.prototype,'preview').mockResolvedValue({...p,observation:{...p.observation,fetchedAt:future}});
   expect((await get()).json()).toMatchObject({eligible:false,reasons:['SCHEDULE_SOURCE_CLOCK_INVALID']});
 });
 test('fresh source enables admission; expired schedule preserves exact target and forecast retries',async()=>{

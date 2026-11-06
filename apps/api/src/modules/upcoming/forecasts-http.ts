@@ -4,7 +4,7 @@ import {V1ScheduledPredictionCreateSchema,V1ScheduledPredictionViewSchema,V1Pred
 import {ScenarioError,type V1PredictionService,type FreshScheduleTargetRepository} from '@dota/db';
 const Id=z.uuid().transform(v=>v.toLowerCase()),Params=z.object({targetId:Id}).strict(),Saved=Params.extend({requestId:Id});
 const Paging=z.object({offset:z.coerce.number().int().min(0).max(10000).default(0)}).strict(),Empty=z.object({}).strict();
-export function registerScheduledForecasts(app:FastifyInstance,service:V1PredictionService,freshness:FreshScheduleTargetRepository){
+export function registerScheduledForecasts(app:FastifyInstance,service:Pick<V1PredictionService,'createScheduled'|'getScheduled'|'scheduledHistory'>,freshness:Pick<FreshScheduleTargetRepository,'assertForecastFresh'>){
   function handle(reply:FastifyReply,requestId:string,error:unknown){
     const code=error instanceof ScenarioError?error.code:error instanceof Error?error.message:'';
     const messages:Record<string,string>={NOT_FOUND:'Назначение, сценарий или расчёт не найден.',CONFLICT:'Сценарий изменён. Загрузите сохранённую редакцию.',

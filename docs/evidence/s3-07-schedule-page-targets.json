@@ -1,0 +1,61 @@
+{
+  "format": "s3-07-schedule-page-targets-v1",
+  "checkedAt": "2026-11-06T01:46:26.719Z",
+  "status": "PASS",
+  "scope": "Page-aware first-map assignments and scheduled inference orchestration; no model activation or release scoring",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCliUnique": 887,
+    "unitRetry": "Two pre-existing 20s CLI timeouts; isolated 3-test repeat passed unchanged",
+    "apiPostgres": 34,
+    "postgresBaseline": 4,
+    "chromium": 13,
+    "migrations": 48,
+    "originalModules": 150,
+    "protectedFiles": 245,
+    "frozenRuntimeCompatible": true
+  },
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-06T01:45:02.295Z",
+    "providerRequests": 0,
+    "newLogins": 1,
+    "providerMatchId": "1791736",
+    "sourceEndpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=2&per_page=20",
+    "fetchedAt": "2026-11-06T00:37:21.625Z",
+    "eligible": false,
+    "reasons": [
+      "SCHEDULE_SOURCE_STALE"
+    ],
+    "workingTargetOrPredictionWrites": 0,
+    "scheduleReadOnly": true
+  },
+  "processes": {
+    "historyWorkerPid": 9904,
+    "previousApiPid": 27864,
+    "apiPid": 2676,
+    "webPid": 24592
+  },
+  "preservation": {
+    "tables": 82,
+    "unchanged": 79,
+    "migrationOnlyUnchanged": 81,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions",
+      "schema_migrations"
+    ],
+    "queueUnchanged": true,
+    "proMaps": 340
+  },
+  "migrationSha256": "a0113711811c761325166e1a3fe26b213570213d5cc30ae773897ef4f7dda432",
+  "limitations": [
+    "Synthetic positive-model doubles verify storage/gate contracts, not actual accuracy",
+    "Real model still inactive",
+    "Full Node/Python/Linux/Docker suites not rerun",
+    "Legacy CLI cannot create page-aware forecasts; owner HTTP/UI supports them"
+  ],
+  "next": "S3-07/Tier1-scope-workflow review before the unchanged S3-01/V1-evaluation collection window"
+}

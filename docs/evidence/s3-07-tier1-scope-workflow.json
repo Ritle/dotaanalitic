@@ -1,0 +1,59 @@
+{
+  "format": "s3-07-tier1-scope-workflow-v1",
+  "checkedAt": "2026-11-06T02:18:17.049Z",
+  "status": "PASS",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "finalContractsDbWebTypesBuild": "PASS",
+    "unitCli": 889,
+    "focusedContractRepeat": 2,
+    "apiPostgres": 18,
+    "postgresBaseline": 4,
+    "chromium": 15,
+    "migrations": 49,
+    "protectedFiles": 245,
+    "originalModules": 150,
+    "frozenRuntimeCompatible": true
+  },
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-06T02:17:55.831Z",
+    "readOnly": true,
+    "ownerEntries": 0,
+    "newLogins": 0,
+    "providerHttp": 0,
+    "writes": 0,
+    "pageErrors": 0,
+    "mobileOverflow": false,
+    "manualFormAvailable": true
+  },
+  "processes": {
+    "historyWorkerPid": 9904,
+    "previousApiPid": 2676,
+    "apiPid": 25656,
+    "webPid": 24592
+  },
+  "preservation": {
+    "oldTables": 82,
+    "oldUnchanged": 81,
+    "newTables": 1,
+    "changed": [
+      "owner_tier1_scopes",
+      "schema_migrations"
+    ],
+    "ownerEntries": 0,
+    "proMaps": 340,
+    "queueUnchanged": true
+  },
+  "migrationSha256": "cc123e23c6a4d54ce296adad4a3a03815d463509e874d231c0aa97a47d1b7ad4",
+  "limitations": [
+    "Owner convenience list, not an automatic/official tier classification",
+    "Hidden entries do not alter frozen forecasts or forbid explicit manual scopes",
+    "Working list left empty; no unapproved real event seeded",
+    "No new release evaluation/activation; model remains inactive",
+    "Full Node/Python/Linux/Docker suites not rerun"
+  ],
+  "next": "S3-01/V1-evaluation/collection from2026-11-20T00:00:00Z; independent evaluation not before2026-12-02T00:00:00Z"
+}

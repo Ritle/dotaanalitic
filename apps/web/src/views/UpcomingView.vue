@@ -143,8 +143,7 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
         <h3>{{expected.length===1?'Соперник не указан':'Участники не указаны'}}</h3><p>Уточните участников в источнике после обновления расписания.</p>
       </article></div>
       </details>
-      <UpcomingTarget v-if="page===1" :key="'target:'+upcomingParticipantKey(selected)" :match="selected" />
-      <p v-else class="hint">На этой странице доступны составы и сравнение. Привязка прогноза V1 поддерживается для встреч первой страницы расписания.</p>
+      <UpcomingTarget :key="'target:'+upcomingParticipantKey(selected)" :match="selected" :page="page" />
     </section>
   </section>
 </template>

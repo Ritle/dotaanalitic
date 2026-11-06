@@ -2,7 +2,7 @@ import {randomBytes,randomUUID} from 'node:crypto';
 import {beforeEach,afterEach,expect,test,vi} from 'vitest';
 import type {FastifyInstance} from 'fastify';
 import {V1ScheduledPredictionViewSchema,V1PredictionHistorySchema} from '@dota/contracts';
-import {ScenarioRepository,V1ScheduleTargetRepository,V1PredictionService,V1RuntimeRepository,sql} from '@dota/db';
+import {ScenarioRepository,V1ScheduleTargetRepository,V1PredictionService,PageScheduledRuntimeRepository,sql} from '@dota/db';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 import {seedPredictionScenario} from '../../../tests/helpers/predictions.js';
 import {publishTargetSchedule,syntheticTargetMatch} from '../../../tests/helpers/schedule-target.js';
@@ -78,9 +78,9 @@ test('pages immutable history, validates read boundaries and hides other targets
   await expect(service.scheduledHistory(randomUUID(),target.record.request.requestId,0)).rejects.toThrow('NOT_FOUND');
 },30000);
 test('shares bounded calculation admission with the existing what-if endpoint',async()=>{
-  const original=V1RuntimeRepository.prototype.create;let release!:()=>void,entered!:()=>void;
+  const original=PageScheduledRuntimeRepository.prototype.create;let release!:()=>void,entered!:()=>void;
   const inside=new Promise<void>(r=>{entered=r;}),wait=new Promise<void>(r=>{release=r;});
-  vi.spyOn(V1RuntimeRepository.prototype,'create').mockImplementation(async function(this:V1RuntimeRepository,...args){entered();await wait;return original.apply(this,args);});
+  vi.spyOn(PageScheduledRuntimeRepository.prototype,'create').mockImplementation(async function(this:PageScheduledRuntimeRepository,...args){entered();await wait;return original.apply(this,args);});
   const pending=post();await inside;
   try{
     const blocked=await Promise.race([app.inject({method:'POST',url:`/api/v1/scenarios/${id}/predictions`,headers:headers(),payload:{requestId:randomUUID(),expectedRevision:1,purpose:'what_if_single_map',targetScope:null}}),

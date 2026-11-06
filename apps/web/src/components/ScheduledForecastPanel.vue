@@ -1,19 +1,20 @@
 <script setup lang="ts">
-import {computed,ref,reactive,watch,onBeforeUnmount} from 'vue';
+import {computed,ref,watch,onBeforeUnmount} from 'vue';
 import {useRoute,useRouter} from 'vue-router';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {ScenarioListSchema,ScenarioSnapshotSchema,V1PredictionHistorySchema,V1ScheduledPredictionViewSchema,V1ScheduledPredictionCreateSchema,
-  type V1ScheduleTargetSaved,type V1ScheduledPredictionCreate} from '@dota/contracts';
+  type V1ScheduleTargetSaved,type V1ScheduledPredictionCreate,type Tier1Scope} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {readPrediction,PredictionRequestError} from '../predictions';
 import {createScheduledForecast,scheduledScenarioWarning} from '../scheduled-forecasts';
 import PredictionResult from './PredictionResult.vue';
+import Tier1ScopeSelector from './Tier1ScopeSelector.vue';
 import ScheduledResultPanel from './ScheduledResultPanel.vue';
 import ScheduleFreshness from './ScheduleFreshness.vue';
 const props=defineProps<{target:V1ScheduleTargetSaved}>(),route=useRoute(),router=useRouter(),cache=useQueryClient();
 const id=computed(()=>props.target.record.request.requestId),selectedId=computed(()=>typeof route.query.forecast==='string'?route.query.forecast:'');
-const scenarioId=ref(typeof route.query.scenario==='string'?route.query.scenario:''),page=ref(0),offset=ref(0),busy=ref(false),error=ref(''),conflict=ref(false),reviewed=ref(false),fresh=ref(false);
-const pending=ref<V1ScheduledPredictionCreate|null>(null),scope=reactive({leagueId:'',eventName:'',from:'',until:'',sourceUrl:'',rationale:''});
+const scenarioId=ref(typeof route.query.scenario==='string'?route.query.scenario:''),page=ref(0),offset=ref(0),busy=ref(false),error=ref(''),conflict=ref(false),fresh=ref(false);
+const pending=ref<V1ScheduledPredictionCreate|null>(null),scope=ref<Tier1Scope|null>(null),scopeInvalid=ref(false);
 let controller:AbortController|null=null;
 const scenarios=useQuery({queryKey:computed(()=>['scenarios',page.value]),queryFn:({signal})=>readCatalog(`scenarios?offset=${page.value}`,ScenarioListSchema,signal)});
 const scenario=useQuery({queryKey:computed(()=>['scenario',scenarioId.value]),enabled:computed(()=>!!scenarioId.value),
@@ -31,10 +32,10 @@ async function submit(retry=false){
   if(busy.value)return;error.value='';conflict.value=false;
   let body=retry?pending.value:null;
   if(!body){
+    if(scopeInvalid.value){error.value='Заполните проверку турнира: ID лиги OpenDota, название, период UTC, HTTPS-источник и обоснование от 20 символов.';return;}
     if(!chosen.value||warning.value||!fresh.value)return;
     try{body=V1ScheduledPredictionCreateSchema.parse({requestId:crypto.randomUUID(),scenarioId:chosen.value.id,expectedRevision:chosen.value.revision,
-      targetSha256:props.target.sha256,targetScope:reviewed.value?{provider:'opendota',leagueId:scope.leagueId,eventName:scope.eventName,
-        fromAt:new Date(scope.from+'Z').toISOString(),until:new Date(scope.until+'Z').toISOString(),tier:1,stage:'main_event',sourceUrl:scope.sourceUrl,rationale:scope.rationale}:null});}
+      targetSha256:props.target.sha256,targetScope:scope.value});}
     catch{error.value='Заполните проверку турнира: ID лиги OpenDota, название, период UTC, HTTPS-источник и обоснование от 20 символов.';return;}
   }
   const active=new AbortController(),targetId=id.value;controller=active;pending.value=body;busy.value=true;
@@ -65,11 +66,7 @@ async function refresh(){
     <div v-if="chosen"><p>Редакция {{chosen.revision}} · сохранена {{dateLabel(chosen.recordedAt)}}. <RouterLink :to="{path:`/scenarios/${chosen.id}`,query:{scheduleTarget:id}}">Открыть редактор →</RouterLink></p>
       <p>A: {{chosen.input.lineupA.map(p=>'#'+p.playerId).join(', ')}}</p><p>B: {{chosen.input.lineupB.map(p=>'#'+p.playerId).join(', ')}}</p>
       <p v-if="warning" role="alert" class="warning">{{warning}}</p><p v-else>Команды, турнир, время и карта 1 совпадают с назначением.</p></div>
-    <label class="check"><input v-model="reviewed" type="checkbox" />Я проверил, что карта относится к основному событию Tier 1</label>
-    <div v-if="reviewed" class="scope-grid"><label>ID лиги OpenDota<input v-model="scope.leagueId" inputmode="numeric" required /></label>
-      <label>Название события<input v-model="scope.eventName" maxlength="512" required /></label><label>Начало события UTC<input v-model="scope.from" type="datetime-local" required /></label>
-      <label>Конец периода события UTC<input v-model="scope.until" type="datetime-local" required /></label><label>Источник проверки · HTTPS<input v-model="scope.sourceUrl" type="url" required /></label>
-      <label>Обоснование Tier 1<input v-model="scope.rationale" minlength="20" maxlength="2000" required /></label></div>
+    <Tier1ScopeSelector :key="id" v-model="scope" :local-league-id="chosen?.input.context.leagueId??null" :scheduled-at="chosen?.input.scheduledAt??null" @invalid="scopeInvalid=$event" />
     <p>Без проверки турнира или активной модели попытка сохранится с причинами недоступности.</p>
     <button type="submit" :disabled="!fresh||!chosen||!!warning||scenario.isFetching.value">{{busy?'Расчёт и сохранение…':'Рассчитать назначенную карту'}}</button>
   </fieldset></form>

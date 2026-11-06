@@ -9,13 +9,13 @@ import CatalogPicker from './CatalogPicker.vue';
 import ScheduleTargetDetails from './ScheduleTargetDetails.vue';
 import ScheduleFreshness from './ScheduleFreshness.vue';
 import {upcomingParticipants,upcomingTeamLabel} from '../upcoming-participants';
-const props=defineProps<{match:UpcomingMatch}>(),cache=useQueryClient(),open=ref(false),busy=ref(false),error=ref(''),conflict=ref(false),fresh=ref(false);
+const props=defineProps<{match:UpcomingMatch;page?:number}>(),cache=useQueryClient(),open=ref(false),busy=ref(false),error=ref(''),conflict=ref(false),fresh=ref(false);
 const preview=useQuery({queryKey:computed(()=>['schedule-target-preview',props.match.providerMatchId]),enabled:open,
   queryFn:({signal})=>scheduleTargetCall(`upcoming/${props.match.providerMatchId}/target-preview`,V1ScheduleTargetPreviewSchema,signal)});
 const history=useQuery({queryKey:computed(()=>['schedule-target-history',props.match.providerMatchId]),enabled:open,
   queryFn:({signal})=>scheduleTargetCall(`upcoming/${props.match.providerMatchId}/targets`,V1ScheduleTargetHistorySchema,signal)});
 const form=reactive({providerTeamAId:'',teamAId:'',teamBId:'',leagueId:'',reviewSourceUrl:'',reason:'',confirmed:false});
-watch(()=>[preview.data.value?.observation.id,history.data.value?.items[0]?.record.revision],()=>{form.confirmed=false;},{flush:'sync'});
+watch(()=>[preview.data.value?.observation.id,preview.data.value?.observation.snapshotSha256,history.data.value?.items[0]?.record.revision],()=>{form.confirmed=false;},{flush:'sync'});
 const pending=ref<V1ScheduleTargetRequest|null>(null),saved=ref<ReturnType<typeof V1ScheduleTargetSavedSchema.parse>|null>(null);
 const opponents=computed(()=>preview.data.value?.observation.match.opponents??[]);
 const completeParticipants=computed(()=>upcomingParticipants(props.match).complete);
@@ -44,7 +44,7 @@ async function submit(retry=false){
 <template>
   <details class="target" @toggle="open=($event.target as HTMLDetailsElement).open"><summary>Зафиксировать назначение первой карты</summary>
     <p>Сохраните встречу до начала игры. Это отдельная запись назначения, пока без вероятности и связи с сыгранной картой.</p>
-    <ScheduleFreshness v-if="open" :match-id="match.providerMatchId" @eligible="fresh=$event" />
+    <ScheduleFreshness v-if="open" :match-id="match.providerMatchId" :page="page" @eligible="fresh=$event" />
     <p v-if="preview.isFetching.value||history.isFetching.value" role="status">Загрузка сохранённого источника…</p>
     <p v-if="preview.error.value||history.error.value" role="alert">{{preview.error.value?.message??history.error.value?.message}}</p>
     <template v-if="preview.data.value">

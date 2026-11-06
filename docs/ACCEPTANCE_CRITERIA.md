@@ -4,7 +4,7 @@
 
 ## Приёмка первого прогнозного выпуска V1
 
-- Scope уточнён владельцем2026-11-02: будущие прогнозы MVP для явно выбранных Tier 1 events/editions; Tier 2 — после MVP. Event selection фиксируется до новых test outcomes, качество проверяется на target domain. `is_pro`/`premium` не подменяют Tier 1 membership. Другая verified pro-history не удаляется автоматически; вне prediction scope описательная аналитика сохраняется. Owner-reviewed Tier 1 scope проверяется runtime; фильтр по provider tournament ID реализован локально для сохранённой первой страницы, с явным partial scope и без присвоения Tier1. Качество на целевом домене ещё требует независимого release test.
+- Scope уточнён владельцем2026-11-02: будущие прогнозы MVP для явно выбранных Tier 1 events/editions; Tier 2 — после MVP. Event selection фиксируется до новых test outcomes, качество проверяется на target domain. `is_pro`/`premium` не подменяют Tier 1 membership. Другая verified pro-history не удаляется автоматически; вне prediction scope описательная аналитика сохраняется. Owner-reviewed Tier 1 scope проверяется runtime; фильтр по provider tournament ID реализован для выбранной сохранённой страницы расписания, с явным partial scope и без присвоения Tier1. Назначение и runtime adapter поддерживают загруженные страницы1–50 с сохранением настоящего источника, пяти минут свежести и всех model gates. [Контракт](S3_07_SCHEDULE_PAGE_TARGETS.md). Качество на целевом домене ещё требует независимого release test. [Сверка6 ноября](V1_REQUIREMENTS_REVIEW_2026_11_06.md).
 
 [TECHNICAL_SPEC §0](../TECHNICAL_SPEC.md) определяет отдельный первый выпуск; критерии полного двухмодельного MVP ниже не должны возвращать отложенные зависимости в V1.
 

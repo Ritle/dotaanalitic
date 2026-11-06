@@ -49,7 +49,7 @@ async function pick(page:Page,label:string,id:string){
 test('page-two match loads its roster, supports confirmed comparison and clears the unsaved form on page changes',async({page})=>{
  await next(page).click();await expect(page.getByText('Страница 2',{exact:true})).toBeVisible();
  await page.getByRole('button',{name:'Выбрать',exact:true}).first().click();
- await expect(panel(page).getByText(/На этой странице доступны составы и сравнение/)).toBeVisible();
+  await expect(panel(page).getByText('Зафиксировать назначение первой карты',{exact:true})).toBeVisible();
  await expect(panel(page).getByText('Получено:',{exact:false})).toBeVisible();
  await panel(page).getByText('Заявка турнира и участники источника',{exact:true}).click();
  await expect(panel(page).getByText('В заявке: 6 игроков',{exact:true})).toBeVisible();
@@ -64,6 +64,31 @@ test('page-two match loads its roster, supports confirmed comparison and clears 
  await expect(page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true})).not.toBeChecked();
  await expect(page.getByRole('region',{name:'Результат сравнения пятёрок',exact:true})).toHaveCount(0);
  expect((await sql`SELECT id FROM scenarios`.execute(database.db)).rows).toHaveLength(0);
+});
+
+test('page-two first-map assignment saves its real source and refreshes only that page',async({page})=>{
+ await next(page).click();await expect(page.getByText('Страница 2',{exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'Выбрать',exact:true}).first().click();
+ await page.getByText('Зафиксировать назначение первой карты',{exact:true}).click();
+ await expect(page.getByRole('region',{name:'Свежесть расписания'})).toContainText('страница 2');
+ await page.getByLabel('Участник источника для команды A',{exact:true}).selectOption('74001');
+ const q=scenarioInput();await pick(page,'Назначение: локальная команда A',q.teamAId);await pick(page,'Назначение: локальная команда B',q.teamBId);
+ await page.getByLabel('Источник сопоставления · HTTPS',{exact:true}).fill('https://example.test/synthetic-pages');
+ await page.getByLabel('Обоснование сопоставления',{exact:true}).fill('Синтетическая проверка сопоставления двух разных команд');
+ await page.getByLabel('Подтверждаю соответствие участников и назначение карты 1',{exact:true}).check();
+ await page.getByRole('button',{name:'Сохранить назначение карты 1',exact:true}).click();
+ await page.getByRole('link',{name:'Открыть сохранённое назначение →',exact:true}).click();
+ await expect(page.getByRole('article',{name:'Сохранённое назначение карты'})).toBeVisible();
+ await expect(page.getByRole('region',{name:'Свежесть расписания'})).toContainText('страница 2');
+ await sql`UPDATE upcoming_page_cache SET expires_at=clock_timestamp()-interval '1 second'`.execute(database.db);
+ await sql`UPDATE pandascore_request_quota SET next_request_at='-infinity'`.execute(database.db);
+ await page.reload();await page.getByRole('button',{name:'Обновить расписание перед прогнозом',exact:true}).click();
+ await expect.poll(()=>calls).toEqual([1,2,2]);
+ const records=(await sql<{record_text:string}>`SELECT record_text FROM v1_schedule_targets`.execute(database.db)).rows;
+ expect(records).toHaveLength(1);expect(JSON.parse(records[0]!.record_text).observation.endpoint).toContain('page=2&');
+ expect((await sql`SELECT * FROM prediction_runs`.execute(database.db)).rows).toHaveLength(0);
+ await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.screenshot({path:'test-results/page-two-target-mobile.png',fullPage:true});
 });
 test('a failed explicit refresh keeps the selected page and cached matches without repeated provider requests',async({page})=>{
  await next(page).click();await expect(page.getByText('Страница 2',{exact:true})).toBeVisible();

@@ -4,7 +4,7 @@ import { V1PredictionCreateSchema, V1PredictionViewSchema, V1PredictionHistorySc
 import { ScenarioError, type V1PredictionService } from '@dota/db';
 const Params = z.object({ id: z.uuid() }).strict(), Saved = Params.extend({ requestId: z.uuid() });
 const Paging = z.object({ offset: z.coerce.number().int().min(0).max(10000).default(0) }).strict();
-export function registerPredictions(app: FastifyInstance, service: V1PredictionService) {
+export function registerPredictions(app: FastifyInstance, service: Pick<V1PredictionService,'create'|'get'|'history'>) {
   function failure(reply: FastifyReply, requestId: string, code: string) {
     return reply.code(code === 'NOT_FOUND' ? 404 : code === 'CONFLICT' || code === 'REQUEST_CONFLICT' ? 409 : 400)
       .send({ error: { code, requestId, message: code === 'NOT_FOUND' ? 'Сценарий или расчёт не найден.' : code === 'REQUEST_CONFLICT' ?
