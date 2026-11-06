@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-evaluation/protocol-feasibility/binding",
+  "recordedAt": "2026-11-06T12:36:42.170Z",
+  "status": "registration_blocked_main_event_id_missing",
+  "ownerRequestedRegistration": true,
+  "previousIntent": {
+    "path": "docs/evidence/s3-01-v1-release-revision-intent.json",
+    "sha256": "cbdd4c6b4d4e023dac6e69b7842f5ca109fcdd7012a48e8da2c7c14fa11f2f57"
+  },
+  "currentIntent": {
+    "path": "docs/evidence/s3-01-v1-release-revision-intent-v2.json",
+    "sha256": "d1cdd5c67e4d452806989b316fbfc9c31977ffcfa9203fb5c238f9e980cfcaa5"
+  },
+  "inputConfigSha256": "89c1ecb5fc671a110b531fd26c034d1b1483ec3564986840dd06207d81ec826a",
+  "metadata": {
+    "provider": "opendota",
+    "endpoint": "/leagues",
+    "fetchedAt": "2026-11-06T12:32:23.631Z",
+    "knownAt": null,
+    "payloadSha256": "517195e47af370b46a0f7992095a025c6f31eca9af09a024cf0bcc9125e239b4",
+    "requests": {
+      "attempts": 1,
+      "httpStatuses": {
+        "200": 1
+      },
+      "transportErrors": {}
+    },
+    "blastMainId": "20208",
+    "dreamleagueMainId": null,
+    "excludedQualifierId": "20359",
+    "unresolvedReason": "MAIN_EVENT_NOT_FOUND",
+    "expectedCatalogueName": "DreamLeague Season 30"
+  },
+  "windows": [
+    {
+      "eventKey": "blast-slam-ix-2026-main",
+      "fromAt": "2026-11-19T00:00:00.000Z",
+      "until": "2026-12-01T00:00:00.000Z",
+      "calendarFrom": "2026-11-20T00:00:00.000Z",
+      "calendarUntil": "2026-11-30T00:00:00.000Z"
+    },
+    {
+      "eventKey": "dreamleague-season-30-2026-main",
+      "fromAt": "2026-12-01T00:00:00.000Z",
+      "until": "2026-12-15T00:00:00.000Z",
+      "calendarFrom": "2026-12-02T00:00:00.000Z",
+      "calendarUntil": "2026-12-14T00:00:00.000Z"
+    }
+  ],
+  "windowPolicy": "one_utc_calendar_day_buffer_each_side_of_announced_calendar_dates",
+  "timezoneBoundaryCheck": "PASS_UTC_MINUS_12_THROUGH_PLUS_14",
+  "officialMapStartTimesAsserted": false,
+  "fullFutureMapScheduleRequired": false,
+  "registrationDeadline": "2026-11-19T00:00:00.000Z",
+  "proposedSnapshotAt": "2026-12-16T00:00:00.000Z",
+  "preserved": {
+    "eventSelection": true,
+    "qualityPolicy": true,
+    "developmentDataset": true,
+    "warmup": true,
+    "modelFeatures": true,
+    "oldPlan": true,
+    "oldIntent": true
+  },
+  "checks": [
+    {
+      "mode": "check",
+      "exitCode": 3,
+      "report": {
+        "status": "awaiting_event_binding",
+        "revisionKey": "tier1-blast-ix-dreamleague-30-2026-v2",
+        "checkedAt": "2026-11-06T12:33:50.139Z",
+        "registrationDeadline": "2026-11-19T00:00:00.000Z",
+        "events": [
+          {
+            "eventKey": "blast-slam-ix-2026-main",
+            "name": "BLAST Slam IX 2026 — main event",
+            "catalogueName": "BLAST SLAM IX",
+            "leagueId": "20208",
+            "reason": null
+          },
+          {
+            "eventKey": "dreamleague-season-30-2026-main",
+            "name": "DreamLeague Season 30 2026 — main event",
+            "catalogueName": "DreamLeague Season 30",
+            "leagueId": null,
+            "reason": "MAIN_EVENT_NOT_FOUND"
+          }
+        ],
+        "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+        "files": null,
+        "registrationPerformed": false,
+        "evaluationPerformed": false,
+        "metrics": null,
+        "teamAWinProbability": null,
+        "deployable": false
+      }
+    },
+    {
+      "mode": "prepare",
+      "exitCode": 3,
+      "report": {
+        "status": "awaiting_event_binding",
+        "revisionKey": "tier1-blast-ix-dreamleague-30-2026-v2",
+        "checkedAt": "2026-11-06T12:33:56.220Z",
+        "registrationDeadline": "2026-11-19T00:00:00.000Z",
+        "events": [
+          {
+            "eventKey": "blast-slam-ix-2026-main",
+            "name": "BLAST Slam IX 2026 — main event",
+            "catalogueName": "BLAST SLAM IX",
+            "leagueId": "20208",
+            "reason": null
+          },
+          {
+            "eventKey": "dreamleague-season-30-2026-main",
+            "name": "DreamLeague Season 30 2026 — main event",
+            "catalogueName": "DreamLeague Season 30",
+            "leagueId": null,
+            "reason": "MAIN_EVENT_NOT_FOUND"
+          }
+        ],
+        "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+        "files": null,
+        "registrationPerformed": false,
+        "evaluationPerformed": false,
+        "metrics": null,
+        "teamAWinProbability": null,
+        "deployable": false
+      }
+    }
+  ],
+  "database": {
+    "beforeAt": "2026-11-06T12:32:06.500Z",
+    "afterAt": "2026-11-06T12:34:08.509Z",
+    "totalPublicTables": 83,
+    "unchangedPublicTables": 82,
+    "changedPublicTables": [
+      "provider_quotas"
+    ],
+    "maps": 340,
+    "queueUnchanged": true,
+    "modelAndForecastTablesUnchanged": true
+  },
+  "verification": {
+    "orderedMigrations": 49,
+    "protectedFiles": 245,
+    "originalCompiledModules": 150,
+    "frozenBundleAndRuntimeCompatible": true,
+    "actualCliChecks": 2,
+    "applicationCodeChanged": false,
+    "functionalSuitesRerun": false,
+    "functionalSuiteReason": "Source/config/documentation operation only; real CLI validation and preservation checks executed."
+  },
+  "preparedDirectoryExists": false,
+  "newReleasePlanCreated": false,
+  "newKernelRegistered": false,
+  "newExecutableFreezeCreated": false,
+  "newCollectionCreated": false,
+  "registrationPerformed": false,
+  "evaluationPerformed": false,
+  "metrics": null,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "nextTask": "S3-01/V1-evaluation/protocol-feasibility/binding",
+  "nextAction": "After the primary main-event ID is available, save a new catalogue/config and complete the separate plan/kernel/freeze/collection before the v2 deadline. No invented IDs, qualifier substitution or retrospective registration."
+}
