@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-historical/collection",
+  "checkedAt": "2026-11-06T14:27:49.337Z",
+  "status": "bounded_collection_complete_with_source_gaps",
+  "protocolFingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1",
+  "code": [
+    {
+      "path": "packages/contracts/src/v1-historical-collection.ts",
+      "sha256": "5f91349cbaab40b6fa3a15b5801032d5ac3c12d14041ec646a61d14bcb1556f5"
+    },
+    {
+      "path": "scripts/lib/v1-historical-collection.mjs",
+      "sha256": "20324e1094947c7910464a127fd220cc40ace9707733d01225bd12ef05b9d451"
+    },
+    {
+      "path": "scripts/lib/v1-historical-store.mjs",
+      "sha256": "92a918002b75eddf7b595a98c1cf9caca1dc3c499e8ba6ba60a7cf0a92aeaf8c"
+    },
+    {
+      "path": "scripts/collect-v1-historical.mjs",
+      "sha256": "d80f4aa8e6766b49ec17a4893f368e6600f17b291e16e4c2f9b0e982bd5dd8cc"
+    },
+    {
+      "path": "tests/node/v1-historical-collection.test.mjs",
+      "sha256": "88733a5ca8baaa2ee927c5d0966e42e09ed8064e7bc0080fe4591dfb20163986"
+    }
+  ],
+  "privateReplayInputs": {
+    "config.json": "6a2615703743cc065abdbdd5e2db95a2df2a88bb03b8aafd5aeec29c290a1b70",
+    "canonical-history.json": "4b0eb59ff3f451f9a7e116393fe86646d4961589b12a566fd75941b96d37f6a1",
+    "cache.json": "002c9fec3876aef731f882214e11b2c9b65e412e2b3fe9fa62071cf06a0992d9",
+    "store/collection.json": "1ee31e309b396ee1d837bf569633a422333513bae6211e0f33f4f2073d28a5b7",
+    "final-report.json": "7b4c5748073cdeff6b784b5e09e83cd5fb3b6245bd374b43930f56ab08ad96c7",
+    "replay-report.json": "963b774e05c877f9b997b4decb3ffcbe573f3c10ea41680712294de497f8de98",
+    "source-manifest.json": "a88e0ab145f1f034cb22dd07bc92a3f910ff7f92f9a831a603c37482623282e1",
+    "database-before.json": "b97b3afc4aa16a5b3967c4d1c3c1a7175764348ac22c1795304ea8735cab142b",
+    "database-after.json": "2d12986403c6bcdd5690028de66c0c4c7868a2d36dfd524759861d7dab8ffff6"
+  },
+  "summary": {
+    "observedMaps": 261,
+    "capturedTargetMaps": 259,
+    "deferredTargetMaps": 2,
+    "settledTargetMaps": 261,
+    "sourceEligibleMaps": 257,
+    "priorExposedMaps": 116,
+    "unexposedMaps": 145,
+    "unexposedKnownSeries": 60,
+    "sourceHistoryReadyMaps": 143,
+    "currentIdentityReadyMaps": 22,
+    "provisionalReadyMaps": 20,
+    "historyJobs": 24,
+    "missingHistoryJobs": 0,
+    "discoveredHistoryMaps": 340,
+    "capturedHistoryMaps": 340,
+    "invalidHistoryMaps": 2,
+    "pendingHistoryMaps": 0,
+    "deferredHistoryMaps": 0
+  },
+  "history": {
+    "policy": {
+      "windowDays": 730,
+      "maxMapsPerAccount": 10,
+      "selection": "latest_completed_pro_per_account_before_first_event_window"
+    },
+    "cutoffAt": "2026-08-01T00:00:00.000Z",
+    "missingJobs": [],
+    "uniqueAvailableMaps": 899,
+    "canonicalVerifiedMaps": 304,
+    "cappedAccounts": 116,
+    "completeness": "bounded_sample_not_full_history",
+    "rows": 1160,
+    "accounts": 116,
+    "invalidSources": [
+      {
+        "matchId": "8655406512",
+        "reasons": [
+          "SERIES_ID_REQUIRED"
+        ]
+      },
+      {
+        "matchId": "8763645947",
+        "reasons": [
+          "TEAM_CONTEXT_REQUIRED",
+          "SERIES_ID_REQUIRED"
+        ]
+      }
+    ]
+  },
+  "sources": {
+    "records": 623,
+    "origins": {
+      "live": 623
+    },
+    "attempts": 18,
+    "requests": 635,
+    "recordedHttpStatuses": {
+      "200": 408,
+      "500": 9
+    },
+    "requestsWithoutStatusBreakdown": 218,
+    "failures": [
+      {
+        "key": "map-9011023151",
+        "at": "2026-11-06T14:01:06.038Z",
+        "code": "source_http_error",
+        "httpStatus": 500,
+        "retryAfterMs": null
+      },
+      {
+        "key": "map-9011023151",
+        "at": "2026-11-06T14:05:03.412Z",
+        "code": "source_http_error",
+        "httpStatus": 500,
+        "retryAfterMs": null
+      },
+      {
+        "key": "map-9010993339",
+        "at": "2026-11-06T13:53:56.978Z",
+        "code": "source_http_error",
+        "retryAfterMs": null
+      },
+      {
+        "key": "map-9010993339",
+        "at": "2026-11-06T13:56:54.914Z",
+        "code": "source_http_error",
+        "httpStatus": 500,
+        "retryAfterMs": null
+      }
+    ]
+  },
+  "unavailableSources": [
+    {
+      "key": "map-9011023151",
+      "attempts": 2,
+      "lastStatus": 500,
+      "seriesId": "1145411"
+    },
+    {
+      "key": "map-9010993339",
+      "attempts": 2,
+      "lastStatus": 500,
+      "seriesId": "1145377"
+    }
+  ],
+  "sourceReplay": {
+    "targetsRequests": 0,
+    "historyRequests": 0,
+    "reportEqualExceptCheckedAt": true
+  },
+  "database": {
+    "publicTables": 83,
+    "unchangedTables": 82,
+    "changedTables": [
+      "provider_quotas"
+    ],
+    "matches": 340,
+    "queueUnchanged": true,
+    "canonicalImportPerformed": false,
+    "identityWrites": false,
+    "modelWrites": false
+  },
+  "checks": {
+    "offlineFrozenInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "unitCliTests": 889,
+    "nodeTests": 152,
+    "newCollectionTests": 16,
+    "orderedMigrations": 49,
+    "protectedFiles": 245,
+    "originalCompiledModules": 150,
+    "frozenBundleAndRuntime": "PASS",
+    "apiPgBrowserPythonDockerLinuxSuites": "not_run_for_this_file_collector_slice",
+    "initialSandboxFileRename": "EPERM; same tests passed in normal Windows execution; no ACL changes"
+  },
+  "limitations": [
+    "Bounded 10 latest completed professional maps per account, 730 days before 2026-08-01; all 116 accounts hit the cap. Not full professional history.",
+    "Two target maps repeatedly failed with HTTP 500; they and their whole observed series remain unready in the original 145-map coverage denominator.",
+    "Source coverage is provisional. New map outcomes, all participant identities and series still require standard canonical import and OutcomeVerifier.",
+    "Current canonical identity links fully cover 22 target maps; provisional whole-series readiness is 20 maps. No nickname-based links were created.",
+    "The cache manifest contains 237 prior sources but none matched the newly requested IDs; zero cache-origin captures in this collection. Completed local collection records are reused on replay.",
+    "Early batch receipts lack per-status counters. Total request attempts are recorded; the first failing three-attempt request lacks an explicit HTTP status. Do not report every failed attempt as directly observed HTTP 500.",
+    "Historical public outcomes may be known, prior exposure auditing is local/bounded and exclusions bias the remaining teams; remote inventory completeness is unknown.",
+    "Raw sources and replay inputs remain local and ignored. A clean checkout alone cannot reproduce live evidence."
+  ],
+  "canonicalOutcomeEligibilityVerified": false,
+  "qualityGateCalculated": false,
+  "evaluationPerformed": false,
+  "metrics": null,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "nextTask": "S3-01/V1-historical/canonical-import"
+}
