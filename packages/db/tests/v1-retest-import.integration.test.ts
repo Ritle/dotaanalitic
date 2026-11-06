@@ -2,10 +2,13 @@
 import {beforeEach,afterEach,test,expect,vi} from 'vitest';
 import {join} from 'node:path';
 import {readFile} from 'node:fs/promises';
-import {sql} from '../src/index.js';
+import {sql,IdentityRepository,reviewedIdentityEvidence,V1DataRepository} from '../src/index.js';
+import {verifyV1Data,prepareV1MapHistory} from '../src/v1-data.js';
+import {playerHistoryQuery} from '../../ingestion/dist/player-history.js';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 import {retestImportFixture} from '../../../tests/helpers/retest-import.mjs';
 import {executeRetestImportStep} from '../../../scripts/lib/v1-retest-import-step.mjs';
+import {captureRetestBatch} from '../../../scripts/lib/v1-retest-store.mjs';
 let database:Awaited<ReturnType<typeof testDatabase>>;
 let fixture:Awaited<ReturnType<typeof retestImportFixture>>;
 let network=0;
@@ -28,9 +31,51 @@ test('v2 steps bind numeric identities and swapped-side maps/series; repeated im
  const rows=(await sql`SELECT id::text,radiant_team_id::text,dire_team_id::text,series_id FROM matches ORDER BY id`.execute(database.db)).rows;
  expect(rows[0]).toMatchObject({id:'100000001',radiant_team_id:'1',dire_team_id:'2'});expect(rows[1]).toMatchObject({id:'100000002',radiant_team_id:'2',dire_team_id:'1'});expect(rows[0].series_id).toBe(rows[1].series_id);expect(rows[0].series_id).not.toBeNull();
  expect((await sql`SELECT count(*)::int n FROM match_field_observations WHERE known_at IS NOT NULL`.execute(database.db)).rows[0]).toEqual({n:0});
+ // The explicit test-only reader checks the complete canonical export without weakening the production guard below.
+ const request={...fixture.ctx.canonical.source.request,snapshotAt:new Date().toISOString()},code=fixture.ctx.canonical.source.code;
+ const dataset=await new V1DataRepository(database.db,true).export(request,code);
+ expect(dataset.source.syntheticOnly).toBe(true);expect(verifyV1Data(dataset)).toEqual(dataset);
+ expect(dataset.source.candidates.map(m=>m.outcome.status)).toEqual(['verified','verified']);
+ expect(dataset.source.candidates.every(m=>m.players.length===10&&m.receiptPlayers.length===10)).toBe(true);
+ const history=prepareV1MapHistory(dataset.source);
+ expect(history.report.examples.map(e=>e.historyCoverage.priorMapsPerPlayer)).toEqual([Array(10).fill(0),Array(10).fill(1)]);
+ expect(await new V1DataRepository(database.db,true).export(request,code)).toEqual(dataset);expect(await snapshot()).toEqual(before);
  // Synthetic database rows must remain forbidden to the production dataset exporter.
  await expect(run('export')).rejects.toThrow('v1_synthetic_evidence_forbidden');expect(await snapshot()).toEqual(before);
  expect((await sql`SELECT count(*)::int n FROM prediction_model_versions WHERE is_active`.execute(database.db)).rows[0]).toEqual({n:0});expect(network).toBe(0);
+},60000);
+test('a conflicting canonical account stays blocked and cannot be overwritten by captured numeric proof',async()=>{
+ await fixture.close();const inputs=await fixture.prepare();
+ await executeRetestImportStep(inputs,database.db,'identities',join(fixture.root,'identities'),planRef);
+ const review=inputs.plan.identityReviews.find(r=>r.accounts[0].accountId==='100');expect(review).toBeDefined();
+ const player=(await sql<{player_id:string}>`SELECT player_id::text FROM player_account_evidence WHERE external_account_id='100' LIMIT 1`.execute(database.db)).rows[0]!;
+ await new IdentityRepository(database.db).appendAccountEvidence({...reviewedIdentityEvidence(review,review.accounts[0],player.player_id).claim,status:'rejected'});
+ const before=await snapshot();
+ const result=await executeRetestImportStep(inputs,database.db,'identities',join(fixture.root,'conflicting-identity'),planRef);
+ expect(result.report.summary).toEqual({blocked:1,already_verified:9});
+ expect(result.report.results.find((r:{accountId:string})=>r.accountId==='100')).toMatchObject({status:'blocked',reasons:['IDENTITY_CONFLICT']});
+ expect(result.report.writesAttempted).toBe(false);expect(await snapshot()).toEqual(before);expect(network).toBe(0);
+},60000);
+test('contradictory history is excluded before canonical writes while valid target maps remain importable',async()=>{
+ const raw={...fixture.rawMaps[0],match_id:'99999999',series_id:'699',start_time:Date.parse('2026-01-10T00:00:00.000Z')/1000,radiant_win:false};
+ const row={account_id:'100',match_id:raw.match_id,leagueid:'100',start_time:raw.start_time,duration:raw.duration,radiant_win:true,player_slot:0,tier:'professional'};
+ const provider:typeof fixture.provider=async(limit,hooks)=>{
+  const p=await fixture.provider(limit,hooks),capture=async(endpoint:string,data:unknown)=>{
+   hooks.guard();await hooks.beforeRequest();await hooks.observe(200,null);return fixture.obs(endpoint,data);
+  };
+  return {...p,client:{getMatchSource:(id:string)=>id===raw.match_id?capture('/matches/'+id,raw):p.client.getMatchSource(id)},
+   discover:(...args:Parameters<typeof playerHistoryQuery>)=>capture('/explorer?'+new URLSearchParams({sql:playerHistoryQuery(...args)}),{err:null,rows:args[0].includes('100')?[row]:[]})};
+ };
+ await captureRetestBatch(fixture.ctx,'targets',provider);await captureRetestBatch(fixture.ctx,'history',provider);
+ const inputs=await fixture.prepare();expect(inputs.plan.historyConflictMapIds).toEqual([raw.match_id]);
+ await executeRetestImportStep(inputs,database.db,'identities',join(fixture.root,'identities'),planRef);
+ const result=await executeRetestImportStep(inputs,database.db,'maps',join(fixture.root,'maps'),planRef);
+ expect(result.report.summary).toEqual({not_importable:1,accepted:2});
+ expect(result.report.results.find((r:{matchId:string})=>r.matchId===raw.match_id)).toMatchObject({status:'not_importable',reasons:['HISTORY_DISCOVERY_CONFLICT']});
+ expect((await sql`SELECT id::text FROM matches ORDER BY id`.execute(database.db)).rows).toEqual([{id:'100000001'},{id:'100000002'}]);
+ expect((await sql`SELECT count(*)::int n FROM provider_ingest_receipts WHERE provider_match_id=${raw.match_id}`.execute(database.db)).rows[0]).toEqual({n:0});
+ const series=await executeRetestImportStep(inputs,database.db,'series',join(fixture.root,'series'),planRef);
+ expect(series.report.summary).toEqual({applied:1});expect((await sql`SELECT provider_series_id FROM series ORDER BY id`.execute(database.db)).rows).toEqual([{provider_series_id:'700'}]);expect(network).toBe(0);
 },60000);
 test('missing numeric proofs stay blocked without nickname matching or provider fallback',async()=>{
  fixture.sources.registry=fixture.obs('/proPlayers',[]);await fixture.close();const inputs=await fixture.prepare(),before=await snapshot();

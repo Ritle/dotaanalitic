@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-retest-import-isolated-validation-v1",
+  "task": "S3-01/V1-retest/canonical-import/isolated-validation",
+  "checkedAt": "2026-11-06T20:09:04.369Z",
+  "status": "PASS",
+  "ownerDecision": "Complete point 2: validate the importer in isolated PostgreSQL databases while collection waits for quota.",
+  "preparationCheckpoint": {
+    "path": "docs/evidence/s3-01-v1-retest-import-preparation.json",
+    "sha256": "3a38f4ff09341ec15ea4fbac3d817e932f24da06620a72b1c6baf34c30f8517e"
+  },
+  "changes": {
+    "productionCode": false,
+    "migrations": false,
+    "dependencies": false,
+    "extendedTest": {
+      "path": "packages/db/tests/v1-retest-import.integration.test.ts",
+      "sha256": "170dfd5cdcab182834b524762148d029a530fddb471b297e4c2de2556676c9c4"
+    },
+    "newCases": 2,
+    "additionalAssertions": [
+      "test_only_export_after_retest_import",
+      "strict_earlier_completed_map_history",
+      "stable_read_only_export",
+      "canonical_identity_conflict_no_overwrite",
+      "history_conflict_no_canonical_receipt"
+    ]
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 892
+    },
+    "targetedNode": {
+      "status": "PASS",
+      "count": 12
+    },
+    "isolatedPostgres": {
+      "status": "PASS",
+      "count": 73,
+      "files": [
+        "packages/db/tests/v1-retest-import.integration.test.ts",
+        "packages/db/tests/identity-provision.integration.test.ts",
+        "packages/db/tests/series-provision.integration.test.ts",
+        "packages/db/tests/outcome-verifier.integration.test.ts",
+        "packages/db/tests/v1-data.integration.test.ts",
+        "packages/ingestion/tests/import.integration.test.ts"
+      ],
+      "retestCases": 6,
+      "command": "node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/v1-retest-import.integration.test.ts packages/db/tests/identity-provision.integration.test.ts packages/db/tests/series-provision.integration.test.ts packages/db/tests/outcome-verifier.integration.test.ts packages/db/tests/v1-data.integration.test.ts packages/ingestion/tests/import.integration.test.ts --testTimeout=60000 --maxWorkers=1 --no-file-parallelism"
+    },
+    "migrationChecksums": {
+      "status": "PASS",
+      "count": 49
+    },
+    "temporaryDatabases": "No new database remains after tests; pre-existing test databases preserved.",
+    "publicTablesUnchanged": 83,
+    "canonicalMaps": 939,
+    "queueUnchanged": true,
+    "collectionFilesUnchanged": 2632,
+    "protectedArtifacts": 245,
+    "firstFrozenAndCurrentCodeFiles": 373,
+    "activeModels": 0,
+    "health": {
+      "api": 200,
+      "web": 200
+    }
+  },
+  "developmentFindings": [
+    "First expanded run: five cases passed; one new assertion used match_id instead of provider_match_id in a receipt-table query. Corrected test SQL; no production defect or gate change."
+  ],
+  "logs": [
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/install.log",
+      "sha256": "d5fac4e90611ad6f2dc815ea5b490be4906fc897a8ca8a6664cbe9076d26b927"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/typecheck.log",
+      "sha256": "7befd09bbbf256f0c2facadc1944f89c467c43a6dc7cb1c08843e90c7da2089a"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/build.log",
+      "sha256": "c454e4b87ed8b1043b2d01c9436c178e85d6010f127e6ccf23cea52b088872f4"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/postgres.log",
+      "sha256": "0583a0036d00a9a5cb5e55938e62fdc31ded008d393f8de842b628a0aa156378"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/unit.log",
+      "sha256": "51b8ecde45a6c05dea7f83a74675e1ab476743edd4479b5c200ffff757c7bb1e"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/node.log",
+      "sha256": "f1a21ab1653c46c933d7cfb3f7fec482de3db72986b1f51ca28336e842756983"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/migrations.log",
+      "sha256": "ac474c146b14599332c51831c4ddfeb7c357cb1541874b8b20f5365f419945b4"
+    }
+  ],
+  "safetyAudits": [
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/before.json",
+      "sha256": "7843936b6a01b91d57d450e92b79ab8b9fa5350c12b683fec5715f35584c7e67"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/after.json",
+      "sha256": "348bbbb12202d0f771385a5101ecb2f3af06aab763fc685aa2073f3ec253e74a"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/test-databases-before.json",
+      "sha256": "382c76a979c7b7724e280477cdc7714bf025d1ec1d8eca34e35d313075d7edb2"
+    },
+    {
+      "path": ".tools/v1-retest-import-isolated-20261106/test-databases-after.json",
+      "sha256": "21c5dce85fd45e2195bb03f2a863a0db64b7f0881d9719926c20f5d23fbd0705"
+    }
+  ],
+  "runtimeEffects": {
+    "providerRequests": 0,
+    "workingDatabaseWrites": 0,
+    "liveImportedMaps": 0,
+    "scoring": 0,
+    "activatedModels": 0,
+    "servicesRestarted": false
+  },
+  "limitations": [
+    "Synthetic tests demonstrate importer behavior, not coverage of the real retest dataset or model quality.",
+    "Positive real CLI prepare/import/export still requires the unmodified collection to finish and close.",
+    "The synthetic export succeeds only through the existing explicit test-only reader; the production exporter remains blocked.",
+    "Selected six PostgreSQL suites were run, not the full API/browser/Python/Docker/Linux regression."
+  ],
+  "nextTask": "S3-01/V1-retest/collection",
+  "nextAction": "After 2026-11-07T00:00:00.001Z collect the remaining 25 history maps, close the collection and use the prepared importer."
+}

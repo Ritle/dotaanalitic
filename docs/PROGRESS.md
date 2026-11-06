@@ -2385,3 +2385,13 @@ Checks PASS: offline frozen install/typecheck/build,892unit/CLI+212Node(12new)+4
 Live CLI manifest on open collection returned expected RETEST_IMPORT_COLLECTION_NOT_CLOSED/exit1/writesAttempted:false, no output.83 working tables/939maps/queue/2632 collection files/245 artifacts/373 frozen+current code unchanged,active0,API/Web200.0HTTP/working import/scoring/activation/restart/general worker. No SQL/dependency changes. Full PG/browser/Python/Docker/Linux suites not rerun. Positive live import/export requires completed collection; new executable freeze remains separate. [Runbook](S3_01_V1_RETEST_IMPORT_PREPARATION.md), [evidence](evidence/s3-01-v1-retest-import-preparation.json).
 
 Next exact: **S3-01/V1-retest/collection** — remaining25 history maps after7Nov03:00MSK, closure, then prepared importer. **GPT-6 Astra · Extra High**.
+
+### 2026-11-06 — S3-01/V1-retest/canonical-import/isolated-validation
+
+Owner selected point 2: isolated PostgreSQL validation. Extended the retest integration suite with canonical identity conflict and contradictory-history no-write cases; added positive test-only export, chronological prior-map counts and read-only repeat assertions. No production, migration or dependency change.
+
+Checks PASS: 73 tests across six PostgreSQL suites (six retest cases), offline frozen install/typecheck/build, 892 unit/CLI, 12 targeted Node tests, 49 migration checksums. First expanded run had one test-only SQL-column error; corrected provider_match_id and reran the expanded suite. Synthetic production export remains refused.
+
+Before/after audit: 83 working tables / 939 maps / queue / 2632 collection files unchanged; 245 protected artifacts / 373 frozen+current code files preserved, active models 0, API/Web 200. No additional test DB remains; pre-existing test DBs retained. No provider HTTP, working import, scoring, activation or service restart. Real closed-collection CLI import/export and full API/browser/Python/Docker/Linux suites remain unexecuted in this slice. [Evidence](evidence/s3-01-v1-retest-import-isolated-validation.json), [guide](S3_01_V1_RETEST_IMPORT_PREPARATION.md).
+
+Next exact: **S3-01/V1-retest/collection** — remaining 25 history maps after 7 November 03:00 MSK, then closure and import. **GPT-6 Astra · Extra High**.
