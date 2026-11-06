@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-retest-import-preparation-checkpoint-v1",
+  "task": "S3-01/V1-retest/canonical-import/preparation",
+  "checkedAt": "2026-11-06T19:49:42.352Z",
+  "status": "adapter_ready_live_import_waits_for_closed_collection",
+  "ownerDecision": "Implement importer preparation while OpenDota collection is paused by its daily quota.",
+  "collectionCheckpoint": {
+    "path": "docs/evidence/s3-01-v1-retest-collection.json",
+    "sha256": "35969c79d53cb0a60dab933a4662a80b288bb30859b2220775a6d6f681a396f8"
+  },
+  "implemented": {
+    "entryPoint": "scripts/import-v1-retest.mjs",
+    "commands": [
+      "manifest",
+      "prepare",
+      "verify",
+      "identities",
+      "maps",
+      "series",
+      "export"
+    ],
+    "sourceFormat": "closed_retest_v2",
+    "immutableManifest": true,
+    "replayBeforeWrites": true,
+    "capturedSourcesOnly": true,
+    "numericIdentityProofs": true,
+    "nativeSides": true,
+    "historyDiscoveryConflictGuard": true,
+    "sourceDenominatorPreserved": true
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 892
+    },
+    "node": {
+      "status": "PASS",
+      "count": 212,
+      "newCases": 12
+    },
+    "isolatedPostgres": {
+      "status": "PASS",
+      "count": 4,
+      "execution": "node --env-file-if-exists=.env node_modules/vitest/vitest.mjs run packages/db/tests/v1-retest-import.integration.test.ts --testTimeout=60000 --maxWorkers=1",
+      "cases": [
+        "identities_maps_swapped_sides_series_idempotence",
+        "missing_numeric_proofs_no_fallback",
+        "per_map_failure_resume",
+        "missing_team_references_blocked"
+      ],
+      "syntheticProductionExport": "EXPECTED_REFUSAL"
+    },
+    "liveOpenCollection": {
+      "status": "EXPECTED_REFUSAL",
+      "code": "RETEST_IMPORT_COLLECTION_NOT_CLOSED",
+      "exitCode": 1,
+      "writesAttempted": false,
+      "outputCreated": false,
+      "log": {
+        "path": ".tools/v1-retest-import-prep-20261106/live-open-refusal.log",
+        "sha256": "b2f5b0e61ea89a3d7953abee81a5153a0d8ec4b3266b54f690734adc7276c495"
+      }
+    },
+    "protectedArtifacts": 245,
+    "firstFrozenAndCurrentCodeFiles": 373,
+    "collectionFilesUnchanged": 2632,
+    "publicTablesUnchanged": 83,
+    "queueUnchanged": true,
+    "canonicalMaps": 939,
+    "activeModels": 0,
+    "health": {
+      "api": 200,
+      "web": 200
+    }
+  },
+  "safetyAudits": {
+    "before": {
+      "path": ".tools/v1-retest-import-prep-20261106/before.json",
+      "sha256": "95845212785d69092b6cb880de3f8710af68875efabc2ec2faf55ab025750eb9"
+    },
+    "after": {
+      "path": ".tools/v1-retest-import-prep-20261106/after.json",
+      "sha256": "1e7f42cae8ce7a0a1f622badcbdaecd0999fff1336b1df3d23cedd6fb78ab866"
+    }
+  },
+  "developmentFindings": [
+    "Initial test fixture incorrectly marked its synthetic baseline as real; production rejection preserved and fixture corrected.",
+    "Initial full-series fixture lacked team objects; complete fixture corrected and a separate blocked-reference regression retained."
+  ],
+  "runtimeEffects": {
+    "providerRequests": 0,
+    "workingDatabaseWrites": 0,
+    "liveImportedMaps": 0,
+    "scoring": 0,
+    "activatedModels": 0,
+    "servicesRestarted": false,
+    "workerStarted": false
+  },
+  "limitations": [
+    "The live collection is still open; a positive full live plan/import/export is intentionally deferred until its verified closure.",
+    "Missing numeric identity proofs remain blocked; no provider fallback or automatic identity merge.",
+    "Full PG/browser/Python/Docker/Linux suites were not rerun; four new disposable-DB cases were run.",
+    "Existing v1 importer, first failed evaluation and frozen artifacts are unchanged. A new executable freeze is needed after the retest dataset is finalized."
+  ],
+  "nextTask": "S3-01/V1-retest/collection",
+  "nextAction": "After 2026-11-07T00:00:00.001Z, collect the remaining 25 history maps and close the collection before running the prepared importer."
+}

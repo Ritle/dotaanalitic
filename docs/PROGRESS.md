@@ -2375,3 +2375,13 @@ Architecture: protocol/policy/firstFAIL preserved,<=3 per-key HTTP attempts cumu
 Known blockers / compatibility: provider stop request_budget_exhausted, resume 2026-11-07T00:00:00.001Z; captured records retained and no quota increase. Old v1 collector/importer/frozen artifacts unchanged; new importer must explicitly accept v2.
 
 Next exact: **S3-01/V1-retest/collection** — Продолжить history после cooldown 2026-11-07T00:00:00.001Z, сохранив журнал и квоту. Deadline13Nov00:00UTC; частичная загрузка не считается выполненным сбором. Suggested model: **GPT-6 Astra · Extra High**.
+
+### 2026-11-06 — S3-01/V1-retest/canonical-import/preparation
+
+Owner selected importer preparation while collection waits for API quota. Added separate v2 contract, manifest/prepare/replay reader, CLI and canonical step adapter; old v1 code unchanged. Reuses numeric identity/map/series/export boundaries, requires immutable closure and exact journal hashes, retains missing targets, blocks discovery/detail history conflicts, no network fallback.
+
+Checks PASS: offline frozen install/typecheck/build,892unit/CLI+212Node(12new)+4 disposable PostgreSQL tests. Numeric IDs/native sides/series/repeat all tables stable; partial per-map failure resumes with new output; missing proofs/team references remain blocked; synthetic production export refused. First fixtures failed because of synthetic baseline flag and incomplete team objects; corrected fixtures and separate negative regression, no production gate relaxed.
+
+Live CLI manifest on open collection returned expected RETEST_IMPORT_COLLECTION_NOT_CLOSED/exit1/writesAttempted:false, no output.83 working tables/939maps/queue/2632 collection files/245 artifacts/373 frozen+current code unchanged,active0,API/Web200.0HTTP/working import/scoring/activation/restart/general worker. No SQL/dependency changes. Full PG/browser/Python/Docker/Linux suites not rerun. Positive live import/export requires completed collection; new executable freeze remains separate. [Runbook](S3_01_V1_RETEST_IMPORT_PREPARATION.md), [evidence](evidence/s3-01-v1-retest-import-preparation.json).
+
+Next exact: **S3-01/V1-retest/collection** — remaining25 history maps after7Nov03:00MSK, closure, then prepared importer. **GPT-6 Astra · Extra High**.
