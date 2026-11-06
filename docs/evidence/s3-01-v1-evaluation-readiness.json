@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "format": "s3-01-v1-evaluation-readiness-v1",
+  "checkedAt": "2026-11-05T11:31:56.759Z",
+  "scope": "prewindow_readiness_only",
+  "status": "prepared_with_outstanding_collection_and_quality_gate",
+  "plan": {
+    "path": "docs/evidence/s3-01-v1-release-plan.json",
+    "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef",
+    "fingerprint": "8ffa8625e3e8cede2505ff79786fd27f7b6eb9c9215fd70e1855938d11dd88b4",
+    "windows": [
+      {
+        "eventKey": "blast-slam-ix-2026-main",
+        "leagueId": "20208",
+        "fromAt": "2026-11-20T00:00:00.000Z",
+        "untilExclusive": "2026-11-30T00:00:00.000Z"
+      }
+    ],
+    "evaluateNotBefore": "2026-12-02T00:00:00.000Z",
+    "thresholds": {
+      "sample": {
+        "minMaps": 100,
+        "minSeries": 40,
+        "minMapCoverage": 0.8,
+        "minKnownSeriesCoverage": 0.8,
+        "mapCoverageDenominator": "all_observed_target_map_ids_including_unverified_and_unknown_series",
+        "seriesCoverageDenominator": "all_observed_target_known_series_including_ineligible",
+        "identityCoverageWithinScoredMaps": 1
+      },
+      "scoring": {
+        "orientation": "teamA_is_lower_numeric_canonical_team_id",
+        "aggregation": "equal_weight_per_map",
+        "baselineProbability": 0.5,
+        "baselineBrier": 0.25,
+        "baselineLogLoss": 0.6931471805599453,
+        "logBase": "natural",
+        "logLossClip": 1e-15,
+        "maxBrier": 0.245,
+        "maxLogLoss": 0.685,
+        "maxBrierDeltaUpper95": 0,
+        "maxLogLossDeltaUpper95": 0,
+        "deltaUpperComparison": "strictly_less"
+      },
+      "calibration": {
+        "bins": [
+          0,
+          0.2,
+          0.4,
+          0.6,
+          0.8,
+          1
+        ],
+        "intervals": "left_closed_right_open_last_closed",
+        "emptyBinRate": null,
+        "aggregation": "sum_bin_n_over_total_times_abs_mean_probability_minus_win_rate",
+        "maxEce": 0.08,
+        "maxEceUpper95": 0.15,
+        "maxAbsoluteMeanProbabilityMinusWinRate": 0.05,
+        "reportPerBinSample": true,
+        "fitOnTest": "forbidden"
+      }
+    },
+    "protocolChanged": false
+  },
+  "executable": {
+    "directory": ".tools/v1-frozen-runtime",
+    "configSha256": "873cb15a5ad82524e6c98ad7a8ebbd4506045611f1a3f155d3ad5e0b344c7c41",
+    "freezeSha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a",
+    "verifiedCodeFiles": 232,
+    "workspaceLinksInsideBundle": 7,
+    "compatibleV1Runtime": true,
+    "sourceEvidenceChecked": false,
+    "originalSourceRefs": "placeholders",
+    "collectorConfig": ".tools/v1-readiness-20261105/discovery-config.json",
+    "collectorConfigSha256": "d32bc9fee0ffa94b383f4568471dec69ef12b619f310feca8a0a24fb1343d1a3"
+  },
+  "operationalProbe": {
+    "commands": [
+      {
+        "script": "scripts/release-execute.mjs",
+        "mode": "check",
+        "exitCode": 0,
+        "status": "release_capture_config_verified"
+      },
+      {
+        "script": "scripts/freeze-v1-release.mjs",
+        "mode": "verify",
+        "exitCode": 0,
+        "status": "executable_verified"
+      },
+      {
+        "script": "scripts/collect-evaluation-discovery.mjs",
+        "mode": "collect",
+        "exitCode": 0,
+        "status": "not_started"
+      },
+      {
+        "script": "scripts/collect-evaluation-discovery.mjs",
+        "mode": "verify",
+        "exitCode": 0,
+        "status": "discovery_verified"
+      },
+      {
+        "script": "scripts/collect-evaluation-discovery.mjs",
+        "mode": "merge",
+        "exitCode": 0,
+        "status": "discovery_merged"
+      },
+      {
+        "script": "scripts/evaluation-details.mjs",
+        "mode": "capture",
+        "exitCode": 0,
+        "status": "details_captured"
+      },
+      {
+        "script": "scripts/evaluation-details.mjs",
+        "mode": "verify",
+        "exitCode": 0,
+        "status": "details_verified"
+      },
+      {
+        "script": "scripts/release-execute.mjs",
+        "mode": "capture",
+        "exitCode": 1,
+        "status": "unavailable",
+        "code": "RELEASE_CAPTURE_TOO_EARLY"
+      },
+      {
+        "script": "scripts/release-execute.mjs",
+        "mode": "verify",
+        "exitCode": 1,
+        "status": "unavailable",
+        "code": "RELEASE_CAPTURE_TOO_EARLY"
+      },
+      {
+        "script": "scripts/release-execute.mjs",
+        "mode": "evaluate",
+        "exitCode": 1,
+        "status": "unavailable",
+        "code": "RELEASE_CAPTURE_TOO_EARLY"
+      },
+      {
+        "script": "scripts/release-execute.mjs",
+        "mode": "revise",
+        "exitCode": 1,
+        "status": "unavailable",
+        "code": "RELEASE_CAPTURE_TOO_EARLY"
+      }
+    ],
+    "discovery": {
+      "status": "not_started",
+      "summary": {
+        "sourceResponses": 0,
+        "sourceFailures": 0,
+        "returnedRows": 0,
+        "uniqueMaps": 0,
+        "possibleTargetMaps": 0,
+        "pendingDetails": 0,
+        "uncertainMaps": 0,
+        "relatedSeriesMembers": 0
+      },
+      "manifestSha256": "f5ca27120e59cdf0c26c4336bfe41b6e971269f77d93b004da37e2297d8fe68a"
+    },
+    "detail": {
+      "selected": 0,
+      "manifestSha256": "84a37d1b89b467abdc6b7883310dc97b904230b61b3817add46b4ecfa9215169"
+    },
+    "prewindowReceiptsForRelease": false,
+    "earlyGates": [
+      {
+        "mode": "capture",
+        "code": "RELEASE_CAPTURE_TOO_EARLY",
+        "outputCreated": false
+      },
+      {
+        "mode": "verify",
+        "code": "RELEASE_CAPTURE_TOO_EARLY",
+        "outputCreated": false
+      },
+      {
+        "mode": "evaluate",
+        "code": "RELEASE_CAPTURE_TOO_EARLY",
+        "outputCreated": false
+      },
+      {
+        "mode": "revise",
+        "code": "RELEASE_CAPTURE_TOO_EARLY",
+        "outputCreated": false
+      }
+    ],
+    "providerRequests": 0,
+    "databaseUsedByFrozenProbe": false,
+    "empiricalTargetCoverage": null,
+    "futureSampleSufficiency": "unknown",
+    "remoteCompleteness": "unknown"
+  },
+  "workingDatabase": {
+    "checkedAt": "2026-11-05T11:31:31.200Z",
+    "publicTablesPreserved": 75,
+    "counts": {
+      "matches": 340,
+      "players": 314,
+      "series": 172,
+      "prediction_model_versions": 1,
+      "v1_model_artifacts": 1,
+      "v1_release_evaluation_journal": 0,
+      "research_evaluation_journal": 0,
+      "model_activation_events": 0,
+      "prediction_runs": 0
+    },
+    "targetTimeCandidates": 0,
+    "activeModels": 0,
+    "readiness": {
+      "status": "unavailable",
+      "reason": "NO_ACTIVE_MODEL",
+      "teamAWinProbability": null
+    },
+    "migrationChecksums": 44,
+    "queueJobsPreserved": [
+      {
+        "name": "opendota-map-import",
+        "state": "completed",
+        "count": 2
+      },
+      {
+        "name": "opendota-player-history",
+        "state": "completed",
+        "count": 10
+      },
+      {
+        "name": "opendota-team-history",
+        "state": "created",
+        "count": 1
+      }
+    ]
+  },
+  "preservation": {
+    "previousProtectedFiles": 245,
+    "frozenNonBarrelModules": 150,
+    "additionalProtectedFiles": [
+      {
+        "path": "docs/evidence/s4-v1-schedule-freshness.json",
+        "sha256": "e3bc76096d3a60f3d28a90ee01cf7ba490d8d8f4c73010629a059200b9cb7ca4"
+      },
+      {
+        "path": "packages/db/migrations/044_schedule_freshness.sql",
+        "sha256": "abe708a1c7d8d24262939278e348be61c44ec2456d3d646bf9df8d894221935a"
+      }
+    ],
+    "oldArtifactsUnchanged": true,
+    "productionCodeChanged": false,
+    "dependenciesChanged": false,
+    "workingDataWrites": 0,
+    "modelActivation": false,
+    "realScoringPerformed": false,
+    "commit": false,
+    "push": false,
+    "externalDeployment": false
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "total": 825,
+      "workspaceTotals": [
+        54,
+        22,
+        38,
+        33,
+        348,
+        282,
+        47,
+        1
+      ]
+    },
+    "isolatedPostgres": {
+      "status": "PASS",
+      "tests": 23,
+      "files": 4
+    },
+    "offlineFrozenCommands": 11,
+    "notRun": [
+      "full PostgreSQL suite",
+      "Chromium",
+      "Node fixture suite",
+      "Python",
+      "Docker",
+      "Linux",
+      "new live pro provider audit"
+    ],
+    "logs": [
+      {
+        "path": ".tools/v1-readiness-install.log",
+        "sha256": "e4e03595bf551a00cd9fb850fd177381be02fe7f3fd28b0638f86e811e6ab7cc"
+      },
+      {
+        "path": ".tools/v1-readiness-typecheck.log",
+        "sha256": "bbbaf3e3a07889123b8682ab7983ad2dc83a2ccc3df3dbfeb85346bc612870d6"
+      },
+      {
+        "path": ".tools/v1-readiness-build.log",
+        "sha256": "1e2f8b720c14e07ccc9651649750724e084996277e333a237bb97a1d5e8ea0f3"
+      },
+      {
+        "path": ".tools/v1-readiness-unit.log",
+        "sha256": "1dce6955197003903f5ae51803992bfd183d72da758d9f21a5705e59a5328a97"
+      },
+      {
+        "path": ".tools/v1-readiness-pg.log",
+        "sha256": "f62c65fdaa8ca570ca26c690341fe405a7e4536a1fce68541bffcc089d04e1af"
+      }
+    ]
+  },
+  "localOperation": {
+    "initialServices": "stopped_after_host_restart",
+    "postgresStarted": true,
+    "postgresRecoveredNormally": true,
+    "api": {
+      "url": "http://localhost:3000",
+      "pid": 24528
+    },
+    "web": {
+      "url": "http://localhost:5173",
+      "pid": 24592
+    },
+    "historyWorker": {
+      "pid": 9904
+    },
+    "generalWorkerStarted": false,
+    "health": "ok"
+  },
+  "initialIssues": [
+    "Sandbox localhost EACCES; elevated retry showed server stopped. Existing PG cluster started without reinitialization.",
+    "Start-Process -Wait also waited for the database child; only the verified completed launcher shell was closed after pg_ctl status confirmed ready."
+  ],
+  "outstanding": [
+    "Collect and verify all real discovery/detail/account/series source evidence before snapshotAt.",
+    "No tournament collector or operating-system schedule is running; collection remains an operator action.",
+    "Current execution config has future-source placeholders; create new SHA-bound config with real union and every required batch.",
+    "Unknown future sample/coverage/quality; unchanged thresholds must all pass before separate activation and owner acceptance."
+  ],
+  "next": {
+    "task": "S3-01/V1-evaluation/collection",
+    "firstTargetAt": "2026-11-20T00:00:00.000Z",
+    "sourceSnapshotAt": "2026-12-02T00:00:00.000Z",
+    "recommendation": "GPT-6 Astra · Extra High"
+  },
+  "teamAWinProbability": null
+}

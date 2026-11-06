@@ -1,0 +1,395 @@
+{
+  "schemaVersion": "s2-07-stratz-validation-v1",
+  "ownerDate": "2026-11-06",
+  "checkedAt": "2026-11-05T22:17:27.113Z",
+  "task": "S2-07/STRATZ-validation",
+  "ownerApproved": true,
+  "decision": {
+    "standaloneStratzHeroStatisticsEnabled": false,
+    "reason": "No nonempty player ranked-history cohort or its pagination validated. Public known-map lookup is a distinct source path and must not be published as player-history observation.",
+    "usefulNextPath": "Enrich already known OpenDota ranked map IDs with independently sourced estimated position/provider version; preserve original cohort and counts.",
+    "privacyCause": "unknown; profile flags do not prove causality"
+  },
+  "requests": {
+    "actual": 10,
+    "plannedCap": 12,
+    "stratz": 10,
+    "opendota": 0,
+    "retries": 0,
+    "httpErrors": 0,
+    "graphqlErrors": 0,
+    "receipts": [
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:11:17.176Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:11:18.134Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:11:19.282Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:11:20.680Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:11:21.717Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:11:22.973Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:11:24.126Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:13:48.250Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:13:48.967Z"
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "retryAfterMs": null,
+        "at": "2026-11-05T22:13:49.759Z"
+      }
+    ]
+  },
+  "controls": [
+    {
+      "playerId": "3",
+      "accountId": "94054712",
+      "name": "Topson",
+      "providerFlags": {
+        "isAnonymous": false,
+        "isStratzPublic": false
+      },
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "PRACTICE/CAPTAINS_MODE"
+      ],
+      "latestStartAt": "2026-11-04T15:05:32.000Z",
+      "receiptSha256": "c18545ba30b77402de43ece27e57fdd2e7bd93ed1130a4c7ea85ffd226e2e700"
+    },
+    {
+      "playerId": "126",
+      "accountId": "221666230",
+      "name": "Quinn",
+      "providerFlags": {
+        "isAnonymous": true,
+        "isStratzPublic": false
+      },
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "PRACTICE/CAPTAINS_MODE"
+      ],
+      "latestStartAt": "2026-06-11T00:47:32.000Z",
+      "receiptSha256": "e524a4a9c906e9601ad4dce8d1a0dc177e0026acbbd8d1b468f7dc113a963225"
+    },
+    {
+      "playerId": "16",
+      "accountId": "171262902",
+      "name": "watson",
+      "providerFlags": {
+        "isAnonymous": true,
+        "isStratzPublic": false
+      },
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "PRACTICE/CAPTAINS_MODE"
+      ],
+      "latestStartAt": "2026-11-01T15:49:50.000Z",
+      "receiptSha256": "8dfbc9e1eeba05552f032c68b59b5733595c268e97dbe6b63f1d0ac6fe695ee5"
+    },
+    {
+      "playerId": "170",
+      "accountId": "96803083",
+      "name": "Stormstormer",
+      "providerFlags": {
+        "isAnonymous": true,
+        "isStratzPublic": false
+      },
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "PRACTICE/CAPTAINS_MODE"
+      ],
+      "latestStartAt": "2026-11-05T19:25:21.000Z",
+      "receiptSha256": "3a8343835f7dade85892aafe5b4a6a215d041a5a0cad9248a778745159353715"
+    },
+    {
+      "playerId": "123",
+      "accountId": "201358612",
+      "name": "Nisha",
+      "providerFlags": {
+        "isAnonymous": false,
+        "isStratzPublic": false
+      },
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "UNRANKED/ALL_PICK_RANKED",
+        "PRACTICE/CAPTAINS_MODE"
+      ],
+      "latestStartAt": "2026-09-06T13:08:22.000Z",
+      "receiptSha256": "9ef7f78042da1d7ae7b38aba2277eac1387b2abe065952f61d0499effc15d91a"
+    },
+    {
+      "playerId": "1",
+      "accountId": "10366616",
+      "name": "Sneyking",
+      "providerFlags": {
+        "isAnonymous": true,
+        "isStratzPublic": false
+      },
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "PRACTICE/CAPTAINS_MODE"
+      ],
+      "latestStartAt": "2026-10-09T19:35:42.000Z",
+      "receiptSha256": "3b10fe369e8b5fbbd258e712645aa63a0f2939f44fe39b4269e5e2ff28cc2e48"
+    }
+  ],
+  "strictRankedReaders": [
+    {
+      "playerId": "3",
+      "accountId": "94054712",
+      "name": "Topson",
+      "fromAt": "2026-10-06T22:13:46.000Z",
+      "cutoffAt": "2026-11-05T22:13:46.000Z",
+      "fetchedAt": "2026-11-05T22:13:48.262Z",
+      "receivedRows": 0,
+      "acceptedMaps": 0,
+      "completeness": "unknown",
+      "receipts": [
+        {
+          "offset": 0,
+          "rows": 0,
+          "fetchedAt": "2026-11-05T22:13:48.261Z",
+          "payloadSha256": "3d4296224c1dd4bf38d88422cd56fe9fb11c34bfce07166ac9f8b60308accdb1"
+        }
+      ]
+    },
+    {
+      "playerId": "170",
+      "accountId": "96803083",
+      "name": "Stormstormer",
+      "fromAt": "2026-10-06T22:13:48.000Z",
+      "cutoffAt": "2026-11-05T22:13:48.000Z",
+      "fetchedAt": "2026-11-05T22:13:48.970Z",
+      "receivedRows": 0,
+      "acceptedMaps": 0,
+      "completeness": "unknown",
+      "receipts": [
+        {
+          "offset": 0,
+          "rows": 0,
+          "fetchedAt": "2026-11-05T22:13:48.970Z",
+          "payloadSha256": "ea1190b859c157c24458753ef19c140ef62894cff9cbf5a5171437ef3c6a9e72"
+        }
+      ]
+    }
+  ],
+  "knownMapComparison": {
+    "accountId": "70388657",
+    "playerId": "61",
+    "uniqueMaps": 4,
+    "rawLookupRowsIncludingRepeat": 5,
+    "exactIdHistoryRows": 0,
+    "referenceWindow": {
+      "fromAt": "2026-10-06T21:26:38.000Z",
+      "cutoffAt": "2026-11-05T21:26:38.000Z",
+      "fetchedAt": "2026-11-05T21:26:40.524Z"
+    },
+    "stratzFetchedAt": "2026-11-05T22:13:49.764Z",
+    "sourceKnownAt": null,
+    "fieldCoverage": {
+      "identity": 4,
+      "hero": 4,
+      "side": 4,
+      "outcome": 4,
+      "startDurationEnd": 4,
+      "rankedMode": 4,
+      "sourceVersionCode": 4,
+      "estimatedPosition": 4,
+      "averageRank": 0,
+      "partySizeFromStratz": 0
+    },
+    "maps": [
+      {
+        "matchId": "9077529717",
+        "accountId": "70388657",
+        "heroId": "30",
+        "startedAt": "2026-11-05T17:17:35.000Z",
+        "completedAt": "2026-11-05T17:58:38.000Z",
+        "side": "dire",
+        "win": false,
+        "sourceRole": "POSITION_5",
+        "roleBasis": "estimated",
+        "stratzGameVersionId": "190",
+        "averageRank": null,
+        "stratzPartySize": null,
+        "opendotaPartySize": 1,
+        "coreFieldsAgree": true
+      },
+      {
+        "matchId": "9077458069",
+        "accountId": "70388657",
+        "heroId": "137",
+        "startedAt": "2026-11-05T16:26:30.000Z",
+        "completedAt": "2026-11-05T17:07:02.000Z",
+        "side": "radiant",
+        "win": true,
+        "sourceRole": "POSITION_2",
+        "roleBasis": "estimated",
+        "stratzGameVersionId": "190",
+        "averageRank": null,
+        "stratzPartySize": null,
+        "opendotaPartySize": 1,
+        "coreFieldsAgree": true
+      },
+      {
+        "matchId": "9046835919",
+        "accountId": "70388657",
+        "heroId": "5",
+        "startedAt": "2026-10-15T22:13:00.000Z",
+        "completedAt": "2026-10-15T22:43:38.000Z",
+        "side": "radiant",
+        "win": true,
+        "sourceRole": "POSITION_2",
+        "roleBasis": "estimated",
+        "stratzGameVersionId": "190",
+        "averageRank": null,
+        "stratzPartySize": null,
+        "opendotaPartySize": 2,
+        "coreFieldsAgree": true
+      },
+      {
+        "matchId": "9032694349",
+        "accountId": "70388657",
+        "heroId": "7",
+        "startedAt": "2026-10-06T21:27:35.000Z",
+        "completedAt": "2026-10-06T21:56:47.000Z",
+        "side": "dire",
+        "win": false,
+        "sourceRole": "POSITION_2",
+        "roleBasis": "estimated",
+        "stratzGameVersionId": "190",
+        "averageRank": null,
+        "stratzPartySize": null,
+        "opendotaPartySize": 2,
+        "coreFieldsAgree": true
+      }
+    ],
+    "limits": "Four deterministic recency-selected maps of one account from the saved parent OpenDota window; not a new current30-day history sample. Repeated lookup adds no independent map. Positions are provider estimates, not verified actual team roles; code190 is not a canonical patch mapping."
+  },
+  "sources": [
+    {
+      "url": "https://stratz.com/api",
+      "role": "official API entry point"
+    },
+    {
+      "url": "https://api.stratz.com/graphql",
+      "role": "authorized primary source; raw receipts retained locally"
+    },
+    {
+      "path": ".tools/stratz-review-20261102/schema.body",
+      "sha256": "ad1da0b6e4e09fb6b4dc43f58ba3627982abca1f91a4b16dec5d89d5445fbb17"
+    },
+    {
+      "path": ".tools/s2-07-coverage-fixed-20261106-opendota.json",
+      "sha256": "03811891e3627bb012c99d9b7badea1ff71fce97b0b6bc57239d120a393dbba3"
+    }
+  ],
+  "plans": [
+    {
+      "path": ".tools/s2-07-stratz-validation-20261106-plan.json",
+      "sha256": "cc8483ef66a2377d44d8251daa7c0d70d2821cb9a44a412354041a5d89ced06d"
+    },
+    {
+      "path": ".tools/s2-07-stratz-followup-20261106-amendment.json",
+      "sha256": "89448e1ec46f93e0d07799c96b5d445f04d77878e3bce1ed0a1634f48a5140f8"
+    }
+  ],
+  "rawEvidence": [
+    {
+      "path": ".tools/s2-07-stratz-validation-20261106-capture.json",
+      "sha256": "b545e23c5618300bcb00cd756d96059ef68a1e5b8f20b71fb116ffa361a263a1"
+    },
+    {
+      "path": ".tools/s2-07-stratz-followup-20261106-capture.json",
+      "sha256": "8e13eb935eb68be244e7bbcae2da9ed7e2129dc436d2b5117b928dcbbd9e898e"
+    },
+    {
+      "path": ".tools/s2-07-stratz-validation-20261106-known-map.body",
+      "sha256": "2ae7a12b7ae8629c7bdedf675c6d123c817ecea1cda22af04672532fde8e94bf"
+    },
+    {
+      "path": ".tools/s2-07-stratz-followup-20261106-known-maps.body",
+      "sha256": "05d0fccee45018a707b2261242dc1bf0dae6d3f247c363daf6fdfcfd7277c491"
+    }
+  ],
+  "preservation": {
+    "publicTables": 77,
+    "unchangedTables": 76,
+    "changedTables": [
+      "role_profile_stratz_quota"
+    ],
+    "proMaps": 340,
+    "rankedObservationsBefore": 3,
+    "rankedObservationsAfter": 3,
+    "queueStateCountsUnchanged": true,
+    "modelsAndIdentityFactsUnchanged": true,
+    "sourceProductionCodeUnchanged": true,
+    "newSql": false,
+    "dependenciesChanged": false,
+    "frozenArtifacts": 245,
+    "originalModules": 150,
+    "migrationChecksums": 45
+  },
+  "checks": {
+    "crossProviderCoreMaps": 4,
+    "existingNormalizerOfflineMaps": 4,
+    "targetedTests": 18,
+    "sourceUnit": 14,
+    "contractUnit": 4,
+    "fullWorkspaceSuiteRerun": false,
+    "installBuildTypecheckRerun": false,
+    "apiPgChromiumRerun": false,
+    "pythonDockerLinux": false,
+    "frozenBundleAndRuntime": "PASS"
+  },
+  "nextTask": "S2-07/STRATZ-enrichment (proposed next implementation slice)",
+  "nextModel": "GPT-6.1 Sol / High",
+  "releaseWindowUnchanged": true
+}

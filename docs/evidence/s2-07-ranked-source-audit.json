@@ -1,0 +1,649 @@
+{
+  "schemaVersion": "s2-07-ranked-source-audit-v1",
+  "checkedAt": "2026-11-05T20:18:48.361Z",
+  "scope": "source-spike-and-proposed-contract-only",
+  "ownerChoseTaskReorder": true,
+  "window": {
+    "fromAt": "2026-10-06T20:15:29.000Z",
+    "cutoffAt": "2026-11-05T20:15:29.000Z",
+    "days": 30
+  },
+  "filters": {
+    "lobbyTypeId": 7,
+    "gameModeId": 22,
+    "openDotaDateDays": 31,
+    "openDotaSignificant": 0,
+    "stratzIsStats": null,
+    "localWindow": "start >= from; start < cutoff; completion < cutoff"
+  },
+  "plans": [
+    {
+      "path": ".tools/s2-07-ranked-source-20261105/plan.json",
+      "sha256": "d8192bc674f9b16845ec39533c1f3941369a3d5d749c217166083899a358d03f",
+      "createdAt": "2026-11-05T20:15:29.639Z",
+      "scope": "Descriptive source spike only; no imports, predictions, identity writes or activation"
+    },
+    {
+      "path": ".tools/s2-07-ranked-supplement-20261105/plan.json",
+      "sha256": "fe358f35b87a3555f3a5a2f07b68a33fecd67f4798fd68b2c465d797d67bbce7",
+      "createdAt": "2026-11-05T20:17:00.883Z",
+      "scope": "Supplement: initial three accounts returned empty pages; check remaining two GL accounts and first verified Nemiga account. Same window/filters; six requests; no further expansion"
+    }
+  ],
+  "summary": {
+    "accounts": 6,
+    "requests": 13,
+    "http200": 13,
+    "graphqlErrors": 0,
+    "retries": 0,
+    "rateLimited": 0,
+    "rowsReturned": 0,
+    "sourceMapIds": 0,
+    "perMatchFieldsEmpiricallyVerified": false,
+    "paginationEmpiricallyVerified": false,
+    "rankedModeSubset": "modern ranked All Pick only",
+    "emptyResponseCause": "unknown",
+    "tokenValidForQueriedSchemaAndProfiles": true,
+    "productionIntegrated": false
+  },
+  "accounts": [
+    {
+      "playerId": "22",
+      "accountId": "90423751",
+      "identityStatus": "verified",
+      "openDota": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown"
+      },
+      "stratz": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown",
+        "providerFlags": {
+          "isAnonymous": false,
+          "isStratzPublic": false
+        }
+      },
+      "matchFieldCoverage": null,
+      "actualHistoryCoverage": null,
+      "observedWins": null,
+      "observedWinRate": null,
+      "lastAvailableMatchAt": null
+    },
+    {
+      "playerId": "24",
+      "accountId": "154974246",
+      "identityStatus": "verified",
+      "openDota": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown"
+      },
+      "stratz": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown",
+        "providerFlags": {
+          "isAnonymous": true,
+          "isStratzPublic": false
+        }
+      },
+      "matchFieldCoverage": null,
+      "actualHistoryCoverage": null,
+      "observedWins": null,
+      "observedWinRate": null,
+      "lastAvailableMatchAt": null
+    },
+    {
+      "playerId": "26",
+      "accountId": "177203952",
+      "identityStatus": "verified",
+      "openDota": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown"
+      },
+      "stratz": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown",
+        "providerFlags": {
+          "isAnonymous": false,
+          "isStratzPublic": false
+        }
+      },
+      "matchFieldCoverage": null,
+      "actualHistoryCoverage": null,
+      "observedWins": null,
+      "observedWinRate": null,
+      "lastAvailableMatchAt": null
+    },
+    {
+      "playerId": "23",
+      "accountId": "93526520",
+      "identityStatus": "verified",
+      "openDota": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown"
+      },
+      "stratz": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown",
+        "providerFlags": {
+          "isAnonymous": true,
+          "isStratzPublic": false
+        }
+      },
+      "matchFieldCoverage": null,
+      "actualHistoryCoverage": null,
+      "observedWins": null,
+      "observedWinRate": null,
+      "lastAvailableMatchAt": null
+    },
+    {
+      "playerId": "25",
+      "accountId": "160119017",
+      "identityStatus": "verified",
+      "openDota": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown"
+      },
+      "stratz": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown",
+        "providerFlags": {
+          "isAnonymous": true,
+          "isStratzPublic": true
+        }
+      },
+      "matchFieldCoverage": null,
+      "actualHistoryCoverage": null,
+      "observedWins": null,
+      "observedWinRate": null,
+      "lastAvailableMatchAt": null
+    },
+    {
+      "playerId": "223",
+      "accountId": "127530803",
+      "identityStatus": "verified",
+      "openDota": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown"
+      },
+      "stratz": {
+        "rowsReturned": 0,
+        "status": "empty",
+        "cause": "unknown",
+        "visibility": "unknown",
+        "providerFlags": {
+          "isAnonymous": false,
+          "isStratzPublic": false
+        }
+      },
+      "matchFieldCoverage": null,
+      "actualHistoryCoverage": null,
+      "observedWins": null,
+      "observedWinRate": null,
+      "lastAvailableMatchAt": null
+    }
+  ],
+  "receipts": [
+    {
+      "provider": "stratz",
+      "key": "schema",
+      "startedAt": "2026-11-05T20:15:50.578Z",
+      "endpoint": "https://api.stratz.com/graphql",
+      "request": {
+        "query": "query RankedSourceSchema { request: __type(name:\"PlayerMatchesRequestType\") { inputFields { name } } player: __type(name:\"PlayerType\") { fields { name } } match: __type(name:\"MatchType\") { fields { name } } matchPlayer: __type(name:\"MatchPlayerType\") { fields { name } } }"
+      },
+      "attempt": 1,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "second": 7,
+        "minute": 149,
+        "hour": 1499,
+        "day": 14974
+      },
+      "bytes": 4067,
+      "sha256": "bdb5996f322208394b6e1ce1860e3c2805575204ae1b9cfca05c030afee5cef4",
+      "fetchedAt": "2026-11-05T20:15:51.199Z",
+      "graphqlErrorCount": 0,
+      "rawPath": ".tools/s2-07-ranked-source-20261105/schema.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "opendota",
+      "key": "opendota-90423751-0",
+      "startedAt": "2026-11-05T20:15:51.202Z",
+      "endpoint": "https://api.opendota.com/api/players/90423751/matches?lobby_type=7&game_mode=22&significant=0&date=31&limit=100&offset=0&sort=start_time&project=account_id&project=leagueid&project=lane_role&project=party_size&project=average_rank&project=leaver_status&project=patch",
+      "request": null,
+      "attempt": 2,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "minute": 59,
+        "day": 2965,
+        "month": null
+      },
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fetchedAt": "2026-11-05T20:15:52.530Z",
+      "rawPath": ".tools/s2-07-ranked-source-20261105/opendota-90423751-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "opendota",
+      "key": "opendota-154974246-0",
+      "startedAt": "2026-11-05T20:15:52.533Z",
+      "endpoint": "https://api.opendota.com/api/players/154974246/matches?lobby_type=7&game_mode=22&significant=0&date=31&limit=100&offset=0&sort=start_time&project=account_id&project=leagueid&project=lane_role&project=party_size&project=average_rank&project=leaver_status&project=patch",
+      "request": null,
+      "attempt": 3,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "minute": 58,
+        "day": 2964,
+        "month": null
+      },
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fetchedAt": "2026-11-05T20:15:52.820Z",
+      "rawPath": ".tools/s2-07-ranked-source-20261105/opendota-154974246-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "opendota",
+      "key": "opendota-177203952-0",
+      "startedAt": "2026-11-05T20:15:52.822Z",
+      "endpoint": "https://api.opendota.com/api/players/177203952/matches?lobby_type=7&game_mode=22&significant=0&date=31&limit=100&offset=0&sort=start_time&project=account_id&project=leagueid&project=lane_role&project=party_size&project=average_rank&project=leaver_status&project=patch",
+      "request": null,
+      "attempt": 4,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "minute": 57,
+        "day": 2963,
+        "month": null
+      },
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fetchedAt": "2026-11-05T20:15:55.079Z",
+      "rawPath": ".tools/s2-07-ranked-source-20261105/opendota-177203952-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "stratz",
+      "key": "stratz-90423751-0",
+      "startedAt": "2026-11-05T20:15:55.081Z",
+      "endpoint": "https://api.stratz.com/graphql",
+      "request": {
+        "query": "query RankedPractice($account: Long!, $request: PlayerMatchesRequestType!) { player(steamAccountId: $account) { steamAccountId steamAccount { isAnonymous isStratzPublic } matches(request: $request) { id startDateTime endDateTime durationSeconds didRadiantWin lobbyType gameMode leagueId gameVersionId averageRank isStats players(steamAccountId: $account) { steamAccountId playerSlot isRadiant isVictory heroId position role lane partyId leaverStatus } } } }",
+        "variables": {
+          "account": 90423751,
+          "request": {
+            "startDateTime": 1791317729,
+            "endDateTime": 1793909729,
+            "lobbyTypeIds": [
+              7
+            ],
+            "gameModeIds": [
+              22
+            ],
+            "take": 100,
+            "skip": 0,
+            "orderBy": "DESC",
+            "playerList": "SINGLE"
+          }
+        }
+      },
+      "attempt": 5,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "second": 7,
+        "minute": 148,
+        "hour": 1498,
+        "day": 14973
+      },
+      "bytes": 120,
+      "sha256": "810476404ca7ff8d3f451f96aeebaac322a45d3c27b107ef9cec7eb21f2a0350",
+      "fetchedAt": "2026-11-05T20:15:55.536Z",
+      "graphqlErrorCount": 0,
+      "rawPath": ".tools/s2-07-ranked-source-20261105/stratz-90423751-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "stratz",
+      "key": "stratz-154974246-0",
+      "startedAt": "2026-11-05T20:15:55.539Z",
+      "endpoint": "https://api.stratz.com/graphql",
+      "request": {
+        "query": "query RankedPractice($account: Long!, $request: PlayerMatchesRequestType!) { player(steamAccountId: $account) { steamAccountId steamAccount { isAnonymous isStratzPublic } matches(request: $request) { id startDateTime endDateTime durationSeconds didRadiantWin lobbyType gameMode leagueId gameVersionId averageRank isStats players(steamAccountId: $account) { steamAccountId playerSlot isRadiant isVictory heroId position role lane partyId leaverStatus } } } }",
+        "variables": {
+          "account": 154974246,
+          "request": {
+            "startDateTime": 1791317729,
+            "endDateTime": 1793909729,
+            "lobbyTypeIds": [
+              7
+            ],
+            "gameModeIds": [
+              22
+            ],
+            "take": 100,
+            "skip": 0,
+            "orderBy": "DESC",
+            "playerList": "SINGLE"
+          }
+        }
+      },
+      "attempt": 6,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "second": 7,
+        "minute": 147,
+        "hour": 1497,
+        "day": 14972
+      },
+      "bytes": 120,
+      "sha256": "994fba1c821dd190ea8035dcf2d460529bcf5c55492c833fa515561e77856fa9",
+      "fetchedAt": "2026-11-05T20:15:56.858Z",
+      "graphqlErrorCount": 0,
+      "rawPath": ".tools/s2-07-ranked-source-20261105/stratz-154974246-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "stratz",
+      "key": "stratz-177203952-0",
+      "startedAt": "2026-11-05T20:15:56.860Z",
+      "endpoint": "https://api.stratz.com/graphql",
+      "request": {
+        "query": "query RankedPractice($account: Long!, $request: PlayerMatchesRequestType!) { player(steamAccountId: $account) { steamAccountId steamAccount { isAnonymous isStratzPublic } matches(request: $request) { id startDateTime endDateTime durationSeconds didRadiantWin lobbyType gameMode leagueId gameVersionId averageRank isStats players(steamAccountId: $account) { steamAccountId playerSlot isRadiant isVictory heroId position role lane partyId leaverStatus } } } }",
+        "variables": {
+          "account": 177203952,
+          "request": {
+            "startDateTime": 1791317729,
+            "endDateTime": 1793909729,
+            "lobbyTypeIds": [
+              7
+            ],
+            "gameModeIds": [
+              22
+            ],
+            "take": 100,
+            "skip": 0,
+            "orderBy": "DESC",
+            "playerList": "SINGLE"
+          }
+        }
+      },
+      "attempt": 7,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "second": 7,
+        "minute": 146,
+        "hour": 1496,
+        "day": 14971
+      },
+      "bytes": 121,
+      "sha256": "23c5013e58bc64fa3df723118d19aa3628a68cc414d886a6e228faa3b81eb386",
+      "fetchedAt": "2026-11-05T20:15:58.186Z",
+      "graphqlErrorCount": 0,
+      "rawPath": ".tools/s2-07-ranked-source-20261105/stratz-177203952-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "opendota",
+      "key": "opendota-93526520-0",
+      "startedAt": "2026-11-05T20:17:11.564Z",
+      "endpoint": "https://api.opendota.com/api/players/93526520/matches?lobby_type=7&game_mode=22&significant=0&date=31&limit=100&offset=0&sort=start_time&project=account_id&project=leagueid&project=lane_role&project=party_size&project=average_rank&project=leaver_status&project=patch",
+      "request": null,
+      "attempt": 1,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "minute": 59,
+        "day": 2962,
+        "month": null
+      },
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fetchedAt": "2026-11-05T20:17:12.503Z",
+      "rawPath": ".tools/s2-07-ranked-supplement-20261105/opendota-93526520-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "opendota",
+      "key": "opendota-160119017-0",
+      "startedAt": "2026-11-05T20:17:12.506Z",
+      "endpoint": "https://api.opendota.com/api/players/160119017/matches?lobby_type=7&game_mode=22&significant=0&date=31&limit=100&offset=0&sort=start_time&project=account_id&project=leagueid&project=lane_role&project=party_size&project=average_rank&project=leaver_status&project=patch",
+      "request": null,
+      "attempt": 2,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "minute": 58,
+        "day": 2961,
+        "month": null
+      },
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fetchedAt": "2026-11-05T20:17:13.558Z",
+      "rawPath": ".tools/s2-07-ranked-supplement-20261105/opendota-160119017-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "opendota",
+      "key": "opendota-127530803-0",
+      "startedAt": "2026-11-05T20:17:13.560Z",
+      "endpoint": "https://api.opendota.com/api/players/127530803/matches?lobby_type=7&game_mode=22&significant=0&date=31&limit=100&offset=0&sort=start_time&project=account_id&project=leagueid&project=lane_role&project=party_size&project=average_rank&project=leaver_status&project=patch",
+      "request": null,
+      "attempt": 3,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "minute": 57,
+        "day": 2960,
+        "month": null
+      },
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "fetchedAt": "2026-11-05T20:17:14.838Z",
+      "rawPath": ".tools/s2-07-ranked-supplement-20261105/opendota-127530803-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "stratz",
+      "key": "stratz-93526520-0",
+      "startedAt": "2026-11-05T20:17:14.840Z",
+      "endpoint": "https://api.stratz.com/graphql",
+      "request": {
+        "query": "query RankedPractice($account: Long!, $request: PlayerMatchesRequestType!) { player(steamAccountId: $account) { steamAccountId steamAccount { isAnonymous isStratzPublic } matches(request: $request) { id startDateTime endDateTime durationSeconds didRadiantWin lobbyType gameMode leagueId gameVersionId averageRank isStats players(steamAccountId: $account) { steamAccountId playerSlot isRadiant isVictory heroId position role lane partyId leaverStatus } } } }",
+        "variables": {
+          "account": 93526520,
+          "request": {
+            "startDateTime": 1791317729,
+            "endDateTime": 1793909729,
+            "lobbyTypeIds": [
+              7
+            ],
+            "gameModeIds": [
+              22
+            ],
+            "take": 100,
+            "skip": 0,
+            "orderBy": "DESC",
+            "playerList": "SINGLE"
+          }
+        }
+      },
+      "attempt": 4,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "second": 7,
+        "minute": 149,
+        "hour": 1495,
+        "day": 14970
+      },
+      "bytes": 119,
+      "sha256": "7350431c76ac5d6dad3e2fd0e5294f0a6f32ff75b8c6cb2f8cbf51281ff3c78b",
+      "fetchedAt": "2026-11-05T20:17:16.126Z",
+      "graphqlErrorCount": 0,
+      "rawPath": ".tools/s2-07-ranked-supplement-20261105/stratz-93526520-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "stratz",
+      "key": "stratz-160119017-0",
+      "startedAt": "2026-11-05T20:17:16.129Z",
+      "endpoint": "https://api.stratz.com/graphql",
+      "request": {
+        "query": "query RankedPractice($account: Long!, $request: PlayerMatchesRequestType!) { player(steamAccountId: $account) { steamAccountId steamAccount { isAnonymous isStratzPublic } matches(request: $request) { id startDateTime endDateTime durationSeconds didRadiantWin lobbyType gameMode leagueId gameVersionId averageRank isStats players(steamAccountId: $account) { steamAccountId playerSlot isRadiant isVictory heroId position role lane partyId leaverStatus } } } }",
+        "variables": {
+          "account": 160119017,
+          "request": {
+            "startDateTime": 1791317729,
+            "endDateTime": 1793909729,
+            "lobbyTypeIds": [
+              7
+            ],
+            "gameModeIds": [
+              22
+            ],
+            "take": 100,
+            "skip": 0,
+            "orderBy": "DESC",
+            "playerList": "SINGLE"
+          }
+        }
+      },
+      "attempt": 5,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "second": 7,
+        "minute": 148,
+        "hour": 1494,
+        "day": 14969
+      },
+      "bytes": 119,
+      "sha256": "05987facc3c1e84ced2ef440a32e849cd3dcd843aa5a7c8fb061c3ca410c19cd",
+      "fetchedAt": "2026-11-05T20:17:16.661Z",
+      "graphqlErrorCount": 0,
+      "rawPath": ".tools/s2-07-ranked-supplement-20261105/stratz-160119017-0.body",
+      "sourceKnownAt": null
+    },
+    {
+      "provider": "stratz",
+      "key": "stratz-127530803-0",
+      "startedAt": "2026-11-05T20:17:16.663Z",
+      "endpoint": "https://api.stratz.com/graphql",
+      "request": {
+        "query": "query RankedPractice($account: Long!, $request: PlayerMatchesRequestType!) { player(steamAccountId: $account) { steamAccountId steamAccount { isAnonymous isStratzPublic } matches(request: $request) { id startDateTime endDateTime durationSeconds didRadiantWin lobbyType gameMode leagueId gameVersionId averageRank isStats players(steamAccountId: $account) { steamAccountId playerSlot isRadiant isVictory heroId position role lane partyId leaverStatus } } } }",
+        "variables": {
+          "account": 127530803,
+          "request": {
+            "startDateTime": 1791317729,
+            "endDateTime": 1793909729,
+            "lobbyTypeIds": [
+              7
+            ],
+            "gameModeIds": [
+              22
+            ],
+            "take": 100,
+            "skip": 0,
+            "orderBy": "DESC",
+            "playerList": "SINGLE"
+          }
+        }
+      },
+      "attempt": 6,
+      "status": 200,
+      "retryAfterMs": null,
+      "limits": {
+        "second": 7,
+        "minute": 147,
+        "hour": 1493,
+        "day": 14968
+      },
+      "bytes": 121,
+      "sha256": "68558a509f2b61cf7279783691e03e37dff9b1798bd9b8a146a3d77d18ea8656",
+      "fetchedAt": "2026-11-05T20:17:17.800Z",
+      "graphqlErrorCount": 0,
+      "rawPath": ".tools/s2-07-ranked-supplement-20261105/stratz-127530803-0.body",
+      "sourceKnownAt": null
+    }
+  ],
+  "dbChecks": [
+    {
+      "planPath": ".tools/s2-07-ranked-source-20261105/plan.json",
+      "tables": 75,
+      "changed": [
+        "provider_quotas",
+        "role_profile_stratz_quota"
+      ],
+      "unchanged": 73,
+      "queueUnchanged": true
+    },
+    {
+      "planPath": ".tools/s2-07-ranked-supplement-20261105/plan.json",
+      "tables": 75,
+      "changed": [
+        "provider_quotas",
+        "role_profile_stratz_quota"
+      ],
+      "unchanged": 73,
+      "queueUnchanged": true
+    }
+  ],
+  "limits": {
+    "pageSize": 100,
+    "primaryMaxPages": 2,
+    "supplementMaxPages": 1,
+    "actualPagesPerAccountProvider": 1,
+    "coverageDenominator": null
+  },
+  "limitations": [
+    "Purposive small sample; not representative of all pro players or all ranked game modes.",
+    "No nonempty match response; no empirical hero/outcome/role/patch/party coverage or dedup/pagination validation.",
+    "isAnonymous/isStratzPublic do not by themselves prove the cause of empty history.",
+    "OpenDota relative 31-day retrieval requires local fixed 30-day filtering for nonempty pages.",
+    "No proof that zero returned matches means zero matches played; no win rate computed."
+  ],
+  "preservation": {
+    "publicTables": 75,
+    "unchangedTables": 73,
+    "onlyQuotaWrites": true,
+    "queueUnchanged": true,
+    "proMaps": 340,
+    "modelsActivated": 0,
+    "pubMapsImported": 0
+  },
+  "tools": [
+    "35187f1b96fc84e2501a0e1afc0933aba64d4001178a469f2b461488ce113c75",
+    "f42673461133262e32d882796ad3befaeb6e821b5980890685da3afc47243f0f"
+  ],
+  "nextTask": "S2-07/source-reader: optional bounded providers and coverage statuses; verify a nonempty public sample before enabling hero statistics"
+}

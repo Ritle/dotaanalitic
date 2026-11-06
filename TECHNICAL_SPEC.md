@@ -89,6 +89,8 @@ Release evaluation должна отдельно подтвердить каче
 
 ### 0.8. Практика игрока на героях в рейтинговых играх
 
+Реализация дополнения2026-11-06: [STRATZ context](docs/S2_07_STRATZ_ENRICHMENT.md) по уже известным OpenDota ranked map IDs, до20 карт по ручному действию. Отдельная provenance/cache, exact identity/core-field agreement, estimated position/provider version и явное покрытие; без изменения cohort/N/WR, canonical patch mapping или V1 features. Самостоятельный STRATZ player-history cohort не считается проверенным этим путём.
+
 Уточнение владельца2026-11-02: разрешить ranked-public историю проверенных игроков как **отдельный источник анализа практики героя**. Высокий WR на достаточной свежей выборке — кандидат на дополнительный сигнал, переносимость в pro-карты ещё нужно измерить. Низкий WR при малом N не доказывает слабость. Отсутствие доступных игр не доказывает отсутствие опыта: неизвестные аккаунты, закрытая/неполная история и недоступные тренировки остаются неизвестными.
 
 Первое применение — необязательный блок игрок×герой «Рейтинговые игры» рядом с «Профессиональными матчами»: observed games/wins/raw WR, период, последняя доступная игра, source/fetchedAt, effective filters и coverage. N=0 → WR=null. Ошибка или отсутствие pub source не блокирует pro-аналитику и V1. Не объединять denominators в общий процент и не подставлять pub WR при нехватке pro-матчей.
@@ -103,7 +105,7 @@ Release evaluation должна отдельно подтвердить каче
 
 Пользу проверять сравнением моделей без/с pub features на одинаковом untouched temporal/series-aware pro holdout целевого Tier 1 domain: Brier/log loss/calibration/coverage. Не вводить фиксированный бонус за высокий WR или штраф за низкий WR/малое N. Smoothed estimate/prior показывать отдельно от raw WR; 50% не универсальная норма для каждого героя/роли/уровня.
 
-**Статус:** требования скорректированы; pub ingestion/UI и predictive effect ещё не реализованы и не измерены. S2-07 — отдельное описательное расширение, pub features — последующий эксперимент; отсутствие pub данных не добавляет blocker текущему V1-evaluation. Запрет подмены профессиональной статистики остаётся в силе.
+**Статус:** описательный S2-07 реализован: [backend reader/cache](docs/S2_07_RANKED_PRACTICE_READER.md), [UI](docs/S2_07_RANKED_PRACTICE_UI.md), [raw hero summary](docs/S2_07_RANKED_HERO_SUMMARY.md). Immutable pub observations хранятся отдельно от pro. В карточке игрока есть ручная загрузка, период, coverage и отдельные games/wins/nullable WR/last-played по героям для проверенного OpenDota v2. [Live контроль](docs/S2_07_RANKED_COVERAGE_CONTROL.md) подтвердил197 ranked-карт Dendi/25 героев; summary сверен с сохранёнными картами без новых provider calls. Это bounded single-account sample, не полное покрытие всех игроков. STRATZ остаётся availability-only до непустой проверки, legacy v1 не включает показатели. Predictive effect не реализован и не измерен; pub features — последующий эксперимент. Отсутствие pub данных не добавляет blocker текущему V1-evaluation. Запрет подмены профессиональной статистики остаётся в силе.
 
 ### 0.9. Уточнение владельца: журнал и статистика собственных прогнозов входят в V1
 

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T19:34:05.632Z",
+  "task": "S2-01/role-owner-check/source-status",
+  "files": [
+    {
+      "path": "apps/web/src/role-source-status.ts",
+      "sha256": "ac82e3f00d9dad90dca8e8392547bcc174692787e3f27f5239753a9bfe8d1a0c"
+    },
+    {
+      "path": "apps/web/src/components/RoleProfiles.vue",
+      "sha256": "e9351728b384288791a1c05e8e4b6d5bc1e1c0176f6c46a58e2b48e65d16a532"
+    },
+    {
+      "path": "apps/web/tests/role-source-status.test.ts",
+      "sha256": "387a3a4af6adec4f6c27c6b6a3fcc910024086336a68145b497852b96065614c"
+    },
+    {
+      "path": "apps/web/tests/e2e/role-profiles.spec.ts",
+      "sha256": "eaa9e88d37dda0035c2703f373223c65dd3cb24bd0921ba4eaa6a43051151c10"
+    },
+    {
+      "path": "apps/web/tests/e2e/role-editor-priority.spec.ts",
+      "sha256": "017ffca68f8548525fa145bed335d97c71e8de552ef960b3b8777e227d93e70c"
+    }
+  ],
+  "changes": [
+    "display-only profile/team/freshness diagnostics",
+    "source-specific action text",
+    "cooldown before refresh advice",
+    "manual and eligibility logic unchanged"
+  ],
+  "checks": {
+    "offlineFrozenInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "finalWebTypesBuild": "PASS",
+    "unitCli": 839,
+    "initialUnitRun": "one unchanged research-plan CLI test timed out during execution pause; isolated retry and remaining packages passed",
+    "newUnitCases": 6,
+    "chromium": 7,
+    "initialBrowser": "5 passed, outdated copy assertion and beforeEach timeout during long execution pause; final full repeat passed without increased timeouts",
+    "frozenFiles": 245,
+    "originalModules": 150,
+    "frozenBundle": "PASS",
+    "runtimeCompatible": true
+  },
+  "liveProviderRequests": 0,
+  "workingDatabaseTaskWrites": 0,
+  "syntheticBrowserStates": true,
+  "notRun": [
+    "live owner acceptance",
+    "full Node",
+    "standalone API/PG suite",
+    "Python",
+    "Docker",
+    "Linux"
+  ],
+  "next": {
+    "task": "S2-01/role-owner-check/final-acceptance",
+    "model": "GPT-6.1 Sol · High"
+  }
+}

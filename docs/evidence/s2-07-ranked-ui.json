@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "s2-07-ranked-practice-ui-v1",
+  "checkedAt": "2026-11-05T21:17:34.494Z",
+  "ownerDate": "2026-11-06",
+  "task": "S2-07/reader-ui",
+  "implementation": {
+    "playerCard": true,
+    "collapsedByDefault": true,
+    "readOnOpen": "cache-only",
+    "refresh": "explicit only",
+    "sources": [
+      "opendota",
+      "stratz"
+    ],
+    "windowDays": 30,
+    "rankedMode": "All Pick",
+    "heroWinRates": false,
+    "queryCacheSeconds": 60,
+    "queryGcSeconds": 300,
+    "automaticPolling": false,
+    "windowFocusRefetch": false,
+    "reconnectRefetch": false,
+    "automaticRetries": false,
+    "playerProviderResponseBinding": true
+  },
+  "tests": {
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "unitCli": 855,
+    "newUiClientTests": 3,
+    "chromium": 7,
+    "browserUsesIsolatedPostgres": true,
+    "browserProviderData": "synthetic",
+    "desktopVisual": "inspected",
+    "mobile360Visual": "inspected",
+    "fullNodeSuite": false,
+    "standaloneApiPgSuiteRerun": false,
+    "pythonDockerLinux": false
+  },
+  "logs": [
+    {
+      "path": ".tools/s2-07-ui-install.log",
+      "sha256": "6569e736f4f07bdc6eda3fc69614a07cb975d1359de4986dc3a311b1d883f526"
+    },
+    {
+      "path": ".tools/s2-07-ui-typecheck-root.log",
+      "sha256": "12308a1a50cf719911d5a318fad923c9716daa3ebacd6771d11124b4de79c328"
+    },
+    {
+      "path": ".tools/s2-07-ui-build-root.log",
+      "sha256": "01ea4c958142db4131560c1ca2acc2b529478a35dcbe5836bad205ed380070df"
+    },
+    {
+      "path": ".tools/s2-07-ui-unit-root.log",
+      "sha256": "6e254ff0f18b46b3e0b92b8f75ca2409861206ab9f16ba40bf6d486fdbf19c85"
+    },
+    {
+      "path": ".tools/s2-07-ui-browser-final.log",
+      "sha256": "828d1e6eb6ce8d7e92f96a3d5eb185683a78c3c67a2bb08b1171eb7d0d99f301"
+    }
+  ],
+  "live": {
+    "checkedAt": "2026-11-05T21:10:04.033Z",
+    "requests": [
+      {
+        "playerId": "20",
+        "provider": "opendota",
+        "refresh": false
+      },
+      {
+        "playerId": "20",
+        "provider": "opendota",
+        "refresh": true
+      },
+      {
+        "playerId": "20",
+        "provider": "opendota",
+        "refresh": true
+      },
+      {
+        "playerId": "20",
+        "provider": "stratz",
+        "refresh": false
+      },
+      {
+        "playerId": "130",
+        "provider": "opendota",
+        "refresh": false
+      }
+    ],
+    "reports": [
+      {
+        "playerId": "20",
+        "provider": "opendota",
+        "status": "partial",
+        "stale": true,
+        "observationId": "569d07d7-87ef-4c7f-adc1-3836da198cc2",
+        "statisticsEnabled": false
+      },
+      {
+        "playerId": "20",
+        "provider": "opendota",
+        "status": "empty",
+        "stale": false,
+        "observationId": "6f6eaa10-e690-4b77-a2d2-bd69db045c56",
+        "statisticsEnabled": false
+      },
+      {
+        "playerId": "20",
+        "provider": "opendota",
+        "status": "empty",
+        "stale": false,
+        "observationId": "6f6eaa10-e690-4b77-a2d2-bd69db045c56",
+        "statisticsEnabled": false
+      },
+      {
+        "playerId": "20",
+        "provider": "stratz",
+        "status": "not_loaded",
+        "stale": false,
+        "observationId": null,
+        "statisticsEnabled": false
+      },
+      {
+        "playerId": "130",
+        "provider": "opendota",
+        "status": "not_loaded",
+        "stale": false,
+        "observationId": null,
+        "statisticsEnabled": false
+      }
+    ],
+    "providerRequests": 1,
+    "cacheReadProviderRequests": 0,
+    "freshReplayProviderRequests": 0,
+    "automaticRefreshes": 0,
+    "logins": 0,
+    "errors": [],
+    "mobileOverflow": false,
+    "plan": {
+      "createdAt": "2026-11-05T21:09:54.682Z",
+      "playerId": "20",
+      "secondaryPlayerId": "130",
+      "scope": "UI collapsed/read/explicit refresh/negative-cache replay/source switch/mobile",
+      "providerMaxRequests": 2,
+      "automaticProviderRequests": 0,
+      "newLogins": 0
+    },
+    "screenshots": [
+      {
+        "path": ".tools/s2-07-ui-live-desktop.png",
+        "sha256": "cdcf97174e6085eaa5afc7fde178433922429431c2aabe9774e21fa6e45b46ca"
+      },
+      {
+        "path": ".tools/s2-07-ui-live-mobile.png",
+        "sha256": "67c35031e5b1cbcb074de6aed784eaa2d3f6f2fa454de22cae2e51f05730248b"
+      }
+    ]
+  },
+  "preservation": {
+    "publicTables": 77,
+    "unchangedTables": 74,
+    "changedTables": [
+      "provider_quotas",
+      "ranked_practice_cache",
+      "ranked_practice_observations"
+    ],
+    "proMapsBefore": 340,
+    "proMapsAfter": 340,
+    "pubObservationsBefore": 1,
+    "pubObservationsAfter": 2,
+    "queueUnchanged": true,
+    "modelsAndSavedFactsUnchanged": true,
+    "frozenArtifacts": 245,
+    "originalModules": 150,
+    "frozenBundle": "PASS",
+    "runtimeCompatible": true,
+    "serviceRestarts": 0,
+    "sqlOrApiChanges": false,
+    "dependenciesChanged": false
+  },
+  "sourceHashes": [
+    {
+      "path": "apps/web/src/ranked-practice.ts",
+      "sha256": "eec08131781bdf740d49b02b36ae03fe3106523c00f1d4b472a232c07c6a5119"
+    },
+    {
+      "path": "apps/web/src/components/RankedPractice.vue",
+      "sha256": "725b9a28ada19620e53d7f64f08bf9e2a4439f014a7c4da73a9f5a2d64e88191"
+    },
+    {
+      "path": "apps/web/src/views/EntityView.vue",
+      "sha256": "20dc553a30a69c4ba1079d5b637486b04f3fe6dd86ff0a8cde55ddc2713a8b47"
+    },
+    {
+      "path": "apps/web/tests/ranked-practice.test.ts",
+      "sha256": "fd360d680565da88fee16cc95cd7c348312cd56cff07afd19529b29a023b5015"
+    },
+    {
+      "path": "apps/web/tests/e2e/ranked-practice.spec.ts",
+      "sha256": "66b646bc6e27fe715591775fbb494353ce3e26829f19d54761fb5b6408b934df"
+    }
+  ],
+  "limitations": [
+    "Live ranked sample still empty; no claim of zero experience or private history.",
+    "Hero aggregates and predictive use remain unimplemented; statisticsEnabled stays false.",
+    "Providers remain separate; UI does not pool pro/pub or two-provider counts."
+  ],
+  "nextTask": "S2-07/ranked-coverage-control",
+  "nextModel": "GPT-6.1 Sol / High"
+}

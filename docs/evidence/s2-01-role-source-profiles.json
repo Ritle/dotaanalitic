@@ -1,0 +1,360 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T18:51:35.530Z",
+  "task": "S2-01/role-owner-check/source-profiles",
+  "sourceFiles": [
+    {
+      "path": "packages/contracts/src/role-profiles.ts",
+      "sha256": "99d1add0f48a1ffd6134c4b65790ff54cf9241ae45b5fa3027b550eb54e48e20"
+    },
+    {
+      "path": "packages/ingestion/tests/role-profile-client.test.ts",
+      "sha256": "6926f7fab74c9f2b0fc72b11cc7fefe541d76744fc7bed3469f95c7577754ab6"
+    },
+    {
+      "path": "packages/db/tests/role-profile-resolution.test.ts",
+      "sha256": "e718a4ca71f14827e66e0df385c2b8ff0b69f8dae0600ed0d9a74ccee22a0cee"
+    },
+    {
+      "path": "apps/api/tests/role-profiles.integration.test.ts",
+      "sha256": "7d3852c34d63d10f3517dd3865778b08e47e0b0af816cd9d440dac8b7f06df0a"
+    }
+  ],
+  "cause": "STRATZ proSteamAccount.teamId numeric zero rejected by positive-ID schema",
+  "normalization": "zero -> null; verified account and team eligibility guards retained",
+  "providerAudit": {
+    "firstCheckedAt": "2026-11-05T13:43:58.436Z",
+    "retryCheckedAt": "2026-11-05T13:46:14.053Z",
+    "requests": [
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "b8e9f945366881b9473ba5a35136fc5ff07fca1cfa7d24a1f09684b51e22d326",
+        "accountId": 1150772339,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": null
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "9fadf0b50ba259a00a36764b61f4c93b5a022d77830d2cd52fdac7c61938dff2",
+        "accountId": 1202267677,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 1202267677,
+          "teamId": 5014799,
+          "position": "POSITION_5"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "7dbb30b560ed4c1240a1f4ea0a7ee599ac3d18ac91b4455ccea9ae51ec7105bc",
+        "accountId": 860145568,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": null
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "6e41b2b111ab71126cb964e00e19a90b965502585dd39a9b7d463e104de06717",
+        "accountId": 418942836,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 418942836,
+          "teamId": 8376426,
+          "position": "POSITION_1"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "ed12339d5c4d77d5f67b60bde170de78aef7022bc6783424005b9c1a5e3282be",
+        "accountId": 417235485,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 417235485,
+          "teamId": 9823272,
+          "position": "POSITION_4"
+        }
+      },
+      {
+        "provider": "pandascore",
+        "status": 200
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "14e28235d24cc2f3c3cbdc576e4ebc09dd1956d2adc22106ef6f93b878ddfa75",
+        "accountId": 90423751,
+        "issues": [
+          {
+            "path": "data.player.steamAccount.proSteamAccount.teamId",
+            "code": "too_small",
+            "valueType": "number",
+            "isNull": false,
+            "isZero": true
+          }
+        ],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 90423751,
+          "teamId": 0,
+          "position": "POSITION_4"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "62a2afb3e29ebb5d72f3bddf8905854ac875994bf1a2ddb7ff9b7a8cf0cd29a9",
+        "accountId": 191362875,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 191362875,
+          "teamId": 9651185,
+          "position": "POSITION_5"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "36f645830220036ceb9e834c02f6b5dfeeb905750167158834789111c56d0188",
+        "accountId": 160119017,
+        "issues": [
+          {
+            "path": "data.player.steamAccount.proSteamAccount.teamId",
+            "code": "too_small",
+            "valueType": "number",
+            "isNull": false,
+            "isZero": true
+          }
+        ],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 160119017,
+          "teamId": 0,
+          "position": "POSITION_3"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "e85929d37e9df9fc4f0bad3b81171addffd0d44fb7855c067c10db91c078c65b",
+        "accountId": 177203952,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 177203952,
+          "teamId": 9303484,
+          "position": "POSITION_1"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "7f3c489e56521656b4f08ecb3d92402e6c784e37d17c251f3245eb11b600297d",
+        "accountId": 154974246,
+        "issues": [
+          {
+            "path": "data.player.steamAccount.proSteamAccount.teamId",
+            "code": "too_small",
+            "valueType": "number",
+            "isNull": false,
+            "isZero": true
+          }
+        ],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 154974246,
+          "teamId": 0,
+          "position": "POSITION_2"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "14e28235d24cc2f3c3cbdc576e4ebc09dd1956d2adc22106ef6f93b878ddfa75",
+        "accountId": 90423751,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 90423751,
+          "teamId": 0,
+          "position": "POSITION_4"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "36f645830220036ceb9e834c02f6b5dfeeb905750167158834789111c56d0188",
+        "accountId": 160119017,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 160119017,
+          "teamId": 0,
+          "position": "POSITION_3"
+        }
+      },
+      {
+        "provider": "stratz",
+        "status": 200,
+        "sha256": "7f3c489e56521656b4f08ecb3d92402e6c784e37d17c251f3245eb11b600297d",
+        "accountId": 154974246,
+        "issues": [],
+        "graphqlErrors": 0,
+        "profile": {
+          "id": 154974246,
+          "teamId": 0,
+          "position": "POSITION_2"
+        }
+      }
+    ],
+    "total": 14,
+    "pandascoreRequests": 1,
+    "stratzRequests": 13,
+    "sharedPandaRoster": true,
+    "pandaEligiblePlayers": 10,
+    "stratzAbsentProProfiles": 2,
+    "stratzUnknownTeams": 3,
+    "ownerTeamBindingsUnchanged": true,
+    "cacheOnlyAdditionalRequests": 0
+  },
+  "checks": {
+    "offlineFrozenInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 833,
+    "targetedUnits": 13,
+    "apiPostgres": 7,
+    "chromium": 6,
+    "initialUnitFailures": 2,
+    "initialIntegrationFailure": "new test ran after synthetic 503 shared cooldown; reordered before outage test",
+    "frozenBundle": "PASS",
+    "protectedFiles": 245,
+    "originalModules": 150,
+    "runtimeCompatible": true,
+    "notRerun": [
+      "full Node",
+      "full PG",
+      "Python",
+      "Docker",
+      "Linux"
+    ]
+  },
+  "database": {
+    "tables": 75,
+    "changed": [
+      "pandascore_request_quota",
+      "role_profile_cache",
+      "role_profile_stratz_quota"
+    ],
+    "unchanged": 72,
+    "maps": 340,
+    "queueUnchanged": true
+  },
+  "runtime": {
+    "apiRestarted": true,
+    "apiPid": 22368,
+    "smoke": {
+      "checkedAt": "2026-11-05T18:49:56.620Z",
+      "health": 200,
+      "loginRequests": 0,
+      "refreshProfiles": false,
+      "reports": [
+        {
+          "teamId": "2705",
+          "status": 200,
+          "sources": [
+            {
+              "key": "stratz:player:1150772339",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "stratz:player:1202267677",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "stratz:player:860145568",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "stratz:player:418942836",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "stratz:player:417235485",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "pandascore:roster:22236",
+              "status": "stale",
+              "reason": null
+            }
+          ]
+        },
+        {
+          "teamId": "2706",
+          "status": 200,
+          "sources": [
+            {
+              "key": "stratz:player:90423751",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "stratz:player:191362875",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "stratz:player:160119017",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "stratz:player:177203952",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "stratz:player:154974246",
+              "status": "stale",
+              "reason": null
+            },
+            {
+              "key": "pandascore:roster:22236",
+              "status": "stale",
+              "reason": null
+            }
+          ]
+        }
+      ]
+    },
+    "staleAfterElapsedTTL": true
+  },
+  "noChanges": [
+    "saved lineups",
+    "identity facts",
+    "model protocol",
+    "activation",
+    "migrations",
+    "dependencies"
+  ],
+  "next": {
+    "task": "S2-01/role-owner-check/source-status",
+    "model": "GPT-6.1 Sol · High",
+    "scope": "Clear UI distinctions and actions for absent profile, unknown/mismatched team and stale cache; retain eligibility/manual guards."
+  }
+}

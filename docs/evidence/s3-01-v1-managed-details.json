@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "format": "s3-01-v1-managed-details-v1",
+  "checkedAt": "2026-11-05T12:26:47.861Z",
+  "scope": "operator_detail_collection_only",
+  "implemented": [
+    "details-init",
+    "details-status",
+    "details-capture",
+    "details-recover",
+    "details-export"
+  ],
+  "sourceFiles": [
+    {
+      "path": "scripts/v1-collection.mjs",
+      "sha256": "2cd24d4d101b55cbc947562e3f027d1f59d3603acf039d821e0ccdf975c70b82"
+    },
+    {
+      "path": "scripts/lib/v1-collection.mjs",
+      "sha256": "52fd636e5ff4fcc53cb04165b9b3ba10a3dc5598593849bcdb7e08e752a9596a"
+    },
+    {
+      "path": "scripts/lib/v1-detail-collection.mjs",
+      "sha256": "5bb9b1f99c1a7e885c20db5cd658d1fb034032734d96c94ef2811ba58a90595d"
+    },
+    {
+      "path": "tests/node/v1-detail-collection.test.mjs",
+      "sha256": "9b59537a1420ae482335555fcf1cf8c27b395a3a72d78db9992476c7dad57c1a"
+    },
+    {
+      "path": "packages/ingestion/tests/v1-detail-collection-cli.test.ts",
+      "sha256": "d11185239311c10e0261696f36fcc7c020b6777e5c9acf5b8ef952a374549ead"
+    }
+  ],
+  "invariants": {
+    "fixedBatchSize": 50,
+    "maxBatches": 100,
+    "zeroTargetsRequireZeroBatches": true,
+    "bigintSafeMapIds": true,
+    "relatedSeriesMembersIncluded": true,
+    "allRequiredBatchesInExport": true,
+    "sourceIneligibleRowsRetained": true,
+    "sameIndexRetryNoHttp": true,
+    "separateAttemptIntents": true,
+    "failedResultPreservedWithHashLinkedRecovery": true,
+    "captureAndDiscoveryShareLock": true,
+    "newDiscoveryInvalidatesUnionForNewCaptureOrExport": true,
+    "frozenVerifierReplaysReceipts": true,
+    "oldManifestCheckedBeforeNewHttp": true,
+    "exportUsesResearchEvidenceFilesSchema": true,
+    "noScoring": true,
+    "noCanonicalImport": true,
+    "noScheduler": true
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "tests": 826,
+      "totals": [
+        54,
+        22,
+        38,
+        33,
+        348,
+        283,
+        47,
+        1
+      ]
+    },
+    "node": {
+      "status": "PASS",
+      "tests": 97,
+      "newDetailTests": 12
+    },
+    "realVerifierSyntheticScenario": {
+      "status": "PASS",
+      "newTests": 1
+    },
+    "localPostgresReadOnly": "PASS after sandbox EACCES; approved local connection succeeded",
+    "notRun": [
+      "PostgreSQL integration suites",
+      "Chromium",
+      "Python",
+      "Docker",
+      "Linux",
+      "live pro source audit"
+    ],
+    "logs": [
+      {
+        "path": ".tools/v1-detail-install.log",
+        "sha256": "f6a1255cefe7b3b21319c2c35d5bdbd616fcc5b3867089e2eeb06a57ecacb92e"
+      },
+      {
+        "path": ".tools/v1-detail-typecheck.log",
+        "sha256": "bbbaf3e3a07889123b8682ab7983ad2dc83a2ccc3df3dbfeb85346bc612870d6"
+      },
+      {
+        "path": ".tools/v1-detail-build.log",
+        "sha256": "fb4f5238f10c2e7b224da60ec876a115484c5632c499d059a17792c96fc74868"
+      },
+      {
+        "path": ".tools/v1-detail-unit.log",
+        "sha256": "0e98363e75aef30b35db48909cf896fdd57e22d09412820a2958a1ebee1f6712"
+      },
+      {
+        "path": ".tools/v1-detail-node.log",
+        "sha256": "e5b1c592b4a2d17ee7eb650bd0806a6e68e5590cfb4a68dcd08dc02028c213dc"
+      }
+    ]
+  },
+  "realCheck": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T12:19:24.153Z",
+    "directory": ".tools/v1-release-collection-managed",
+    "collectionSha256": "608bbda93be9c81b960ea6f16dcc59f305a3eeeeb2feec4a54ad21349d8e6895",
+    "commands": [
+      {
+        "mode": "status",
+        "exitCode": 0,
+        "result": {
+          "status": "not_started",
+          "testFromAt": "2026-11-20T00:00:00.000Z",
+          "snapshotAt": "2026-12-02T00:00:00.000Z",
+          "runs": [],
+          "remainingRuns": 10,
+          "busy": false,
+          "collectionComplete": false,
+          "remoteCompleteness": "unknown",
+          "metrics": null,
+          "teamAWinProbability": null,
+          "scoringPerformed": false
+        }
+      },
+      {
+        "mode": "details-status",
+        "exitCode": 0,
+        "result": {
+          "plans": [],
+          "testFromAt": "2026-11-20T00:00:00.000Z",
+          "snapshotAt": "2026-12-02T00:00:00.000Z",
+          "providerRequests": 0,
+          "status": "detail_plans",
+          "readyForEvaluation": false,
+          "metrics": null,
+          "teamAWinProbability": null
+        }
+      },
+      {
+        "mode": "details-capture",
+        "exitCode": 1,
+        "result": {
+          "status": "unavailable",
+          "code": "DETAIL_COLLECTION_PLAN_REQUIRED",
+          "message": "Сначала подготовьте пакеты командой details-init для проверенного union.",
+          "teamAWinProbability": null
+        }
+      },
+      {
+        "mode": "details-export",
+        "exitCode": 1,
+        "result": {
+          "status": "unavailable",
+          "code": "DETAIL_COLLECTION_PLAN_REQUIRED",
+          "message": "Сначала подготовьте пакеты командой details-init для проверенного union.",
+          "teamAWinProbability": null
+        }
+      }
+    ],
+    "providerRequests": 0,
+    "attempts": 0,
+    "sourceEvidenceCreated": false,
+    "modelWrites": 0
+  },
+  "preserved": {
+    "frozenBundleFiles": 232,
+    "frozenNonBarrelModules": 150,
+    "previousProtectedFiles": 245,
+    "runtimeCompatible": true,
+    "publicTables": 75,
+    "migrations": 44,
+    "workingMaps": 340,
+    "activeModels": 0,
+    "releaseEvaluations": 0,
+    "forecasts": 0,
+    "workingDatabaseAndJobsUnchanged": true,
+    "dependenciesUnchanged": true,
+    "oldEvidenceUnchanged": true
+  },
+  "taskStatus": {
+    "detailTooling": "complete",
+    "parentCollection": "open",
+    "futureSourceCoverage": null,
+    "releaseQualityGate": "not_evaluated",
+    "modelActivation": false
+  },
+  "next": {
+    "task": "S3-01/V1-evaluation/collection/import",
+    "scope": "Managed captured-byte canonical import/reconciliation, complete batch accounting and execution-source references; retain frozen evaluator and original clocks.",
+    "recommendation": "GPT-6 Astra · Extra High"
+  },
+  "providerRequests": 0,
+  "workingDataWrites": 0,
+  "commit": false,
+  "push": false,
+  "externalDeployment": false,
+  "teamAWinProbability": null
+}

@@ -1,0 +1,62 @@
+{
+  "task": "S2-01/saved-roster-account-correction",
+  "recordedAt": "2026-11-05T00:42:18.982Z",
+  "cause": "Draft hydration restored players/accounts/membership from a usable saved five but left the organization null. Validation silently disabled apply until a separate roster preparation populated the organization.",
+  "fix": "Restore organization from the usable saved binding source.team provider/externalTeamId; retain team choice/manual edits on refetch. No inferred organization when binding unusable or source proof missing.",
+  "changedRuntimeFiles": [
+    "apps/web/src/components/ExpectedRosterCatalogue.vue"
+  ],
+  "changedTests": [
+    "apps/web/tests/e2e/roster-catalogue.spec.ts"
+  ],
+  "red": {
+    "browserPassed": 5,
+    "browserFailed": 1,
+    "assertion": "After choosing another local verified account and explicitly confirming, save remained disabled."
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 817,
+    "node": 74,
+    "chromium": 10,
+    "migrations": 42
+  },
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T00:42:07.796Z",
+    "matchId": "1756313",
+    "accounts": [
+      {
+        "accountId": "1150772339",
+        "localProMaps": 25
+      }
+    ],
+    "saveEnabledAfterConfirmation": true,
+    "bindingPreserved": true,
+    "mobileOverflow": false,
+    "pageErrors": [],
+    "posts": [
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/upcoming/1756313/catalogue/search"
+    ]
+  },
+  "semantics": [
+    "Five distinct accounts and explicit re-confirmation still required.",
+    "Synthetic browser regression saves corrected account, verifies persistence after reload and no extra source/preparation calls.",
+    "Live check changes only an isolated browser draft, not owner bindings.",
+    "Unusable/missing-source bindings still require explicit organization selection; existing manual/late-response guards retained."
+  ],
+  "liveDiagnosticCorrection": "Initial live smoke expected the old count10, but owner history refresh had increased it to25; switched diagnostic to read current N, button check then passed.",
+  "apiChanges": false,
+  "newDependencies": 0,
+  "newSqlMigrations": 0,
+  "modelChanges": false,
+  "fullPgSuiteRun": false,
+  "pythonRun": false,
+  "dockerRun": false,
+  "linuxRun": false,
+  "nextTask": "S2-01/role-owner-check/history-enrichment-resume"
+}

@@ -1,0 +1,261 @@
+{
+  "schemaVersion": 1,
+  "format": "s3-01-v1-managed-import-v1",
+  "checkedAt": "2026-11-05T12:59:48.942Z",
+  "scope": "captured_byte_import_accounting_and_diagnostics",
+  "implemented": [
+    "import-status",
+    "import-batch",
+    "import-recover",
+    "import-reconcile",
+    "import-export"
+  ],
+  "sourceFiles": [
+    {
+      "path": "scripts/v1-collection.mjs",
+      "sha256": "a7c815ebfe1f9d5a2c1d2ed921949166cde0657f5b24aea85acee8278336fb90"
+    },
+    {
+      "path": "scripts/lib/v1-detail-collection.mjs",
+      "sha256": "d46a7f26e23989608ea3be94b1f04c08a146c6a424e656aa82bf58a0748d169a"
+    },
+    {
+      "path": "scripts/lib/v1-import-collection.mjs",
+      "sha256": "21e77ec545e805837aab05b1e371015de6c7de925f8c34f857276e74526df332"
+    },
+    {
+      "path": "scripts/lib/v1-import-diagnostics.mjs",
+      "sha256": "d2285149fc047ea3feff11b24c89871e81d0e49b64d8e72bacd08391add4affd"
+    },
+    {
+      "path": "scripts/reconcile-v1-import.mjs",
+      "sha256": "0713a4ba5c608094e92c4f44acf814f824684aee09ac52daca2f91f4f737c566"
+    },
+    {
+      "path": "packages/contracts/src/managed-import.ts",
+      "sha256": "230cb235c09d4ba0c22065567b240f9f54ded9ec3b56702fcc70e8ef1b64e139"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "ebc091885ada10e1e91e8a364de63291fa089b3980409f4a07463957889f8c92"
+    },
+    {
+      "path": "tests/node/v1-import-collection.test.mjs",
+      "sha256": "76fcf995c39cd19cd30979c217438f3c4e76b54f140250a0f73e5b6e10a2133e"
+    },
+    {
+      "path": "tests/node/v1-detail-collection.test.mjs",
+      "sha256": "6d6fe23c0a06ccdabad15e0fd5a1f159bc38aabf8b159dd6a64c28dfeec67e29"
+    },
+    {
+      "path": "packages/ingestion/tests/managed-import-fixtures.ts",
+      "sha256": "09c4a7f3656fe75792bd587baafc668739946d5070ee90ab1d2efcc9185fd521"
+    },
+    {
+      "path": "packages/ingestion/tests/managed-import-diagnostics.test.ts",
+      "sha256": "a5aeace9bbef70863e3be7a4fa592821abfd7a467925d41a6d43070b380b475c"
+    },
+    {
+      "path": "packages/ingestion/tests/managed-import.integration.test.ts",
+      "sha256": "1de74080b3f2a772dd625fec0ed62a5f0c8a39a467bf551c6be984d8c72bc5f5"
+    }
+  ],
+  "invariants": {
+    "unchangedFrozenImporter": true,
+    "sourceByteOnlyImport": true,
+    "sharedLock": true,
+    "sameAttemptNoDbWrite": true,
+    "explicitSequentialReimport": true,
+    "maxAttemptsPerBatch": 10,
+    "maxMapsPerBatch": 50,
+    "partialPriorTreeHashLinked": true,
+    "lostAttemptAndChangedResultsRejected": true,
+    "completeManifestRecoveryNoDbWrite": true,
+    "failedResultPreserved": true,
+    "allBatchCommonSnapshotDiagnostics": true,
+    "wholeSeriesAcrossBatches": true,
+    "sourceFailuresRetained": true,
+    "staleUnionAuditAndRecoveryAllowed": true,
+    "staleUnionNewWritesRejected": true,
+    "newImportInvalidatesOldReview": true,
+    "originalSourceClocksPreserved": true,
+    "syntheticFlagFromVerifiedPlanOnly": true,
+    "originalConfigUnchanged": true,
+    "exportedConfigCheckedByFrozenExecutor": true,
+    "noScoring": true,
+    "noActivation": true,
+    "noScheduler": true
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "tests": 827,
+      "totals": [
+        54,
+        22,
+        38,
+        33,
+        348,
+        284,
+        47,
+        1
+      ],
+      "newAllBatchRegression": 1
+    },
+    "node": {
+      "status": "PASS",
+      "tests": 108,
+      "newImportCases": 10,
+      "newStaleSourceCase": 1
+    },
+    "isolatedPostgres": {
+      "status": "PASS",
+      "tests": 4,
+      "newManagedImportScenario": 1
+    },
+    "correctedDuringDevelopment": [
+      "Local export function name shadowing detected by Node tests.",
+      "Manifest contract initially treated numeric dataRevision as SHA; real importer integration established the string integer format.",
+      "Synthetic test evidence was correctly rejected by the default production dataset guard; diagnostics now inherit syntheticOnly exclusively from the verified registered plan, with no user override."
+    ],
+    "notRun": [
+      "Full PostgreSQL/API suite",
+      "Chromium",
+      "Python",
+      "Docker",
+      "Linux",
+      "live pro source audit"
+    ],
+    "logs": [
+      {
+        "path": ".tools/v1-import-install.log",
+        "sha256": "a86552229a6082d1edfe7e750cb4f4a88dc4f09421ef5cfebce9e5e85b77de80"
+      },
+      {
+        "path": ".tools/v1-import-typecheck.log",
+        "sha256": "e1e68af513af2719aa23174a5fea355d0382ff766fb0428d42c322294ab0bf66"
+      },
+      {
+        "path": ".tools/v1-import-build.log",
+        "sha256": "b925582911e5a324a1f9b93756722d940fc03beea286d46e0dd677f86222045b"
+      },
+      {
+        "path": ".tools/v1-import-unit.log",
+        "sha256": "f7bb035b6a3ed79227d33871798e0d2564cb64a100315c2850cddfa75d5293d9"
+      },
+      {
+        "path": ".tools/v1-import-node.log",
+        "sha256": "0d6d21c3fb7b350fafc9269cc5c32803fb63472875abb4eb95a82a28517212e9"
+      },
+      {
+        "path": ".tools/v1-import-pg-checked.log",
+        "sha256": "e6f3689bea2c46730d1cd7f8b235cd34738b7ff9f4a69a82400094ab5390b641"
+      }
+    ]
+  },
+  "realCheck": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T12:53:04.410Z",
+    "directory": ".tools/v1-release-collection-managed",
+    "collectionSha256": "608bbda93be9c81b960ea6f16dcc59f305a3eeeeb2feec4a54ad21349d8e6895",
+    "commands": [
+      {
+        "mode": "status",
+        "exitCode": 0,
+        "result": {
+          "status": "not_started",
+          "testFromAt": "2026-11-20T00:00:00.000Z",
+          "snapshotAt": "2026-12-02T00:00:00.000Z",
+          "runs": [],
+          "remainingRuns": 10,
+          "busy": false,
+          "collectionComplete": false,
+          "remoteCompleteness": "unknown",
+          "metrics": null,
+          "teamAWinProbability": null,
+          "scoringPerformed": false
+        }
+      },
+      {
+        "mode": "import-status",
+        "exitCode": 1,
+        "result": {
+          "status": "unavailable",
+          "code": "DETAIL_COLLECTION_PLAN_REQUIRED",
+          "message": "Сначала подготовьте пакеты командой details-init для проверенного union.",
+          "teamAWinProbability": null
+        }
+      },
+      {
+        "mode": "import-batch",
+        "exitCode": 1,
+        "result": {
+          "status": "unavailable",
+          "code": "DETAIL_COLLECTION_PLAN_REQUIRED",
+          "message": "Сначала подготовьте пакеты командой details-init для проверенного union.",
+          "teamAWinProbability": null
+        }
+      },
+      {
+        "mode": "import-reconcile",
+        "exitCode": 1,
+        "result": {
+          "status": "unavailable",
+          "code": "DETAIL_COLLECTION_PLAN_REQUIRED",
+          "message": "Сначала подготовьте пакеты командой details-init для проверенного union.",
+          "teamAWinProbability": null
+        }
+      },
+      {
+        "mode": "import-export",
+        "exitCode": 1,
+        "result": {
+          "status": "unavailable",
+          "code": "DETAIL_COLLECTION_PLAN_REQUIRED",
+          "message": "Сначала подготовьте пакеты командой details-init для проверенного union.",
+          "teamAWinProbability": null
+        }
+      }
+    ],
+    "providerRequests": 0,
+    "importAttempts": 0,
+    "sourceEvidenceCreated": false,
+    "modelWrites": 0
+  },
+  "preserved": {
+    "frozenBundleFiles": 232,
+    "frozenNonBarrelModules": 150,
+    "previousProtectedFiles": 245,
+    "runtimeCompatible": true,
+    "publicTables": 75,
+    "migrations": 44,
+    "workingMaps": 340,
+    "activeModels": 0,
+    "releaseEvaluations": 0,
+    "forecasts": 0,
+    "workingDatabaseAndJobsUnchanged": true,
+    "dependenciesUnchanged": true,
+    "oldEvidenceUnchanged": true
+  },
+  "taskStatus": {
+    "importTooling": "complete",
+    "parentCollection": "open",
+    "futureSourceCoverage": null,
+    "releaseQualityGate": "not_evaluated",
+    "modelActivation": false
+  },
+  "next": {
+    "task": "S3-01/V1-evaluation/collection",
+    "scope": "Real collection in the registered window from 2026-11-20T00:00:00Z: complete discovery/details, captured-byte import, numeric/series review and shared diagnostics before the existing source snapshot; independent evaluation no earlier than 2026-12-02T00:00:00Z.",
+    "recommendation": "GPT-6 Astra · Extra High"
+  },
+  "providerRequests": 0,
+  "workingDataWrites": 0,
+  "commit": false,
+  "push": false,
+  "externalDeployment": false,
+  "teamAWinProbability": null
+}

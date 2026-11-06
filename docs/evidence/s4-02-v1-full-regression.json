@@ -1,0 +1,481 @@
+{
+  "checkedAt": "2026-11-06T00:11:48.243Z",
+  "task": "S4-02/full-regression",
+  "ownerSelected": true,
+  "finalRepositoryChecks": {
+    "markdownLinks": "passed",
+    "diffWhitespace": "passed_with_repository_line_ending_settings",
+    "privateSecretAudit": {
+      "files": 220,
+      "privatePaths": 0,
+      "secretMatches": 0,
+      "largeFiles": 0
+    }
+  },
+  "checks": {
+    "frozenOfflineInstall": "passed",
+    "typecheck": "passed",
+    "build": "passed",
+    "workspaceUnitCli": {
+      "uniqueTests": 884,
+      "status": "passed_after_scoped_repeats",
+      "initialTimeouts": [
+        "evaluation-discovery CLI60s",
+        "two local-restore CLI5s"
+      ],
+      "timeoutChanges": false
+    },
+    "node": {
+      "tests": 112,
+      "passed": 112,
+      "skipped": 0
+    },
+    "postgres": {
+      "files": 66,
+      "integrationTests": 519,
+      "baselineTests": 4,
+      "status": "passed_after_three_file_repeats",
+      "initialPassed": 516,
+      "initialFailed": 3,
+      "initialFilesPassed": 63,
+      "initialFilesFailed": 3,
+      "initialFailures": [
+        "restore test expected34 migrations instead of46",
+        "E1 executable inventory exceeded256",
+        "synthetic V1 freeze invalidated by source edit during run"
+      ],
+      "repeatedFiles": 3,
+      "repeatedTests": 6,
+      "casesByFile": {
+        "apps/api/tests/upcoming.integration.test.ts": {
+          "tests": 13,
+          "passed": true
+        },
+        "packages/ingestion/tests/research-journal-cli.integration.test.ts": {
+          "tests": 1,
+          "passed": true
+        },
+        "packages/db/tests/series-provision.integration.test.ts": {
+          "tests": 16,
+          "passed": true
+        },
+        "packages/ingestion/tests/v1-release-journal-cli.integration.test.ts": {
+          "tests": 2,
+          "passed": true
+        },
+        "apps/api/tests/scheduled-results.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "packages/db/tests/upcoming-evidence.integration.test.ts": {
+          "tests": 11,
+          "passed": true
+        },
+        "apps/api/tests/scheduled-lifecycle.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "apps/api/tests/compare.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "apps/api/tests/reports.integration.test.ts": {
+          "tests": 9,
+          "passed": true
+        },
+        "apps/api/tests/scheduled-forecasts.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "packages/db/tests/v1-scheduled-runtime.integration.test.ts": {
+          "tests": 9,
+          "passed": true
+        },
+        "apps/api/tests/scenarios.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "apps/api/tests/draft.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "apps/api/tests/ranked-context.integration.test.ts": {
+          "tests": 13,
+          "passed": true
+        },
+        "packages/ingestion/tests/managed-import.integration.test.ts": {
+          "tests": 1,
+          "passed": true
+        },
+        "apps/api/tests/schedule-freshness.integration.test.ts": {
+          "tests": 6,
+          "passed": true
+        },
+        "apps/api/tests/schedule-targets.integration.test.ts": {
+          "tests": 6,
+          "passed": true
+        },
+        "apps/api/tests/hero-matchups.integration.test.ts": {
+          "tests": 6,
+          "passed": true
+        },
+        "apps/api/tests/role-suggestions.integration.test.ts": {
+          "tests": 4,
+          "passed": true
+        },
+        "apps/api/tests/journal.integration.test.ts": {
+          "tests": 5,
+          "passed": true
+        },
+        "apps/api/tests/predictions.integration.test.ts": {
+          "tests": 5,
+          "passed": true
+        },
+        "packages/db/tests/v1-schedule-result.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "packages/db/tests/v1-forecast.integration.test.ts": {
+          "tests": 15,
+          "passed": true
+        },
+        "packages/db/tests/corpus-quality.integration.test.ts": {
+          "tests": 5,
+          "passed": true
+        },
+        "packages/db/tests/game-context.integration.test.ts": {
+          "tests": 6,
+          "passed": true
+        },
+        "apps/api/tests/local-restore.integration.test.ts": {
+          "tests": 3,
+          "passed": true
+        },
+        "apps/api/tests/auth.integration.test.ts": {
+          "tests": 11,
+          "passed": true
+        },
+        "apps/api/tests/model-readiness.integration.test.ts": {
+          "tests": 4,
+          "passed": true
+        },
+        "apps/api/tests/history.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "apps/api/tests/local-restore-queue.integration.test.ts": {
+          "tests": 2,
+          "passed": true
+        },
+        "packages/db/tests/patch-history.integration.test.ts": {
+          "tests": 5,
+          "passed": true
+        },
+        "apps/api/tests/role-profiles.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "packages/db/tests/v1-runtime.integration.test.ts": {
+          "tests": 9,
+          "passed": true
+        },
+        "apps/api/tests/ranked-practice.integration.test.ts": {
+          "tests": 12,
+          "passed": true
+        },
+        "apps/api/tests/roster-catalogue.integration.test.ts": {
+          "tests": 25,
+          "passed": true
+        },
+        "packages/db/tests/dataset-builder.integration.test.ts": {
+          "tests": 13,
+          "passed": true
+        },
+        "packages/db/tests/v1-target-lifecycle.integration.test.ts": {
+          "tests": 5,
+          "passed": true
+        },
+        "apps/worker/tests/queue.integration.test.ts": {
+          "tests": 4,
+          "passed": true
+        },
+        "apps/api/tests/player-history.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "apps/api/tests/local-restore-env.integration.test.ts": {
+          "tests": 1,
+          "passed": true
+        },
+        "apps/api/tests/history-resume.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "apps/api/tests/pro-maps.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "apps/api/tests/security.integration.test.ts": {
+          "tests": 6,
+          "passed": true
+        },
+        "packages/db/tests/identity-provision.integration.test.ts": {
+          "tests": 22,
+          "passed": true
+        },
+        "packages/db/tests/dataset-audit.integration.test.ts": {
+          "tests": 4,
+          "passed": true
+        },
+        "packages/db/tests/dataset-series.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "packages/ingestion/tests/import.integration.test.ts": {
+          "tests": 14,
+          "passed": true
+        },
+        "apps/api/tests/provider-conflicts.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "packages/db/tests/v1-data.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "packages/db/tests/dataset.integration.test.ts": {
+          "tests": 14,
+          "passed": true
+        },
+        "packages/db/tests/v1-registry.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "apps/api/tests/history-enrichment.integration.test.ts": {
+          "tests": 4,
+          "passed": true
+        },
+        "packages/db/tests/v1-release-journal.integration.test.ts": {
+          "tests": 11,
+          "passed": true
+        },
+        "packages/db/tests/identity.integration.test.ts": {
+          "tests": 12,
+          "passed": true
+        },
+        "packages/db/tests/outcome-verifier.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "packages/ingestion/tests/evaluation-details.integration.test.ts": {
+          "tests": 3,
+          "passed": true
+        },
+        "apps/api/tests/player-hero.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "apps/api/tests/strength.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "apps/api/tests/roster.integration.test.ts": {
+          "tests": 8,
+          "passed": true
+        },
+        "apps/api/tests/sample.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "packages/ingestion/tests/provider-resilience.integration.test.ts": {
+          "tests": 5,
+          "passed": true
+        },
+        "apps/api/tests/catalog.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "packages/db/tests/research-journal.integration.test.ts": {
+          "tests": 9,
+          "passed": true
+        },
+        "packages/db/tests/research-elo.integration.test.ts": {
+          "tests": 7,
+          "passed": true
+        },
+        "packages/db/tests/readiness.integration.test.ts": {
+          "tests": 9,
+          "passed": true
+        },
+        "packages/db/tests/context.integration.test.ts": {
+          "tests": 9,
+          "passed": true
+        }
+      }
+    },
+    "browser": {
+      "uniqueTests": 101,
+      "files": 36,
+      "status": "passed_across_full_run_and_scoped_repeats",
+      "initialPassed": 94,
+      "initialFailed": 7,
+      "correctedWorkflowPassed": 8,
+      "correctedWorkflowFailed": 1,
+      "finalInitialRosterPassed": 2,
+      "automaticRetries": 0,
+      "allExpectedCasesCovered": true,
+      "caseManifestSha256": "3634317006ba8caff9aa9715b2f0758eedaad8d09422bc8428ac19e4e7e264f2"
+    },
+    "frozen": {
+      "status": "PASS",
+      "protectedFiles": 245,
+      "originalModules": 150,
+      "frozenBundle": true,
+      "runtimeCompatible": true
+    }
+  },
+  "fixes": [
+    "Baseline migration inventory20->authoritative directory, immutable checksums/idempotence and own temporary DB",
+    "Restore expected34 replaced by complete source migration ledger equality before/after idempotent replay",
+    "Complete PostgreSQL test discovery and CI coverage",
+    "Legacy E1 code inventory263 exceeded256; complete immutable nested manifest retains all264 current files without changing frozen schemas",
+    "Browser source disclosure, asynchronous history completion, explicit serial saved-roster journey",
+    "Initial roster test injected catalogue transport; earlier run could use live OpenDota fallback and zero outbound requests is not claimed"
+  ],
+  "workingData": {
+    "relations": 93,
+    "publicRelations": 80,
+    "queueRelations": 13,
+    "unchangedRelations": 90,
+    "allPublicHashesUnchanged": true,
+    "jobHashesUnchanged": true,
+    "changedServiceRelations": [
+      "pgboss.instance",
+      "pgboss.queue",
+      "pgboss.version"
+    ],
+    "serviceRowCountsUnchanged": true,
+    "serviceChangesInterpretation": "consistent_with_running_worker_heartbeat_monitor_cron; original_column_differences_not_available_from_hash_only_baseline",
+    "currentWorker": {
+      "pid": 9904,
+      "startedOn": "2026-11-05T11:31:40.554Z",
+      "heartbeatOn": "2026-11-06T00:11:01.959Z"
+    },
+    "jobs": [
+      {
+        "name": "opendota-map-import",
+        "state": "completed",
+        "count": 2
+      },
+      {
+        "name": "opendota-player-history",
+        "state": "completed",
+        "count": 10
+      },
+      {
+        "name": "opendota-team-history",
+        "state": "created",
+        "count": 1
+      }
+    ],
+    "noNewTestDatabases": true,
+    "preexistingTestDatabases": 1,
+    "maps": 340,
+    "beforeSha256": "36796e85a785b98321d403acbb77125bfe9f1b910492790ce1b8b3ccc6fdad1a",
+    "afterSha256": "a529cfa7bea6e977ffd51d31a63436a92e35f1221b35fcb44da8192d7ee89624",
+    "queueAuditSha256": "888c7c5b0b73aaa6b73b8054ee0b6bbf634dab341db1d40f043f1cece2fdcc4b"
+  },
+  "codeManifests": [
+    {
+      "sha256": "94d4ffacdda4bb35a8bd2ba72b6ad20cd0a1012846fe1f896ba3f161dca29d56",
+      "files": 264,
+      "currentSourceHashesVerified": true
+    }
+  ],
+  "modelEvaluation": {
+    "realEvaluation": false,
+    "activation": false,
+    "forecastPublication": false,
+    "syntheticQaOnly": true
+  },
+  "visualReview": {
+    "synthetic": true,
+    "images": [
+      "player-history-mobile.png",
+      "unified-player-catalogue-mobile.png"
+    ],
+    "newDefectsFound": false,
+    "wholeAppVisualAudit": false
+  },
+  "limitations": {
+    "linuxCi": "prepared_not_executed",
+    "dockerLinuxDeployment": "deferred_by_owner",
+    "python": "not_rerun",
+    "firstBrowserExternalCatalogueAccess": "possible_before_fixture_correction"
+  },
+  "next": {
+    "task": "S3-01/V1-evaluation/collection",
+    "collectionStartsAt": "2026-11-20T00:00:00.000Z",
+    "evaluationNotBefore": "2026-12-02T00:00:00.000Z",
+    "modelRecommendation": "GPT-6 Astra · Extra High"
+  },
+  "logs": {
+    "install": {
+      "sha256": "78e74d788f5f11ab8fb91746dd1aeca6cfd3536ac8525f5e762185304a06a25a"
+    },
+    "typecheck": {
+      "sha256": "0582be245cfe411511899221d93ae44a91d29bf045fb587f439980a1cdccb98b"
+    },
+    "typecheck-final": {
+      "sha256": "7c7fa49e5d8a9d809b0935f00f67c26ee3b3a292f18a7c828d5fceb6faefeca6"
+    },
+    "build": {
+      "sha256": "ae22aa1333f5e6cda4df33ea3baf3a379b8b61cda7450c9696a3daac5be18fb6"
+    },
+    "unit": {
+      "sha256": "b2ccb683a93fcb23aac07abc83936c45937bbd0ddc582f072c5dc5b3e32188c8"
+    },
+    "app-unit-serial": {
+      "sha256": "2f0991fd8c6ad32e918f4d42e3e511595ee41f044dbb05c50c7b00db13f22392"
+    },
+    "cli-serial": {
+      "sha256": "c8375482704483b8c9c9819cc50487a272760781b460d3d0e876e263ead31aba"
+    },
+    "node-final": {
+      "sha256": "0e721a041398c3464e8898a0e848deadd0cf50fe503fecd31425b0439fa2b7a2"
+    },
+    "baseline-red": {
+      "sha256": "88056340e9d1906e92ccce0b360d1a981597afee05c000d8ac0879b361fdc0cb"
+    },
+    "baseline-green": {
+      "sha256": "963659e2e68e32758f0411b0e17f08212e9d0e536db6c3bf24aaf2bf6595fe08"
+    },
+    "postgres": {
+      "sha256": "4d12c33be0c7dc80de8daa31207af83511c59b5a71202cf9f2711f01912d58d3"
+    },
+    "journal-final": {
+      "sha256": "662fad416a7a2d1b16ae0e0f72e4a19bba54cd98e3629cf32911c7c158b6ab7e"
+    },
+    "restore-final": {
+      "sha256": "f77fb25ac07d5035ad5edff2c4b388b419fddcdec8454bc012c02d7fca75f6d0"
+    },
+    "browser-list": {
+      "sha256": "1d656759c47bb56913e2f2b95737ed00beab66dcb01e635dea8f16b4d6db0b97"
+    },
+    "browser": {
+      "sha256": "94604aa5cf6e8102e571aac9c230238d58e1ca9bcbb4665e14cfb81c949b36f5"
+    },
+    "browser-final": {
+      "sha256": "0c7a9948c8131d270be2a0f1f4898997e10af1d9a302580c56bf0b51e1bb6095"
+    },
+    "browser-initial-final": {
+      "sha256": "49214ea198f9e940fb0895d3315c8ceab7d9acd3190191a391877e986cebbad4"
+    },
+    "frozen-final": {
+      "sha256": "70b158de487618b505e8cc4abe52193910b0211a5b7e137845259c5b135c5663"
+    },
+    "migrations": {
+      "sha256": "1479fa98aaa7ac087f25abcfed8957ae1b2c27385d40a99375509d60db543d4c"
+    }
+  }
+}

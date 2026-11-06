@@ -1,0 +1,307 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-05T19:47:07.199Z",
+  "task": "S2-01/role-owner-check/final-acceptance",
+  "files": [
+    {
+      "path": "apps/web/src/components/UpcomingScenario.vue",
+      "sha256": "2d2b2b1d5746b23614c01b316d56a37ba34dd2c77e8183462af51daf2a9b4531"
+    },
+    {
+      "path": "apps/web/tests/e2e/automatic-roster.spec.ts",
+      "sha256": "88fa919b4ac6a42d5bcd90d1bc02ffac711ebe98a8dacd065bec85cd5a2852fe"
+    }
+  ],
+  "fix": "Saved lineup initializes role auto OFF per side; explicit re-enable retained",
+  "checks": {
+    "offlineFrozenInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 839,
+    "chromium": 11,
+    "initialRegression": "failed before fix",
+    "liveFlowAssertions": [
+      "unsaved Nemiga five uses existing verified canonical accounts; comparison rendered",
+      "manual role swap and hypothetical replacement reset confirmation/report; explicit reconfirm and year comparison passed",
+      "360px no overflow/errors; no saved bindings, scenarios, forecasts or history jobs"
+    ],
+    "mobileVisual": "inspected",
+    "frozenBundle": "PASS",
+    "protectedFiles": 245,
+    "originalModules": 150,
+    "runtimeCompatible": true
+  },
+  "live": {
+    "scheduleRefreshedAt": "2026-11-05T19:35:50.430Z",
+    "matchIds": [
+      "1785740",
+      "1785741",
+      "1791732"
+    ],
+    "newLoginRequests": 0,
+    "sourceProfileRefreshes": 0,
+    "manualNemigaCanonicalIds": [
+      "223",
+      "219",
+      "257",
+      "217",
+      "270"
+    ],
+    "hypotheticalReplacementId": "22",
+    "replacementPersisted": false,
+    "scriptEncodingIssues": 2,
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/v1/auth/me",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/upcoming",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/upcoming/tournaments/22347",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/upcoming/1785740/catalogue",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2183",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2183/history-refresh",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players/history-refresh",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2183/role-profile-binding",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2183/matches",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/lineup-role-profiles",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2183",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2183/matches",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/upcoming/1785740/catalogue/prepare",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2192",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2192/history-refresh",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2192/role-profile-binding",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2192/matches",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players/history-refresh",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/lineup-role-profiles",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/teams/compare",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players/history-refresh",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/lineup-role-profiles",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/lineup-role-profiles",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2183",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2192",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/teams/compare",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2183/matches",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/teams/2192/matches",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/teams/compare",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players",
+        "status": 200
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/players/history-refresh",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/lineup-role-profiles",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/teams/compare",
+        "status": 200
+      },
+      {
+        "method": "POST",
+        "path": "/api/v1/teams/compare",
+        "status": 200
+      }
+    ]
+  },
+  "database": {
+    "tables": 75,
+    "changed": [
+      "pandascore_request_quota",
+      "provider_quotas",
+      "roster_catalogue_cache",
+      "upcoming_source_cache",
+      "upcoming_source_observations"
+    ],
+    "unchanged": 70,
+    "maps": 340,
+    "queueUnchanged": true,
+    "savedFactsUnchanged": true
+  },
+  "collection": {
+    "status": "not_started",
+    "testFromAt": "2026-11-20T00:00:00.000Z",
+    "snapshotAt": "2026-12-02T00:00:00.000Z",
+    "runs": [],
+    "remainingRuns": 10,
+    "busy": false,
+    "collectionComplete": false,
+    "remoteCompleteness": "unknown",
+    "metrics": null,
+    "teamAWinProbability": null,
+    "scoringPerformed": false
+  },
+  "next": {
+    "task": "S3-01/V1-evaluation/collection",
+    "model": "GPT-6 Astra · Extra High",
+    "startsAt": "2026-11-20T00:00:00.000Z",
+    "evaluateNotBeforeAt": "2026-12-02T00:00:00.000Z"
+  },
+  "notRun": [
+    "standalone API/PG suite",
+    "full Node",
+    "Python",
+    "Docker",
+    "Linux"
+  ],
+  "noCommitPushDeploy": true
+}

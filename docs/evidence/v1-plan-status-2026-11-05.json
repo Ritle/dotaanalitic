@@ -1,0 +1,217 @@
+{
+  "task": "S4/V1-current-plan-review",
+  "recordedAt": "2026-11-05T01:18:44.382Z",
+  "databaseAudit": {
+    "checkedAt": "2026-11-05 01:15:14.148209+00",
+    "counts": {
+      "matches": 340,
+      "players": 314,
+      "series": 172,
+      "player_account_evidence": 314,
+      "training_dataset_versions": 0,
+      "training_dataset_maps": 0,
+      "prediction_model_versions": 1,
+      "v1_model_artifacts": 1,
+      "v1_release_evaluation_journal": 0,
+      "model_evaluation_runs": 0,
+      "model_activation_events": 0,
+      "v1_runtime_snapshots": 0,
+      "prediction_runs": 0,
+      "v1_schedule_targets": 0
+    },
+    "models": [
+      {
+        "id": "8837077f-7bd3-4412-85c8-13dcab6aa14d",
+        "stage": "pre_match",
+        "is_active": false
+      }
+    ],
+    "predictions": [],
+    "latestBindings": [
+      {
+        "provider_team_id": "1931",
+        "revision": 2,
+        "recorded_at": "2026-11-05T01:11:14.542Z",
+        "players": [
+          {
+            "name": "⃤⃟⃝⃤⃟⃝⃤⃟⃝⃤",
+            "playerId": "59",
+            "accountId": "1150772339"
+          },
+          {
+            "name": "aik",
+            "playerId": "57",
+            "accountId": "1202267677"
+          },
+          {
+            "name": "Rain",
+            "playerId": "54",
+            "accountId": "860145568"
+          },
+          {
+            "name": "rincyq",
+            "playerId": "52",
+            "accountId": "418942836"
+          },
+          {
+            "name": "prblms",
+            "playerId": "51",
+            "accountId": "417235485"
+          }
+        ]
+      },
+      {
+        "provider_team_id": "137588",
+        "revision": 1,
+        "recorded_at": "2026-11-04T22:52:05.496Z",
+        "players": [
+          {
+            "name": "Bignum",
+            "playerId": "22",
+            "accountId": "90423751"
+          },
+          {
+            "name": "Speeed",
+            "playerId": "27",
+            "accountId": "191362875"
+          },
+          {
+            "name": "Fayde",
+            "playerId": "25",
+            "accountId": "160119017"
+          },
+          {
+            "name": "Yuma",
+            "playerId": "26",
+            "accountId": "177203952"
+          },
+          {
+            "name": "RCY",
+            "playerId": "24",
+            "accountId": "154974246"
+          }
+        ]
+      }
+    ],
+    "releasePlan": {
+      "status": "registered_not_evaluated",
+      "testFromAt": "2026-11-20T00:00:00.000Z",
+      "evaluateNotBefore": "2026-12-02T00:00:00.000Z",
+      "events": [
+        {
+          "eventKey": "blast-slam-ix-2026-main",
+          "name": "BLAST Slam IX 2026 — main event",
+          "fromAt": "2026-11-20T00:00:00.000Z",
+          "until": "2026-11-30T00:00:00.000Z"
+        }
+      ],
+      "policy": "conditional-elo-tier1-release-v1"
+    }
+  },
+  "featureAudit": {
+    "checkedAt": "2026-11-05T01:15:54.628Z",
+    "mode": "read-only-development-feature-audit-no-probability",
+    "inventoryMaps": 340,
+    "eligibleHistoryMaps": 320,
+    "status": "ready",
+    "reasons": [],
+    "players": [
+      {
+        "side": "A",
+        "name": "⃤⃟⃝⃤⃟⃝⃤⃟⃝⃤",
+        "playerId": "59",
+        "accountId": "1150772339",
+        "eligibleMaps": 25,
+        "reason": null
+      },
+      {
+        "side": "A",
+        "name": "aik",
+        "playerId": "57",
+        "accountId": "1202267677",
+        "eligibleMaps": 28,
+        "reason": null
+      },
+      {
+        "side": "A",
+        "name": "Rain",
+        "playerId": "54",
+        "accountId": "860145568",
+        "eligibleMaps": 27,
+        "reason": null
+      },
+      {
+        "side": "A",
+        "name": "rincyq",
+        "playerId": "52",
+        "accountId": "418942836",
+        "eligibleMaps": 30,
+        "reason": null
+      },
+      {
+        "side": "A",
+        "name": "prblms",
+        "playerId": "51",
+        "accountId": "417235485",
+        "eligibleMaps": 21,
+        "reason": null
+      },
+      {
+        "side": "B",
+        "name": "Bignum",
+        "playerId": "22",
+        "accountId": "90423751",
+        "eligibleMaps": 25,
+        "reason": null
+      },
+      {
+        "side": "B",
+        "name": "Speeed",
+        "playerId": "27",
+        "accountId": "191362875",
+        "eligibleMaps": 25,
+        "reason": null
+      },
+      {
+        "side": "B",
+        "name": "Fayde",
+        "playerId": "25",
+        "accountId": "160119017",
+        "eligibleMaps": 25,
+        "reason": null
+      },
+      {
+        "side": "B",
+        "name": "Yuma",
+        "playerId": "26",
+        "accountId": "177203952",
+        "eligibleMaps": 57,
+        "reason": null
+      },
+      {
+        "side": "B",
+        "name": "RCY",
+        "playerId": "24",
+        "accountId": "154974246",
+        "eligibleMaps": 25,
+        "reason": null
+      }
+    ]
+  },
+  "scope": "documentation/read-only review; no model scoring, activation or forecast issue",
+  "codeReview": {
+    "evidenceOnlyResumeImplemented": false,
+    "scheduleAgeGuardImplemented": false,
+    "scheduleAgeLocation": "packages/db/src/v1-schedule-target.ts:scheduleTargetReasons",
+    "historyEntry": "apps/api/src/modules/history/player-history.ts:PlayerHistoryService.read",
+    "enrichmentEntry": "packages/ingestion/src/history-enrichment.ts:enrichHistoryEvidence/historyReadiness"
+  },
+  "lastFullQaReference": "s2-01-saved-roster-account-correction.json",
+  "fullSuitesRerun": false,
+  "externalApiCalls": 0,
+  "workingDbWrites": 0,
+  "productionCodeChanged": false,
+  "registeredReleasePlanChanged": false,
+  "nextTask": "S2-01/role-owner-check/history-enrichment-resume",
+  "nextBeforeActivation": "schedule-freshness guard and independent release evaluation"
+}

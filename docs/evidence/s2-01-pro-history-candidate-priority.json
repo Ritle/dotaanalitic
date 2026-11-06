@@ -1,0 +1,57 @@
+{
+  "task": "S2-01/pro-history-candidate-priority",
+  "recordedAt": "2026-11-05T00:09:23.339Z",
+  "scope": "local-found-candidate-ranking-and-review",
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T00:08:21.082Z",
+    "matchId": "1756313",
+    "accounts": [
+      {
+        "accountId": "1150772339",
+        "localProMaps": 10
+      },
+      {
+        "accountId": "787686331",
+        "localProMaps": 0
+      }
+    ],
+    "bindingPreserved": true,
+    "mobileOverflow": false,
+    "pageErrors": [],
+    "posts": [
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/upcoming/1756313/catalogue/search",
+      "/api/v1/upcoming/1756313/catalogue/search"
+    ]
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 817,
+    "node": 74,
+    "pgApi": 25,
+    "chromium": 9,
+    "migrations": 42
+  },
+  "semantics": [
+    "Exact names/aliases precede partial matches; positive local pro-history precedes zero/unknown within each group, ties are stable and not ordered by N.",
+    "One verified local candidate with positive history may fill an ambiguous review draft; ambiguity and manual whole-five confirmation remain.",
+    "Explicit numeric lookup returns only that account; saved global links and manual/cleared drafts remain authoritative.",
+    "Local counts require completed earlier pro maps, verified identity and nonconflicting ingest; pubs/future maps excluded. Counts are descriptive, not Elo eligibility.",
+    "Unknown history is not zero; zero local maps may mean history not loaded. No extra external history requests.",
+    "Only found candidates are ranked. A wholly different nickname still needs numeric lookup, recognized link or observed alias. No automated Dota2ProTracker retrieval."
+  ],
+  "initialFailure": "New API fixture reused an intentionally conflicting account from a previous case; replaced by two verified accounts, preserved stable-order reversal. 24/25 initial, 25/25 final.",
+  "newDependencies": 0,
+  "newSqlMigrations": 0,
+  "modelChanges": false,
+  "fullPgSuiteRun": false,
+  "pythonRun": false,
+  "dockerRun": false,
+  "linuxRun": false,
+  "apiPid": 24520,
+  "nextTask": "S2-01/role-owner-check/history-enrichment-resume"
+}

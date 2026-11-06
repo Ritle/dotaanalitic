@@ -1,0 +1,4309 @@
+{
+  "schemaVersion": 1,
+  "task": "S2-01/role-owner-check/player-history-depth",
+  "checkedAt": "2026-11-04T20:39:39.953Z",
+  "implementation": {
+    "windowChoices": [
+      90,
+      180,
+      365,
+      730
+    ],
+    "mapChoices": [
+      10,
+      25,
+      50
+    ],
+    "uiDefaults": {
+      "windowDays": 365,
+      "maxMaps": 25
+    },
+    "legacyDefaults": {
+      "windowDays": 90,
+      "maxMaps": 10
+    },
+    "maxPageSizePerAccount": 10,
+    "maxPages": 5,
+    "maxDiscoveryRows": 250,
+    "maxDetails": 50,
+    "fixedCutoff": true,
+    "keyset": [
+      "start_time",
+      "match_id"
+    ],
+    "sharedProviderQuota": true,
+    "cacheIncludesOptions": true,
+    "overlappingOptionsRejected": true,
+    "oldReportsAndKeysPreserved": true,
+    "migration": "042_player_history_options.sql"
+  },
+  "sourceAudit": {
+    "status": "complete",
+    "requested": 2,
+    "sha256": "58729c5ca98e0e3686a7d14a981e7b3606da7f4867aa55ee2f6994211b7ae833",
+    "coverage": {
+      "match_id_consistent": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "start_time": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "outcome": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "completed_outcome": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "confirmed_pro": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "teams_2": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "league": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "series": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "patch": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "players_10": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "identity_10": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "canonical_identity_10": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9076387949",
+          "9076294639"
+        ]
+      },
+      "heroes_10_unique": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "picks_10": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_actions": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "role_hint_10": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "game_mode": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "lobby_type": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "final_heroes_valid": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_picks_exact": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_heroes_match": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_teams_match": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_order_integrity": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_structurally_consistent": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "draft_order_valid": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9076387949",
+          "9076294639"
+        ]
+      },
+      "verified_patch": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9076387949",
+          "9076294639"
+        ]
+      },
+      "pre_match_lineup_known_at": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9076387949",
+          "9076294639"
+        ]
+      },
+      "post_draft_heroes_known_at": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9076387949",
+          "9076294639"
+        ]
+      },
+      "discovery_cohort_consistent": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      }
+    }
+  },
+  "live": {
+    "matchId": "1785738",
+    "runs": [
+      {
+        "id": "326a47f2-5765-49dd-b16b-3c8e345e5224",
+        "status": "completed",
+        "options": {
+          "maxMaps": 25,
+          "windowDays": 365
+        },
+        "bindings": [
+          {
+            "playerId": "204",
+            "accountId": "116865891"
+          },
+          {
+            "playerId": "205",
+            "accountId": "156485213"
+          },
+          {
+            "playerId": "206",
+            "accountId": "320017600"
+          },
+          {
+            "playerId": "207",
+            "accountId": "891154650"
+          },
+          {
+            "playerId": "208",
+            "accountId": "1675517497"
+          }
+        ],
+        "report": {
+          "maps": [
+            {
+              "status": "accepted",
+              "matchId": "8985886048",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9051744853",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9045280553",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8829975493",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9057739307",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8985721401",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9051682783",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9045164434",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8829935670",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9057674435",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8984703068",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9051573372",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9045027883",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8698594348",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9056309568",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8984639408",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9051454022",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9044797513",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8698487856",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9056258736",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8984433236",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9051367680",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9044653942",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "8652714203",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9055504238",
+              "reasons": []
+            }
+          ],
+          "failed": 0,
+          "fromAt": "2025-11-04T20:31:25.000Z",
+          "options": {
+            "maxMaps": 25,
+            "windowDays": 365
+          },
+          "players": [
+            {
+              "accepted": 5,
+              "playerId": "204",
+              "selected": 5,
+              "accountId": "116865891",
+              "discovered": 25,
+              "sourceLimitReached": true
+            },
+            {
+              "accepted": 5,
+              "playerId": "205",
+              "selected": 5,
+              "accountId": "156485213",
+              "discovered": 25,
+              "sourceLimitReached": true
+            },
+            {
+              "accepted": 5,
+              "playerId": "206",
+              "selected": 5,
+              "accountId": "320017600",
+              "discovered": 25,
+              "sourceLimitReached": true
+            },
+            {
+              "accepted": 5,
+              "playerId": "207",
+              "selected": 5,
+              "accountId": "891154650",
+              "discovered": 25,
+              "sourceLimitReached": true
+            },
+            {
+              "accepted": 11,
+              "playerId": "208",
+              "selected": 11,
+              "accountId": "1675517497",
+              "discovered": 25,
+              "sourceLimitReached": true
+            }
+          ],
+          "accepted": 25,
+          "cutoffAt": "2026-11-04T20:31:25.036Z",
+          "excluded": 0,
+          "selected": 25,
+          "conflicts": 0,
+          "fetchedAt": "2026-11-04T20:32:05.679Z",
+          "duplicates": 0,
+          "policyVersion": "selected-player-history-v2",
+          "discoveryPages": 3
+        },
+        "source_audit": {
+          "options": {
+            "maxMaps": 25,
+            "windowDays": 365
+          },
+          "sources": [
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/explorer?sql=SELECT+a.account_id%3A%3Atext%2Ch.*+FROM+%28VALUES+%28116865891%3A%3Abigint%29%2C%28156485213%3A%3Abigint%29%2C%28320017600%3A%3Abigint%29%2C%28891154650%3A%3Abigint%29%2C%281675517497%3A%3Abigint%29%29+a%28account_id%29+CROSS+JOIN+LATERAL+%28SELECT+m.match_id%3A%3Atext%2Cm.start_time%2Cm.duration%2Cm.radiant_win%2Cm.leagueid%3A%3Atext%2Cl.tier%2Cp.player_slot+FROM+player_matches+p+JOIN+matches+m+ON+m.match_id%3Dp.match_id+JOIN+leagues+l+ON+l.leagueid%3Dm.leagueid+WHERE+p.account_id%3Da.account_id+AND+l.tier+IN+%28%27professional%27%2C%27premium%27%29+AND+m.radiant_win+IS+NOT+NULL+AND+m.duration%3E0+AND+m.start_time%3E%3D1762288285+AND+m.start_time%2Bm.duration%3C1793824285+ORDER+BY+m.start_time+DESC%2Cm.match_id+DESC+LIMIT+10%29+h",
+              "fetchedAt": "2026-11-04T20:31:25.629Z",
+              "payloadSha256": "e6510741ce29c6433b952e62fc9867e74aa9f0be748890663f1dc3c54f02631f"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/explorer?sql=SELECT+a.account_id%3A%3Atext%2Ch.*+FROM+%28VALUES+%28116865891%3A%3Abigint%29%2C%28156485213%3A%3Abigint%29%2C%28320017600%3A%3Abigint%29%2C%28891154650%3A%3Abigint%29%2C%281675517497%3A%3Abigint%29%29+a%28account_id%29+CROSS+JOIN+LATERAL+%28SELECT+m.match_id%3A%3Atext%2Cm.start_time%2Cm.duration%2Cm.radiant_win%2Cm.leagueid%3A%3Atext%2Cl.tier%2Cp.player_slot+FROM+player_matches+p+JOIN+matches+m+ON+m.match_id%3Dp.match_id+JOIN+leagues+l+ON+l.leagueid%3Dm.leagueid+WHERE+p.account_id%3Da.account_id+AND+l.tier+IN+%28%27professional%27%2C%27premium%27%29+AND+m.radiant_win+IS+NOT+NULL+AND+m.duration%3E0+AND+m.start_time%3E%3D1762288285+AND+m.start_time%2Bm.duration%3C1793824285+AND+%28a.account_id%3C%3E116865891%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281788120347%3A%3Abigint%2C8974985429%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E156485213%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281792224506%3A%3Abigint%2C9048749977%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E320017600%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281791285309%3A%3Abigint%2C9031849890%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E891154650%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281768039204%3A%3Abigint%2C8643189704%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E1675517497%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281792188783%3A%3Abigint%2C9048309060%3A%3Abigint%29%29+ORDER+BY+m.start_time+DESC%2Cm.match_id+DESC+LIMIT+10%29+h",
+              "fetchedAt": "2026-11-04T20:31:26.654Z",
+              "payloadSha256": "b789b27dcb991404b1aa0a73a83952ae318a2f1b101a220a10fc99a7735636ca"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/explorer?sql=SELECT+a.account_id%3A%3Atext%2Ch.*+FROM+%28VALUES+%28116865891%3A%3Abigint%29%2C%28156485213%3A%3Abigint%29%2C%28320017600%3A%3Abigint%29%2C%28891154650%3A%3Abigint%29%2C%281675517497%3A%3Abigint%29%29+a%28account_id%29+CROSS+JOIN+LATERAL+%28SELECT+m.match_id%3A%3Atext%2Cm.start_time%2Cm.duration%2Cm.radiant_win%2Cm.leagueid%3A%3Atext%2Cl.tier%2Cp.player_slot+FROM+player_matches+p+JOIN+matches+m+ON+m.match_id%3Dp.match_id+JOIN+leagues+l+ON+l.leagueid%3Dm.leagueid+WHERE+p.account_id%3Da.account_id+AND+l.tier+IN+%28%27professional%27%2C%27premium%27%29+AND+m.radiant_win+IS+NOT+NULL+AND+m.duration%3E0+AND+m.start_time%3E%3D1762288285+AND+m.start_time%2Bm.duration%3C1793824285+AND+%28a.account_id%3C%3E116865891%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281787601941%3A%3Abigint%2C8963790789%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E156485213%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281788104148%3A%3Abigint%2C8974508003%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E320017600%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281788867035%3A%3Abigint%2C8988695634%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E891154650%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281764695668%3A%3Abigint%2C8587235395%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E1675517497%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281792007424%3A%3Abigint%2C9045280553%3A%3Abigint%29%29+ORDER+BY+m.start_time+DESC%2Cm.match_id+DESC+LIMIT+5%29+h",
+              "fetchedAt": "2026-11-04T20:31:27.964Z",
+              "payloadSha256": "dce6a710380d3f0aa7bf6ffca23b7402a47c9cc04aa606b2d5b38bf691cf2fda"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/heroes",
+              "fetchedAt": "2026-11-04T20:31:30.656Z",
+              "payloadSha256": "c179babbb9bd910f60f91980ad0f9daec783b7743cf3a26baeb827569afb22f0"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/leagues",
+              "fetchedAt": "2026-11-04T20:31:29.619Z",
+              "payloadSha256": "349af26f434e9d30ec5a2620818bf5176e3bf2cc63e3f1fae890fd9a4be1f692"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8985886048",
+              "fetchedAt": "2026-11-04T20:31:32.566Z",
+              "payloadSha256": "180e1c9bc9ef301115792f0e57bf50efc45a59f8b38d5e0a893d982583ed1b5d"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9051744853",
+              "fetchedAt": "2026-11-04T20:31:33.864Z",
+              "payloadSha256": "7dfc9b7327eb6a06ff48b848dafb9159dc0709d66428d957db212230888d6d9f"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9045280553",
+              "fetchedAt": "2026-11-04T20:31:35.154Z",
+              "payloadSha256": "e39aa33ed3a1c10b1339b62dca2c1697195558642ec59ac7affb6cbb1d05e05f"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8829975493",
+              "fetchedAt": "2026-11-04T20:31:36.368Z",
+              "payloadSha256": "31cc15a6d4b55d37ad4755622d1067b88addadcf4b9dbed8b2c7e0812d258abd"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9057739307",
+              "fetchedAt": "2026-11-04T20:31:37.904Z",
+              "payloadSha256": "d2c01050181c0a966991fdb535632c1f8f0ed172b516ebd88e745d7b1c48e29b"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8985721401",
+              "fetchedAt": "2026-11-04T20:31:39.443Z",
+              "payloadSha256": "a3017a6676ecd3f3ce252a14657669490c4898b194eba7b2ea0b03bc8d5ad057"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9051682783",
+              "fetchedAt": "2026-11-04T20:31:40.669Z",
+              "payloadSha256": "eabff2fc491381cfd2d52919539a909392876df286ab50fb4acf0b71c892d29f"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9045164434",
+              "fetchedAt": "2026-11-04T20:31:42.028Z",
+              "payloadSha256": "f531a13ff51dfeab0f73638b4b9cec3a0d4861e31ee8560557ae3c2e29861017"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8829935670",
+              "fetchedAt": "2026-11-04T20:31:43.355Z",
+              "payloadSha256": "968b2355ddb8999a82d50f46704e1ed7274ee65c3d0b7ff498fa86e575ea91a1"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9057674435",
+              "fetchedAt": "2026-11-04T20:31:44.717Z",
+              "payloadSha256": "398d8613a924db032f4b660731e674889df8d7fab1beba9a44c6aa4b2fd0d7f6"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8984703068",
+              "fetchedAt": "2026-11-04T20:31:46.074Z",
+              "payloadSha256": "81177b406a5d539b9ea0004a25740c62f25cd3ff52de1cf22ced6b34e56514af"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9051573372",
+              "fetchedAt": "2026-11-04T20:31:47.363Z",
+              "payloadSha256": "525f58860e834159724414664a1f59a6e3aa1fa5bf199866571f94ff4795f88a"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9045027883",
+              "fetchedAt": "2026-11-04T20:31:48.691Z",
+              "payloadSha256": "7d55ea9453ed64bea37865a920a6301a9cdc73894cf58f2e6a79e32631dfb141"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8698594348",
+              "fetchedAt": "2026-11-04T20:31:50.108Z",
+              "payloadSha256": "868c699bec88fc0f47be077aeea441d31088e6b532db2160dea64255f65f4a70"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9056309568",
+              "fetchedAt": "2026-11-04T20:31:51.441Z",
+              "payloadSha256": "07c9613455e65fe635b03ad67df99662143c0dac4bf6dae7ed0114179efc0c14"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8984639408",
+              "fetchedAt": "2026-11-04T20:31:52.575Z",
+              "payloadSha256": "964383e37e1e8ebe6e84bfa9f7f183430a2e628ed2bfda0352970f41ca7d4b91"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9051454022",
+              "fetchedAt": "2026-11-04T20:31:54.667Z",
+              "payloadSha256": "4a407286a8ecdbd47aaa4e580771684cf9ba349f44d8dfa5ab5b959e9773e1cb"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9044797513",
+              "fetchedAt": "2026-11-04T20:31:55.498Z",
+              "payloadSha256": "091d20f9878ad07859c2a9e04c711e30cb9b165c00814b186166571929ada78a"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8698487856",
+              "fetchedAt": "2026-11-04T20:31:56.742Z",
+              "payloadSha256": "581ec6a5e5a2abe2c0ecbcf27e8e3a64c090473894d0f1315fa69f14b968e9fe"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9056258736",
+              "fetchedAt": "2026-11-04T20:31:58.491Z",
+              "payloadSha256": "f278f7757fbe8763616fef172af54c21f0aab699284f44b38119d758e9f9ae56"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8984433236",
+              "fetchedAt": "2026-11-04T20:31:59.416Z",
+              "payloadSha256": "fc054e92e7440e9743018e28a1b8bb15a0a7055c0cc009141b07d146f05d24e8"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9051367680",
+              "fetchedAt": "2026-11-04T20:32:01.032Z",
+              "payloadSha256": "1b9797f43039a0a3505dce33198c89ec9c5389dccb13ba0999fbb1ff26bae64d"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9044653942",
+              "fetchedAt": "2026-11-04T20:32:02.396Z",
+              "payloadSha256": "89a18a986054c240d3b827b50794716256d9217c5c130d66910e08d460b8da2f"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/8652714203",
+              "fetchedAt": "2026-11-04T20:32:03.639Z",
+              "payloadSha256": "8cb5cbaa63fd7c0d386b47c313d47fca7ef0df03a86a50dc60c746bcacf9a4a8"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9055504238",
+              "fetchedAt": "2026-11-04T20:32:05.665Z",
+              "payloadSha256": "d11f702e62fe92a3668c3082d88e8fe85a2a1c2f2c65350ee62f7f128e79cbad"
+            }
+          ],
+          "discoveryRows": [
+            {
+              "tier": "professional",
+              "duration": 1576,
+              "leagueid": "19944",
+              "match_id": "8985886048",
+              "account_id": "116865891",
+              "start_time": 1788702358,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2415,
+              "leagueid": "19944",
+              "match_id": "8985721401",
+              "account_id": "116865891",
+              "start_time": 1788698361,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2999,
+              "leagueid": "19944",
+              "match_id": "8984703068",
+              "account_id": "116865891",
+              "start_time": 1788641312,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2141,
+              "leagueid": "19944",
+              "match_id": "8984639408",
+              "account_id": "116865891",
+              "start_time": 1788638262,
+              "player_slot": 1,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3371,
+              "leagueid": "19944",
+              "match_id": "8984433236",
+              "account_id": "116865891",
+              "start_time": 1788631556,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2634,
+              "leagueid": "19944",
+              "match_id": "8980994942",
+              "account_id": "116865891",
+              "start_time": 1788455459,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2764,
+              "leagueid": "19944",
+              "match_id": "8980878142",
+              "account_id": "116865891",
+              "start_time": 1788451012,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1471,
+              "leagueid": "19944",
+              "match_id": "8980769413",
+              "account_id": "116865891",
+              "start_time": 1788447682,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1210,
+              "leagueid": "19944",
+              "match_id": "8975110449",
+              "account_id": "116865891",
+              "start_time": 1788125972,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1993,
+              "leagueid": "19944",
+              "match_id": "8974985429",
+              "account_id": "116865891",
+              "start_time": 1788120347,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1908,
+              "leagueid": "19944",
+              "match_id": "9051744853",
+              "account_id": "156485213",
+              "start_time": 1792359791,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2268,
+              "leagueid": "19944",
+              "match_id": "9051682783",
+              "account_id": "156485213",
+              "start_time": 1792355675,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2965,
+              "leagueid": "19944",
+              "match_id": "9051573372",
+              "account_id": "156485213",
+              "start_time": 1792350883,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2083,
+              "leagueid": "19944",
+              "match_id": "9051454022",
+              "account_id": "156485213",
+              "start_time": 1792346833,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2091,
+              "leagueid": "19944",
+              "match_id": "9051367680",
+              "account_id": "156485213",
+              "start_time": 1792343083,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2919,
+              "leagueid": "19944",
+              "match_id": "9051212593",
+              "account_id": "156485213",
+              "start_time": 1792338326,
+              "player_slot": 4,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1918,
+              "leagueid": "19944",
+              "match_id": "9049094334",
+              "account_id": "156485213",
+              "start_time": 1792240976,
+              "player_slot": 4,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3072,
+              "leagueid": "19944",
+              "match_id": "9048983711",
+              "account_id": "156485213",
+              "start_time": 1792236343,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2687,
+              "leagueid": "19944",
+              "match_id": "9048877833",
+              "account_id": "156485213",
+              "start_time": 1792231496,
+              "player_slot": 3,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4495,
+              "leagueid": "19944",
+              "match_id": "9048749977",
+              "account_id": "156485213",
+              "start_time": 1792224506,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2635,
+              "leagueid": "20359",
+              "match_id": "9045280553",
+              "account_id": "320017600",
+              "start_time": 1792007424,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2976,
+              "leagueid": "20359",
+              "match_id": "9045164434",
+              "account_id": "320017600",
+              "start_time": 1792002296,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3085,
+              "leagueid": "20359",
+              "match_id": "9045027883",
+              "account_id": "320017600",
+              "start_time": 1791997202,
+              "player_slot": 130,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3037,
+              "leagueid": "20359",
+              "match_id": "9044797513",
+              "account_id": "320017600",
+              "start_time": 1791988801,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2490,
+              "leagueid": "20359",
+              "match_id": "9044653942",
+              "account_id": "320017600",
+              "start_time": 1791984359,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1377,
+              "leagueid": "20359",
+              "match_id": "9043640925",
+              "account_id": "320017600",
+              "start_time": 1791915721,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3078,
+              "leagueid": "20359",
+              "match_id": "9043490716",
+              "account_id": "320017600",
+              "start_time": 1791910803,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2368,
+              "leagueid": "20359",
+              "match_id": "9042886394",
+              "account_id": "320017600",
+              "start_time": 1791886944,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2885,
+              "leagueid": "20359",
+              "match_id": "9042812804",
+              "account_id": "320017600",
+              "start_time": 1791882060,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2174,
+              "leagueid": "20393",
+              "match_id": "9031849890",
+              "account_id": "320017600",
+              "start_time": 1791285309,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2281,
+              "leagueid": "19699",
+              "match_id": "8829975493",
+              "account_id": "891154650",
+              "start_time": 1780051155,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1688,
+              "leagueid": "19699",
+              "match_id": "8829935670",
+              "account_id": "891154650",
+              "start_time": 1780048544,
+              "player_slot": 4,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2104,
+              "leagueid": "18941",
+              "match_id": "8698594348",
+              "account_id": "891154650",
+              "start_time": 1771596123,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1962,
+              "leagueid": "18941",
+              "match_id": "8698487856",
+              "account_id": "891154650",
+              "start_time": 1771592479,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1667,
+              "leagueid": "19090",
+              "match_id": "8652714203",
+              "account_id": "891154650",
+              "start_time": 1768648331,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2445,
+              "leagueid": "19090",
+              "match_id": "8652632561",
+              "account_id": "891154650",
+              "start_time": 1768644017,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1533,
+              "leagueid": "19090",
+              "match_id": "8651546216",
+              "account_id": "891154650",
+              "start_time": 1768575721,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1751,
+              "leagueid": "19090",
+              "match_id": "8651442322",
+              "account_id": "891154650",
+              "start_time": 1768572037,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1318,
+              "leagueid": "19089",
+              "match_id": "8643275129",
+              "account_id": "891154650",
+              "start_time": 1768043519,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2310,
+              "leagueid": "19089",
+              "match_id": "8643189704",
+              "account_id": "891154650",
+              "start_time": 1768039204,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2204,
+              "leagueid": "19944",
+              "match_id": "9057739307",
+              "account_id": "1675517497",
+              "start_time": 1792751435,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2214,
+              "leagueid": "19944",
+              "match_id": "9057674435",
+              "account_id": "1675517497",
+              "start_time": 1792747142,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2561,
+              "leagueid": "19944",
+              "match_id": "9056309568",
+              "account_id": "1675517497",
+              "start_time": 1792663392,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1381,
+              "leagueid": "19944",
+              "match_id": "9056258736",
+              "account_id": "1675517497",
+              "start_time": 1792660346,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2641,
+              "leagueid": "19944",
+              "match_id": "9055504238",
+              "account_id": "1675517497",
+              "start_time": 1792601523,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2037,
+              "leagueid": "19944",
+              "match_id": "9055405538",
+              "account_id": "1675517497",
+              "start_time": 1792597784,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1908,
+              "leagueid": "19944",
+              "match_id": "9051744853",
+              "account_id": "1675517497",
+              "start_time": 1792359791,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2268,
+              "leagueid": "19944",
+              "match_id": "9051682783",
+              "account_id": "1675517497",
+              "start_time": 1792355675,
+              "player_slot": 0,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2965,
+              "leagueid": "19944",
+              "match_id": "9051573372",
+              "account_id": "1675517497",
+              "start_time": 1792350883,
+              "player_slot": 0,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3172,
+              "leagueid": "19944",
+              "match_id": "9048309060",
+              "account_id": "1675517497",
+              "start_time": 1792188783,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2577,
+              "leagueid": "19944",
+              "match_id": "8971987707",
+              "account_id": "116865891",
+              "start_time": 1788001536,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2238,
+              "leagueid": "19944",
+              "match_id": "8971891627",
+              "account_id": "116865891",
+              "start_time": 1787997792,
+              "player_slot": 1,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2323,
+              "leagueid": "19944",
+              "match_id": "8970886632",
+              "account_id": "116865891",
+              "start_time": 1787942203,
+              "player_slot": 1,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1114,
+              "leagueid": "19944",
+              "match_id": "8970807272",
+              "account_id": "116865891",
+              "start_time": 1787939604,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3119,
+              "leagueid": "19944",
+              "match_id": "8970655100",
+              "account_id": "116865891",
+              "start_time": 1787934610,
+              "player_slot": 1,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3559,
+              "leagueid": "19944",
+              "match_id": "8970485789",
+              "account_id": "116865891",
+              "start_time": 1787929244,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2388,
+              "leagueid": "19944",
+              "match_id": "8970352005",
+              "account_id": "116865891",
+              "start_time": 1787925326,
+              "player_slot": 0,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2595,
+              "leagueid": "19944",
+              "match_id": "8965757562",
+              "account_id": "116865891",
+              "start_time": 1787690294,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3001,
+              "leagueid": "19944",
+              "match_id": "8965596084",
+              "account_id": "116865891",
+              "start_time": 1787684946,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3078,
+              "leagueid": "19944",
+              "match_id": "8963790789",
+              "account_id": "116865891",
+              "start_time": 1787601941,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1895,
+              "leagueid": "19944",
+              "match_id": "9048684915",
+              "account_id": "156485213",
+              "start_time": 1792220658,
+              "player_slot": 0,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2646,
+              "leagueid": "19944",
+              "match_id": "9048020519",
+              "account_id": "156485213",
+              "start_time": 1792175872,
+              "player_slot": 0,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3883,
+              "leagueid": "19944",
+              "match_id": "9047870623",
+              "account_id": "156485213",
+              "start_time": 1792170003,
+              "player_slot": 0,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1756,
+              "leagueid": "19944",
+              "match_id": "9047766227",
+              "account_id": "156485213",
+              "start_time": 1792166538,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1614,
+              "leagueid": "20145",
+              "match_id": "8994796331",
+              "account_id": "156485213",
+              "start_time": 1789204826,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2728,
+              "leagueid": "20145",
+              "match_id": "8994691423",
+              "account_id": "156485213",
+              "start_time": 1789200532,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 5140,
+              "leagueid": "19944",
+              "match_id": "8976511215",
+              "account_id": "156485213",
+              "start_time": 1788200246,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1180,
+              "leagueid": "19944",
+              "match_id": "8976441468",
+              "account_id": "156485213",
+              "start_time": 1788197469,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2876,
+              "leagueid": "19944",
+              "match_id": "8976300473",
+              "account_id": "156485213",
+              "start_time": 1788192501,
+              "player_slot": 3,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2449,
+              "leagueid": "19944",
+              "match_id": "8974508003",
+              "account_id": "156485213",
+              "start_time": 1788104148,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 4585,
+              "leagueid": "20393",
+              "match_id": "9031755269",
+              "account_id": "320017600",
+              "start_time": 1791278932,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3083,
+              "leagueid": "20393",
+              "match_id": "9031679372",
+              "account_id": "320017600",
+              "start_time": 1791274157,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2386,
+              "leagueid": "20393",
+              "match_id": "9030351357",
+              "account_id": "320017600",
+              "start_time": 1791191710,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2337,
+              "leagueid": "20393",
+              "match_id": "9030292632",
+              "account_id": "320017600",
+              "start_time": 1791187532,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1964,
+              "leagueid": "20145",
+              "match_id": "8995710809",
+              "account_id": "320017600",
+              "start_time": 1789236004,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2155,
+              "leagueid": "20145",
+              "match_id": "8995582836",
+              "account_id": "320017600",
+              "start_time": 1789232389,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4141,
+              "leagueid": "19944",
+              "match_id": "8990366825",
+              "account_id": "320017600",
+              "start_time": 1788962006,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1432,
+              "leagueid": "19944",
+              "match_id": "8990285196",
+              "account_id": "320017600",
+              "start_time": 1788958831,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1874,
+              "leagueid": "19944",
+              "match_id": "8990197396",
+              "account_id": "320017600",
+              "start_time": 1788955486,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1575,
+              "leagueid": "19944",
+              "match_id": "8988695634",
+              "account_id": "320017600",
+              "start_time": 1788867035,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2483,
+              "leagueid": "19089",
+              "match_id": "8642086969",
+              "account_id": "891154650",
+              "start_time": 1767971323,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1895,
+              "leagueid": "19089",
+              "match_id": "8641973644",
+              "account_id": "891154650",
+              "start_time": 1767967300,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2656,
+              "leagueid": "19040",
+              "match_id": "8592820806",
+              "account_id": "891154650",
+              "start_time": 1765030162,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2486,
+              "leagueid": "19040",
+              "match_id": "8592683453",
+              "account_id": "891154650",
+              "start_time": 1765025939,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1805,
+              "leagueid": "19040",
+              "match_id": "8592525039",
+              "account_id": "891154650",
+              "start_time": 1765019083,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1425,
+              "leagueid": "19040",
+              "match_id": "8592468085",
+              "account_id": "891154650",
+              "start_time": 1765016211,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2318,
+              "leagueid": "19040",
+              "match_id": "8592395524",
+              "account_id": "891154650",
+              "start_time": 1765012378,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1594,
+              "leagueid": "18955",
+              "match_id": "8588424952",
+              "account_id": "891154650",
+              "start_time": 1764772984,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1995,
+              "leagueid": "18955",
+              "match_id": "8588175196",
+              "account_id": "891154650",
+              "start_time": 1764763271,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1679,
+              "leagueid": "18955",
+              "match_id": "8587235395",
+              "account_id": "891154650",
+              "start_time": 1764695668,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2981,
+              "leagueid": "19944",
+              "match_id": "9048226345",
+              "account_id": "1675517497",
+              "start_time": 1792183896,
+              "player_slot": 130,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1996,
+              "leagueid": "19944",
+              "match_id": "9048138629",
+              "account_id": "1675517497",
+              "start_time": 1792180554,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1342,
+              "leagueid": "20359",
+              "match_id": "9046321923",
+              "account_id": "1675517497",
+              "start_time": 1792079185,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2688,
+              "leagueid": "20359",
+              "match_id": "9046201495",
+              "account_id": "1675517497",
+              "start_time": 1792074395,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1724,
+              "leagueid": "20359",
+              "match_id": "9046093181",
+              "account_id": "1675517497",
+              "start_time": 1792070758,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1848,
+              "leagueid": "20359",
+              "match_id": "9045969189",
+              "account_id": "1675517497",
+              "start_time": 1792065438,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3063,
+              "leagueid": "20359",
+              "match_id": "9045884552",
+              "account_id": "1675517497",
+              "start_time": 1792060295,
+              "player_slot": 3,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3143,
+              "leagueid": "20359",
+              "match_id": "9045805305",
+              "account_id": "1675517497",
+              "start_time": 1792054942,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2431,
+              "leagueid": "19944",
+              "match_id": "9045729824",
+              "account_id": "1675517497",
+              "start_time": 1792048371,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2635,
+              "leagueid": "20359",
+              "match_id": "9045280553",
+              "account_id": "1675517497",
+              "start_time": 1792007424,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2347,
+              "leagueid": "19944",
+              "match_id": "8963649188",
+              "account_id": "116865891",
+              "start_time": 1787598018,
+              "player_slot": 1,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4739,
+              "leagueid": "19892",
+              "match_id": "8867373444",
+              "account_id": "116865891",
+              "start_time": 1782482172,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1984,
+              "leagueid": "19892",
+              "match_id": "8867258849",
+              "account_id": "116865891",
+              "start_time": 1782478568,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4299,
+              "leagueid": "19892",
+              "match_id": "8863187227",
+              "account_id": "116865891",
+              "start_time": 1782218924,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2245,
+              "leagueid": "19892",
+              "match_id": "8863110069",
+              "account_id": "116865891",
+              "start_time": 1782215075,
+              "player_slot": 1,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2739,
+              "leagueid": "19944",
+              "match_id": "8974370288",
+              "account_id": "156485213",
+              "start_time": 1788099776,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2360,
+              "leagueid": "19944",
+              "match_id": "8974217041",
+              "account_id": "156485213",
+              "start_time": 1788095810,
+              "player_slot": 3,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3318,
+              "leagueid": "19944",
+              "match_id": "8971111987",
+              "account_id": "156485213",
+              "start_time": 1787951363,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2788,
+              "leagueid": "19944",
+              "match_id": "8971007454",
+              "account_id": "156485213",
+              "start_time": 1787947157,
+              "player_slot": 0,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1952,
+              "leagueid": "19944",
+              "match_id": "8970207176",
+              "account_id": "156485213",
+              "start_time": 1787920750,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2158,
+              "leagueid": "19944",
+              "match_id": "8988636430",
+              "account_id": "320017600",
+              "start_time": 1788863316,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3129,
+              "leagueid": "19944",
+              "match_id": "8988557865",
+              "account_id": "320017600",
+              "start_time": 1788858233,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2677,
+              "leagueid": "19944",
+              "match_id": "8987356699",
+              "account_id": "320017600",
+              "start_time": 1788786298,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2211,
+              "leagueid": "19944",
+              "match_id": "8987265771",
+              "account_id": "320017600",
+              "start_time": 1788782582,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2649,
+              "leagueid": "20142",
+              "match_id": "8972611918",
+              "account_id": "320017600",
+              "start_time": 1788021484,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2165,
+              "leagueid": "18955",
+              "match_id": "8587131464",
+              "account_id": "891154650",
+              "start_time": 1764691723,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1877,
+              "leagueid": "18955",
+              "match_id": "8587040828",
+              "account_id": "891154650",
+              "start_time": 1764688046,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1373,
+              "leagueid": "18660",
+              "match_id": "8556303224",
+              "account_id": "891154650",
+              "start_time": 1763031270,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1337,
+              "leagueid": "18660",
+              "match_id": "8556248216",
+              "account_id": "891154650",
+              "start_time": 1763028192,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2179,
+              "leagueid": "18660",
+              "match_id": "8556192377",
+              "account_id": "891154650",
+              "start_time": 1763024410,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2976,
+              "leagueid": "20359",
+              "match_id": "9045164434",
+              "account_id": "1675517497",
+              "start_time": 1792002296,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3085,
+              "leagueid": "20359",
+              "match_id": "9045027883",
+              "account_id": "1675517497",
+              "start_time": 1791997202,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2046,
+              "leagueid": "20359",
+              "match_id": "9044721289",
+              "account_id": "1675517497",
+              "start_time": 1791986140,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1472,
+              "leagueid": "20359",
+              "match_id": "9044628872",
+              "account_id": "1675517497",
+              "start_time": 1791982842,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2778,
+              "leagueid": "20359",
+              "match_id": "9044485567",
+              "account_id": "1675517497",
+              "start_time": 1791977135,
+              "player_slot": 130,
+              "radiant_win": false
+            }
+          ],
+          "trainingExamples": 0,
+          "predictionEligibility": "not_assessed"
+        },
+        "error_code": null
+      },
+      {
+        "id": "4c49ba39-539a-406f-8af3-7aa1a850dca7",
+        "status": "completed",
+        "options": {
+          "maxMaps": 25,
+          "windowDays": 365
+        },
+        "bindings": [
+          {
+            "playerId": "209",
+            "accountId": "164047347"
+          },
+          {
+            "playerId": "210",
+            "accountId": "188351504"
+          },
+          {
+            "playerId": "211",
+            "accountId": "450454900"
+          },
+          {
+            "playerId": "212",
+            "accountId": "892486081"
+          },
+          {
+            "playerId": "213",
+            "accountId": "480210721"
+          }
+        ],
+        "report": {
+          "maps": [
+            {
+              "status": "accepted",
+              "matchId": "9049486027",
+              "reasons": []
+            },
+            {
+              "status": "duplicate",
+              "matchId": "9051744853",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9049361938",
+              "reasons": []
+            },
+            {
+              "status": "duplicate",
+              "matchId": "9051682783",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9049197742",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9049094334",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9048983711",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9048877833",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9048097533",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9047583318",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9047975789",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9047488648",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9047858548",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9045729824",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9043219852",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9043084117",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9046816073",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9040197051",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9046718524",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9040119007",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9046648464",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9036525071",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9046513502",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9036406856",
+              "reasons": []
+            },
+            {
+              "status": "accepted",
+              "matchId": "9046398999",
+              "reasons": []
+            }
+          ],
+          "failed": 0,
+          "fromAt": "2025-11-04T20:32:10.000Z",
+          "options": {
+            "maxMaps": 25,
+            "windowDays": 365
+          },
+          "players": [
+            {
+              "accepted": 23,
+              "playerId": "209",
+              "selected": 23,
+              "accountId": "164047347",
+              "discovered": 25,
+              "sourceLimitReached": true
+            },
+            {
+              "accepted": 15,
+              "playerId": "210",
+              "selected": 15,
+              "accountId": "188351504",
+              "discovered": 25,
+              "sourceLimitReached": true
+            },
+            {
+              "accepted": 15,
+              "playerId": "211",
+              "selected": 15,
+              "accountId": "450454900",
+              "discovered": 25,
+              "sourceLimitReached": true
+            },
+            {
+              "accepted": 15,
+              "playerId": "212",
+              "selected": 15,
+              "accountId": "892486081",
+              "discovered": 25,
+              "sourceLimitReached": true
+            },
+            {
+              "accepted": 17,
+              "playerId": "213",
+              "selected": 17,
+              "accountId": "480210721",
+              "discovered": 25,
+              "sourceLimitReached": true
+            }
+          ],
+          "accepted": 25,
+          "cutoffAt": "2026-11-04T20:32:10.396Z",
+          "excluded": 0,
+          "selected": 25,
+          "conflicts": 0,
+          "fetchedAt": "2026-11-04T20:32:50.127Z",
+          "duplicates": 2,
+          "policyVersion": "selected-player-history-v2",
+          "discoveryPages": 3
+        },
+        "source_audit": {
+          "options": {
+            "maxMaps": 25,
+            "windowDays": 365
+          },
+          "sources": [
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/explorer?sql=SELECT+a.account_id%3A%3Atext%2Ch.*+FROM+%28VALUES+%28164047347%3A%3Abigint%29%2C%28188351504%3A%3Abigint%29%2C%28450454900%3A%3Abigint%29%2C%28480210721%3A%3Abigint%29%2C%28892486081%3A%3Abigint%29%29+a%28account_id%29+CROSS+JOIN+LATERAL+%28SELECT+m.match_id%3A%3Atext%2Cm.start_time%2Cm.duration%2Cm.radiant_win%2Cm.leagueid%3A%3Atext%2Cl.tier%2Cp.player_slot+FROM+player_matches+p+JOIN+matches+m+ON+m.match_id%3Dp.match_id+JOIN+leagues+l+ON+l.leagueid%3Dm.leagueid+WHERE+p.account_id%3Da.account_id+AND+l.tier+IN+%28%27professional%27%2C%27premium%27%29+AND+m.radiant_win+IS+NOT+NULL+AND+m.duration%3E0+AND+m.start_time%3E%3D1762288330+AND+m.start_time%2Bm.duration%3C1793824330+ORDER+BY+m.start_time+DESC%2Cm.match_id+DESC+LIMIT+10%29+h",
+              "fetchedAt": "2026-11-04T20:32:10.902Z",
+              "payloadSha256": "65ef32143cfbd634ecba0c40c4a9f786028ea08423f684e6d37a0c6a7d33688f"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/explorer?sql=SELECT+a.account_id%3A%3Atext%2Ch.*+FROM+%28VALUES+%28164047347%3A%3Abigint%29%2C%28188351504%3A%3Abigint%29%2C%28450454900%3A%3Abigint%29%2C%28480210721%3A%3Abigint%29%2C%28892486081%3A%3Abigint%29%29+a%28account_id%29+CROSS+JOIN+LATERAL+%28SELECT+m.match_id%3A%3Atext%2Cm.start_time%2Cm.duration%2Cm.radiant_win%2Cm.leagueid%3A%3Atext%2Cl.tier%2Cp.player_slot+FROM+player_matches+p+JOIN+matches+m+ON+m.match_id%3Dp.match_id+JOIN+leagues+l+ON+l.leagueid%3Dm.leagueid+WHERE+p.account_id%3Da.account_id+AND+l.tier+IN+%28%27professional%27%2C%27premium%27%29+AND+m.radiant_win+IS+NOT+NULL+AND+m.duration%3E0+AND+m.start_time%3E%3D1762288330+AND+m.start_time%2Bm.duration%3C1793824330+AND+%28a.account_id%3C%3E164047347%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281792159907%3A%3Abigint%2C9047583318%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E188351504%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281791901164%3A%3Abigint%2C9043219852%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E450454900%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281791901164%3A%3Abigint%2C9043219852%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E480210721%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281792156405%3A%3Abigint%2C9047488648%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E892486081%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281791901164%3A%3Abigint%2C9043219852%3A%3Abigint%29%29+ORDER+BY+m.start_time+DESC%2Cm.match_id+DESC+LIMIT+10%29+h",
+              "fetchedAt": "2026-11-04T20:32:11.939Z",
+              "payloadSha256": "e8cac6b163a674ddf943bffd80b6da9e0a5061eeb44abc91ae8cf5e0b20d4d17"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/explorer?sql=SELECT+a.account_id%3A%3Atext%2Ch.*+FROM+%28VALUES+%28164047347%3A%3Abigint%29%2C%28188351504%3A%3Abigint%29%2C%28450454900%3A%3Abigint%29%2C%28480210721%3A%3Abigint%29%2C%28892486081%3A%3Abigint%29%29+a%28account_id%29+CROSS+JOIN+LATERAL+%28SELECT+m.match_id%3A%3Atext%2Cm.start_time%2Cm.duration%2Cm.radiant_win%2Cm.leagueid%3A%3Atext%2Cl.tier%2Cp.player_slot+FROM+player_matches+p+JOIN+matches+m+ON+m.match_id%3Dp.match_id+JOIN+leagues+l+ON+l.leagueid%3Dm.leagueid+WHERE+p.account_id%3Da.account_id+AND+l.tier+IN+%28%27professional%27%2C%27premium%27%29+AND+m.radiant_win+IS+NOT+NULL+AND+m.duration%3E0+AND+m.start_time%3E%3D1762288330+AND+m.start_time%2Bm.duration%3C1793824330+AND+%28a.account_id%3C%3E164047347%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281791901164%3A%3Abigint%2C9043219852%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E188351504%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281788523401%3A%3Abigint%2C8982015595%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E450454900%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281788523401%3A%3Abigint%2C8982015595%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E480210721%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281788440414%3A%3Abigint%2C8980569936%3A%3Abigint%29%29+AND+%28a.account_id%3C%3E892486081%3A%3Abigint+OR+%28m.start_time%2Cm.match_id%29%3C%281788523401%3A%3Abigint%2C8982015595%3A%3Abigint%29%29+ORDER+BY+m.start_time+DESC%2Cm.match_id+DESC+LIMIT+5%29+h",
+              "fetchedAt": "2026-11-04T20:32:13.274Z",
+              "payloadSha256": "4553b4347d593d561cae942e0f1411e7a82d7181319209c612089f4f1463a0e6"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/heroes",
+              "fetchedAt": "2026-11-04T20:32:15.965Z",
+              "payloadSha256": "c179babbb9bd910f60f91980ad0f9daec783b7743cf3a26baeb827569afb22f0"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/leagues",
+              "fetchedAt": "2026-11-04T20:32:15.005Z",
+              "payloadSha256": "349af26f434e9d30ec5a2620818bf5176e3bf2cc63e3f1fae890fd9a4be1f692"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9049486027",
+              "fetchedAt": "2026-11-04T20:32:17.812Z",
+              "payloadSha256": "2f1f7162ee5007ed4155ac5fca8e393992df89f347cb6d475a83b757917973a8"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9051744853",
+              "fetchedAt": "2026-11-04T20:32:18.761Z",
+              "payloadSha256": "7dfc9b7327eb6a06ff48b848dafb9159dc0709d66428d957db212230888d6d9f"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9049361938",
+              "fetchedAt": "2026-11-04T20:32:21.010Z",
+              "payloadSha256": "26444eda69d2076466ff2b8310251036ec36c944f20dd6c197d24ccded9fe8a1"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9051682783",
+              "fetchedAt": "2026-11-04T20:32:21.500Z",
+              "payloadSha256": "eabff2fc491381cfd2d52919539a909392876df286ab50fb4acf0b71c892d29f"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9049197742",
+              "fetchedAt": "2026-11-04T20:32:23.519Z",
+              "payloadSha256": "c92728c8b7f3520d994e26ce4fb6c7d58df71681dfb69a9180e4c54877f6f56d"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9049094334",
+              "fetchedAt": "2026-11-04T20:32:24.944Z",
+              "payloadSha256": "791ccd64a61ae30638a116829a96d7ad8687737ef67d004141ad0217b7dcb3ab"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9048983711",
+              "fetchedAt": "2026-11-04T20:32:26.376Z",
+              "payloadSha256": "e5648c0b1cc4836364ffc40a8aeac2503946604343ba01c77bd6ca28b9afc124"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9048877833",
+              "fetchedAt": "2026-11-04T20:32:26.990Z",
+              "payloadSha256": "1562eabce674a81c38f0590d899d999c4b33008db9b1c006006bc5bc160e88b5"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9048097533",
+              "fetchedAt": "2026-11-04T20:32:28.320Z",
+              "payloadSha256": "020e1ced6ed2362aaad70866c0d96465fa74f0d483ff921ca9eb327ab81504e8"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9047583318",
+              "fetchedAt": "2026-11-04T20:32:30.345Z",
+              "payloadSha256": "4ec673443600fa12d2a7b0224b8c8f88f1e377ebee0348b1195a4980c63c1c01"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9047975789",
+              "fetchedAt": "2026-11-04T20:32:31.408Z",
+              "payloadSha256": "d36f78a1a80d1afa80df85bf2eff5b078728ae9046d068ad814d213ccc0f2ae9"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9047488648",
+              "fetchedAt": "2026-11-04T20:32:32.697Z",
+              "payloadSha256": "0b60c311de3355d685e7048ab66601a51b3cbe72749fb0ab4daaa49fcada0439"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9047858548",
+              "fetchedAt": "2026-11-04T20:32:33.841Z",
+              "payloadSha256": "4601415f26e478bc09272ba07439b66759c7d1936563174288ef440178a76eaf"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9045729824",
+              "fetchedAt": "2026-11-04T20:32:35.132Z",
+              "payloadSha256": "6b35e9d86ff9c32587e01e7fcd287c7854c2c4d546f4acc82fcf3562ea9f2fd7"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9043219852",
+              "fetchedAt": "2026-11-04T20:32:37.090Z",
+              "payloadSha256": "40ba65222fa4b98dcd71dd8cf3e3fe45525a9fa8a7e5b0e3518008e44fa48588"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9043084117",
+              "fetchedAt": "2026-11-04T20:32:38.057Z",
+              "payloadSha256": "1d6c00ebb9a80a9325e8e9baeb7f7958b69e7013ba3077a8aed0861bde7850ae"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9046816073",
+              "fetchedAt": "2026-11-04T20:32:39.312Z",
+              "payloadSha256": "58c4ebe7a87bbc5509ca05db034de04d9efb20a10455b876e7a5b3ffbf584822"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9040197051",
+              "fetchedAt": "2026-11-04T20:32:40.415Z",
+              "payloadSha256": "5720aa1bcc6caa22bb10c59a85e2a998df2463bea1ccf4ad6ab2648407d817b1"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9046718524",
+              "fetchedAt": "2026-11-04T20:32:42.027Z",
+              "payloadSha256": "795f14d78bab7685a109a39736768c0bd86b64a0228fb8aa0acbf3b8cbbdfa99"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9040119007",
+              "fetchedAt": "2026-11-04T20:32:43.024Z",
+              "payloadSha256": "1d63bd7b38c4ac6a5bdc82341a56c68ea252e0b30a5535fe61b602418edbe622"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9046648464",
+              "fetchedAt": "2026-11-04T20:32:44.855Z",
+              "payloadSha256": "b78ffdb38a3056be49ac9525c73d49c7ae8e8d6b905f0678ec7aaa95b54fb5e1"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9036525071",
+              "fetchedAt": "2026-11-04T20:32:46.639Z",
+              "payloadSha256": "85f8eb2718ccf4ee78a7e64c1d5db6ae0bda0549866eeaf39d9b59738bad2d3b"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9046513502",
+              "fetchedAt": "2026-11-04T20:32:47.480Z",
+              "payloadSha256": "fdfe70bee11c8785cd03b61915f8ed19443c4fee459f4808d38512d524991a60"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9036406856",
+              "fetchedAt": "2026-11-04T20:32:48.830Z",
+              "payloadSha256": "114b34d8e70852be0c50de76b099e9bc618b8a76005cc8a9f270bb6f7dafa8ba"
+            },
+            {
+              "knownAt": null,
+              "attempts": 1,
+              "endpoint": "/matches/9046398999",
+              "fetchedAt": "2026-11-04T20:32:50.116Z",
+              "payloadSha256": "52724eb3cb1c60ebd783a0eda3dfb5493c9540c0822b4d97a3787653406b4e8c"
+            }
+          ],
+          "discoveryRows": [
+            {
+              "tier": "professional",
+              "duration": 2476,
+              "leagueid": "19944",
+              "match_id": "9049486027",
+              "account_id": "164047347",
+              "start_time": 1792254590,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2493,
+              "leagueid": "19944",
+              "match_id": "9049361938",
+              "account_id": "164047347",
+              "start_time": 1792249915,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3240,
+              "leagueid": "19944",
+              "match_id": "9049197742",
+              "account_id": "164047347",
+              "start_time": 1792244896,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1918,
+              "leagueid": "19944",
+              "match_id": "9049094334",
+              "account_id": "164047347",
+              "start_time": 1792240976,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3072,
+              "leagueid": "19944",
+              "match_id": "9048983711",
+              "account_id": "164047347",
+              "start_time": 1792236343,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2687,
+              "leagueid": "19944",
+              "match_id": "9048877833",
+              "account_id": "164047347",
+              "start_time": 1792231496,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1653,
+              "leagueid": "20406",
+              "match_id": "9048097533",
+              "account_id": "164047347",
+              "start_time": 1792178687,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2647,
+              "leagueid": "20406",
+              "match_id": "9047975789",
+              "account_id": "164047347",
+              "start_time": 1792174148,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2286,
+              "leagueid": "20406",
+              "match_id": "9047858548",
+              "account_id": "164047347",
+              "start_time": 1792169767,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2437,
+              "leagueid": "19944",
+              "match_id": "9047583318",
+              "account_id": "164047347",
+              "start_time": 1792159907,
+              "player_slot": 0,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2476,
+              "leagueid": "19944",
+              "match_id": "9049486027",
+              "account_id": "188351504",
+              "start_time": 1792254590,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2493,
+              "leagueid": "19944",
+              "match_id": "9049361938",
+              "account_id": "188351504",
+              "start_time": 1792249915,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3240,
+              "leagueid": "19944",
+              "match_id": "9049197742",
+              "account_id": "188351504",
+              "start_time": 1792244896,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1918,
+              "leagueid": "19944",
+              "match_id": "9049094334",
+              "account_id": "188351504",
+              "start_time": 1792240976,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3072,
+              "leagueid": "19944",
+              "match_id": "9048983711",
+              "account_id": "188351504",
+              "start_time": 1792236343,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2687,
+              "leagueid": "19944",
+              "match_id": "9048877833",
+              "account_id": "188351504",
+              "start_time": 1792231496,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2437,
+              "leagueid": "19944",
+              "match_id": "9047583318",
+              "account_id": "188351504",
+              "start_time": 1792159907,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2034,
+              "leagueid": "19944",
+              "match_id": "9047488648",
+              "account_id": "188351504",
+              "start_time": 1792156405,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2431,
+              "leagueid": "19944",
+              "match_id": "9045729824",
+              "account_id": "188351504",
+              "start_time": 1792048371,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3383,
+              "leagueid": "19944",
+              "match_id": "9043219852",
+              "account_id": "188351504",
+              "start_time": 1791901164,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2476,
+              "leagueid": "19944",
+              "match_id": "9049486027",
+              "account_id": "450454900",
+              "start_time": 1792254590,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2493,
+              "leagueid": "19944",
+              "match_id": "9049361938",
+              "account_id": "450454900",
+              "start_time": 1792249915,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3240,
+              "leagueid": "19944",
+              "match_id": "9049197742",
+              "account_id": "450454900",
+              "start_time": 1792244896,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1918,
+              "leagueid": "19944",
+              "match_id": "9049094334",
+              "account_id": "450454900",
+              "start_time": 1792240976,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3072,
+              "leagueid": "19944",
+              "match_id": "9048983711",
+              "account_id": "450454900",
+              "start_time": 1792236343,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2687,
+              "leagueid": "19944",
+              "match_id": "9048877833",
+              "account_id": "450454900",
+              "start_time": 1792231496,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2437,
+              "leagueid": "19944",
+              "match_id": "9047583318",
+              "account_id": "450454900",
+              "start_time": 1792159907,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2034,
+              "leagueid": "19944",
+              "match_id": "9047488648",
+              "account_id": "450454900",
+              "start_time": 1792156405,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2431,
+              "leagueid": "19944",
+              "match_id": "9045729824",
+              "account_id": "450454900",
+              "start_time": 1792048371,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3383,
+              "leagueid": "19944",
+              "match_id": "9043219852",
+              "account_id": "450454900",
+              "start_time": 1791901164,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1908,
+              "leagueid": "19944",
+              "match_id": "9051744853",
+              "account_id": "480210721",
+              "start_time": 1792359791,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2268,
+              "leagueid": "19944",
+              "match_id": "9051682783",
+              "account_id": "480210721",
+              "start_time": 1792355675,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2476,
+              "leagueid": "19944",
+              "match_id": "9049486027",
+              "account_id": "480210721",
+              "start_time": 1792254590,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2493,
+              "leagueid": "19944",
+              "match_id": "9049361938",
+              "account_id": "480210721",
+              "start_time": 1792249915,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3240,
+              "leagueid": "19944",
+              "match_id": "9049197742",
+              "account_id": "480210721",
+              "start_time": 1792244896,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1918,
+              "leagueid": "19944",
+              "match_id": "9049094334",
+              "account_id": "480210721",
+              "start_time": 1792240976,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3072,
+              "leagueid": "19944",
+              "match_id": "9048983711",
+              "account_id": "480210721",
+              "start_time": 1792236343,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2687,
+              "leagueid": "19944",
+              "match_id": "9048877833",
+              "account_id": "480210721",
+              "start_time": 1792231496,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2437,
+              "leagueid": "19944",
+              "match_id": "9047583318",
+              "account_id": "480210721",
+              "start_time": 1792159907,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2034,
+              "leagueid": "19944",
+              "match_id": "9047488648",
+              "account_id": "480210721",
+              "start_time": 1792156405,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2476,
+              "leagueid": "19944",
+              "match_id": "9049486027",
+              "account_id": "892486081",
+              "start_time": 1792254590,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2493,
+              "leagueid": "19944",
+              "match_id": "9049361938",
+              "account_id": "892486081",
+              "start_time": 1792249915,
+              "player_slot": 130,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3240,
+              "leagueid": "19944",
+              "match_id": "9049197742",
+              "account_id": "892486081",
+              "start_time": 1792244896,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1918,
+              "leagueid": "19944",
+              "match_id": "9049094334",
+              "account_id": "892486081",
+              "start_time": 1792240976,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3072,
+              "leagueid": "19944",
+              "match_id": "9048983711",
+              "account_id": "892486081",
+              "start_time": 1792236343,
+              "player_slot": 130,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2687,
+              "leagueid": "19944",
+              "match_id": "9048877833",
+              "account_id": "892486081",
+              "start_time": 1792231496,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2437,
+              "leagueid": "19944",
+              "match_id": "9047583318",
+              "account_id": "892486081",
+              "start_time": 1792159907,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2034,
+              "leagueid": "19944",
+              "match_id": "9047488648",
+              "account_id": "892486081",
+              "start_time": 1792156405,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2431,
+              "leagueid": "19944",
+              "match_id": "9045729824",
+              "account_id": "892486081",
+              "start_time": 1792048371,
+              "player_slot": 130,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3383,
+              "leagueid": "19944",
+              "match_id": "9043219852",
+              "account_id": "892486081",
+              "start_time": 1791901164,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2034,
+              "leagueid": "19944",
+              "match_id": "9047488648",
+              "account_id": "164047347",
+              "start_time": 1792156405,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2987,
+              "leagueid": "20406",
+              "match_id": "9046816073",
+              "account_id": "164047347",
+              "start_time": 1792100980,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3664,
+              "leagueid": "20406",
+              "match_id": "9046718524",
+              "account_id": "164047347",
+              "start_time": 1792095134,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1643,
+              "leagueid": "20406",
+              "match_id": "9046648464",
+              "account_id": "164047347",
+              "start_time": 1792091799,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2284,
+              "leagueid": "20406",
+              "match_id": "9046513502",
+              "account_id": "164047347",
+              "start_time": 1792086353,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2278,
+              "leagueid": "20406",
+              "match_id": "9046398999",
+              "account_id": "164047347",
+              "start_time": 1792081917,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2431,
+              "leagueid": "19944",
+              "match_id": "9045729824",
+              "account_id": "164047347",
+              "start_time": 1792048371,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2002,
+              "leagueid": "20406",
+              "match_id": "9045222694",
+              "account_id": "164047347",
+              "start_time": 1792004773,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1878,
+              "leagueid": "20406",
+              "match_id": "9045134920",
+              "account_id": "164047347",
+              "start_time": 1792001290,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3383,
+              "leagueid": "19944",
+              "match_id": "9043219852",
+              "account_id": "164047347",
+              "start_time": 1791901164,
+              "player_slot": 0,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2546,
+              "leagueid": "19944",
+              "match_id": "9043084117",
+              "account_id": "188351504",
+              "start_time": 1791896698,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4259,
+              "leagueid": "20359",
+              "match_id": "9040197051",
+              "account_id": "188351504",
+              "start_time": 1791729484,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 624,
+              "leagueid": "20359",
+              "match_id": "9040119007",
+              "account_id": "188351504",
+              "start_time": 1791727147,
+              "player_slot": 3,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3581,
+              "leagueid": "20359",
+              "match_id": "9036525071",
+              "account_id": "188351504",
+              "start_time": 1791555378,
+              "player_slot": 3,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1017,
+              "leagueid": "20359",
+              "match_id": "9036406856",
+              "account_id": "188351504",
+              "start_time": 1791551306,
+              "player_slot": 3,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2999,
+              "leagueid": "19944",
+              "match_id": "8984703068",
+              "account_id": "188351504",
+              "start_time": 1788641312,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2141,
+              "leagueid": "19944",
+              "match_id": "8984639408",
+              "account_id": "188351504",
+              "start_time": 1788638262,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3371,
+              "leagueid": "19944",
+              "match_id": "8984433236",
+              "account_id": "188351504",
+              "start_time": 1788631556,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2570,
+              "leagueid": "19944",
+              "match_id": "8982107035",
+              "account_id": "188351504",
+              "start_time": 1788526684,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1516,
+              "leagueid": "19944",
+              "match_id": "8982015595",
+              "account_id": "188351504",
+              "start_time": 1788523401,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2546,
+              "leagueid": "19944",
+              "match_id": "9043084117",
+              "account_id": "450454900",
+              "start_time": 1791896698,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4259,
+              "leagueid": "20359",
+              "match_id": "9040197051",
+              "account_id": "450454900",
+              "start_time": 1791729484,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 624,
+              "leagueid": "20359",
+              "match_id": "9040119007",
+              "account_id": "450454900",
+              "start_time": 1791727147,
+              "player_slot": 1,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3581,
+              "leagueid": "20359",
+              "match_id": "9036525071",
+              "account_id": "450454900",
+              "start_time": 1791555378,
+              "player_slot": 1,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1017,
+              "leagueid": "20359",
+              "match_id": "9036406856",
+              "account_id": "450454900",
+              "start_time": 1791551306,
+              "player_slot": 1,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2999,
+              "leagueid": "19944",
+              "match_id": "8984703068",
+              "account_id": "450454900",
+              "start_time": 1788641312,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2141,
+              "leagueid": "19944",
+              "match_id": "8984639408",
+              "account_id": "450454900",
+              "start_time": 1788638262,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3371,
+              "leagueid": "19944",
+              "match_id": "8984433236",
+              "account_id": "450454900",
+              "start_time": 1788631556,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2570,
+              "leagueid": "19944",
+              "match_id": "8982107035",
+              "account_id": "450454900",
+              "start_time": 1788526684,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1516,
+              "leagueid": "19944",
+              "match_id": "8982015595",
+              "account_id": "450454900",
+              "start_time": 1788523401,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2431,
+              "leagueid": "19944",
+              "match_id": "9045729824",
+              "account_id": "480210721",
+              "start_time": 1792048371,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3383,
+              "leagueid": "19944",
+              "match_id": "9043219852",
+              "account_id": "480210721",
+              "start_time": 1791901164,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2546,
+              "leagueid": "19944",
+              "match_id": "9043084117",
+              "account_id": "480210721",
+              "start_time": 1791896698,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4259,
+              "leagueid": "20359",
+              "match_id": "9040197051",
+              "account_id": "480210721",
+              "start_time": 1791729484,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 624,
+              "leagueid": "20359",
+              "match_id": "9040119007",
+              "account_id": "480210721",
+              "start_time": 1791727147,
+              "player_slot": 4,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3581,
+              "leagueid": "20359",
+              "match_id": "9036525071",
+              "account_id": "480210721",
+              "start_time": 1791555378,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1017,
+              "leagueid": "20359",
+              "match_id": "9036406856",
+              "account_id": "480210721",
+              "start_time": 1791551306,
+              "player_slot": 4,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2570,
+              "leagueid": "19944",
+              "match_id": "8982107035",
+              "account_id": "480210721",
+              "start_time": 1788526684,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1516,
+              "leagueid": "19944",
+              "match_id": "8982015595",
+              "account_id": "480210721",
+              "start_time": 1788523401,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3416,
+              "leagueid": "19944",
+              "match_id": "8980569936",
+              "account_id": "480210721",
+              "start_time": 1788440414,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2546,
+              "leagueid": "19944",
+              "match_id": "9043084117",
+              "account_id": "892486081",
+              "start_time": 1791896698,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4259,
+              "leagueid": "20359",
+              "match_id": "9040197051",
+              "account_id": "892486081",
+              "start_time": 1791729484,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 624,
+              "leagueid": "20359",
+              "match_id": "9040119007",
+              "account_id": "892486081",
+              "start_time": 1791727147,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3581,
+              "leagueid": "20359",
+              "match_id": "9036525071",
+              "account_id": "892486081",
+              "start_time": 1791555378,
+              "player_slot": 2,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1017,
+              "leagueid": "20359",
+              "match_id": "9036406856",
+              "account_id": "892486081",
+              "start_time": 1791551306,
+              "player_slot": 2,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2999,
+              "leagueid": "19944",
+              "match_id": "8984703068",
+              "account_id": "892486081",
+              "start_time": 1788641312,
+              "player_slot": 128,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2141,
+              "leagueid": "19944",
+              "match_id": "8984639408",
+              "account_id": "892486081",
+              "start_time": 1788638262,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3371,
+              "leagueid": "19944",
+              "match_id": "8984433236",
+              "account_id": "892486081",
+              "start_time": 1788631556,
+              "player_slot": 130,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2570,
+              "leagueid": "19944",
+              "match_id": "8982107035",
+              "account_id": "892486081",
+              "start_time": 1788526684,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1516,
+              "leagueid": "19944",
+              "match_id": "8982015595",
+              "account_id": "892486081",
+              "start_time": 1788523401,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2546,
+              "leagueid": "19944",
+              "match_id": "9043084117",
+              "account_id": "164047347",
+              "start_time": 1791896698,
+              "player_slot": 128,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 4259,
+              "leagueid": "20359",
+              "match_id": "9040197051",
+              "account_id": "164047347",
+              "start_time": 1791729484,
+              "player_slot": 0,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 624,
+              "leagueid": "20359",
+              "match_id": "9040119007",
+              "account_id": "164047347",
+              "start_time": 1791727147,
+              "player_slot": 0,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3581,
+              "leagueid": "20359",
+              "match_id": "9036525071",
+              "account_id": "164047347",
+              "start_time": 1791555378,
+              "player_slot": 0,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1017,
+              "leagueid": "20359",
+              "match_id": "9036406856",
+              "account_id": "164047347",
+              "start_time": 1791551306,
+              "player_slot": 0,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 3416,
+              "leagueid": "19944",
+              "match_id": "8980569936",
+              "account_id": "188351504",
+              "start_time": 1788440414,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1847,
+              "leagueid": "19944",
+              "match_id": "8980463789",
+              "account_id": "188351504",
+              "start_time": 1788436848,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2242,
+              "leagueid": "19944",
+              "match_id": "8978292022",
+              "account_id": "188351504",
+              "start_time": 1788295911,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1414,
+              "leagueid": "19944",
+              "match_id": "8978242189",
+              "account_id": "188351504",
+              "start_time": 1788292847,
+              "player_slot": 131,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2271,
+              "leagueid": "19944",
+              "match_id": "8978147287",
+              "account_id": "188351504",
+              "start_time": 1788288976,
+              "player_slot": 131,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3416,
+              "leagueid": "19944",
+              "match_id": "8980569936",
+              "account_id": "450454900",
+              "start_time": 1788440414,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1847,
+              "leagueid": "19944",
+              "match_id": "8980463789",
+              "account_id": "450454900",
+              "start_time": 1788436848,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2242,
+              "leagueid": "19944",
+              "match_id": "8978292022",
+              "account_id": "450454900",
+              "start_time": 1788295911,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1414,
+              "leagueid": "19944",
+              "match_id": "8978242189",
+              "account_id": "450454900",
+              "start_time": 1788292847,
+              "player_slot": 129,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2271,
+              "leagueid": "19944",
+              "match_id": "8978147287",
+              "account_id": "450454900",
+              "start_time": 1788288976,
+              "player_slot": 129,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1847,
+              "leagueid": "19944",
+              "match_id": "8980463789",
+              "account_id": "480210721",
+              "start_time": 1788436848,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2242,
+              "leagueid": "19944",
+              "match_id": "8978292022",
+              "account_id": "480210721",
+              "start_time": 1788295911,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1414,
+              "leagueid": "19944",
+              "match_id": "8978242189",
+              "account_id": "480210721",
+              "start_time": 1788292847,
+              "player_slot": 132,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2271,
+              "leagueid": "19944",
+              "match_id": "8978147287",
+              "account_id": "480210721",
+              "start_time": 1788288976,
+              "player_slot": 132,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2176,
+              "leagueid": "19944",
+              "match_id": "8976806033",
+              "account_id": "480210721",
+              "start_time": 1788216076,
+              "player_slot": 4,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 3416,
+              "leagueid": "19944",
+              "match_id": "8980569936",
+              "account_id": "892486081",
+              "start_time": 1788440414,
+              "player_slot": 130,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 1847,
+              "leagueid": "19944",
+              "match_id": "8980463789",
+              "account_id": "892486081",
+              "start_time": 1788436848,
+              "player_slot": 130,
+              "radiant_win": false
+            },
+            {
+              "tier": "professional",
+              "duration": 2242,
+              "leagueid": "19944",
+              "match_id": "8978292022",
+              "account_id": "892486081",
+              "start_time": 1788295911,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 1414,
+              "leagueid": "19944",
+              "match_id": "8978242189",
+              "account_id": "892486081",
+              "start_time": 1788292847,
+              "player_slot": 130,
+              "radiant_win": true
+            },
+            {
+              "tier": "professional",
+              "duration": 2271,
+              "leagueid": "19944",
+              "match_id": "8978147287",
+              "account_id": "892486081",
+              "start_time": 1788288976,
+              "player_slot": 130,
+              "radiant_win": false
+            }
+          ],
+          "trainingExamples": 0,
+          "predictionEligibility": "not_assessed"
+        },
+        "error_code": null
+      }
+    ],
+    "uniqueMapCountBefore": 251,
+    "uniqueMapCountAfter": 281,
+    "newUniqueMaps": 30,
+    "yearPlayers": [
+      {
+        "slot": "A",
+        "players": [
+          {
+            "playerId": "208",
+            "nRaw": 17,
+            "winRate": 0.29411764705882354
+          },
+          {
+            "playerId": "205",
+            "nRaw": 8,
+            "winRate": 0.5
+          },
+          {
+            "playerId": "207",
+            "nRaw": 5,
+            "winRate": 0.2
+          },
+          {
+            "playerId": "206",
+            "nRaw": 5,
+            "winRate": 0.6
+          },
+          {
+            "playerId": "204",
+            "nRaw": 5,
+            "winRate": 0.2
+          }
+        ]
+      },
+      {
+        "slot": "B",
+        "players": [
+          {
+            "playerId": "211",
+            "nRaw": 18,
+            "winRate": 0.3888888888888889
+          },
+          {
+            "playerId": "209",
+            "nRaw": 24,
+            "winRate": 0.4583333333333333
+          },
+          {
+            "playerId": "212",
+            "nRaw": 18,
+            "winRate": 0.3888888888888889
+          },
+          {
+            "playerId": "210",
+            "nRaw": 18,
+            "winRate": 0.3888888888888889
+          },
+          {
+            "playerId": "213",
+            "nRaw": 17,
+            "winRate": 0.29411764705882354
+          }
+        ]
+      }
+    ],
+    "recentPerdan": {
+      "nRaw": 0,
+      "winRate": null
+    },
+    "lineupPreserved": true,
+    "cacheSwitchVerified": true,
+    "mobileOverflow": false,
+    "pageErrors": [],
+    "importPosts": 2,
+    "previewImportPosts": 0,
+    "scenarioWrites": 0,
+    "identityWrites": 0,
+    "roleProfileRefreshes": 0,
+    "modelActivations": 0,
+    "trainingExamplesCreated": 0
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "rootBuild": "PASS",
+    "unitPackageCounts": [
+      54,
+      20,
+      32,
+      33,
+      347,
+      267,
+      47,
+      1
+    ],
+    "unitTotal": 801,
+    "node": 74,
+    "targetedPgApi": 8,
+    "browserUnique": 4,
+    "newPure": 6,
+    "liveOwnerApi": "PASS",
+    "liveUi": "PASS",
+    "desktopAndMobileVisuallyInspected": true,
+    "initialFailures": [
+      "new contract/keyset functions missing (red regression)",
+      "nested select label text prevented exact label lookup; markup fixed; later dependent browser cases failed after fixture restart",
+      "live diagnostic used noncanonical datetime .000 input format; diagnostic corrected",
+      "preservation harness omitted expected auth_login_budget change from explicit owner login; allowed mutation added"
+    ],
+    "timeoutsOrTestRetriesIncreased": false,
+    "fullPgSuite": "not run",
+    "python": "not run",
+    "linuxDocker": "deferred by owner"
+  },
+  "next": {
+    "task": "S2-01/role-owner-check/elo-history-readiness",
+    "scope": "Read-only audit of expanded maps and identities usable by the frozen conditional Elo feature policy; raw descriptive counts are not model-ready counts",
+    "model": "GPT-6 Astra",
+    "effort": "High",
+    "predictionStatus": "NO_ACTIVE_MODEL"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-04T20:37:26.021Z",
+    "status": "PASS",
+    "beforeRelations": 87,
+    "afterRelations": 87,
+    "unchangedRelations": 67,
+    "changes": [
+      {
+        "schema": "pgboss",
+        "table": "instance",
+        "before": "8",
+        "after": "10"
+      },
+      {
+        "schema": "pgboss",
+        "table": "job",
+        "before": "5",
+        "after": "7"
+      },
+      {
+        "schema": "pgboss",
+        "table": "job_common",
+        "before": "5",
+        "after": "7"
+      },
+      {
+        "schema": "pgboss",
+        "table": "queue",
+        "before": "6",
+        "after": "6"
+      },
+      {
+        "schema": "pgboss",
+        "table": "version",
+        "before": "1",
+        "after": "1"
+      },
+      {
+        "schema": "public",
+        "table": "auth_login_budget",
+        "before": "1",
+        "after": "1"
+      },
+      {
+        "schema": "public",
+        "table": "auth_sessions",
+        "before": "18",
+        "after": "19"
+      },
+      {
+        "schema": "public",
+        "table": "leagues",
+        "before": "9",
+        "after": "12"
+      },
+      {
+        "schema": "public",
+        "table": "match_draft_source_observations",
+        "before": "256",
+        "after": "286"
+      },
+      {
+        "schema": "public",
+        "table": "match_field_observations",
+        "before": "11567",
+        "after": "12613"
+      },
+      {
+        "schema": "public",
+        "table": "match_players",
+        "before": "2510",
+        "after": "2810"
+      },
+      {
+        "schema": "public",
+        "table": "match_quality_assessments",
+        "before": "526",
+        "after": "574"
+      },
+      {
+        "schema": "public",
+        "table": "match_source_snapshots",
+        "before": "256",
+        "after": "286"
+      },
+      {
+        "schema": "public",
+        "table": "matches",
+        "before": "251",
+        "after": "281"
+      },
+      {
+        "schema": "public",
+        "table": "player_history_runs",
+        "before": "2",
+        "after": "4"
+      },
+      {
+        "schema": "public",
+        "table": "provider_ingest_receipts",
+        "before": "782",
+        "after": "860"
+      },
+      {
+        "schema": "public",
+        "table": "provider_quotas",
+        "before": "1",
+        "after": "1"
+      },
+      {
+        "schema": "public",
+        "table": "provider_reference_snapshots",
+        "before": "8",
+        "after": "9"
+      },
+      {
+        "schema": "public",
+        "table": "schema_migrations",
+        "before": "41",
+        "after": "42"
+      },
+      {
+        "schema": "public",
+        "table": "teams",
+        "before": "57",
+        "after": "66"
+      }
+    ],
+    "newRelations": [],
+    "protectedArtifacts": [
+      {
+        "path": ".tools/s3-01-e0-export.json",
+        "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+      },
+      {
+        "path": "docs/evidence/s3-01-e1-plan.json",
+        "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+      },
+      {
+        "path": ".tools/v1-data-export.json",
+        "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+      },
+      {
+        "path": "docs/evidence/s3-01-v1-release-plan.json",
+        "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+      },
+      {
+        "path": ".tools/v1-release-leagues-20261102.json",
+        "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+      },
+      {
+        "path": ".tools/v1-features-development-final.json",
+        "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+        "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+        "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-release-evidence.json",
+        "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+        "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+        "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+        "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-executable-verification.json",
+        "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+        "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+        "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+      },
+      {
+        "path": "docs/evidence/s3-05-v1-registry.json",
+        "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+      },
+      {
+        "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+        "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+      },
+      {
+        "path": "docs/evidence/s3-06-v1-owner-api-ui.json",
+        "sha256": "543d4a48d36f627af4597462e4c4adb35109de362e2b68d55001b21cc41693eb"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-real-target.json",
+        "sha256": "9f49e3f6394ff9490b98249d717859b058e1df04e8614a165f9add23cd6f1911"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-journal-metrics.json",
+        "sha256": "baf05428a2b2623c9c207d9074e2c0bdc3f8776e232967b1446e06ce09008b38"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-journal-owner-api-ui.json",
+        "sha256": "1f351addda289fcef98de74c40634c61cb9b291e3bc769a7b89186cc63cbd807"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-target-lifecycle.json",
+        "sha256": "740b47a7f2e6f510f9ea95ea513b9f7246502fb7b94c87750d5b541fb80fd98e"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-schedule-target-registration.json",
+        "sha256": "b0b0f67b68632c0395a7d650d813f2f63a5f37c66a2f75ab7c58922d99f10fb8"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-runtime.json",
+        "sha256": "757e2dd402846ab15fe9502a872f3e1525c7ae67c2f1c0366297f2007eb7d29c"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-result.json",
+        "sha256": "19f633fae8a8a4211bbd5eccb836b08e8872684cd949ab899cfb829542b1de0d"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-owner-flow.json",
+        "sha256": "bdfd9eaac593c6aa5d929059da88cfabee62d04b4ac68b052423f01c1700d780"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-binding-owner-flow.json",
+        "sha256": "db330af19571caf5dd95331d204e9d0424844eccc277b393c2afba8877450869"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-target-lifecycle.json",
+        "sha256": "2dec5d4c3af4577b2e9e19fc20f609ab8db0e700ca7cc07081de9be4d267940d"
+      },
+      {
+        "path": "docs/evidence/s4-v1-acceptance-audit.json",
+        "sha256": "4803b1dec3a0081e10bc5ee064ddfdfbe1d023902b45d9dc7684175ad737b668"
+      },
+      {
+        "path": "docs/evidence/s4-v1-backup-restore.json",
+        "sha256": "3f03694f0f3628d4df68c3b86c4e2ff9bd4d3ad017c20368897f1b2db63ac79b"
+      },
+      {
+        "path": "docs/evidence/s4-v1-local-owner-smoke.json",
+        "sha256": "1cf3f62be6185662d7a861b25a608f98c4d77796984b88063ba2fb4b452789d8"
+      },
+      {
+        "path": "docs/evidence/s4-v1-schedule-event-filter.json",
+        "sha256": "7ae62cbf174b4fbff6735bd4b8268c99ec07bad3262b9a0a2c013322db9c5708"
+      },
+      {
+        "path": "docs/evidence/s4-v1-schedule-event-filter-v2.json",
+        "sha256": "4a80b6ce7436da825b457841d4beb2e1af18c5ec42672c68e6926e05029cc0d8"
+      },
+      {
+        "path": "docs/evidence/s4-v1-model-readiness-status.json",
+        "sha256": "905aa2d3ba7637c82dab74465e262084d15549ed6b4465e6947756925755ed13"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-security-review.json",
+        "sha256": "e33be17b1da749b94756b3a8959257c73ccc54dfd0b03b9fcfa4581735b7b7f6"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-queue-coverage.json",
+        "sha256": "bac1dcac838e617c4deaff8a4be71f5e4736cd037f90646407ef402f5973d777"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-provider-resilience.json",
+        "sha256": "305a1c2e90f01f24813f2b411ceb59ce51f07dbd7a8e958e43e2aae4b3f078e8"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-provider-conflicts.json",
+        "sha256": "00016adb4d65c22468c4b2c882c6dd882bee3393b047c5a2345d7c32f4172178"
+      },
+      {
+        "path": "docs/evidence/s4-02-v1-historical-regression.json",
+        "sha256": "595cfbaca6074ee58e89242177b312564a4da9a3fae63b8e9f617cf6909ebf6b"
+      },
+      {
+        "path": "docs/evidence/s4-02-v1-full-owner-e2e.json",
+        "sha256": "a5d206b192c6301da2f81a3234c60ace1ff50914da189b7b394a737eb4aeb744"
+      },
+      {
+        "path": "docs/evidence/s4-03-v1-deployment-preflight.json",
+        "sha256": "61a91f176793c77c387ab410795e86a45dda730b57ca039d7c322febb4ddea18"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-suggestions.json",
+        "sha256": "ed517ebde5194ee53b9eb2decf27ada6218c83bab6a5b23e20fb9d0d3599f7c4"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-api-review.json",
+        "sha256": "c4ecd19748163a4e5dcbca0a40be1d7f387aca504cf00ab60c1d460347811547"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-profile-reader.json",
+        "sha256": "f609597010eb6d1410eda4ac4ff2cdc13f824251f008127759385062c5596f53"
+      },
+      {
+        "path": "docs/evidence/s4-02-upcoming-incomplete-opponents.json",
+        "sha256": "9c3f001615686f3eed04d86abee82b94f70595f924b250ff19448d287142d62a"
+      },
+      {
+        "path": "docs/evidence/s2-01-team-roster-loading.json",
+        "sha256": "0e470f51d5282c9107bda09a0ef4603b93584a0909994d9bc1e74f3e307aadff"
+      },
+      {
+        "path": "docs/evidence/s1-09-api-usage-reliability-audit.json",
+        "sha256": "0ea96ab14b6d5c4718949299c3c0e7dab18f460ea99ec2eb44628bf4f8b57003"
+      },
+      {
+        "path": "docs/evidence/s1-09-yangon-momo-roster-review.json",
+        "sha256": "e76056340df33417a79540d8c5201a8a81a2a25af8588a2c21c357683d567d8f"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-editor-priority.json",
+        "sha256": "7ce309002d42086b92c84f30d6fbff3ef81a5f1d60579ac4071136d769e4fec0"
+      },
+      {
+        "path": "docs/evidence/s2-01-puckchamp-icxi-ui-review.json",
+        "sha256": "1088ffb55ecc364f1fe633b336b58cb2a5735438a3fb94e279bd6529fe98a32a"
+      },
+      {
+        "path": "docs/evidence/s2-01-expected-roster-catalogue.json",
+        "sha256": "4fae95188abec3c3b4f444ff37ba80b6cd10e308b2209bf02d9b0cc55c53be0f"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-owner-diagnostic.json",
+        "sha256": "bff5065d640aca38b6e69da4aed09723853218476874564514e5823a9d536591"
+      },
+      {
+        "path": "docs/evidence/s2-01-new-team-organization.json",
+        "sha256": "768f1d3bdf626fc32572021b15e2284c0e6c3b9908e2237ac6ea421dd618a6f2"
+      },
+      {
+        "path": "docs/evidence/s2-01-roster-player-profile.json",
+        "sha256": "672325a5983e663c3b2c34f1f93f0ba10326f2e660435d171091ce715c291a43"
+      },
+      {
+        "path": "docs/evidence/s2-01-allied-lynx-review.json",
+        "sha256": "6f1ee1457ea6320c1dc652f67c20a58b42015feccadf59f23303651437afba6c"
+      },
+      {
+        "path": "docs/evidence/s2-01-unified-player-catalogue.json",
+        "sha256": "b7b4ab3744bf2d97142ceb8796836f9942b1b09f5105a325e9e89c96f061a6e7"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-owner-live-profiles.json",
+        "sha256": "43197388e345214ee9e55f9532105398c392e3d43ac8e24bdbee5739e96aa6e9"
+      },
+      {
+        "path": "docs/evidence/s2-01-player-history.json",
+        "sha256": "13b503b36dcf10873133a92387156ecd76d3f92a102c8bf43a997f5b22d1e182"
+      }
+    ],
+    "originalNonBarrelModules": 150,
+    "compatibleV1Runtime": true,
+    "frozenBundleVerified": true,
+    "migrationLedger": [
+      {
+        "filename": "001_initial.sql",
+        "checksum": "8b1505e143bc200ce1e5ef167e6315557b1c1eb3fc8e0fa2035e59c00d55d4f4"
+      },
+      {
+        "filename": "002_patch_awareness.sql",
+        "checksum": "2c332db16f6e40212f0c07f06f45918e1566a1158029392776e9eabae4ffa6b2"
+      },
+      {
+        "filename": "003_roster_continuity.sql",
+        "checksum": "c230707713b8cfe35a55a5a48aa9f81d9c9375ffeb4aed67c315d5235ca0c0fb"
+      },
+      {
+        "filename": "004_context_identity_provenance.sql",
+        "checksum": "184e24d7e95656e1be115c2010a8946a3d88633ca5d9c554b0b4e7c5cf1f294d"
+      },
+      {
+        "filename": "005_training_pipeline.sql",
+        "checksum": "b79dc2586d5d3bcbeb8d290045362fe14639a63b409f52da6c6bb3cc6f965f3c"
+      },
+      {
+        "filename": "006_draft_data_quality.sql",
+        "checksum": "76af6b156a25eedcdf64a6d2a8b33161d79a9fac011c8de81a3cdb6dde013e6a"
+      },
+      {
+        "filename": "007_idempotent_ingestion.sql",
+        "checksum": "ecfa1aea0ef631f016b797580b0598892af5c15bc09a7a907b0e90cd674628ac"
+      },
+      {
+        "filename": "008_owner_auth.sql",
+        "checksum": "8a459ca949428c827bfe8744b92acf870954155ccf7ce4d867b364ddcdad5238"
+      },
+      {
+        "filename": "009_temporal_context.sql",
+        "checksum": "2fe9f7f28150127bacc78fb972266de9cc15c30ca82e2a5d306cdba08c8de830"
+      },
+      {
+        "filename": "010_identity_evidence.sql",
+        "checksum": "43b41db24f20f3258b03788408eefee66cac312dde6e4691db89a7497dc7e280"
+      },
+      {
+        "filename": "011_game_context_registry.sql",
+        "checksum": "b87ce903ff12aa4bf1b2569d9106961f222ab0f2a57e71eae2e9e10d8502a7f2"
+      },
+      {
+        "filename": "012_verified_dataset_boundary.sql",
+        "checksum": "a406136a38c2f9399c0a913f17abeb77ee0296c641d3426041e03cf9938b4269"
+      },
+      {
+        "filename": "013_context_recorded_time.sql",
+        "checksum": "4f28693720367ec681e07229c9b28d81517a3629823c54ef8d456de691bedfce"
+      },
+      {
+        "filename": "014_patch_transfer_evidence.sql",
+        "checksum": "8666a3576f4e997685afc2a8a5535ad9771143849a8c380b113a80f3988443a7"
+      },
+      {
+        "filename": "015_scenario_snapshots.sql",
+        "checksum": "c743257c561ae725f3191867f9118905a6136902165465dda3d651359f81d103"
+      },
+      {
+        "filename": "016_scenario_draft.sql",
+        "checksum": "e597a4ddbda5fb822284eb3ff8671d0a25cf9e03cc13002dad71f44c77e0724c"
+      },
+      {
+        "filename": "017_scenario_reports.sql",
+        "checksum": "7cf013a6bcb8e5d59696f327433bb2b3143fe03a50143eea14ab9c81dfcafd2e"
+      },
+      {
+        "filename": "018_outcome_verifier.sql",
+        "checksum": "a534be6670a699d6e7e4dd9df4efb493ff070b1b3833a3c11609f926e156e0c1"
+      },
+      {
+        "filename": "019_upcoming_schedule.sql",
+        "checksum": "07c209cbc751a091588016aab82006aa50fd4c42c024cb858a79e3ec184db5d6"
+      },
+      {
+        "filename": "020_history_refresh.sql",
+        "checksum": "738a45096172ccb489079247ff55777a2a08fe18cbf4271fb929f1bc97721a34"
+      },
+      {
+        "filename": "021_upcoming_source_observations.sql",
+        "checksum": "6a03eb941c15574f79fbb70b98d6ee3e695693965449d44098b973428ab4295c"
+      },
+      {
+        "filename": "022_series_provision.sql",
+        "checksum": "91d4883d4de3d4459cd82116cb20540d74427437a167dc87b7da1e0d3db7ce06"
+      },
+      {
+        "filename": "023_research_evaluation_journal.sql",
+        "checksum": "1b059414397e08000e03505c068d9e3c4c79d2e36ca96473cc3b5474ba95ab1f"
+      },
+      {
+        "filename": "024_v1_release_evaluation_journal.sql",
+        "checksum": "5be6bb15ed1f7ff2695a62e555d6476dbd32eb81c1ce0b368def80b975559cdc"
+      },
+      {
+        "filename": "025_v1_model_registry.sql",
+        "checksum": "d14ed21f41f576c72bfd3da5eaced7f5ea4274bab8f052181d14a45ee2327952"
+      },
+      {
+        "filename": "026_v1_runtime_snapshots.sql",
+        "checksum": "2aac1ae2a413dd8194486e3b1f6c2bddd3bc47c9c6a2472bd339816c91ec55b8"
+      },
+      {
+        "filename": "027_v1_forecast_outcomes.sql",
+        "checksum": "dbb418ea4fb53deaa472cd02bba232f078a86947de3c79f65f0bc94406dc134b"
+      },
+      {
+        "filename": "028_v1_journal_reports.sql",
+        "checksum": "de7aa7f8016bfda2a7686d4d9f935bb786ce716549729727d2083c05d6218298"
+      },
+      {
+        "filename": "029_v1_target_lifecycle.sql",
+        "checksum": "5c46bf775a8f4367b66eb1a0e08b975a2e335396a55d173a44752e1396449380"
+      },
+      {
+        "filename": "030_v1_schedule_targets.sql",
+        "checksum": "5e936f2f8b6067310abec307098766b689921cffc1c639ab95ea69579303be1a"
+      },
+      {
+        "filename": "031_v1_scheduled_runtime.sql",
+        "checksum": "7f2d8ddef1b8085ab6f85473fd3baa5c7ec6ed8ebd096241fde4b0175811b03f"
+      },
+      {
+        "filename": "032_v1_schedule_results.sql",
+        "checksum": "49e1051afcd49c25c6e073a371c942634361f64e778757a9f92f1a83da099fd1"
+      },
+      {
+        "filename": "033_v1_schedule_started_guard.sql",
+        "checksum": "d67574ddd92efa1962bcc042f140dc607781a2f29afb56a1101a997273b31494"
+      },
+      {
+        "filename": "034_v1_scheduled_lifecycle.sql",
+        "checksum": "670cc6384b04161b1c97761a2bfbaecb93f3e9b3cc802696aa783e0a5db9f5bf"
+      },
+      {
+        "filename": "035_role_profile_hints.sql",
+        "checksum": "b4b757258c8b6e205e848cdffab6d01618f8d43f6891f74bd9416178b2ba8d99"
+      },
+      {
+        "filename": "036_expected_roster_catalogue.sql",
+        "checksum": "b373cdf08d3527616a96e43c627994cbb7b58844a4f08cf62dba1555e711580d"
+      },
+      {
+        "filename": "037_roster_team_directory.sql",
+        "checksum": "5d801f438bae9e3622bcdd5130a67278b524ee20bd4020976e06a66389058c6d"
+      },
+      {
+        "filename": "038_provider_team_catalogue.sql",
+        "checksum": "6139ec7b17b37876af243e49446dd57ee164757b5d09dffc4d20c6f1387b6d5f"
+      },
+      {
+        "filename": "039_roster_player_profiles.sql",
+        "checksum": "47c3d80a7c20d69350c969ad08839bc0e6b670198d0d8d2cf64e55fe631bd395"
+      },
+      {
+        "filename": "040_unified_player_catalogue.sql",
+        "checksum": "72c4f13334ed34162f6753c84a9867a4f56d02305636dd24b80d895211963ad2"
+      },
+      {
+        "filename": "041_selected_player_history.sql",
+        "checksum": "e2b43d7892a3ac54c493c0c0830383a63039baff28608031229e1cc9c6b8c84e"
+      },
+      {
+        "filename": "042_player_history_options.sql",
+        "checksum": "52e9520efede3f85ba12bb9a5c492fbd842a3e8ccf2b1b802d401c4815caf359"
+      }
+    ],
+    "originalFactsPreserved": true,
+    "oldRunProjectionExcludesNewOptionsColumn": true,
+    "mapSyncMetadataMayRefresh": true,
+    "queuedAuroraPreserved": true
+  }
+}

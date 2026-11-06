@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "s2-07-ranked-reader-v1",
+  "checkedAt": "2026-11-05T20:55:22.651Z",
+  "scope": "optional backend reader, immutable observation/cache, protected HTTP endpoint; no hero aggregates/UI yet",
+  "implementation": {
+    "endpoint": "POST /api/v1/ranked-practice",
+    "defaultEnabled": false,
+    "localEnabled": true,
+    "statisticsEnabled": false,
+    "providers": [
+      "opendota",
+      "stratz"
+    ],
+    "maxPages": 2,
+    "pageSize": 100,
+    "timeoutMs": 15000,
+    "maxResponseBytes": 2097152,
+    "fullTtlSeconds": 3600,
+    "emptyPartialTtlSeconds": 900,
+    "leaseSeconds": 50,
+    "minFailureCooldownSeconds": 60
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "unitCli": 852,
+    "apiPostHeroCheckTypecheckBuild": "PASS",
+    "apiPostgres": 10,
+    "newClientUnits": 13,
+    "browserRun": false,
+    "fullNodeRun": false,
+    "pythonDockerLinuxRun": false
+  },
+  "logs": [
+    {
+      "path": ".tools/s2-07-install.log",
+      "sha256": "a86552229a6082d1edfe7e750cb4f4a88dc4f09421ef5cfebce9e5e85b77de80"
+    },
+    {
+      "path": ".tools/s2-07-typecheck.log",
+      "sha256": "67cf64db7ce49ca35734b9bc487fef10fa66bd91944f4d2b3a1a117a602872b3"
+    },
+    {
+      "path": ".tools/s2-07-build.log",
+      "sha256": "6864c21b4e6fca6faaa35c91e4de6c4f46711a0711e8bbf12951df2f7599227b"
+    },
+    {
+      "path": ".tools/s2-07-unit.log",
+      "sha256": "8dfe9f73b487190e1be33378a4f0645c310692b6ecedb45208cbb56a65309e90"
+    },
+    {
+      "path": ".tools/s2-07-api-final-typecheck.log",
+      "sha256": "7c7fa49e5d8a9d809b0935f00f67c26ee3b3a292f18a7c828d5fceb6faefeca6"
+    },
+    {
+      "path": ".tools/s2-07-api-final-build.log",
+      "sha256": "a4bc82e7dce46462fbcb7ae9561d1f8a78790ca06980804b1a623e55a9512e17"
+    },
+    {
+      "path": ".tools/s2-07-api-pg-final-identity.log",
+      "sha256": "dfe6cdc78b46554e85b3d566c97742c03f3df5ba0c8e5ac9a564b646f439c1a5"
+    }
+  ],
+  "live": {
+    "totalProviderRequests": 6,
+    "rankedHistoryRequests": 4,
+    "unfilteredLatestMapRequests": 2,
+    "retries": 0,
+    "logins": 0,
+    "providerHTTP200": 6,
+    "controlPlan": {
+      "createdAt": "2026-11-05T20:44:49.384Z",
+      "scope": "nonempty public control only; max6 HTTP; current30-day ranked All Pick; no imports or training",
+      "cases": [
+        {
+          "playerId": "20",
+          "accountId": "321580662",
+          "provider": "opendota"
+        },
+        {
+          "playerId": "20",
+          "accountId": "321580662",
+          "provider": "stratz"
+        },
+        {
+          "playerId": "130",
+          "accountId": "302214028",
+          "provider": "opendota"
+        }
+      ],
+      "maxRequests": 6,
+      "maxPages": 2,
+      "pageSize": 100,
+      "identityChecks": [
+        {
+          "playerId": "20",
+          "accountIds": [
+            "321580662"
+          ],
+          "identityStatus": "verified"
+        },
+        {
+          "playerId": "130",
+          "accountIds": [
+            "302214028"
+          ],
+          "identityStatus": "verified"
+        }
+      ],
+      "code": [
+        {
+          "path": "packages/ingestion/dist/ranked-practice-client.js",
+          "sha256": "7780a69ad9c355efefb67a34b3288a9dbcab1f26856e7779f268309207519eb7"
+        },
+        {
+          "path": "packages/contracts/dist/ranked-practice.js",
+          "sha256": "0eaefb0f413f6bd72704761c3210225d7b3cd5329889dc609cfa97eb164dd6a3"
+        }
+      ]
+    },
+    "rankedControl": {
+      "finishedAt": "2026-11-05T20:44:54.130Z",
+      "attempts": 3,
+      "requests": [
+        {
+          "provider": "opendota",
+          "status": 200,
+          "retry": null,
+          "limits": {
+            "minute": 59,
+            "day": 2959
+          }
+        },
+        {
+          "provider": "stratz",
+          "status": 200,
+          "retry": null,
+          "limits": {
+            "minute": 149,
+            "day": 14967
+          }
+        },
+        {
+          "provider": "opendota",
+          "status": 200,
+          "retry": null,
+          "limits": {
+            "minute": 58,
+            "day": 2958
+          }
+        }
+      ],
+      "results": [
+        {
+          "playerId": "20",
+          "accountId": "321580662",
+          "provider": "opendota",
+          "observation": {
+            "adapterVersion": "ranked-practice-reader-v1",
+            "provider": "opendota",
+            "accountId": "321580662",
+            "fromAt": "2026-10-06T20:44:51.000Z",
+            "cutoffAt": "2026-11-05T20:44:51.000Z",
+            "knownAt": null,
+            "fetchedAt": "2026-11-05T20:44:52.989Z",
+            "filters": {
+              "lobbyTypeId": 7,
+              "gameModeId": 22,
+              "windowDays": 30,
+              "qualityFilter": "none"
+            },
+            "maps": [],
+            "coverage": {
+              "receivedRows": 0,
+              "excluded": {},
+              "duplicates": 0,
+              "conflicts": 0,
+              "pagination": "exhausted",
+              "historyCompleteness": "unknown",
+              "stopReason": null
+            },
+            "receipts": [
+              {
+                "offset": 0,
+                "rows": 0,
+                "fetchedAt": "2026-11-05T20:44:52.988Z",
+                "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+              }
+            ]
+          }
+        },
+        {
+          "playerId": "20",
+          "accountId": "321580662",
+          "provider": "stratz",
+          "observation": {
+            "adapterVersion": "ranked-practice-reader-v1",
+            "provider": "stratz",
+            "accountId": "321580662",
+            "fromAt": "2026-10-06T20:44:52.000Z",
+            "cutoffAt": "2026-11-05T20:44:52.000Z",
+            "knownAt": null,
+            "fetchedAt": "2026-11-05T20:44:53.676Z",
+            "filters": {
+              "lobbyTypeId": 7,
+              "gameModeId": 22,
+              "windowDays": 30,
+              "qualityFilter": "none"
+            },
+            "maps": [],
+            "coverage": {
+              "receivedRows": 0,
+              "excluded": {},
+              "duplicates": 0,
+              "conflicts": 0,
+              "pagination": "exhausted",
+              "historyCompleteness": "unknown",
+              "stopReason": null
+            },
+            "receipts": [
+              {
+                "offset": 0,
+                "rows": 0,
+                "fetchedAt": "2026-11-05T20:44:53.676Z",
+                "payloadSha256": "eca1d4a2f96ae6bed782bcc7b919b7a7b39b0cde10ab63b1f929450f5309a4c8"
+              }
+            ]
+          }
+        },
+        {
+          "playerId": "130",
+          "accountId": "302214028",
+          "provider": "opendota",
+          "observation": {
+            "adapterVersion": "ranked-practice-reader-v1",
+            "provider": "opendota",
+            "accountId": "302214028",
+            "fromAt": "2026-10-06T20:44:53.000Z",
+            "cutoffAt": "2026-11-05T20:44:53.000Z",
+            "knownAt": null,
+            "fetchedAt": "2026-11-05T20:44:54.128Z",
+            "filters": {
+              "lobbyTypeId": 7,
+              "gameModeId": 22,
+              "windowDays": 30,
+              "qualityFilter": "none"
+            },
+            "maps": [],
+            "coverage": {
+              "receivedRows": 0,
+              "excluded": {},
+              "duplicates": 0,
+              "conflicts": 0,
+              "pagination": "exhausted",
+              "historyCompleteness": "unknown",
+              "stopReason": null
+            },
+            "receipts": [
+              {
+                "offset": 0,
+                "rows": 0,
+                "fetchedAt": "2026-11-05T20:44:54.127Z",
+                "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "latestVisibleControl": {
+      "totalNewRequests": 2,
+      "combinedControlRequests": 5,
+      "results": [
+        {
+          "provider": "opendota",
+          "url": "https://api.opendota.com/api/players/321580662/matches?limit=1&significant=0",
+          "request": null,
+          "status": 200,
+          "startedAt": "2026-11-05T20:46:09.201Z",
+          "fetchedAt": "2026-11-05T20:46:10.252Z",
+          "providerDate": "Thu, 05 Nov 2026 20:46:11 GMT",
+          "sha256": "de7e4814a202103d50c4dc9aaf75b5f26644047860a40dcd4a3697cea56079f0",
+          "rows": 1,
+          "latest": {
+            "matchId": "9071885340",
+            "startedAt": "2026-11-01T15:49:50.000Z",
+            "lobbyType": 1,
+            "gameMode": 2,
+            "leagueId": null
+          }
+        },
+        {
+          "provider": "stratz",
+          "url": "https://api.stratz.com/graphql",
+          "request": {
+            "query": "query LastPublicControl { player(steamAccountId:321580662) { steamAccountId matches(request:{take:1,skip:0,orderBy:DESC,playerList:SINGLE}) { id startDateTime lobbyType gameMode leagueId } } }"
+          },
+          "status": 200,
+          "startedAt": "2026-11-05T20:46:10.279Z",
+          "fetchedAt": "2026-11-05T20:46:10.755Z",
+          "providerDate": "Thu, 05 Nov 2026 20:46:12 GMT",
+          "sha256": "665a023f2cbcbe6912814965137bd2bf2626cfa61ebc7641168a13a964085989",
+          "rows": 1,
+          "latest": {
+            "matchId": "9071885340",
+            "startedAt": "2026-11-01T15:49:50.000Z",
+            "lobbyType": "PRACTICE",
+            "gameMode": "CAPTAINS_MODE",
+            "leagueId": 20395
+          }
+        }
+      ]
+    },
+    "api": {
+      "beforeStatus": "not_loaded",
+      "afterStatus": "empty",
+      "cacheReadProviderRequests": 0,
+      "freshReplayProviderRequests": 0,
+      "report": {
+        "playerId": "20",
+        "accountId": "321580662",
+        "provider": "opendota",
+        "snapshotAt": "2026-11-05T20:53:02.508Z",
+        "identityRevision": "643",
+        "observationIdentityRevision": "643",
+        "identityStatus": "verified",
+        "status": "empty",
+        "stale": false,
+        "reason": null,
+        "retryAt": null,
+        "observationId": "569d07d7-87ef-4c7f-adc1-3836da198cc2",
+        "observation": {
+          "adapterVersion": "ranked-practice-reader-v1",
+          "provider": "opendota",
+          "accountId": "321580662",
+          "fromAt": "2026-10-06T20:53:01.000Z",
+          "cutoffAt": "2026-11-05T20:53:01.000Z",
+          "knownAt": null,
+          "fetchedAt": "2026-11-05T20:53:02.424Z",
+          "filters": {
+            "lobbyTypeId": 7,
+            "gameModeId": 22,
+            "windowDays": 30,
+            "qualityFilter": "none"
+          },
+          "maps": [],
+          "coverage": {
+            "receivedRows": 0,
+            "excluded": {},
+            "duplicates": 0,
+            "conflicts": 0,
+            "pagination": "exhausted",
+            "historyCompleteness": "unknown",
+            "stopReason": null
+          },
+          "receipts": [
+            {
+              "offset": 0,
+              "rows": 0,
+              "fetchedAt": "2026-11-05T20:53:02.424Z",
+              "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            }
+          ]
+        },
+        "statisticsEnabled": false
+      }
+    }
+  },
+  "persistence": {
+    "migration": "045_ranked_practice.sql",
+    "beforePublicTables": 75,
+    "afterPublicTables": 77,
+    "originalTablesUnchanged": 72,
+    "changedOriginalTables": [
+      "provider_quotas",
+      "role_profile_stratz_quota",
+      "schema_migrations"
+    ],
+    "newTables": [
+      "ranked_practice_cache",
+      "ranked_practice_observations"
+    ],
+    "observations": 1,
+    "cacheEntries": 1,
+    "proMapsBefore": 340,
+    "proMapsAfter": 340,
+    "queueUnchanged": true,
+    "pubMapsImportedIntoPro": 0
+  },
+  "runtime": {
+    "rankedPracticeEnabled": true,
+    "apiPid": 28972,
+    "startedAt": "2026-11-05T20:52:19.4233114Z",
+    "frozenArtifactsVerified": 245,
+    "originalModulesVerified": 150,
+    "frozenBundle": "PASS",
+    "runtimeCompatible": true,
+    "webAndWorkerUnchanged": true
+  },
+  "limitations": [
+    "All current ranked control pages empty; no empirical nonempty ranked field/pagination coverage.",
+    "Latest visible Yatoro map is Practice/Captains Mode, not ranked; it is excluded rather than substituted.",
+    "History completeness/cause of missing ranked rows unknown; empty is not zero experience.",
+    "Providers remain separate; cross-provider aggregation, hero WR and UI deferred."
+  ],
+  "initialFailures": [
+    "Integration initially consumed stale compiled client with ceil-rounded fetchedAt; fixed exact milliseconds and rebuilt, regression added.",
+    "Integration SQL incorrectly queried matches.match_id; fixed fixture assertion to matches.id.",
+    "Local smoke helper contained a TypeScript generic in mjs; removed; initial attempt stopped before provider access."
+  ],
+  "sourceHashes": [
+    {
+      "path": "packages/contracts/src/ranked-practice.ts",
+      "sha256": "58f47672b331181cf90fd05af478a180543d9b7fc50bd1466c744e95576129ca"
+    },
+    {
+      "path": "packages/ingestion/src/ranked-practice-client.ts",
+      "sha256": "23465a9da000477842f800445bb65661074b09a3e49ebf8105e851c887f1f5d1"
+    },
+    {
+      "path": "packages/db/src/ranked-practice-repository.ts",
+      "sha256": "888181c13df01aa416c3428abce6f8fefec400f048148eaee907b03355af6e5b"
+    },
+    {
+      "path": "packages/db/migrations/045_ranked_practice.sql",
+      "sha256": "b43e29f79c0f18de670e947ddf94069672eb298717a828f5d9e93eca33b6b7fb"
+    },
+    {
+      "path": "apps/api/src/modules/catalog/ranked-practice.ts",
+      "sha256": "dbed86babf95614d46a67b952cc96642dc08517d7f1ba91f8fd3f184ca3638a8"
+    },
+    {
+      "path": "apps/api/src/app.ts",
+      "sha256": "4e4e813c801f392a4e01c3a368ba12b2be9302e191b526659b953f0c58c33004"
+    },
+    {
+      "path": "apps/api/src/config.ts",
+      "sha256": "acb7d35b804250d8e6eed48792595175fabddec954c912270360a92516fa9e3b"
+    },
+    {
+      "path": "packages/ingestion/tests/ranked-practice-client.test.ts",
+      "sha256": "fc7106fcc3b7e3a86e5522af103270dc0ee3acdafad2d87c614a2d70244313f9"
+    },
+    {
+      "path": "apps/api/tests/ranked-practice.integration.test.ts",
+      "sha256": "77889c5ba1d0df28e6cadeacadba6949829b1207aafce2586388d9eced07383b"
+    }
+  ],
+  "nextTask": "S2-07/reader-ui",
+  "nextModel": "GPT-6.1 Sol / High"
+}

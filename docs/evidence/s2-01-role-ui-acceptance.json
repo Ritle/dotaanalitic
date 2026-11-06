@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "format": "s2-01-role-ui-acceptance-v1",
+  "checkedAt": "2026-11-05T13:35:05.190Z",
+  "ownerDecision": "Explicitly chose UI/roster acceptance while the independent collection window has not started.",
+  "sourceFiles": [
+    {
+      "path": "apps/web/src/role-editor.ts",
+      "sha256": "c5e01543b9135b6b66b5017fe5586ebf8f8f8f58228d89f68aa0c64a19d63b74"
+    },
+    {
+      "path": "apps/web/src/components/RoleProfiles.vue",
+      "sha256": "8d25dc8daa75e6f36d568d67bfafaeda019df4668d52fcaaf9c95207b18c7173"
+    },
+    {
+      "path": "apps/web/src/components/RoleSuggestions.vue",
+      "sha256": "ca2e82a4ea6e7bb9d1bd1910c113919df06261b0d38ee31331a2604d42c4baea"
+    },
+    {
+      "path": "apps/web/src/components/UpcomingScenario.vue",
+      "sha256": "05ba5f0fe8ca2010437aa9087c99e7bffa2493dc876457492278a22ffe253f1f"
+    },
+    {
+      "path": "apps/web/src/views/UpcomingView.vue",
+      "sha256": "327c979f2122f01f452636d822c45af5ce0aeb0a69f299bfa4c0e3baf429d072"
+    },
+    {
+      "path": "apps/web/tests/role-editor.test.ts",
+      "sha256": "105579aff7fe338d752c1010282129afc06b32352126ed385fd15627169350b2"
+    },
+    {
+      "path": "apps/web/tests/e2e/upcoming-compare.spec.ts",
+      "sha256": "fd7f1244ac51c140026a0bb9d640a1c01b3700ccd12314731771b74f90d553f3"
+    },
+    {
+      "path": "apps/web/tests/e2e/upcoming-navigation.spec.ts",
+      "sha256": "f448d0e761b438fb021dbaee7c3586a05068bfdcb57af13de312361c14359531"
+    }
+  ],
+  "changes": {
+    "selectedPlayerLabels": true,
+    "verifiedFreshProviderNamePriority": true,
+    "combiningOnlyNameFallsBackToId": true,
+    "singleMainOnUpcoming": true,
+    "identityEvidenceUnchanged": true,
+    "roleArrangementPolicyUnchanged": true
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "rootUnitCli": {
+      "status": "PASS",
+      "tests": 829,
+      "totals": [
+        54,
+        22,
+        40,
+        33,
+        348,
+        284,
+        47,
+        1
+      ],
+      "newLabelTests": 2
+    },
+    "finalWebAfterVisualGuard": {
+      "status": "PASS",
+      "typecheck": "PASS",
+      "build": "PASS",
+      "unitTests": 40
+    },
+    "browser": {
+      "status": "PASS",
+      "tests": 15,
+      "initialRegressionFailures": 2,
+      "regressionsReproducedBeforeFix": true
+    },
+    "live": {
+      "status": "PASS",
+      "cases": [
+        "Yellow Submarine — GamerLegion",
+        "Nemiga Gaming — angry birds",
+        "angry birds — PuckChamp",
+        "Natus Vincere — opponent unknown"
+      ],
+      "assertions": [
+        "manual role swap retained; confirmation and old report cleared",
+        "unsaved player replacement accepted after explicit reconfirmation; comparison filter preserves selected player",
+        "360px no horizontal overflow; role labels include selected names and canonical IDs"
+      ],
+      "pageErrors": [],
+      "manualDraftOnly": true,
+      "rosterApplyWrites": 0,
+      "scenarioSaves": 0,
+      "forecasts": 0,
+      "profileRefreshes": 0,
+      "scheduleRefreshes": 1,
+      "sourceRequests": "Bounded application mechanisms; exact provider HTTP total not instrumented.",
+      "finalSessionReused": true,
+      "nativeBrowserTool": "Unavailable: missing Windows platform directory; used installed project Chromium.",
+      "authBudget": "Repeated separate logins reached the existing 10/15min budget; respected Retry-After and switched helper to private session reuse. No auth/security changes."
+    },
+    "notRun": [
+      "Node CLI suite (last 108 PASS belongs to prior import checkpoint)",
+      "standalone PostgreSQL/API integration suites",
+      "Python",
+      "Docker",
+      "Linux"
+    ],
+    "logs": [
+      {
+        "path": ".tools/owner-acceptance-install.log",
+        "sha256": "0564743a17d256a34b52cc5a297e9c92646cad40e16659d1bc45e52dc07223f5"
+      },
+      {
+        "path": ".tools/owner-acceptance-typecheck.log",
+        "sha256": "08023bdb8f98bab3ba59854993b013b8e50350cc4c658198d54797d587685fb5"
+      },
+      {
+        "path": ".tools/owner-acceptance-build.log",
+        "sha256": "ff559cfc77d14728fe3c0103b60e07afdd52e3b3e33a0b8ffefe24edcdc965e8"
+      },
+      {
+        "path": ".tools/owner-acceptance-unit.log",
+        "sha256": "c611533f8f9f413ac465dabb631ef475fa5015dc4bd6ac6291490364a1738f64"
+      },
+      {
+        "path": ".tools/owner-acceptance-web-types-final.log",
+        "sha256": "b28a7c864293d7cc955d4bd033c9aca6b3da33bc5d87601e17c4a8082be512e5"
+      },
+      {
+        "path": ".tools/owner-acceptance-web-build-final.log",
+        "sha256": "2574c09c99fc3763f72c8963d6a7e18ea62087737f2dab24f92fd2d120707a07"
+      },
+      {
+        "path": ".tools/owner-acceptance-web-unit-final.log",
+        "sha256": "e82c7b7b01c78b26b2db15201d2f008d4c9dcc7f0c4b6e528cca8a77f65ba9d0"
+      },
+      {
+        "path": ".tools/owner-acceptance-browser-red.log",
+        "sha256": "2b03a2b701a562db85cb96945bf157a68c33ac5a3be75ac4b1c939721781e8a7"
+      },
+      {
+        "path": ".tools/owner-acceptance-browser-green.log",
+        "sha256": "60783ccba3e56b2ba4bd270332c60c75dff1e520093acebe4ce58ea9df232978"
+      },
+      {
+        "path": ".tools/owner-acceptance-browser-final.log",
+        "sha256": "f184e4a3946a328b5f9d2325dd0b9dac723a9e24e5902360eb4a158e6ec16f82"
+      }
+    ]
+  },
+  "preserved": {
+    "checkedPublicTables": 75,
+    "unchangedTables": 68,
+    "allowedChangedTables": [
+      "auth_login_budget",
+      "auth_sessions",
+      "pandascore_request_quota",
+      "provider_quotas",
+      "roster_catalogue_cache",
+      "upcoming_source_cache",
+      "upcoming_source_observations"
+    ],
+    "jobsUnchanged": true,
+    "workingMaps": 340,
+    "models": 1,
+    "activations": 0,
+    "forecasts": 0,
+    "releaseEvaluations": 0,
+    "savedRostersAndIdentityEvidenceUnchanged": true,
+    "scenarioRowsUnchanged": true,
+    "modelRowsUnchanged": true,
+    "protectedFiles": 245,
+    "frozenNonBarrelModules": 150,
+    "frozenBundleFiles": 232,
+    "runtimeCompatible": true,
+    "migrationsEdited": false,
+    "dependenciesChanged": false
+  },
+  "remaining": {
+    "ownerCoverage": "open",
+    "newAccountSuggestionsNotConfirmed": true,
+    "roleAccuracy": "not_measured",
+    "sourceProfiles": "Cached stale PandaScore and STRATZ source_schema_invalid observed; actual new response audit still needed.",
+    "independentCollection": "open; registered dates unchanged",
+    "modelGate": "not_evaluated"
+  },
+  "next": {
+    "task": "S2-01/role-owner-check/source-profiles",
+    "scope": "Bounded refresh/audit of stale PandaScore profiles and cached STRATZ schema errors, distinguishing configuration from actual response defects; retain numeric identity/team guards and no per-player fixes.",
+    "model": "GPT-6 Astra · High"
+  },
+  "commit": false,
+  "push": false,
+  "deployment": false
+}

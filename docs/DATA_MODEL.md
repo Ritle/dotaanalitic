@@ -1,6 +1,20 @@
 # Модель данных и правила SQL
 
+## S2-07 — контекст известных ranked-карт (SQL046)
+
+ranked_context_receipts: immutable UUID receipt, parent_observation_id→ranked_practice_observations, canonical player/account, identity_revision, policy_version, actual fetched_at, payload (knownAt=null/map event times/raw SHA), raw_body и recorded_at. Update/delete запрещены прежним immutable trigger; source observations не переписываются. ranked_context_map_cache: account+match+policy PK, receipt FK, expires_at; найденные согласованные факты24h, negative/conflict1h. ranked_context_leases: account PK, lease token/until120s, retry_at/failure_code, shared STRATZ budget отдельно. Parent/identity/membership/lease проверяются атомарно при записи; кэш повторно сверяется с текущим parent при чтении. Контекст не входит в matches/pro/training tables и не увеличивает N/WR. [API и ограничения](S2_07_STRATZ_ENRICHMENT.md).
+
+## S2-07 — отдельные ranked-public observations
+
+Миграция045 добавляет `ranked_practice_observations`: append-only canonical player/verified account/provider, identity revision, fetchedAt, normalized typed payload и private raw bodies с SHA в receipts. UPDATE/DELETE запрещены. `ranked_practice_cache` содержит provider/account key, observation FK, TTL/lease/cooldown; публикация атомарна и повторно проверяет identity под блокировкой registry state. Ни pro-таблицы, ни training/prediction snapshots не используются для этих наблюдений. [Период, допуск карт и API](S2_07_RANKED_PRACTICE_READER.md).
+
 ## S2-01 — текущие связи ожидаемых заявок
+
+SQL040 добавляет append-only `provider_player_links` — общие решения owner/PandaScore-player→canonical-player/Steam32 с binding FK и server recorded_at — и hashed `search:<sha256>` keys существующего cache. Исправления добавляют новые решения; прежние snapshots и identity proofs не меняются. Legacy связи читаются консервативно из последних командных пятёрок, противоречия показываются явно. Alias заявки сохраняется только после owner-confirm с текущими availability clocks. [Схема](S2_01_UNIFIED_PLAYER_CATALOGUE.md).
+
+SQL039 добавляет cache key `player:<Steam32>` к существующему cache. Таблицы/сохранённые snapshots не переписываются; SQL001–038 неизменны. Profile proof хранится независимо от registry proof: append-only player_account_evidence + binding.source.profiles. Ни отсутствие в `/proPlayers`, ни публичный профиль сами по себе не определяют pro-статус карты или участие в будущей встрече.
+
+Дополнение SQL037–038: отдельный cache `directory` для bounded `/teams` и `provider_team_catalogue(provider,external_team_id,team_id,source,recorded_at)`. Numeric PandaScore→canonical organization mapping уникален и неизменяем. Новая организация может иметь `opendota_team_id IS NULL`; это не мешает созданию проверенных числовых аккаунтов. История и team ID других источников не присваиваются по названию, существующие frozen snapshots не переписываются.
 
 Миграция **036_expected_roster_catalogue.sql** добавляет `roster_catalogue_cache` (проверенные raw/source observations с TTL/lease/cooldown), append-only `expected_roster_catalogue_bindings` (owner, provider team, canonical team, revision, request и snapshot выбранных пяти) и `roster_catalogue_operations` (межпроцессный lease подготовки). Существующие SQL001–035 не меняются. Numeric account evidence/aliases создаёт существующий IdentityProvisioner; текущий `knownAt` не доказывает historical roster availability. Связь PandaScore→account — явный выбор владельца для сценария, не новая verified historical attendance. [Подробности](S2_01_EXPECTED_ROSTER_CATALOGUE.md).
 
@@ -161,3 +175,18 @@ DataReadinessRepository читает observations, map bounds и release registr
 ## S2-01: current role hints, migration035
 
 `role_profile_bindings` — append-only owner/team revisions, explicit STRATZ team/Panda team/player role-only mapping, UUID replay и optimistic revision. Не canonical identity proofs. `role_profile_cache` — mutable bounded provider projection с source clocks/hash, TTL/lease/cooldown; `role_profile_stratz_quota` — shared UTC-day counter/spacing. Не training targets и не historical roles. Существующие migrations001–034, lineups, role observations и V1 model inputs не меняются. [Контракт и проверки](S2_01_ROLE_PROFILES.md).
+
+## SQL041 — selected player history
+
+player_history_runs stores owner, canonical/Steam32 binding snapshot, lineup SHA, durable job state, attempt fencing, bounded report and source audit. Independent from organization ID; immutable prior migrations and frozen model data remain unchanged. [Contract](S2_01_PLAYER_HISTORY.md).
+
+SQL042 adds validated player_history_runs.options with90/10 defaults for existing rows. Existing report v1 bytes and legacy lineup keys retain their meaning; new keys incorporate non-default options. Reports v2 record page count and bounded-search coverage. [Contract](S2_01_PLAYER_HISTORY.md).
+
+
+### SQL044 — schedule freshness admission
+
+`schedule_source_freshness_reason_v1` закрепляет operational policy `schedule-source-age-v1`: non-future source clock и возраст строго меньше 5 минут. Новые independent AFTER INSERT triggers на `v1_schedule_targets` и `v1_runtime_snapshots` сверяют связанное immutable наблюдение с `clock_timestamp()` после existing validators/locks. Stale/future source вызывает исключение и rollback всей новой операции. Схемы/bytes прежних записей, exact retries, SQL001–043, prediction/release guards и frozen executable не переписываются. [Контракт](S4_V1_SCHEDULE_FRESHNESS.md).
+
+### SQL043 — evidence-only player history continuation
+
+player_history_runs adds operation (import default/evidence_resume), parent_run_id and scope_map_ids. Resume children refer to an owned terminal original import with identical bindings/options/lineup key; accepted/duplicate scope is checked by SQL. Original parent report is frozen after child creation; terminal resume reports immutable except operational next_allowed_at. player_history_projection_replays stores run/attempt/map -> original receipt, hero/league references -> derived receipt/SHA/time; update/delete/truncate rejected. Derived bytes never masquerade under the original payload SHA. Old SQL001–042 and old event/known/fetched clocks remain unchanged. [Details](S2_01_HISTORY_ENRICHMENT_RESUME.md).

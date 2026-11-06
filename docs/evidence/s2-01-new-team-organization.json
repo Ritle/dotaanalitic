@@ -1,0 +1,736 @@
+{
+  "task": "S2-01/new-team-organization",
+  "status": "PASS",
+  "completedAt": "2026-11-04T17:12:06.936Z",
+  "ownerRequest": "angry birds vs Spirit Academy,2026-11-05 13:00 Europe/Moscow; owner supplied expected five screenshot",
+  "rootCauses": [
+    "Tournament roster contains six including squad1x; owner selected five excludes him without deleting raw source data",
+    "All five player registry records have team_id0/old organization labels; current membership is not an organization directory",
+    "OpenDota directory first page returned1000 rows and did not include the new organization; numeric10322861 profile returned HTTP200 with source_invalid_json"
+  ],
+  "implementation": {
+    "files": [
+      {
+        "path": "packages/ingestion/src/opendota/team-directory.ts",
+        "sha256": "a4addaffda1946e1364929ea194c8b650ba2fd54d95b8d3b5fcaac284e7d8c71"
+      },
+      {
+        "path": "packages/ingestion/tests/team-directory.test.ts",
+        "sha256": "405dee55568d453253d3ff6dc11c0fd2019b01bcabf9dd611bbd8baa058c859b"
+      },
+      {
+        "path": "packages/ingestion/src/roster-catalogue.ts",
+        "sha256": "10d1296d6065eea2759be9f76e192918bc06139d5d5682bde5f2b24dede68529"
+      },
+      {
+        "path": "packages/ingestion/tests/roster-catalogue.test.ts",
+        "sha256": "3eb6b5e45bfa043e7a518b1750a2ea61efc2e1bf9ccdd07cf4d6c2a7db63f77c"
+      },
+      {
+        "path": "packages/ingestion/src/index.ts",
+        "sha256": "a4967378920fad5d7130d6ab03f5defe62048e8dd4063dadd0c343668f3c3fda"
+      },
+      {
+        "path": "packages/contracts/src/roster-catalogue.ts",
+        "sha256": "8904c1387b92c6060343ae52468f2306104ee279cb1055076e40f3522b405258"
+      },
+      {
+        "path": "packages/db/migrations/037_roster_team_directory.sql",
+        "sha256": "5d801f438bae9e3622bcdd5130a67278b524ee20bd4020976e06a66389058c6d"
+      },
+      {
+        "path": "packages/db/migrations/038_provider_team_catalogue.sql",
+        "sha256": "6139ec7b17b37876af243e49446dd57ee164757b5d09dffc4d20c6f1387b6d5f"
+      },
+      {
+        "path": "packages/db/src/roster-catalogue-repository.ts",
+        "sha256": "ed9219bbcd2e9b4a473a393a8913a12f059746b63245cd7b6035252cdad1d176"
+      },
+      {
+        "path": "apps/api/src/modules/upcoming/catalogue-service.ts",
+        "sha256": "49b60384a719d44383ad0350f7783adb30f94dab85dd32304b1c7c4efe371712"
+      },
+      {
+        "path": "apps/api/tests/roster-catalogue.integration.test.ts",
+        "sha256": "860130654d3e4e7b5693efa54a80dc54f0acb84adf1a096bd29438122e7054e3"
+      },
+      {
+        "path": "apps/web/src/components/ExpectedRosterCatalogue.vue",
+        "sha256": "30b2a2eca21df33defc746634a632b7737f4a00ccc0b558e374f0ddb365c735c"
+      },
+      {
+        "path": "apps/web/src/components/RosterCataloguePicker.vue",
+        "sha256": "fbe83ae99d8f95ebf4326506f9b69314156a275851be4f211bdd689148c4a6eb"
+      },
+      {
+        "path": "apps/web/tests/e2e/roster-catalogue.spec.ts",
+        "sha256": "42bfc00506d23316fa6dfc538983c7c0849f2af6e1a1caded7c830568c105b86"
+      },
+      {
+        "path": "tests/helpers/roster-catalogue.ts",
+        "sha256": "985c7d923062f45e17bbc154dfaed1e7fd42d56acd777c2c69cce7cf0c367b60"
+      }
+    ],
+    "organization": "Separate bounded OpenDota /teams metadata adapter and numeric /teams/:id lookup. Explicit PandaScore organization choice when no OpenDota profile exists.",
+    "identity": "Players always require verified numeric Steam32/Steam64 evidence; no nickname joins, no invented Steam team ID. Immutable provider→canonical team mapping, source provenance recorded separately.",
+    "freshness": "One normal Panda roster refresh on stale save; changed raw SHA still requires review. Registry and organization source hashes cannot reset/confuse each other.",
+    "quotas": "Shared durable OpenDota quota, response8MiB, two-attempt cap, timeout/Retry-After, fixed host and no public raw/token output",
+    "migration": "037 expands directory cache;038 adds immutable provider_team_catalogue.001–036 preserved."
+  },
+  "live": {
+    "checkedAt": "2026-11-04T16:54:51.397Z",
+    "match": "angry birds — Spirit Academy",
+    "scheduledAtMoscow": "2026-11-05 13:00",
+    "sourceOfFive": "Owner supplied screenshot",
+    "excludedFromSelectedFive": "squad1x (retained in raw tournament roster)",
+    "binding": {
+      "providerTeamId": "139462",
+      "teamId": "2183",
+      "teamName": "angry birds",
+      "revision": 1,
+      "recordedAt": "2026-11-04T16:54:49.952Z",
+      "players": [
+        {
+          "providerPlayerId": "42204",
+          "accountId": "1675517497",
+          "playerId": "208",
+          "name": "Ankou ♡",
+          "proMaps": 0,
+          "identityStatus": "verified"
+        },
+        {
+          "providerPlayerId": "53503",
+          "accountId": "156485213",
+          "playerId": "205",
+          "name": "waveformn",
+          "proMaps": 0,
+          "identityStatus": "verified"
+        },
+        {
+          "providerPlayerId": "54574",
+          "accountId": "891154650",
+          "playerId": "207",
+          "name": "PERDAN4IK",
+          "proMaps": 0,
+          "identityStatus": "verified"
+        },
+        {
+          "providerPlayerId": "58409",
+          "accountId": "320017600",
+          "playerId": "206",
+          "name": "ssnovv1",
+          "proMaps": 0,
+          "identityStatus": "verified"
+        },
+        {
+          "providerPlayerId": "59593",
+          "accountId": "116865891",
+          "playerId": "204",
+          "name": "Mirele`",
+          "proMaps": 0,
+          "identityStatus": "verified"
+        }
+      ],
+      "source": {
+        "provider": "opendota",
+        "fetchedAt": "2026-11-04T16:20:16.371Z",
+        "payloadSha256": "1049d61e5f9d7b15e5928de8d907d31cfd2220fd3b369bb5d37843e209c47887",
+        "rosterFetchedAt": "2026-11-04T16:54:47.913Z",
+        "rosterSha256": "1fa16444d27f3f39550c35e40d79a4d77f39c23369594c030284e12af4ef99d2",
+        "team": {
+          "provider": "pandascore",
+          "externalTeamId": "139462",
+          "fetchedAt": "2026-11-04T16:54:47.913Z",
+          "payloadSha256": "1fa16444d27f3f39550c35e40d79a4d77f39c23369594c030284e12af4ef99d2"
+        }
+      },
+      "usable": true
+    },
+    "savedReuseVerified": true,
+    "scenarioSaves": 0,
+    "profileRefreshes": 0,
+    "pageErrors": [],
+    "mobileOverflow": false
+  },
+  "checks": {
+    "installFrozenOffline": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 777,
+    "packageCounts": [
+      54,
+      20,
+      29,
+      33,
+      347,
+      246,
+      47,
+      1
+    ],
+    "nodeSerial": 74,
+    "relevantPureInFullSuite": 14,
+    "pgApi": 10,
+    "chromiumUnique": 16,
+    "liveSavedFiveAndReuse": "PASS",
+    "mobileInspected": true,
+    "retries": 0,
+    "timeoutIncreases": 0,
+    "intermediate": "New-team search failed before fix. A mock stale-roster test hit5s due real quota waits; reset only disposable mock quota timing, runtime quotas/timeouts unchanged.",
+    "notExecuted": [
+      "Full PG integration suite",
+      "Full owner browser suite",
+      "Python/model evaluation",
+      "Docker/Linux deployment"
+    ]
+  },
+  "preservation": {
+    "checkedAt": "2026-11-04T17:00:22.155Z",
+    "status": "PASS",
+    "beforeRelations": 84,
+    "afterRelations": 85,
+    "unchangedOriginalRelations": 70,
+    "changes": [
+      {
+        "schema": "public",
+        "table": "expected_roster_catalogue_bindings",
+        "before": "0",
+        "after": "1",
+        "delta": 1
+      },
+      {
+        "schema": "public",
+        "table": "identity_registry_state",
+        "before": "1",
+        "after": "1",
+        "delta": 0
+      },
+      {
+        "schema": "public",
+        "table": "pandascore_request_quota",
+        "before": "1",
+        "after": "1",
+        "delta": 0
+      },
+      {
+        "schema": "public",
+        "table": "player_account_evidence",
+        "before": "203",
+        "after": "208",
+        "delta": 5
+      },
+      {
+        "schema": "public",
+        "table": "player_alias_history",
+        "before": "203",
+        "after": "208",
+        "delta": 5
+      },
+      {
+        "schema": "public",
+        "table": "players",
+        "before": "203",
+        "after": "208",
+        "delta": 5
+      },
+      {
+        "schema": "public",
+        "table": "provider_quotas",
+        "before": "1",
+        "after": "1",
+        "delta": 0
+      },
+      {
+        "schema": "public",
+        "table": "role_profile_bindings",
+        "before": "0",
+        "after": "1",
+        "delta": 1
+      },
+      {
+        "schema": "public",
+        "table": "roster_catalogue_cache",
+        "before": "1",
+        "after": "3",
+        "delta": 2
+      },
+      {
+        "schema": "public",
+        "table": "roster_catalogue_operations",
+        "before": "0",
+        "after": "1",
+        "delta": 1
+      },
+      {
+        "schema": "public",
+        "table": "schema_migrations",
+        "before": "36",
+        "after": "38",
+        "delta": 2
+      },
+      {
+        "schema": "public",
+        "table": "teams",
+        "before": "46",
+        "after": "47",
+        "delta": 1
+      },
+      {
+        "schema": "public",
+        "table": "upcoming_source_cache",
+        "before": "8",
+        "after": "8",
+        "delta": 0
+      },
+      {
+        "schema": "public",
+        "table": "upcoming_source_observations",
+        "before": "15",
+        "after": "16",
+        "delta": 1
+      }
+    ],
+    "added": [
+      {
+        "schema": "public",
+        "table": "provider_team_catalogue",
+        "n": "1",
+        "fingerprint": "f2f014d39f981fdb546c4e3495eaaf31"
+      }
+    ],
+    "binding": {
+      "provider": "pandascore",
+      "external_team_id": "139462",
+      "team_id": "2183",
+      "opendota_team_id": null
+    },
+    "protectedArtifacts": [
+      {
+        "path": ".tools/s3-01-e0-export.json",
+        "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+      },
+      {
+        "path": "docs/evidence/s3-01-e1-plan.json",
+        "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+      },
+      {
+        "path": ".tools/v1-data-export.json",
+        "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+      },
+      {
+        "path": "docs/evidence/s3-01-v1-release-plan.json",
+        "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+      },
+      {
+        "path": ".tools/v1-release-leagues-20261102.json",
+        "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+      },
+      {
+        "path": ".tools/v1-features-development-final.json",
+        "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+        "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+        "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-release-evidence.json",
+        "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+        "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+        "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+        "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-executable-verification.json",
+        "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+        "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+        "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+      },
+      {
+        "path": "docs/evidence/s3-05-v1-registry.json",
+        "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+      },
+      {
+        "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+        "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+      },
+      {
+        "path": "docs/evidence/s3-06-v1-owner-api-ui.json",
+        "sha256": "543d4a48d36f627af4597462e4c4adb35109de362e2b68d55001b21cc41693eb"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-real-target.json",
+        "sha256": "9f49e3f6394ff9490b98249d717859b058e1df04e8614a165f9add23cd6f1911"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-journal-metrics.json",
+        "sha256": "baf05428a2b2623c9c207d9074e2c0bdc3f8776e232967b1446e06ce09008b38"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-journal-owner-api-ui.json",
+        "sha256": "1f351addda289fcef98de74c40634c61cb9b291e3bc769a7b89186cc63cbd807"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-target-lifecycle.json",
+        "sha256": "740b47a7f2e6f510f9ea95ea513b9f7246502fb7b94c87750d5b541fb80fd98e"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-schedule-target-registration.json",
+        "sha256": "b0b0f67b68632c0395a7d650d813f2f63a5f37c66a2f75ab7c58922d99f10fb8"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-runtime.json",
+        "sha256": "757e2dd402846ab15fe9502a872f3e1525c7ae67c2f1c0366297f2007eb7d29c"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-result.json",
+        "sha256": "19f633fae8a8a4211bbd5eccb836b08e8872684cd949ab899cfb829542b1de0d"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-owner-flow.json",
+        "sha256": "bdfd9eaac593c6aa5d929059da88cfabee62d04b4ac68b052423f01c1700d780"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-binding-owner-flow.json",
+        "sha256": "db330af19571caf5dd95331d204e9d0424844eccc277b393c2afba8877450869"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-target-lifecycle.json",
+        "sha256": "2dec5d4c3af4577b2e9e19fc20f609ab8db0e700ca7cc07081de9be4d267940d"
+      },
+      {
+        "path": "docs/evidence/s4-v1-acceptance-audit.json",
+        "sha256": "4803b1dec3a0081e10bc5ee064ddfdfbe1d023902b45d9dc7684175ad737b668"
+      },
+      {
+        "path": "docs/evidence/s4-v1-backup-restore.json",
+        "sha256": "3f03694f0f3628d4df68c3b86c4e2ff9bd4d3ad017c20368897f1b2db63ac79b"
+      },
+      {
+        "path": "docs/evidence/s4-v1-local-owner-smoke.json",
+        "sha256": "1cf3f62be6185662d7a861b25a608f98c4d77796984b88063ba2fb4b452789d8"
+      },
+      {
+        "path": "docs/evidence/s4-v1-schedule-event-filter.json",
+        "sha256": "7ae62cbf174b4fbff6735bd4b8268c99ec07bad3262b9a0a2c013322db9c5708"
+      },
+      {
+        "path": "docs/evidence/s4-v1-schedule-event-filter-v2.json",
+        "sha256": "4a80b6ce7436da825b457841d4beb2e1af18c5ec42672c68e6926e05029cc0d8"
+      },
+      {
+        "path": "docs/evidence/s4-v1-model-readiness-status.json",
+        "sha256": "905aa2d3ba7637c82dab74465e262084d15549ed6b4465e6947756925755ed13"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-security-review.json",
+        "sha256": "e33be17b1da749b94756b3a8959257c73ccc54dfd0b03b9fcfa4581735b7b7f6"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-queue-coverage.json",
+        "sha256": "bac1dcac838e617c4deaff8a4be71f5e4736cd037f90646407ef402f5973d777"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-provider-resilience.json",
+        "sha256": "305a1c2e90f01f24813f2b411ceb59ce51f07dbd7a8e958e43e2aae4b3f078e8"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-provider-conflicts.json",
+        "sha256": "00016adb4d65c22468c4b2c882c6dd882bee3393b047c5a2345d7c32f4172178"
+      },
+      {
+        "path": "docs/evidence/s4-02-v1-historical-regression.json",
+        "sha256": "595cfbaca6074ee58e89242177b312564a4da9a3fae63b8e9f617cf6909ebf6b"
+      },
+      {
+        "path": "docs/evidence/s4-02-v1-full-owner-e2e.json",
+        "sha256": "a5d206b192c6301da2f81a3234c60ace1ff50914da189b7b394a737eb4aeb744"
+      },
+      {
+        "path": "docs/evidence/s4-03-v1-deployment-preflight.json",
+        "sha256": "61a91f176793c77c387ab410795e86a45dda730b57ca039d7c322febb4ddea18"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-suggestions.json",
+        "sha256": "ed517ebde5194ee53b9eb2decf27ada6218c83bab6a5b23e20fb9d0d3599f7c4"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-api-review.json",
+        "sha256": "c4ecd19748163a4e5dcbca0a40be1d7f387aca504cf00ab60c1d460347811547"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-profile-reader.json",
+        "sha256": "f609597010eb6d1410eda4ac4ff2cdc13f824251f008127759385062c5596f53"
+      },
+      {
+        "path": "docs/evidence/s4-02-upcoming-incomplete-opponents.json",
+        "sha256": "9c3f001615686f3eed04d86abee82b94f70595f924b250ff19448d287142d62a"
+      },
+      {
+        "path": "docs/evidence/s2-01-team-roster-loading.json",
+        "sha256": "0e470f51d5282c9107bda09a0ef4603b93584a0909994d9bc1e74f3e307aadff"
+      },
+      {
+        "path": "docs/evidence/s1-09-api-usage-reliability-audit.json",
+        "sha256": "0ea96ab14b6d5c4718949299c3c0e7dab18f460ea99ec2eb44628bf4f8b57003"
+      },
+      {
+        "path": "docs/evidence/s1-09-yangon-momo-roster-review.json",
+        "sha256": "e76056340df33417a79540d8c5201a8a81a2a25af8588a2c21c357683d567d8f"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-editor-priority.json",
+        "sha256": "7ce309002d42086b92c84f30d6fbff3ef81a5f1d60579ac4071136d769e4fec0"
+      },
+      {
+        "path": "docs/evidence/s2-01-puckchamp-icxi-ui-review.json",
+        "sha256": "1088ffb55ecc364f1fe633b336b58cb2a5735438a3fb94e279bd6529fe98a32a"
+      },
+      {
+        "path": "docs/evidence/s2-01-expected-roster-catalogue.json",
+        "sha256": "4fae95188abec3c3b4f444ff37ba80b6cd10e308b2209bf02d9b0cc55c53be0f"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-owner-diagnostic.json",
+        "sha256": "bff5065d640aca38b6e69da4aed09723853218476874564514e5823a9d536591"
+      }
+    ],
+    "originalNonBarrelModules": 150,
+    "compatibleV1Runtime": true,
+    "frozenBundleVerified": true,
+    "migrationLedger": [
+      {
+        "filename": "001_initial.sql",
+        "checksum": "8b1505e143bc200ce1e5ef167e6315557b1c1eb3fc8e0fa2035e59c00d55d4f4"
+      },
+      {
+        "filename": "002_patch_awareness.sql",
+        "checksum": "2c332db16f6e40212f0c07f06f45918e1566a1158029392776e9eabae4ffa6b2"
+      },
+      {
+        "filename": "003_roster_continuity.sql",
+        "checksum": "c230707713b8cfe35a55a5a48aa9f81d9c9375ffeb4aed67c315d5235ca0c0fb"
+      },
+      {
+        "filename": "004_context_identity_provenance.sql",
+        "checksum": "184e24d7e95656e1be115c2010a8946a3d88633ca5d9c554b0b4e7c5cf1f294d"
+      },
+      {
+        "filename": "005_training_pipeline.sql",
+        "checksum": "b79dc2586d5d3bcbeb8d290045362fe14639a63b409f52da6c6bb3cc6f965f3c"
+      },
+      {
+        "filename": "006_draft_data_quality.sql",
+        "checksum": "76af6b156a25eedcdf64a6d2a8b33161d79a9fac011c8de81a3cdb6dde013e6a"
+      },
+      {
+        "filename": "007_idempotent_ingestion.sql",
+        "checksum": "ecfa1aea0ef631f016b797580b0598892af5c15bc09a7a907b0e90cd674628ac"
+      },
+      {
+        "filename": "008_owner_auth.sql",
+        "checksum": "8a459ca949428c827bfe8744b92acf870954155ccf7ce4d867b364ddcdad5238"
+      },
+      {
+        "filename": "009_temporal_context.sql",
+        "checksum": "2fe9f7f28150127bacc78fb972266de9cc15c30ca82e2a5d306cdba08c8de830"
+      },
+      {
+        "filename": "010_identity_evidence.sql",
+        "checksum": "43b41db24f20f3258b03788408eefee66cac312dde6e4691db89a7497dc7e280"
+      },
+      {
+        "filename": "011_game_context_registry.sql",
+        "checksum": "b87ce903ff12aa4bf1b2569d9106961f222ab0f2a57e71eae2e9e10d8502a7f2"
+      },
+      {
+        "filename": "012_verified_dataset_boundary.sql",
+        "checksum": "a406136a38c2f9399c0a913f17abeb77ee0296c641d3426041e03cf9938b4269"
+      },
+      {
+        "filename": "013_context_recorded_time.sql",
+        "checksum": "4f28693720367ec681e07229c9b28d81517a3629823c54ef8d456de691bedfce"
+      },
+      {
+        "filename": "014_patch_transfer_evidence.sql",
+        "checksum": "8666a3576f4e997685afc2a8a5535ad9771143849a8c380b113a80f3988443a7"
+      },
+      {
+        "filename": "015_scenario_snapshots.sql",
+        "checksum": "c743257c561ae725f3191867f9118905a6136902165465dda3d651359f81d103"
+      },
+      {
+        "filename": "016_scenario_draft.sql",
+        "checksum": "e597a4ddbda5fb822284eb3ff8671d0a25cf9e03cc13002dad71f44c77e0724c"
+      },
+      {
+        "filename": "017_scenario_reports.sql",
+        "checksum": "7cf013a6bcb8e5d59696f327433bb2b3143fe03a50143eea14ab9c81dfcafd2e"
+      },
+      {
+        "filename": "018_outcome_verifier.sql",
+        "checksum": "a534be6670a699d6e7e4dd9df4efb493ff070b1b3833a3c11609f926e156e0c1"
+      },
+      {
+        "filename": "019_upcoming_schedule.sql",
+        "checksum": "07c209cbc751a091588016aab82006aa50fd4c42c024cb858a79e3ec184db5d6"
+      },
+      {
+        "filename": "020_history_refresh.sql",
+        "checksum": "738a45096172ccb489079247ff55777a2a08fe18cbf4271fb929f1bc97721a34"
+      },
+      {
+        "filename": "021_upcoming_source_observations.sql",
+        "checksum": "6a03eb941c15574f79fbb70b98d6ee3e695693965449d44098b973428ab4295c"
+      },
+      {
+        "filename": "022_series_provision.sql",
+        "checksum": "91d4883d4de3d4459cd82116cb20540d74427437a167dc87b7da1e0d3db7ce06"
+      },
+      {
+        "filename": "023_research_evaluation_journal.sql",
+        "checksum": "1b059414397e08000e03505c068d9e3c4c79d2e36ca96473cc3b5474ba95ab1f"
+      },
+      {
+        "filename": "024_v1_release_evaluation_journal.sql",
+        "checksum": "5be6bb15ed1f7ff2695a62e555d6476dbd32eb81c1ce0b368def80b975559cdc"
+      },
+      {
+        "filename": "025_v1_model_registry.sql",
+        "checksum": "d14ed21f41f576c72bfd3da5eaced7f5ea4274bab8f052181d14a45ee2327952"
+      },
+      {
+        "filename": "026_v1_runtime_snapshots.sql",
+        "checksum": "2aac1ae2a413dd8194486e3b1f6c2bddd3bc47c9c6a2472bd339816c91ec55b8"
+      },
+      {
+        "filename": "027_v1_forecast_outcomes.sql",
+        "checksum": "dbb418ea4fb53deaa472cd02bba232f078a86947de3c79f65f0bc94406dc134b"
+      },
+      {
+        "filename": "028_v1_journal_reports.sql",
+        "checksum": "de7aa7f8016bfda2a7686d4d9f935bb786ce716549729727d2083c05d6218298"
+      },
+      {
+        "filename": "029_v1_target_lifecycle.sql",
+        "checksum": "5c46bf775a8f4367b66eb1a0e08b975a2e335396a55d173a44752e1396449380"
+      },
+      {
+        "filename": "030_v1_schedule_targets.sql",
+        "checksum": "5e936f2f8b6067310abec307098766b689921cffc1c639ab95ea69579303be1a"
+      },
+      {
+        "filename": "031_v1_scheduled_runtime.sql",
+        "checksum": "7f2d8ddef1b8085ab6f85473fd3baa5c7ec6ed8ebd096241fde4b0175811b03f"
+      },
+      {
+        "filename": "032_v1_schedule_results.sql",
+        "checksum": "49e1051afcd49c25c6e073a371c942634361f64e778757a9f92f1a83da099fd1"
+      },
+      {
+        "filename": "033_v1_schedule_started_guard.sql",
+        "checksum": "d67574ddd92efa1962bcc042f140dc607781a2f29afb56a1101a997273b31494"
+      },
+      {
+        "filename": "034_v1_scheduled_lifecycle.sql",
+        "checksum": "670cc6384b04161b1c97761a2bfbaecb93f3e9b3cc802696aa783e0a5db9f5bf"
+      },
+      {
+        "filename": "035_role_profile_hints.sql",
+        "checksum": "b4b757258c8b6e205e848cdffab6d01618f8d43f6891f74bd9416178b2ba8d99"
+      },
+      {
+        "filename": "036_expected_roster_catalogue.sql",
+        "checksum": "b373cdf08d3527616a96e43c627994cbb7b58844a4f08cf62dba1555e711580d"
+      },
+      {
+        "filename": "037_roster_team_directory.sql",
+        "checksum": "5d801f438bae9e3622bcdd5130a67278b524ee20bd4020976e06a66389058c6d"
+      },
+      {
+        "filename": "038_provider_team_catalogue.sql",
+        "checksum": "6139ec7b17b37876af243e49446dd57ee164757b5d09dffc4d20c6f1387b6d5f"
+      }
+    ],
+    "historicalMapsPreserved": true,
+    "queuedAuroraPreserved": true
+  },
+  "limitations": [
+    "Only selected angry birds five prepared; no complete5+5 scenario saved",
+    "Five accounts have zero eligible local pro maps",
+    "Role accuracy and future attendance are not established by source membership",
+    "No active model/training/prediction actions",
+    "Organization-directory first page is not complete; Panda source option remains available"
+  ],
+  "sourceDocumentation": "https://raw.githubusercontent.com/odota/core/master/svc/api/spec.ts",
+  "logs": [
+    {
+      "path": ".tools/angry-red.log",
+      "sha256": "1323fc722e1e6d385210034706a2e6b4bcab95af3018c06446fa58eeeaf6d1b8"
+    },
+    {
+      "path": ".tools/angry-integration.log",
+      "sha256": "2bb2160df6e36c276565e4f23287f516be4a8268797f42de25a41cb5c221e08d"
+    },
+    {
+      "path": ".tools/angry-integration-verified.log",
+      "sha256": "7b6d88d52e5a20962218efb97e2d5445b1c6755c7b9e6e017108e500702eec94"
+    },
+    {
+      "path": ".tools/angry-browser.log",
+      "sha256": "5e609f92831cfea91275244aca0774285f86221f4c58862ecab1bc3412c8c1f2"
+    },
+    {
+      "path": ".tools/angry-browser-panda.log",
+      "sha256": "00edf79735ac694c9e21ad39eab8a11479a94eeee024c230bf7e449c7af78252"
+    },
+    {
+      "path": ".tools/angry-browser-final.log",
+      "sha256": "0a9bc135e2ca2ab011d85a4e00f80a15e03f49005325950854fd36a5112440d8"
+    },
+    {
+      "path": ".tools/angry-qa-install.log",
+      "sha256": "896b5039d8540cd988abbb59cdaa05af3c453202b7bb998c6f7e641d998e4fec"
+    },
+    {
+      "path": ".tools/angry-qa-typecheck.log",
+      "sha256": "34e3f944eb2801f9512a7d4cf5abbcf69da6b1902f5b7b458708995445a92cff"
+    },
+    {
+      "path": ".tools/angry-qa-build.log",
+      "sha256": "a6a4b755dd9750d14c4a0decfaff772263b13d53411537d106b28296fb9ad03f"
+    },
+    {
+      "path": ".tools/angry-qa-unit.log",
+      "sha256": "d577658382607341decedaa40ebeac622ce9ec70761d34579be86d375294af9a"
+    },
+    {
+      "path": ".tools/angry-qa-node.log",
+      "sha256": "549793b72c87dc027f785bbe33db1cf72b2099f562402a3f9cad41af8abe42ce"
+    },
+    {
+      "path": ".tools/angry-migrate-final.log",
+      "sha256": "920b993c7c2714d8f7c28cb2eabceda12d56735add3bd08f2aa5c477234d5c86"
+    }
+  ],
+  "nextTask": "S2-01/role-owner-check: prepare Spirit Academy and review ten selected identities/roles/local history",
+  "nextModel": "GPT-6.1 Sol · High"
+}

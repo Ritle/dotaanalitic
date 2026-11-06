@@ -1,0 +1,260 @@
+{
+  "format": "s4-v1-schedule-freshness-v1",
+  "completedAt": "2026-11-05T02:59:39.787Z",
+  "task": "S4/V1-schedule-freshness",
+  "status": "PASS",
+  "finding": {
+    "path": "docs/evidence/s1-09-api-usage-reliability-audit.json",
+    "id": "A01",
+    "sha256": "0ea96ab14b6d5c4718949299c3c0e7dab18f460ea99ec2eb44628bf4f8b57003"
+  },
+  "policy": {
+    "revision": "schedule-source-age-v1",
+    "maxAgeMs": 300000,
+    "futureClockToleranceMs": 0,
+    "deadlineExclusive": true,
+    "basis": "existing schedule cache TTL; operational admission, not accuracy guarantee"
+  },
+  "implementation": {
+    "preview": "additive repository composition",
+    "saveAndForecast": "independent SQL044 AFTER INSERT guards; rollback on expiry during calculation",
+    "retry": "unchanged frozen executor validates persisted UUID/hash before fresh admission",
+    "refresh": "existing owner/CSRF cache lease/quota/TTL/Retry-After",
+    "providerPolling": false,
+    "newDependencies": false
+  },
+  "qa": {
+    "install": "pnpm install --frozen-lockfile --offline PASS",
+    "typecheck": "root PASS",
+    "build": "root PASS",
+    "unitCli": {
+      "status": "PASS",
+      "counts": [
+        54,
+        22,
+        38,
+        33,
+        348,
+        282,
+        47,
+        1
+      ],
+      "total": 825
+    },
+    "node": {
+      "status": "PASS",
+      "total": 74
+    },
+    "pgApi": {
+      "status": "PASS",
+      "suites": 6,
+      "total": 47
+    },
+    "chromium": {
+      "status": "PASS",
+      "suites": 4,
+      "total": 11
+    },
+    "notRun": [
+      "full PG integration suite",
+      "full Chromium suite",
+      "Python ML",
+      "Docker",
+      "Linux-host acceptance"
+    ],
+    "correctedFailures": [
+      "Initial sandbox PG access denied; actual tests rerun with authorized local DB access.",
+      "Red regression reproduced old eligible=true on 270-minute-old source.",
+      "Initial fractional-time parser retained Z; corrected and TS/SQL microsecond parity passed.",
+      "Future source fixture already rejected by original DB constraint; test now checks that constraint and mocked future preview boundary.",
+      "Initial new Vue reason lookup lacked Record index signature; strict check corrected.",
+      "First full unit run caught eager subclass/barrel import cycle; replaced by lazy repository composition. Existing direct-import regression and final full825 PASS.",
+      "First browser run had4 new fixture setup failures: navigation raced successful login. Added standard authenticated heading wait; final browser rerun recorded separately.",
+      "Initial live diagnostic tried a hidden picker with visible-only role lookup; includeHidden fixed the read-only diagnostic before any refresh/write."
+    ]
+  },
+  "files": [
+    {
+      "path": "packages/contracts/src/schedule-freshness.ts",
+      "sha256": "77def4c59e7673ac0c9773e35c1934b62331a7fcdb15fd3986c52b1009c5afb8"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "91dedf5625cd1eceb503fedf3591cf33ecb5c8d5ea378e3fdf1d4e661f81dbd2"
+    },
+    {
+      "path": "packages/contracts/tests/schedule-freshness.test.ts",
+      "sha256": "13ab17d1bfa27e68a3fbdb2b4a1b611cf5aad3b171974bcf8a3d3a8d6c182bc9"
+    },
+    {
+      "path": "packages/db/src/schedule-freshness.ts",
+      "sha256": "8cc4b14b6899cb6bc026d0398772440d3f779b0529a95e4921e299f61eea6832"
+    },
+    {
+      "path": "packages/db/src/index.ts",
+      "sha256": "05a6cd4023bbc33528eee355eedf02d66da9a2c517bb707215ac657d9fba680a"
+    },
+    {
+      "path": "packages/db/migrations/044_schedule_freshness.sql",
+      "sha256": "abe708a1c7d8d24262939278e348be61c44ec2456d3d646bf9df8d894221935a"
+    },
+    {
+      "path": "apps/api/src/app.ts",
+      "sha256": "0d9368757ae5262ec024cbf184332480aa30dd1e221cc39a2a4a85beec9069a8"
+    },
+    {
+      "path": "apps/api/src/modules/upcoming/targets-http.ts",
+      "sha256": "e0380c56168730ecc71a774fab655bb6bc71a4e9d781bf7e3057ea215ddc2204"
+    },
+    {
+      "path": "apps/api/src/modules/upcoming/forecasts-http.ts",
+      "sha256": "e824efb6699683b7c2dd508401c5058728ea36b40e0a9e6fedd0c9988bd4edbb"
+    },
+    {
+      "path": "apps/web/src/components/ScheduleFreshness.vue",
+      "sha256": "badbde1318f362783cdb89ac8ad938909e93dbe8ac32a00f9eba097262b718ee"
+    },
+    {
+      "path": "apps/web/src/components/UpcomingTarget.vue",
+      "sha256": "bdf23fbe89c7b0a89b9c927f217786ae93ef385faebef04f01dea5fc6ea65a38"
+    },
+    {
+      "path": "apps/web/src/components/ScheduledForecastPanel.vue",
+      "sha256": "216283b9f804f5d25119df534753701dd621635536fa98e969d6aa793c075625"
+    },
+    {
+      "path": "apps/web/src/schedule-targets.ts",
+      "sha256": "97a933916e7579e973322d030d406ed5955822abac6bc4c52de95945f9bdfcb6"
+    },
+    {
+      "path": "apps/web/src/scheduled-forecasts.ts",
+      "sha256": "8298c3ce34b4075466f3c60afb0ec30ef184e2bbd25c004e1e9f7bdd10bc81d6"
+    },
+    {
+      "path": "tests/helpers/schedule-target.ts",
+      "sha256": "e8bc9db6372d6410efdd5504a80d93b7617c175f96784dc64c8b5a85c85d2efd"
+    },
+    {
+      "path": "apps/api/tests/schedule-freshness.integration.test.ts",
+      "sha256": "39754d1b376026f76eb8fcf7fc12453265c957fa836931f3a1f900dcff99abcf"
+    },
+    {
+      "path": "apps/web/tests/e2e/schedule-freshness.spec.ts",
+      "sha256": "29c5621d83aa0ba6ba0f4954a4fb708a2de7deb976c53eaff3c402440f5d2b69"
+    }
+  ],
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T02:58:09.381Z",
+    "providerMatchId": "1756313",
+    "before": {
+      "observationId": "32",
+      "fetchedAt": "2026-11-05T02:56:56.865Z",
+      "checkedAt": "2026-11-05T02:58:09.038490Z",
+      "eligible": true,
+      "reasons": [],
+      "omittingLaterPages": 0
+    },
+    "after": {
+      "observationId": "32",
+      "fetchedAt": "2026-11-05T02:56:56.865Z",
+      "checkedAt": "2026-11-05T02:58:09.097815Z",
+      "eligible": true,
+      "reasons": [],
+      "omittingLaterPages": 0
+    },
+    "refreshAttempted": false,
+    "refreshPosts": 0,
+    "selectedA": 5,
+    "selectedB": 5,
+    "selectedIdsBefore": [
+      "59",
+      "57",
+      "54",
+      "52",
+      "51",
+      "22",
+      "27",
+      "25",
+      "26",
+      "24"
+    ],
+    "selectedIdsAfter": [
+      "52",
+      "54",
+      "59",
+      "51",
+      "57",
+      "26",
+      "24",
+      "25",
+      "22",
+      "27"
+    ],
+    "mobileOverflow": false,
+    "pageErrors": [],
+    "targetScenarioForecastHistoryWrites": 0
+  },
+  "refreshAudit": {
+    "status": "PASS",
+    "providerMatchId": "1756313",
+    "refreshPosts": 1,
+    "statusCode": 200,
+    "requestAt": "2026-11-05T02:56:56.168Z",
+    "observations": [
+      {
+        "id": "32",
+        "source_fetched_at": "2026-11-05T02:56:56.865Z",
+        "recorded_at": "2026-11-05T02:56:56.903Z"
+      },
+      {
+        "id": "31",
+        "source_fetched_at": "2026-11-05T01:10:06.383Z",
+        "recorded_at": "2026-11-05T01:10:06.397Z"
+      }
+    ],
+    "previousAgeAtNewObservationMs": 6410520,
+    "finalReadOnlyRefreshPosts": 0,
+    "roleOrder": "existing automatic role suggestions may reorder display; per-team selected identities preserved"
+  },
+  "preservation": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T02:58:56.692Z",
+    "protectedFiles": 245,
+    "frozenModules": 150,
+    "frozenBundleVerified": true,
+    "compatibleV1Runtime": true,
+    "oldMapsPreserved": 340,
+    "currentMaps": 340,
+    "oldSlotsPreserved": 3400,
+    "oldReceiptsPreserved": 1288,
+    "oldReportsPreserved": 10,
+    "existingNonNullBindingsPreserved": true,
+    "otherQueueJobsPreserved": 3,
+    "modelRegistryEvaluationsForecastsPreserved": true,
+    "activeModels": 0,
+    "migrations": 44,
+    "lineage": 25
+  },
+  "baselineModelCounts": {
+    "prediction_model_versions": 1,
+    "model_activation_events": 0,
+    "v1_release_evaluation_journal": 0,
+    "prediction_runs": 0,
+    "training_dataset_versions": 0
+  },
+  "processes": {
+    "generalWorkerStarted": false,
+    "historyWorkerPid": 17732,
+    "checkedAt": "2026-11-05T02:48:47.8913294Z",
+    "apiPid": 9100
+  },
+  "next": {
+    "task": "S3-01/V1-evaluation/readiness",
+    "scope": "verify immutable release plan/collector readiness; independent evaluation only at registered time",
+    "evaluateNotBefore": "2026-12-02T00:00:00Z",
+    "model": "GPT-6 Astra",
+    "reasoning": "Extra High"
+  },
+  "noCommitPushOrExternalDeploy": true
+}

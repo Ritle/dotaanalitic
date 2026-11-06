@@ -1,0 +1,1902 @@
+{
+  "schemaVersion": 1,
+  "task": "S2-01/role-owner-check/history-evidence-enrichment",
+  "completedAt": "2026-11-04T21:14:16.679Z",
+  "localDate": "2026-11-05",
+  "status": "implemented_bounded_first_pass",
+  "implementation": {
+    "policy": "selected-player-history-v3",
+    "maxAccountsPerRun": 100,
+    "maxProfileLookupsPerRun": 20,
+    "maxAdditionalHttpAttempts": 42,
+    "sharedCatalogueCache": true,
+    "seriesFromSavedReceipts": true,
+    "sourceCaptureReplayedWithoutAdditionalRequests": true,
+    "oldReceiptProjectionIsNotOriginalBytes": true,
+    "evidenceOnlyResumeImplemented": false,
+    "perPlayerHardcodedFixes": false,
+    "sqlMigrationsAdded": 0
+  },
+  "live": {
+    "jobs": [
+      {
+        "slot": "A",
+        "id": "2a99a0c2-adc2-4e79-bbcc-4a0daf0a090f",
+        "status": "completed",
+        "report": {
+          "policyVersion": "selected-player-history-v3",
+          "cutoffAt": "2026-11-04T21:01:11.392Z",
+          "fromAt": "2025-11-04T21:01:11.000Z",
+          "fetchedAt": "2026-11-04T21:02:28.403Z",
+          "enrichment": {
+            "status": "partial",
+            "accountsConsidered": 97,
+            "accountsVerified": 58,
+            "profilesRequested": 20,
+            "unresolvedAccounts": [
+              "1092557725",
+              "1114792376",
+              "1281944743",
+              "1875612000"
+            ],
+            "seriesCreated": 25,
+            "seriesBlocked": [],
+            "replayedMaps": 50,
+            "reasons": [
+              "UNRESOLVED_PARTICIPANTS",
+              "ENRICHMENT_BOUND_REACHED",
+              "INSUFFICIENT_PLAYER_HISTORY"
+            ],
+            "assessedAt": "2026-11-04T21:03:13.252Z",
+            "players": [
+              {
+                "playerId": "204",
+                "accountId": "116865891",
+                "rawMaps": 11,
+                "eligibleMaps": 11
+              },
+              {
+                "playerId": "205",
+                "accountId": "156485213",
+                "rawMaps": 11,
+                "eligibleMaps": 6
+              },
+              {
+                "playerId": "206",
+                "accountId": "320017600",
+                "rawMaps": 11,
+                "eligibleMaps": 8
+              },
+              {
+                "playerId": "207",
+                "accountId": "891154650",
+                "rawMaps": 10,
+                "eligibleMaps": 3
+              },
+              {
+                "playerId": "208",
+                "accountId": "1675517497",
+                "rawMaps": 19,
+                "eligibleMaps": 17
+              }
+            ]
+          },
+          "options": {
+            "windowDays": 365,
+            "maxMaps": 50
+          },
+          "discoveryPages": 5,
+          "selected": 50,
+          "accepted": 50,
+          "duplicates": 0,
+          "excluded": 0,
+          "failed": 0,
+          "conflicts": 0,
+          "players": [
+            {
+              "playerId": "204",
+              "accountId": "116865891",
+              "discovered": 50,
+              "selected": 11,
+              "accepted": 11,
+              "sourceLimitReached": true
+            },
+            {
+              "playerId": "205",
+              "accountId": "156485213",
+              "discovered": 50,
+              "selected": 11,
+              "accepted": 11,
+              "sourceLimitReached": true
+            },
+            {
+              "playerId": "206",
+              "accountId": "320017600",
+              "discovered": 50,
+              "selected": 11,
+              "accepted": 11,
+              "sourceLimitReached": true
+            },
+            {
+              "playerId": "207",
+              "accountId": "891154650",
+              "discovered": 50,
+              "selected": 10,
+              "accepted": 10,
+              "sourceLimitReached": true
+            },
+            {
+              "playerId": "208",
+              "accountId": "1675517497",
+              "discovered": 50,
+              "selected": 18,
+              "accepted": 18,
+              "sourceLimitReached": true
+            }
+          ],
+          "maps": [
+            {
+              "matchId": "8985886048",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9051744853",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9045280553",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8829975493",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9057739307",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8985721401",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9051682783",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9045164434",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8829935670",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9057674435",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8984703068",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9051573372",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9045027883",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8698594348",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9056309568",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8984639408",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9051454022",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9044797513",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8698487856",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9056258736",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8984433236",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9051367680",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9044653942",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8652714203",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9055504238",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8980994942",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9051212593",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9043640925",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8652632561",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9055405538",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8980878142",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9049094334",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9043490716",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8651546216",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8980769413",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9048983711",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9042886394",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8651442322",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8975110449",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9048877833",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9042812804",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8643275129",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8974985429",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9048749977",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9031849890",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8643189704",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9048309060",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "8971987707",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9048684915",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9031755269",
+              "status": "accepted",
+              "reasons": []
+            }
+          ]
+        }
+      },
+      {
+        "slot": "B",
+        "id": "746db714-556c-4cc6-8ae8-1a3b01671bd1",
+        "status": "completed",
+        "report": {
+          "policyVersion": "selected-player-history-v3",
+          "cutoffAt": "2026-11-04T21:03:21.607Z",
+          "fromAt": "2025-11-04T21:03:21.000Z",
+          "fetchedAt": "2026-11-04T21:04:01.351Z",
+          "enrichment": {
+            "status": "completed",
+            "accountsConsidered": 67,
+            "accountsVerified": 24,
+            "profilesRequested": 20,
+            "unresolvedAccounts": [],
+            "seriesCreated": 8,
+            "seriesBlocked": [],
+            "replayedMaps": 25,
+            "reasons": [],
+            "assessedAt": "2026-11-04T21:04:34.565Z",
+            "players": [
+              {
+                "playerId": "209",
+                "accountId": "164047347",
+                "rawMaps": 24,
+                "eligibleMaps": 21
+              },
+              {
+                "playerId": "210",
+                "accountId": "188351504",
+                "rawMaps": 18,
+                "eligibleMaps": 15
+              },
+              {
+                "playerId": "211",
+                "accountId": "450454900",
+                "rawMaps": 18,
+                "eligibleMaps": 15
+              },
+              {
+                "playerId": "212",
+                "accountId": "892486081",
+                "rawMaps": 18,
+                "eligibleMaps": 15
+              },
+              {
+                "playerId": "213",
+                "accountId": "480210721",
+                "rawMaps": 17,
+                "eligibleMaps": 14
+              }
+            ]
+          },
+          "options": {
+            "windowDays": 365,
+            "maxMaps": 25
+          },
+          "discoveryPages": 3,
+          "selected": 25,
+          "accepted": 25,
+          "duplicates": 5,
+          "excluded": 0,
+          "failed": 0,
+          "conflicts": 0,
+          "players": [
+            {
+              "playerId": "209",
+              "accountId": "164047347",
+              "discovered": 25,
+              "selected": 23,
+              "accepted": 23,
+              "sourceLimitReached": true
+            },
+            {
+              "playerId": "210",
+              "accountId": "188351504",
+              "discovered": 25,
+              "selected": 15,
+              "accepted": 15,
+              "sourceLimitReached": true
+            },
+            {
+              "playerId": "211",
+              "accountId": "450454900",
+              "discovered": 25,
+              "selected": 15,
+              "accepted": 15,
+              "sourceLimitReached": true
+            },
+            {
+              "playerId": "212",
+              "accountId": "892486081",
+              "discovered": 25,
+              "selected": 15,
+              "accepted": 15,
+              "sourceLimitReached": true
+            },
+            {
+              "playerId": "213",
+              "accountId": "480210721",
+              "discovered": 25,
+              "selected": 17,
+              "accepted": 17,
+              "sourceLimitReached": true
+            }
+          ],
+          "maps": [
+            {
+              "matchId": "9049486027",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9051744853",
+              "status": "duplicate",
+              "reasons": []
+            },
+            {
+              "matchId": "9049361938",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9051682783",
+              "status": "duplicate",
+              "reasons": []
+            },
+            {
+              "matchId": "9049197742",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9049094334",
+              "status": "duplicate",
+              "reasons": []
+            },
+            {
+              "matchId": "9048983711",
+              "status": "duplicate",
+              "reasons": []
+            },
+            {
+              "matchId": "9048877833",
+              "status": "duplicate",
+              "reasons": []
+            },
+            {
+              "matchId": "9048097533",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9047583318",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9047975789",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9047488648",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9047858548",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9045729824",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9043219852",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9043084117",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9046816073",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9040197051",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9046718524",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9040119007",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9046648464",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9036525071",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9046513502",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9036406856",
+              "status": "accepted",
+              "reasons": []
+            },
+            {
+              "matchId": "9046398999",
+              "status": "accepted",
+              "reasons": []
+            }
+          ]
+        }
+      }
+    ],
+    "newUniqueMaps": 22,
+    "newVerifiedAccounts": 82,
+    "newSeries": 33,
+    "finalAudit": {
+      "snapshotAt": "2026-11-04T21:05:31.172Z",
+      "sourceFingerprint": "3e999b03eaac680bf6db5e9d0e6aacd5a13af1dd1fd3a5d6a0f38ed579f191e9",
+      "summary": {
+        "inventoryMaps": 303,
+        "eligibleHistoryMaps": 275,
+        "usedHistoryMaps": 275,
+        "selectedPlayerMaps": 70,
+        "reasonsAll": {
+          "OUTSIDE_WINDOW": 15,
+          "CURRENT_IDENTITIES_UNVERIFIED": 9,
+          "OUTCOME_TEAM_SIDES_UNKNOWN": 5,
+          "ROSTER_RECEIPT_MISMATCH": 5,
+          "SERIES_SOURCE_UNVERIFIED": 5,
+          "SERIES_UNKNOWN": 5
+        },
+        "reasonsSelected": {
+          "CURRENT_IDENTITIES_UNVERIFIED": 9,
+          "OUTCOME_TEAM_SIDES_UNKNOWN": 5,
+          "ROSTER_RECEIPT_MISMATCH": 5,
+          "SERIES_SOURCE_UNVERIFIED": 5,
+          "SERIES_UNKNOWN": 5
+        },
+        "missingAccounts": 3,
+        "featureStatus": "unavailable",
+        "featureReasons": [
+          "INSUFFICIENT_PLAYER_HISTORY"
+        ],
+        "coverage": {
+          "nRaw": 275,
+          "nEff": 275,
+          "minimumPlayerMaps": 3,
+          "playersWithHistory": 10,
+          "playersMeetingMinimum": 9
+        }
+      },
+      "players": [
+        {
+          "side": "A",
+          "name": "Ankou ♡",
+          "playerId": "208",
+          "accountId": "1675517497",
+          "identity": {
+            "playerId": "208",
+            "status": "verified",
+            "observationIds": [
+              "proof:208"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 19,
+          "eligibleEloMaps": 18,
+          "identityReason": null,
+          "reasons": {
+            "OUTCOME_TEAM_SIDES_UNKNOWN": 1,
+            "ROSTER_RECEIPT_MISMATCH": 1,
+            "SERIES_SOURCE_UNVERIFIED": 1,
+            "SERIES_UNKNOWN": 1
+          },
+          "matchIds": [
+            "8984433236",
+            "8984639408",
+            "8984703068",
+            "8985721401",
+            "8985886048",
+            "9045027883",
+            "9045164434",
+            "9045280553",
+            "9045729824",
+            "9048309060",
+            "9051573372",
+            "9051682783",
+            "9051744853",
+            "9055405538",
+            "9055504238",
+            "9056258736",
+            "9056309568",
+            "9057674435",
+            "9057739307"
+          ]
+        },
+        {
+          "side": "A",
+          "name": "waveformn",
+          "playerId": "205",
+          "accountId": "156485213",
+          "identity": {
+            "playerId": "205",
+            "status": "verified",
+            "observationIds": [
+              "proof:205"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 11,
+          "eligibleEloMaps": 11,
+          "identityReason": null,
+          "reasons": {},
+          "matchIds": [
+            "9048684915",
+            "9048749977",
+            "9048877833",
+            "9048983711",
+            "9049094334",
+            "9051212593",
+            "9051367680",
+            "9051454022",
+            "9051573372",
+            "9051682783",
+            "9051744853"
+          ]
+        },
+        {
+          "side": "A",
+          "name": "PERDAN4IK",
+          "playerId": "207",
+          "accountId": "891154650",
+          "identity": {
+            "playerId": "207",
+            "status": "verified",
+            "observationIds": [
+              "proof:207"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 10,
+          "eligibleEloMaps": 3,
+          "identityReason": null,
+          "reasons": {
+            "CURRENT_IDENTITIES_UNVERIFIED": 7,
+            "OUTCOME_TEAM_SIDES_UNKNOWN": 1,
+            "ROSTER_RECEIPT_MISMATCH": 1,
+            "SERIES_SOURCE_UNVERIFIED": 1,
+            "SERIES_UNKNOWN": 1
+          },
+          "matchIds": [
+            "8643189704",
+            "8643275129",
+            "8651442322",
+            "8651546216",
+            "8652632561",
+            "8652714203",
+            "8698487856",
+            "8698594348",
+            "8829935670",
+            "8829975493"
+          ]
+        },
+        {
+          "side": "A",
+          "name": "ssnovv1",
+          "playerId": "206",
+          "accountId": "320017600",
+          "identity": {
+            "playerId": "206",
+            "status": "verified",
+            "observationIds": [
+              "proof:206"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 11,
+          "eligibleEloMaps": 8,
+          "identityReason": null,
+          "reasons": {
+            "CURRENT_IDENTITIES_UNVERIFIED": 2,
+            "OUTCOME_TEAM_SIDES_UNKNOWN": 1,
+            "ROSTER_RECEIPT_MISMATCH": 1,
+            "SERIES_SOURCE_UNVERIFIED": 1,
+            "SERIES_UNKNOWN": 1
+          },
+          "matchIds": [
+            "9031755269",
+            "9031849890",
+            "9042812804",
+            "9042886394",
+            "9043490716",
+            "9043640925",
+            "9044653942",
+            "9044797513",
+            "9045027883",
+            "9045164434",
+            "9045280553"
+          ]
+        },
+        {
+          "side": "A",
+          "name": "Mirele`",
+          "playerId": "204",
+          "accountId": "116865891",
+          "identity": {
+            "playerId": "204",
+            "status": "verified",
+            "observationIds": [
+              "proof:204"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 11,
+          "eligibleEloMaps": 11,
+          "identityReason": null,
+          "reasons": {},
+          "matchIds": [
+            "8971987707",
+            "8974985429",
+            "8975110449",
+            "8980769413",
+            "8980878142",
+            "8980994942",
+            "8984433236",
+            "8984639408",
+            "8984703068",
+            "8985721401",
+            "8985886048"
+          ]
+        },
+        {
+          "side": "B",
+          "name": "Kiseki`",
+          "playerId": "211",
+          "accountId": "450454900",
+          "identity": {
+            "playerId": "211",
+            "status": "verified",
+            "observationIds": [
+              "proof:211"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 18,
+          "eligibleEloMaps": 15,
+          "identityReason": null,
+          "reasons": {
+            "OUTCOME_TEAM_SIDES_UNKNOWN": 3,
+            "ROSTER_RECEIPT_MISMATCH": 3,
+            "SERIES_SOURCE_UNVERIFIED": 3,
+            "SERIES_UNKNOWN": 3
+          },
+          "matchIds": [
+            "8984433236",
+            "8984639408",
+            "8984703068",
+            "9036406856",
+            "9036525071",
+            "9040119007",
+            "9040197051",
+            "9043084117",
+            "9043219852",
+            "9045729824",
+            "9047488648",
+            "9047583318",
+            "9048877833",
+            "9048983711",
+            "9049094334",
+            "9049197742",
+            "9049361938",
+            "9049486027"
+          ]
+        },
+        {
+          "side": "B",
+          "name": "Aidar",
+          "playerId": "210",
+          "accountId": "188351504",
+          "identity": {
+            "playerId": "210",
+            "status": "verified",
+            "observationIds": [
+              "proof:210"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 18,
+          "eligibleEloMaps": 15,
+          "identityReason": null,
+          "reasons": {
+            "OUTCOME_TEAM_SIDES_UNKNOWN": 3,
+            "ROSTER_RECEIPT_MISMATCH": 3,
+            "SERIES_SOURCE_UNVERIFIED": 3,
+            "SERIES_UNKNOWN": 3
+          },
+          "matchIds": [
+            "8984433236",
+            "8984639408",
+            "8984703068",
+            "9036406856",
+            "9036525071",
+            "9040119007",
+            "9040197051",
+            "9043084117",
+            "9043219852",
+            "9045729824",
+            "9047488648",
+            "9047583318",
+            "9048877833",
+            "9048983711",
+            "9049094334",
+            "9049197742",
+            "9049361938",
+            "9049486027"
+          ]
+        },
+        {
+          "side": "B",
+          "name": "kae",
+          "playerId": "212",
+          "accountId": "892486081",
+          "identity": {
+            "playerId": "212",
+            "status": "verified",
+            "observationIds": [
+              "proof:212"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 18,
+          "eligibleEloMaps": 15,
+          "identityReason": null,
+          "reasons": {
+            "OUTCOME_TEAM_SIDES_UNKNOWN": 3,
+            "ROSTER_RECEIPT_MISMATCH": 3,
+            "SERIES_SOURCE_UNVERIFIED": 3,
+            "SERIES_UNKNOWN": 3
+          },
+          "matchIds": [
+            "8984433236",
+            "8984639408",
+            "8984703068",
+            "9036406856",
+            "9036525071",
+            "9040119007",
+            "9040197051",
+            "9043084117",
+            "9043219852",
+            "9045729824",
+            "9047488648",
+            "9047583318",
+            "9048877833",
+            "9048983711",
+            "9049094334",
+            "9049197742",
+            "9049361938",
+            "9049486027"
+          ]
+        },
+        {
+          "side": "B",
+          "name": "86",
+          "playerId": "209",
+          "accountId": "164047347",
+          "identity": {
+            "playerId": "209",
+            "status": "verified",
+            "observationIds": [
+              "proof:209"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 24,
+          "eligibleEloMaps": 21,
+          "identityReason": null,
+          "reasons": {
+            "OUTCOME_TEAM_SIDES_UNKNOWN": 3,
+            "ROSTER_RECEIPT_MISMATCH": 3,
+            "SERIES_SOURCE_UNVERIFIED": 3,
+            "SERIES_UNKNOWN": 3
+          },
+          "matchIds": [
+            "8984433236",
+            "9036406856",
+            "9036525071",
+            "9040119007",
+            "9040197051",
+            "9043084117",
+            "9043219852",
+            "9045729824",
+            "9046398999",
+            "9046513502",
+            "9046648464",
+            "9046718524",
+            "9046816073",
+            "9047488648",
+            "9047583318",
+            "9047858548",
+            "9047975789",
+            "9048097533",
+            "9048877833",
+            "9048983711",
+            "9049094334",
+            "9049197742",
+            "9049361938",
+            "9049486027"
+          ]
+        },
+        {
+          "side": "B",
+          "name": "inori",
+          "playerId": "213",
+          "accountId": "480210721",
+          "identity": {
+            "playerId": "213",
+            "status": "verified",
+            "observationIds": [
+              "proof:213"
+            ],
+            "policyVersion": "verified-steam32-v1",
+            "availability": "current_identity"
+          },
+          "rawMaps": 17,
+          "eligibleEloMaps": 14,
+          "identityReason": null,
+          "reasons": {
+            "OUTCOME_TEAM_SIDES_UNKNOWN": 3,
+            "ROSTER_RECEIPT_MISMATCH": 3,
+            "SERIES_SOURCE_UNVERIFIED": 3,
+            "SERIES_UNKNOWN": 3
+          },
+          "matchIds": [
+            "9036406856",
+            "9036525071",
+            "9040119007",
+            "9040197051",
+            "9043084117",
+            "9043219852",
+            "9045729824",
+            "9047488648",
+            "9047583318",
+            "9048877833",
+            "9048983711",
+            "9049094334",
+            "9049197742",
+            "9049361938",
+            "9049486027",
+            "9051682783",
+            "9051744853"
+          ]
+        }
+      ],
+      "missingAccounts": [
+        {
+          "accountId": "1281944743",
+          "status": "unknown",
+          "matchIds": [
+            "8643189704",
+            "8643275129",
+            "8651442322",
+            "8651546216",
+            "8652632561",
+            "8652714203"
+          ]
+        },
+        {
+          "accountId": "1092557725",
+          "status": "unknown",
+          "matchIds": [
+            "9044653942",
+            "9044797513"
+          ]
+        },
+        {
+          "accountId": "1875612000",
+          "status": "unknown",
+          "matchIds": [
+            "8829975493"
+          ]
+        }
+      ],
+      "featureFingerprint": "c319f0d2058425ed53c30a493b23c69bc037aac65522638b4eb1b03e95f37f53"
+    },
+    "ui": {
+      "checkedAt": "2026-11-04T21:11:48.032Z",
+      "status": "PASS",
+      "pageErrors": [],
+      "overflow": false,
+      "layoutPreserved": true,
+      "postPaths": [
+        "/api/v1/lineup-role-profiles",
+        "/api/v1/lineup-role-profiles",
+        "/api/v1/lineup-role-profiles",
+        "/api/v1/lineup-role-profiles"
+      ],
+      "A": {
+        "raw207": 10,
+        "eligible207": 3,
+        "reportAccounts": 58
+      },
+      "B": {
+        "raw209": 24,
+        "eligible209": 21,
+        "reportAccounts": 24
+      },
+      "reportClocksRemainVisible": true
+    },
+    "operation": {
+      "apiPid": 28136,
+      "playerHistoryWorkerPid": 29292,
+      "generalWorkerStarted": false
+    }
+  },
+  "sourceAudit": {
+    "path": ".tools/history-enrichment-source-audit.json",
+    "sha256": "0ff09ab3bb90b4252434edb3bb05fad3766216e430ca2f660ddada9e887e151b",
+    "status": "complete",
+    "requested": 2,
+    "coverage": {
+      "confirmed_pro": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "completed_outcome": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "players_10": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "identity_10": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "series": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "canonical_identity_10": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9076387949",
+          "9076294639"
+        ]
+      },
+      "pre_match_lineup_known_at": {
+        "count": 0,
+        "of": 0,
+        "ratio": null,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": [
+          "9076387949",
+          "9076294639"
+        ]
+      }
+    }
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 806,
+      "packageCounts": [
+        54,
+        20,
+        32,
+        33,
+        347,
+        272,
+        47,
+        1
+      ]
+    },
+    "node": {
+      "status": "PASS",
+      "count": 74
+    },
+    "pgApi": {
+      "status": "PASS",
+      "count": 12
+    },
+    "chromium": {
+      "status": "PASS",
+      "count": 4
+    },
+    "liveDesktopMobile": "PASS",
+    "deterministicReadiness": "PASS",
+    "fullPgSuite": "not run",
+    "python": "not run",
+    "linuxDocker": "deferred by owner"
+  },
+  "firstFailures": [
+    "Red regression: enrichment module missing",
+    "Initial build shell lacked pnpm PATH; fixed invocation",
+    "readV1RuntimeCode is not a public barrel export; use existing internal module without changing frozen barrel",
+    "Duplicate registry fixture correctly rejected by existing schema; assertion tightened to rejection",
+    "PG fixture contained observationId in strict append DTO; stripped test-only field",
+    "First browser run omitted DATABASE_URL; rerun loaded env",
+    "Browser expected unassessed history, actual valid empty eligibility returned0; corrected assertion; dependent fixture restart failures disappeared in final4/4"
+  ],
+  "preservation": {
+    "status": "PASS",
+    "checkedAt": "2026-11-04T21:13:44.766Z",
+    "relations": 87,
+    "unchangedRelations": 61,
+    "changes": [
+      {
+        "schema": "pgboss",
+        "table": "instance",
+        "before": "10",
+        "after": "12"
+      },
+      {
+        "schema": "pgboss",
+        "table": "job",
+        "before": "7",
+        "after": "9"
+      },
+      {
+        "schema": "pgboss",
+        "table": "job_common",
+        "before": "7",
+        "after": "9"
+      },
+      {
+        "schema": "pgboss",
+        "table": "queue",
+        "before": "6",
+        "after": "6"
+      },
+      {
+        "schema": "pgboss",
+        "table": "version",
+        "before": "1",
+        "after": "1"
+      },
+      {
+        "schema": "public",
+        "table": "auth_login_budget",
+        "before": "1",
+        "after": "1"
+      },
+      {
+        "schema": "public",
+        "table": "auth_sessions",
+        "before": "19",
+        "after": "20"
+      },
+      {
+        "schema": "public",
+        "table": "identity_registry_state",
+        "before": "1",
+        "after": "1"
+      },
+      {
+        "schema": "public",
+        "table": "leagues",
+        "before": "12",
+        "after": "14"
+      },
+      {
+        "schema": "public",
+        "table": "match_draft_source_observations",
+        "before": "286",
+        "after": "356"
+      },
+      {
+        "schema": "public",
+        "table": "match_field_observations",
+        "before": "12613",
+        "after": "15739"
+      },
+      {
+        "schema": "public",
+        "table": "match_players",
+        "before": "2810",
+        "after": "3030"
+      },
+      {
+        "schema": "public",
+        "table": "match_quality_assessments",
+        "before": "574",
+        "after": "717"
+      },
+      {
+        "schema": "public",
+        "table": "match_source_snapshots",
+        "before": "286",
+        "after": "356"
+      },
+      {
+        "schema": "public",
+        "table": "matches",
+        "before": "281",
+        "after": "303"
+      },
+      {
+        "schema": "public",
+        "table": "player_account_evidence",
+        "before": "213",
+        "after": "295"
+      },
+      {
+        "schema": "public",
+        "table": "player_alias_history",
+        "before": "213",
+        "after": "295"
+      },
+      {
+        "schema": "public",
+        "table": "player_history_runs",
+        "before": "4",
+        "after": "6"
+      },
+      {
+        "schema": "public",
+        "table": "players",
+        "before": "213",
+        "after": "295"
+      },
+      {
+        "schema": "public",
+        "table": "provider_ingest_receipts",
+        "before": "860",
+        "after": "1073"
+      },
+      {
+        "schema": "public",
+        "table": "provider_quotas",
+        "before": "1",
+        "after": "1"
+      },
+      {
+        "schema": "public",
+        "table": "provider_reference_snapshots",
+        "before": "9",
+        "after": "10"
+      },
+      {
+        "schema": "public",
+        "table": "roster_catalogue_cache",
+        "before": "5",
+        "after": "45"
+      },
+      {
+        "schema": "public",
+        "table": "series",
+        "before": "123",
+        "after": "156"
+      },
+      {
+        "schema": "public",
+        "table": "series_provision_batches",
+        "before": "6",
+        "after": "39"
+      },
+      {
+        "schema": "public",
+        "table": "teams",
+        "before": "66",
+        "after": "68"
+      }
+    ],
+    "protectedArtifacts": [
+      {
+        "path": ".tools/s3-01-e0-export.json",
+        "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51"
+      },
+      {
+        "path": "docs/evidence/s3-01-e1-plan.json",
+        "sha256": "b8306aa23b4779dcd4ee0d26a34ee031767f458634df9e9da4ab37567abaaa62"
+      },
+      {
+        "path": ".tools/v1-data-export.json",
+        "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5"
+      },
+      {
+        "path": "docs/evidence/s3-01-v1-release-plan.json",
+        "sha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef"
+      },
+      {
+        "path": ".tools/v1-release-leagues-20261102.json",
+        "sha256": "2b82bfc6b2b9d1123cb6c34dba29e467dec7c2b6aed2d751ea89c09b4191f968"
+      },
+      {
+        "path": ".tools/v1-features-development-final.json",
+        "sha256": "bb33ee716beb88c277bcc6632203c29e841db0f13e03b822f1541bb54b40c658"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate.json",
+        "sha256": "f328236bad6d9702e00d3e7db7c4a527708a86d5adf2de8765828758c1332221"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-verification.json",
+        "sha256": "67cd47dd921b0b250fbed8763f25ea5199b14cdc39553034fa573320de7fc6b2"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-release-evidence.json",
+        "sha256": "6989f059dd38f0a4694890dfed3287b74819422edbf667108786ff3429dc95cd"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r2.json",
+        "sha256": "86264ef1f6ac4b39dfcf2fd2972d7704b1750cdb135b486e5531a2b536202f43"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-release-evaluation.json",
+        "sha256": "9dd1f3a8b7dac2ccc2dcab9719356ae7358ab383c0dbbf3087bcbcb2fd57370c"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r3.json",
+        "sha256": "02dc6dd1b68cfd67e1d6cc2d1ea397f0dcb1ebb55eff8a5da8d7f118ede7399a"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-executable-verification.json",
+        "sha256": "a9aea953094d98b7431d27ff775c8d2923a8953c0a7977cb378396a732bd058a"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-kernel-candidate-r4.json",
+        "sha256": "d53f215a1617378d7a55321fa6665631d1d2fecfd6b251ecfa6822319161cfad"
+      },
+      {
+        "path": "docs/evidence/s3-03-v1-executable-freeze.json",
+        "sha256": "4b130ebdd0fe99cc41f27888dbe81ac5b222ff60ab0c6a3a19523de7b0d0163a"
+      },
+      {
+        "path": "docs/evidence/s3-05-v1-registry.json",
+        "sha256": "2ccd0a4662dad473944959316418bb39faf05f11f7586a939b880812434214dd"
+      },
+      {
+        "path": "docs/evidence/s3-06-v1-runtime-snapshots.json",
+        "sha256": "f80c2d884863a2fc4afdd8115cad5931f8c3ae5014503ab4416764d75975b445"
+      },
+      {
+        "path": "docs/evidence/s3-06-v1-owner-api-ui.json",
+        "sha256": "543d4a48d36f627af4597462e4c4adb35109de362e2b68d55001b21cc41693eb"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-real-target.json",
+        "sha256": "9f49e3f6394ff9490b98249d717859b058e1df04e8614a165f9add23cd6f1911"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-journal-metrics.json",
+        "sha256": "baf05428a2b2623c9c207d9074e2c0bdc3f8776e232967b1446e06ce09008b38"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-journal-owner-api-ui.json",
+        "sha256": "1f351addda289fcef98de74c40634c61cb9b291e3bc769a7b89186cc63cbd807"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-target-lifecycle.json",
+        "sha256": "740b47a7f2e6f510f9ea95ea513b9f7246502fb7b94c87750d5b541fb80fd98e"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-schedule-target-registration.json",
+        "sha256": "b0b0f67b68632c0395a7d650d813f2f63a5f37c66a2f75ab7c58922d99f10fb8"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-runtime.json",
+        "sha256": "757e2dd402846ab15fe9502a872f3e1525c7ae67c2f1c0366297f2007eb7d29c"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-result.json",
+        "sha256": "19f633fae8a8a4211bbd5eccb836b08e8872684cd949ab899cfb829542b1de0d"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-owner-flow.json",
+        "sha256": "bdfd9eaac593c6aa5d929059da88cfabee62d04b4ac68b052423f01c1700d780"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-binding-owner-flow.json",
+        "sha256": "db330af19571caf5dd95331d204e9d0424844eccc277b393c2afba8877450869"
+      },
+      {
+        "path": "docs/evidence/s3-07-v1-scheduled-target-lifecycle.json",
+        "sha256": "2dec5d4c3af4577b2e9e19fc20f609ab8db0e700ca7cc07081de9be4d267940d"
+      },
+      {
+        "path": "docs/evidence/s4-v1-acceptance-audit.json",
+        "sha256": "4803b1dec3a0081e10bc5ee064ddfdfbe1d023902b45d9dc7684175ad737b668"
+      },
+      {
+        "path": "docs/evidence/s4-v1-backup-restore.json",
+        "sha256": "3f03694f0f3628d4df68c3b86c4e2ff9bd4d3ad017c20368897f1b2db63ac79b"
+      },
+      {
+        "path": "docs/evidence/s4-v1-local-owner-smoke.json",
+        "sha256": "1cf3f62be6185662d7a861b25a608f98c4d77796984b88063ba2fb4b452789d8"
+      },
+      {
+        "path": "docs/evidence/s4-v1-schedule-event-filter.json",
+        "sha256": "7ae62cbf174b4fbff6735bd4b8268c99ec07bad3262b9a0a2c013322db9c5708"
+      },
+      {
+        "path": "docs/evidence/s4-v1-schedule-event-filter-v2.json",
+        "sha256": "4a80b6ce7436da825b457841d4beb2e1af18c5ec42672c68e6926e05029cc0d8"
+      },
+      {
+        "path": "docs/evidence/s4-v1-model-readiness-status.json",
+        "sha256": "905aa2d3ba7637c82dab74465e262084d15549ed6b4465e6947756925755ed13"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-security-review.json",
+        "sha256": "e33be17b1da749b94756b3a8959257c73ccc54dfd0b03b9fcfa4581735b7b7f6"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-queue-coverage.json",
+        "sha256": "bac1dcac838e617c4deaff8a4be71f5e4736cd037f90646407ef402f5973d777"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-provider-resilience.json",
+        "sha256": "305a1c2e90f01f24813f2b411ceb59ce51f07dbd7a8e958e43e2aae4b3f078e8"
+      },
+      {
+        "path": "docs/evidence/s4-01-v1-provider-conflicts.json",
+        "sha256": "00016adb4d65c22468c4b2c882c6dd882bee3393b047c5a2345d7c32f4172178"
+      },
+      {
+        "path": "docs/evidence/s4-02-v1-historical-regression.json",
+        "sha256": "595cfbaca6074ee58e89242177b312564a4da9a3fae63b8e9f617cf6909ebf6b"
+      },
+      {
+        "path": "docs/evidence/s4-02-v1-full-owner-e2e.json",
+        "sha256": "a5d206b192c6301da2f81a3234c60ace1ff50914da189b7b394a737eb4aeb744"
+      },
+      {
+        "path": "docs/evidence/s4-03-v1-deployment-preflight.json",
+        "sha256": "61a91f176793c77c387ab410795e86a45dda730b57ca039d7c322febb4ddea18"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-suggestions.json",
+        "sha256": "ed517ebde5194ee53b9eb2decf27ada6218c83bab6a5b23e20fb9d0d3599f7c4"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-api-review.json",
+        "sha256": "c4ecd19748163a4e5dcbca0a40be1d7f387aca504cf00ab60c1d460347811547"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-profile-reader.json",
+        "sha256": "f609597010eb6d1410eda4ac4ff2cdc13f824251f008127759385062c5596f53"
+      },
+      {
+        "path": "docs/evidence/s4-02-upcoming-incomplete-opponents.json",
+        "sha256": "9c3f001615686f3eed04d86abee82b94f70595f924b250ff19448d287142d62a"
+      },
+      {
+        "path": "docs/evidence/s2-01-team-roster-loading.json",
+        "sha256": "0e470f51d5282c9107bda09a0ef4603b93584a0909994d9bc1e74f3e307aadff"
+      },
+      {
+        "path": "docs/evidence/s1-09-api-usage-reliability-audit.json",
+        "sha256": "0ea96ab14b6d5c4718949299c3c0e7dab18f460ea99ec2eb44628bf4f8b57003"
+      },
+      {
+        "path": "docs/evidence/s1-09-yangon-momo-roster-review.json",
+        "sha256": "e76056340df33417a79540d8c5201a8a81a2a25af8588a2c21c357683d567d8f"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-editor-priority.json",
+        "sha256": "7ce309002d42086b92c84f30d6fbff3ef81a5f1d60579ac4071136d769e4fec0"
+      },
+      {
+        "path": "docs/evidence/s2-01-puckchamp-icxi-ui-review.json",
+        "sha256": "1088ffb55ecc364f1fe633b336b58cb2a5735438a3fb94e279bd6529fe98a32a"
+      },
+      {
+        "path": "docs/evidence/s2-01-expected-roster-catalogue.json",
+        "sha256": "4fae95188abec3c3b4f444ff37ba80b6cd10e308b2209bf02d9b0cc55c53be0f"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-owner-diagnostic.json",
+        "sha256": "bff5065d640aca38b6e69da4aed09723853218476874564514e5823a9d536591"
+      },
+      {
+        "path": "docs/evidence/s2-01-new-team-organization.json",
+        "sha256": "768f1d3bdf626fc32572021b15e2284c0e6c3b9908e2237ac6ea421dd618a6f2"
+      },
+      {
+        "path": "docs/evidence/s2-01-roster-player-profile.json",
+        "sha256": "672325a5983e663c3b2c34f1f93f0ba10326f2e660435d171091ce715c291a43"
+      },
+      {
+        "path": "docs/evidence/s2-01-allied-lynx-review.json",
+        "sha256": "6f1ee1457ea6320c1dc652f67c20a58b42015feccadf59f23303651437afba6c"
+      },
+      {
+        "path": "docs/evidence/s2-01-unified-player-catalogue.json",
+        "sha256": "b7b4ab3744bf2d97142ceb8796836f9942b1b09f5105a325e9e89c96f061a6e7"
+      },
+      {
+        "path": "docs/evidence/s2-01-role-owner-live-profiles.json",
+        "sha256": "43197388e345214ee9e55f9532105398c392e3d43ac8e24bdbee5739e96aa6e9"
+      },
+      {
+        "path": "docs/evidence/s2-01-player-history.json",
+        "sha256": "13b503b36dcf10873133a92387156ecd76d3f92a102c8bf43a997f5b22d1e182"
+      },
+      {
+        "path": "docs/evidence/s2-01-player-history-depth.json",
+        "sha256": "82939020003f541d4f292c247fa990adbbc751c3e7047a3606b8131297353d87"
+      },
+      {
+        "path": "docs/evidence/s2-01-elo-history-readiness.json",
+        "sha256": "8b39bd91cc865695d200ebc08a42497d6a189ee59bc6ead6a46a85aa3e0a6948"
+      }
+    ],
+    "originalNonBarrelModules": 150,
+    "compatibleV1Runtime": true,
+    "frozenBundleVerified": true,
+    "migrationLedger": [
+      {
+        "filename": "001_initial.sql",
+        "checksum": "8b1505e143bc200ce1e5ef167e6315557b1c1eb3fc8e0fa2035e59c00d55d4f4"
+      },
+      {
+        "filename": "002_patch_awareness.sql",
+        "checksum": "2c332db16f6e40212f0c07f06f45918e1566a1158029392776e9eabae4ffa6b2"
+      },
+      {
+        "filename": "003_roster_continuity.sql",
+        "checksum": "c230707713b8cfe35a55a5a48aa9f81d9c9375ffeb4aed67c315d5235ca0c0fb"
+      },
+      {
+        "filename": "004_context_identity_provenance.sql",
+        "checksum": "184e24d7e95656e1be115c2010a8946a3d88633ca5d9c554b0b4e7c5cf1f294d"
+      },
+      {
+        "filename": "005_training_pipeline.sql",
+        "checksum": "b79dc2586d5d3bcbeb8d290045362fe14639a63b409f52da6c6bb3cc6f965f3c"
+      },
+      {
+        "filename": "006_draft_data_quality.sql",
+        "checksum": "76af6b156a25eedcdf64a6d2a8b33161d79a9fac011c8de81a3cdb6dde013e6a"
+      },
+      {
+        "filename": "007_idempotent_ingestion.sql",
+        "checksum": "ecfa1aea0ef631f016b797580b0598892af5c15bc09a7a907b0e90cd674628ac"
+      },
+      {
+        "filename": "008_owner_auth.sql",
+        "checksum": "8a459ca949428c827bfe8744b92acf870954155ccf7ce4d867b364ddcdad5238"
+      },
+      {
+        "filename": "009_temporal_context.sql",
+        "checksum": "2fe9f7f28150127bacc78fb972266de9cc15c30ca82e2a5d306cdba08c8de830"
+      },
+      {
+        "filename": "010_identity_evidence.sql",
+        "checksum": "43b41db24f20f3258b03788408eefee66cac312dde6e4691db89a7497dc7e280"
+      },
+      {
+        "filename": "011_game_context_registry.sql",
+        "checksum": "b87ce903ff12aa4bf1b2569d9106961f222ab0f2a57e71eae2e9e10d8502a7f2"
+      },
+      {
+        "filename": "012_verified_dataset_boundary.sql",
+        "checksum": "a406136a38c2f9399c0a913f17abeb77ee0296c641d3426041e03cf9938b4269"
+      },
+      {
+        "filename": "013_context_recorded_time.sql",
+        "checksum": "4f28693720367ec681e07229c9b28d81517a3629823c54ef8d456de691bedfce"
+      },
+      {
+        "filename": "014_patch_transfer_evidence.sql",
+        "checksum": "8666a3576f4e997685afc2a8a5535ad9771143849a8c380b113a80f3988443a7"
+      },
+      {
+        "filename": "015_scenario_snapshots.sql",
+        "checksum": "c743257c561ae725f3191867f9118905a6136902165465dda3d651359f81d103"
+      },
+      {
+        "filename": "016_scenario_draft.sql",
+        "checksum": "e597a4ddbda5fb822284eb3ff8671d0a25cf9e03cc13002dad71f44c77e0724c"
+      },
+      {
+        "filename": "017_scenario_reports.sql",
+        "checksum": "7cf013a6bcb8e5d59696f327433bb2b3143fe03a50143eea14ab9c81dfcafd2e"
+      },
+      {
+        "filename": "018_outcome_verifier.sql",
+        "checksum": "a534be6670a699d6e7e4dd9df4efb493ff070b1b3833a3c11609f926e156e0c1"
+      },
+      {
+        "filename": "019_upcoming_schedule.sql",
+        "checksum": "07c209cbc751a091588016aab82006aa50fd4c42c024cb858a79e3ec184db5d6"
+      },
+      {
+        "filename": "020_history_refresh.sql",
+        "checksum": "738a45096172ccb489079247ff55777a2a08fe18cbf4271fb929f1bc97721a34"
+      },
+      {
+        "filename": "021_upcoming_source_observations.sql",
+        "checksum": "6a03eb941c15574f79fbb70b98d6ee3e695693965449d44098b973428ab4295c"
+      },
+      {
+        "filename": "022_series_provision.sql",
+        "checksum": "91d4883d4de3d4459cd82116cb20540d74427437a167dc87b7da1e0d3db7ce06"
+      },
+      {
+        "filename": "023_research_evaluation_journal.sql",
+        "checksum": "1b059414397e08000e03505c068d9e3c4c79d2e36ca96473cc3b5474ba95ab1f"
+      },
+      {
+        "filename": "024_v1_release_evaluation_journal.sql",
+        "checksum": "5be6bb15ed1f7ff2695a62e555d6476dbd32eb81c1ce0b368def80b975559cdc"
+      },
+      {
+        "filename": "025_v1_model_registry.sql",
+        "checksum": "d14ed21f41f576c72bfd3da5eaced7f5ea4274bab8f052181d14a45ee2327952"
+      },
+      {
+        "filename": "026_v1_runtime_snapshots.sql",
+        "checksum": "2aac1ae2a413dd8194486e3b1f6c2bddd3bc47c9c6a2472bd339816c91ec55b8"
+      },
+      {
+        "filename": "027_v1_forecast_outcomes.sql",
+        "checksum": "dbb418ea4fb53deaa472cd02bba232f078a86947de3c79f65f0bc94406dc134b"
+      },
+      {
+        "filename": "028_v1_journal_reports.sql",
+        "checksum": "de7aa7f8016bfda2a7686d4d9f935bb786ce716549729727d2083c05d6218298"
+      },
+      {
+        "filename": "029_v1_target_lifecycle.sql",
+        "checksum": "5c46bf775a8f4367b66eb1a0e08b975a2e335396a55d173a44752e1396449380"
+      },
+      {
+        "filename": "030_v1_schedule_targets.sql",
+        "checksum": "5e936f2f8b6067310abec307098766b689921cffc1c639ab95ea69579303be1a"
+      },
+      {
+        "filename": "031_v1_scheduled_runtime.sql",
+        "checksum": "7f2d8ddef1b8085ab6f85473fd3baa5c7ec6ed8ebd096241fde4b0175811b03f"
+      },
+      {
+        "filename": "032_v1_schedule_results.sql",
+        "checksum": "49e1051afcd49c25c6e073a371c942634361f64e778757a9f92f1a83da099fd1"
+      },
+      {
+        "filename": "033_v1_schedule_started_guard.sql",
+        "checksum": "d67574ddd92efa1962bcc042f140dc607781a2f29afb56a1101a997273b31494"
+      },
+      {
+        "filename": "034_v1_scheduled_lifecycle.sql",
+        "checksum": "670cc6384b04161b1c97761a2bfbaecb93f3e9b3cc802696aa783e0a5db9f5bf"
+      },
+      {
+        "filename": "035_role_profile_hints.sql",
+        "checksum": "b4b757258c8b6e205e848cdffab6d01618f8d43f6891f74bd9416178b2ba8d99"
+      },
+      {
+        "filename": "036_expected_roster_catalogue.sql",
+        "checksum": "b373cdf08d3527616a96e43c627994cbb7b58844a4f08cf62dba1555e711580d"
+      },
+      {
+        "filename": "037_roster_team_directory.sql",
+        "checksum": "5d801f438bae9e3622bcdd5130a67278b524ee20bd4020976e06a66389058c6d"
+      },
+      {
+        "filename": "038_provider_team_catalogue.sql",
+        "checksum": "6139ec7b17b37876af243e49446dd57ee164757b5d09dffc4d20c6f1387b6d5f"
+      },
+      {
+        "filename": "039_roster_player_profiles.sql",
+        "checksum": "47c3d80a7c20d69350c969ad08839bc0e6b670198d0d8d2cf64e55fe631bd395"
+      },
+      {
+        "filename": "040_unified_player_catalogue.sql",
+        "checksum": "72c4f13334ed34162f6753c84a9867a4f56d02305636dd24b80d895211963ad2"
+      },
+      {
+        "filename": "041_selected_player_history.sql",
+        "checksum": "e2b43d7892a3ac54c493c0c0830383a63039baff28608031229e1cc9c6b8c84e"
+      },
+      {
+        "filename": "042_player_history_options.sql",
+        "checksum": "52e9520efede3f85ba12bb9a5c492fbd842a3e8ccf2b1b802d401c4815caf359"
+      }
+    ],
+    "originalMaps": 281,
+    "currentMaps": 303,
+    "originalFactsPreserved": true,
+    "existingIdentityAndSeriesBindingsPreserved": true,
+    "activeModels": 0,
+    "queuedAuroraPreserved": true
+  },
+  "changedCode": [
+    {
+      "path": "packages/contracts/src/player-history.ts",
+      "sha256": "b3b31e73aff49262e8c826cdb2cd4dc10b8c307b5fc6266e21b69925b006abf6"
+    },
+    {
+      "path": "packages/ingestion/src/history-enrichment.ts",
+      "sha256": "29c9320bad63e72b4a3034bf1af7331d33ca8bfc3774cac3e58acd56eaeb4779"
+    },
+    {
+      "path": "packages/ingestion/src/player-history.ts",
+      "sha256": "964b407ae1a1472dac8c99bac960be260a99b77b60d97c29fb55dfcdb5b5ba08"
+    },
+    {
+      "path": "packages/ingestion/src/player-history-queue.ts",
+      "sha256": "3fcb773dfceeaa8c4446687756a6191994f4c2b677304cb8c76126e4b2afec10"
+    },
+    {
+      "path": "packages/ingestion/src/index.ts",
+      "sha256": "6604de2121bf3e95356a8d872a0a68442655360eb148cad8ec54e6135b090600"
+    },
+    {
+      "path": "packages/ingestion/tests/history-enrichment.test.ts",
+      "sha256": "e7b65d4d8e6d4cc6660fe3d98bbcfb9383ad5057d6b994412efa17379f13bb4f"
+    },
+    {
+      "path": "apps/api/tests/history-enrichment.integration.test.ts",
+      "sha256": "66b6b7a8888b1f978693901274af2ff3ab4c5aa6bfa7220a30ea8bf4c2342844"
+    },
+    {
+      "path": "tests/helpers/player-history.ts",
+      "sha256": "a2f063e9e5163a5dba913e06f6a2217eb2975bd4f15e7f833438fd5f9e57c351"
+    },
+    {
+      "path": "apps/web/src/components/PlayerHistory.vue",
+      "sha256": "a75dba49a92a715d7bf3ee8928798dd0992f58585a083a52527792780156cd81"
+    },
+    {
+      "path": "apps/web/tests/e2e/roster-catalogue.spec.ts",
+      "sha256": "c9837ccdbd791a86ccd3931a6f50daf32cea112bf5e017db86834e4069b31a27"
+    }
+  ],
+  "localArtifacts": [
+    {
+      "path": ".tools/history-enrichment-final-inventory.json",
+      "sha256": "3bbd11c16c3e80dc78efea805fee20858eee971ebeff9313ce4c10d088990675"
+    },
+    {
+      "path": ".tools/history-enrichment-final-analysis.json",
+      "sha256": "84f4889d0abd346650b9b847c975aee8680d384ecdfb12e4ebe5a7a7a0167f17"
+    },
+    {
+      "path": ".tools/history-enrichment-final-features.json",
+      "sha256": "8a254f1b58dc39d7abb04af53f21a0f6aa926aa5b79d15c08f4df6f0cb0b84c7"
+    },
+    {
+      "path": ".tools/history-enrichment-http.json",
+      "sha256": "fadb5cae6397d4cf360853e7e7e79fb74e21f46244bbf7fcd79818f6092b7695"
+    },
+    {
+      "path": ".tools/history-enrichment-preview.json",
+      "sha256": "51b52818d139373aef9a7cc41fd734cdb487bb057fdf75233a2648627630ae93"
+    }
+  ],
+  "nextTask": "S2-01/role-owner-check/history-enrichment-resume",
+  "nextScope": "Bounded evidence-only retry for accepted history after profile cap, a new report and fresh raw/eligible counts, no repeated discovery/detail requests. Preserve old reports and frozen model gates.",
+  "recommendedModel": "GPT-6.1 Sol",
+  "reasoningEffort": "High",
+  "evaluation": "not_performed",
+  "activeModel": false,
+  "teamAWinProbability": null
+}

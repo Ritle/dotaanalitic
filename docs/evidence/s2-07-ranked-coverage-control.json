@@ -1,0 +1,526 @@
+{
+  "schemaVersion": "s2-07-ranked-coverage-control-v1",
+  "ownerDate": "2026-11-06",
+  "checkedAt": "2026-11-05T21:38:07.380Z",
+  "task": "S2-07/ranked-coverage-control",
+  "finding": "OpenDota explicit project overrides defaults; v1 omitted hero/duration and rejected nonempty ranked rows. v2 explicitly selects required/context fields.",
+  "plans": [
+    {
+      "path": ".tools/s2-07-coverage-20261106-plan.json",
+      "sha256": "34b665f1f772c8c2f7f1553bc9fe1b1a937e988238461a790127e3326f344c4d"
+    },
+    {
+      "path": ".tools/s2-07-coverage-primary-20261106-amendment.json",
+      "sha256": "4f0283ed3d16444f9fe3683ea6ff5a40159bf68bf5c5f6067d032043d7355743"
+    },
+    {
+      "path": ".tools/s2-07-coverage-fixed-20261106-amendment.json",
+      "sha256": "260de70027bf35dab58c092c82f5cd76a7427ba856b2c00414c9747bafc3aa03"
+    },
+    {
+      "path": ".tools/s2-07-coverage-publish-20261106-plan.json",
+      "sha256": "4ef7aabb3561a806daffc2058c508e45ac0d801537efc5a6f963a904f830714b"
+    }
+  ],
+  "requests": [
+    {
+      "provider": "stratz",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:20:55.313Z"
+    },
+    {
+      "provider": "stratz",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:20:56.304Z"
+    },
+    {
+      "provider": "stratz",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:20:57.631Z"
+    },
+    {
+      "provider": "opendota",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:22:22.526Z"
+    },
+    {
+      "provider": "opendota",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:22:23.896Z"
+    },
+    {
+      "provider": "opendota",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:22:25.220Z"
+    },
+    {
+      "provider": "opendota",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:22:26.364Z"
+    },
+    {
+      "provider": "opendota",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:26:39.403Z"
+    },
+    {
+      "provider": "opendota",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:26:40.513Z"
+    },
+    {
+      "provider": "stratz",
+      "status": 200,
+      "retryAfterMs": null,
+      "at": "2026-11-05T21:26:41.393Z"
+    }
+  ],
+  "providerRequests": 10,
+  "retries": 0,
+  "accountSelection": [
+    {
+      "playerId": "27",
+      "accountId": "191362875",
+      "name": "Speeed",
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "PRACTICE/CAPTAINS_MODE"
+      ],
+      "latestStartAt": "2026-11-05T20:03:18.000Z",
+      "providerFlags": {
+        "isAnonymous": true,
+        "isStratzPublic": false
+      }
+    },
+    {
+      "playerId": "61",
+      "accountId": "70388657",
+      "name": "Dendi",
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "PRACTICE/CAPTAINS_MODE",
+        "PRACTICE/CAPTAINS_DRAFT"
+      ],
+      "latestStartAt": "2026-06-11T16:05:37.000Z",
+      "providerFlags": {
+        "isAnonymous": true,
+        "isStratzPublic": false
+      }
+    },
+    {
+      "playerId": "89",
+      "accountId": "126212866",
+      "name": "Saberlight",
+      "rows": 20,
+      "recentRankedRows": 0,
+      "modes": [
+        "PRACTICE/CAPTAINS_MODE"
+      ],
+      "latestStartAt": "2026-11-03T12:25:31.000Z",
+      "providerFlags": {
+        "isAnonymous": true,
+        "isStratzPublic": false
+      }
+    }
+  ],
+  "selected": {
+    "playerId": "61",
+    "accountId": "70388657",
+    "provider": "opendota",
+    "fromAt": "2026-10-06T21:26:38.000Z",
+    "cutoffAt": "2026-11-05T21:26:38.000Z",
+    "fetchedAt": "2026-11-05T21:26:40.524Z",
+    "knownAt": null,
+    "receivedRows": 200,
+    "acceptedMaps": 197,
+    "distinctHeroes": 25,
+    "excluded": {
+      "outside_window": 3
+    },
+    "duplicates": 0,
+    "conflicts": 0,
+    "pagination": "capped",
+    "historyCompleteness": "unknown",
+    "fieldCoverage": {
+      "hero": 197,
+      "account": 197,
+      "side": 197,
+      "outcome": 197,
+      "startAndCompletion": 197,
+      "partySize": 197,
+      "averageRank": 0,
+      "patchCode": 0
+    },
+    "mapIds": [
+      "9032694349",
+      "9033327596",
+      "9033408337",
+      "9033518270",
+      "9033583453",
+      "9033636592",
+      "9033691417",
+      "9033760148",
+      "9033827636",
+      "9033896908",
+      "9034097030",
+      "9034169577",
+      "9034203833",
+      "9034231088",
+      "9034513371",
+      "9034537998",
+      "9034564347",
+      "9034758893",
+      "9034862805",
+      "9034911163",
+      "9034975046",
+      "9035077939",
+      "9035145543",
+      "9035214894",
+      "9035278522",
+      "9035608063",
+      "9035644228",
+      "9036587870",
+      "9037100074",
+      "9037188998",
+      "9037247604",
+      "9037914555",
+      "9037995786",
+      "9038080131",
+      "9038139926",
+      "9038216757",
+      "9038356030",
+      "9038417066",
+      "9038514090",
+      "9038923854",
+      "9038991700",
+      "9039032809",
+      "9039081528",
+      "9039110136",
+      "9039858273",
+      "9039952638",
+      "9040022381",
+      "9040122204",
+      "9040243482",
+      "9040362240",
+      "9040437177",
+      "9040678633",
+      "9040736062",
+      "9040830256",
+      "9040865730",
+      "9041485913",
+      "9041603974",
+      "9041644977",
+      "9041692252",
+      "9041802118",
+      "9042272177",
+      "9042337651",
+      "9042406077",
+      "9042940948",
+      "9042986015",
+      "9043036040",
+      "9043094585",
+      "9043179101",
+      "9043252466",
+      "9043386244",
+      "9043478393",
+      "9043711952",
+      "9043811348",
+      "9043863083",
+      "9043897336",
+      "9043941813",
+      "9044473689",
+      "9044513600",
+      "9044597983",
+      "9044680333",
+      "9044778397",
+      "9044890912",
+      "9044969969",
+      "9045055590",
+      "9045392898",
+      "9045442992",
+      "9045935035",
+      "9046002811",
+      "9046057872",
+      "9046118156",
+      "9046222123",
+      "9046294384",
+      "9046369557",
+      "9046421922",
+      "9046493882",
+      "9046680119",
+      "9046722391",
+      "9046762955",
+      "9046835919",
+      "9047422653",
+      "9047496896",
+      "9047616913",
+      "9047729678",
+      "9048152740",
+      "9048218806",
+      "9048273011",
+      "9048316060",
+      "9048343158",
+      "9048989825",
+      "9049087832",
+      "9049168657",
+      "9049246812",
+      "9049858093",
+      "9049973796",
+      "9050031162",
+      "9050092523",
+      "9050873126",
+      "9050954651",
+      "9051057140",
+      "9051122506",
+      "9051193786",
+      "9051312429",
+      "9051406040",
+      "9051488048",
+      "9051726060",
+      "9051772338",
+      "9052272489",
+      "9052340406",
+      "9052407366",
+      "9052489773",
+      "9052573813",
+      "9052636002",
+      "9053110560",
+      "9053819580",
+      "9054451851",
+      "9054485546",
+      "9054542608",
+      "9058147749",
+      "9058229676",
+      "9058335552",
+      "9058402374",
+      "9058470796",
+      "9061571669",
+      "9061665642",
+      "9061758017",
+      "9063415654",
+      "9063466921",
+      "9063524378",
+      "9063583929",
+      "9064307325",
+      "9064346443",
+      "9064422433",
+      "9064488406",
+      "9065722476",
+      "9065791392",
+      "9065852029",
+      "9065949300",
+      "9066036032",
+      "9066099884",
+      "9068738139",
+      "9069180580",
+      "9069225377",
+      "9069841062",
+      "9069921648",
+      "9070169304",
+      "9070740640",
+      "9070788920",
+      "9070834041",
+      "9071784452",
+      "9072375603",
+      "9072411727",
+      "9072447947",
+      "9072476520",
+      "9073314837",
+      "9073857007",
+      "9074441637",
+      "9074501859",
+      "9074568171",
+      "9074612211",
+      "9074722898",
+      "9074805108",
+      "9074846714",
+      "9074933892",
+      "9075770910",
+      "9075840796",
+      "9075911782",
+      "9075995954",
+      "9076081381",
+      "9076559077",
+      "9076594358",
+      "9077111394",
+      "9077166450",
+      "9077226867",
+      "9077311253",
+      "9077367393",
+      "9077458069",
+      "9077529717"
+    ],
+    "receipts": [
+      {
+        "offset": 0,
+        "rows": 100,
+        "fetchedAt": "2026-11-05T21:26:39.417Z",
+        "payloadSha256": "fb25846496c9ae5abbda39587f9e228c026415447b0504a824d2599a791d3da6"
+      },
+      {
+        "offset": 100,
+        "rows": 100,
+        "fetchedAt": "2026-11-05T21:26:40.522Z",
+        "payloadSha256": "9f999b91f1b3cfe6e11a855a4869b46a745ef1c7fdba1c11f6a4073b4dc355f8"
+      }
+    ]
+  },
+  "crossChecks": {
+    "oldProjectionRows": 200,
+    "oldProjectionMissing": [
+      "hero_id",
+      "duration"
+    ],
+    "sharedUnchangedCoreRows": 200,
+    "oldRowsRejected": {
+      "invalid_row": 200
+    },
+    "optionalStratzRankedRows": 0,
+    "knownHeroCatalogueCoverage": "197/197 verified before publish",
+    "sameMapNotCountedTwice": true
+  },
+  "publication": {
+    "checkedAt": "2026-11-05T21:34:25.974Z",
+    "observationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+    "identityRevision": "643",
+    "fetchedAt": "2026-11-05T21:26:40.524Z",
+    "maps": 197,
+    "providerRequests": 0,
+    "oldObservationsUnchanged": 2
+  },
+  "liveUi": {
+    "checkedAt": "2026-11-05T21:35:07.296Z",
+    "requests": [
+      {
+        "playerId": "61",
+        "provider": "opendota",
+        "refresh": false
+      }
+    ],
+    "reports": [
+      {
+        "playerId": "61",
+        "provider": "opendota",
+        "status": "partial",
+        "stale": false,
+        "statisticsEnabled": false,
+        "observationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "maps": 197,
+        "adapterVersion": "ranked-practice-reader-v2",
+        "fetchedAt": "2026-11-05T21:26:40.524Z"
+      }
+    ],
+    "providerRequests": 0,
+    "logins": 0,
+    "errors": [],
+    "mobileOverflow": false
+  },
+  "tests": {
+    "regressionBeforeFix": "1 expected failure,13 existing pass",
+    "regressionAfterFix": "14 pass",
+    "apiPgIncludingV1V2Cache": 11,
+    "unitCli": 856,
+    "chromium": 7,
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "fullNodeSuite": false,
+    "pythonDockerLinux": false
+  },
+  "logs": [
+    {
+      "path": ".tools/s2-07-coverage-install.log",
+      "sha256": "a9446a7bdf6bf55b44d35d155556a63be13a6af6b5edd62d2c7197844a584644"
+    },
+    {
+      "path": ".tools/s2-07-coverage-typecheck.log",
+      "sha256": "bbbaf3e3a07889123b8682ab7983ad2dc83a2ccc3df3dbfeb85346bc612870d6"
+    },
+    {
+      "path": ".tools/s2-07-coverage-build.log",
+      "sha256": "0d3b8453467e94dae54c81b215caeafe29df5a6d18d35f69528463b4f7f74c9e"
+    },
+    {
+      "path": ".tools/s2-07-coverage-unit.log",
+      "sha256": "e215cef134575df4344857a9ed242c00747eb1477db283cf75e8ced5aacadfd2"
+    },
+    {
+      "path": ".tools/s2-07-coverage-targeted.log",
+      "sha256": "c955733b012bbf9fb9e263620ea0cc21a1e62626468affa5e9b0e29315165788"
+    },
+    {
+      "path": ".tools/s2-07-coverage-browser.log",
+      "sha256": "909f31e543b7cf8b228dad4daa2c5b9ed31c5b4dee92901fc3c988cdbaf8fd87"
+    },
+    {
+      "path": ".tools/s2-07-coverage-red.log",
+      "sha256": "f9cbc8840b05e8d07fd71ba6193c6e39f97125252b1cf9c5b15cd6d8e79af4fd"
+    }
+  ],
+  "preservation": {
+    "publicTables": 77,
+    "unchangedTables": 73,
+    "changedTables": [
+      "provider_quotas",
+      "ranked_practice_cache",
+      "ranked_practice_observations",
+      "role_profile_stratz_quota"
+    ],
+    "proMapsBefore": 340,
+    "proMapsAfter": 340,
+    "queueUnchanged": true,
+    "oldPubObservationsUnchanged": 2,
+    "frozenArtifacts": 245,
+    "originalModules": 150,
+    "frozenBundle": "PASS",
+    "runtimeCompatible": true,
+    "noSqlOrDependencyChanges": true,
+    "modelsUnchanged": true
+  },
+  "runtime": {
+    "startedAt": "2026-11-05T21:34:20.9942324Z",
+    "apiPid": 24372,
+    "adapterVersion": "ranked-practice-reader-v2"
+  },
+  "sourceHashes": [
+    {
+      "path": "packages/contracts/src/ranked-practice.ts",
+      "sha256": "e932316a3d15fbf33b50567d1cf488d99a3c89b52d1168a0ba89071f7b935298"
+    },
+    {
+      "path": "packages/ingestion/src/ranked-practice-client.ts",
+      "sha256": "19448cfe364691e1a57471164149b4408c0d3faab6bf209895a385d26ab94457"
+    },
+    {
+      "path": "packages/db/src/ranked-practice-repository.ts",
+      "sha256": "43cdce5ef1f4f3f50c26caf5fce25a95dd399c816817116b9b70c052e9c4f60f"
+    },
+    {
+      "path": "packages/ingestion/tests/ranked-practice-client.test.ts",
+      "sha256": "cc9684f1ceeb32a12a9b9aff5f467844f490a67fb344b4a90f2433c3b857c565"
+    },
+    {
+      "path": "apps/api/tests/ranked-practice.integration.test.ts",
+      "sha256": "7b6790fc4cbca5e1e276cf123d9dce338a798a5179cf9a9fa6865af21b3c4f04"
+    }
+  ],
+  "limitations": [
+    "One verified OpenDota account is an empirical control, not universal account/history coverage.",
+    "Two100-row pages cap the sample; history completeness remains unknown.",
+    "STRATZ ranked row fields/pagination remain empirically unverified; providers are not merged.",
+    "No hero aggregates or model feature/quality activation; source knownAt remains null."
+  ],
+  "nextTask": "S2-07/hero-summary",
+  "nextModel": "GPT-6.1 Sol / High"
+}

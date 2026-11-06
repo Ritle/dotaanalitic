@@ -1,0 +1,595 @@
+{
+  "schemaVersion": 1,
+  "task": "S2-01/role-owner-check/history-enrichment-resume",
+  "completedAt": "2026-11-05T02:07:09.186Z",
+  "status": "implemented_and_live_verified",
+  "implementation": {
+    "operation": "evidence_resume",
+    "reportPolicy": "selected-player-history-v4",
+    "migration": "043_player_history_resume.sql",
+    "queue": "opendota-player-history",
+    "scope": "original accepted/duplicate map IDs <=50",
+    "maxUnknownAccounts": 100,
+    "maxProfileAccesses": 20,
+    "maxIdentityHttpAttempts": 42,
+    "discoveryCalls": 0,
+    "matchDetailCalls": 0,
+    "heroLeagueHttpCalls": 0,
+    "sourceKind": "stored_receipt_projection",
+    "derivedAdapter": "stored-history-projection-v1",
+    "parentReceiptsAndClocksPreserved": true,
+    "strictOwnerAndCsrf": true,
+    "immutableReportsAndLineage": true,
+    "perPlayerHardcodedFixes": false,
+    "modelChanges": false
+  },
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T01:55:56.432Z",
+    "matchId": "1756313",
+    "side": "B",
+    "run": {
+      "id": "37d699f9-d569-4706-b3fe-fc00b757030a",
+      "status": "completed",
+      "createdAt": "2026-11-05T01:55:43.785Z",
+      "finishedAt": "2026-11-05T01:55:54.096Z",
+      "operation": "evidence_resume",
+      "parentRunId": "16b5a50a-260c-4647-af72-53e6400913fd",
+      "report": {
+        "policyVersion": "selected-player-history-v4",
+        "cutoffAt": "2026-11-04T22:52:56.966Z",
+        "fromAt": "2025-11-04T22:52:56.000Z",
+        "fetchedAt": "2026-11-05T01:55:44.667Z",
+        "operation": "evidence_resume",
+        "parentRunId": "16b5a50a-260c-4647-af72-53e6400913fd",
+        "enrichment": {
+          "status": "completed",
+          "accountsConsidered": 51,
+          "accountsVerified": 0,
+          "profilesRequested": 0,
+          "unresolvedAccounts": [],
+          "seriesCreated": 0,
+          "seriesBlocked": [],
+          "replayedMaps": 25,
+          "reasons": [],
+          "assessedAt": "2026-11-05T01:55:48.384Z",
+          "players": [
+            {
+              "playerId": "22",
+              "accountId": "90423751",
+              "rawMaps": 25,
+              "eligibleMaps": 25
+            },
+            {
+              "playerId": "24",
+              "accountId": "154974246",
+              "rawMaps": 25,
+              "eligibleMaps": 25
+            },
+            {
+              "playerId": "25",
+              "accountId": "160119017",
+              "rawMaps": 25,
+              "eligibleMaps": 25
+            },
+            {
+              "playerId": "26",
+              "accountId": "177203952",
+              "rawMaps": 58,
+              "eligibleMaps": 57
+            },
+            {
+              "playerId": "27",
+              "accountId": "191362875",
+              "rawMaps": 25,
+              "eligibleMaps": 25
+            }
+          ]
+        },
+        "options": {
+          "windowDays": 365,
+          "maxMaps": 25
+        },
+        "selected": 25,
+        "accepted": 25,
+        "duplicates": 0,
+        "excluded": 0,
+        "failed": 0,
+        "conflicts": 0,
+        "players": [
+          {
+            "playerId": "22",
+            "accountId": "90423751",
+            "discovered": 0,
+            "selected": 25,
+            "accepted": 25
+          },
+          {
+            "playerId": "24",
+            "accountId": "154974246",
+            "discovered": 0,
+            "selected": 25,
+            "accepted": 25
+          },
+          {
+            "playerId": "25",
+            "accountId": "160119017",
+            "discovered": 0,
+            "selected": 25,
+            "accepted": 25
+          },
+          {
+            "playerId": "26",
+            "accountId": "177203952",
+            "discovered": 0,
+            "selected": 25,
+            "accepted": 25
+          },
+          {
+            "playerId": "27",
+            "accountId": "191362875",
+            "discovered": 0,
+            "selected": 25,
+            "accepted": 25
+          }
+        ],
+        "maps": [
+          {
+            "matchId": "9056271057",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9057771854",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9057872455",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9059185615",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9059262765",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9062561406",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9062644050",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9062717661",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9066273901",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9066349307",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9066391707",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9067529830",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9067617648",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9069952836",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9070062078",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9070392472",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9070527945",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9073589444",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9073699287",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9075145620",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9075218521",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9075909731",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9076056982",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9076387949",
+            "status": "accepted",
+            "reasons": []
+          },
+          {
+            "matchId": "9076476183",
+            "status": "accepted",
+            "reasons": []
+          }
+        ]
+      },
+      "errorCode": null
+    },
+    "playerIds": [
+      "22",
+      "24",
+      "25",
+      "26",
+      "27"
+    ],
+    "selectionPreserved": true,
+    "mobileOverflow": false,
+    "pageErrors": [],
+    "posts": [
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/players/history-refresh/resume",
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/lineup-role-profiles"
+    ]
+  },
+  "liveResumeHttpRequests": 0,
+  "preservation": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T02:05:53.228Z",
+    "protectedFiles": 242,
+    "frozenModules": 150,
+    "frozenBundleVerified": true,
+    "compatibleV1Runtime": true,
+    "oldMapsPreserved": 340,
+    "currentMaps": 340,
+    "oldSlotsPreserved": 3400,
+    "oldReceiptsPreserved": 1238,
+    "oldReportsPreserved": 9,
+    "existingNonNullBindingsPreserved": true,
+    "otherQueueJobsPreserved": 3,
+    "modelRegistryEvaluationsForecastsPreserved": true,
+    "activeModels": 0,
+    "migrations": 43,
+    "lineage": [
+      {
+        "match_id": "9056271057",
+        "parent_receipt": "2200",
+        "parent_sha": "4addf310003f99b0a9c7fbc37b62e396154a6543cf4aa8b4e36c39e184c29979",
+        "derived_sha": "4bbdaf393655dc6a219e226899ead36671e9c0f386addce291e5916a0a2fe253",
+        "parent_fetched_at": "2026-11-04T22:53:36.896Z",
+        "derived_at": "2026-11-05T01:55:44.720Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9057771854",
+        "parent_receipt": "2198",
+        "parent_sha": "b6d3850de89b0dcc467c6e71f064a5e26ad136c0136dfe2a099a35f4a5dcf9a4",
+        "derived_sha": "74fcea16d832aa5ada76d034636b696c68e6d6ce8c4175b66c6e74c26e1a10b4",
+        "parent_fetched_at": "2026-11-04T22:53:35.861Z",
+        "derived_at": "2026-11-05T01:55:44.797Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9057872455",
+        "parent_receipt": "2196",
+        "parent_sha": "2d8195d5965d73170a3dd748d862a5058b4bf6dd54d3a90cdd3b6d7b4d1409f8",
+        "derived_sha": "200ff5383349c71bd91a55c807bd7088da635f4d6c42d3c2756611d98c7f0434",
+        "parent_fetched_at": "2026-11-04T22:53:34.223Z",
+        "derived_at": "2026-11-05T01:55:44.846Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9059185615",
+        "parent_receipt": "2194",
+        "parent_sha": "9615dafc12d61f095ce4091dd6011b5e44252db4ce00716c18b71088d6470d50",
+        "derived_sha": "95e248690f8b9392da650daef6e0a2ed456227ae670de7f70c4fd73c6d71954e",
+        "parent_fetched_at": "2026-11-04T22:53:33.103Z",
+        "derived_at": "2026-11-05T01:55:44.894Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9059262765",
+        "parent_receipt": "2192",
+        "parent_sha": "a8781b8781f67788cdddb8a6b8349c5fa9adf7d211608863078c8c618b819fb8",
+        "derived_sha": "437b7a80a5e9a7a8f38c35f29f06542ff8241a69a3ffc8529ee2d7a408dc487a",
+        "parent_fetched_at": "2026-11-04T22:53:31.942Z",
+        "derived_at": "2026-11-05T01:55:44.937Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9062561406",
+        "parent_receipt": "2190",
+        "parent_sha": "6d269264f9bd5ae980a513bcd1543f1d16fa88ae5d62ddd9428b2bc15b2d0b2f",
+        "derived_sha": "3a2f5860811ba9fd8b073cf6b9186d2ae6349f11fe7399d36b5296fb83a0711d",
+        "parent_fetched_at": "2026-11-04T22:53:29.854Z",
+        "derived_at": "2026-11-05T01:55:44.983Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9062644050",
+        "parent_receipt": "2188",
+        "parent_sha": "d3a795e265701aba734997dca256f72e83b0655c8fd5761d09c433ded40e35b0",
+        "derived_sha": "f37a69668116499a9b27304ab19fee0dd05a5e78d9ce26508caaaf42a973c592",
+        "parent_fetched_at": "2026-11-04T22:53:28.426Z",
+        "derived_at": "2026-11-05T01:55:45.023Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9062717661",
+        "parent_receipt": "2186",
+        "parent_sha": "e3001fb0f33710914b03e6b42a945c85ee36327e3e98e68d34ca6cf1803b36de",
+        "derived_sha": "164e7f64fd7f9cb61667aa1ca22cc54f57558c4c5fffc0273a18c76a06ba2cff",
+        "parent_fetched_at": "2026-11-04T22:53:27.098Z",
+        "derived_at": "2026-11-05T01:55:45.070Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9066273901",
+        "parent_receipt": "2184",
+        "parent_sha": "67b79cb39c94d0d21910d72095841c23630bafff7bb9b2dacbc0dc7f3a32ae72",
+        "derived_sha": "88cb8b48dfe7680883af145580c2ff31f514e54c8bd93435f8da6fa3029bec86",
+        "parent_fetched_at": "2026-11-04T22:53:26.045Z",
+        "derived_at": "2026-11-05T01:55:45.113Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9066349307",
+        "parent_receipt": "2182",
+        "parent_sha": "760577a9363e13bc6c731799c3aec86178d907a7a6833bceaf77a1f31a3c9014",
+        "derived_sha": "173c37a5af98a79665106b48e0395ef4504bdbcff66b8360a3a35aa188519ce0",
+        "parent_fetched_at": "2026-11-04T22:53:24.691Z",
+        "derived_at": "2026-11-05T01:55:45.157Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9066391707",
+        "parent_receipt": "2180",
+        "parent_sha": "4a4604e35110fb467794e1697f286cd9fabe4aca793c87a058d2b97855142651",
+        "derived_sha": "132a84b4f65764bb19e0330710aa5f42caf7da5d69fa9b0a6f11f983641f7d56",
+        "parent_fetched_at": "2026-11-04T22:53:23.239Z",
+        "derived_at": "2026-11-05T01:55:45.197Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9067529830",
+        "parent_receipt": "2134",
+        "parent_sha": "ca3748d8ced85a45da7e7cfef38071b2de4a0011f9dc2552826cd454e0eea5c5",
+        "derived_sha": "9bde8b108d95a9dd8e06b4f48d58e9b0660ae4eda6130be77b87d89d12ac6589",
+        "parent_fetched_at": "2026-11-04T22:53:22.088Z",
+        "derived_at": "2026-11-05T01:55:45.241Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9067617648",
+        "parent_receipt": "2132",
+        "parent_sha": "a1df98d436edc586488fb780d8e2821d92a877b696975e953c19fd705aaa6f51",
+        "derived_sha": "cfdf01a34af6a2b6037d84abf4e0fd0ffe0cdf66421a6fd65ebb13401f182f1f",
+        "parent_fetched_at": "2026-11-04T22:53:20.531Z",
+        "derived_at": "2026-11-05T01:55:45.283Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9069952836",
+        "parent_receipt": "2130",
+        "parent_sha": "c998362fe3ffa67a68cff26ffbc4702195a1a96f372ec44cdcca0dbe762e86d0",
+        "derived_sha": "bb72b853592a7575dbc14567ced5b5844b8b2dfe8105f23eeb075cfa7c70d5d8",
+        "parent_fetched_at": "2026-11-04T22:53:19.499Z",
+        "derived_at": "2026-11-05T01:55:45.325Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9070062078",
+        "parent_receipt": "2128",
+        "parent_sha": "3bef8502e1a46fdc186f5b0fcdff773325d99d5808bc8575cf34e3d4bbc163a2",
+        "derived_sha": "1048a1941d64a0c19ff6d24e5a5775546800c4e2bc917f88248decd8cef9d3a6",
+        "parent_fetched_at": "2026-11-04T22:53:18.064Z",
+        "derived_at": "2026-11-05T01:55:45.367Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9070392472",
+        "parent_receipt": "2126",
+        "parent_sha": "60ce7c2ba33b7ce066273d914ecaf08af3dd4bad3299433d9af8b2ac91ef5ecc",
+        "derived_sha": "d3e0000946303d2ec538fc4621428e327eaefed25bd38d1fe4244a4e35b3f99b",
+        "parent_fetched_at": "2026-11-04T22:53:16.741Z",
+        "derived_at": "2026-11-05T01:55:45.415Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9070527945",
+        "parent_receipt": "2124",
+        "parent_sha": "7969dc65f8605529bde5b0151150de30b9c5ecc88714ce7df4b672596b988bd2",
+        "derived_sha": "40d86dd76ceadf1160be5e38f039761ee77fb03cff02ae4eec88928d1ca94500",
+        "parent_fetched_at": "2026-11-04T22:53:15.953Z",
+        "derived_at": "2026-11-05T01:55:45.457Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9073589444",
+        "parent_receipt": "2172",
+        "parent_sha": "210f878af5b47a9cedaaa795f668426203f893acd0cc2ef474250db4cb346ee7",
+        "derived_sha": "c493dcc0eb4280416d1d1af3a3f8196531dc2248e894af460c01ec3553e61517",
+        "parent_fetched_at": "2026-11-04T22:53:13.945Z",
+        "derived_at": "2026-11-05T01:55:45.501Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9073699287",
+        "parent_receipt": "2170",
+        "parent_sha": "1562acdde7e5caf1b5389e9d84a7c7cf380dfe6b3d790599fb86256cb2fcd7ef",
+        "derived_sha": "cf62a5a231a2ba82fe82a312fe763256321cf4a3d953ec14cc7ab01347b810c1",
+        "parent_fetched_at": "2026-11-04T22:53:12.377Z",
+        "derived_at": "2026-11-05T01:55:45.545Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9075145620",
+        "parent_receipt": "2168",
+        "parent_sha": "cf940199c0efbc0c18ea5dd03cf83a966a94d2c8ec2e287e2a03b18ae5062444",
+        "derived_sha": "539e2effc0cc3c6e93fde8d10b4acdd9cc5d07575634bbc6f7fdf2f5efbe3a4c",
+        "parent_fetched_at": "2026-11-04T22:53:11.148Z",
+        "derived_at": "2026-11-05T01:55:45.589Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9075218521",
+        "parent_receipt": "2166",
+        "parent_sha": "cec00cb69199203557ed1735ca7f0e2c00bac4340f5ccc47fe0ea1b851a75e77",
+        "derived_sha": "4f6d80d3b71c9f5ed343c7ee4ec9ecf44921a75c7fff1f0a440880d1bbc5a2df",
+        "parent_fetched_at": "2026-11-04T22:53:10.207Z",
+        "derived_at": "2026-11-05T01:55:45.636Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9075909731",
+        "parent_receipt": "2164",
+        "parent_sha": "db2a060132a7ba6e859877486ff90d213b49745579b99e21948306dbd2b39210",
+        "derived_sha": "052f9e5726fe4cc9d69c6b1c4f2dca53d5007349c64992aa7027119f7667a1e5",
+        "parent_fetched_at": "2026-11-04T22:53:08.333Z",
+        "derived_at": "2026-11-05T01:55:45.679Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9076056982",
+        "parent_receipt": "2162",
+        "parent_sha": "c48529feb9f18929e160b50217ce491b892dc34b9e1a02c0ae6f7cb1da205a50",
+        "derived_sha": "6d29ae47b432c126c915a0afed830d1b713a320805084fcf2c4684c3cd858009",
+        "parent_fetched_at": "2026-11-04T22:53:07.213Z",
+        "derived_at": "2026-11-05T01:55:45.723Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9076387949",
+        "parent_receipt": "2160",
+        "parent_sha": "48e3b89de88e94806374fcf6d5457c02a26a71dc38c2d2080bdd184f0e7538e7",
+        "derived_sha": "5fb4136511f890710095dbf37655e5cd7f5ebf77814347ec6ed6b5d3a6799ca6",
+        "parent_fetched_at": "2026-11-04T22:53:05.395Z",
+        "derived_at": "2026-11-05T01:55:45.766Z",
+        "adapter_version": "stored-history-projection-v1"
+      },
+      {
+        "match_id": "9076476183",
+        "parent_receipt": "2158",
+        "parent_sha": "484d62fd62ecabd36aa53e699f9777d77bb4e8d30cb08b6e140dd7fbb34f3ca2",
+        "derived_sha": "a412383e89417468a296640711cb0dd955c16c8a8673feabfdf59d6214a7a669",
+        "parent_fetched_at": "2026-11-04T22:53:04.143Z",
+        "derived_at": "2026-11-05T01:55:45.811Z",
+        "adapter_version": "stored-history-projection-v1"
+      }
+    ]
+  },
+  "operation": {
+    "apiPid": 4604,
+    "playerHistoryWorkerPid": 17732,
+    "generalWorkerStarted": false
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "unitCli": 823,
+    "packageCounts": [
+      54,
+      20,
+      38,
+      33,
+      347,
+      282,
+      47,
+      1
+    ],
+    "node": 74,
+    "pgApiUnique": 44,
+    "pgGuardFinalRepeats": 6,
+    "chromiumUnique": 11,
+    "finalWebTypecheck": "PASS",
+    "finalWebBuild": "PASS",
+    "liveDesktopMobile": "PASS",
+    "migrationChecksums": 43,
+    "fullPgSuiteRun": false,
+    "pythonRun": false,
+    "dockerRun": false,
+    "linuxRun": false,
+    "fullUnitCli": 822,
+    "additionalFinalUnitRegressions": 1,
+    "finalPgRecoverySuite": 7,
+    "finalDbBuild": "PASS"
+  },
+  "validationNotes": [
+    "Initial pure red run failed because resume projection module did not exist.",
+    "Initial build exposed missing direct zod dependency in DB; schemas moved into existing contracts, no dependency added. Missing start_time now explicitly rejected.",
+    "An initial PG diagnostic expected eligible counts from synthetic records; existing synthetic guard correctly rejected them. Test now requires HISTORY_READINESS_UNAVAILABLE, production guard unchanged.",
+    "Preservation script initially selected src paths from compiled manifest; corrected to the already pinned roles-baseline150 compiled non-barrel modules.",
+    "One isolated-fixture proxy ECONNREFUSED during teardown, all11 browser scenarios passed; live page errors0.",
+    "Final UI clarification for missing stored provenance checked by web types/build and actual live page.",
+    "Final review found resume retries were hidden after worker_unavailable with no report. Added a failing unit assertion, then use validated saved scope even without report; final6 targeted units and7 resume PG/API pass. Full822-test run preceded this small recovery fix;1 additional unique unit and1 additional unique API case verified separately.",
+    "Final read-only UI smoke initially opened the manual editor before saved fives hydrated; diagnostic now waits for5/5 and passes without any new job."
+  ],
+  "nextTask": "S4/V1-schedule-freshness",
+  "nextModel": "GPT-6.1 Sol · High",
+  "independentModelGateOpen": true,
+  "revision": 2,
+  "parentEvidence": {
+    "path": "docs/evidence/s2-01-history-enrichment-resume.json",
+    "sha256": "60ccd86c0f1995be67ea0406adc4a6f5bdcebb22c18320860911cc1e41524961"
+  },
+  "finalReadSmoke": {
+    "status": "PASS",
+    "checkedAt": "2026-11-05T02:06:20.189Z",
+    "savedRunId": "37d699f9-d569-4706-b3fe-fc00b757030a",
+    "canResume": true,
+    "cooldownDisplayed": true,
+    "mobileOverflow": false,
+    "newJobCreated": false
+  },
+  "recoveryAfterMissingReport": true
+}

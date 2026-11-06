@@ -11,6 +11,8 @@
 
 ## Дополнительные проверки (Python требует установленных зависимостей)
 
+Полная регрессия PostgreSQL/API: `pnpm test:postgres` собирает необходимые пакеты и находит все `*.integration.test.ts` в тестах API, worker, db и ingestion. Базовая `pnpm test:integration` теперь тоже создаёт отдельную случайно названную тестовую БД, проверяет полный текущий список миграций, их SHA и повторное применение, затем удаляет эту БД. Требуется роль с `CREATEDB`; отсутствие подключения не приводит к пропуску. Для полного набора, включающего restore, нужен PostgreSQL 16 client: `PG_BIN` указывает на каталог `pg_dump`/`pg_restore` (на этом Windows-ПК `.tools/pgsql/bin`). Рабочую БД тестовыми строками не заполнять. Список файлов без запуска: `node scripts/test-postgres.mjs --list`.
+
 ```bash
 node scripts/verify-migrations.mjs
 node scripts/check-doc-links.mjs

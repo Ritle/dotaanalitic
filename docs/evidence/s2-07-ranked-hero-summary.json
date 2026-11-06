@@ -1,0 +1,426 @@
+{
+  "schemaVersion": "s2-07-ranked-hero-summary-v1",
+  "ownerDate": "2026-11-06",
+  "checkedAt": "2026-11-05T21:58:08.749Z",
+  "task": "S2-07/hero-summary",
+  "scope": "Separate unweighted descriptive OpenDota v2 ranked hero practice, one account/source/immutable observation; no model features or pro/pub pooling",
+  "policy": {
+    "version": "ranked-hero-raw-v1",
+    "roleScope": "all_roles",
+    "weighted": false,
+    "emptyRate": null,
+    "emptyRecency": null,
+    "duplicates": "reject",
+    "startWindow": "fromAt <= startedAt < cutoffAt",
+    "completion": "startedAt < completedAt < cutoffAt",
+    "sort": "games DESC, bigint heroId ASC",
+    "sourceGate": "verified OpenDota/current v2/no source conflicts",
+    "legacyV1AndStratzStatistics": false,
+    "staleAndCapped": "display partial observed frequencies with warnings"
+  },
+  "api": {
+    "route": "POST /api/v1/ranked-practice",
+    "newFields": [
+      "heroSummary"
+    ],
+    "changedField": "statisticsEnabled boolean; true iff supported summary exists",
+    "legacyFalseDto": "default heroSummary null",
+    "persistence": "none; unchanged immutable observations",
+    "providerRequests": 0
+  },
+  "tests": {
+    "unitCli": 867,
+    "newAnalytics": 7,
+    "newContracts": 4,
+    "apiPg": 12,
+    "chromium": 8,
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "fullNodeSuite": false,
+    "fullBrowserSuite": false,
+    "pythonDockerLinux": false,
+    "notes": [
+      "Final Chromium repeat strengthened actual ArrowRight horizontal scrolling; repeats not added to unique counts.",
+      "Initial live helper omitted existing PLAYWRIGHT_BROWSERS_PATH; corrected to installed .tools/playwright without downloads.",
+      "First API health probe preceded startup readiness; verified same new process healthy, no application fault.",
+      "Existing Node color/Rollup annotation/chunk warnings remain nonfatal."
+    ]
+  },
+  "liveUi": {
+    "checkedAt": "2026-11-05T21:52:42.066Z",
+    "playerId": "61",
+    "accountId": "70388657",
+    "status": "partial",
+    "stale": true,
+    "observationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+    "sourceFetchedAt": "2026-11-05T21:26:40.524Z",
+    "policyVersion": "ranked-hero-raw-v1",
+    "games": 197,
+    "wins": 106,
+    "winRate": 0.5380710659898477,
+    "heroes": [
+      {
+        "games": 60,
+        "wins": 29,
+        "winRate": 0.48333333333333334,
+        "lastPlayedAt": "2026-11-04T15:19:47.000Z",
+        "heroId": "58",
+        "heroName": "Enchantress"
+      },
+      {
+        "games": 23,
+        "wins": 13,
+        "winRate": 0.5652173913043478,
+        "lastPlayedAt": "2026-11-03T16:15:22.000Z",
+        "heroId": "52",
+        "heroName": "Leshrac"
+      },
+      {
+        "games": 19,
+        "wins": 11,
+        "winRate": 0.5789473684210527,
+        "lastPlayedAt": "2026-11-03T17:38:41.000Z",
+        "heroId": "5",
+        "heroName": "Crystal Maiden"
+      },
+      {
+        "games": 14,
+        "wins": 11,
+        "winRate": 0.7857142857142857,
+        "lastPlayedAt": "2026-11-05T13:45:30.000Z",
+        "heroId": "39",
+        "heroName": "Queen of Pain"
+      },
+      {
+        "games": 14,
+        "wins": 8,
+        "winRate": 0.5714285714285714,
+        "lastPlayedAt": "2026-11-05T15:22:54.000Z",
+        "heroId": "76",
+        "heroName": "Outworld Destroyer"
+      },
+      {
+        "games": 12,
+        "wins": 8,
+        "winRate": 0.6666666666666666,
+        "lastPlayedAt": "2026-10-15T16:41:22.000Z",
+        "heroId": "17",
+        "heroName": "Storm Spirit"
+      },
+      {
+        "games": 10,
+        "wins": 5,
+        "winRate": 0.5,
+        "lastPlayedAt": "2026-11-05T13:00:45.000Z",
+        "heroId": "7",
+        "heroName": "Earthshaker"
+      },
+      {
+        "games": 6,
+        "wins": 1,
+        "winRate": 0.16666666666666666,
+        "lastPlayedAt": "2026-11-05T17:17:35.000Z",
+        "heroId": "30",
+        "heroName": "Witch Doctor"
+      },
+      {
+        "games": 6,
+        "wins": 4,
+        "winRate": 0.6666666666666666,
+        "lastPlayedAt": "2026-11-01T22:48:40.000Z",
+        "heroId": "49",
+        "heroName": "Dragon Knight"
+      },
+      {
+        "games": 5,
+        "wins": 4,
+        "winRate": 0.8,
+        "lastPlayedAt": "2026-11-04T13:30:56.000Z",
+        "heroId": "62",
+        "heroName": "Bounty Hunter"
+      },
+      {
+        "games": 4,
+        "wins": 2,
+        "winRate": 0.5,
+        "lastPlayedAt": "2026-11-04T22:15:41.000Z",
+        "heroId": "18",
+        "heroName": "Sven"
+      },
+      {
+        "games": 3,
+        "wins": 1,
+        "winRate": 0.3333333333333333,
+        "lastPlayedAt": "2026-11-05T12:15:00.000Z",
+        "heroId": "25",
+        "heroName": "Lina"
+      },
+      {
+        "games": 3,
+        "wins": 2,
+        "winRate": 0.6666666666666666,
+        "lastPlayedAt": "2026-10-08T20:44:47.000Z",
+        "heroId": "41",
+        "heroName": "Faceless Void"
+      },
+      {
+        "games": 2,
+        "wins": 0,
+        "winRate": 0,
+        "lastPlayedAt": "2026-11-03T17:10:58.000Z",
+        "heroId": "9",
+        "heroName": "Mirana"
+      },
+      {
+        "games": 2,
+        "wins": 1,
+        "winRate": 0.5,
+        "lastPlayedAt": "2026-10-11T14:00:34.000Z",
+        "heroId": "71",
+        "heroName": "Spirit Breaker"
+      },
+      {
+        "games": 2,
+        "wins": 1,
+        "winRate": 0.5,
+        "lastPlayedAt": "2026-10-16T19:57:32.000Z",
+        "heroId": "78",
+        "heroName": "Brewmaster"
+      },
+      {
+        "games": 2,
+        "wins": 2,
+        "winRate": 1,
+        "lastPlayedAt": "2026-10-23T18:31:17.000Z",
+        "heroId": "86",
+        "heroName": "Rubick"
+      },
+      {
+        "games": 2,
+        "wins": 1,
+        "winRate": 0.5,
+        "lastPlayedAt": "2026-10-13T22:40:33.000Z",
+        "heroId": "90",
+        "heroName": "Keeper of the Light"
+      },
+      {
+        "games": 2,
+        "wins": 1,
+        "winRate": 0.5,
+        "lastPlayedAt": "2026-11-05T16:26:30.000Z",
+        "heroId": "137",
+        "heroName": "Primal Beast"
+      },
+      {
+        "games": 1,
+        "wins": 0,
+        "winRate": 0,
+        "lastPlayedAt": "2026-10-07T12:48:15.000Z",
+        "heroId": "23",
+        "heroName": "Kunkka"
+      },
+      {
+        "games": 1,
+        "wins": 0,
+        "winRate": 0,
+        "lastPlayedAt": "2026-10-08T08:00:42.000Z",
+        "heroId": "48",
+        "heroName": "Luna"
+      },
+      {
+        "games": 1,
+        "wins": 1,
+        "winRate": 1,
+        "lastPlayedAt": "2026-10-31T23:03:05.000Z",
+        "heroId": "70",
+        "heroName": "Ursa"
+      },
+      {
+        "games": 1,
+        "wins": 0,
+        "winRate": 0,
+        "lastPlayedAt": "2026-11-03T14:35:15.000Z",
+        "heroId": "87",
+        "heroName": "Disruptor"
+      },
+      {
+        "games": 1,
+        "wins": 0,
+        "winRate": 0,
+        "lastPlayedAt": "2026-10-13T16:48:03.000Z",
+        "heroId": "88",
+        "heroName": "Nyx Assassin"
+      },
+      {
+        "games": 1,
+        "wins": 0,
+        "winRate": 0,
+        "lastPlayedAt": "2026-10-08T16:58:27.000Z",
+        "heroId": "97",
+        "heroName": "Magnus"
+      }
+    ],
+    "sourceSha256": "03811891e3627bb012c99d9b7badea1ff71fce97b0b6bc57239d120a393dbba3",
+    "requests": [
+      {
+        "playerId": "61",
+        "provider": "opendota",
+        "refresh": false
+      }
+    ],
+    "providerRequests": 0,
+    "logins": 0,
+    "pageErrors": 0,
+    "mobileOverflow": false,
+    "unchangedTables": 77,
+    "queueUnchanged": true
+  },
+  "sourceObservation": {
+    "path": ".tools/s2-07-coverage-fixed-20261106-opendota.json",
+    "sha256": "03811891e3627bb012c99d9b7badea1ff71fce97b0b6bc57239d120a393dbba3",
+    "fromAt": "2026-10-06T21:26:38.000Z",
+    "cutoffAt": "2026-11-05T21:26:38.000Z",
+    "fetchedAt": "2026-11-05T21:26:40.524Z",
+    "knownAt": null,
+    "pagination": "capped",
+    "historyCompleteness": "unknown",
+    "receivedRows": 200,
+    "excluded": {
+      "outside_window": 3
+    },
+    "receipts": [
+      {
+        "offset": 0,
+        "rows": 100,
+        "fetchedAt": "2026-11-05T21:26:39.417Z",
+        "payloadSha256": "fb25846496c9ae5abbda39587f9e228c026415447b0504a824d2599a791d3da6"
+      },
+      {
+        "offset": 100,
+        "rows": 100,
+        "fetchedAt": "2026-11-05T21:26:40.522Z",
+        "payloadSha256": "9f999b91f1b3cfe6e11a855a4869b46a745ef1c7fdba1c11f6a4073b4dc355f8"
+      }
+    ]
+  },
+  "preservation": {
+    "publicTables": 77,
+    "unchangedTables": 77,
+    "changedTables": [],
+    "proMaps": 340,
+    "queueUnchanged": true,
+    "modelsUnchanged": true,
+    "oldPubObservationsUnchanged": true,
+    "sqlMigrations": 45,
+    "protectedArtifacts": 245,
+    "originalFrozenModules": 150,
+    "frozenBundle": "PASS",
+    "runtimeCompatible": true,
+    "dependenciesAndLockfileUnchanged": true,
+    "commitPushDeploy": false
+  },
+  "runtime": {
+    "startedAt": "2026-11-05T21:51:54.8862860Z",
+    "previousApiPid": 24372,
+    "apiPid": 28740,
+    "policyVersion": "ranked-hero-raw-v1",
+    "health": "ok",
+    "initialCheck": "Process started correctly; first 1.2-second probe preceded readiness",
+    "webAndWorkerRetained": true
+  },
+  "sourceHashes": [
+    {
+      "path": "packages/analytics/src/ranked-practice.ts",
+      "sha256": "ef0bb5cd9df7a3a0c9567134fe9ac943d9350764def79285257d9d7963c2fd1e"
+    },
+    {
+      "path": "packages/analytics/src/index.ts",
+      "sha256": "d7bb481158f24317fd9a391b6e7f9f3f905c8cb11b722e88deb5b83daeea1d94"
+    },
+    {
+      "path": "packages/contracts/src/ranked-practice.ts",
+      "sha256": "4727536c22f8df6e975a8837f22bd071cf99ab4f06011bbed3368265600e2fae"
+    },
+    {
+      "path": "packages/db/src/ranked-practice-summary.ts",
+      "sha256": "a09b875e8b6b6e2dce00867f9a92e01c2503db1d8543feb1272ae2378282c1de"
+    },
+    {
+      "path": "packages/db/src/ranked-practice-repository.ts",
+      "sha256": "f76bdef950bfc357d8c889f2e21678e40b6655f452340e87fe47e0aa333aa74d"
+    },
+    {
+      "path": "apps/api/src/modules/catalog/ranked-practice.ts",
+      "sha256": "a826cc8ed26b003daf3475ad40ba0962748360b9d0133be690c689149c15fe51"
+    },
+    {
+      "path": "apps/web/src/components/RankedPractice.vue",
+      "sha256": "7d32e12b7687a9db36d0758de4eb595194b30d7975f2580fa72802f7d220ff9b"
+    },
+    {
+      "path": "packages/analytics/tests/ranked-practice.test.ts",
+      "sha256": "aeae39310ed45c9626e62f7e1180a92e829a9240f0626c9ec30b37847a1083ce"
+    },
+    {
+      "path": "packages/contracts/tests/ranked-practice.test.ts",
+      "sha256": "755b76b933f6f80690f01f2ce1e78eb4e415a4dc2653cc5bc4987c2cf9993fc9"
+    },
+    {
+      "path": "apps/api/tests/ranked-practice.integration.test.ts",
+      "sha256": "85d0a4d167482b2efa090e7e5c64cf04a1e517de5336564459402c84a5301cde"
+    },
+    {
+      "path": "apps/web/tests/ranked-practice.test.ts",
+      "sha256": "b27255a44bad7c709fad934302077b1b03d3f0804c9e4cd675fa42b298cd1c16"
+    },
+    {
+      "path": "apps/web/tests/e2e/ranked-practice.spec.ts",
+      "sha256": "73c81dea42359657867e023e5ffe8d80dfbb65868ede70d5c69f87fcc85a7333"
+    }
+  ],
+  "logs": [
+    {
+      "path": ".tools/s2-07-hero-install.log",
+      "sha256": "a9446a7bdf6bf55b44d35d155556a63be13a6af6b5edd62d2c7197844a584644"
+    },
+    {
+      "path": ".tools/s2-07-hero-typecheck.log",
+      "sha256": "bbbaf3e3a07889123b8682ab7983ad2dc83a2ccc3df3dbfeb85346bc612870d6"
+    },
+    {
+      "path": ".tools/s2-07-hero-build.log",
+      "sha256": "addf596c3d66bb00d3e6b05e53eb5af75e8f08ad1e33c47f24478af3b38f7d4d"
+    },
+    {
+      "path": ".tools/s2-07-hero-unit.log",
+      "sha256": "ae893938f48f031391d46c3377fc46bd8c97abb5afe75d8a90c7329abbdb7b97"
+    },
+    {
+      "path": ".tools/s2-07-hero-api.log",
+      "sha256": "edb711a39e7fde00408218e9f7c7377f27c2cc7da0d74abf35a8dd0103563c7d"
+    },
+    {
+      "path": ".tools/s2-07-hero-browser.log",
+      "sha256": "f10fe5b7b04359a8eece5d934806b54dde1ac70301614e6292fe8cf81098a1c2"
+    },
+    {
+      "path": ".tools/s2-07-hero-browser-final.log",
+      "sha256": "d0f4f155856f0ed83c5562a5d162ba1d0f073cb9bf88a0ee0f5e637320c60ba0"
+    },
+    {
+      "path": ".tools/s2-07-hero-live-configured.log",
+      "sha256": "f59db95cdeedaefdeab0ce722ed5eebd086d924e30594ebf956ee1d54e53e707"
+    }
+  ],
+  "limitations": [
+    "Bounded observed sample is not complete history or universal provider/account coverage.",
+    "STRATZ ranked nonempty fields remain unvalidated; availability reader only.",
+    "All roles/patches together; metadata may be unknown, no predictive claim.",
+    "Published forecast still requires independent temporal model gate; collection window unchanged."
+  ],
+  "nextTask": "S3-01/V1-evaluation/collection",
+  "collectionNotBefore": "2026-11-20T00:00:00.000Z",
+  "evaluationNotBefore": "2026-12-02T00:00:00.000Z",
+  "nextModel": "GPT-6 Astra / Extra High"
+}

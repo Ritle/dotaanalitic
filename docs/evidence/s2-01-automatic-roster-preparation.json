@@ -1,0 +1,178 @@
+{
+  "task": "S2-01/automatic-roster-preparation",
+  "recordedAt": "2026-11-04T22:48:22.788Z",
+  "scope": "owner-conditional-current-roster-preparation",
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-04T22:47:07.134Z",
+    "matchId": "1756313",
+    "preparedAt": "2026-11-04T22:47:06.341Z",
+    "rosterSha256": "d045a5f59e45f3d3c5043bd3067b9df1ece13661d8f7cccab43329904bc28ddc",
+    "registrySha256": "7bab82c0162f7e04f58dd60357926e599466cbfa1312b2eab8d52de2d696be15",
+    "externalSearch": false,
+    "posts": [
+      "/api/v1/upcoming/1756313/catalogue/prepare"
+    ],
+    "pageErrors": [],
+    "mobileOverflow": false,
+    "desktopText": "Сравнить команды\n\nПроверьте составы, подтвердите выбор и сравните историю игроков. Сохранение сценария не требуется.\n\nYellow Submarine\n\nВ заявке 6 игроков. Выберите пятерых.\n\nmangekyou — в пятёрку A\nНужен расширенный поиск аккаунта\naik — в пятёрку A\naik · Steam32 1202267677\nRain — в пятёрку A\nRain · Steam32 860145568\nRincyq — в пятёрку A\nrincyq · Steam32 418942836\nprblms — в пятёрку A\nprblms · Steam32 417235485\nmrls — в пятёрку A\nmrls · Steam32 333351042\nУточнить аккаунты A\n\nВыбрано 0 / 5\n\nGamerLegion\n\nПроверьте имена и числовые аккаунты, затем подтвердите пятёрку.\n\nBignum\nBignum · Steam32 90423751\nSpeeed\nSpeeed · Steam32 191362875\nFayde\nFayde · Steam32 160119017\nYuma\nYuma · Steam32 177203952\nRCY\nRCY · Steam32 154974246\nПодтвердить аккаунты и выбрать пятёрку B\n\nВыбрано 0 / 5\n\nДля сравнения нужны две пятёрки. Подготовленные игроки и причины незаполненных составов показаны в карточках выше.\n\nСохранённые составы — ваш исходный выбор, участие в этой встрече не гарантировано. Заменить игрока и уточнить позиции можно ниже.\n\nИзменить игроков и роли\nПодтверждаю выбранных игроков и роли для одной карты\nПериод сравнения\nПоследние 90 дней\nПоследний год\nПоследние 2 года\nСравнить выбранные пятёрки\n\nДля сравнения выберите и подтвердите десять разных игроков выше.\n\nТочные даты, патч и лига",
+    "teams": [
+      {
+        "providerTeamId": "1931",
+        "players": [
+          {
+            "name": "mangekyou",
+            "status": "source_unavailable",
+            "candidates": []
+          },
+          {
+            "name": "aik",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "1202267677",
+                "name": "aik",
+                "localPlayerId": "57"
+              }
+            ]
+          },
+          {
+            "name": "Rain",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "860145568",
+                "name": "Rain",
+                "localPlayerId": "54"
+              }
+            ]
+          },
+          {
+            "name": "Rincyq",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "418942836",
+                "name": "rincyq",
+                "localPlayerId": "52"
+              }
+            ]
+          },
+          {
+            "name": "prblms",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "417235485",
+                "name": "prblms",
+                "localPlayerId": "51"
+              }
+            ]
+          },
+          {
+            "name": "mrls",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "333351042",
+                "name": "mrls",
+                "localPlayerId": "251"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "providerTeamId": "137588",
+        "players": [
+          {
+            "name": "Bignum",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "90423751",
+                "name": "Bignum",
+                "localPlayerId": "22"
+              }
+            ]
+          },
+          {
+            "name": "Speeed",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "191362875",
+                "name": "Speeed",
+                "localPlayerId": "27"
+              }
+            ]
+          },
+          {
+            "name": "Fayde",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "160119017",
+                "name": "Fayde",
+                "localPlayerId": "25"
+              }
+            ]
+          },
+          {
+            "name": "Yuma",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "177203952",
+                "name": "Yuma",
+                "localPlayerId": "26"
+              }
+            ]
+          },
+          {
+            "name": "RCY",
+            "status": "suggested",
+            "candidates": [
+              {
+                "id": "154974246",
+                "name": "RCY",
+                "localPlayerId": "24"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "finalTouchedPackageBuilds": "PASS",
+    "unitCliUnique": 814,
+    "nodeTests": 74,
+    "pgApiTests": 24,
+    "chromiumUnique": 27,
+    "finalChromiumRepeated": 8,
+    "migrations": 42
+  },
+  "initialFailures": [
+    "New pure UI test initially failed because the preparation module was absent.",
+    "Fastify inject is incompatible with this Playwright CJS loader; the isolated fixture now uses real localhost HTTP.",
+    "Synthetic Player 1 also matched Player 10/11/12; the unique-name fixture uses zero-padded names, while explicit ambiguity tests remain.",
+    "Live RCY also returned mercy by substring; preparation now prefers exact current names/observed aliases without making an identity decision."
+  ],
+  "liveWrites": [
+    "/api/v1/upcoming/1756313/catalogue/prepare"
+  ],
+  "liveIdentityAssociationsConfirmed": false,
+  "newSqlMigrations": 0,
+  "probabilityModelsActivated": 0,
+  "limitations": [
+    "New nickname-to-provider associations require explicit owner review of numerical accounts.",
+    "Six source members require choosing five.",
+    "External name search is deferred in automatic preparation; missing accounts stay unresolved.",
+    "Full PostgreSQL/Python/Docker/Linux suites were not run."
+  ],
+  "nextTask": "S2-01/role-owner-check/history-enrichment-resume"
+}

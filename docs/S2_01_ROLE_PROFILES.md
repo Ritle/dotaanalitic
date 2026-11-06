@@ -6,6 +6,8 @@
 
 ## Использование
 
+Проверка на подготовленных реальных пятёрках и объяснение отсутствующей личной истории: [S2-01/role-owner-check](S2_01_ROLE_OWNER_CHECK.md). В списке ролей показаны ники из допустимых числовых source bindings и отдельное покрытие локальных pro-карт.
+
 1. В редакторе сценария или форме будущей встречи выбрать локальную команду и пять игроков в любом порядке.
 2. В «Сопоставление источников A/B» указать соответствующий ID команды STRATZ. После обновления профилей видны имена и team ID, сообщённые STRATZ; соответствие выбранной организации подтверждает владелец. Не приравнивать namespace ID автоматически.
 3. Для PandaScore указать турнир и команду, сохранить соответствие и нажать «Обновить профили API». В форме будущей встречи эти provider IDs предварительно заполняются из выбранной встречи; это ещё не сохранённое сопоставление с локальной организацией.
@@ -55,3 +57,15 @@ Migration035 добавляет `role_profile_bindings` (append-only metadata), 
 ## Проверка упрощённой UI-политики2026-11-04
 
 Owner-approved role-editor-priority-v1:8 новых pure tests +4 новых Chromium; всего763 unit/CLI,74 Node,19 unique Chromium и final6/6 PASS. Browser red reproduced single-history auto absence before fix. Final mobile screenshot inspected, no overflow. API/SQL unchanged, provider calls0; all81 working fingerprints/48 artifacts/150 original modules/35 SQL SHA preserved. Backend consensus report deliberately remains old version; UI uses eligible candidates and source priority. No role accuracy evaluation/model activation. [Evidence](evidence/s2-01-role-editor-priority.json).
+
+
+UI acceptance5 ноября: [проверка](S2_01_ROLE_UI_ACCEPTANCE.md). Если свежего проверенного ника нет, подсказка может подписываться «Выбранный игрок: … · ID …» из текущего локального выбора. Такая подпись не подтверждает аккаунт/роль и не заменяет source evidence. Нечитаемый ник из одних комбинируемых символов показывается как ID; исходные записи остаются прежними.
+
+
+Проверка5 ноября: [source-profiles](S2_01_ROLE_SOURCE_PROFILES.md). STRATZ teamId=0 нормализуется в неизвестную команду; профиль доступен для просмотра, автоматическая роль без совпадения команды запрещена. TTL1час сохранён; stale требует явного обновления. Общая заявка PandaScore повторно используется между командами одного турнира.
+
+
+[Пояснения состояний источников](S2_01_ROLE_SOURCE_STATUS.md): отсутствующий профиль, неизвестная команда и устаревшие данные имеют разные сообщения и действия. Cooldown предлагает подождать, ручные роли сохраняются.
+
+
+[Final acceptance](S2_01_ROLE_FINAL_ACCEPTANCE.md): saved upcoming fives now initialize with role auto OFF per side; owner can explicitly re-enable. Existing saved member order is not a verified pro position. Manual selected positions remain authoritative.

@@ -1,0 +1,57 @@
+{
+  "task": "S2-01/confirmed-account-filter",
+  "recordedAt": "2026-11-04T23:11:47.414Z",
+  "scope": "account-clarification-visibility",
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-04T23:01:02.435Z",
+    "matchId": "1756313",
+    "rows": [
+      {
+        "slot": "A",
+        "name": "Yellow Submarine",
+        "confirmed": 5,
+        "visibleUnconfirmed": 1,
+        "selectionPreserved": true
+      },
+      {
+        "slot": "B",
+        "name": "GamerLegion",
+        "confirmed": 5,
+        "visibleUnconfirmed": 0,
+        "selectionPreserved": true
+      }
+    ],
+    "mobileOverflow": false,
+    "pageErrors": [],
+    "posts": [
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/lineup-role-profiles"
+    ]
+  },
+  "sourceRosterSha256": "02b71819181d88ceaa9f57f885c8fe0efb9fc4a39b45d39d11220f176e26be76",
+  "sourceFetchedAt": "2026-11-04T22:51:42.157Z",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 814,
+    "node": 74,
+    "chromium": 8,
+    "liveDesktopMobile": "PASS"
+  },
+  "semantics": [
+    "Only usable verified saved links or current linked rows with matching link token are confirmed.",
+    "Suggested, conflicting, changed and manually cleared accounts remain visible.",
+    "Hidden rows retain their values; usable saved account/membership selections hydrate the editing draft.",
+    "Show/hide does not issue catalogue/search/apply requests or change selection."
+  ],
+  "newDependencies": 0,
+  "newSqlMigrations": 0,
+  "apiChanges": false,
+  "modelChanges": false,
+  "fullPgSuiteRun": false,
+  "pythonRun": false,
+  "dockerRun": false,
+  "nextTask": "S2-01/role-owner-check/history-enrichment-resume"
+}

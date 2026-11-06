@@ -1,0 +1,673 @@
+{
+  "schemaVersion": "s2-07-stratz-enrichment-v1",
+  "ownerDate": "2026-11-06",
+  "checkedAt": "2026-11-05T23:17:18.874Z",
+  "task": "S2-07/STRATZ-enrichment",
+  "scope": "Manual known-map context enrichment, separate immutable source facts and cache; no new statistical denominator/model features",
+  "policy": {
+    "version": "stratz-known-ranked-map-v1",
+    "source": "stratz",
+    "parent": "current verified conflict-free OpenDota v2",
+    "selection": "latest20 by start DESC / bigint ID ASC",
+    "maxMaps": 20,
+    "maxBatch": 4,
+    "maxRequests": 5,
+    "cacheHours": 24,
+    "negativeOrConflictHours": 1,
+    "leaseSeconds": 120,
+    "sourceTimeoutMs": 15000,
+    "maxResponseBytes": 2097152,
+    "retries": 0,
+    "knownAt": null,
+    "roles": "estimated or unknown",
+    "patch": "provider code only, no canonical mapping",
+    "conflicts": "quarantine metadata; preserve source receipt and original map"
+  },
+  "api": {
+    "route": "POST /api/v1/ranked-practice/context",
+    "owner": true,
+    "csrf": true,
+    "strictFields": [
+      "playerId",
+      "parentObservationId",
+      "refresh"
+    ],
+    "cacheOnlyDefault": true,
+    "rawBodyExposed": false
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "rootTypecheck": "PASS",
+    "rootBuild": "PASS",
+    "unitCli": 884,
+    "newUnit": 17,
+    "apiPgUnique": 25,
+    "newApiPg": 13,
+    "previousRankedApiPg": 12,
+    "chromium": 15,
+    "newChromium": 7,
+    "rawCrossChecks": 20,
+    "initialTargeted": 38,
+    "notes": [
+      "Initial typecheck caught an excess field in a new analytics test literal; fixture corrected, final types/build passed.",
+      "Added partial-failure recovery regression after initial38 targets: final13 new API cases passed; old12 ranked cases from initial run retained, repeats not counted twice.",
+      "Existing Node color/Rollup annotation/chunk-size warnings remain nonfatal.",
+      "One documentation patch failed context validation atomically and was reapplied without partial changes."
+    ],
+    "fullNodeSuite": false,
+    "fullBrowserSuite": false,
+    "pythonDockerLinux": false
+  },
+  "liveUi": {
+    "checkedAt": "2026-11-05T23:11:33.224Z",
+    "playerId": "61",
+    "parentId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+    "parentGames": 197,
+    "selectedMaps": 20,
+    "matchedMaps": 20,
+    "conflicts": 0,
+    "unavailable": 0,
+    "positionCoverage": 19,
+    "versionCoverage": 20,
+    "sourceReceipts": 5,
+    "providerRequests": 5,
+    "repeatProviderRequests": 0,
+    "openDotaProviderRequests": 0,
+    "logins": 0,
+    "pageErrors": 0,
+    "mobileOverflow": false,
+    "contextRequests": [
+      {
+        "playerId": "61",
+        "parentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "refresh": false
+      },
+      {
+        "playerId": "61",
+        "parentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "refresh": true
+      },
+      {
+        "playerId": "61",
+        "parentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "refresh": true
+      },
+      {
+        "playerId": "61",
+        "parentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "refresh": false
+      }
+    ],
+    "rankedRequests": [
+      {
+        "playerId": "61",
+        "provider": "opendota",
+        "refresh": false
+      },
+      {
+        "playerId": "61",
+        "provider": "opendota",
+        "refresh": false
+      }
+    ],
+    "changedOldTables": [
+      "role_profile_stratz_quota",
+      "schema_migrations"
+    ],
+    "oldTables": 77,
+    "currentTables": 80,
+    "queueStateCountsUnchanged": true,
+    "parentUnchanged": true,
+    "maps": [
+      {
+        "matchId": "9077529717",
+        "heroId": "30",
+        "startedAt": "2026-11-05T17:17:35.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_5",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "fe7786b4-4be8-4e90-9897-f7a10c23b842",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:20.804Z",
+        "sourceSha256": "cef9cfc2d386c5771862930b64673ca3fe93250b02a79b367a28a80f7ed25617",
+        "stale": false
+      },
+      {
+        "matchId": "9077458069",
+        "heroId": "137",
+        "startedAt": "2026-11-05T16:26:30.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "fe7786b4-4be8-4e90-9897-f7a10c23b842",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:20.804Z",
+        "sourceSha256": "cef9cfc2d386c5771862930b64673ca3fe93250b02a79b367a28a80f7ed25617",
+        "stale": false
+      },
+      {
+        "matchId": "9077367393",
+        "heroId": "76",
+        "startedAt": "2026-11-05T15:22:54.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "fe7786b4-4be8-4e90-9897-f7a10c23b842",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:20.804Z",
+        "sourceSha256": "cef9cfc2d386c5771862930b64673ca3fe93250b02a79b367a28a80f7ed25617",
+        "stale": false
+      },
+      {
+        "matchId": "9077311253",
+        "heroId": "76",
+        "startedAt": "2026-11-05T14:43:50.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "fe7786b4-4be8-4e90-9897-f7a10c23b842",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:20.804Z",
+        "sourceSha256": "cef9cfc2d386c5771862930b64673ca3fe93250b02a79b367a28a80f7ed25617",
+        "stale": false
+      },
+      {
+        "matchId": "9077226867",
+        "heroId": "39",
+        "startedAt": "2026-11-05T13:45:30.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "fde84c66-1721-4871-a733-58b707053f6b",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:21.782Z",
+        "sourceSha256": "2988afa61fba8c926ee6b43659846e07ba327037bb5cffa8993e5d2e86681324",
+        "stale": false
+      },
+      {
+        "matchId": "9077166450",
+        "heroId": "7",
+        "startedAt": "2026-11-05T13:00:45.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "fde84c66-1721-4871-a733-58b707053f6b",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:21.782Z",
+        "sourceSha256": "2988afa61fba8c926ee6b43659846e07ba327037bb5cffa8993e5d2e86681324",
+        "stale": false
+      },
+      {
+        "matchId": "9077111394",
+        "heroId": "25",
+        "startedAt": "2026-11-05T12:15:00.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_1",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "fde84c66-1721-4871-a733-58b707053f6b",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:21.782Z",
+        "sourceSha256": "2988afa61fba8c926ee6b43659846e07ba327037bb5cffa8993e5d2e86681324",
+        "stale": false
+      },
+      {
+        "matchId": "9076594358",
+        "heroId": "18",
+        "startedAt": "2026-11-04T22:15:41.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_1",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "fde84c66-1721-4871-a733-58b707053f6b",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:21.782Z",
+        "sourceSha256": "2988afa61fba8c926ee6b43659846e07ba327037bb5cffa8993e5d2e86681324",
+        "stale": false
+      },
+      {
+        "matchId": "9076559077",
+        "heroId": "18",
+        "startedAt": "2026-11-04T21:30:01.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_1",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "cd7566d2-985e-4855-880c-81fbad2a242d",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:22.965Z",
+        "sourceSha256": "e8fe56aed784fac6e1e8f9062f6ee81a058fd700283ef2240ddc736e787bad65",
+        "stale": false
+      },
+      {
+        "matchId": "9076081381",
+        "heroId": "58",
+        "startedAt": "2026-11-04T15:19:47.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "cd7566d2-985e-4855-880c-81fbad2a242d",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:22.965Z",
+        "sourceSha256": "e8fe56aed784fac6e1e8f9062f6ee81a058fd700283ef2240ddc736e787bad65",
+        "stale": false
+      },
+      {
+        "matchId": "9075995954",
+        "heroId": "39",
+        "startedAt": "2026-11-04T14:25:37.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "cd7566d2-985e-4855-880c-81fbad2a242d",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:22.965Z",
+        "sourceSha256": "e8fe56aed784fac6e1e8f9062f6ee81a058fd700283ef2240ddc736e787bad65",
+        "stale": false
+      },
+      {
+        "matchId": "9075911782",
+        "heroId": "62",
+        "startedAt": "2026-11-04T13:30:56.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_4",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "cd7566d2-985e-4855-880c-81fbad2a242d",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:22.965Z",
+        "sourceSha256": "e8fe56aed784fac6e1e8f9062f6ee81a058fd700283ef2240ddc736e787bad65",
+        "stale": false
+      },
+      {
+        "matchId": "9075840796",
+        "heroId": "7",
+        "startedAt": "2026-11-04T12:43:31.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "ac0c25f6-4763-418d-be4d-6d8707c65755",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:24.186Z",
+        "sourceSha256": "e53e27fa40b040e6a8c4d99e949676c26a294b59116d13d55ea0fa5f651c1d0d",
+        "stale": false
+      },
+      {
+        "matchId": "9075770910",
+        "heroId": "76",
+        "startedAt": "2026-11-04T11:51:51.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "ac0c25f6-4763-418d-be4d-6d8707c65755",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:24.186Z",
+        "sourceSha256": "e53e27fa40b040e6a8c4d99e949676c26a294b59116d13d55ea0fa5f651c1d0d",
+        "stale": false
+      },
+      {
+        "matchId": "9074933892",
+        "heroId": "58",
+        "startedAt": "2026-11-03T18:38:07.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "ac0c25f6-4763-418d-be4d-6d8707c65755",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:24.186Z",
+        "sourceSha256": "e53e27fa40b040e6a8c4d99e949676c26a294b59116d13d55ea0fa5f651c1d0d",
+        "stale": false
+      },
+      {
+        "matchId": "9074846714",
+        "heroId": "5",
+        "startedAt": "2026-11-03T17:38:41.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_5",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "ac0c25f6-4763-418d-be4d-6d8707c65755",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:24.186Z",
+        "sourceSha256": "e53e27fa40b040e6a8c4d99e949676c26a294b59116d13d55ea0fa5f651c1d0d",
+        "stale": false
+      },
+      {
+        "matchId": "9074805108",
+        "heroId": "9",
+        "startedAt": "2026-11-03T17:10:58.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_4",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "d97481b6-95ce-4fcf-909f-52973b6cdfa4",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:25.593Z",
+        "sourceSha256": "9d43113b66f8c08f72c55ce9c26b3fdf83e199809c3fa33f74030e2b3b03b38b",
+        "stale": false
+      },
+      {
+        "matchId": "9074722898",
+        "heroId": "52",
+        "startedAt": "2026-11-03T16:15:22.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": null,
+        "roleBasis": "unknown",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "d97481b6-95ce-4fcf-909f-52973b6cdfa4",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:25.593Z",
+        "sourceSha256": "9d43113b66f8c08f72c55ce9c26b3fdf83e199809c3fa33f74030e2b3b03b38b",
+        "stale": false
+      },
+      {
+        "matchId": "9074612211",
+        "heroId": "39",
+        "startedAt": "2026-11-03T15:03:36.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_2",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "d97481b6-95ce-4fcf-909f-52973b6cdfa4",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:25.593Z",
+        "sourceSha256": "9d43113b66f8c08f72c55ce9c26b3fdf83e199809c3fa33f74030e2b3b03b38b",
+        "stale": false
+      },
+      {
+        "matchId": "9074568171",
+        "heroId": "87",
+        "startedAt": "2026-11-03T14:35:15.000Z",
+        "status": "matched",
+        "reason": null,
+        "position": "POSITION_5",
+        "roleBasis": "estimated",
+        "gameVersionCode": "190",
+        "averageRank": null,
+        "sourceReceiptId": "d97481b6-95ce-4fcf-909f-52973b6cdfa4",
+        "sourceParentObservationId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+        "sourceFetchedAt": "2026-11-05T23:11:25.593Z",
+        "sourceSha256": "9d43113b66f8c08f72c55ce9c26b3fdf83e199809c3fa33f74030e2b3b03b38b",
+        "stale": false
+      }
+    ]
+  },
+  "sourceReceipts": [
+    {
+      "id": "fe7786b4-4be8-4e90-9897-f7a10c23b842",
+      "parentId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+      "fetchedAt": "2026-11-05T23:11:20.804Z",
+      "knownAt": null,
+      "rawSha256": "cef9cfc2d386c5771862930b64673ca3fe93250b02a79b367a28a80f7ed25617",
+      "maps": [
+        "9077529717",
+        "9077458069",
+        "9077367393",
+        "9077311253"
+      ]
+    },
+    {
+      "id": "fde84c66-1721-4871-a733-58b707053f6b",
+      "parentId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+      "fetchedAt": "2026-11-05T23:11:21.782Z",
+      "knownAt": null,
+      "rawSha256": "2988afa61fba8c926ee6b43659846e07ba327037bb5cffa8993e5d2e86681324",
+      "maps": [
+        "9077226867",
+        "9077166450",
+        "9077111394",
+        "9076594358"
+      ]
+    },
+    {
+      "id": "cd7566d2-985e-4855-880c-81fbad2a242d",
+      "parentId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+      "fetchedAt": "2026-11-05T23:11:22.965Z",
+      "knownAt": null,
+      "rawSha256": "e8fe56aed784fac6e1e8f9062f6ee81a058fd700283ef2240ddc736e787bad65",
+      "maps": [
+        "9076559077",
+        "9076081381",
+        "9075995954",
+        "9075911782"
+      ]
+    },
+    {
+      "id": "ac0c25f6-4763-418d-be4d-6d8707c65755",
+      "parentId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+      "fetchedAt": "2026-11-05T23:11:24.186Z",
+      "knownAt": null,
+      "rawSha256": "e53e27fa40b040e6a8c4d99e949676c26a294b59116d13d55ea0fa5f651c1d0d",
+      "maps": [
+        "9075840796",
+        "9075770910",
+        "9074933892",
+        "9074846714"
+      ]
+    },
+    {
+      "id": "d97481b6-95ce-4fcf-909f-52973b6cdfa4",
+      "parentId": "5db92d0e-c83f-4289-b5a1-80b57607b127",
+      "fetchedAt": "2026-11-05T23:11:25.593Z",
+      "knownAt": null,
+      "rawSha256": "9d43113b66f8c08f72c55ce9c26b3fdf83e199809c3fa33f74030e2b3b03b38b",
+      "maps": [
+        "9074805108",
+        "9074722898",
+        "9074612211",
+        "9074568171"
+      ]
+    }
+  ],
+  "preservation": {
+    "oldPublicTables": 77,
+    "oldUnchangedTables": 75,
+    "currentTables": 80,
+    "changedOldTables": [
+      "role_profile_stratz_quota",
+      "schema_migrations"
+    ],
+    "newTables": [
+      "ranked_context_receipts",
+      "ranked_context_map_cache",
+      "ranked_context_leases"
+    ],
+    "newTableRows": {
+      "receipts": 5,
+      "mapCache": 20,
+      "leases": 1
+    },
+    "proMaps": 340,
+    "rankedObservations": 3,
+    "parentUnchanged": true,
+    "modelAndIdentityFactsUnchanged": true,
+    "queueStateCountsUnchanged": true,
+    "migrationCount": 46,
+    "historicalMigrationsPreserved": 45,
+    "protectedFiles": 245,
+    "originalModules": 150,
+    "frozenBundle": "PASS",
+    "runtimeCompatible": true,
+    "dependenciesAndLockfileUnchanged": true
+  },
+  "runtime": {
+    "startedAt": "2026-11-05T23:10:57.6968638Z",
+    "previousApiPid": 28740,
+    "apiPid": 22464,
+    "policyVersion": "stratz-known-ranked-map-v1",
+    "migration": "046_ranked_context.sql",
+    "webAndWorkerRetained": true
+  },
+  "sourceHashes": [
+    {
+      "path": "packages/contracts/src/ranked-context.ts",
+      "sha256": "d2ea199139acc17d72a67237d91d3f8a91f91913cf21bca1ae7e628b3a704b80"
+    },
+    {
+      "path": "packages/analytics/src/ranked-context.ts",
+      "sha256": "05ed338bb181b2efa68dd55a222876547e967d2bfa4e26f2c31c0afda205f654"
+    },
+    {
+      "path": "packages/db/migrations/046_ranked_context.sql",
+      "sha256": "12bc39633232cbd609831ef48b9a890918483170f1b56b20cd388c8dcfcea3ed"
+    },
+    {
+      "path": "packages/db/src/ranked-context-repository.ts",
+      "sha256": "310b907f18627aa359bb0e161947fadbe1a03bbe2411fbf99ef9eea5b38cdaa0"
+    },
+    {
+      "path": "packages/ingestion/src/ranked-context-client.ts",
+      "sha256": "400267ea71d8f274745ec04d7f34820aadda9e83ec01563280d0c80907160702"
+    },
+    {
+      "path": "apps/api/src/modules/catalog/ranked-context.ts",
+      "sha256": "9fca9829c232f9b70a6317b52704044a4b6cbf35fa939801868c7d1f7a3aa9f0"
+    },
+    {
+      "path": "apps/api/src/modules/catalog/ranked-practice.ts",
+      "sha256": "721df5b290da9e0edcf576f791538ea278cda592e4926b4c3c22b006785e4b2b"
+    },
+    {
+      "path": "apps/web/src/ranked-context.ts",
+      "sha256": "a47495354acf8f8e327d3ac5ef13ae5088241c27abdf818d2dfd9f468db87a76"
+    },
+    {
+      "path": "apps/web/src/components/RankedContext.vue",
+      "sha256": "2ee2a82fd7c8287c39e289e689c3b0d659f51dc1adabde8ab8c02c10067a6153"
+    },
+    {
+      "path": "apps/web/src/components/RankedPractice.vue",
+      "sha256": "a1a2760618cabd30279c6bc405a465667f1b9937c5e095b16fdff900e1ab8915"
+    },
+    {
+      "path": "packages/analytics/tests/ranked-context.test.ts",
+      "sha256": "cff3d6eca3819c55dde23b177aabb9f5bb71d3325fac7790a809872314529a78"
+    },
+    {
+      "path": "packages/contracts/tests/ranked-context.test.ts",
+      "sha256": "087d09d262e2cca3e95672c9cd67020f2899094a5c5c93b3d878ad1d212e7d24"
+    },
+    {
+      "path": "packages/ingestion/tests/ranked-context-client.test.ts",
+      "sha256": "dcef657dd0efafe297c43098f0ac19066db29be9fb7f0897807e9980fbc866af"
+    },
+    {
+      "path": "apps/api/tests/ranked-context.integration.test.ts",
+      "sha256": "ad02f71aa2e5b51e21cf1b949ba7e9d8fcccb505d927883a70816291be7d6a63"
+    },
+    {
+      "path": "apps/web/tests/ranked-context.test.ts",
+      "sha256": "55640384721efbeb86f3c1f3a756e8d18e46c4ff4f93a94544e4c7eff7330fe3"
+    },
+    {
+      "path": "apps/web/tests/e2e/ranked-context.spec.ts",
+      "sha256": "c10717b2aa298dd57c455b85e2bfec84eb8203902b24ab74f088e42c78b6f9d3"
+    },
+    {
+      "path": "tests/helpers/ranked-context.ts",
+      "sha256": "85abf45b42c4e1c0de1a068ab8d8b6a6bb811338f12d42ed51772dac0f3a8b62"
+    }
+  ],
+  "plan": {
+    "path": ".tools/s2-07-context-live-plan.json",
+    "sha256": "b5ce2889e83fdd7cb14d757d34cf6163bbc121496eac2a5f842a9c9b255dd090"
+  },
+  "logs": [
+    {
+      "path": ".tools/s2-07-context-install.log",
+      "sha256": "bc28054962d9f8baadd0480a931cfbf765dcad63a833f239000dcc330c0aff2a"
+    },
+    {
+      "path": ".tools/s2-07-context-typecheck.log",
+      "sha256": "7befd09bbbf256f0c2facadc1944f89c467c43a6dc7cb1c08843e90c7da2089a"
+    },
+    {
+      "path": ".tools/s2-07-context-build.log",
+      "sha256": "51a512bccbc76c9d44ffe2369ad95b662dd5eca5066abfb2babcf5bf6ab98cc6"
+    },
+    {
+      "path": ".tools/s2-07-context-unit.log",
+      "sha256": "81ba518e76d5b4a6432058dd568e21e7ef23e135e361cbfd634aa17d92b10d5e"
+    },
+    {
+      "path": ".tools/s2-07-context-targeted.log",
+      "sha256": "b72825204735abb8d58d092d3d20b1f19ea908e9c8770817be575a29b7bc99b8"
+    },
+    {
+      "path": ".tools/s2-07-context-api-final.log",
+      "sha256": "57d39e50b40dfb6c8235905002562141e8f98321a9ee03250a8be9650a95461e"
+    },
+    {
+      "path": ".tools/s2-07-context-browser.log",
+      "sha256": "5404f79ae8278ec85d47a036cff3c232d528ea405a05c91ce4d5694205c54419"
+    },
+    {
+      "path": ".tools/s2-07-context-migrate.log",
+      "sha256": "f6bf0fe494eaaac44771216dca539cfa0523c5927d2e0470f97b1d83dba84ef7"
+    },
+    {
+      "path": ".tools/s2-07-context-live.log",
+      "sha256": "3b06e1ec2af9db25660882c3762b21815e10992cb13864339e1d176881cf166e"
+    }
+  ],
+  "limitations": [
+    "Only latest20 known maps are enriched; parent history remains bounded/incomplete.",
+    "Estimated positions are not confirmed team roles or automatic lineup assignments.",
+    "Standalone STRATZ ranked-history cohort is still unvalidated and its hero statistics remain disabled.",
+    "No canonical patch mapping, pro/pub pooling, role-specific WR or predictive effect."
+  ],
+  "nextTask": "S3-01/V1-evaluation/collection",
+  "collectionNotBefore": "2026-11-20T00:00:00.000Z",
+  "evaluationNotBefore": "2026-12-02T00:00:00.000Z",
+  "nextModel": "GPT-6 Astra / Extra High",
+  "commitPushDeploy": false
+}

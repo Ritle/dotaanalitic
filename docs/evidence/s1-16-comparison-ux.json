@@ -1,0 +1,109 @@
+{
+  "task": "S1-16/comparison-ux",
+  "recordedAt": "2026-11-04T21:56:11.359Z",
+  "scope": "descriptive-comparison-interface",
+  "live": {
+    "checkedAt": "2026-11-04T21:56:10.359Z",
+    "status": "PASS",
+    "matchId": "1785738",
+    "metrics": {
+      "height": 2323.328125,
+      "visibleControls": 6
+    },
+    "posts": [
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/teams/compare"
+    ],
+    "pageErrors": [],
+    "mobileOverflow": false,
+    "manualLineupPreserved": true,
+    "fromAt": "2025-11-04T21:56:09.716Z",
+    "cutoffAt": "2026-11-04T21:56:09.729Z",
+    "players": [
+      {
+        "slot": "A",
+        "players": [
+          {
+            "id": "208",
+            "n": 19,
+            "winRate": 0.2631578947368421
+          },
+          {
+            "id": "205",
+            "n": 11,
+            "winRate": 0.45454545454545453
+          },
+          {
+            "id": "207",
+            "n": 10,
+            "winRate": 0.1
+          },
+          {
+            "id": "206",
+            "n": 11,
+            "winRate": 0.5454545454545454
+          },
+          {
+            "id": "204",
+            "n": 11,
+            "winRate": 0.2727272727272727
+          }
+        ]
+      },
+      {
+        "slot": "B",
+        "players": [
+          {
+            "id": "211",
+            "n": 18,
+            "winRate": 0.3888888888888889
+          },
+          {
+            "id": "210",
+            "n": 18,
+            "winRate": 0.3888888888888889
+          },
+          {
+            "id": "212",
+            "n": 18,
+            "winRate": 0.3888888888888889
+          },
+          {
+            "id": "209",
+            "n": 24,
+            "winRate": 0.4583333333333333
+          },
+          {
+            "id": "213",
+            "n": 17,
+            "winRate": 0.29411764705882354
+          }
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCliUnique": 806,
+    "nodeTests": 74,
+    "chromiumUnique": 28,
+    "migrations": 42,
+    "fullPgSuiteRun": false,
+    "pythonRun": false,
+    "dockerRun": false
+  },
+  "initialFailures": [
+    "One old test expected source roster expanded; updated explicit disclosure navigation.",
+    "Live harness used region instead of article, then overlapped Vite rebuild; corrected and ran after build.",
+    "Live harness compared pre-confirmation automatic role ordering; preservation assertion now starts at owner confirmation.",
+    "New fifth catalogue test could not read schedule after preceding searches; isolated HTTP server budget without changing production limits.",
+    "evaluation-discovery-cli exceeded 60s while Chromium ran concurrently; isolated retry passed in 17.4s with unchanged timeout."
+  ],
+  "productionApiChanged": false,
+  "migrationsChanged": false,
+  "modelChanged": false,
+  "nextTask": "S2-01/role-owner-check/history-enrichment-resume"
+}
