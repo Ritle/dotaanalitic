@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-evaluation/protocol-feasibility/preparation",
+  "recordedAt": "2026-11-06T12:02:07.032Z",
+  "intent": {
+    "path": "docs/evidence/s3-01-v1-release-revision-intent.json",
+    "sha256": "cbdd4c6b4d4e023dac6e69b7842f5ca109fcdd7012a48e8da2c7c14fa11f2f57",
+    "recordedAt": "2026-11-06T11:47:40.202Z",
+    "revisionKey": "tier1-blast-ix-dreamleague-30-2026",
+    "supersedesPlanSha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef",
+    "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a"
+  },
+  "status": "preparation_complete_main_binding_pending",
+  "liveCheck": {
+    "checkedAt": "2026-11-06T11:48:28.810Z",
+    "configSha256": "b1631cf30d9e18338bfd78e75ec4e3af742208d940ecd7737e0478cf0a301298",
+    "intentSha256": "cbdd4c6b4d4e023dac6e69b7842f5ca109fcdd7012a48e8da2c7c14fa11f2f57",
+    "rows": [
+      {
+        "mode": "check",
+        "exitCode": 3,
+        "report": {
+          "status": "awaiting_event_binding",
+          "revisionKey": "tier1-blast-ix-dreamleague-30-2026",
+          "checkedAt": "2026-11-06T11:48:23.545Z",
+          "registrationDeadline": "2026-11-20T00:00:00.000Z",
+          "events": [
+            {
+              "eventKey": "blast-slam-ix-2026-main",
+              "name": "BLAST Slam IX 2026 — main event",
+              "catalogueName": "BLAST SLAM IX",
+              "leagueId": "20208",
+              "reason": null
+            },
+            {
+              "eventKey": "dreamleague-season-30-2026-main",
+              "name": "DreamLeague Season 30 2026 — main event",
+              "catalogueName": "DreamLeague Season 30",
+              "leagueId": null,
+              "reason": "MAIN_EVENT_NOT_FOUND"
+            }
+          ],
+          "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+          "files": null,
+          "registrationPerformed": false,
+          "evaluationPerformed": false,
+          "metrics": null,
+          "teamAWinProbability": null,
+          "deployable": false
+        }
+      },
+      {
+        "mode": "prepare",
+        "exitCode": 3,
+        "report": {
+          "status": "awaiting_event_binding",
+          "revisionKey": "tier1-blast-ix-dreamleague-30-2026",
+          "checkedAt": "2026-11-06T11:48:28.730Z",
+          "registrationDeadline": "2026-11-20T00:00:00.000Z",
+          "events": [
+            {
+              "eventKey": "blast-slam-ix-2026-main",
+              "name": "BLAST Slam IX 2026 — main event",
+              "catalogueName": "BLAST SLAM IX",
+              "leagueId": "20208",
+              "reason": null
+            },
+            {
+              "eventKey": "dreamleague-season-30-2026-main",
+              "name": "DreamLeague Season 30 2026 — main event",
+              "catalogueName": "DreamLeague Season 30",
+              "leagueId": null,
+              "reason": "MAIN_EVENT_NOT_FOUND"
+            }
+          ],
+          "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+          "files": null,
+          "registrationPerformed": false,
+          "evaluationPerformed": false,
+          "metrics": null,
+          "teamAWinProbability": null,
+          "deployable": false
+        }
+      }
+    ],
+    "preparedDirectoryCreated": false,
+    "sourceApiCalls": 0,
+    "dbConnections": 0
+  },
+  "plannedRegistration": {
+    "events": [
+      {
+        "name": "BLAST Slam IX 2026 — main event",
+        "leagueId": "20208",
+        "fromAt": "2026-11-20T00:00:00.000Z",
+        "until": "2026-11-30T00:00:00.000Z"
+      },
+      {
+        "name": "DreamLeague Season 30 2026 — main event",
+        "leagueId": null,
+        "fromAt": "2026-12-02T00:00:00.000Z",
+        "until": "2026-12-14T00:00:00.000Z"
+      }
+    ],
+    "snapshotAt": "2026-12-16T00:00:00.000Z",
+    "pending": [
+      "main_event_numeric_binding",
+      "published_format_and_UTC_schedule_review",
+      "new_plan_kernel_executable_freeze_and_collection"
+    ],
+    "oldPlanUse": "archive_only_no_release_selection"
+  },
+  "collectionBudget": {
+    "maxRuns": 10,
+    "events": 2,
+    "maxLogicalDiscoveryRequests": 20,
+    "maxDiscoveryHttpAttempts": 60,
+    "maxInventoryMaps": 5000,
+    "detailBatchSize": 50,
+    "maxLogicalRequestsPerFullDetailBatch": 52,
+    "maxHttpAttemptsPerFullDetailBatch": 156,
+    "detailLogicalFormula": "D + 2*ceil(D/50)",
+    "limitChanges": false,
+    "remoteCompleteness": "unknown",
+    "capacityVerifiedForActualFutureMaps": false
+  },
+  "qa": {
+    "install": "PASS_OFFLINE_FROZEN",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitPackages": [
+      {
+        "passed": 64,
+        "total": 64
+      },
+      {
+        "passed": 34,
+        "total": 34
+      },
+      {
+        "passed": 52,
+        "total": 52
+      },
+      {
+        "passed": 33,
+        "total": 33
+      },
+      {
+        "passed": 349,
+        "total": 349
+      },
+      {
+        "passed": 309,
+        "total": 309
+      },
+      {
+        "passed": 47,
+        "total": 47
+      },
+      {
+        "passed": 1,
+        "total": 1
+      }
+    ],
+    "unitTotal": 889,
+    "nodeTests": 124,
+    "newRevisionTests": 12,
+    "migrations": {
+      "status": "PASS",
+      "count": 49
+    },
+    "preservation": {
+      "status": "PASS",
+      "protectedFiles": 245,
+      "originalModules": 150,
+      "frozenBundle": true,
+      "runtimeCompatible": true
+    },
+    "apiPgBrowser": "not_run_file_cli_no_route_schema_ui_changes",
+    "markdownLinks": "PASS",
+    "gitDiffCheck": "PASS",
+    "privatePathAndSecretScan": { "status": "PASS", "files": 13, "privatePaths": 0, "secretMatches": 0 },
+    "logs": [
+      {
+        "label": "install",
+        "sha256": "ad5fd28076dd7f36081cc78f9f99bd3c8874caeb11c3b3e1dd08f3eeb2d81322"
+      },
+      {
+        "label": "typecheck",
+        "sha256": "67cf64db7ce49ca35734b9bc487fef10fa66bd91944f4d2b3a1a117a602872b3"
+      },
+      {
+        "label": "build",
+        "sha256": "c9952b33332d680f55a4d81608783110bb97fa5f9101894f3a4b6582df4b8aab"
+      },
+      {
+        "label": "unit",
+        "sha256": "dd35302d2531b397f5361fc57f15a6d9f3c4010b9df81b0bd90549709776cfbf"
+      },
+      {
+        "label": "node",
+        "sha256": "31c90098ae5e0ef9bff43e008248c4c8e0c8b195516936109c8bfec9f35e5ac0"
+      }
+    ]
+  },
+  "unchanged": {
+    "oldPlan": true,
+    "qualityPolicy": true,
+    "modelFeatures": true,
+    "migrations": true,
+    "dependencies": true,
+    "services": true
+  },
+  "oldCollection": {
+    "status": "not_started",
+    "runs": 0,
+    "remainingRuns": 10,
+    "metrics": null,
+    "scoringPerformed": false
+  },
+  "newApiRequests": 0,
+  "newDbConnections": 0,
+  "newRegistrations": 0,
+  "newCollections": 0,
+  "newForecasts": 0,
+  "newActivations": 0,
+  "evaluationPerformed": false,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "nextTask": "S3-01/V1-evaluation/protocol-feasibility/binding"
+}

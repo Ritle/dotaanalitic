@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-release-revision-intent-v1",
+  "revisionKey": "tier1-blast-ix-dreamleague-30-2026",
+  "recordedAt": "2026-11-06T11:47:40.202Z",
+  "supersedesPlanSha256": "a4636dac08d439301c32f6f6d61303b10c5fe6f5f4486e5c1d71f67f84a0cbef",
+  "qualityPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+  "oldPlanUse": "archive_only_no_release_selection",
+  "reason": "Before test outcomes: the announced BLAST IX format has 34 series, fewer than the registered minimum of 40. Use two explicitly selected future Tier1 main events with the same quality policy; preserve the old protocol as archive, not an alternative release gate.",
+  "request": {
+    "schemaVersion": 1,
+    "policyVersion": "conditional-elo-tier1-release-v1",
+    "evaluationBasis": "future_window_conditional_lineups",
+    "warmupFromAt": "2024-01-01T00:00:00.000Z",
+    "snapshotAt": "2026-12-16T00:00:00.000Z",
+    "maxInventoryMaps": 5000,
+    "developmentDatasetSha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5",
+    "events": [
+      {
+        "eventKey": "blast-slam-ix-2026-main",
+        "name": "BLAST Slam IX 2026 — main event",
+        "provider": "opendota",
+        "leagueId": "20208",
+        "catalogueName": "BLAST SLAM IX",
+        "stage": "main_event",
+        "fromAt": "2026-11-20T00:00:00.000Z",
+        "until": "2026-11-30T00:00:00.000Z",
+        "tierDecision": {
+          "basis": "reviewed_event_scope",
+          "sourceUrl": "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online",
+          "reviewedAt": "2026-11-01T23:46:36.337Z",
+          "rationale": "Reviewed inclusion in the owner-approved Tier 1 MVP domain: BLAST flagship international main event with 16 teams. This is an explicit event-scope decision, not a professional/premium-to-Tier-1 mapping. Separate regional qualifiers are excluded; the newer August 2026 organizer notice supersedes the January rulebook dates."
+        },
+        "scheduleSourceUrl": "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online"
+      },
+      {
+        "eventKey": "dreamleague-season-30-2026-main",
+        "name": "DreamLeague Season 30 2026 — main event",
+        "provider": "opendota",
+        "leagueId": null,
+        "catalogueName": "DreamLeague Season 30",
+        "stage": "main_event",
+        "fromAt": "2026-12-02T00:00:00.000Z",
+        "until": "2026-12-14T00:00:00.000Z",
+        "tierDecision": {
+          "basis": "reviewed_event_scope",
+          "sourceUrl": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+          "reviewedAt": "2026-11-06T11:47:40.202Z",
+          "rationale": "Reviewed inclusion in the owner-selected Tier1 MVP domain: ESL international main event, 24 teams, December 2–13. Qualifiers and Division 2 are excluded. Main-event numeric metadata is pending; no classification is inferred from professional/premium alone."
+        },
+        "scheduleSourceUrl": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/"
+      }
+    ]
+  }
+}
