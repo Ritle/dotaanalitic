@@ -13,7 +13,7 @@ import RoleProfiles from './RoleProfiles.vue';
 import PlayerHistory from './PlayerHistory.vue';
 import ExpectedRosterCatalogue from './ExpectedRosterCatalogue.vue';
 import type {RosterCatalogueBinding} from '@dota/contracts';
-import type {RosterPreparationNotice} from '../roster-preparation';
+import type {PreparedTeamView,RosterPreparationNotice} from '../roster-preparation';
 import {upcomingParticipants,upcomingProviderForSlot,upcomingTeamLabel} from '../upcoming-participants';
 const props=defineProps<{match:UpcomingMatch;rosterVersion?:string}>(),router=useRouter(),cache=useQueryClient();
 const manualOpen=ref(false);
@@ -23,6 +23,10 @@ const preparedLabels=reactive<Record<string,string>>({});
 const catalogue=ref<InstanceType<typeof ExpectedRosterCatalogue>|null>(null),preparation=ref<RosterPreparationNotice[]>([]);
 const automaticAllowed=computed(()=>Object.fromEntries((['A','B'] as const).map(slot=>[slot,!manualOpen.value&&!(slot==='A'?form.teamAId:form.teamBId)&&(slot==='A'?form.lineupA:form.lineupB).every(p=>!p.playerId)])) as {A:boolean;B:boolean});
 function proposed(slot:'A'|'B'){return (slot==='A'?form.lineupA:form.lineupB).every(p=>!p.playerId)&&!(slot==='A'?form.teamAId:form.teamBId)?preparation.value.find(n=>n.slot===slot):undefined;}
+function confirmedAccount(player:PreparedTeamView['players'][number]){
+ const candidate=player.candidates.length===1?player.candidates[0]:undefined;
+ return player.status==='linked'&&!!player.account?.localPlayerId&&player.account.id===candidate?.id&&player.account.localPlayerId===candidate?.localPlayerId;
+}
 const savedAt=reactive<Partial<Record<'A'|'B',string>>>({});
 let savedRead=false;
 const five=()=>Array.from({length:5},(_,i)=>({rolePos:i+1,playerId:'',isStandin:false}));
@@ -80,6 +84,9 @@ async function create(){
           <span v-if="p.account" class="account-note">{{p.account.name}} · Steam32 {{p.account.id}}</span>
           <span v-if="p.account?.proMaps!==undefined" class="account-note">Локальные pro-карты: {{p.account.proMaps}}</span>
           <span v-if="p.status==='ambiguous'&&p.account&&(p.account.proMaps??0)>0" class="account-note warning">Предложен по наличию pro-истории. Проверьте аккаунт; есть другие кандидаты.</span>
+          <span v-else-if="confirmedAccount(p)" class="account-note">Связь аккаунта подтверждена ранее</span>
+          <span v-else-if="p.status==='linked'&&p.account" class="account-note warning">Выбран другой аккаунт — требуется подтверждение</span>
+          <span v-else-if="p.status==='suggested'&&p.account" class="account-note warning">Предложенный аккаунт — проверьте и подтвердите</span>
           <span v-else class="account-note warning">{{p.status==='ambiguous'?'Несколько аккаунтов — выберите нужный':p.status==='conflict'?'Конфликт аккаунтов':p.reason==='external_search_deferred'?'Нужен расширенный поиск аккаунта':p.status==='source_unavailable'?'Поиск временно недоступен':'Аккаунт требует уточнения'}}</span>
         </li></ul>
         <p v-if="proposed(slot)!.error" role="alert" class="error">{{proposed(slot)!.error}}</p>

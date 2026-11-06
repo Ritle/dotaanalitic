@@ -1,0 +1,176 @@
+{
+  "checkedAt": "2026-11-06T01:05:17.125Z",
+  "task": "S2-01/role-owner-check/account-labels",
+  "authorization": "continuation_of_previously_owner_approved_UI_roster_acceptance",
+  "changes": {
+    "production": [
+      "apps/web/src/components/UpcomingScenario.vue"
+    ],
+    "tests": [
+      "apps/web/tests/e2e/automatic-roster.spec.ts"
+    ],
+    "verifiedRequires": "linked status, one candidate, exact selected Steam32 and canonical localPlayerId",
+    "suggestedLabel": "explicit owner review",
+    "manualReplacement": "loses verified label without saving",
+    "backendChanged": false,
+    "modelChanged": false
+  },
+  "checks": {
+    "frozenOfflineInstall": "passed",
+    "rootTypecheck": "passed",
+    "rootBuild": "passed",
+    "workspaceUnitCli": 887,
+    "chromium": {
+      "uniqueTests": 18,
+      "newTests": 1,
+      "files": 4,
+      "automaticRetries": 0
+    },
+    "redThenGreen": true,
+    "frozen": {
+      "status": "PASS",
+      "protectedFiles": 245,
+      "originalModules": 150,
+      "frozenBundle": true,
+      "runtimeCompatible": true
+    },
+    "standaloneApiPostgres": "not_rerun_browser_cases_use_real_isolated_PostgreSQL",
+    "standaloneNode": "not_rerun",
+    "fullBrowser": "not_rerun",
+    "python": "not_rerun",
+    "linuxDocker": "deferred"
+  },
+  "live": {
+    "cases": [
+      {
+        "page": 1,
+        "matchId": "1785740",
+        "label": "Nemiga vs angry birds",
+        "compareEnabled": false,
+        "mobileOverflow": false,
+        "sourceRows": [
+          {
+            "teamId": "2227",
+            "counts": {
+              "suggested": 5
+            }
+          },
+          {
+            "teamId": "139462",
+            "counts": {
+              "suggested": 1,
+              "linked": 5
+            }
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "matchId": "1785743",
+        "label": "ICxI vs TS.A",
+        "compareEnabled": false,
+        "mobileOverflow": false,
+        "sourceRows": [
+          {
+            "teamId": "137417",
+            "counts": {
+              "suggested": 5
+            }
+          },
+          {
+            "teamId": "137540",
+            "counts": {
+              "linked": 5
+            }
+          }
+        ]
+      },
+      {
+        "page": 2,
+        "matchId": "1791736",
+        "label": "IAC vs Amaru Gaming",
+        "compareEnabled": false,
+        "mobileOverflow": false,
+        "sourceRows": [
+          {
+            "teamId": "129891",
+            "counts": {
+              "source_unavailable": 2,
+              "suggested": 3
+            }
+          },
+          {
+            "teamId": "137685",
+            "counts": {
+              "suggested": 2,
+              "ambiguous": 2,
+              "source_unavailable": 1
+            }
+          }
+        ]
+      }
+    ],
+    "initial": {
+      "changedPublicTables": [
+        "provider_quotas",
+        "roster_catalogue_cache"
+      ],
+      "unchangedPublicTables": 80,
+      "upstreamHttpCount": null,
+      "note": "Automatic preparation updated catalogue cache and OpenDota quota; exact upstream attempt count was not instrumented"
+    },
+    "repeat": {
+      "changedPublicTables": [],
+      "unchangedPublicTables": 82
+    },
+    "originalProMaps": 340,
+    "finalProMaps": 340,
+    "jobStateCountsUnchanged": true,
+    "pageErrors": 0,
+    "newLogins": 0,
+    "explicitAccountWrites": 0,
+    "scenariosOrForecastsWritten": 0,
+    "sourceRefreshButtonsUsed": false,
+    "requestPaths": [
+      "/api/v1/upcoming/1785740/catalogue/prepare",
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/upcoming/1785743/catalogue/prepare",
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/upcoming/1791736/catalogue/prepare"
+    ],
+    "apiRestarted": false,
+    "webRestarted": false
+  },
+  "limitations": [
+    "Three selected live cases do not establish all-player coverage or roster accuracy",
+    "Mixed four-linked-plus-one-suggested case is synthetic",
+    "Unknown and ambiguous accounts remain unresolved; comparison still requires confirmed ten distinct players",
+    "V1 forecast targets remain first-page only",
+    "No real model evaluation or activation"
+  ],
+  "harness": "Initial live selector used provider match title instead of displayed full participant names; failed before selection, corrected and rerun without relaxing timeouts",
+  "next": {
+    "task": "S3-01/V1-evaluation/collection",
+    "status": "not_started",
+    "collectionStartsAt": "2026-11-20T00:00:00.000Z",
+    "evaluationNotBefore": "2026-12-02T00:00:00.000Z",
+    "model": "GPT-6 Astra · Extra High",
+    "uiFollowupsModel": "GPT-6.1 Sol · High"
+  },
+  "sha256": {
+    "source": "e750c22fa91cebd0ce00585bed129c5262653b78679f720a112b6022841858e3",
+    "regression": "3189f620714d26335b44e8419c81d5df8931dcf668f2bb92a94adeeaccf37158",
+    "initialLive": "b8524ade87a4e75166cd07c2fd685b87a73dfa72921523f892f467a1bf12aadf",
+    "finalLive": "d4a1b2ae086884c66d139ed624ea92b670b0516a62a302ab62b24038b6c95fb1",
+    "logs": {
+      "install": "a9446a7bdf6bf55b44d35d155556a63be13a6af6b5edd62d2c7197844a584644",
+      "typecheck": "cd9d6ab8961a210b23ba1b75a1811070832cebbd21a6ea694e9810c43bad3950",
+      "build": "d552b3329d9417c03756c42412c0f49c59f9c86c45a0144a3aa1c90cc22c5cae",
+      "red": "3ff50c873fe8a21aba22b97f3522226118f68b741d78efa965a472d48fd34e58",
+      "green": "88006f2ab18f239a2fe199799b16228c6f168080d41a79453855d81a09f715a2",
+      "browser": "77107f234773aaef61c5ea982ee24a0cece09d44fda46d877e37e7ef2814052b",
+      "unit": "4474c236f8e9743b678261b1af169a7029f4e28304f07acff78a851884cefe31",
+      "frozen": "70b158de487618b505e8cc4abe52193910b0211a5b7e137845259c5b135c5663"
+    }
+  }
+}

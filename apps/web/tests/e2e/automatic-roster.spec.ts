@@ -9,7 +9,7 @@ import {buildApp} from '../../../api/src/app';
 import {readConfig} from '../../../api/src/config';
 import {AuthService} from '../../../api/src/modules/auth/service';
 let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string,cookie:string,csrf:string;
-let calls:string[],ambiguous:boolean,teamShift:number,historyAlias:boolean;
+let calls:string[],ambiguous:boolean,teamShift:number,historyAlias:boolean,partialTransfer:boolean;
 const url='/api/v1/upcoming/70001/catalogue';
 async function http(path:string,payload?:unknown){
  const response=await fetch('http://127.0.0.1:3151'+path,{method:payload===undefined?'GET':'POST',headers:{cookie,origin:'http://127.0.0.1:5179','x-csrf-token':csrf,'content-type':'application/json'},...(payload===undefined?{}:{body:JSON.stringify(payload)})});
@@ -17,7 +17,7 @@ async function http(path:string,payload?:unknown){
 }
 const post=(path:string,payload:unknown)=>http(path,payload);
 test.beforeEach(async()=>{
- database=await testDatabase();password=randomBytes(24).toString('base64url');calls=[];ambiguous=false;teamShift=0;historyAlias=false;
+ database=await testDatabase();password=randomBytes(24).toString('base64url');calls=[];ambiguous=false;teamShift=0;historyAlias=false;partialTransfer=false;
  await new AuthService(database.db).provision('synthetic-auto-roster',password);
  const fixture=syntheticCatalogue(),players=fixture.players.map((p,i)=>({...p,name:`Synthetic Player ${String(i+1).padStart(2,'0')}`}));
  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),{
@@ -27,7 +27,8 @@ test.beforeEach(async()=>{
    return {rawBody,source:{endpoint:'/proPlayers',fetchedAt:new Date().toISOString(),payloadSha256:createHash('sha256').update(rawBody).digest('hex')}};
   },pandascoreFetch:async source=>{
    if(!source.pathname.endsWith('/rosters')){const s=syntheticSchedule();s[0]!.opponents[1]!.opponent.id+=teamShift;return Response.json(s);}
-   const r=syntheticRosters();r.rosters[1]!.id+=teamShift;r.rosters.forEach((t,i)=>t.players.forEach((p,j)=>{const n=i*6+j;p.name=historyAlias&&n===0?'Synthetic disputed history':ambiguous&&(n===0||n===6)?'Synthetic Twin':players[n]!.name;}));return Response.json(r);
+   const r=syntheticRosters();r.rosters[1]!.id+=teamShift;if(partialTransfer)r.rosters[1]!.players[4]!.id+=1000;
+   r.rosters.forEach((t,i)=>t.players.forEach((p,j)=>{const n=i*6+j;p.name=historyAlias&&n===0?'Synthetic disputed history':ambiguous&&(n===0||n===6)?'Synthetic Twin':players[n]!.name;}));return Response.json(r);
   }});
  await api.listen({host:'127.0.0.1',port:3151});
  const login=await fetch('http://127.0.0.1:3151/api/v1/auth/login',{method:'POST',headers:{origin:'http://127.0.0.1:5179','content-type':'application/json'},body:JSON.stringify({login:'synthetic-auto-roster',password})});
@@ -76,6 +77,34 @@ test('verified global player links automatically fill a new organization without
  await expect(card(page,'A')).toContainText('В заявке 6 игроков');
  expect((await sql`SELECT id FROM expected_roster_catalogue_bindings`.execute(database.db)).rows).toHaveLength(2);
 });
+test('partial verified links are labelled separately from suggestions and a manual account replacement loses the verified label',async({page})=>{
+ const ready=(await post(url+'/prepare',{externalSearch:false})).json(),state=(await http(url)).json(),team=ready.teams[1];
+ const saved=await post(url+'/apply',{requestId:randomUUID(),providerTeamId:'74002',teamId:'74002',teamProvider:'pandascore',expectedRevision:0,
+  rosterSha256:state.rosterSha256,registrySha256:ready.registrySha256,confirmedByOwner:true,
+  players:team.players.map((p:{providerPlayerId:string;linkToken:string;candidates:{id:string}[]})=>({providerPlayerId:p.providerPlayerId,accountId:p.candidates[0]!.id,linkToken:p.linkToken}))});
+ expect(saved.statusCode,saved.body).toBe(200);
+ // A new organization reuses four numeric links; its fifth provider identity is still unconfirmed.
+ teamShift=10;partialTransfer=true;await sql`UPDATE upcoming_source_cache SET expires_at=clock_timestamp()-interval '1 second',retry_at='-infinity'`.execute(database.db);
+ await sql`UPDATE pandascore_request_quota SET next_request_at='-infinity'`.execute(database.db);
+ await post('/api/v1/upcoming/refresh',{});await post('/api/v1/upcoming/tournaments/71001/refresh',{});
+ let applies=0;page.on('request',r=>{if(r.url().endsWith('/catalogue/apply'))applies++;});
+ await open(page);const b=card(page,'B');
+ await expect(b.getByText('Связь аккаунта подтверждена ранее',{exact:true})).toHaveCount(4);
+ await expect(b.getByText('Предложенный аккаунт — проверьте и подтвердите',{exact:true})).toHaveCount(1);
+ await expect(b.getByText('Аккаунт требует уточнения',{exact:true})).toHaveCount(0);
+ await expect(b.getByRole('button',{name:'Подтвердить аккаунты и выбрать пятёрку B',exact:true})).toBeEnabled();
+ await expect(page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true})).toBeDisabled();expect(applies).toBe(0);
+ await page.getByRole('button',{name:'Подготовить составы',exact:true}).click();const editor=page.getByRole('region',{name:'Соединение B',exact:true});
+ await editor.getByLabel('Показать подтверждённые аккаунты B',{exact:true}).check();
+ const picker=editor.getByRole('region',{name:'Аккаунт Synthetic Player 07 (B)',exact:true});
+ await picker.getByRole('searchbox').fill('1001');await picker.getByRole('searchbox').press('Enter');await picker.getByRole('button',{name:/ · ID 1001$/}).click();
+ await expect(b.getByText('Связь аккаунта подтверждена ранее',{exact:true})).toHaveCount(3);
+ await expect(b.getByText('Выбран другой аккаунт — требуется подтверждение',{exact:true})).toHaveCount(1);
+ expect(applies).toBe(0);expect((await sql`SELECT id FROM expected_roster_catalogue_bindings`.execute(database.db)).rows).toHaveLength(1);
+ await page.setViewportSize({width:360,height:900});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await b.screenshot({path:'test-results/partial-linked-roster-mobile.png'});
+});
+
 test('ambiguous nicknames remain visible and make no automatic identity decision or roster write',async({page})=>{
  ambiguous=true;
  // Refresh only the isolated synthetic source snapshot so the ambiguity is part of the source data.
