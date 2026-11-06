@@ -1,0 +1,130 @@
+{
+  "format": "v1-retest-proposal-intent-v1",
+  "createdAt": "2026-11-06T16:01:24.266Z",
+  "status": "proposal_not_registered_release_protocol",
+  "priorReport": {
+    "path": ".tools/v1-historical-freeze-20261106/bundle/evaluation/report.json",
+    "sha256": "bef9a6915c960cef621d028327aef19d1e302a48c7cec355373a348d98bc219c",
+    "decision": "failed"
+  },
+  "planning": [
+    {
+      "metric": "brier",
+      "delta": -0.008672266266488,
+      "series": 58,
+      "maps": 140,
+      "clusterRatioInfluenceSD": 0.05208744151019062,
+      "standardError": 0.0068394161414925695,
+      "approximateSeries80": 224,
+      "approximateSeries80HalfEffect": 893
+    },
+    {
+      "metric": "logLoss",
+      "delta": -0.01722131834797909,
+      "series": 58,
+      "maps": 140,
+      "clusterRatioInfluenceSD": 0.10755308337113033,
+      "standardError": 0.014122411720527467,
+      "approximateSeries80": 242,
+      "approximateSeries80HalfEffect": 965
+    }
+  ],
+  "planningSeriesTarget": 250,
+  "planningTargetUse": "feasibility_only_not_guaranteed_power_or_changed_quality_gate",
+  "events": [
+    {
+      "leagueId": "19099",
+      "name": "BLAST SLAM VI",
+      "fromAt": "2026-02-01T00:00:00.000Z",
+      "until": "2026-03-01T00:00:00.000Z",
+      "sourceUrl": "https://blast.tv/dota/news/blast-slam-new-format-explainer"
+    },
+    {
+      "leagueId": "19269",
+      "name": "DreamLeague Season 28",
+      "fromAt": "2026-02-01T00:00:00.000Z",
+      "until": "2026-03-03T00:00:00.000Z",
+      "sourceUrl": "https://eslfaceitgroup.com/press/esl-faceit-group-unveils-changes-to-the-dota-2-ecosystem-with-a-robust-esl-pro-tour-calendar-announcement/"
+    },
+    {
+      "leagueId": "19435",
+      "name": "PGL Wallachia 2026 Season 7",
+      "fromAt": "2026-03-01T00:00:00.000Z",
+      "until": "2026-04-01T00:00:00.000Z",
+      "sourceUrl": "https://www.pglesports.com/dota2/wallachia-s7-2026/"
+    },
+    {
+      "leagueId": "19422",
+      "name": "ESL One Birmingham 2026",
+      "fromAt": "2026-03-01T00:00:00.000Z",
+      "until": "2026-04-01T00:00:00.000Z",
+      "sourceUrl": "https://eslfaceitgroup.com/press/esl-faceit-group-unveils-changes-to-the-dota-2-ecosystem-with-a-robust-esl-pro-tour-calendar-announcement/"
+    },
+    {
+      "leagueId": "19543",
+      "name": "PGL Wallachia 2026 Season 8",
+      "fromAt": "2026-04-01T00:00:00.000Z",
+      "until": "2026-05-01T00:00:00.000Z",
+      "sourceUrl": "https://press.pglesports.com/397149-pgl-commits-to-the-future-of-dota-2-updated-calendar-and-event-plans-through-2028"
+    },
+    {
+      "leagueId": "19696",
+      "name": "DreamLeague Season 29",
+      "fromAt": "2026-05-01T00:00:00.000Z",
+      "until": "2026-06-01T00:00:00.000Z",
+      "sourceUrl": "https://pro.eslgaming.com/dreamleague"
+    },
+    {
+      "leagueId": "19101",
+      "name": "BLAST SLAM VII",
+      "fromAt": "2026-05-01T00:00:00.000Z",
+      "until": "2026-06-09T00:00:00.000Z",
+      "sourceUrl": "https://blast.tv/dota/news/blast-slam-vii-copenhagen"
+    }
+  ],
+  "reviewedScope": "seven_named_first_half_2026_main_international_events_not_all_professional_leagues",
+  "warmupFromAt": "2024-01-01T00:00:00.000Z",
+  "eventCutoffAt": "2026-07-01T00:00:00.000Z",
+  "wholeEventExclusions": [
+    {
+      "leagueId": "19785",
+      "reason": "EWC2026 actual bracket results surfaced during calendar web search; outside first-half scope also"
+    },
+    {
+      "leagueId": "19102",
+      "reason": "BLASTVIII results previously viewed and current official news widgets repeated them"
+    },
+    {
+      "leagueId": "19719",
+      "reason": "closed first release evaluation"
+    },
+    {
+      "leagueId": "20279",
+      "reason": "closed first release evaluation"
+    }
+  ],
+  "priorExposure": "freeze all existing local captures plus database before metadata discovery; exclude whole known series on any match/token/series overlap",
+  "disclosures": [
+    "Public news/participant/advancement information can be known; not proof of global blindness. DreamLeague29 page has playoff/participant headings without inspected individual map outcomes.",
+    "Raw API discovery includes outcomes but remains private; parser projects identity/time/series/team metadata only. No new probabilities, errors, wins, scores or rankings inspected."
+  ],
+  "selectionRule": "all qualifying whole-series across all seven fixed events, no event selection by counts or model performance",
+  "limits": {
+    "maxDiscoveryHttpRequests": 14,
+    "maxUniqueMaps": 5000,
+    "maxDetailAttemptsPerMap": 3,
+    "proposedCollectionDeadline": "2026-11-13T00:00:00.000Z"
+  },
+  "evaluationPoint": "one evaluation after all bounded collection attempts are terminal and independent frozen bundle is verified; or deadline with missing maps retained in denominator; no partial scoring",
+  "unchangedModel": {
+    "initialRating": 1500,
+    "k": 32,
+    "scale": 400,
+    "minPriorMapsPerPlayer": 5,
+    "calibrator": false
+  },
+  "qualityPolicySha256": "f13ddd38c451fa53bae4f37ffaeea4c2ac852a4d50cb7cdd1156f53175737d4b",
+  "repeatAccounting": "first FAIL retained; no choosing best of historical/future branches; per-attempt95 bootstrap is not familywise95 claim",
+  "freshEvaluationPerformed": false,
+  "automaticActivation": false
+}

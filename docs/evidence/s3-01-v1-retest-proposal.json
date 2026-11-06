@@ -1,0 +1,371 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-retest-proposal-checkpoint-v1",
+  "task": "S3-01/V1-retest/proposal",
+  "checkedAt": "2026-11-06T16:06:40.297Z",
+  "status": "metadata_feasible_registration_pending",
+  "protocolRegistered": false,
+  "freshModelEvaluationPerformed": false,
+  "deployable": false,
+  "teamAWinProbability": null,
+  "intent": {
+    "path": ".tools/v1-retest-proposal-20261106/intent.json",
+    "sha256": "227f614fecb2adce99ca1950e88112e169e2ce252d90140af0aacf448ce908cf"
+  },
+  "catalogue": {
+    "path": ".tools/v1-registration-20261106/catalogue.json",
+    "sha256": "aa78ad03391647371923135504f184741fbc350c73b44038e3de592290112033"
+  },
+  "pilotReport": {
+    "path": ".tools/v1-historical-freeze-20261106/bundle/evaluation/report.json",
+    "sha256": "bef9a6915c960cef621d028327aef19d1e302a48c7cec355373a348d98bc219c"
+  },
+  "pilotDecision": "failed",
+  "qualityPolicySha256": "f13ddd38c451fa53bae4f37ffaeea4c2ac852a4d50cb7cdd1156f53175737d4b",
+  "exposure": {
+    "fileManifest": {
+      "path": ".tools/v1-retest-proposal-20261106/file-exposure.json",
+      "sha256": "24c60a418a3d62f93011538e88c5ee4b953f79c039ed5b23b886a7b57a80221d"
+    },
+    "databaseSnapshot": {
+      "path": ".tools/v1-retest-proposal-20261106/database-before.json",
+      "sha256": "475a9eb53fb487b0e2f73ab901ec0844ea41779a1dff142ec8ae5566f2c85e75"
+    },
+    "capturedAt": "2026-11-06T16:02:11.788Z",
+    "fileCount": 5444,
+    "uniqueContents": 5306,
+    "bytes": 709191756,
+    "potentialMapTokens": 71560,
+    "explicitOpendotaSeries": 447,
+    "nonJsonFiles": 3,
+    "scope": "bounded_local_not_global_blindness_proof"
+  },
+  "sourceCapture": {
+    "path": ".tools/v1-retest-proposal-20261106/captures.json",
+    "sha256": "918bb3285c6f4a2d4f736bbc8299eeebbd3f4c5ce97bda0667c1a95f8d86cfcb"
+  },
+  "metadataReview": {
+    "path": ".tools/v1-retest-proposal-20261106/inventory.json",
+    "sha256": "22095b1b74627a078b0163c11de30d3197f1ab80862800958b451c14e20ece59"
+  },
+  "httpRequests": {
+    "attempts": 7,
+    "httpStatuses": {
+      "200": 7
+    },
+    "transportErrors": {}
+  },
+  "summary": {
+    "observed": {
+      "maps": 967,
+      "knownSeries": 490
+    },
+    "priorExposed": {
+      "maps": 297,
+      "knownSeries": 157
+    },
+    "metadataCandidates": {
+      "maps": 666,
+      "knownSeries": 333
+    },
+    "unresolved": {
+      "maps": 4,
+      "knownSeries": 0
+    },
+    "outOfWindow": {
+      "maps": 0,
+      "knownSeries": 0
+    },
+    "missingSeriesMaps": 6
+  },
+  "byEvent": [
+    {
+      "leagueId": "19099",
+      "name": "BLAST SLAM VI",
+      "observed": {
+        "maps": 100,
+        "knownSeries": 78
+      },
+      "priorExposed": {
+        "maps": 46,
+        "knownSeries": 35
+      },
+      "metadataCandidates": {
+        "maps": 54,
+        "knownSeries": 43
+      },
+      "unresolved": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "outOfWindow": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "missingSeriesMaps": 0,
+      "firstObservedStartAt": "2026-02-03T08:57:34.000Z",
+      "lastObservedStartAt": "2026-02-15T20:00:30.000Z"
+    },
+    {
+      "leagueId": "19269",
+      "name": "DreamLeague Season 28",
+      "observed": {
+        "maps": 195,
+        "knownSeries": 91
+      },
+      "priorExposed": {
+        "maps": 40,
+        "knownSeries": 20
+      },
+      "metadataCandidates": {
+        "maps": 154,
+        "knownSeries": 71
+      },
+      "unresolved": {
+        "maps": 1,
+        "knownSeries": 0
+      },
+      "outOfWindow": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "missingSeriesMaps": 2,
+      "firstObservedStartAt": "2026-02-16T10:55:43.000Z",
+      "lastObservedStartAt": "2026-03-01T18:10:52.000Z"
+    },
+    {
+      "leagueId": "19435",
+      "name": "PGL Wallachia 2026 Season 7",
+      "observed": {
+        "maps": 124,
+        "knownSeries": 47
+      },
+      "priorExposed": {
+        "maps": 41,
+        "knownSeries": 15
+      },
+      "metadataCandidates": {
+        "maps": 83,
+        "knownSeries": 32
+      },
+      "unresolved": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "outOfWindow": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "missingSeriesMaps": 0,
+      "firstObservedStartAt": "2026-03-07T08:00:32.000Z",
+      "lastObservedStartAt": "2026-03-15T20:24:44.000Z"
+    },
+    {
+      "leagueId": "19422",
+      "name": "ESL One Birmingham 2026",
+      "observed": {
+        "maps": 142,
+        "knownSeries": 68
+      },
+      "priorExposed": {
+        "maps": 56,
+        "knownSeries": 26
+      },
+      "metadataCandidates": {
+        "maps": 85,
+        "knownSeries": 42
+      },
+      "unresolved": {
+        "maps": 1,
+        "knownSeries": 0
+      },
+      "outOfWindow": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "missingSeriesMaps": 2,
+      "firstObservedStartAt": "2026-03-22T11:59:56.000Z",
+      "lastObservedStartAt": "2026-03-29T19:34:20.000Z"
+    },
+    {
+      "leagueId": "19543",
+      "name": "PGL Wallachia 2026 Season 8",
+      "observed": {
+        "maps": 119,
+        "knownSeries": 47
+      },
+      "priorExposed": {
+        "maps": 33,
+        "knownSeries": 14
+      },
+      "metadataCandidates": {
+        "maps": 86,
+        "knownSeries": 33
+      },
+      "unresolved": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "outOfWindow": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "missingSeriesMaps": 0,
+      "firstObservedStartAt": "2026-04-18T07:00:08.000Z",
+      "lastObservedStartAt": "2026-04-26T14:11:01.000Z"
+    },
+    {
+      "leagueId": "19696",
+      "name": "DreamLeague Season 29",
+      "observed": {
+        "maps": 185,
+        "knownSeries": 77
+      },
+      "priorExposed": {
+        "maps": 44,
+        "knownSeries": 19
+      },
+      "metadataCandidates": {
+        "maps": 139,
+        "knownSeries": 58
+      },
+      "unresolved": {
+        "maps": 2,
+        "knownSeries": 0
+      },
+      "outOfWindow": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "missingSeriesMaps": 2,
+      "firstObservedStartAt": "2026-05-13T09:55:01.000Z",
+      "lastObservedStartAt": "2026-05-24T19:22:34.000Z"
+    },
+    {
+      "leagueId": "19101",
+      "name": "BLAST SLAM VII",
+      "observed": {
+        "maps": 102,
+        "knownSeries": 82
+      },
+      "priorExposed": {
+        "maps": 37,
+        "knownSeries": 28
+      },
+      "metadataCandidates": {
+        "maps": 65,
+        "knownSeries": 54
+      },
+      "unresolved": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "outOfWindow": {
+        "maps": 0,
+        "knownSeries": 0
+      },
+      "missingSeriesMaps": 0,
+      "firstObservedStartAt": "2026-05-26T07:57:11.000Z",
+      "lastObservedStartAt": "2026-06-07T18:32:25.000Z"
+    }
+  ],
+  "targetDenominator": {
+    "maps": 670,
+    "knownSeries": 333,
+    "unknownSeriesMaps": 4,
+    "metadataCandidateMaps": 666,
+    "minimumScoredAt80PercentCoverage": {
+      "maps": 536,
+      "knownSeries": 267
+    }
+  },
+  "planning": {
+    "seriesTarget": 250,
+    "inputs": [
+      {
+        "metric": "brier",
+        "delta": -0.008672266266488,
+        "series": 58,
+        "maps": 140,
+        "clusterRatioInfluenceSD": 0.05208744151019062,
+        "standardError": 0.0068394161414925695,
+        "approximateSeries80": 224,
+        "approximateSeries80HalfEffect": 893
+      },
+      {
+        "metric": "logLoss",
+        "delta": -0.01722131834797909,
+        "series": 58,
+        "maps": 140,
+        "clusterRatioInfluenceSD": 0.10755308337113033,
+        "standardError": 0.014122411720527467,
+        "approximateSeries80": 242,
+        "approximateSeries80HalfEffect": 965
+      }
+    ],
+    "method": "one_sided_normal_approximation_on_series_ratio_influence_sd_from_failed_pilot",
+    "alpha": 0.05,
+    "approximatePowerPerEndpoint": 0.8,
+    "zAlpha": 1.6448536269514722,
+    "zPower": 0.8416212335729143,
+    "sourceUrl": "https://itl.nist.gov/div898/handbook/prc/section2/prc222.htm",
+    "isGuaranteedPower": false,
+    "isJointGatePower": false,
+    "isAddedQualityGate": false
+  },
+  "proposal": {
+    "eventCount": 7,
+    "historyWarmupFromAt": "2024-01-01T00:00:00.000Z",
+    "historyRequestBeforeAt": "2026-02-01T00:00:00.000Z",
+    "historyWindowDays": 730,
+    "historyMaxMapsPerAccount": 10,
+    "maxMaps": 5000,
+    "maxDetailAttemptsPerMap": 3,
+    "maxRequestsPerRun": 50,
+    "collectionDeadline": "2026-11-13T00:00:00.000Z",
+    "evaluationPoint": "one evaluation after all bounded collection attempts are terminal and independent frozen bundle is verified; or deadline with missing maps retained in denominator; no partial scoring"
+  },
+  "sourceCorrections": [
+    {
+      "leagueId": "19543",
+      "sourceUrl": "https://news.pglesports.com/news/1757700731485-pgl-dota-2-calendar-updates",
+      "note": "Original press URL redirected; official revised calendar confirms April16-26. Event and April window unchanged."
+    }
+  ],
+  "checks": {
+    "metadataIndependentRecount": "PASS",
+    "allPriorExposureFileHashes": "PASS",
+    "protectedArtifacts": 245,
+    "firstFrozenCodeFiles": 373,
+    "currentCodeAndFrozenCopyUnchanged": true,
+    "firstEvaluationHashesUnchanged": true,
+    "qualityPolicyUnchanged": true,
+    "publicTables": 83,
+    "changedTables": [
+      "provider_quotas"
+    ],
+    "queueUnchanged": true,
+    "activeModels": 0,
+    "health": {
+      "api": 200,
+      "web": 200
+    }
+  },
+  "limitations": [
+    "Metadata candidate counts do not prove ten accounts,verified pro outcomes,earlier eligible history or full sibling/remote completeness.",
+    "Public tournament news/participants/advancement can be known; EWC and BLASTVIII actual visible results excluded at event level. No fresh candidate probabilities or error metrics.",
+    "February-June cohort is earlier than the failed August-September pilot; strict within-map temporal history remains mandatory, while future performance generalization is unproven.",
+    "Power estimate assumes similar effect/variance and independent series; shared players/events/history violate literal independence. Half-sized effect needs about965 series. No joint-gate or familywise95 guarantee.",
+    "Seven events exceed the existing v1 historical-request maximum of five. Add a separately versioned protocol and replay old formats unchanged before collection.",
+    "Discovery after hashed intent is planned metadata access,not a reason to discard the whole new cohort on a later exposure scan. Pin exact captures and audit any additional access separately."
+  ],
+  "auditScript": {
+    "path": ".tools/audit-v1-retest-proposal.mjs",
+    "sha256": "dd97cb0d161cdbdbc62a5bc41f9699b0697f5b542464d968d3664bd7047c9700"
+  },
+  "proposalScript": {
+    "path": ".tools/v1-retest-proposal.mjs",
+    "sha256": "860c2770e4d893935cd991501e7c7f389a3db6cb07b05dcb5d98cb6158172d5b"
+  },
+  "nextTask": "S3-01/V1-retest/protocol"
+}
