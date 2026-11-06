@@ -1,0 +1,351 @@
+{
+  "schemaVersion": 1,
+  "format": "v1-historical-first-evaluation-checkpoint-v1",
+  "task": "S3-03/V1-historical/independent-evaluation",
+  "checkedAt": "2026-11-06T15:46:30.435Z",
+  "status": "evaluation_complete",
+  "qualityDecision": "failed",
+  "reasons": [
+    "BRIER_BASELINE_UPPER",
+    "LOG_LOSS_BASELINE_UPPER"
+  ],
+  "evaluationBasis": "conditional_retrospective_unexposed_series",
+  "firstScoring": {
+    "schemaVersion": 1,
+    "format": "v1-historical-first-scoring-v1",
+    "startedAt": "2026-11-06T15:38:52.181Z",
+    "freezeSha256": "0b632fecd6db7860937e3c94923b20ce24d891cf22bc4a864b442557a7bbaf34",
+    "freezeFingerprint": "5ebfc8844c350deb90786776973273074ca341ddcfda4768c17c3e7edd683edc",
+    "capsuleSha256": "34d35e9f9a626c355d82916211226f3ab944a5072dbc1e7a0e40119907c1bfd6"
+  },
+  "registeredAt": "2026-11-06T15:35:16.050Z",
+  "reportSha256": "bef9a6915c960cef621d028327aef19d1e302a48c7cec355373a348d98bc219c",
+  "reportFingerprint": "f5298c14dd158e1be1b15a482222e64e1bc7d77602299b6e4ac30ac399c1c25a",
+  "startedSha256": "cee03fbf08dfe53463f6f1f50756774b4b9a25d6e2e5f4cf3e73b7584debd450",
+  "registrySha256": "683cef6993cb37de8b46a06301b854c8ba0d3d1106fa3e22a56e8273f3bd95d1",
+  "datasetFingerprint": "d6fbae61b67341bb7627afb374216e1bd28c258f52c5029ba35e2ed53fbd8e0b",
+  "candidateFingerprint": "15db1b4ccfd1a37796b441a4e0d79fa036c9597d3bd50abd3a42b783b38da887",
+  "protocolFingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1",
+  "qualityPolicySha256": "f13ddd38c451fa53bae4f37ffaeea4c2ac852a4d50cb7cdd1156f53175737d4b",
+  "exposureExcludedMaps": 116,
+  "coverage": {
+    "observedMaps": 145,
+    "scoredMaps": 140,
+    "observedKnownSeries": 60,
+    "scoredSeries": 58,
+    "mapCoverage": 0.9655172413793104,
+    "knownSeriesCoverage": 0.9666666666666667
+  },
+  "metrics": {
+    "n": 140,
+    "brier": 0.24132773373351196,
+    "logLoss": 0.6759258622119659,
+    "baselineBrier": 0.25,
+    "baselineLogLoss": 0.6931471805599453,
+    "brierDelta": -0.008672266266488,
+    "logLossDelta": -0.01722131834797909,
+    "meanProbability": 0.4980886190603017,
+    "observedWinRate": 0.4857142857142857,
+    "meanProbabilityGap": 0.012374333346015983,
+    "ece": 0.024614571192910148,
+    "reliability": [
+      {
+        "lower": 0,
+        "upper": 0.2,
+        "upperInclusive": false,
+        "n": 0,
+        "meanProbability": null,
+        "observedWinRate": null
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.4,
+        "upperInclusive": false,
+        "n": 26,
+        "meanProbability": 0.35277107710527683,
+        "observedWinRate": 0.3076923076923077
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.6,
+        "upperInclusive": false,
+        "n": 92,
+        "meanProbability": 0.5015563407686675,
+        "observedWinRate": 0.5108695652173914
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.8,
+        "upperInclusive": false,
+        "n": 22,
+        "meanProbability": 0.6553261505903468,
+        "observedWinRate": 0.5909090909090909
+      },
+      {
+        "lower": 0.8,
+        "upper": 1,
+        "upperInclusive": true,
+        "n": 0,
+        "meanProbability": null,
+        "observedWinRate": null
+      }
+    ]
+  },
+  "uncertainty": {
+    "method": "paired_whole_series_percentile_bootstrap",
+    "resamples": 10000,
+    "seed": 20261102,
+    "brierDeltaUpper95": 0.0021942838874186585,
+    "logLossDeltaUpper95": 0.0052438048504988895,
+    "eceUpper95": 0.10346709545101307
+  },
+  "gates": [
+    {
+      "name": "maps",
+      "value": 140,
+      "threshold": 100,
+      "passed": true
+    },
+    {
+      "name": "series",
+      "value": 58,
+      "threshold": 40,
+      "passed": true
+    },
+    {
+      "name": "mapCoverage",
+      "value": 0.9655172413793104,
+      "threshold": 0.8,
+      "passed": true
+    },
+    {
+      "name": "knownSeriesCoverage",
+      "value": 0.9666666666666667,
+      "threshold": 0.8,
+      "passed": true
+    },
+    {
+      "name": "brier",
+      "value": 0.24132773373351202,
+      "threshold": 0.245,
+      "passed": true
+    },
+    {
+      "name": "logLoss",
+      "value": 0.6759258622119659,
+      "threshold": 0.685,
+      "passed": true
+    },
+    {
+      "name": "brierDeltaUpper95",
+      "value": 0.0021942838874186585,
+      "threshold": 0,
+      "passed": false
+    },
+    {
+      "name": "logLossDeltaUpper95",
+      "value": 0.0052438048504988895,
+      "threshold": 0,
+      "passed": false
+    },
+    {
+      "name": "ece",
+      "value": 0.024614571192910134,
+      "threshold": 0.08,
+      "passed": true
+    },
+    {
+      "name": "eceUpper95",
+      "value": 0.10346709545101307,
+      "threshold": 0.15,
+      "passed": true
+    },
+    {
+      "name": "meanProbabilityGap",
+      "value": 0.012374333346016085,
+      "threshold": 0.05,
+      "passed": true
+    }
+  ],
+  "stability": [
+    {
+      "half": 1,
+      "series": 29,
+      "metrics": {
+        "n": 73,
+        "brier": 0.23793319227301749,
+        "logLoss": 0.6690560951192872,
+        "baselineBrier": 0.25,
+        "baselineLogLoss": 0.6931471805599453,
+        "brierDelta": -0.012066807726982478,
+        "logLossDelta": -0.024091085440658175,
+        "meanProbability": 0.4938493496195879,
+        "observedWinRate": 0.4246575342465753,
+        "meanProbabilityGap": 0.06919181537301253,
+        "ece": 0.06919181537301253,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "upperInclusive": false,
+            "n": 0,
+            "meanProbability": null,
+            "observedWinRate": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "upperInclusive": false,
+            "n": 15,
+            "meanProbability": 0.34211045311443006,
+            "observedWinRate": 0.26666666666666666
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "upperInclusive": false,
+            "n": 46,
+            "meanProbability": 0.49623324855249146,
+            "observedWinRate": 0.45652173913043476
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "upperInclusive": false,
+            "n": 12,
+            "meanProbability": 0.6743846910082382,
+            "observedWinRate": 0.5
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "upperInclusive": true,
+            "n": 0,
+            "meanProbability": null,
+            "observedWinRate": null
+          }
+        ]
+      },
+      "passed": true
+    },
+    {
+      "half": 2,
+      "series": 29,
+      "metrics": {
+        "n": 67,
+        "brier": 0.24502626398151353,
+        "logLoss": 0.6834108323278703,
+        "baselineBrier": 0.25,
+        "baselineLogLoss": 0.6931471805599453,
+        "brierDelta": -0.0049737360184865555,
+        "logLossDelta": -0.00973634823207501,
+        "meanProbability": 0.5027075245703333,
+        "observedWinRate": 0.5522388059701493,
+        "meanProbabilityGap": 0.04953128139981597,
+        "ece": 0.050736989101927754,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "upperInclusive": false,
+            "n": 0,
+            "meanProbability": null,
+            "observedWinRate": null
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "upperInclusive": false,
+            "n": 11,
+            "meanProbability": 0.36730829163824963,
+            "observedWinRate": 0.36363636363636365
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "upperInclusive": false,
+            "n": 46,
+            "meanProbability": 0.5068794329848437,
+            "observedWinRate": 0.5652173913043478
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "upperInclusive": false,
+            "n": 10,
+            "meanProbability": 0.6324559020888774,
+            "observedWinRate": 0.7
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "upperInclusive": true,
+            "n": 0,
+            "meanProbability": null,
+            "observedWinRate": null
+          }
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "supplementaryWinnerAccuracy": {
+    "correct": 82,
+    "decisiveMaps": 140,
+    "ties": 0,
+    "rate": 0.5857142857142857,
+    "registeredQualityGate": false,
+    "prospective": false
+  },
+  "checks": {
+    "frozenEvaluate": "PASS_execution_failed_quality",
+    "frozenReplay": "PASS",
+    "duplicateFirstAttempt": "PASS_expected_OUTPUT_EXISTS_exit1",
+    "firstResultHashesUnchanged": true,
+    "independentArithmeticAudit": {
+      "status": "PASS",
+      "path": ".tools/audit-historical-first-evaluation.mjs",
+      "sha256": "68d3097d62e4c9689430a797898b2724b6c55ba3b7601d7fe45b52c6c9eab9c1",
+      "tolerance": 1e-12,
+      "strictHistoryLinks": 94856,
+      "bootstrapResamples": 10000
+    },
+    "protectedArtifacts": 245,
+    "database": {
+      "tables": 83,
+      "changed": [],
+      "queueUnchanged": true,
+      "activeModels": 0,
+      "health": {
+        "status": 200
+      },
+      "web": {
+        "status": 200
+      }
+    },
+    "applicationCodeChanged": false,
+    "fullRegression": "not_repeated_no_application_code_change; prior frozen-code QA in s3-01-v1-historical-executable-checkpoint.json"
+  },
+  "limitations": [
+    "Bounded local repository captures/evidence plus working database; not proof of zero external or human exposure.",
+    "Conservative 8-11 digit numeric tokens supplement explicit match IDs; a token hit excludes the whole series without examining model error.",
+    "Only explicitly OpenDota-tagged provider series IDs are used; untagged or other-provider series numbers are not merged.",
+    "Runtime/binary/backup/auth/private directories and files are excluded as listed in the hashed local file manifest.",
+    "4 files remain non-JSON (HTML/errors/command output); their decoded numeric tokens are included.",
+    "Public historical tournament results can be known; no candidate model errors or comparative metrics on the new cohort have been computed.",
+    "Previous team-history discovery overrepresents some teams; exclusions may make the resulting cohort unrepresentative of all Tier1 teams.",
+    "PUBLIC_HISTORICAL_RESULTS_MAY_BE_KNOWN",
+    "EVENT_TIME_OUTCOME_AVAILABILITY_ASSUMED",
+    "CURRENT_NUMERIC_IDENTITIES",
+    "RECONSTRUCTED_LINEUP_NOT_PROSPECTIVE",
+    "REMOTE_HISTORY_COMPLETENESS_UNKNOWN"
+  ],
+  "providerRequests": 0,
+  "syntheticOnly": false,
+  "isActive": false,
+  "deployable": false,
+  "releaseGatePassed": false,
+  "teamAWinProbability": null,
+  "action": "keep_model_inactive_preserve_first_failed_result",
+  "nextTask": "S3-01/V1-retest/proposal"
+}
