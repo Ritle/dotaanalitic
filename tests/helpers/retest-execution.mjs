@@ -11,8 +11,8 @@ export const code=['scripts/retest-v1.mjs','scripts/lib/v1-retest-execution.mjs'
   'packages/prediction/dist/v1-features.js','packages/prediction/dist/v1-candidate.js','packages/prediction/dist/v1-quality.js'].map(path=>({path,sha256:'b'.repeat(64)}));
 export const runtime={node:process.version,platform:process.platform,arch:process.arch,nodeBinarySha256:'c'.repeat(64)};
 const us=t=>String(BigInt(Date.parse(t))*1000n),ref=(path,v)=>({path,sha256:evidence(v).sha256});
-export function fixture(mutate=()=>{}){
-  const {ctx,accessEvidence}=protocolFixture(),sources=[];
+export function fixture(mutate=()=>{},protocolOptions){
+  const {ctx,accessEvidence}=protocolFixture(protocolOptions),sources=[];
   const add=v=>{const e=evidence(v);if(!sources.some(s=>s.sha256===e.sha256))sources.push(e);};
   const oldRefs={schemaVersion:1,...Object.fromEntries(Object.entries(ctx.previous.inputs).map(([k,v])=>[k,ref('old-'+k+'.json',v)]))};
   ctx.refs.previous.inputs=ref('old-inputs.json',oldRefs);add(oldRefs);

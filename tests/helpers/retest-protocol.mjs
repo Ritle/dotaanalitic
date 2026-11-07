@@ -1,18 +1,12 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import {mkdtemp,writeFile,readFile,rm} from 'node:fs/promises';
-import {tmpdir} from 'node:os';
-import {join,resolve,dirname,basename} from 'node:path';
-import {spawnSync} from 'node:child_process';
-import {registerRetestProtocol,verifyRetestProtocol,retestMetadata,readRetestInputs,save,sha} from '../../scripts/lib/v1-retest-protocol.mjs';
-import {registerHistoricalProtocol,verifyHistoricalProtocol} from '../../scripts/lib/v1-historical-protocol.mjs';
-import {V1HistoricalRequestSchema} from '../../packages/contracts/dist/v1-historical-protocol.js';
+// Synthetic protocol ancestry only; never a real completed evaluation or model candidate.
+import {registerRetestProtocol,retestMetadata,sha} from '../../scripts/lib/v1-retest-protocol.mjs';
+import {registerHistoricalProtocol} from '../../scripts/lib/v1-historical-protocol.mjs';
 import {V1_RELEASE_QUALITY_POLICY} from '../../packages/prediction/dist/v1-quality-policy.js';
 import {canonicalContextJson} from '../../packages/db/dist/temporal.js';
 const text=v=>JSON.stringify(v,null,2)+'\n',hash=v=>sha(canonicalContextJson(v)),stamp=v=>({...v,fingerprint:hash(v)});
 const ref=(path,data)=>({path,sha256:sha(text(data))});
 const at='2025-11-06T12:05:00.000Z';
-export function protocolFixture(){
+export function protocolFixture({unknownExposedSeries=false}={}){
   const rawBody=JSON.stringify([{leagueid:77,name:'Synthetic Prior Main',tier:'professional'},
     ...Array.from({length:7},(_,i)=>({leagueid:100+i,name:`Synthetic Main ${i}`,tier:'professional'}))]);
   const catalogue={source:{provider:'opendota',endpoint:'/leagues',fetchedAt:'2025-11-06T09:00:00.000Z',knownAt:null,payloadSha256:sha(rawBody)},rawBody};
@@ -28,7 +22,7 @@ export function protocolFixture(){
   const events=Array.from({length:7},(_,i)=>({leagueId:String(100+i),name:`Synthetic Main ${i}`,fromAt:'2025-02-01T00:00:00.000Z',until:'2025-03-01T00:00:00.000Z',sourceUrl:'https://example.invalid/main'}));
   const intent={format:'v1-retest-proposal-intent-v1',createdAt:'2025-11-06T12:00:00.000Z',status:'proposal_not_registered_release_protocol',priorReport:{...ref('old-report.json',report),decision:'failed'},events,warmupFromAt:'2024-01-01T00:00:00.000Z',eventCutoffAt:'2025-07-01T00:00:00.000Z',wholeEventExclusions:[{leagueId:'77',reason:'previous failed cohort'}],limits:{maxDiscoveryHttpRequests:14,maxUniqueMaps:5000,maxDetailAttemptsPerMap:3,proposedCollectionDeadline:'2025-11-13T00:00:00.000Z'},unchangedModel:{initialRating:1500,k:32,scale:400,minPriorMapsPerPlayer:5,calibrator:false},qualityPolicySha256:protocol.qualityPolicySha256,disclosures:['Synthetic only, no global blindness claim'],freshEvaluationPerformed:false,automaticActivation:false};
   const fileExposure={capturedAt:'2025-11-06T12:01:00.000Z',files:[],potentialMapIds:['100000001'],opendotaSeriesIds:['31']};
-  const databaseExposure={capturedAt:'2025-11-06T12:01:01.000Z',maps:[{matchId:'100000009',leagueId:null,provider:'pandascore',providerSeriesId:'33'}]};
+  const databaseExposure={capturedAt:'2025-11-06T12:01:01.000Z',maps:[{matchId:'100000009',leagueId:null,provider:unknownExposedSeries?'opendota':'pandascore',providerSeriesId:unknownExposedSeries?null:'33'}]};
   const row=(id,series,leagueId='100',extra={})=>({match_id:id,series_id:series,leagueid:leagueId,start_time:Date.parse('2025-02-10T00:00:00Z')/1000,radiant_team_id:'1',dire_team_id:'2',...extra});
   const make=(leagueId,rows)=>{const rawBody=JSON.stringify(rows);return {source:{provider:'opendota',endpoint:`/leagues/${leagueId}/matches`,fetchedAt:'2025-11-06T12:02:00.000Z',knownAt:null,payloadSha256:sha(rawBody)},rawBody};};
   const captures=events.map((e,i)=>make(e.leagueId,i?[]:[row('100000001','30'),row('100000002','30'),row('100000003','31'),row('100000004','32'),row('100000005','32','100',{radiant_team_id:'2',dire_team_id:'1'}),row('100000006',null),row('100000007','33')]));

@@ -22,7 +22,7 @@ try{
   }
 }catch(e){
   console.error(JSON.stringify({status:'unavailable',code:e?.code==='EEXIST'?'OUTPUT_EXISTS':
-    /^retest_execution_[a-z_]+$/.test(e?.message??'')?e.message.toUpperCase():'HISTORICAL_EXECUTION_REJECTED',
+    /^(?:retest_execution|retest_import|historical_execution)_[a-z_]+$/.test(e?.message??'')?e.message.toUpperCase():'RETEST_EXECUTION_REJECTED',
     message:'Проверка остановлена. Сверьте SHA, время, код и локальные зависимости пакета. Существующую регистрацию или первую оценку не перезаписывать.',
     deployable:false,teamAWinProbability:null}));process.exitCode=1;
 }

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/S3-03/V1-retest/execution-preparation",
+  "checkedAt": "2026-11-07T17:47:01.346Z",
+  "status": "preparation_verified_real_evaluation_not_performed",
+  "protocolSha256": "14353a129616d4757638ca91916aeb356e3944b45cdb64ab56cb8e21238452f1",
+  "fixedNumericPolicyUnchanged": true,
+  "firstFailedEvaluationPreserved": true,
+  "productionExecutableFrozen": false,
+  "providerRequests": 0,
+  "workingImportPerformed": false,
+  "realEvaluationPerformed": false,
+  "registryActivated": false,
+  "syntheticOnlyTests": true,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "uniqueTests": 892,
+      "execution": "sequential suite + targeted timeout repeat + remaining API/worker suites"
+    },
+    "node": {
+      "status": "PASS",
+      "uniqueTests": 226,
+      "newTests": 14,
+      "execution": "full sequential run: 225 passed; final focused run: all 14 new tests passed after fixture correction"
+    },
+    "migrations": {
+      "status": "PASS",
+      "count": 49
+    },
+    "docs": "PASS",
+    "nullSeriesRegression": "RED then GREEN; null exposure series do not join unrelated targets",
+    "initialFailures": [
+      "Sandbox local DB/junction checks required native execution; frozen offline install passed natively.",
+      "Initial adapter tests found missing v2 disclosure adaptation; corrected without changing the old kernel.",
+      "Initial broad test saw executable SHA change while a new module was edited; later runs used unchanged source code.",
+      "Sequential suite reported 3651095ms elapsed for one legacy CLI test and exceeded its 60000ms timeout; targeted repeat passed without source or timeout changes.",
+      "One new negative fixture hit target_binding before exposure_binding; added the source exclusion reason so the test reaches its intended guard. Production guard unchanged; final 14-test suite passed."
+    ]
+  },
+  "preservation": {
+    "collectionFiles": 2632,
+    "collectionUnchanged": true,
+    "protectedArtifacts": 245,
+    "previousFrozenAndCurrentCodeFiles": 373,
+    "firstFailedEvaluationPreserved": true,
+    "initialDatabaseAudit": {
+      "at": "2026-11-06T20:32:10.823Z",
+      "publicTables": 83,
+      "canonicalMaps": 939,
+      "activeModels": 0,
+      "health": {
+        "api": 200,
+        "web": 200
+      }
+    },
+    "finalDatabaseAudit": {
+      "status": "UNAVAILABLE",
+      "reason": "Local PostgreSQL not running; connection refused on IPv4. No listeners on 5432/3000/5173.",
+      "publicTablesUnchanged": null,
+      "queueUnchanged": null,
+      "activeModels": null,
+      "servicesRestarted": false
+    }
+  },
+  "realOpenCollectionGuard": {
+    "checkedAt": "2026-11-07T07:27:48.521Z",
+    "status": "PASS",
+    "code": "RETEST_IMPORT_COLLECTION_NOT_CLOSED",
+    "outputCreated": false,
+    "providerRequests": 0,
+    "evaluationPerformed": false
+  },
+  "limitations": [
+    "Positive production prepare/import/freeze/evaluate requires terminal real collection and canonical export.",
+    "Frozen synthetic CLI tests link installed local dependencies; real bundle dependency installation remains a future step.",
+    "No PostgreSQL integration, browser, Python or Docker/Linux suite rerun for this offline evaluator-only change.",
+    "Registry handoff is separate and legacyRegistryCompatible:false; no model activation."
+  ],
+  "files": [
+    {
+      "path": "packages/contracts/src/v1-retest-execution.ts",
+      "sha256": "167e6efbbb01fea0ac3f01fd00589fb236b397e18573ecd0f0b83add5a00d68a"
+    },
+    {
+      "path": "scripts/lib/v1-retest-execution.mjs",
+      "sha256": "a159437906e544507b33af2230b46a76c2d9d32782f8f008ee87befe60db4bfa"
+    },
+    {
+      "path": "scripts/lib/v1-retest-bundle.mjs",
+      "sha256": "9c90fa9f1283a9b00e623504abef565f4bbc5d8cf55e8fbe35113d254ccd018a"
+    },
+    {
+      "path": "scripts/retest-v1.mjs",
+      "sha256": "4038b20c13592d2756c7050cfd9ff50eff9274b080b5d7db08d6a90c6b3a88b7"
+    },
+    {
+      "path": "tests/helpers/retest-execution.mjs",
+      "sha256": "8e8003dac335dee0681551571a64593e85f0ecaea469255df0333d92dd680676"
+    },
+    {
+      "path": "tests/helpers/retest-protocol.mjs",
+      "sha256": "1732ea0fe048d5f1104ec9878e3370d4c01d71202994f93bd4cde58e3206a8fe"
+    },
+    {
+      "path": "tests/node/v1-retest-execution.test.mjs",
+      "sha256": "ac4c76ddaf397aefe9462a3131f887cc0140be4c7a8ad02e2c456395ceb762dd"
+    }
+  ],
+  "next": {
+    "task": "S3-01/V1-retest/collection",
+    "action": "Start local PostgreSQL, resume remaining 25 history details subject to current quota, close collection, canonical import/reconciliation.",
+    "model": "GPT-6 Astra",
+    "reasoning": "Extra High"
+  },
+  "finalizedAt": "2026-11-07T22:53:37.713Z",
+  "finalization": "Resumed after automatic approval review usage limit; tested source hashes unchanged."
+}

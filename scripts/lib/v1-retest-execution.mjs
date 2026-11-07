@@ -87,7 +87,8 @@ export function verifyRetestCapsule(input){
     manifest.stateFingerprint!==closure.stateFingerprint||manifest.configSha256!==closure.configSha256||
     !same(plan.collectionReport,closure.report))fail('closure_binding');
   clock(closure.closedAt);clock(plan.reviewedAt);
-  if(closure.reason==='deadline'?closure.closedAt<protocol.collection.collectionDeadline:closure.reason!=='all_work_terminal')fail('closure_reason');
+  if(closure.reason==='deadline'?closure.closedAt<protocol.collection.collectionDeadline:
+    closure.reason!=='all_work_terminal'||closure.closedAt>=protocol.collection.collectionDeadline)fail('closure_reason');
   if(closure.closedAt<protocol.registeredAt||plan.reviewedAt<closure.closedAt||
     dataset.source.request.snapshotAt<closure.closedAt||capsule.preparedAt<plan.reviewedAt||
     capsule.preparedAt<dataset.source.request.snapshotAt)fail('preparation_clock');
@@ -102,8 +103,17 @@ export function verifyRetestCapsule(input){
   if(!same(capsule.coverage,coverage))fail('coverage_replay');
   if(coverage.rows.some(r=>r.ready&&(r.seriesId===null||r.exposureExcluded)))fail('target_binding');
   const exposedIds=new Set(inputs.fileExposure.potentialMapIds.concat(inputs.databaseExposure.maps.map(r=>r.matchId)));
-  const exposedSeries=new Set(inputs.fileExposure.opendotaSeriesIds.concat(inputs.databaseExposure.maps.filter(r=>r.provider==='opendota').map(r=>r.providerSeriesId)));
+  const exposedSeries=new Set(inputs.fileExposure.opendotaSeriesIds.concat(inputs.databaseExposure.maps.filter(r=>r.provider==='opendota'&&r.providerSeriesId!==null).map(r=>r.providerSeriesId)));
+  const excluded=new Set(targets.filter(t=>t.priorExposure||exposedIds.has(t.matchId)).map(t=>t.matchId));
+  let changed=true;
+  while(changed){changed=false;for(const t of targets){const row=rows.find(r=>r.matchId===t.matchId),aliases=[t.seriesId,row.seriesId].filter(Boolean);
+    if(aliases.some(s=>exposedSeries.has(s))||excluded.has(t.matchId)){
+      if(!excluded.has(t.matchId)){excluded.add(t.matchId);changed=true;}
+      for(const s of aliases)if(!exposedSeries.has(s)){exposedSeries.add(s);changed=true;}
+    }
+  }}
   for(const row of coverage.rows){
+    if(row.exposureExcluded!==excluded.has(row.matchId))fail('exposure_binding');
     if(!row.exposureExcluded&&(exposedIds.has(row.matchId)||exposedSeries.has(row.seriesId)||coverage.rows.some(r=>r.seriesId!==null&&r.seriesId===row.seriesId&&r.exposureExcluded)))fail('exposure_binding');
     if(row.ready){const m=dataset.source.candidates.find(m=>m.matchId===row.matchId),t=targets.find(t=>t.matchId===row.matchId);
       if(t.startTime===null||BigInt(m.startedAtUs)!==BigInt(t.startTime)*1000000n||m.radiantTeamId!==t.radiantTeamId||m.direTeamId!==t.direTeamId)fail('target_context');
@@ -135,15 +145,17 @@ export function verifyRetestFreeze(saved,context,capsuleSha256,code,runtime){
 }
 export function scoreRetestEvaluation(context,freeze,freezeSha256,startInput){
   const start=RetestEvaluationStartSchema.parse(startInput);
+  verifyRetestFreeze(freeze,context,freeze.capsuleSha256,freeze.code,freeze.runtime);
   // Adapt only the call to the immutable arithmetic kernel. The registered v2 protocol is never rewritten.
-  const protocol={...context.protocol,request:{...context.protocol.request,
+  const protocol={...context.protocol,exposure:{...context.protocol.exposure,
+    limitations:[...context.protocol.independence.disclosures,...context.inputs.accessReview.limitations]},request:{...context.protocol.request,
     baseQualityPolicySha256:context.inputs.previous.protocol.request.baseQualityPolicySha256}};
   const kernel=scoreHistoricalEvaluation({...context,protocol},freeze,freezeSha256,
     {...start,schemaVersion:1,format:'v1-historical-first-scoring-v1'});
   const {fingerprint,...body}=kernel;
   return stamp({...body,schemaVersion:2,format:'v1-retest-evaluation-v2',firstScoring:start,
     closureSha256:freeze.closureSha256,sourceManifestSha256:freeze.sourceManifestSha256,
-    previousAttempt:context.protocol.previousAttempt,kernel:'unchanged_v1_historical_arithmetic'});
+    previousAttempt:context.protocol.previousAttempt,independence:context.protocol.independence,kernel:'unchanged_v1_historical_arithmetic'});
 }
 export function retestRegistryBinding(context,freeze,freezeSha256,report){
   checked(report);if(!same(report,scoreRetestEvaluation(context,freeze,freezeSha256,report.firstScoring)))fail('evaluation_replay');
