@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-05/V1-retest/registry-integration",
+  "completedAt": "2026-11-10T13:37:43.081Z",
+  "status": "completed",
+  "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+  "isActive": false,
+  "teamAWinProbability": null,
+  "readiness": "NO_ACTIVE_MODEL",
+  "source": {
+    "freezeSha256": "61a718f762d24c9fa98dca1b928797adab411a097d4b6eef04782de5ca7992ab",
+    "capsuleSha256": "654087e06004bb646344252e84e37a98f74dc2f3c40514a983f276aeed5ef212",
+    "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "reportFingerprint": "97429ef9a6de1f35fba99b4f01b9f7263ba1346c17ce0bd5df34239a7e96e372",
+    "protocolFingerprint": "0d1518cc6446685ddabb4afb880fae72821e93c4aa8444ab1cdb834d853168a9",
+    "evaluationBasis": "conditional_retrospective_unexposed_series",
+    "qualityDecision": "passed",
+    "scoredMaps": 664,
+    "scoredSeries": 332
+  },
+  "implementation": {
+    "migration": "050_v1_retest_registry.sql",
+    "migrationSha256": "80308b0d6750db41c1188eb66440f039ab4596d1b9f56c4bc823588473f3fb09",
+    "exactSourceDocuments": 5,
+    "immutable": true,
+    "fullTrustedReplayBeforeWrite": true,
+    "inactiveOnly": true,
+    "repeatedRegistrationSameId": true,
+    "dbEvidenceReplay": true,
+    "syntheticFixturesLimitedToTests": true,
+    "oldInferenceAndQualityPolicyUnchanged": true
+  },
+  "tests": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 895,
+    "node": 237,
+    "postgresUnique": 49,
+    "newPostgres": 6,
+    "legacyPostgresApi": 43,
+    "legacyInitial": {
+      "passed": 41,
+      "failed": 2,
+      "reason": "beforeEach hook timeout 10000ms"
+    },
+    "legacyScopedRetry": {
+      "passed": 2,
+      "skipped": 7,
+      "timeLimitsChanged": false
+    },
+    "liveAdmission": "PASS",
+    "liveNegative": {
+      "status": "PASS",
+      "checkedAt": "2026-11-10T13:28:34.811Z",
+      "sourceReportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "wrongRuntimeRejected": true,
+      "forgedPassedReportRejected": true,
+      "originalArtifactsChanged": false,
+      "workingDatabaseWrites": 0
+    },
+    "migrations": 50,
+    "fullPostgres": false,
+    "browser": false,
+    "python": false,
+    "dockerLinux": false,
+    "existingViteChunkWarning": true
+  },
+  "preservation": {
+    "originalTables": 83,
+    "currentTables": 84,
+    "unchangedOldRowsAcrossAllOriginalTables": true,
+    "changedOldTables": [
+      "prediction_model_versions",
+      "schema_migrations"
+    ],
+    "newTables": [
+      "v1_retest_model_artifacts"
+    ],
+    "newModels": 1,
+    "newEvidenceRows": 1,
+    "canonicalMaps": 2232,
+    "queueRows": 14,
+    "queueExactHashUnchanged": true,
+    "activeModels": 0,
+    "protectedInventory": 9703,
+    "unchangedProtectedFiles": 9701,
+    "allowedChanges": [
+      {
+        "path": "packages/contracts/dist/index.js",
+        "oldSha256": "29925dbf7e93bc15326061939c47fdcf2e81c388fef859ac17ff43bb66f86ce7",
+        "newSha256": "c3ae6a6941d24b42b9c3ac6211621c9b127b8d8d92cb6f36f301aec76febd7f7"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "oldSha256": "2ba1bd6d06bbc1e263b19223db69b1015180e065be41349d0da0dbeecdcf7f53",
+        "newSha256": "7ac25ad2de1e735585917d951e238cd5b65f9098b744c3979db949cd72c24487"
+      }
+    ],
+    "oldFailurePreserved": true,
+    "firstRetestReportAndMarkerPreserved": true,
+    "repeatAndVerifyAllTablesUnchanged": true,
+    "backup": {
+      "status": "PASS",
+      "file": ".tools/v1-retest-registry-20261110/before.dump",
+      "sha256": "eb6c2e45c0aa02e5915aad311ee4dde4ce9af4fd483befab2d9afe21a801333b",
+      "bytes": 14331678,
+      "archiveListChecked": true,
+      "restoreExecuted": false
+    },
+    "providerHttpRequests": 0,
+    "apiWebGeneralWorkerStarted": false
+  },
+  "nextTask": "S3-05/S3-06/V1-retest/activation-readiness",
+  "recommendedModel": "GPT-6 Astra",
+  "reasoningEffort": "Extra High"
+}

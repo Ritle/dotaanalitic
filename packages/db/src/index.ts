@@ -101,3 +101,4 @@ export * from './schedule-page-runtime.js';
 export * from './schedule-page-freshness.js';
 export * from './schedule-page-service.js';
 export * from './tier1-scopes.js';
+export * from './v1-retest-registry-repository.js';
