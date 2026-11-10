@@ -41,16 +41,16 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
         <RouterLink :to="{path:'/compare',query:{teamA:id}}">Сравнить эту организацию с другой →</RouterLink>
         <p class="hint">Сведения реестра о составе показаны выше. Ниже — участники последней завершённой карты в локальной базе.</p>
         <h3>Последний наблюдавшийся состав</h3>
-        <p class="hint">Это участники завершённой pro-карты, а не доказательство предматчевой известности или текущего состава. Роли не назначаются автоматически.</p>
+        <p class="hint">Это участники завершённой pro-карты, а не текущий состав. Подсказки ролей в реестре выше не определяют роли в этой карте.</p>
         <template v-if="data.latestObservedLineup">
           <p>Карта {{data.latestObservedLineup.matchId}} · {{dateLabel(data.latestObservedLineup.startedAt)}} · {{data.latestObservedLineup.side==='radiant'?'Radiant':'Dire'}}</p>
           <p class="hint">Источник: {{data.latestObservedLineup.source}} · Синхронизация: {{dateLabel(data.latestObservedLineup.syncedAt)}} · N = 1 карта</p>
           <p v-if="data.latestObservedLineup.status==='incomplete'" class="warning">Состав неполный: не все пять игроков идентифицированы.</p>
           <ul><li v-for="member in data.latestObservedLineup.members" :key="member.playerSlot">
-            Слот {{member.playerSlot}}:
             <RouterLink v-if="member.playerId" :to="`/players/${member.playerId}`">{{member.name}} · ID {{member.playerId}}</RouterLink>
             <span v-else>игрок не идентифицирован</span>
           </li></ul>
+          <details><summary>Слоты в протоколе карты</summary><p v-for="member in data.latestObservedLineup.members" :key="member.playerSlot">{{member.name||'Игрок не идентифицирован'}} · слот {{member.playerSlot}}. Номер слота не является ролью.</p></details>
         </template>
         <p v-else>Нет доступных завершённых профессиональных карт этой организации. N = 0.</p>
       </template>

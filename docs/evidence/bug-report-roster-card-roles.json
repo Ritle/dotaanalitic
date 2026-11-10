@@ -1,0 +1,132 @@
+{
+  "task": "S2-01/BUG_REPORT/roster-card-roles",
+  "checkedAt": "2026-11-10T20:12:38.024Z",
+  "scope": {
+    "uiOnly": true,
+    "newEndpoints": false,
+    "newMigrations": false,
+    "predictionEffect": "none",
+    "policy": "existing role-editor-priority-v1",
+    "externalRefresh": false,
+    "maxMembers": 30,
+    "maxLocalRequests": 6,
+    "cacheStaleTimeSeconds": 60,
+    "cutoffSource": "server roster computedAt",
+    "finalWebBuild": "PASS"
+  },
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "uniquePassed": 908,
+      "initialRootCommand": "FAIL: one unchanged v1-release-cli test exceeded90000ms",
+      "targetedRepeat": "2 PASS, maxWorkers1, unchanged timeout",
+      "remainingPackages": "API50 + worker1 PASS",
+      "newPureTests": 4
+    },
+    "build": "PASS; existing chunk-size warning",
+    "apiPostgres": {
+      "passed": 7,
+      "synthetic": true
+    },
+    "browser": {
+      "uniquePassed": 8,
+      "finalCacheKeyRepeatPassed": 2,
+      "synthetic": true,
+      "workers": 1
+    },
+    "migrationFiles": 52,
+    "developmentFailures": [
+      "Initial pure test RED: helper not implemented",
+      "Initial browser1 PASS/1 FAIL: hidden-slot assertion matched five elements; selector corrected",
+      "Full unit run1 timeout in unchanged v1-release-cli; isolated repeat passed without timeout changes"
+    ],
+    "live": {
+      "team": "Team Spirit",
+      "teamId": "1",
+      "players": 5,
+      "roles": [
+        {
+          "playerId": "14",
+          "role": 2,
+          "historyMaps": 18,
+          "historyScope": "selected_team",
+          "heuristic": true
+        },
+        {
+          "playerId": "15",
+          "role": 3,
+          "historyMaps": 5,
+          "historyScope": "selected_team",
+          "heuristic": true
+        },
+        {
+          "playerId": "18",
+          "role": 4,
+          "historyMaps": 18,
+          "historyScope": "selected_team",
+          "heuristic": true
+        },
+        {
+          "playerId": "20",
+          "role": 1,
+          "historyMaps": 18,
+          "historyScope": "selected_team",
+          "heuristic": true
+        },
+        {
+          "playerId": "21",
+          "role": 5,
+          "historyMaps": 18,
+          "historyScope": "selected_team",
+          "heuristic": true
+        }
+      ],
+      "roleReads": 1,
+      "providerHttp": 0,
+      "refreshProfiles": false,
+      "pageErrors": 0,
+      "http5xx": 0,
+      "mobileOverflow": false,
+      "slotsCollapsedByDefault": true,
+      "logout": true,
+      "initialPass": {
+        "roleReads": 2,
+        "note": "Initial pass observed two card GETs and two local reads during development; final isolated pass used one read. No provider refresh in either pass."
+      }
+    }
+  },
+  "preservation": {
+    "tables": 85,
+    "unchangedTables": 83,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "maps": 2232,
+    "queueRows": 12,
+    "queueUnchanged": true,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 25228,
+    "webPid": 8376,
+    "generalWorker": "OFF",
+    "apiRestartRequired": false
+  },
+  "limitations": [
+    "Current roster may be stale; its warning remains visible",
+    "Role accuracy not measured; lane/GPM estimates are not confirmed positions",
+    "Current hints never label a historical map or affect V1",
+    "Full external refresh and manual role changes remain in the comparison editor",
+    "Role reader disabled for registry lists over30 members"
+  ],
+  "nextTask": "S1-16/BUG_REPORT/readable-labels",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

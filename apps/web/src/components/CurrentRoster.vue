@@ -4,6 +4,7 @@ import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {RosterContextSchema} from '../../../api/src/modules/catalog/roster-context-contract';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
+import CurrentRosterRoles from './CurrentRosterRoles.vue';
 const props=defineProps<{kind:'teams'|'players';id:string}>(),cache=useQueryClient(),busy=ref(false),error=ref('');
 const key=computed(()=>['roster-context',props.kind,props.id]),path=computed(()=>`${props.kind}/${encodeURIComponent(props.id)}/roster-context`);
 const query=useQuery({queryKey:key,enabled:computed(()=>!!ownerAuth.value),
@@ -43,12 +44,7 @@ async function refresh(){
      </template>
      <template v-else>
       <p>В реестре: {{report.members.length}} игроков · подтверждённых локальных аккаунтов: {{linked}}.</p>
-      <ul><li v-for="member in report.members" :key="member.accountId">
-       <RouterLink v-if="member.playerId" :to="`/players/${member.playerId}`">{{member.name}}</RouterLink><strong v-else>{{member.name}}</strong>
-       <span v-if="member.localName&&member.localName!==member.name" class="hint"> · в локальном каталоге: {{member.localName}}</span>
-       <a :href="`https://www.opendota.com/players/${member.accountId}`" target="_blank" rel="noopener noreferrer" class="account">Steam32 {{member.accountId}}</a>
-       <span v-if="member.identityStatus!=='verified'" class="hint">{{member.identityStatus==='conflict'?'Конфликт личности — локальная карточка не подставлена':'Аккаунт пока не связан с локальным игроком'}}</span>
-      </li></ul>
+      <CurrentRosterRoles :team-id="id" :members="report.members" :cutoff-at="report.computedAt" />
      </template>
     </template>
     <div v-if="kind==='teams'&&report.team" class="lineup-guidance">
