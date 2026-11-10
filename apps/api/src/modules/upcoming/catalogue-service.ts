@@ -5,11 +5,14 @@ import {catalogueCandidates,catalogueDirectoryCandidates,catalogueTeamCandidate,
 import {CatalogIdSchema,RosterCatalogueStateSchema,RosterCatalogueSearchResultSchema,RosterCataloguePreparedSchema,type RosterCatalogueApply,type RosterCataloguePrepared} from '@dota/contracts';
 import {UpcomingService} from './service.js';
 import {rosterNameCandidates} from './roster-name-candidates.js';
+import {readRosterRegistry} from '../catalog/roster-context-source.js';
 export type CatalogueProvider=(key:string,query?:string)=>Promise<unknown>;
 export class RosterCatalogueService{
  readonly repository:RosterCatalogueRepository;
  private readonly pending=new Map<string,Promise<CatalogueObservation>>();
  constructor(private readonly db:Db,private readonly upcoming:UpcomingService,private readonly provider:CatalogueProvider){this.repository=new RosterCatalogueRepository(db);}
+ /** Shared cached registry refresh for descriptive cards; no match or identity writes. */
+ async refreshRegistry(){return this.source('registry');}
  private async context(matchId:string){const match=await this.upcoming.findMatch(matchId);
   if(!match||match.opponents.length!==2||match.status!=='not_started'||match.scheduledAt!==null&&match.scheduledAt<=new Date().toISOString())throw new RosterCatalogueError('invalid');
   const rosters=await this.upcoming.tournament(match.tournament.providerTournamentId);return {match,rosters};
@@ -25,11 +28,12 @@ export class RosterCatalogueService{
  private source(key:string,query?:string):Promise<CatalogueObservation>{const pending=this.pending.get(key);if(pending)return pending;
   const operation=this.readSource(key,query).finally(()=>{this.pending.delete(key);});this.pending.set(key,operation);return operation;}
  private async readSource(key:string,query?:string):Promise<CatalogueObservation>{const cached=await this.repository.cached(key);
-  if(cached?.fresh)return CatalogueObservationSchema.parse(cached.observation);
+  if(cached?.fresh){try{const observation=CatalogueObservationSchema.parse(cached.observation);if(key==='registry')readRosterRegistry(observation,new Date().toISOString());return observation;}
+   catch{throw new RosterCatalogueError('source_unavailable');}}
   const lease=await this.repository.claim(key);if(!lease){const ready=await this.repository.cached(key);if(ready?.fresh)return CatalogueObservationSchema.parse(ready.observation);throw new RosterCatalogueError('source_unavailable');}
   try{const observation=CatalogueObservationSchema.parse(await this.provider(key,query));
    // Validate raw hash and registry/account structure before caching or exposing candidates.
-   if(key==='registry')catalogueCandidates(observation,'players','');
+   if(key==='registry')readRosterRegistry(observation,new Date().toISOString());
    else if(key==='directory')catalogueDirectoryCandidates(observation,'');
    else if(key.startsWith('search:'))discoveryCandidates(observation,query!);
    else if(key.startsWith('player:'))catalogueProfileCandidate(observation,key.slice(7));

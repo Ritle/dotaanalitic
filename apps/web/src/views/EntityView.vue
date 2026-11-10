@@ -11,6 +11,7 @@ import PlayerHeroReport from '../components/PlayerHeroReport.vue';
 import RankedPractice from '../components/RankedPractice.vue';
 import StrengthReport from '../components/StrengthReport.vue';
 import HistoryRefresh from '../components/HistoryRefresh.vue';
+import CurrentRoster from '../components/CurrentRoster.vue';
 const route=useRoute();
 const kind=computed(()=>route.name==='team'?'teams':'players');
 const id=computed(()=>String(route.params.id));
@@ -32,10 +33,11 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
       <p>ID {{data.entity.id}}<span v-if="data.entity.secondary"> · {{data.entity.secondary}}</span></p>
       <dl class="metadata"><dt>Источник</dt><dd>Локальный справочник</dd><dt>Синхронизация</dt><dd>{{dateLabel(data.entity.syncedAt)}}</dd>
         <dt>Изменение записи</dt><dd>{{dateLabel(data.entity.metadataUpdatedAt)}}</dd><dt>Прочитано</dt><dd>{{dateLabel(data.computedAt)}}</dd></dl>
+      <CurrentRoster :key="kind+id" :kind="kind" :id="id" />
       <template v-if="data.entityType==='organization'">
         <HistoryRefresh :team-id="id" />
         <RouterLink :to="{path:'/compare',query:{teamA:id}}">Сравнить эту организацию с другой →</RouterLink>
-        <p class="warning">Организация — не постоянная пятёрка. Актуальный состав неизвестен; его нужно подтвердить для конкретной карты.</p>
+        <p class="hint">Сведения реестра о составе показаны выше. Ниже — участники последней завершённой карты в локальной базе.</p>
         <h3>Последний наблюдавшийся состав</h3>
         <p class="hint">Это участники завершённой pro-карты, а не доказательство предматчевой известности или текущего состава. Роли не назначаются автоматически.</p>
         <template v-if="data.latestObservedLineup">
@@ -52,8 +54,8 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
       </template>
       <template v-else>
         <p>Canonical player ID: {{data.entity.id}}. Ник не используется для объединения личностей.</p>
-        <p>Steam32 из каталога: {{data.catalogAccountId || 'неизвестно'}}. Проверка связи с личностью этим справочником не выполнялась.</p>
-        <p class="warning">Текущая команда неизвестна. Профессиональная история игрока следует подтверждённой личности через переходы между организациями.</p>
+        <p class="hint">Steam32 в записи каталога: {{data.catalogAccountId || 'неизвестно'}}. Подтверждённый аккаунт и состояние его привязки показаны в блоке команды выше.</p>
+        <p class="hint">Сведения источника о команде показаны выше. Профессиональная история игрока следует подтверждённой личности через переходы между организациями.</p>
         <p>История карт и показатели по героям ниже используют проверенные связи аккаунтов и показывают покрытие подтверждённых позиций.</p>
       </template>
       <button type="button" :disabled="isFetching" @click="refetch()">{{isFetching?'Обновление…':'Перечитать базу'}}</button>
