@@ -14,6 +14,27 @@ import {sha} from '../../scripts/lib/v1-retest-protocol.mjs';
 const score=f=>scoreRetestEvaluation(f.context,f.freeze,f.freezeSha,f.start);
 const restamp=c=>stamp(c),replace=(c,key,mutate)=>{const v=JSON.parse(c[key].text);mutate(v);c[key]=evidence(stamp(v));};
 
+test('provider side evidence binds discovery without equating provider and canonical team IDs',()=>{
+ const f=fixture(({source})=>{
+  const id=v=>v==='1'?'501':v==='2'?'902':v;
+  for(const m of source.candidates){m.radiantTeamId=id(m.radiantTeamId);m.direTeamId=id(m.direTeamId);m.outcome.teamAId=id(m.outcome.teamAId);m.outcome.teamBId=id(m.outcome.teamBId);}
+  for(const a of source.aliases){a.teamAId=id(a.teamAId);a.teamBId=id(a.teamBId);}
+ });
+ assert.equal(f.context.coverage.summary.readyMaps,3);
+ assert.equal(f.context.dataset.source.candidates[5].radiantTeamId,'501');
+ assert.equal(f.context.plan.maps[0].providerContext.radiantTeamId,'1');
+});
+
+test('changed, swapped or absent provider side evidence cannot enter a freeze',()=>{
+ for(const mutate of [v=>{v.maps[0].providerContext.radiantTeamId='999';},
+  v=>{const p=v.maps[0].providerContext;[p.radiantTeamId,p.direTeamId]=[p.direTeamId,p.radiantTeamId];},
+  v=>{delete v.maps[0].providerContext;}]){
+  const c=structuredClone(fixture().capsule);replace(c,'importPlan',mutate);
+  c.coverage=retestExecutionCoverage(JSON.parse(c.importPlan.text),JSON.parse(c.dataset.text));
+  assert.throws(()=>verifyRetestCapsule(restamp(c)),/target_context/);
+ }
+});
+
 test('v2 preparation freezes all targets and previous FAIL without scoring or activation',()=>{
   const f=fixture();assert.equal(f.context.coverage.summary.targetMaps,4);assert.equal(f.context.coverage.summary.readyMaps,3);
   assert.equal(f.context.coverage.metrics,null);assert.equal(f.context.coverage.evaluationPerformed,false);

@@ -65,10 +65,11 @@ export function buildRetestImport(configRef,ctx,state,sources,manifest,reviewedA
  const plan=stamp({schemaVersion:2,format:'v1-retest-import-plan-v2',config:configRef,reviewedAt,
   protocolFingerprint:ctx.plan.fingerprint,closureSha256:manifest.closureSha256,closureFingerprint:state.closure.fingerprint,
   sourceManifestFingerprint:manifest.fingerprint,canonicalBase:ctx.config.canonicalHistory,collectionReport:report,
-  maps:maps.map(m=>({matchId:m.matchId,payloadSha256:m.observation.source.payloadSha256,observationFingerprint:hash(m.observation),sourceFingerprint:m.sourceFingerprint,reasons:m.reasons})),
+  maps:maps.map(m=>({matchId:m.matchId,payloadSha256:m.observation.source.payloadSha256,observationFingerprint:hash(m.observation),sourceFingerprint:m.sourceFingerprint,reasons:m.reasons,
+   providerContext:m.map?{startTime:m.map.start_time,radiantTeamId:m.map.radiant_team_id??null,direTeamId:m.map.dire_team_id??null}:null})),
   historyConflictMapIds:[...conflicts].sort(order),accounts,identityReviews:identities.reviews,unresolvedProfiles:identities.rejected,
   canonicalBaseIds:ctx.canonical.source.candidates.map(m=>m.matchId).sort(order),syntheticOnly:false,
-  historyWindow:{fromAt:ctx.canonical.source.request.fromAt,toAt:ctx.canonical.source.request.toAt,maxMaps:ctx.canonical.source.request.maxMaps},
+  historyWindow:{fromAt:ctx.plan.request.warmupFromAt,toAt:ctx.plan.request.eventCutoffAt,maxMaps:ctx.plan.request.maxInventoryMaps},
   providerSeriesIds:[...new Set(maps.filter(m=>!m.reasons.length).flatMap(m=>m.map.series_id??[]))].sort(order),
   importPolicy:'closed-retest-existing-canonical-importer-v2',providerRequests:0,evaluationPerformed:false,deployable:false});
  return {plan,ctx,maps,heroes,leagues};

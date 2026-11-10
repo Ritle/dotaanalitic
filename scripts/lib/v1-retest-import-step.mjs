@@ -53,7 +53,7 @@ export async function executeRetestImportStep(inputs,db,mode,output,planRef,{onW
   }
  }else{
   const original=inputs.ctx.canonical.source.request;
-  const dataset=await new V1DataRepository(db).export({...original,snapshotAt:new Date().toISOString()},await releaseExecutionCode());
+  const dataset=await new V1DataRepository(db).export({...original,...plan.historyWindow,snapshotAt:new Date().toISOString()},await releaseExecutionCode());
   const report=reconcileRetestImport(plan,dataset);
   await saveRetestDataset(join(output,'dataset.json'),dataset);await save(join(output,'coverage.json'),report);
   results.push({status:'canonical_coverage_exported',summary:report.summary});

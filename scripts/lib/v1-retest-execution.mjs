@@ -115,8 +115,12 @@ export function verifyRetestCapsule(input){
   for(const row of coverage.rows){
     if(row.exposureExcluded!==excluded.has(row.matchId))fail('exposure_binding');
     if(!row.exposureExcluded&&(exposedIds.has(row.matchId)||exposedSeries.has(row.seriesId)||coverage.rows.some(r=>r.seriesId!==null&&r.seriesId===row.seriesId&&r.exposureExcluded)))fail('exposure_binding');
-    if(row.ready){const m=dataset.source.candidates.find(m=>m.matchId===row.matchId),t=targets.find(t=>t.matchId===row.matchId);
-      if(t.startTime===null||BigInt(m.startedAtUs)!==BigInt(t.startTime)*1000000n||m.radiantTeamId!==t.radiantTeamId||m.direTeamId!==t.direTeamId)fail('target_context');
+    if(row.ready){const m=dataset.source.candidates.find(m=>m.matchId===row.matchId),t=targets.find(t=>t.matchId===row.matchId),
+      provider=plan.maps.find(m=>m.matchId===row.matchId)?.providerContext;
+      // Provider IDs are not canonical DB IDs. The replayed import plan pins raw sides;
+      // canonical reconciliation binds the verified outcome/side to that exact receipt payload.
+      if(t.startTime===null||BigInt(m.startedAtUs)!==BigInt(t.startTime)*1000000n||!provider||
+        provider.startTime!==t.startTime||provider.radiantTeamId!==t.radiantTeamId||provider.direTeamId!==t.direTeamId)fail('target_context');
     }
   }
   historicalCandidate(protocol); // Reject a changed numeric policy before any target is scored.

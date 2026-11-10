@@ -12,6 +12,16 @@ import {HistoricalImportConfigSchema} from '../../packages/contracts/dist/v1-his
 import {hash} from '../../scripts/lib/v1-historical-collection.mjs';
 import {playerHistoryQuery} from '../../packages/ingestion/dist/player-history.js';
 const planRef={path:'synthetic-plan.json',sha256:'e'.repeat(64)};
+
+test('retest plan pins the registered period instead of inheriting a broader canonical base window',async()=>{
+ const f=await retestImportFixture();try{
+  await f.close();const {plan}=await f.prepare();
+  assert.notEqual(f.ctx.canonical.source.request.toAt,f.ctx.plan.request.eventCutoffAt);
+  assert.deepEqual(plan.historyWindow,{fromAt:f.ctx.plan.request.warmupFromAt,toAt:f.ctx.plan.request.eventCutoffAt,maxMaps:f.ctx.plan.request.maxInventoryMaps});
+  const raw=f.rawMaps[0];
+  assert.deepEqual(plan.maps[0].providerContext,{startTime:raw.start_time,radiantTeamId:raw.radiant_team_id,direTeamId:raw.dire_team_id});
+ }finally{await f.dispose();}
+});
 test('open collections are rejected before reading config, making an output, DB access or network',async()=>{
  const f=await retestImportFixture();try{
   await assert.rejects(closedRetestHeader(f.root,f.ctx.storeSha),/collection_not_closed/);

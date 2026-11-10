@@ -42,7 +42,8 @@ export function fixture(mutate=()=>{},protocolOptions){
   const manifest=stamp({schemaVersion:2,format:'retest-import-sources-v2',collectionSha256:'c'.repeat(64),closureSha256:evidence(closure).sha256,configSha256:closure.configSha256,protocolFingerprint:protocol.fingerprint,stateFingerprint:closure.stateFingerprint,files:[]});
   const dataset=prepareV1Data(source),plan=stamp({schemaVersion:2,format:'v1-retest-import-plan-v2',reviewedAt:preparedAt,protocolFingerprint:protocol.fingerprint,syntheticOnly:true,
     closureSha256:evidence(closure).sha256,closureFingerprint:closure.fingerprint,sourceManifestFingerprint:manifest.fingerprint,
-    canonicalBaseIds:ids.slice(0,5),maps:ids.slice(5).map(matchId=>({matchId,payloadSha256:'a'.repeat(64)})),historyConflictMapIds:[],
+    canonicalBaseIds:ids.slice(0,5),maps:ids.slice(5).map(matchId=>{const t=ctx.metadataReview.ledger.find(t=>t.matchId===matchId);return {matchId,payloadSha256:'a'.repeat(64),
+      providerContext:{startTime:t.startTime,radiantTeamId:t.radiantTeamId,direTeamId:t.direTeamId}};}),historyConflictMapIds:[],
     historyWindow:{fromAt:source.request.fromAt,toAt:source.request.toAt,maxMaps:5000},collectionReport:report});
   const capsule=stamp({schemaVersion:2,format:'v1-retest-execution-input-v2',preparedAt,protocol:evidence(protocol),protocolInputs:evidence(ctx.refs),protocolSources:sources,
     closure:evidence(closure),sourceManifest:evidence(manifest),importPlan:evidence(plan),dataset:evidence(dataset),coverage:retestExecutionCoverage(plan,dataset)});

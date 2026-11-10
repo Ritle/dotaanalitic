@@ -23,7 +23,7 @@ export async function retestImportFixture(n=2){
   identityRevision:'1',candidates:[],aliases:[],identities:[],code:[{path:'synthetic-test.js',sha256:'a'.repeat(64)}],syntheticOnly:true};
  const ctx={root,now:()=>clock,configSha:'b'.repeat(64),config:{syntheticOnly:false,maxRequestsPerRun:50,maxHistoryHttpAttempts:3,
   canonicalHistory:{path:'synthetic-base.json',sha256:'a'.repeat(64)},historyPolicy:{windowDays:730,maxMapsPerAccount:10}},
-  store:{createdAt:at},plan:{syntheticOnly:false,fingerprint:'c'.repeat(64),request:{maxInventoryMaps:5000,warmupFromAt:'2024-01-01T00:00:00.000Z',events:[{fromAt:'2026-02-01T00:00:00.000Z'}]},collection:{maxDetailAttemptsPerMap:3,collectionDeadline:'2026-11-13T00:00:00.000Z'}},
+  store:{createdAt:at},plan:{syntheticOnly:false,fingerprint:'c'.repeat(64),request:{maxInventoryMaps:5000,warmupFromAt:'2024-01-01T00:00:00.000Z',eventCutoffAt:'2026-07-01T00:00:00.000Z',events:[{fromAt:'2026-02-01T00:00:00.000Z'}]},collection:{maxDetailAttemptsPerMap:3,collectionDeadline:'2026-11-13T00:00:00.000Z'}},
   review:{ledger:[]},catalogue:[{leagueid:'100',name:'Synthetic league',tier:'professional'}],exposure:{blockedMatchIds:[],opendotaSeriesIds:[]},canonical:prepareV1Data(source),cache:{matches:[]}};
  const rawMaps=Array.from({length:n},(_,i)=>map(String(100000001+i),i));
  for(const m of rawMaps)ctx.review.ledger.push({matchId:m.match_id,leagueId:m.leagueid,providerSeriesId:m.series_id,startTime:m.start_time,radiantTeamId:m.radiant_team_id,direTeamId:m.dire_team_id,inTargetWindow:true,exposureExcluded:false,reasons:[]});

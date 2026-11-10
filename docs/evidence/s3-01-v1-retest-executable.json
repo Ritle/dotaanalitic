@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-retest/executable-freeze",
+  "recordedDate": "2026-11-10",
+  "checkedAt": "2026-11-10T12:34:11.590Z",
+  "status": "executable_frozen_and_verified",
+  "registeredAt": "2026-11-10T12:31:40.544Z",
+  "configSha256": "b571b4b944e79c9fb8dbd7c9c9e9c5822a6607ff7ae75190ce2dfe2c4e7e8e5f",
+  "planSha256": "f89eafbcc06a6550e4dedea533df23c4ed24d26cb27f1df9dbaaeb7ff1ccf90e",
+  "datasetSha256": "d36fd0d696622165a2fa6711589707f59d38d134aa5b4844393eb85206478fed",
+  "freezeSha256": "61a718f762d24c9fa98dca1b928797adab411a097d4b6eef04782de5ca7992ab",
+  "capsuleSha256": "654087e06004bb646344252e84e37a98f74dc2f3c40514a983f276aeed5ef212",
+  "protocolSha256": "14353a129616d4757638ca91916aeb356e3944b45cdb64ab56cb8e21238452f1",
+  "closureSha256": "efa0e5e13d222d49e0ac424a3f51a65b49733ad029856177d8a010f15f92d114",
+  "sourceManifestSha256": "028749b2521dfe119da7d4ba9dab58f77cff9c053f090b121960e5ed0ab78ce1",
+  "previousReportSha256": "bef9a6915c960cef621d028327aef19d1e302a48c7cec355373a348d98bc219c",
+  "codeFiles": 390,
+  "runtime": {
+    "node": "v22.15.0",
+    "platform": "win32",
+    "arch": "x64",
+    "nodeBinarySha256": "77bdff912b1c569b3e693fe126f619337c3e9d73dafbc4d0bf1d4f1f6a145761"
+  },
+  "codeChanges": [
+    "scripts/lib/v1-retest-execution.mjs",
+    "scripts/lib/v1-retest-import-step.mjs",
+    "scripts/lib/v1-retest-import.mjs"
+  ],
+  "scopeAudit": {
+    "status": "PASS",
+    "checkedAt": "2026-11-10T12:26:43.282Z",
+    "sourcePlanUnchangedExceptWindowProviderContextAndReview": true,
+    "canonicalFactsUnchanged": true,
+    "outcomeVerificationTimesMatchNewSnapshot": true,
+    "sourceMaps": 1301,
+    "targetLedgerRows": 967,
+    "targetLedgerSha256": "410e238d1557b6e0f9acbd21e2a1051230fc2e64d002c188b05960142ebd0c9a",
+    "targetReadinessAndPriorCountsUnchanged": true,
+    "oldWindow": {
+      "fromAt": "2024-01-01T00:00:00.000Z",
+      "toAt": "2026-11-01T00:00:00.000Z",
+      "maxMaps": 5000
+    },
+    "newWindow": {
+      "fromAt": "2024-01-01T00:00:00.000Z",
+      "toAt": "2026-07-01T00:00:00.000Z",
+      "maxMaps": 5000
+    },
+    "oldHistoryEligibleMaps": 2142,
+    "newCoverage": {
+      "inventoryMaps": 2232,
+      "historyEligibleMaps": 1603,
+      "targetMaps": 670,
+      "targetSeries": 333,
+      "canonicalTargetMaps": 664,
+      "historyReadyMaps": 664,
+      "readyMaps": 664,
+      "readySeries": 332
+    },
+    "evaluationPerformed": false
+  },
+  "windowAudit": {
+    "status": "PASS",
+    "checkedAt": "2026-11-10T12:27:28.573Z",
+    "removedHistoryMaps": 539,
+    "allRemovedAtOrAfterRegisteredCutoff": true,
+    "newHistoryMaps": 0
+  },
+  "coverage": {
+    "inventoryMaps": 2232,
+    "historyEligibleMaps": 1603,
+    "targetMaps": 670,
+    "targetSeries": 333,
+    "canonicalTargetMaps": 664,
+    "historyReadyMaps": 664,
+    "readyMaps": 664,
+    "readySeries": 332
+  },
+  "copyVerification": {
+    "exactDatasetAndPlanBytes": true,
+    "workspaceAndExternalDependencies": 12,
+    "capsuleBytes": 62544150,
+    "secretMatches": 0,
+    "evaluationDirectoryPresent": false
+  },
+  "preservation": {
+    "publicTables": 83,
+    "changedTables": [],
+    "canonicalMaps": 2232,
+    "queueRows": 14,
+    "queueUnchanged": true,
+    "importFiles": 5659,
+    "immutableImportFilesUnchanged": 5658,
+    "postgresRuntimeLog": {
+      "path": ".tools/v1-retest-import-20261110/postgres.log",
+      "sha256": "94866dd28866d048e268e86d9b6357877aa50f21718fe42891ddcf0a069fe636",
+      "beforeSha256": "0dbf0f32a64fc4314cf109d69607143aa2bf7d19d33ceabb60efef81f51a3539",
+      "originalBytes": 20167,
+      "currentBytes": 24098,
+      "appendOnly": true
+    },
+    "collectionFiles": 2684,
+    "protectedFiles": 245,
+    "previousFrozenAndCurrentCodeFiles": 373,
+    "previousFailureUnchanged": true
+  },
+  "checks": {
+    "frozenLockInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 892,
+    "node": 232,
+    "isolatedPostgres": 6,
+    "targetedNode": 32,
+    "newRegressionTests": 3,
+    "migrationChecksums": 49,
+    "frozenOfflineInstall": "PASS",
+    "frozenCopyVerify": "PASS",
+    "independentFileAndScopeAudit": "PASS",
+    "databasePreservation": "PASS",
+    "documentationLinks": "PASS",
+    "changedFilesSecretMatches": 0
+  },
+  "initialAttempt": {
+    "status": "rejected_before_bundle",
+    "code": "RETEST_EXECUTION_SCOPE_BINDING",
+    "preserved": true
+  },
+  "fixes": [
+    "Use registered protocol window instead of canonical base window for retest plan and export.",
+    "Compare discovery team IDs to replayed provider context rather than canonical database IDs."
+  ],
+  "compatibility": "Previous plan and export remain archived. Current source replay requires a new versioned plan containing provider context and the registered window.",
+  "providerHttpRequests": 0,
+  "workingDatabaseWrites": 0,
+  "realScoringAttempts": 0,
+  "evaluationPerformed": false,
+  "qualityGatePassed": null,
+  "activeModels": 0,
+  "deployable": false,
+  "teamAWinProbability": null,
+  "limitations": [
+    "Historical conditional reconstructed-lineup basis; no prospective accuracy claim.",
+    "Six target maps remain unavailable and stay in the denominator.",
+    "No real evaluation or activation in this task.",
+    "Browser, broader PostgreSQL, Python, Docker and Linux suites were not rerun.",
+    "Existing Vite chunk-size warning remains."
+  ],
+  "nextTask": "S3-03/V1-retest/independent-evaluation",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedReasoning": "Extra High"
+}
