@@ -51,6 +51,15 @@ async function refresh(){
       </li></ul>
      </template>
     </template>
+    <div v-if="kind==='teams'&&report.team" class="lineup-guidance">
+     <p v-if="report.members.length===0" class="warning">Пятёрка не определена. Выберите игроков вручную, если хотите разобрать свой состав.</p>
+     <p v-else-if="report.members.length<5" class="warning">Список неполный: {{report.members.length}} из 5 игроков. Остальные участники не подставляются из прошлых матчей.</p>
+     <p v-else-if="report.members.length>5" class="warning">В списке больше пяти игроков. Выберите нужную пятёрку для сравнения.</p>
+     <p v-else class="hint">Пять записей не подтверждают участие в будущей встрече. Проверьте игроков перед сравнением.</p>
+     <p class="hint">Статус активности команды по этому реестру не определяется. Даже свежая запись может относиться к прежнему составу.</p>
+     <p><a :href="`https://www.opendota.com/teams/${report.team.providerTeamId}`" target="_blank" rel="noopener noreferrer">Проверить команду в OpenDota</a></p>
+     <p><RouterLink :to="{path:'/compare',query:{teamA:id}}">Выбрать пятёрку для сравнения</RouterLink></p>
+    </div>
     <p v-if="report.source.fetchedAt" class="hint">Источник: OpenDota · реестр профессиональных игроков · получено {{dateLabel(report.source.fetchedAt)}}.</p>
     <p class="hint">Это сведения реестра о принадлежности к команде, а не заявка на конкретную встречу. Дата трансфера источником не сообщается. Для прогноза действует выбранная вами пятёрка.</p>
    </template>

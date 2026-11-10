@@ -1,0 +1,121 @@
+{
+  "task": "S1-16/BUG_REPORT/roster-source-audit",
+  "originalTask": "S1-16/BUG_REPORT/roster-source-fallback",
+  "checkedAt": "2026-11-10T19:09:25.095Z",
+  "scope": {
+    "completed": [
+      "source investigation",
+      "generic incomplete roster guidance",
+      "manual comparison link"
+    ],
+    "notImplemented": [
+      "automatic alternative roster provider",
+      "automatic team activity status"
+    ],
+    "reason": "Official club announcement disproves the assumption that an active missing five must be recovered. No organization/player exceptions added."
+  },
+  "sources": {
+    "registry": {
+      "endpoint": "/proPlayers",
+      "fetchedAt": "2026-11-10T18:44:15.035Z",
+      "currentListedFor8255888": 1
+    },
+    "teamPlayers": {
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/teams/8255888/players",
+        "fetchedAt": "2026-11-10T19:04:13.279Z",
+        "knownAt": null,
+        "payloadSha256": "b1c1b454000bd44c022c4e5c89ef8153171377245666ba802ea9883092856851",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 59,
+          "day": 2998,
+          "month": null
+        }
+      },
+      "historicalRows": 28,
+      "currentAccounts": [
+        "175311897"
+      ]
+    },
+    "official": {
+      "url": "https://betboom.team/",
+      "observedOn": "2026-11-10",
+      "claim": "Dota 2 division paused; roster moved to inactive",
+      "effectiveAt": null,
+      "automaticallyPersistedAsTeamStatus": false
+    },
+    "dota2protracker": {
+      "url": "https://dota2protracker.com/teams/betboom-team-8255888",
+      "status": 403,
+      "contentVerified": false
+    },
+    "pandaStratz": {
+      "localBindingsForTeam607": 0,
+      "requests": 0
+    }
+  },
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "passed": 904,
+      "maxWorkers": 2
+    },
+    "build": "PASS",
+    "browser": {
+      "passed": 4,
+      "exitCode": 0,
+      "isolatedDatabase": true,
+      "counts": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "redBeforeImplementation": 1,
+      "live": {
+        "checkedAt": "2026-11-10T19:08:25.778Z",
+        "pageErrors": 0,
+        "http5xx": 0,
+        "providerRefreshPosts": 0,
+        "comparisonTeam": "607",
+        "mobileOverflow": false,
+        "logoutProtectedStatus": 401
+      }
+    },
+    "migrations": 51,
+    "notRun": [
+      "separate API/PG suite",
+      "Node fixtures",
+      "Python",
+      "Docker/Linux"
+    ]
+  },
+  "preservation": {
+    "tables": 84,
+    "unchanged": 81,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions",
+      "provider_quotas"
+    ],
+    "queueRows": 12,
+    "queueHashUnchanged": true,
+    "maps": 2232,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "generalWorker": "OFF",
+    "schemaAndBackendUnchanged": true
+  },
+  "next": "S1-16/BUG_REPORT/team-activity: evidence-backed activity status, filter and accessible archive; then #8 roles and #7 labels",
+  "suggestedModel": "GPT-6 Astra · High"
+}

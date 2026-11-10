@@ -2521,3 +2521,14 @@ Live UI: Yatoro Steam32 321580662 links to Team Spirit and back; no page errors/
 Preservation: active model remains model_eligible;2232 maps and9703 protected files preserved;80/84 public tables unchanged, only auth_sessions/auth_login_budget/provider_quotas/roster_catalogue_cache changed. Initial queue exact-hash assertion failed14→12; read-only comparison with pre-task backup proves two completed map-import jobs from30 October removed under604800-second retention.12 remaining COPY rows identical, zero new/changed jobs; installed pg-boss delete predicate confirms retention eligibility. This exception is recorded explicitly, not reported as unchanged queue. General worker OFF. API restarted PID24960, Web8376 remains5173.
 
 Next exact: **S1-16/BUG_REPORT/roster-source-fallback** for remaining bug1 with explicit source conflict handling; then bug8 roles, bug4 activity/archive, bug7 remaining labels. Suggested model **GPT-6 Astra · High**.
+
+
+### 2026-11-10 — S1-16/BUG_REPORT/roster-source-audit
+
+Investigated planned fallback before implementing a new provider. Existing bounded OpenDota getTeamPlayers(8255888):28 historical records,1 current account175311897,1 HTTP attempt. Official betboom.team announcement observed today states Dota2 paused/roster inactive; effective date unknown. D2PT page403 without bypass; no existing PandaScore/STRATZ numeric bindings for local team607, no guesses by name. This changes the premise: no active five can be invented from previous maps. Automatic extra roster provider remains unimplemented; only source audit and generic UI slice are complete. [Report](S1_16_ROSTER_SOURCE_AUDIT.md), [evidence](evidence/bug-report-roster-source-audit.json).
+
+Changed CurrentRoster.vue and its browser suite: explicit0/1–4/5/>5 explanations, numeric source link, comparison navigation carries only teamA and never selects players or creates a forecast. No organization-specific literals, API/DB/model/schema/dependency changes. Activity remains unknown from registry alone.
+
+Checks actually executed: new browser expectation RED before change, final4 Chromium PASS in isolated PG; live BetBoom desktop/360px/source link/manual comparison/logout401 PASS,0 page errors/HTTP5xx/refresh POST. Frozen offline install/types/build and904 unit/CLI with2 workers PASS;51 SQL checks and Markdown links PASS. Separate API/PG, Node-fixture, Python and Linux suites not rerun. Full snapshot:81/84 public tables unchanged, only auth_sessions/auth_login_budget/provider_quotas changed;2232 maps,12 exact queue rows,9703 protected files preserved, active model remains model_eligible. One diagnostic provider HTTP, general worker OFF; working API24960/Web8376 remain running.
+
+Next exact: **S1-16/BUG_REPORT/team-activity**, evidence-backed activity/filter/archive for bug4 and remaining bug1, then roles8/labels7. Suggested model **GPT-6 Astra · High**.
