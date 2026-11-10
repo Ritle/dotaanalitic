@@ -10,6 +10,7 @@ import RoleSuggestions from '../components/RoleSuggestions.vue';
 import RoleProfiles from '../components/RoleProfiles.vue';
 import {moveRoleDraft,swapLineupRole,swapDraftRoles,type RoleMember} from '../role-suggestions';
 import RoleSelect from '../components/RoleSelect.vue';
+import CatalogPicker from '../components/CatalogPicker.vue';
 import {readCatalog,dateLabel,CatalogRequestError} from '../catalog';
 import {ownerAuth} from '../auth';
 const route=useRoute(),router=useRouter(),cache=useQueryClient();
@@ -19,6 +20,10 @@ const blank=():ScenarioInput=>({title:'',teamAId:'',teamBId:'',cutoffAt:new Date
   lineupA:five(),lineupB:five(),expectedLineupA:null,expectedLineupB:null,confirmedByOwner:true,
   context:{seriesId:null,mapNumber:null,teamASeriesWinsBefore:null,teamBSeriesWinsBefore:null,radiantSlot:null,firstPickSlot:null,venueKind:null,tournamentStage:null}});
 const form=reactive(blank()),expectedA=ref(five()),expectedB=ref(five()),baselineA=ref(false),baselineB=ref(false),confirmed=ref(false);
+// Display metadata is keyed by exact identity and stays outside immutable scenario input.
+const labels=reactive<Record<string,string>>({});
+const excludedPlayers=(current:{playerId:string|null})=>[...form.lineupA,...form.lineupB].filter(p=>p!==current&&p.playerId).map(p=>p.playerId!);
+const excludedExpected=(current:{playerId:string|null})=>[...(baselineA.value?expectedA.value:[]),...(baselineB.value?expectedB.value:[])].filter(p=>p!==current&&p.playerId).map(p=>p.playerId!);
 const manualRoles=reactive({A:false,B:false});
 function changeRole(slot:'A'|'B',from:number,to:number){
  const rows=swapLineupRole(slot==='A'?form.lineupA:form.lineupB,from,to);if(!rows)return;
@@ -123,24 +128,24 @@ async function save(){
         <fieldset :disabled="busy" class="scenario-fieldset">
           <label>Название<input v-model="form.title" maxlength="120" required /></label>
           <div class="scenario-grid">
-            <label>Команда A: ID организации<input v-model="form.teamAId" inputmode="numeric" required /></label>
-            <label>Команда B: ID организации<input v-model="form.teamBId" inputmode="numeric" required /></label>
+            <CatalogPicker v-model="form.teamAId" kind="teams" label="Команда A: поиск по названию" :selected-label="labels['team:'+form.teamAId]" :excluded-ids="[form.teamBId]" @selected="item=>labels['team:'+item.id]=item.name" />
+            <CatalogPicker v-model="form.teamBId" kind="teams" label="Команда B: поиск по названию" :selected-label="labels['team:'+form.teamBId]" :excluded-ids="[form.teamAId]" @selected="item=>labels['team:'+item.id]=item.name" />
             <label>Срез данных UTC<input v-model="cutoff" type="datetime-local" step="0.001" required /></label>
             <label>Плановое начало UTC · неизвестно, если пусто<input v-model="scheduled" type="datetime-local" step="0.001" /></label>
           </div>
-          <p class="hint">Выберите роль в списке у игрока. Если она занята, игроки поменяются местами; герой и отметка замены сохранятся у своего игрока. После правки подтвердите состав заново.</p>
+          <p class="hint">Найдите команды и игроков по названию или нику и выберите запись из списка. Выберите роль в списке у игрока: если она занята, игроки поменяются местами; герой и отметка замены сохранятся у своего игрока. После правки подтвердите состав заново.</p>
           <div class="scenario-grid">
             <fieldset v-for="slot in (['A','B'] as const)" :key="slot"><legend>Выбранный состав {{slot}}</legend>
               <div v-for="p in (slot==='A'?form.lineupA:form.lineupB)" :key="p.rolePos" class="scenario-player">
-                <label :for="`${slot}-${p.rolePos}`">{{slot}}: игрок роли {{p.rolePos}}</label><input :id="`${slot}-${p.rolePos}`" v-model="p.playerId" inputmode="numeric" required />
+                <CatalogPicker :model-value="p.playerId??''" @update:model-value="value=>p.playerId=value||null" kind="players" :label="`${slot}: игрок роли ${p.rolePos}`" :selected-label="labels['player:'+p.playerId]" :excluded-ids="excludedPlayers(p)" @selected="item=>labels['player:'+item.id]=item.name" />
                 <RoleSelect :model-value="p.rolePos" :label="`${slot}: сменить роль ${p.rolePos}`" @update:model-value="role=>changeRole(slot,p.rolePos,role)" />
                 <label class="check-row"><input v-model="p.isStandin" type="checkbox" />{{slot}}: замена роли {{p.rolePos}}</label>
               </div>
               <component :is="(slot==='A'?form.teamAId:form.teamBId)?RoleProfiles:RoleSuggestions" :key="id+':'+slot+':roles:'+(slot==='A'?form.teamAId:form.teamBId)"
-                :team-id="slot==='A'?form.teamAId:form.teamBId" :preserve-manual="!isNew||manualRoles[slot]" :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot" :cutoff-at="form.cutoffAt" @apply="(rows:RoleMember[])=>applyRoles(slot,rows)" />
+                :team-id="slot==='A'?form.teamAId:form.teamBId" :preserve-manual="!isNew||manualRoles[slot]" :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot" :cutoff-at="form.cutoffAt" :player-labels="(slot==='A'?form.teamAId:form.teamBId)?labels:undefined" @apply="(rows:RoleMember[])=>applyRoles(slot,rows)" />
               <label class="check-row"><input v-if="slot==='A'" v-model="baselineA" type="checkbox" /><input v-else v-model="baselineB" type="checkbox" />Ожидаемый состав {{slot}}</label>
               <div v-if="slot==='A'?baselineA:baselineB"><p class="hint">Необязательная ручная база сравнения. Фиксированного штрафа за замену нет.</p>
-                <label v-for="p in (slot==='A'?expectedA:expectedB)" :key="p.rolePos">{{slot}}: ожидаемый игрок роли {{p.rolePos}}<input v-model="p.playerId" inputmode="numeric" required /></label>
+                <CatalogPicker v-for="p in (slot==='A'?expectedA:expectedB)" :key="p.rolePos" :model-value="p.playerId??''" @update:model-value="value=>p.playerId=value||null" kind="players" :label="`${slot}: ожидаемый игрок роли ${p.rolePos}`" :selected-label="labels['player:'+p.playerId]" :excluded-ids="excludedExpected(p)" @selected="item=>labels['player:'+item.id]=item.name" />
               </div>
             </fieldset>
           </div>

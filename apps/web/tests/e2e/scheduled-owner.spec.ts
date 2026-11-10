@@ -1,3 +1,4 @@
+import {scenarioPicker,pickScenario} from './helpers/scenario-picker';
 import {test,expect} from '@playwright/test';
 import {randomBytes,randomUUID} from 'node:crypto';
 import type {FastifyInstance} from 'fastify';
@@ -66,9 +67,9 @@ test('prepares a separate scenario from the target with empty players and return
   await expect(page.getByRole('button',{name:'Рассчитать назначенную карту',exact:true})).toBeDisabled();
   await expect(page.getByRole('region',{name:'Прогноз назначенной карты'})).toContainText('выберите карту 1');
   await page.getByRole('link',{name:'Подготовить новый сценарий для этой встречи →',exact:true}).click();
-  await expect(page.getByLabel('Название',{exact:true})).toHaveValue(f.match.name!);await expect(page.getByLabel('Команда A: ID организации',{exact:true})).toHaveValue('11');
-  await expect(page.getByLabel('A: игрок роли 1',{exact:true})).toHaveValue('');
-  for(let i=1;i<=5;i++){await page.getByLabel('A: игрок роли '+i,{exact:true}).fill(String(i+100));await page.getByLabel('B: игрок роли '+i,{exact:true}).fill(String(i+105));}
+  await expect(page.getByLabel('Название',{exact:true})).toHaveValue(f.match.name!);await expect(scenarioPicker(page,'Команда A: поиск по названию').getByRole('status')).toHaveAttribute('data-selected-id','11');
+  await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveCount(0);
+  for(let i=1;i<=5;i++){await pickScenario(page,'A: игрок роли '+i,String(i+100));await pickScenario(page,'B: игрок роли '+i,String(i+105));}
   await page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true}).check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();
   await page.getByRole('link',{name:'← Вернуться к назначению карты',exact:true}).click();

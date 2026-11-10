@@ -1,3 +1,4 @@
+import {pickScenario} from './helpers/scenario-picker';
 import {test,expect,type Page} from '@playwright/test';
 import {randomBytes} from 'node:crypto';
 import {spawn,execFileSync,type ChildProcess} from 'node:child_process';
@@ -69,8 +70,8 @@ test('compiled owner CLI and API preserve the full no-model owner journey across
   await page.getByRole('link',{name:'Открыть сохранённое назначение →',exact:true}).click();const targetUrl=page.url();
   await page.getByRole('link',{name:'Подготовить новый сценарий для этой встречи →',exact:true}).click();
   for(let i=1;i<=5;i++){
-    await page.getByLabel('A: игрок роли '+i,{exact:true}).fill(String(100+i));
-    await page.getByLabel('B: игрок роли '+i,{exact:true}).fill(String(105+i));
+    await pickScenario(page,'A: игрок роли '+i,String(100+i));
+    await pickScenario(page,'B: игрок роли '+i,String(105+i));
   }
   await page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true}).check();
   await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();

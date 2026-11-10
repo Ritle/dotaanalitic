@@ -1,0 +1,88 @@
+{
+  "task": "S2-01/BUG_REPORT/readable-labels/manual-scenario",
+  "checkedAt": "2026-11-10T22:02:09.314Z",
+  "scope": {
+    "completed": [
+      "team and player name search in standalone scenario editor",
+      "independent expected lineup pickers",
+      "exact-ID duplicate exclusions",
+      "display-only label cache",
+      "existing role/draft/stand-in semantics"
+    ],
+    "backendChanged": false,
+    "newMigrations": false,
+    "scenarioContractChanged": false,
+    "predictionEffect": "none",
+    "wholeBug7Complete": false
+  },
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "passed": 908,
+      "maxWorkers": 1
+    },
+    "build": "PASS; existing chunk-size warning",
+    "browser": {
+      "uniquePassed": 23,
+      "targetedPassed": 12,
+      "compatibilityPassed": 11,
+      "realPostgres": true,
+      "syntheticFixtures": true,
+      "firstRevisionDeepEqualityVerified": true
+    },
+    "separateApiPgSuite": false,
+    "migrationFiles": 52,
+    "development": {
+      "red": "Existing scenario test could not find a name-search picker before implementation",
+      "initialPostChange": "Business flow passed but Chromium full-page mobile capture returned protocol error",
+      "resolution": "Capture relevant editor/role regions; keep functional assertions and compare original saved snapshot"
+    },
+    "live": {
+      "teamA": "Team Spirit",
+      "teamB": "BETBOOM TEAM",
+      "player": "Yatoro",
+      "baselineIndependent": true,
+      "duplicatesBlocked": true,
+      "roleSwapPreservedPlayerHeroStandin": true,
+      "confirmationReset": true,
+      "scenarioSaved": false,
+      "mobileOverflow": false,
+      "pageErrors": 0,
+      "http5xx": 0,
+      "providerHttp": 0,
+      "businessWrites": 0
+    }
+  },
+  "preservation": {
+    "tables": 85,
+    "unchangedTables": 83,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "maps": 2232,
+    "queueRows": 12,
+    "queueUnchanged": true,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 25228,
+    "webPid": 8376,
+    "generalWorker": "OFF",
+    "apiRestartRequired": false
+  },
+  "remaining": [
+    "history/report labels",
+    "context filters",
+    "source binding labels"
+  ],
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/report-summaries",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}
