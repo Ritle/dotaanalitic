@@ -1,0 +1,312 @@
+{
+  "schemaVersion": 2,
+  "format": "v1-retest-first-evaluation-checkpoint-v2",
+  "task": "S3-03/V1-retest/independent-evaluation",
+  "recordedDate": "2026-11-10",
+  "checkedAt": "2026-11-10T13:01:29.050Z",
+  "status": "evaluation_complete",
+  "qualityDecision": "passed",
+  "reasons": [],
+  "evaluationBasis": "conditional_retrospective_unexposed_series",
+  "firstScoring": {
+    "schemaVersion": 2,
+    "format": "v1-retest-first-scoring-v2",
+    "startedAt": "2026-11-10T12:57:27.513Z",
+    "freezeSha256": "61a718f762d24c9fa98dca1b928797adab411a097d4b6eef04782de5ca7992ab",
+    "freezeFingerprint": "2a17697462a8e13b215ce9af46f47933ca90629e161df451f54df7371eeb977d",
+    "capsuleSha256": "654087e06004bb646344252e84e37a98f74dc2f3c40514a983f276aeed5ef212"
+  },
+  "registeredAt": "2026-11-10T12:31:40.544Z",
+  "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+  "reportFingerprint": "97429ef9a6de1f35fba99b4f01b9f7263ba1346c17ce0bd5df34239a7e96e372",
+  "startedSha256": "8c6ac3b6b8ab92add9fd8e06e154454b1dbbc9d4d7367c745abc8760b0148f9a",
+  "registrySha256": "931bc3e238f0fe4e6541a0a72d49b4750b1b03b94932850dca2413737334209e",
+  "datasetFingerprint": "617965bd3e070005b2398c4e98e17f8fa1cb7d25aaf234f261038fd4421da5d1",
+  "candidateFingerprint": "69e7e50fa69cd2e91d9ac5a205be37a347325aeb6f1ee7606f1594e7717dbedb",
+  "protocolFingerprint": "0d1518cc6446685ddabb4afb880fae72821e93c4aa8444ab1cdb834d853168a9",
+  "qualityPolicySha256": "f13ddd38c451fa53bae4f37ffaeea4c2ac852a4d50cb7cdd1156f53175737d4b",
+  "metricPolicySha256": "f225fe2ac74606d4e64f4f3a02944325b728bcb53d00794404d6bddd6535ea1a",
+  "previousAttempt": {
+    "protocolSha256": "80e27f796ff1f97d47422d7120d090dec7dddf7b3df4e88855230e7b62a75739",
+    "protocolFingerprint": "dedec565959e0a552b6b3dc395692c5e166301da1eea9b7813d9a3eebf3f61c1",
+    "freezeSha256": "0b632fecd6db7860937e3c94923b20ce24d891cf22bc4a864b442557a7bbaf34",
+    "startedSha256": "cee03fbf08dfe53463f6f1f50756774b4b9a25d6e2e5f4cf3e73b7584debd450",
+    "reportSha256": "bef9a6915c960cef621d028327aef19d1e302a48c7cec355373a348d98bc219c",
+    "reportFingerprint": "f5298c14dd158e1be1b15a482222e64e1bc7d77602299b6e4ac30ac399c1c25a",
+    "registrySha256": "683cef6993cb37de8b46a06301b854c8ba0d3d1106fa3e22a56e8273f3bd95d1",
+    "firstScoringAt": "2026-11-06T15:38:52.181Z",
+    "qualityDecision": "failed",
+    "preserved": true
+  },
+  "independence": {
+    "basis": "intent_before_metadata_and_protocol_before_details_or_model_scoring",
+    "wholeEventExclusions": [
+      {
+        "leagueId": "19785",
+        "reason": "EWC2026 actual bracket results surfaced during calendar web search; outside first-half scope also"
+      },
+      {
+        "leagueId": "19102",
+        "reason": "BLASTVIII results previously viewed and current official news widgets repeated them"
+      },
+      {
+        "leagueId": "19719",
+        "reason": "closed first release evaluation"
+      },
+      {
+        "leagueId": "20279",
+        "reason": "closed first release evaluation"
+      }
+    ],
+    "disclosures": [
+      "Public news/participant/advancement information can be known; not proof of global blindness. DreamLeague29 page has playoff/participant headings without inspected individual map outcomes.",
+      "Raw API discovery includes outcomes but remains private; parser projects identity/time/series/team metadata only. No new probabilities, errors, wins, scores or rankings inspected."
+    ],
+    "priorFailUse": "planning_only_no_tuning",
+    "earlierCalendarCohort": true,
+    "prospectiveAccuracyClaim": false,
+    "familywise95Claim": false,
+    "bestAttemptSelection": false,
+    "partialEvaluation": false
+  },
+  "exposureExcludedMaps": 297,
+  "coverage": {
+    "observedMaps": 670,
+    "scoredMaps": 664,
+    "observedKnownSeries": 333,
+    "scoredSeries": 332,
+    "mapCoverage": 0.991044776119403,
+    "knownSeriesCoverage": 0.996996996996997
+  },
+  "metrics": {
+    "n": 664,
+    "brier": 0.23368895636368048,
+    "logLoss": 0.6606630437428423,
+    "baselineBrier": 0.25,
+    "baselineLogLoss": 0.6931471805599453,
+    "brierDelta": -0.01631104363631957,
+    "logLossDelta": -0.032484136817102986,
+    "meanProbability": 0.5713038007366251,
+    "observedWinRate": 0.5828313253012049,
+    "meanProbabilityGap": 0.011527524564579672,
+    "ece": 0.025754776630161264,
+    "reliability": [
+      {
+        "lower": 0,
+        "upper": 0.2,
+        "upperInclusive": false,
+        "n": 2,
+        "meanProbability": 0.1919133993551574,
+        "observedWinRate": 0
+      },
+      {
+        "lower": 0.2,
+        "upper": 0.4,
+        "upperInclusive": false,
+        "n": 61,
+        "meanProbability": 0.33159073025043706,
+        "observedWinRate": 0.3442622950819672
+      },
+      {
+        "lower": 0.4,
+        "upper": 0.6,
+        "upperInclusive": false,
+        "n": 333,
+        "meanProbability": 0.5148391763206398,
+        "observedWinRate": 0.5405405405405406
+      },
+      {
+        "lower": 0.6,
+        "upper": 0.8,
+        "upperInclusive": false,
+        "n": 239,
+        "meanProbability": 0.6818150449510293,
+        "observedWinRate": 0.694560669456067
+      },
+      {
+        "lower": 0.8,
+        "upper": 1,
+        "upperInclusive": true,
+        "n": 29,
+        "meanProbability": 0.8392972719676725,
+        "observedWinRate": 0.6896551724137931
+      }
+    ]
+  },
+  "uncertainty": {
+    "method": "paired_whole_series_percentile_bootstrap",
+    "resamples": 10000,
+    "seed": 20261102,
+    "brierDeltaUpper95": -0.007234700536668398,
+    "logLossDeltaUpper95": -0.012477066299319432,
+    "eceUpper95": 0.06001596806748484
+  },
+  "gates": [
+    {
+      "name": "maps",
+      "value": 664,
+      "threshold": 100,
+      "passed": true
+    },
+    {
+      "name": "series",
+      "value": 332,
+      "threshold": 40,
+      "passed": true
+    },
+    {
+      "name": "mapCoverage",
+      "value": 0.991044776119403,
+      "threshold": 0.8,
+      "passed": true
+    },
+    {
+      "name": "knownSeriesCoverage",
+      "value": 0.996996996996997,
+      "threshold": 0.8,
+      "passed": true
+    },
+    {
+      "name": "brier",
+      "value": 0.2336889563636804,
+      "threshold": 0.245,
+      "passed": true
+    },
+    {
+      "name": "logLoss",
+      "value": 0.6606630437428416,
+      "threshold": 0.685,
+      "passed": true
+    },
+    {
+      "name": "brierDeltaUpper95",
+      "value": -0.007234700536668398,
+      "threshold": 0,
+      "passed": true
+    },
+    {
+      "name": "logLossDeltaUpper95",
+      "value": -0.012477066299319432,
+      "threshold": 0,
+      "passed": true
+    },
+    {
+      "name": "ece",
+      "value": 0.025754776630161007,
+      "threshold": 0.08,
+      "passed": true
+    },
+    {
+      "name": "eceUpper95",
+      "value": 0.06001596806748484,
+      "threshold": 0.15,
+      "passed": true
+    },
+    {
+      "name": "meanProbabilityGap",
+      "value": 0.01152752456458087,
+      "threshold": 0.05,
+      "passed": true
+    }
+  ],
+  "stability": [
+    {
+      "half": 1,
+      "series": 166,
+      "maps": 331,
+      "brier": 0.2288385780630034,
+      "logLoss": 0.6499621407339529,
+      "brierDelta": -0.021161421936996515,
+      "logLossDelta": -0.043185039825992325,
+      "passed": true
+    },
+    {
+      "half": 2,
+      "series": 166,
+      "maps": 333,
+      "brier": 0.2385102032631521,
+      "logLoss": 0.6712996770639902,
+      "brierDelta": -0.01148979673684789,
+      "logLossDelta": -0.021847503495954712,
+      "passed": true
+    }
+  ],
+  "supplementaryWinnerAccuracy": {
+    "correct": 400,
+    "decisiveMaps": 664,
+    "ties": 0,
+    "rate": 0.6024096385542169,
+    "registeredQualityGate": false,
+    "prospective": false
+  },
+  "checks": {
+    "frozenVerify": "PASS",
+    "firstFrozenEvaluate": "PASS",
+    "frozenReplay": "PASS",
+    "duplicateFirstAttempt": "PASS_expected_OUTPUT_EXISTS_exit1",
+    "firstResultHashesUnchanged": true,
+    "independentArithmeticAudit": {
+      "status": "PASS",
+      "path": ".tools/audit-retest-first-evaluation.mjs",
+      "sha256": "b790647409c875de1fef7574698cb8b4b39b3a37f034898234d5b5bbb79ac088",
+      "absoluteTolerance": 1e-12,
+      "strictHistoryLinks": 674363,
+      "bootstrapResamples": 10000,
+      "independentEloReplay": {
+        "method": "start_and_completion_event_stream",
+        "independentlyVerifiedPlayerRatings": 6640,
+        "maximumRatingDifference": 0,
+        "allEarlierEligibleHistoryVerified": true
+      }
+    },
+    "preservation": {
+      "files": 9703,
+      "protectedArtifacts": 245,
+      "collectionFiles": 2684,
+      "immutableImportFiles": 5658,
+      "frozenAndCurrentCodeFiles": 390,
+      "oldFrozenAndCurrentCodeFiles": 373,
+      "oldFailurePreserved": true,
+      "publicTables": 83,
+      "changedTables": [],
+      "queueRows": 14,
+      "queueUnchanged": true,
+      "canonicalMaps": 2232,
+      "activeModels": 0
+    },
+    "documentationLinks": "PASS",
+    "applicationCodeChanged": false,
+    "sqlOrDependenciesChanged": false,
+    "fullRegression": "not_repeated_no_application_code_changes; prior full QA at 763760a and s3-01-v1-retest-executable.json"
+  },
+  "registryHandoff": {
+    "format": "v1-retest-registry-binding-v2",
+    "eligibleForActivation": true,
+    "activation": "separate_gate_required",
+    "legacyRegistryCompatible": false,
+    "isActive": false,
+    "deployable": false
+  },
+  "limitations": [
+    "Public news/participant/advancement information can be known; not proof of global blindness. DreamLeague29 page has playoff/participant headings without inspected individual map outcomes.",
+    "Raw API discovery includes outcomes but remains private; parser projects identity/time/series/team metadata only. No new probabilities, errors, wins, scores or rankings inspected.",
+    "Local JSON/body/JSONL and working DB only; excludes secrets/runtime/binary/backup paths; not proof of external human blindness.",
+    "Post-intent proposal discovery is declared planned metadata access and is not reclassified as prior exposure.",
+    "PUBLIC_HISTORICAL_RESULTS_MAY_BE_KNOWN",
+    "EVENT_TIME_OUTCOME_AVAILABILITY_ASSUMED",
+    "CURRENT_NUMERIC_IDENTITIES",
+    "RECONSTRUCTED_LINEUP_NOT_PROSPECTIVE",
+    "REMOTE_HISTORY_COMPLETENESS_UNKNOWN"
+  ],
+  "providerRequests": 0,
+  "workingDatabaseWrites": 0,
+  "syntheticOnly": false,
+  "isActive": false,
+  "deployable": false,
+  "releaseGatePassed": true,
+  "teamAWinProbability": null,
+  "action": "integrate_verified_retest_evidence_with_registry_before_separate_activation",
+  "nextTask": "S3-05/V1-retest/registry-integration",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedReasoning": "Extra High"
+}
