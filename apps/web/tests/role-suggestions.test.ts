@@ -1,5 +1,5 @@
 import {expect,test} from 'vitest';
-import {arrangeSuggestedRoles,moveRoleDraft} from '../src/role-suggestions';
+import {arrangeSuggestedRoles,moveRoleDraft,swapLineupRole,swapDraftRoles} from '../src/role-suggestions';
 import type {RoleSuggestionReport} from '@dota/contracts';
 const lineup=Array.from({length:5},(_,i)=>({rolePos:i+1,playerId:String(i+1),isStandin:i===0}));
 const report={players:lineup.map((p,i)=>({playerId:p.playerId,suggestedRole:5-i}))} as RoleSuggestionReport;
@@ -16,4 +16,30 @@ test('assigned heroes follow players when roles change; opposite side and bans s
   const bans=[{teamSlot:'A' as const,heroId:3}];
   const draft={assignments:[{teamSlot:'A' as const,rolePos:1,heroId:1},{teamSlot:'B' as const,rolePos:1,heroId:2}],bans};
   expect(moveRoleDraft(draft,'A',lineup,arrangeSuggestedRoles(lineup,report)!)).toEqual({assignments:[{teamSlot:'A',rolePos:5,heroId:1},{teamSlot:'B',rolePos:1,heroId:2}],bans});
+});
+
+test('manual role selection preserves the five positions, player identities, stand-ins and hero ownership',()=>{
+ for(let from=1;from<=5;from++)for(let to=1;to<=5;to++){
+  const result=swapLineupRole(lineup,from,to)!;
+  expect(result.map(p=>p.rolePos)).toEqual([1,2,3,4,5]);
+  expect(result[to-1]!.playerId).toBe(String(from));
+  expect(result.find(p=>p.playerId==='1')!.isStandin).toBe(true);
+  const d={assignments:[{teamSlot:'A' as const,rolePos:from,heroId:1}],bans:[]};
+  expect(moveRoleDraft(d,'A',lineup,result).assignments[0]!.rolePos).toBe(to);
+ }
+ expect(lineup.map(p=>p.playerId)).toEqual(['1','2','3','4','5']);
+ expect(swapLineupRole(lineup,1,1)).toEqual(lineup);
+ for(const invalid of [0,6,1.5,NaN])expect(swapLineupRole(lineup,1,invalid)).toBeNull();
+ expect(swapLineupRole(lineup.slice(1),1,2)).toBeNull();
+ expect(swapLineupRole(lineup.map(p=>({...p,rolePos:1})),1,2)).toBeNull();
+});
+
+test('manual swaps preserve heroes even when several lineup positions have no player yet',()=>{
+ const incomplete=lineup.map(p=>({...p,playerId:p.rolePos===1?'1':null}));
+ const draft={assignments:[{teamSlot:'A' as const,rolePos:1,heroId:1},{teamSlot:'A' as const,rolePos:3,heroId:2},{teamSlot:'B' as const,rolePos:1,heroId:3}],bans:[]};
+ const after=swapLineupRole(incomplete,1,3)!;
+ expect(after[2]!.playerId).toBe('1');expect(after[0]!.playerId).toBeNull();
+ const moved=swapDraftRoles(draft,'A',1,3);
+ expect(moved.assignments).toEqual([{teamSlot:'A',rolePos:3,heroId:1},{teamSlot:'A',rolePos:1,heroId:2},{teamSlot:'B',rolePos:1,heroId:3}]);
+ expect(swapDraftRoles(moved,'A',3,1)).toEqual(draft);
 });

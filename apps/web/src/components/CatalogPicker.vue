@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import {computed,ref,useId,watch} from 'vue';
 import {useQuery} from '@tanstack/vue-query';
-import {CatalogListSchema,type CatalogList} from '@dota/contracts';
+import {CatalogListSchema,TeamOverviewSchema,PlayerOverviewSchema,type CatalogList,type TeamOverview,type PlayerOverview} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 type Item=CatalogList['items'][number];
 const props=defineProps<{kind:'teams'|'players';label:string;modelValue:string;excludedIds?:string[];selectedLabel?:string}>();
 const emit=defineEmits<{'update:modelValue':[value:string];selected:[item:Item]}>();
 const uid=useId(),query=ref(''),term=ref<string|null>(null),chosen=ref<Item|null>(null);
+const overview=useQuery({queryKey:computed(()=>['catalog','overview',props.kind,props.modelValue]),
+  enabled:computed(()=>!!props.modelValue&&!props.selectedLabel&&chosen.value?.id!==props.modelValue),
+  queryFn:({signal}):Promise<TeamOverview|PlayerOverview>=>props.kind==='teams'?
+    readCatalog(`teams/${encodeURIComponent(props.modelValue)}`,TeamOverviewSchema,signal):readCatalog(`players/${encodeURIComponent(props.modelValue)}`,PlayerOverviewSchema,signal)});
 const results=useQuery({queryKey:computed(()=>['catalog-picker',props.kind,term.value]),enabled:computed(()=>term.value!==null),
   queryFn:({signal})=>readCatalog(`${props.kind}?${new URLSearchParams({query:term.value??'',limit:'10',offset:'0'})}`,CatalogListSchema,signal)});
 // Editing already cleared the choice; its ensuing prop update must preserve the new query.
@@ -30,7 +34,7 @@ function clear(){edit('');}
     <div v-if="chosen&&chosen.id===modelValue" class="picked" role="status">
       <span>Выбрано: {{chosen.name||'Без имени'}} · ID {{chosen.id}}</span><button type="button" @click="clear">Сбросить</button>
     </div>
-    <div v-else-if="modelValue" class="picked" role="status"><span>Выбрано: {{selectedLabel??modelValue}} · ID {{modelValue}}</span><button type="button" @click="clear">Сбросить</button></div>
+    <div v-else-if="modelValue" class="picked" role="status"><span>Выбрано: {{selectedLabel??overview.data.value?.entity.name??(overview.isFetching.value?'Загрузка имени…':'Имя недоступно')}} · ID {{modelValue}}</span><button type="button" @click="clear">Сбросить</button></div>
     <template v-if="term!==null">
       <p v-if="results.isPending.value||results.isFetching.value" role="status">Поиск в локальном справочнике…</p>
       <div v-else-if="results.error.value" role="alert"><p class="error">{{results.error.value.message}}</p><button type="button" @click="results.refetch()">Повторить поиск</button></div>

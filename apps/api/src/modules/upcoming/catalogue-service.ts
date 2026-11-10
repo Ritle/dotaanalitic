@@ -1,9 +1,10 @@
 import {randomUUID,createHash} from 'node:crypto';
 import {IdentityProvisioner,IdentityProvisionError,RosterCatalogueRepository,RosterCatalogueError,RoleProfileRepository,PlayerCatalogueRepository,type Db} from '@dota/db';
 import {catalogueCandidates,catalogueDirectoryCandidates,catalogueTeamCandidate,catalogueAccountQuery,catalogueProfileCandidate,prepareRosterReviews,CatalogueObservationSchema,createProviderRuntime,
- OpenDotaTeamDirectoryClient,OpenDotaPlayerSearchClient,discoveryKey,discoveryQuery,discoveryCandidates,preferExactPlayerCandidates,rankPlayerCandidatesByHistory,PostgresProviderBudget,type CatalogueObservation} from '@dota/ingestion';
+ OpenDotaTeamDirectoryClient,OpenDotaPlayerSearchClient,discoveryKey,discoveryQuery,discoveryCandidates,rankPlayerCandidatesByHistory,PostgresProviderBudget,type CatalogueObservation} from '@dota/ingestion';
 import {CatalogIdSchema,RosterCatalogueStateSchema,RosterCatalogueSearchResultSchema,RosterCataloguePreparedSchema,type RosterCatalogueApply,type RosterCataloguePrepared} from '@dota/contracts';
 import {UpcomingService} from './service.js';
+import {rosterNameCandidates} from './roster-name-candidates.js';
 export type CatalogueProvider=(key:string,query?:string)=>Promise<unknown>;
 export class RosterCatalogueService{
  readonly repository:RosterCatalogueRepository;
@@ -39,17 +40,18 @@ export class RosterCatalogueService{
  private async players(query:string,external=true,exactFirst=false){
   if(!query.trim())return RosterCatalogueSearchResultSchema.parse({items:[],source:'local',fetchedAt:new Date().toISOString(),payloadSha256:createHash('sha256').update('[]').digest('hex'),registrySha256:null});
   // Provider roster names, including numeric nicknames, are never numeric account queries.
-  const local=new PlayerCatalogueRepository(this.db),account=exactFirst?null:catalogueAccountQuery(query),localItems=await local.search(account??query),items=rankPlayerCandidatesByHistory(account?localItems.filter(p=>p.id===account):exactFirst?preferExactPlayerCandidates(localItems,query):localItems,query);
+  const local=new PlayerCatalogueRepository(this.db),account=exactFirst?null:catalogueAccountQuery(query),localItems=await local.search(account??query),items=rankPlayerCandidatesByHistory(account?localItems.filter(p=>p.id===account):exactFirst?rosterNameCandidates(localItems,query):localItems,query);
   if(items.length)return RosterCatalogueSearchResultSchema.parse({items,source:'local',fetchedAt:new Date().toISOString(),payloadSha256:createHash('sha256').update(JSON.stringify(items)).digest('hex'),registrySha256:null});
   let registry:CatalogueObservation|null=null,unavailable=false;
   try{registry=await this.source('registry');}catch{unavailable=true;}
-  const discovered=registry?catalogueCandidates(registry,'players',account??query):[],found=rankPlayerCandidatesByHistory(account?discovered.filter(p=>p.id===account):exactFirst?preferExactPlayerCandidates(discovered,query):discovered,query);
+  const discovered=registry?catalogueCandidates(registry,'players',account??query):[],found=rankPlayerCandidatesByHistory(account?discovered.filter(p=>p.id===account):exactFirst?rosterNameCandidates(discovered,query):discovered,query);
   if(account&&!found.some(p=>p.id===account)){const profile=await this.source('player:'+account);
    return RosterCatalogueSearchResultSchema.parse({items:[catalogueProfileCandidate(profile,account)],source:'opendota',sourceEndpoint:profile.source.endpoint,
     fetchedAt:profile.source.fetchedAt,payloadSha256:profile.source.payloadSha256,registrySha256:registry?.source.payloadSha256??null});}
   let observation=registry,results=found;
   if(!results.length&&!account&&external&&query.trim().length>=2&&!query.includes('://'))try{
-   observation=await this.source(discoveryKey(query),discoveryQuery(query));results=discoveryCandidates(observation,query);
+   observation=await this.source(discoveryKey(query),discoveryQuery(query));const found=discoveryCandidates(observation,query);
+   results=rankPlayerCandidatesByHistory(exactFirst?rosterNameCandidates(found,query):found,query);
   }catch{unavailable=true;}
   const now=new Date().toISOString();
   return RosterCatalogueSearchResultSchema.parse({items:results,source:observation?'opendota':'local',sourceEndpoint:observation?.source.endpoint,

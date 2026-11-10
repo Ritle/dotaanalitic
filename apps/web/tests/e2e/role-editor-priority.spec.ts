@@ -21,18 +21,49 @@ test.beforeEach(async()=>{
 });
 test.afterEach(async()=>{await api?.close();await database?.close();});
 const region=(page:Page)=>page.getByRole('region',{name:'Автоопределение ролей A',exact:true});
-async function prepare(page:Page){
+async function prepare(page:Page,manualSwapBeforePlayers=false){
  await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-editor-roles');await page.getByLabel('Пароль').fill(password);
  await Promise.all([page.waitForResponse(r=>r.url().endsWith('/auth/login')),page.getByRole('button',{name:'Войти',exact:true}).click()]);
  await page.getByRole('heading',{name:'Справочники',exact:true}).waitFor();await page.goto('/scenarios/new');const q=scenarioInput();
  await page.getByLabel('Название',{exact:true}).fill('Синтетический приоритет ролей');await page.getByLabel('Команда A: ID организации',{exact:true}).fill(q.teamAId);
  await page.getByLabel('Команда B: ID организации',{exact:true}).fill(q.teamBId);await page.getByLabel('Срез данных UTC',{exact:true}).fill('2024-01-03T00:00');
+ if(manualSwapBeforePlayers){await page.getByLabel('A: герой роли 1',{exact:true}).selectOption('1');await page.getByLabel('A: сменить роль 1',{exact:true}).selectOption('5');}
  for(const p of q.lineupA)await page.getByLabel(`A: игрок роли ${6-p.rolePos}`,{exact:true}).fill(p.playerId!);
  for(const p of q.lineupB)await page.getByLabel(`B: игрок роли ${p.rolePos}`,{exact:true}).fill(p.playerId!);return q;
 }
 test('one history source automatically arranges the selected five without provider HTTP or consensus',async({page})=>{
  const q=await prepare(page);await expect(page.getByLabel('A: игрок роли 1',{exact:true})).toHaveValue(q.lineupA[0]!.playerId!);
  await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);expect(calls).toBe(0);
+});
+
+test('a role selected before all five players are filled stays manual and does not duplicate draft positions',async({page})=>{
+ const q=await prepare(page,true);
+ await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);
+ await expect(region(page).getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
+ await expect(page.getByLabel('A: игрок роли 1',{exact:true})).toHaveValue(q.lineupA[4]!.playerId!);
+ await expect(page.getByLabel('A: игрок роли 5',{exact:true})).toHaveValue(q.lineupA[0]!.playerId!);
+ await expect(page.getByLabel('A: герой роли 5',{exact:true})).toHaveValue('1');await expect(page.getByLabel('A: герой роли 1',{exact:true})).toHaveValue('');
+ expect(calls).toBe(0);
+});
+
+test('manual role dropdown swaps players, moves the hero and stand-in, clears confirmation and survives saving',async({page})=>{
+ const q=await prepare(page);await expect(page.getByLabel('A: игрок роли 1',{exact:true})).toHaveValue(q.lineupA[0]!.playerId!);
+ await page.getByLabel('A: замена роли 1',{exact:true}).check();
+ await page.getByLabel('A: герой роли 1',{exact:true}).selectOption('1');
+ const confirmed=page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true});await confirmed.check();
+ await page.getByLabel('A: сменить роль 1',{exact:true}).selectOption('5');
+ for(let role=1;role<=5;role++)await expect(page.getByLabel(`A: сменить роль ${role}`,{exact:true})).toHaveValue(String(role));
+ await expect(confirmed).not.toBeChecked();await expect(region(page).getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
+ await expect(page.getByLabel('A: игрок роли 5',{exact:true})).toHaveValue(q.lineupA[0]!.playerId!);
+ await expect(page.getByLabel('A: игрок роли 1',{exact:true})).toHaveValue(q.lineupA[4]!.playerId!);
+ await expect(page.getByLabel('A: герой роли 5',{exact:true})).toHaveValue('1');await expect(page.getByLabel('A: герой роли 1',{exact:true})).toHaveValue('');
+ await expect(page.getByLabel('A: замена роли 5',{exact:true})).toBeChecked();
+ await confirmed.check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();await page.reload();
+ await expect(page.getByLabel('A: игрок роли 5',{exact:true})).toHaveValue(q.lineupA[0]!.playerId!);
+ await expect(page.getByLabel('A: герой роли 5',{exact:true})).toHaveValue('1');
+ for(let role=1;role<=5;role++)await expect(page.getByLabel(`A: сменить роль ${role}`,{exact:true})).toHaveValue(String(role));
+ expect(calls).toBe(0);
 });
 test('Panda wins over conflicting history; manual correction locks auto until explicitly re-enabled',async({page})=>{
  const q=await prepare(page);await expect(page.getByLabel('A: игрок роли 1',{exact:true})).toHaveValue(q.lineupA[0]!.playerId!);

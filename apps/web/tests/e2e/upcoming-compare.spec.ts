@@ -52,6 +52,11 @@ test('explicit confirmed comparison separates organization and exact-five histor
       .filter({hasText:`Выбранный игрок: ${row.nickname} · ID ${p.playerId}`})).toHaveCount(1);
   }
   expect(requests).toHaveLength(0);await expect(compare(page)).toBeDisabled();await confirm(page).check();await expect(compare(page)).toBeEnabled();
+  await page.getByLabel('A: сменить роль 1',{exact:true}).selectOption('5');
+  for(let role=1;role<=5;role++)await expect(page.getByLabel(`A: сменить роль ${role}`,{exact:true})).toHaveValue(String(role));
+  await expect(confirm(page)).not.toBeChecked();await expect(compare(page)).toBeDisabled();
+  await expect(page.getByRole('region',{name:'A: игрок роли 5',exact:true}).getByRole('status')).toContainText(scenarioInput().lineupA[0]!.playerId!);
+  await page.getByLabel('A: сменить роль 5',{exact:true}).selectOption('1');await confirm(page).check();
   expect(requests).toHaveLength(0);await compare(page).click();await expect(result(page)).toBeVisible();
   const q=scenarioInput();expect(requests[0]).toEqual({teamAId:q.teamAId,teamBId:q.teamBId,lineupA:q.lineupA,lineupB:q.lineupB});
   const a=result(page).getByRole('article',{name:'Пятёрка A',exact:true});

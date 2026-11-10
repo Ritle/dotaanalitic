@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import {computed,ref,watch} from 'vue';
+import {computed,reactive,ref,watch} from 'vue';
 import {useRoute,useRouter} from 'vue-router';
 import {useQuery} from '@tanstack/vue-query';
 import {CompareRequestSchema,CompareResponseSchema,type CompareRequest} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
 import CompareStat from '../components/CompareStat.vue';
+import CatalogPicker from '../components/CatalogPicker.vue';
+import RoleSelect from '../components/RoleSelect.vue';
+import {swapLineupRole,roleName} from '../role-suggestions';
 const route=useRoute(),router=useRouter(),teamA=ref(typeof route.query.teamA==='string'?route.query.teamA:''),teamB=ref(typeof route.query.teamB==='string'?route.query.teamB:'');
 const five=()=>Array.from({length:5},(_,i)=>({playerId:'',rolePos:i+1,isStandin:false}));
 const a=ref(five()),b=ref(five()),from=ref(''),cutoff=ref(''),patch=ref(''),league=ref(''),validation=ref(''),applied=ref<CompareRequest|null>(null);
+const labels=reactive<Record<string,string>>({});
+const excludedPlayers=(current:ReturnType<typeof five>[number])=>[...a.value,...b.value].filter(p=>p!==current&&p.playerId).map(p=>p.playerId);
+function changeRole(slot:string,from:number,to:number){const rows=swapLineupRole(slot==='A'?a.value:b.value,from,to);if(rows){if(slot==='A')a.value=rows;else b.value=rows;}}
 watch([teamA,teamB,a,b,from,cutoff,patch,league],()=>{applied.value=null;validation.value='';},{deep:true});
 const {data,isFetching,isError,error,refetch}=useQuery({queryKey:computed(()=>['compare',applied.value]),enabled:computed(()=>!!ownerAuth.value&&applied.value!==null),
   queryFn:({signal})=>readCatalog('teams/compare',CompareResponseSchema,signal,{method:'POST',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value!.csrfToken},body:JSON.stringify(applied.value)})});
@@ -23,7 +29,7 @@ async function submit(){
     if(!result.success)throw new Error('invalid_compare_input');validation.value='';
     if(JSON.stringify(applied.value)===JSON.stringify(result.data)){void refetch();return;}
     applied.value=result.data;await router.replace({path:'/compare',query:{teamA:result.data.teamAId,teamB:result.data.teamBId}});
-  }catch{validation.value='Укажите две разные организации, разные canonical ID игроков, роли 1–5 и корректный период UTC. Неизвестные ID игроков оставьте пустыми.';}
+  }catch{validation.value='Выберите две разные команды, разных игроков, роли 1–5 и корректный период UTC. Неизвестных игроков можно оставить незаполненными.';}
 }
 </script>
 <template>
@@ -32,13 +38,15 @@ async function submit(){
     <p>История организаций, выбранных пятёрок и личные встречи считаются отдельно. A/B не означают Radiant/Dire.</p>
     <form @submit.prevent="submit">
       <div class="compare-columns"><fieldset v-for="slot in ['A','B']" :key="slot"><legend>Команда {{slot}}</legend>
-        <label :for="'compare-team-'+slot">ID организации<input :id="'compare-team-'+slot" :value="slot==='A'?teamA:teamB" @input="slot==='A'?teamA=($event.target as HTMLInputElement).value:teamB=($event.target as HTMLInputElement).value" :aria-label="`Команда ${slot}: ID организации`" inputmode="numeric" /></label>
+        <CatalogPicker :model-value="slot==='A'?teamA:teamB" kind="teams" :label="`Команда ${slot}: поиск по названию`" :selected-label="labels['team:'+(slot==='A'?teamA:teamB)]" :excluded-ids="[slot==='A'?teamB:teamA]"
+          @update:model-value="value=>{if(slot==='A')teamA=value;else teamB=value;}" @selected="p=>labels['team:'+p.id]=p.name" />
         <div v-for="member in (slot==='A'?a:b)" :key="member.rolePos" class="roster-row">
-          <label>{{slot}} · роль {{member.rolePos}}<input v-model="member.playerId" :aria-label="`${slot}: игрок роли ${member.rolePos}`" inputmode="numeric" placeholder="ID или неизвестен" /></label>
+          <CatalogPicker v-model="member.playerId" kind="players" :label="`${slot}: игрок роли ${member.rolePos} · ${roleName(member.rolePos)}`" :selected-label="labels['player:'+member.playerId]" :excluded-ids="excludedPlayers(member)" @selected="p=>labels['player:'+p.id]=p.name" />
+          <RoleSelect :model-value="member.rolePos" :label="`${slot}: сменить роль ${member.rolePos}`" @update:model-value="role=>changeRole(slot,member.rolePos,role)" />
           <label class="check-label"><input v-model="member.isStandin" type="checkbox" :aria-label="`${slot}: stand-in роли ${member.rolePos}`" /> Stand-in</label>
         </div>
       </fieldset></div>
-      <p class="hint">Пятёрки и роли задаются вручную. Это вариант состава, а не подтверждение участия. ID — из локальных справочников; сценарий не сохраняется.</p>
+      <p class="hint">Найдите команды и игроков по имени и выберите запись из списка. Выбор занятой роли меняет двух игроков местами: в составе всегда по одной роли 1–5. Сценарий не сохраняется.</p>
       <div class="map-filters compare-filters"><label>Начало истории, UTC<input v-model="from" type="datetime-local" aria-label="Сравнение: начало UTC" /></label>
         <label>Срез истории, UTC<input v-model="cutoff" type="datetime-local" aria-label="Сравнение: срез UTC" /></label>
         <label>ID патча · пусто = все<input v-model="patch" inputmode="numeric" aria-label="Сравнение: ID патча" /></label>

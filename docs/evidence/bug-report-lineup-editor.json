@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "taskId": "S2-01/BUG_REPORT/lineup-editor",
+  "checkedAt": "2026-11-10T15:28:21.716Z",
+  "status": "completed_slice_report_remains_open",
+  "ownerSource": {
+    "path": "../docs/BUG_REPORT.md",
+    "sha256": "0202f84fc02fef8ad9ab8e487f7accc87c3701dcf58a5447c3b2cb18f0bdca3f",
+    "modified": false
+  },
+  "closedItems": [
+    2,
+    3,
+    5,
+    6
+  ],
+  "partialItems": [
+    7
+  ],
+  "openItems": [
+    1,
+    4,
+    8,
+    9
+  ],
+  "changes": {
+    "layers": [
+      "apps/api",
+      "apps/web"
+    ],
+    "migrationChanges": 0,
+    "dependencyChanges": 0,
+    "frozenKernelChanges": 0,
+    "individualPlayerExceptions": 0
+  },
+  "validation": {
+    "install": {
+      "command": "pnpm install --frozen-lockfile --offline",
+      "status": "PASS"
+    },
+    "typecheck": {
+      "command": "pnpm typecheck",
+      "status": "PASS",
+      "note": "Final pnpm build also checks Vue/TypeScript after final edits."
+    },
+    "unit": {
+      "initialCommand": "pnpm test",
+      "initialStatus": "FAIL",
+      "initialFailure": "Unchanged research-execution-cli.test.ts exceeded its 20000ms timeout under default parallelism.",
+      "finalCommand": "pnpm --recursive --if-present test --maxWorkers=2",
+      "status": "PASS",
+      "tests": 903,
+      "timeoutChanged": false
+    },
+    "build": {
+      "command": "pnpm build",
+      "status": "PASS",
+      "warning": "Vite output chunk exceeds 500 kB; existing optimization work is outside this slice."
+    },
+    "apiPostgres": {
+      "status": "PASS",
+      "tests": 28,
+      "files": [
+        "apps/api/tests/roster-catalogue.integration.test.ts",
+        "apps/api/tests/roster-name-preparation.integration.test.ts"
+      ],
+      "isolatedDatabases": true,
+      "regressionFirstReproduced": "All three new name-preparation tests failed before the fix with substring-only Thiolicor suggestions."
+    },
+    "browser": {
+      "status": "PASS",
+      "uniqueTests": 10,
+      "finalAffectedRerun": 4,
+      "files": [
+        "apps/web/tests/e2e/compare.spec.ts",
+        "apps/web/tests/e2e/role-editor-priority.spec.ts",
+        "apps/web/tests/e2e/upcoming-compare.spec.ts"
+      ],
+      "initialFailures": [
+        "Broad synthetic name search omitted the desired result from the first ten; test search refined.",
+        "A mistyped grep selected no tests; not counted.",
+        "Working UI exposed a stale native select value after player swap; fixed and asserted across all five positions."
+      ],
+      "realWorkingForm": {
+        "status": "PASS",
+        "checkedAt": "2026-11-10T15:24:11.209Z",
+        "localTeamNameSearch": true,
+        "localPlayerNameSearch": true,
+        "manualSwap": true,
+        "standinFollowsPlayer": true,
+        "tenUniqueRolePositions": true,
+        "mobile360": true,
+        "scenariosSaved": 0,
+        "routeMocks": false
+      },
+      "realWorkingFinish": {
+        "status": "PASS",
+        "checkedAt": "2026-11-10T15:27:49.397Z",
+        "apiRestartReadiness": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "logout401": true,
+        "pageErrors": 0,
+        "http5xx": 0,
+        "businessPostRequests": 0,
+        "syntheticRouteMocks": false
+      }
+    },
+    "migrations": {
+      "status": "PASS",
+      "files": 51,
+      "historicalChecksumsPreserved": true
+    },
+    "markdownLinks": "PASS",
+    "notRerun": [
+      "full PostgreSQL suite",
+      "full Node fixture suite",
+      "full browser suite",
+      "Python",
+      "Docker/Linux"
+    ]
+  },
+  "preservation": {
+    "publicTables": 84,
+    "unchangedTables": 82,
+    "changedTables": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "reason": "Owner test login/logout only",
+    "canonicalMaps": 2232,
+    "queueRows": 14,
+    "queueExact": true,
+    "protectedFiles": 9703,
+    "providerStateUnchanged": true,
+    "backendProviderCalls": 0,
+    "workingBusinessPostRequests": 0,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "generalWorker": "off"
+  },
+  "localServices": {
+    "apiPort": 3000,
+    "apiPid": 24600,
+    "webPort": 5173,
+    "webPid": 8376
+  },
+  "nextTask": "S1-16/BUG_REPORT/current-roster-cards",
+  "suggestedModel": "GPT-6 Astra",
+  "suggestedEffort": "High",
+  "privateArtifacts": {
+    "directory": ".tools/bug-report-20261110",
+    "logs": [
+      ".tools/bug-report-install.log",
+      ".tools/bug-report-typecheck.log",
+      ".tools/bug-report-test.log",
+      ".tools/bug-report-test-final.log",
+      ".tools/bug-report-build.log",
+      ".tools/bug-report-api.log",
+      ".tools/bug-report-browser-final.log"
+    ]
+  }
+}

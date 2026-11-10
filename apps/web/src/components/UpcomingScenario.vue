@@ -10,6 +10,8 @@ import UpcomingTeamSummary from './UpcomingTeamSummary.vue';
 import UpcomingLineupCompare from './UpcomingLineupCompare.vue';
 import RoleSuggestions from './RoleSuggestions.vue';
 import RoleProfiles from './RoleProfiles.vue';
+import RoleSelect from './RoleSelect.vue';
+import {swapLineupRole,roleName} from '../role-suggestions';
 import PlayerHistory from './PlayerHistory.vue';
 import ExpectedRosterCatalogue from './ExpectedRosterCatalogue.vue';
 import type {RosterCatalogueBinding} from '@dota/contracts';
@@ -31,6 +33,8 @@ const savedAt=reactive<Partial<Record<'A'|'B',string>>>({});
 let savedRead=false;
 const five=()=>Array.from({length:5},(_,i)=>({rolePos:i+1,playerId:'',isStandin:false}));
 const form=reactive({title:(props.match.name??'Сценарий встречи').slice(0,120),teamAId:'',teamBId:'',lineupA:five(),lineupB:five()});
+const manualRoles=reactive({A:false,B:false});
+function changeRole(slot:'A'|'B',from:number,to:number){const rows=swapLineupRole(slot==='A'?form.lineupA:form.lineupB,from,to);if(rows){manualRoles[slot]=true;if(slot==='A')form.lineupA=rows;else form.lineupB=rows;}}
 const confirmed=ref(false),busy=ref(false),error=ref('');
 const participants=computed(()=>upcomingParticipants(props.match));
 function useBinding(slot:'A'|'B',binding:RosterCatalogueBinding,openEditor=true){
@@ -93,7 +97,7 @@ async function create(){
         <button v-if="proposed(slot)!.view?.canUse" type="button" :disabled="proposed(slot)!.busy" @click="catalogue?.usePrepared(slot)">{{proposed(slot)!.busy?'Сохраняем…':`Подтвердить аккаунты и выбрать пятёрку ${slot}`}}</button>
         <button v-else type="button" :disabled="proposed(slot)!.busy" @click="catalogue?.openPreparation()">Уточнить аккаунты {{slot}}</button>
       </template>
-      <ul v-else><li v-for="p in (slot==='A'?form.lineupA:form.lineupB)" :key="p.rolePos"><span class="hint">{{p.rolePos}} · </span>{{preparedLabels['player:'+p.playerId]??(p.playerId?`Игрок ${p.playerId}`:'Игрок не выбран')}}<span v-if="p.isStandin"> · замена</span></li></ul>
+      <ul v-else><li v-for="p in (slot==='A'?form.lineupA:form.lineupB)" :key="p.rolePos"><span class="hint">{{p.rolePos}}. {{roleName(p.rolePos)}} · </span>{{preparedLabels['player:'+p.playerId]??(p.playerId?`Игрок ${p.playerId}`:'Игрок не выбран')}}<span v-if="p.isStandin"> · замена</span></li></ul>
       <p class="hint">Выбрано {{(slot==='A'?form.lineupA:form.lineupB).filter(p=>p.playerId).length}} / 5<span v-if="savedAt[slot]"> · связи сохранены {{dateLabel(savedAt[slot]!)}}</span></p>
     </article></div>
     <p v-if="!complete" class="warning">Для сравнения нужны две пятёрки. Подготовленные игроки и причины незаполненных составов показаны в карточках выше.</p>
@@ -105,6 +109,7 @@ async function create(){
   <ExpectedRosterCatalogue v-if="participants.complete" ref="catalogue" :match-id="match.providerMatchId" :roster-version="rosterVersion" :automatic-allowed="automaticAllowed" @apply="useBinding" @saved="useSaved" @preparation="preparation=$event" />
   <details ref="manualEditor" class="manual-scenario" :open="manualOpen" @toggle="manualOpen=($event.target as HTMLDetailsElement).open"><summary>Выбрать игроков для анализа одной карты</summary>
     <p>Задайте игроков и их роли по локальному справочнику. Заявка турнира служит ориентиром; состав сценария подтверждаете вы.</p>
+    <p class="hint">Выбор занятой роли меняет двух игроков местами. В пятёрке всегда по одной роли 1–5; после изменения подтвердите состав заново.</p>
     <p class="hint">Найдите запись по имени или ID и выберите её из списка. Если записи нет в локальной базе, состав остаётся неполным.</p>
     <p v-if="!participants.complete" class="warning">Это гипотетический сценарий с выбранными вами командами. Он не подтверждает участников этой встречи и не привязывает к ней реальный прогноз.</p>
     <form @submit.prevent="create"><fieldset :disabled="busy" class="scenario-fields">
@@ -117,12 +122,13 @@ async function create(){
           :team-id="slot==='A'?form.teamAId:form.teamBId" :side-label="slot" />
         <div v-for="p in slot==='A'?form.lineupA:form.lineupB" :key="p.rolePos">
           <CatalogPicker v-model="p.playerId" kind="players" :label="`${slot}: игрок роли ${p.rolePos}`" :selected-label="preparedLabels['player:'+p.playerId]" :excluded-ids="usedPlayers(p)" @selected="item=>preparedLabels['player:'+item.id]=item.name??item.id" />
+          <RoleSelect :model-value="p.rolePos" :label="`${slot}: сменить роль ${p.rolePos}`" @update:model-value="role=>changeRole(slot,p.rolePos,role)" />
           <label class="check-row"><input v-model="p.isStandin" type="checkbox" @change="confirmed=false" />{{slot}}: замена роли {{p.rolePos}}</label>
         </div>
         <PlayerHistory :slot="slot" :player-ids="(slot==='A'?form.lineupA:form.lineupB).map(p=>p.playerId)" />
         <component :is="(slot==='A'?form.teamAId:form.teamBId)?RoleProfiles:RoleSuggestions" :key="slot+':roles:'+(slot==='A'?form.teamAId:form.teamBId)"
           :team-id="slot==='A'?form.teamAId:form.teamBId" :panda-tournament-id="match.tournament.providerTournamentId" :panda-team-id="upcomingProviderForSlot(match,slot)"
-          :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot" :preserve-manual="confirmed||!!savedAt[slot]" :player-labels="preparedLabels"
+          :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot" :preserve-manual="confirmed||!!savedAt[slot]||manualRoles[slot]" :player-labels="preparedLabels"
           @apply="rows=>{if(slot==='A')form.lineupA=rows.map(p=>({...p,playerId:p.playerId??''}));else form.lineupB=rows.map(p=>({...p,playerId:p.playerId??''}));}" />
       </fieldset></div>
       <p v-if="form.teamAId&&form.teamBId"><RouterLink :to="{path:'/compare',query:{teamA:form.teamAId,teamB:form.teamBId}}">Открыть сравнение организаций →</RouterLink></p>

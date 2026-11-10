@@ -1,6 +1,17 @@
 import type {DraftInput,RoleSuggestionReport} from '@dota/contracts';
 export type RoleMember={rolePos:number;playerId:string|null;isStandin:boolean};
-export const roleName=(role:number)=>['','Керри','Мидер','Офлейнер','Поддержка','Полная поддержка'][role]??'Не определена';
+export const roleName=(role:number)=>['','Carry','Mid','Offlane','Semi-support','Hard support'][role]??'Не определена';
+/** Manual role selection swaps the occupied positions atomically, retaining all player fields. */
+export function swapLineupRole<T extends RoleMember>(lineup:readonly T[],from:number,to:number):T[]|null{
+  if(lineup.length!==5||new Set(lineup.map(p=>p.rolePos)).size!==5||lineup.some(p=>!Number.isInteger(p.rolePos)||p.rolePos<1||p.rolePos>5)||
+    !Number.isInteger(from)||!Number.isInteger(to)||from<1||from>5||to<1||to>5)return null;
+  return lineup.map(p=>({...p,rolePos:p.rolePos===from?to:p.rolePos===to?from:p.rolePos})).sort((a,b)=>a.rolePos-b.rolePos);
+}
+/** Manual swaps also work with empty slots: null player IDs cannot identify a draft owner. */
+export function swapDraftRoles(draft:DraftInput,slot:'A'|'B',from:number,to:number):DraftInput{
+  return {...draft,assignments:draft.assignments.map(h=>h.teamSlot!==slot?h:
+    {...h,rolePos:h.rolePos===from?to:h.rolePos===to?from:h.rolePos})};
+}
 export function arrangeSuggestedRoles<T extends RoleMember>(lineup:readonly T[],report:RoleSuggestionReport):T[]|null{
   if(lineup.length!==5||new Set(lineup.map(p=>p.playerId)).size!==5||lineup.some(p=>!p.playerId)||report.players.length!==5)return null;
   const rows=lineup.map(p=>{const r=report.players.find(r=>r.playerId===p.playerId)?.suggestedRole;return r?{...p,rolePos:r}:null;});

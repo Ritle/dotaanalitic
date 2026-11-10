@@ -8,7 +8,8 @@ import DraftAssessment from '../components/DraftAssessment.vue';
 import HeroMatchups from '../components/HeroMatchups.vue';
 import RoleSuggestions from '../components/RoleSuggestions.vue';
 import RoleProfiles from '../components/RoleProfiles.vue';
-import {moveRoleDraft,type RoleMember} from '../role-suggestions';
+import {moveRoleDraft,swapLineupRole,swapDraftRoles,type RoleMember} from '../role-suggestions';
+import RoleSelect from '../components/RoleSelect.vue';
 import {readCatalog,dateLabel,CatalogRequestError} from '../catalog';
 import {ownerAuth} from '../auth';
 const route=useRoute(),router=useRouter(),cache=useQueryClient();
@@ -18,6 +19,12 @@ const blank=():ScenarioInput=>({title:'',teamAId:'',teamBId:'',cutoffAt:new Date
   lineupA:five(),lineupB:five(),expectedLineupA:null,expectedLineupB:null,confirmedByOwner:true,
   context:{seriesId:null,mapNumber:null,teamASeriesWinsBefore:null,teamBSeriesWinsBefore:null,radiantSlot:null,firstPickSlot:null,venueKind:null,tournamentStage:null}});
 const form=reactive(blank()),expectedA=ref(five()),expectedB=ref(five()),baselineA=ref(false),baselineB=ref(false),confirmed=ref(false);
+const manualRoles=reactive({A:false,B:false});
+function changeRole(slot:'A'|'B',from:number,to:number){
+ const rows=swapLineupRole(slot==='A'?form.lineupA:form.lineupB,from,to);if(!rows)return;
+ manualRoles[slot]=true;draft.value=swapDraftRoles(draft.value,slot,from,to);
+ if(slot==='A')form.lineupA=rows;else form.lineupB=rows;
+}
 const draft=ref<DraftInput>({assignments:[],bans:[]}),preview=ref<Assessment|null>(null);let editGeneration=0;
 const error=ref(''),busy=ref(false),conflict=ref(false),revision=ref<number|null>(null),loadedId=ref(''),saved=ref<ScenarioSnapshot|null>(null),dirty=ref(false);
 const list=useQuery({queryKey:computed(()=>['scenarios',offset.value]),queryFn:({signal})=>readCatalog(`scenarios?offset=${offset.value}`,ScenarioListSchema,signal)});
@@ -42,6 +49,7 @@ function hydrate(s:ScenarioSnapshot){
 }
 watch(()=>current.data.value,s=>{if(s&&loadedId.value!==s.id)hydrate(s);},{immediate:true});
 watch(id,()=>{error.value='';conflict.value=false;revision.value=null;loadedId.value='';saved.value=null;historyOffset.value=0;
+  manualRoles.A=false;manualRoles.B=false;
   Object.assign(form,blank());expectedA.value=five();expectedB.value=five();baselineA.value=false;baselineB.value=false;confirmed.value=false;dirty.value=false;
   draft.value={assignments:[],bans:[]};dirty.value=false;
   if(current.data.value)hydrate(current.data.value);
@@ -120,14 +128,16 @@ async function save(){
             <label>Срез данных UTC<input v-model="cutoff" type="datetime-local" step="0.001" required /></label>
             <label>Плановое начало UTC · неизвестно, если пусто<input v-model="scheduled" type="datetime-local" step="0.001" /></label>
           </div>
+          <p class="hint">Выберите роль в списке у игрока. Если она занята, игроки поменяются местами; герой и отметка замены сохранятся у своего игрока. После правки подтвердите состав заново.</p>
           <div class="scenario-grid">
             <fieldset v-for="slot in (['A','B'] as const)" :key="slot"><legend>Выбранный состав {{slot}}</legend>
               <div v-for="p in (slot==='A'?form.lineupA:form.lineupB)" :key="p.rolePos" class="scenario-player">
                 <label :for="`${slot}-${p.rolePos}`">{{slot}}: игрок роли {{p.rolePos}}</label><input :id="`${slot}-${p.rolePos}`" v-model="p.playerId" inputmode="numeric" required />
+                <RoleSelect :model-value="p.rolePos" :label="`${slot}: сменить роль ${p.rolePos}`" @update:model-value="role=>changeRole(slot,p.rolePos,role)" />
                 <label class="check-row"><input v-model="p.isStandin" type="checkbox" />{{slot}}: замена роли {{p.rolePos}}</label>
               </div>
               <component :is="(slot==='A'?form.teamAId:form.teamBId)?RoleProfiles:RoleSuggestions" :key="id+':'+slot+':roles:'+(slot==='A'?form.teamAId:form.teamBId)"
-                :team-id="slot==='A'?form.teamAId:form.teamBId" :preserve-manual="!isNew" :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot" :cutoff-at="form.cutoffAt" @apply="(rows:RoleMember[])=>applyRoles(slot,rows)" />
+                :team-id="slot==='A'?form.teamAId:form.teamBId" :preserve-manual="!isNew||manualRoles[slot]" :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot" :cutoff-at="form.cutoffAt" @apply="(rows:RoleMember[])=>applyRoles(slot,rows)" />
               <label class="check-row"><input v-if="slot==='A'" v-model="baselineA" type="checkbox" /><input v-else v-model="baselineB" type="checkbox" />Ожидаемый состав {{slot}}</label>
               <div v-if="slot==='A'?baselineA:baselineB"><p class="hint">Необязательная ручная база сравнения. Фиксированного штрафа за замену нет.</p>
                 <label v-for="p in (slot==='A'?expectedA:expectedB)" :key="p.rolePos">{{slot}}: ожидаемый игрок роли {{p.rolePos}}<input v-model="p.playerId" inputmode="numeric" required /></label>
