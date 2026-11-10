@@ -11,6 +11,7 @@ import RoleProfiles from '../components/RoleProfiles.vue';
 import {moveRoleDraft,swapLineupRole,swapDraftRoles,type RoleMember} from '../role-suggestions';
 import RoleSelect from '../components/RoleSelect.vue';
 import CatalogPicker from '../components/CatalogPicker.vue';
+import ScenarioHistoryEntry from '../components/ScenarioHistoryEntry.vue';
 import {readCatalog,dateLabel,CatalogRequestError} from '../catalog';
 import {ownerAuth} from '../auth';
 const route=useRoute(),router=useRouter(),cache=useQueryClient();
@@ -180,22 +181,7 @@ async function save(){
     <HeroMatchups v-if="saved&&!dirty" :key="saved.id+':'+saved.revision" :scenario="saved" />
     <section v-if="id&&!isNew" class="panel" aria-label="История сценария"><h2>Сохранённые редакции</h2>
       <p v-if="history.isPending.value">Загрузка истории…</p><p v-if="history.error.value" class="error" role="alert">{{history.error.value.message}}</p>
-      <details v-for="s in history.data.value?.items" :key="s.revision"><summary>Редакция {{s.revision}} · {{s.input.title}} · {{dateLabel(s.recordedAt)}}</summary>
-        <p>Команды A / B: {{s.input.teamAId}} / {{s.input.teamBId}}. Срез: {{dateLabel(s.input.cutoffAt)}}. Radiant: {{s.input.context.radiantSlot??'неизвестно'}}; первый пик: {{s.input.context.firstPickSlot??'неизвестно'}}.</p>
-        <div v-for="slot in (['A','B'] as const)" :key="slot"><h3>Состав {{slot}}</h3><p v-for="p in (slot==='A'?s.input.lineupA:s.input.lineupB)" :key="p.rolePos">Роль {{p.rolePos}} · {{p.playerId}}{{p.isStandin?' · замена':''}}</p></div>
-        <p>Плановое начало: {{dateLabel(s.input.scheduledAt)}}. Серия: {{s.input.context.seriesId??'неизвестно'}}; карта: {{s.input.context.mapNumber??'неизвестно'}}; счёт до карты A / B: {{s.input.context.teamASeriesWinsBefore??'неизвестно'}} / {{s.input.context.teamBSeriesWinsBefore??'неизвестно'}}.</p>
-        <p>Формат: {{s.input.context.venueKind==='lan'?'LAN':s.input.context.venueKind==='online'?'Онлайн':s.input.context.venueKind==='hybrid'?'Смешанный':'неизвестно'}}; стадия: {{s.input.context.tournamentStage??'неизвестно'}}.</p>
-        <p v-if="!s.input.draft">Драфт не входил в эту редакцию.</p>
-        <div v-else><p>Лига: {{s.input.context.leagueId??'неизвестно'}}. Назначено героев: {{s.input.draft.assignments.length}} / 10.</p>
-          <p v-for="h in s.input.draft.assignments" :key="h.teamSlot+h.rolePos">{{h.teamSlot}} · роль {{h.rolePos}} · герой #{{h.heroId}}</p>
-          <p v-for="h in s.input.draft.bans" :key="h.heroId">Бан {{h.teamSlot}} · герой #{{h.heroId}}</p>
-          <DraftAssessment v-if="s.draftAssessment" :assessment="s.draftAssessment" saved />
-        </div>
-        <div v-for="slot in (['A','B'] as const)" :key="`expected-${slot}`"><h3>Ожидаемый состав {{slot}}</h3>
-          <p v-if="!(slot==='A'?s.input.expectedLineupA:s.input.expectedLineupB)">Не задан</p>
-          <p v-for="p in (slot==='A'?s.input.expectedLineupA:s.input.expectedLineupB)" :key="p.rolePos">Роль {{p.rolePos}} · {{p.playerId}}</p>
-        </div>
-      </details>
+      <ScenarioHistoryEntry v-for="s in history.data.value?.items" :key="id+':'+s.revision" :snapshot="s" />
       <div class="pagination"><button v-if="historyOffset" @click="historyOffset-=20">Новые редакции</button><button v-if="history.data.value?.hasMore" @click="historyOffset+=20">Ранние редакции</button></div>
     </section>
   </main>

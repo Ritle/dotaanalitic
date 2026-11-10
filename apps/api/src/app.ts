@@ -5,6 +5,7 @@ import { createDatabase, CatalogRepository, ProMapRepository, RosterRepository, 
 import { AuthError, AuthService } from './modules/auth/service.js';
 import { registerAuth } from './modules/auth/http.js';
 import { registerCatalog } from './modules/catalog/http.js';
+import {registerDisplayLabels} from './modules/catalog/display-labels-http.js';
 import {registerRosterContext} from './modules/catalog/roster-context-http.js';
 import {RosterContextService} from './modules/catalog/roster-context-service.js';
 import {registerTeamActivity} from './modules/catalog/team-activity-http.js';
@@ -96,6 +97,7 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   registerPlayerHistory(app,playerHistory);
   app.addHook('onClose',()=>playerHistory.close());
   registerCatalog(app, new CatalogRepository(db));
+  registerDisplayLabels(app,db);
   registerRoleSuggestions(app,new RoleSuggestionRepository(db));
   registerRoleProfiles(app,new RoleProfileService(db,config,options.roleProfileFetch));
   registerRankedPractice(app,new RankedPracticeService(db,config,options.rankedPracticeFetch));
