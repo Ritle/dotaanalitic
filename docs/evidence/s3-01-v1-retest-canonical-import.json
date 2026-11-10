@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-retest/canonical-import",
+  "recordedDate": "2026-11-10",
+  "checkedAt": "2026-11-10T11:56:16.429Z",
+  "status": "canonical_import_export_verified",
+  "protocolSha256": "14353a129616d4757638ca91916aeb356e3944b45cdb64ab56cb8e21238452f1",
+  "closureSha256": "efa0e5e13d222d49e0ac424a3f51a65b49733ad029856177d8a010f15f92d114",
+  "sourceManifestSha256": "028749b2521dfe119da7d4ba9dab58f77cff9c053f090b121960e5ed0ab78ce1",
+  "configSha256": "f634f75e0e4dd376526642ce52cfaae51f689aeafa0c74fd55172c560a5d32c5",
+  "planSha256": "80f491fd3a06bfc024d73f1ab9ddd39a39a434bad2fe7b3d113a17345d12fdca",
+  "datasetSha256": "0014b951bff370c2d950d8ff2fb60fb12eaa2743859415db07e1a3d074b9d64d",
+  "coverageSha256": "f819aa0541e3f20cc3ce441db615d1bed367af67c07421efc21ecae81e3869df",
+  "steps": {
+    "verify-01": {
+      "summary": {
+        "source_plan_verified": 1
+      },
+      "duplicates": 0,
+      "resultSha256": "65cff2a3ae8183313e4c0ccfe7d5f03d67a318dfb19464b1adabdcd8900d9580"
+    },
+    "identities-01": {
+      "summary": {
+        "already_verified": 280,
+        "blocked": 45,
+        "applied": 47
+      },
+      "duplicates": 0,
+      "resultSha256": "b03b021f93673617d83dda4152d4372c7aad4d6c67cf8196e0e06255dc358288"
+    },
+    "maps-01": {
+      "summary": {
+        "accepted": 1301
+      },
+      "duplicates": 7,
+      "resultSha256": "e925a0ed3c77deb87a7b5b726beaaa8ea188c6af05541b81de62220a7246a98f"
+    },
+    "series-01": {
+      "summary": {
+        "applied": 636,
+        "already_present": 6
+      },
+      "duplicates": 0,
+      "resultSha256": "b3399c05e5cc59d80fa0bbc2a5b0267ebd578deb8a1ba9a8b3ac3475bd844fac"
+    },
+    "maps-linked-01": {
+      "summary": {
+        "accepted": 1301
+      },
+      "duplicates": 27,
+      "resultSha256": "65c4fef88470f152f1d3a8b572ebe9006d123449009440d8481e49dd893e8645"
+    },
+    "maps-repeat-01": {
+      "summary": {
+        "accepted": 1301
+      },
+      "duplicates": 1301,
+      "resultSha256": "a901c29642d27d2fad9ba9bbca66892269de40c439614abc399c6a28da68c583"
+    },
+    "export-02": {
+      "summary": {
+        "canonical_coverage_exported": 1
+      },
+      "duplicates": 0,
+      "resultSha256": "49f69faa2a199749af8b47641aaceb6c697dad23fabe64fcff50365130fe2938"
+    }
+  },
+  "coverage": {
+    "inventoryMaps": 2232,
+    "historyEligibleMaps": 2142,
+    "targetMaps": 670,
+    "targetSeries": 333,
+    "canonicalTargetMaps": 664,
+    "historyReadyMaps": 664,
+    "readyMaps": 664,
+    "readySeries": 332
+  },
+  "unavailableTargetReasonCounts": {
+    "CANONICAL_HISTORY_BELOW_MINIMUM": 6,
+    "SERIES_ID_PENDING": 4,
+    "SERIES_ID_REQUIRED": 4,
+    "SERIES_SOURCE_UNVERIFIED": 4,
+    "SERIES_UNKNOWN": 4,
+    "CURRENT_IDENTITIES_UNVERIFIED": 2,
+    "SERIES_NOT_READY": 2
+  },
+  "historicalAssumptions": [
+    "ACTUAL_LINEUPS_RECONSTRUCTED",
+    "CURRENT_SAME_ACCOUNT_IDENTITIES",
+    "EVENT_TIME_OUTCOME_AVAILABILITY_ASSUMED",
+    "ONLY_SELECTED_ELIGIBLE_HISTORY",
+    "REMOTE_SERIES_COMPLETENESS_UNKNOWN",
+    "TARGET_SERIES_EXCLUSIONS_DO_NOT_REMOVE_HISTORY"
+  ],
+  "preservation": {
+    "publicTables": 83,
+    "changedTablesDuringImport": [
+      "identity_registry_state",
+      "leagues",
+      "match_draft_source_observations",
+      "match_field_observations",
+      "match_players",
+      "match_quality_assessments",
+      "match_source_snapshots",
+      "matches",
+      "player_account_evidence",
+      "player_alias_history",
+      "players",
+      "provider_ingest_receipts",
+      "series",
+      "series_provision_batches",
+      "teams"
+    ],
+    "mapsBefore": 939,
+    "mapsAfter": 2232,
+    "queueRows": 14,
+    "queueHashUnchanged": true,
+    "activeModels": 0,
+    "collectionFiles": 2684,
+    "protectedArtifacts": 245,
+    "previousFrozenAndCurrentCodeFiles": 373,
+    "firstFailedEvaluationPreserved": true,
+    "baseMapsCorePreserved": 939,
+    "refreshedBaseMaps": [
+      {
+        "matchId": "8651546216",
+        "before": "2",
+        "after": "3"
+      }
+    ],
+    "repeatedImportChangedTables": [],
+    "readOnlyExportChangedTables": [],
+    "codeManifestStableThroughImport": true,
+    "exportCodeChanges": [
+      {
+        "path": "scripts/lib/v1-retest-dataset-file.mjs",
+        "sha256": "319464d36149b0a5d3cb28b49dfd416ab3fd41bde77a700ef05442761d6991bc"
+      },
+      {
+        "path": "scripts/lib/v1-retest-import-step.mjs",
+        "sha256": "32201047990642ccee6c4df25fa9ab303d18213be088c1f940e262ffeb86bafc"
+      }
+    ]
+  },
+  "backup": {
+    "sha256": "04ea714c010b1079e45f73333caeb21fe3d4fedffc17dfa7d200dc02b6ff2796",
+    "bytes": 8573218,
+    "archiveListVerified": true
+  },
+  "exportSizeFix": {
+    "firstAttempt": "export-01",
+    "retry": "export-02",
+    "reproducedError": "discovery_file_limit",
+    "observedBytes": 46161104,
+    "oldLimit": 33554432,
+    "datasetLimit": 134217728,
+    "sharedDiscoveryLimitChanged": false,
+    "largeFileRedGreen": true,
+    "exclusiveWrite": true,
+    "shaReaderReplay": true
+  },
+  "checks": {
+    "isolatedPostgres": {
+      "status": "PASS",
+      "suites": 6,
+      "tests": 73,
+      "logSha256": "9d105c637de028f09f86a2085bea9d6bc5bf56604ea8b1399c55221788ae8fa8",
+      "retestCasesRepeatedAfterFix": 6
+    },
+    "sourcePlanReplay": "PASS",
+    "idempotency": "PASS",
+    "independentHistory": {
+      "status": "PASS",
+      "examples": 2142,
+      "playerCounts": 21420,
+      "strictEarlierPlayerMapLinks": 1461219
+    },
+    "docs": "PASS",
+    "migrationChecksums": "PASS_49",
+    "secretScan": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "unitCli": 892,
+    "nodeTests": 229,
+    "newBoundaryTests": 3,
+    "browserPythonDockerLinux": "NOT_RERUN"
+  },
+  "providerRequests": 0,
+  "modelEvaluationPerformed": false,
+  "qualityGateCalculated": false,
+  "modelActivated": false,
+  "metrics": null,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "nextTask": "S3-01/V1-retest/executable-freeze",
+  "suggestedModel": "GPT-6 Astra",
+  "reasoningEffort": "Extra High"
+}

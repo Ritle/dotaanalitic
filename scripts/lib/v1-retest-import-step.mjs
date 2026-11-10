@@ -5,6 +5,7 @@ import {IngestionService} from '../../packages/ingestion/dist/importer.js';
 import {releaseExecutionCode} from './v1-release-files.mjs';
 import {hash} from './v1-historical-collection.mjs';
 import {retestImportProvider,reconcileRetestImport,save,fail} from './v1-retest-import.mjs';
+import {saveRetestDataset} from './v1-retest-dataset-file.mjs';
 export async function executeRetestImportStep(inputs,db,mode,output,planRef,{onWrite=()=>{},onProgress=()=>{}}={}){
  const {plan}=inputs,{fingerprint,...body}=plan;
  if(plan.schemaVersion!==2||plan.format!=='v1-retest-import-plan-v2'||plan.syntheticOnly||hash(body)!==fingerprint)fail('plan_binding');
@@ -54,7 +55,7 @@ export async function executeRetestImportStep(inputs,db,mode,output,planRef,{onW
   const original=inputs.ctx.canonical.source.request;
   const dataset=await new V1DataRepository(db).export({...original,snapshotAt:new Date().toISOString()},await releaseExecutionCode());
   const report=reconcileRetestImport(plan,dataset);
-  await save(join(output,'dataset.json'),dataset);await save(join(output,'coverage.json'),report);
+  await saveRetestDataset(join(output,'dataset.json'),dataset);await save(join(output,'coverage.json'),report);
   results.push({status:'canonical_coverage_exported',summary:report.summary});
  }
  const summary={};for(const r of results)summary[r.status]=(summary[r.status]??0)+1;
