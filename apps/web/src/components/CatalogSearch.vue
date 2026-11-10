@@ -24,7 +24,7 @@ watch(activityView,()=>{offset.value=0;});
 <template>
   <section class="panel" aria-labelledby="catalog-title">
     <div class="account-row"><h2 id="catalog-title">Справочники</h2><span class="badge">Локальная база</span></div>
-    <p>Найдите организацию, игрока или героя по имени и ID. Команды также доступны по тегу.</p>
+    <p>Найдите команду по названию или тегу, игрока по нику, героя по имени.</p>
     <div class="catalog-tabs" role="group" aria-label="Раздел справочника">
       <button v-for="entry in kinds" :key="entry.id" type="button" :aria-pressed="kind===entry.id" @click="kind=entry.id">{{entry.label}}</button>
     </div>
@@ -42,11 +42,13 @@ watch(activityView,()=>{offset.value=0;});
       <p v-if="!data.items.length">Ничего не найдено. В локальной базе нет подходящих записей; загрузка из источника выполняется отдельно.</p>
       <div v-else class="table-scroll">
         <table><caption class="sr-only">Результаты поиска: {{kinds.find(k=>k.id===kind)?.label}}</caption>
-          <thead><tr><th scope="col">Название / ID</th><th scope="col">Синхронизация</th><th scope="col">Изменение записи</th></tr></thead>
+          <thead><tr><th scope="col">Название</th><th scope="col">Синхронизация</th><th scope="col">Изменение записи</th></tr></thead>
           <tbody><tr v-for="entry in data.items" :key="entry.id">
-            <td><RouterLink v-if="kind!=='heroes'" :to="`/${kind}/${entry.id}`">{{entry.name}}</RouterLink><strong v-else>{{entry.name}}</strong>
+            <td><RouterLink v-if="kind!=='heroes'" :to="`/${kind}/${entry.id}`">{{entry.name.trim()||(kind==='teams'?'Команда без названия':'Игрок без ника')}}</RouterLink><strong v-else>{{entry.name.trim()||'Герой без названия'}}</strong>
               <span v-if="'activityStatus' in entry&&entry.activityStatus==='inactive'" class="badge">Архив</span>
-              <span class="catalog-id">{{entry.secondary || (kind==='players'?'Canonical player':'Без тега')}} · ID {{entry.id}}</span></td>
+              <span v-if="kind==='teams'&&entry.secondary" class="catalog-id">Тег: {{entry.secondary}}</span>
+              <p v-if="kind==='players'&&entry.name.trim()&&data.items.filter(p=>p.name.trim().toLowerCase()===entry.name.trim().toLowerCase()).length>1" class="hint">Имя повторяется. Проверьте аккаунт в карточке.</p>
+              <details class="catalog-record"><summary>Данные записи</summary><p>Внутренний ID: {{entry.id}}</p><p v-if="kind==='heroes'&&entry.secondary">Внутреннее название: {{entry.secondary}}</p></details></td>
             <td>{{dateLabel(entry.syncedAt)}}</td><td>{{dateLabel(entry.metadataUpdatedAt)}}</td>
           </tr></tbody>
         </table>
@@ -60,3 +62,6 @@ watch(activityView,()=>{offset.value=0;});
     </template>
   </section>
 </template>
+<style scoped>
+.catalog-record{margin-top:8px;font-size:13px;overflow-wrap:anywhere}.catalog-record summary{cursor:pointer}.hint{font-size:13px}
+</style>

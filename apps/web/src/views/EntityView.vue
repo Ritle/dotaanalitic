@@ -24,14 +24,15 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
 </script>
 
 <template>
-  <section class="panel">
+  <section class="panel" :aria-label="kind==='teams'?'Карточка организации':'Карточка игрока'">
     <RouterLink to="/">← К справочникам</RouterLink>
     <p v-if="isPending" role="status">Загружаем обзор…</p>
     <div v-else-if="isError" role="alert"><p class="error">{{error?.message}}</p><button type="button" @click="refetch()">Повторить</button></div>
     <template v-else-if="data">
       <p class="eyebrow">{{data.entityType==='organization'?'Организация':'Игрок'}}</p>
-      <h2>{{data.entity.name}}</h2>
-      <p>ID {{data.entity.id}}<span v-if="data.entity.secondary"> · {{data.entity.secondary}}</span></p>
+      <h2>{{data.entity.name.trim()||(kind==='teams'?'Команда без названия':'Игрок без ника')}}</h2>
+      <p v-if="kind==='teams'&&data.entity.secondary">Тег команды: {{data.entity.secondary}}</p>
+      <details><summary>Данные записи</summary><p>Внутренний ID: {{data.entity.id}}</p></details>
       <dl class="metadata"><dt>Источник</dt><dd>Локальный справочник</dd><dt>Синхронизация</dt><dd>{{dateLabel(data.entity.syncedAt)}}</dd>
         <dt>Изменение записи</dt><dd>{{dateLabel(data.entity.metadataUpdatedAt)}}</dd><dt>Прочитано</dt><dd>{{dateLabel(data.computedAt)}}</dd></dl>
       <TeamActivity v-if="kind==='teams'" :key="id" :id="id" />
@@ -47,15 +48,14 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
           <p class="hint">Источник: {{data.latestObservedLineup.source}} · Синхронизация: {{dateLabel(data.latestObservedLineup.syncedAt)}} · N = 1 карта</p>
           <p v-if="data.latestObservedLineup.status==='incomplete'" class="warning">Состав неполный: не все пять игроков идентифицированы.</p>
           <ul><li v-for="member in data.latestObservedLineup.members" :key="member.playerSlot">
-            <RouterLink v-if="member.playerId" :to="`/players/${member.playerId}`">{{member.name}} · ID {{member.playerId}}</RouterLink>
+            <RouterLink v-if="member.playerId" :to="`/players/${member.playerId}`">{{member.name?.trim()||'Игрок без ника'}}</RouterLink>
             <span v-else>игрок не идентифицирован</span>
           </li></ul>
-          <details><summary>Слоты в протоколе карты</summary><p v-for="member in data.latestObservedLineup.members" :key="member.playerSlot">{{member.name||'Игрок не идентифицирован'}} · слот {{member.playerSlot}}. Номер слота не является ролью.</p></details>
+          <details><summary>Слоты в протоколе карты</summary><p v-for="member in data.latestObservedLineup.members" :key="member.playerSlot">{{member.name?.trim()||(member.playerId?'Игрок без ника':'Игрок не идентифицирован')}} · слот {{member.playerSlot}}<span v-if="member.playerId"> · внутренний ID игрока {{member.playerId}}</span>. Номер слота не является ролью.</p></details>
         </template>
         <p v-else>Нет доступных завершённых профессиональных карт этой организации. N = 0.</p>
       </template>
       <template v-else>
-        <p>Canonical player ID: {{data.entity.id}}. Ник не используется для объединения личностей.</p>
         <p class="hint">Steam32 в записи каталога: {{data.catalogAccountId || 'неизвестно'}}. Подтверждённый аккаунт и состояние его привязки показаны в блоке команды выше.</p>
         <p class="hint">Сведения источника о команде показаны выше. Профессиональная история игрока следует подтверждённой личности через переходы между организациями.</p>
         <p>История карт и показатели по героям ниже используют проверенные связи аккаунтов и показывают покрытие подтверждённых позиций.</p>

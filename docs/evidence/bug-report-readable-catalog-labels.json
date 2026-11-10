@@ -1,0 +1,94 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels",
+  "slice": "catalogue-and-entity-cards",
+  "checkedAt": "2026-11-10T20:39:07.862Z",
+  "scope": {
+    "uiOnly": true,
+    "completed": [
+      "team/player/hero catalogue display labels",
+      "team/player card labels",
+      "observed lineup names",
+      "collapsed technical metadata",
+      "empty-name fallbacks",
+      "duplicate nickname notice on visible page"
+    ],
+    "wholeBug7Complete": false,
+    "remaining": [
+      "CatalogPicker selection labels",
+      "reports and filters",
+      "source binding labels"
+    ],
+    "newApiRequests": false,
+    "predictionEffect": "none"
+  },
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "passed": 908,
+      "maxWorkers": 1
+    },
+    "build": "PASS; existing chunk-size warning",
+    "browser": {
+      "passed": 9,
+      "files": [
+        "auth.spec.ts",
+        "roster-card-roles.spec.ts",
+        "team-activity.spec.ts"
+      ],
+      "realPostgres": true,
+      "syntheticFixtures": true
+    },
+    "separateApiPgSuite": false,
+    "migrationFiles": 52,
+    "development": {
+      "red": "Existing catalogue test reproduced missing human-readable tag",
+      "targetedBrowser": "3 PASS",
+      "testMaintenance": "Updated existing empty/error/session interception from legacy /teams to current /team-directory"
+    },
+    "live": {
+      "team": "Team Spirit",
+      "player": "Yatoro",
+      "playerPath": "/players/20",
+      "steam32": "321580662",
+      "internalIdsCollapsed": true,
+      "mobileOverflow": false,
+      "pageErrors": 0,
+      "http5xx": 0,
+      "providerHttp": 0,
+      "businessWrites": 0
+    }
+  },
+  "preservation": {
+    "tables": 85,
+    "unchangedTables": 83,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "maps": 2232,
+    "queueRows": 12,
+    "queueUnchanged": true,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 25228,
+    "webPid": 8376,
+    "generalWorker": "OFF",
+    "apiRestartRequired": false
+  },
+  "limitations": [
+    "Bug7 remains partial outside this slice",
+    "Duplicate-name notice checks the current catalogue page only",
+    "Technical IDs remain available in collapsed record details",
+    "Steam32 catalogue value is not promoted to verified identity"
+  ],
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/selection",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}
