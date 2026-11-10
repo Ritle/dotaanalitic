@@ -8,6 +8,7 @@ import {ownerAuth} from '../auth';
 import CompareStat from '../components/CompareStat.vue';
 import CatalogPicker from '../components/CatalogPicker.vue';
 import RoleSelect from '../components/RoleSelect.vue';
+import ReportEntityLabel from '../components/ReportEntityLabel.vue';
 import {swapLineupRole,roleName} from '../role-suggestions';
 const route=useRoute(),router=useRouter(),teamA=ref(typeof route.query.teamA==='string'?route.query.teamA:''),teamB=ref(typeof route.query.teamB==='string'?route.query.teamB:'');
 const five=()=>Array.from({length:5},(_,i)=>({playerId:'',rolePos:i+1,isStandin:false}));
@@ -63,7 +64,7 @@ async function submit(){
     <p>Срез БД: {{dateLabel(report.snapshotAt)}} · источник: локальные pro-карты. Патч на дату среза: {{report.currentPatchId??'не подтверждён'}}.</p>
     <p class="warning">Победы организации не означают силу нынешней пятёрки. Малое N не гарантирует надёжности. Вероятность победы недоступна.</p>
     <p class="hint">Проценты ниже — наблюдаемый win rate, рядом указан N. Таблицы можно прокручивать вбок.</p>
-    <div class="table-scroll"><table aria-label="Показатели двух команд" class="compare-table"><thead><tr><th>Выборка</th><th v-for="col in columns" :key="col.slot">{{col.slot}} · {{col.team.name}}<span class="catalog-id">ID {{col.team.organizationId}}</span></th></tr></thead><tbody>
+    <div class="table-scroll"><table aria-label="Показатели двух команд" class="compare-table"><thead><tr><th>Выборка</th><th v-for="col in columns" :key="col.slot">{{col.slot}} · <ReportEntityLabel kind="teams" :id="col.team.organizationId" :name="col.team.name" /></th></tr></thead><tbody>
       <tr><th>Организация · весь период</th><td v-for="col in columns" :key="col.slot"><CompareStat :stats="col.team.organization" /></td></tr>
       <tr><th>Организация · последние 20 карт периода</th><td v-for="col in columns" :key="col.slot"><CompareStat :stats="col.team.recent" /></td></tr>
       <tr><th>Организация · патч на дату среза</th><td v-for="col in columns" :key="col.slot"><CompareStat :stats="col.team.currentPatch" /></td></tr>
@@ -79,8 +80,10 @@ async function submit(){
         <p class="hint">Экспериментальный chronological Elo, не официальный ранг. Отдельная выборка последних 20 карт периода без patch/league-фильтра; глобальная ранняя история сохранена. Соперников с предыдущей историей: {{col.team.strength.coverage.opponentPriorMaps}}.</p></template>
       <p>Личности выбранной пятёрки: {{col.team.cohesion.actual.fingerprint?'все пять подтверждены по имеющимся данным':'подтверждены не полностью'}}. За последние 90 дней в пределах фильтров: N = {{col.team.cohesion.actual.exactFive.recentMaps??'неизвестно'}}.</p>
       <p>Смена состава в последних {{col.team.cohesion.churn.maps}} картах: {{col.team.cohesion.churn.changedTransitions??'неизвестно'}} переходов; известных {{col.team.cohesion.churn.knownTransitions}}.</p>
-      <details><summary>{{col.slot}} · 10 пар и личная история</summary><div class="table-scroll"><table class="roster-table"><thead><tr><th>Пара игроков</th><th>N / победы · любые организации</th></tr></thead><tbody><tr v-for="(pair,i) in col.team.cohesion.actual.pairs" :key="i"><td>{{pair.playerIds.map(p=>p??'неизвестен').join(' + ')}}</td><td>{{pair.nRaw??'неизвестно'}} / {{pair.wins??'неизвестно'}}</td></tr></tbody></table></div>
-        <p v-for="p in col.team.cohesion.actual.players" :key="p.rolePos">{{p.playerId??'неизвестен'}} · выбранная роль {{p.rolePos}} · pro N {{p.nRaw??'неизвестно'}} · роль подтверждена {{p.confirmedRoleMaps??'неизвестно'}} / совпадает {{p.selectedRoleMaps??'неизвестно'}} <span v-if="p.isStandin">· Stand-in</span></p></details>
+      <details><summary>{{col.slot}} · 10 пар и личная история</summary>
+        <p class="hint">Ники могут совпадать. Проверьте аккаунт по ссылке или раскройте данные записи; подписи не объединяют истории игроков.</p>
+        <div class="table-scroll"><table class="roster-table"><thead><tr><th>Пара игроков</th><th>N / победы · любые организации</th></tr></thead><tbody><tr v-for="(pair,i) in col.team.cohesion.actual.pairs" :key="i"><td><template v-for="(id,j) in pair.playerIds" :key="j"><span v-if="j"> + </span><ReportEntityLabel kind="players" :id="id" :name="labels['player:'+id]" /></template></td><td>{{pair.nRaw??'неизвестно'}} / {{pair.wins??'неизвестно'}}</td></tr></tbody></table></div>
+        <div v-for="p in col.team.cohesion.actual.players" :key="p.rolePos"><ReportEntityLabel kind="players" :id="p.playerId" :name="labels['player:'+p.playerId]" /> · выбранная роль {{p.rolePos}} · {{roleName(p.rolePos)}} · pro N {{p.nRaw??'неизвестно'}} · роль подтверждена {{p.confirmedRoleMaps??'неизвестно'}} / совпадает {{p.selectedRoleMaps??'неизвестно'}} <span v-if="p.isStandin">· Stand-in</span></div></details>
       <details><summary>{{col.slot}} · Соперники за период</summary><p v-for="op in col.team.opponents" :key="op.opponentId??'unknown'">ID {{op.opponentId??'неизвестен'}}<CompareStat :stats="op.stats" /></p></details>
     </article></div>
     <h3>Личные встречи</h3><div class="summary-grid" role="group" aria-label="H2H двух организаций"><p><span>Эти организации · победы A</span><CompareStat :stats="report.h2h.organizations" /></p><p><span>Обе выбранные пятёрки · победы A</span><CompareStat :stats="report.h2h.selectedFives" /></p></div>

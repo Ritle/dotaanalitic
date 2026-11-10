@@ -6,6 +6,8 @@ import {ownerAuth} from '../auth';
 import {readCatalog,dateLabel} from '../catalog';
 import CompareStat from './CompareStat.vue';
 import SampleNote from './SampleNote.vue';
+import ReportEntityLabel from './ReportEntityLabel.vue';
+import {roleName} from '../role-suggestions';
 const props=defineProps<{input:CompareRequest|null;playerLabels?:Record<string,string>}>(),applied=ref<CompareRequest|null>(null);
 const period=ref('90');
 const filters=reactive({from:'',cutoff:'',patch:'',league:''}),validation=ref(''),filterForm=ref<HTMLFormElement|null>(null);
@@ -62,10 +64,11 @@ const rate=(value:number|null)=>value===null?'нет данных':new Intl.Numb
       <p class="hint">Применённые фильтры: патч {{report.input.patchId??'все'}}, лига {{report.input.leagueId??'все'}}. Период общий для организаций, пятёрок, пар и личной истории.</p>
       <p class="warning">Малое N не гарантирует надёжности. Наблюдаемый win rate — частота прошлых побед. Прогноз недоступен.</p>
       <div class="lineup-columns"><article v-for="col in columns" :key="col.slot" :aria-label="`Пятёрка ${col.slot}`">
-        <h4>{{col.slot}} · {{col.team.name}} · ID {{col.team.organizationId}}</h4>
+        <h4>{{col.slot}} · {{col.team.name.trim()||'Команда без названия'}}</h4>
+        <details><summary>Данные организации</summary><p>Внутренний ID: {{col.team.organizationId}}</p></details>
         <p><strong>Личная история игроков</strong> · все организации, только pro-карты</p>
         <div class="table-scroll"><table class="player-overview" :aria-label="`Личная статистика ${col.slot}`"><thead><tr><th>Игрок</th><th>Карт</th><th>Побед</th><th>Доля побед</th></tr></thead><tbody>
-          <tr v-for="p in col.team.cohesion.actual.players" :key="p.playerId??p.rolePos"><td>{{playerLabels?.['player:'+p.playerId]??`Игрок ${p.playerId}`}}</td><td>{{p.nRaw??'—'}}</td><td>{{p.wins??'—'}}</td><td>{{rate(p.winRate)}}</td></tr>
+          <tr v-for="p in col.team.cohesion.actual.players" :key="p.playerId??p.rolePos"><td><ReportEntityLabel kind="players" :id="p.playerId" :name="playerLabels?.['player:'+p.playerId]" /><br /><span class="hint">{{roleName(p.rolePos)}}</span></td><td>{{p.nRaw??'—'}}</td><td>{{p.wins??'—'}}</td><td>{{rate(p.winRate)}}</td></tr>
         </tbody></table></div>
         <p v-if="col.team.cohesion.actual.players.some(p=>!p.nRaw)" class="warning">У части игроков нет данных за этот период. Можно выбрать год или загрузить историю в разделе ручного выбора.</p>
         <div role="group" :aria-label="`Точная пятёрка ${col.slot} в любых организациях`"><p>Сыграли вместе · выбранные пять игроков</p><CompareStat :stats="col.team.cohesion.actual.exactFive" /></div>
@@ -80,13 +83,14 @@ const rate=(value:number|null)=>value===null?'нет данных':new Intl.Numb
         <p v-if="col.team.cohesion.coverage.incompleteSides||col.team.cohesion.coverage.duplicateIdentityMaps||col.team.cohesion.coverage.knownPatchMaps<col.team.cohesion.coverage.eligibleMaps||col.team.cohesion.coverage.lateFetchedMaps||col.team.cohesion.coverage.sourceFetchUnknown" class="warning">Есть пропуски покрытия; подробности раскрыты ниже.</p>
         <details><summary>{{col.slot}} · 10 пар в любых организациях</summary>
           <p class="hint">Одна карта считается один раз для каждой пары. Сумма N десяти пар не равна числу уникальных карт пятёрки.</p>
-          <div class="table-scroll"><table :aria-label="`Пары пятёрки ${col.slot}`"><thead><tr><th>Игроки · canonical ID</th><th>Наблюдения</th><th>Последняя карта</th></tr></thead><tbody>
-            <tr v-for="(pair,i) in col.team.cohesion.actual.pairs" :key="i"><td>{{pair.playerIds.join(' + ')}}</td><td><CompareStat :stats="pair" /></td><td>{{dateLabel(pair.lastAt)}}</td></tr>
+          <p class="hint">Ники могут совпадать. Ссылки и данные записи позволяют проверить каждого игрока отдельно.</p>
+          <div class="table-scroll"><table :aria-label="`Пары пятёрки ${col.slot}`"><thead><tr><th>Игроки</th><th>Наблюдения</th><th>Последняя карта</th></tr></thead><tbody>
+            <tr v-for="(pair,i) in col.team.cohesion.actual.pairs" :key="i"><td><template v-for="(id,j) in pair.playerIds" :key="j"><span v-if="j"> + </span><ReportEntityLabel kind="players" :id="id" :name="playerLabels?.['player:'+id]" /></template></td><td><CompareStat :stats="pair" /></td><td>{{dateLabel(pair.lastAt)}}</td></tr>
           </tbody></table></div>
         </details>
         <details><summary>{{col.slot}} · Личная история и роли</summary>
           <div v-for="p in col.team.cohesion.actual.players" :key="p.rolePos" class="player-history">
-            <p>ID {{p.playerId}} · выбранная роль {{p.rolePos}} <span v-if="p.isStandin">· замена</span></p><CompareStat :stats="p" />
+            <ReportEntityLabel kind="players" :id="p.playerId" :name="playerLabels?.['player:'+p.playerId]" /><p>Выбранная роль {{p.rolePos}} · {{roleName(p.rolePos)}} <span v-if="p.isStandin">· замена</span></p><CompareStat :stats="p" />
             <p class="hint">Историческая роль подтверждена на {{p.confirmedRoleMaps??'неизвестно'}} картах; совпала с выбранной на {{p.selectedRoleMaps??'неизвестно'}}. Последняя карта: {{dateLabel(p.lastAt)}} · обновлено: {{dateLabel(p.dataUpdatedAt)}}.</p>
           </div>
           <p class="hint">История игрока следует за подтверждённой личностью через переходы между организациями. Замена не означает фиксированного штрафа.</p>

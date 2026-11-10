@@ -1,0 +1,99 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/report-summaries",
+  "checkedAt": "2026-11-10T22:22:20.412Z",
+  "scope": {
+    "completed": [
+      "readable organization summary headings",
+      "named team columns",
+      "selected player and pair labels in both comparison screens",
+      "selected role labels",
+      "expandable record IDs and exact profile links",
+      "nullable and empty name fallback"
+    ],
+    "backendChanged": false,
+    "newMigrations": false,
+    "inputContractsChanged": false,
+    "newAutomaticRequests": 0,
+    "predictionEffect": "none",
+    "wholeBug7Complete": false
+  },
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "passed": 908,
+      "maxWorkers": 1
+    },
+    "build": "PASS; existing chunk-size warning",
+    "browser": {
+      "uniquePassed": 15,
+      "compatibilityBatchPassed": 14,
+      "finalComparisonRepeatPassed": 5,
+      "finalCliExit": 0,
+      "realPostgres": true,
+      "syntheticFixtures": true,
+      "duplicatesStayDistinct": true,
+      "emptyNicknameAndMissingSlot": true,
+      "comparisonInputDeepEquality": true,
+      "noAutomaticPlayerReads": true
+    },
+    "migrationFiles": 52,
+    "development": {
+      "red": "Visible organization ID failed the new primary-label expectation",
+      "postChange": "Test assertions refined for five occurrences of one missing slot and collapsed details after fresh comparison; no product regression found in these failures",
+      "liveDriver": "Logout navigates to the home page where the existing control is located"
+    },
+    "live": {
+      "teams": [
+        "Team Spirit",
+        "BETBOOM TEAM"
+      ],
+      "player": "Yatoro",
+      "readOnlyComparison": true,
+      "metadataExpandable": true,
+      "extraPlayerReads": 0,
+      "mobileOverflow": false,
+      "pageErrors": 0,
+      "http5xx": 0,
+      "providerHttp": 0,
+      "businessWrites": 0
+    }
+  },
+  "preservation": {
+    "tables": 85,
+    "unchangedTables": 83,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "maps": 2232,
+    "queueRows": 12,
+    "queueUnchanged": true,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 25228,
+    "webPid": 8376,
+    "apiRestartRequired": false
+  },
+  "notRepeated": [
+    "separate full-PG suite",
+    "Node fixture suite",
+    "Python",
+    "Linux deployment"
+  ],
+  "remaining": [
+    "saved scenario history and immutable report display labels",
+    "historical H2H/opponent labels",
+    "context filters",
+    "source matching labels"
+  ],
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/history-reports",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

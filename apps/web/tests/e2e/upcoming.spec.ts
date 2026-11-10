@@ -99,7 +99,8 @@ test('selected canonical organizations show bounded history and refresh it witho
   await expect(page.getByRole('region',{name:'История организации A',exact:true})).toHaveCount(0);
   await pick(page,'Команда A в локальной базе','1101');await pick(page,'Команда B в локальной базе','1102');
   const a=page.getByRole('region',{name:'История организации A',exact:true}),b=page.getByRole('region',{name:'История организации B',exact:true});
-  await expect(a.getByRole('heading')).toHaveText('Синтетическая организация сводки A · ID 1101');
+  await expect(a.getByRole('heading')).toHaveText('Синтетическая организация сводки A');
+  await expect(a.getByText('Внутренний ID: 1101',{exact:true})).not.toBeVisible();
   await expect(a.getByText('N = 0',{exact:true})).toBeVisible();await expect(b.getByText('N = 0',{exact:true})).toBeVisible();
   await expect(a.getByText(/Наблюдаемый win rate:/)).toContainText('—');expect(historyRequests).toBe(sourceBefore);
   await expect(a.getByRole('link',{name:'Полный отчёт организации A →',exact:true})).toHaveAttribute('href','/teams/1101');
@@ -132,7 +133,7 @@ test('summary handles delayed old selection, read errors, zero samples and unava
   await page.route(`**/api/v1/teams/${q.teamAId}/matches?limit=20`,async route=>{await gate;await route.fulfill({json:oldData}).catch(()=>undefined);});
   await pick(page,'Команда A в локальной базе',q.teamAId);const a=page.getByRole('region',{name:'История организации A',exact:true});
   await expect(a.getByText('Загружаем сводку карт…',{exact:true})).toBeVisible();
-  await pick(page,'Команда A в локальной базе','1103');release();await expect(a.getByRole('heading')).toHaveText('Синтетическая пустая организация · ID 1103');
+  await pick(page,'Команда A в локальной базе','1103');release();await expect(a.getByRole('heading')).toHaveText('Синтетическая пустая организация');
   await expect(a.getByText('N = 0',{exact:true})).toBeVisible();await expect(a.getByText('N = 2',{exact:true})).toHaveCount(0);
   await expect(a.getByText(/Наблюдаемый win rate:/)).toContainText('—');
   await page.route('**/api/v1/teams/1105/matches?limit=20',route=>route.fulfill({status:503,json:{error:{code:'SYNTHETIC_SUMMARY_FAILURE'}}}));

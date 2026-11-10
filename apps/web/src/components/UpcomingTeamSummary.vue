@@ -22,7 +22,8 @@ const rate=(value:number|null)=>value===null?'—':new Intl.NumberFormat('ru-RU'
 </script>
 <template>
   <section class="team-summary" :aria-label="`История организации ${sideLabel}`">
-    <h3>{{overview.data.value?.entity.name??`Организация ${sideLabel}`}} · ID {{teamId}}</h3>
+    <h3>{{overview.data.value?overview.data.value.entity.name.trim()||'Команда без названия':`Организация ${sideLabel}`}}</h3>
+    <details><summary>Данные организации</summary><p>Внутренний ID: {{teamId}}</p></details>
     <p class="hint">История прошлых карт организации. Сыгранность выбранной пятёрки оценивается отдельно.</p>
     <p v-if="overview.isPending.value" role="status">Читаем имя организации…</p>
     <p v-if="overview.error.value" class="error" role="alert">{{overview.error.value.message}} <button type="button" @click="overview.refetch()">Повторить обзор</button></p>

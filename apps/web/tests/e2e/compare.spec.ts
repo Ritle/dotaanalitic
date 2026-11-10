@@ -12,6 +12,7 @@ import {sql} from '../../../../packages/db/src/index';
 let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string;
 test.beforeAll(async()=>{
   database=await testDatabase();await seedCompare(database.db);password=randomBytes(24).toString('base64url');
+  await sql`INSERT INTO players(id,nickname) VALUES(12347,'')`.execute(database.db);
   await new AuthService(database.db).provision('synthetic-compare-browser',password);
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179'}),{db:database.db,logger:false});await api.listen({host:'127.0.0.1',port:3151});
 });
@@ -20,6 +21,7 @@ const playerField=(slot:string,role:number)=>`${slot}: игрок роли ${rol
 async function pick(page:Page,label:string,query:string,id:string){const field=page.getByRole('region',{name:label,exact:true});
  await field.getByRole('searchbox').fill(query);await field.getByRole('searchbox').press('Enter');await field.locator(`button[data-catalog-id="${id}"]`).click();}
 test('compare keeps organization, actual H2H and selected fives separate with replacement, missing IDs and mobile layout',async({page})=>{
+  const reads:string[]=[];page.on('request',r=>{if(/\/api\/v1\/players\/\d+$/.test(r.url()))reads.push(r.url());});
   await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-compare-browser');await page.getByLabel('Пароль').fill(password);
   await page.getByRole('button',{name:'Войти',exact:true}).click();await expect(page.getByRole('heading',{name:'Справочники',exact:true})).toBeVisible();
   await page.goto('/compare');
@@ -39,6 +41,12 @@ test('compare keeps organization, actual H2H and selected fives separate with re
   const submit=page.getByRole('button',{name:'Сравнить команды',exact:true});await submit.click();
   const result=page.getByRole('region',{name:'Результат сравнения',exact:true}),table=page.getByRole('table',{name:'Показатели двух команд',exact:true});
   await expect(result).toBeVisible();await expect(table.getByRole('row').filter({hasText:'Выбранная пятёрка · эта организация'})).toContainText('N = 2');
+  await expect(table.getByRole('columnheader').nth(1)).toHaveText('A · Synthetic AuroraДанные записиВнутренний ID: '+catalogTeamId);
+  await expect(table.getByText('Внутренний ID: '+catalogTeamId,{exact:true})).not.toBeVisible();
+  await result.getByText('A · 10 пар и личная история',{exact:true}).click();
+  const twins=result.getByRole('link',{name:'Synthetic Twin',exact:true});await expect(twins).toHaveCount(10);
+  expect(new Set(await twins.evaluateAll(links=>links.map(l=>l.getAttribute('href'))))).toEqual(new Set(['/players/'+catalogPlayerId,'/players/'+(BigInt(catalogPlayerId)+1n)]));
+  expect(reads).toEqual([]);
   await expect(page.getByRole('group',{name:'H2H двух организаций'})).toContainText('N = 2');await expect(page.getByRole('table',{name:'Карты H2H'})).toContainText('Dire / Radiant');
   await result.screenshot({path:'test-results/compare-desktop.png'});
   await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -48,6 +56,13 @@ test('compare keeps organization, actual H2H and selected fives separate with re
   await expect(table.getByRole('row').filter({hasText:'Организация · весь период'})).toContainText('N = 2');
   await page.getByRole('region',{name:playerField('A',1),exact:true}).getByRole('button',{name:'Сбросить',exact:true}).click();await submit.click();
   await expect(table.getByRole('row').filter({hasText:'Выбранная пятёрка · эта организация'})).toContainText('N = неизвестно');
+  await result.getByText('A · 10 пар и личная история',{exact:true}).click();
+  await expect(result.getByText('Игрок не указан',{exact:true})).toHaveCount(5);
+  await expect(result.getByText('Игрок не указан',{exact:true}).first()).toBeVisible();
+  await pick(page,playerField('A',1),'12347','12347');await submit.click();
+  await expect(result).toBeVisible();await result.getByText('A · 10 пар и личная история',{exact:true}).click();
+  const unnamed=result.getByRole('link',{name:'Игрок без ника',exact:true});await expect(unnamed).toHaveCount(5);
+  await expect(unnamed.first()).toHaveAttribute('href','/players/12347');expect(reads).toEqual([]);
   await pick(page,'Команда B: поиск по названию','Literal','9007199254740995');await submit.click();
   await expect(result).toContainText('Нет наблюдаемых профессиональных личных встреч');
   await page.goto(`/compare?teamA=${catalogTeamId}&teamB=999999999`);await submit.click();
