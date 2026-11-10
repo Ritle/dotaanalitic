@@ -100,3 +100,4 @@ export * from './managed-import.js';
 export * from './ranked-practice.js';
 export * from './ranked-context.js';
 export * from './v1-retest-registry.js';
+export * from './v1-retest-activation.js';

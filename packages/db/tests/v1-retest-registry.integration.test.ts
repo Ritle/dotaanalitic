@@ -60,7 +60,7 @@ it('prevents evidence mutation, metadata edits, direct activation and legacy act
   await expect(sql`UPDATE v1_retest_model_artifacts SET report_text=report_text||' ' WHERE model_id=${modelId}`.execute(database.db)).rejects.toThrow();
   await expect(sql`DELETE FROM v1_retest_model_artifacts WHERE model_id=${modelId}`.execute(database.db)).rejects.toThrow();
   await expect(sql`TRUNCATE v1_retest_model_artifacts`.execute(database.db)).rejects.toThrow();
-  await expect(sql`UPDATE prediction_model_versions SET is_active=true WHERE id=${modelId}`.execute(database.db)).rejects.toThrow('activation_pending');
+  await expect(sql`UPDATE prediction_model_versions SET is_active=true WHERE id=${modelId}`.execute(database.db)).rejects.toThrow('active_audit_required');
   await expect(sql`UPDATE prediction_model_versions SET stage='post_draft' WHERE id=${modelId}`.execute(database.db)).rejects.toThrow();
   await expect(sql`INSERT INTO model_activation_events(stage,event_type,activated_model_id,supporting_evaluation_id,actor,reason)
     VALUES ('pre_match','promote',${modelId},${randomUUID()},'owner','Synthetic bypass must fail')`.execute(database.db)).rejects.toThrow('activation_pending');

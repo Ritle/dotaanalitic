@@ -20,6 +20,6 @@ try {
   }
 } catch (e) {
   console.error(JSON.stringify({ status: 'unavailable', code: /^retest_registry_[a-z_]+$/.test(e?.message ?? '') ? e.message.toUpperCase() : 'RETEST_REGISTRY_REJECTED',
-    message: 'Регистрация остановлена. Проверьте SHA, исходный retest, runtime и миграции. Модель не активирована.', teamAWinProbability: null }));
+    message: 'Проверка остановлена. Проверьте SHA, исходный retest, runtime и миграции. Состояние активации не изменено.', teamAWinProbability: null }));
   process.exitCode = 1;
 } finally { await db?.destroy(); }

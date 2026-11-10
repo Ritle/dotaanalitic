@@ -33,7 +33,7 @@ import {V1ScheduledResultService} from '@dota/db';
 import {HistoryRefreshService} from './modules/history/service.js';
 import {registerHistoryRefresh} from './modules/history/http.js';
 import {registerPlayerHistory,PlayerHistoryService} from './modules/history/player-history.js';
-import {V1ModelRegistry} from '@dota/db';
+import {PredictionModelRegistry} from '@dota/db';
 import {registerModelReadiness} from './modules/models/readiness-http.js';
 import {RoleSuggestionRepository} from '@dota/db';
 import {registerRoleSuggestions} from './modules/catalog/role-suggestions-http.js';
@@ -119,7 +119,7 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   const history=new HistoryRefreshService(db,config.DATABASE_URL);
   app.addHook('onClose',async()=>history.close());
   registerHistoryRefresh(app,history);
-  registerModelReadiness(app,new V1ModelRegistry(db));
+  registerModelReadiness(app,new PredictionModelRegistry(db));
   app.setNotFoundHandler((request, reply) => reply.code(404).send({ error: { code: 'NOT_FOUND', message: 'Маршрут не найден.', requestId: request.id } }));
   return app;
 }

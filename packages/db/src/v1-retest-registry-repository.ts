@@ -13,15 +13,15 @@ const rowEvidence = (r: Row): RetestRegistryEvidence => ({ schemaVersion: 1, for
   started: { text: r.started_text, sha256: r.started_sha256 }, report: { text: r.report_text, sha256: r.report_sha256 },
   binding: { text: r.binding_text, sha256: r.binding_sha256 } });
 
-/** Versioned intake only. Activation remains denied by SQL until its separate implementation. */
+/** Immutable intake; activation is a separate audited transition. */
 export class RetestModelRegistry {
   constructor(private readonly db: Db) {}
-  private async load(id: string, db: Executor = this.db) {
+  async load(id: string, db: Executor = this.db) {
     const row = (await sql<Row>`SELECT a.*,m.stage,m.is_active,m.algorithm,m.artifact_sha256
       FROM v1_retest_model_artifacts a JOIN prediction_model_versions m ON m.id=a.model_id WHERE m.id=${id}::uuid`.execute(db)).rows[0];
     if (!row) throw Error('retest_registry_model_missing');
     const evidence = checkRetestRegistryBytes(rowEvidence(row)), metadata = RetestRegistryMetadataSchema.parse(row.metadata);
-    if (row.stage !== metadata.stage || row.algorithm !== metadata.algorithm || row.is_active || row.artifact_sha256 !== evidence.freeze.sha256)
+    if (row.stage !== metadata.stage || row.algorithm !== metadata.algorithm || row.artifact_sha256 !== evidence.freeze.sha256)
       throw Error('retest_registry_model_binding');
     return { row, evidence, metadata };
   }
@@ -38,7 +38,7 @@ export class RetestModelRegistry {
       if (existing) {
         const saved = await this.load(existing.model_id, tx);
         if (!same(saved.evidence, evidence) || !same(saved.metadata, metadata)) throw Error('retest_registry_registration_conflict');
-        return { status: 'already_registered' as const, modelId: existing.model_id, isActive: false, teamAWinProbability: null };
+        return { status: 'already_registered' as const, modelId: existing.model_id, isActive: saved.row.is_active, teamAWinProbability: null };
       }
       const id = randomUUID();
       await sql`INSERT INTO prediction_model_versions(id,stage,version,algorithm,feature_schema_version,artifact_uri,artifact_sha256,
@@ -61,8 +61,8 @@ export class RetestModelRegistry {
   async verify(id: string) {
     const saved = await this.load(id), replay = await verifyRetestRegistryEvidence(saved.evidence);
     if (!same(replay, saved.metadata)) throw Error('retest_registry_stored_metadata');
-    return { status: 'verified_inactive' as const, modelId: id, metadata: saved.metadata, reportSha256: saved.evidence.report.sha256,
-      isActive: false, teamAWinProbability: null };
+    return { status: saved.row.is_active ? 'verified_active' as const : 'verified_inactive' as const, modelId: id,
+      metadata: saved.metadata, reportSha256: saved.evidence.report.sha256, isActive: saved.row.is_active, teamAWinProbability: null };
   }
   async list() {
     const rows = (await sql<{ modelId: string; isActive: boolean; reportSha256: string; registeredAt: Date }>`SELECT

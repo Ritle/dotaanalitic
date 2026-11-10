@@ -2,7 +2,7 @@ import { z } from 'zod';
 import type { FastifyInstance } from 'fastify';
 import { V1ModelReadinessSchema } from '@dota/contracts';
 import type { V1ModelRegistry } from '@dota/db';
-export function registerModelReadiness(app: FastifyInstance, registry: V1ModelRegistry) {
+export function registerModelReadiness(app: FastifyInstance, registry: Pick<V1ModelRegistry, 'readiness'>) {
   // Waiting registry locks must not consume the pool needed by prediction/history.
   let reading = false;
   app.get('/api/v1/models/readiness', { config: { rateLimit: { max: 20, timeWindow: '1 minute' } } }, async (req, reply) => {

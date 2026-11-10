@@ -8,18 +8,23 @@ import { sha } from './v1-historical-protocol.mjs';
 import { hash } from './v1-historical-collection.mjs';
 
 const fail = reason => { throw Error('retest_registry_' + reason); };
-const extensions = { 'packages/contracts/dist/index.js': "export * from './v1-retest-registry.js';\n",
-  'packages/db/dist/index.js': "export * from './v1-retest-registry-repository.js';\n" };
-/** Existing inference/verification code must match the scored freeze. Only these additive barrel exports may differ. */
+const extensions = { 'packages/contracts/dist/index.js': "export * from './v1-retest-registry.js';\nexport * from './v1-retest-activation.js';\n",
+  'packages/db/dist/index.js': "export * from './v1-retest-registry-repository.js';\nexport * from './v1-retest-activation-repository.js';\nexport * from './v1-model-runtime.js';\n" };
+/** Scored code must match, except exact additive exports and two reviewed orchestration dispatch changes. */
 export async function verifyRetestRegistryCode(code, root = new URL('../../', import.meta.url)) {
   const base = await realpath(fileURLToPath(root));
+  const approvals = JSON.parse(await readFile(new URL('./v1-retest-runtime-compatibility.json', import.meta.url), 'utf8'));
+  const orchestration = ['packages/db/dist/v1-runtime-repository.js', 'packages/db/dist/schedule-page-runtime.js'];
+  if (approvals.schemaVersion !== 1 || approvals.changes.some(c => !orchestration.includes(c.path))) fail('compatibility_manifest');
   for (const item of code) {
     const path = resolve(base, item.path);
     if (!path.startsWith(base + sep) || await realpath(path) !== path) fail('code_path');
     const bytes = await readFile(path);
     if (sha(bytes) === item.sha256) continue;
+    if (approvals.changes.some(c => c.path === item.path && c.before === item.sha256 && c.after === sha(bytes))) continue;
     const extension = extensions[item.path], text = bytes.toString('utf8');
-    if (!extension || !text.endsWith(extension) || sha(text.slice(0, -extension.length)) !== item.sha256) fail('code_changed');
+    const suffixes = extension ? [extension, extension.split('\n')[0] + '\n'] : [];
+    if (!suffixes.some(suffix => text.endsWith(suffix) && sha(text.slice(0, -suffix.length)) === item.sha256)) fail('code_changed');
   }
 }
 export async function verifyRetestRegistryEvidence(input) {

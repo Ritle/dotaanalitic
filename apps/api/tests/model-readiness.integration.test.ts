@@ -2,7 +2,7 @@ import { randomBytes, randomUUID } from 'node:crypto';
 import { beforeEach, afterEach, expect, test, vi } from 'vitest';
 import type { FastifyInstance } from 'fastify';
 import { V1ModelReadinessSchema } from '@dota/contracts';
-import { V1ModelRegistry, sql } from '@dota/db';
+import { PredictionModelRegistry, sql } from '@dota/db';
 import { testDatabase } from '../../../tests/helpers/postgres.js';
 import { buildApp } from '../src/app.js';
 import { readConfig } from '../src/config.js';
@@ -39,7 +39,7 @@ test('requires an owner, rejects parameter overrides and reads the real empty re
 });
 test('projects synthetic eligible and invalid registry results without issuing probability or exposing raw bytes', async () => {
   // Contract doubles only: no synthetic model is activated or described as a real release pass.
-  const modelId = randomUUID(), spy = vi.spyOn(V1ModelRegistry.prototype, 'readiness');
+  const modelId = randomUUID(), spy = vi.spyOn(PredictionModelRegistry.prototype, 'readiness');
   spy.mockResolvedValueOnce({ status: 'model_eligible', modelId, reportSha256: 'a'.repeat(64), teamAWinProbability: null });
   expect(V1ModelReadinessSchema.parse((await get()).json())).toMatchObject({ status: 'model_eligible', reason: null, modelId, teamAWinProbability: null });
   spy.mockResolvedValueOnce({ status: 'unavailable', reason: 'ACTIVE_MODEL_EVIDENCE_INVALID', modelId, teamAWinProbability: null });
@@ -56,7 +56,7 @@ test('bounds registry polling and retains no-store on rate rejection', async () 
 test('admits only one registry read and releases admission after a failed read', async () => {
   let started = () => {}, release = () => {};
   const entered = new Promise<void>(r => started = r), gate = new Promise<void>(r => release = r);
-  const spy = vi.spyOn(V1ModelRegistry.prototype, 'readiness').mockImplementationOnce(async () => {
+  const spy = vi.spyOn(PredictionModelRegistry.prototype, 'readiness').mockImplementationOnce(async () => {
     started(); await gate; throw Error('synthetic-private');
   });
   const first = get().then(r => r);

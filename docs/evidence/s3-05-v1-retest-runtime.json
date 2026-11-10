@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-05/S3-06/V1-retest/activation-readiness",
+  "completedAt": "2026-11-10T14:24:06.823Z",
+  "status": "completed",
+  "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+  "isActive": false,
+  "readiness": "NO_ACTIVE_MODEL",
+  "teamAWinProbability": null,
+  "source": {
+    "freezeSha256": "61a718f762d24c9fa98dca1b928797adab411a097d4b6eef04782de5ca7992ab",
+    "capsuleSha256": "654087e06004bb646344252e84e37a98f74dc2f3c40514a983f276aeed5ef212",
+    "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "reportFingerprint": "97429ef9a6de1f35fba99b4f01b9f7263ba1346c17ce0bd5df34239a7e96e372",
+    "protocolFingerprint": "0d1518cc6446685ddabb4afb880fae72821e93c4aa8444ab1cdb834d853168a9",
+    "evaluationBasis": "conditional_retrospective_unexposed_series",
+    "qualityDecision": "passed",
+    "scoredMaps": 664,
+    "scoredSeries": 332
+  },
+  "implementation": {
+    "migration": "051_v1_retest_activation_runtime.sql",
+    "migrationSha256": "125e4bc90f0bc21b400887d4ea3d76c75e8c9664c85382f86ec5c039a3f77e26",
+    "atomicTransitions": true,
+    "immutableAudit": true,
+    "fullReplayBeforePromotion": true,
+    "codeCheckedBeforeAfterReplayAndInsideLock": true,
+    "requestTimeFullBacktest": false,
+    "sharedRegistryLockThroughSnapshot": true,
+    "runtimePaths": 2,
+    "conditionalBasisPreserved": true,
+    "compatibility": {
+      "schemaVersion": 1,
+      "reason": "Version dispatch only; unchanged scored feature, identity, history, Elo and quality kernel.",
+      "changes": [
+        {
+          "path": "packages/db/dist/v1-runtime-repository.js",
+          "before": "9f6b1974c1389363687930a18237ed7dca48330b2e062110ab8b6d04e0d6d9f3",
+          "after": "ca395f3b9374cbd34aca20ae92ad5968b14e7712333d43a4af9cfb2ba4013973"
+        },
+        {
+          "path": "packages/db/dist/schedule-page-runtime.js",
+          "before": "3a1bb47f2dd9cd94d85fb9a4bb016f602dd2a576ea38e82a8b283f86186f93f1",
+          "after": "718b58ed3877a26c64f929537d6c7e1d104e6701339d7ac8293601e4da690e2a"
+        }
+      ]
+    },
+    "oldNumericKernelAndPolicyUnchanged": true
+  },
+  "tests": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "finalBuild": "PASS",
+    "unitCli": 899,
+    "node": 240,
+    "postgresApiUnique": 60,
+    "pgInitial": {
+      "passed": 58,
+      "failed": 2,
+      "reason": "readiness API tests mocked the old registry class"
+    },
+    "pgTargetedRetry": {
+      "passed": 4,
+      "timeLimitsChanged": false
+    },
+    "activationRace": {
+      "red": "reproduced code change during replay",
+      "green": "PASS"
+    },
+    "finalCompiledActivation": {
+      "status": "PASS",
+      "checkedAt": "2026-11-10T14:23:24.400Z",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "finalCompiledCode": true,
+      "realEvidenceReplay": true,
+      "isolatedActivation": true,
+      "isolatedDeactivation": true,
+      "workingActivation": false,
+      "providerHttp": 0,
+      "isolatedDatabaseDropped": true
+    },
+    "migrationFiles": 51,
+    "fullPostgresSuite": false,
+    "browser": false,
+    "python": false,
+    "dockerLinux": false
+  },
+  "isolatedRealModelRuntime": {
+    "status": "PASS",
+    "checkedAt": "2026-11-10T14:10:38.308Z",
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "realEvidenceReplay": true,
+    "isolatedActivation": true,
+    "isolatedDeactivation": true,
+    "scenarioSynthetic": true,
+    "historySynthetic": false,
+    "forecastPurpose": "what_if_single_map",
+    "bothRuntimePaths": true,
+    "minimumPlayerMaps": 20,
+    "nRaw": 2158,
+    "arithmeticParity": "exact",
+    "repeatShaUnchanged": true,
+    "unavailableAfterDeactivation": true,
+    "workingActivation": false,
+    "providerHttp": 0,
+    "isolatedDatabaseDropped": true
+  },
+  "preservation": {
+    "publicTables": 84,
+    "allOldRowsPreserved": true,
+    "canonicalMaps": 2232,
+    "queueRows": 14,
+    "activeModels": 0,
+    "protectedInventory": 9703,
+    "unchangedFiles": 9699,
+    "approvedChanges": [
+      {
+        "path": "packages/contracts/dist/index.js",
+        "before": "29925dbf7e93bc15326061939c47fdcf2e81c388fef859ac17ff43bb66f86ce7",
+        "after": "6798fc65b5b0a2a6a1ad5b7b4ce6781d61db204b65c6fd48fad61c4674d03299"
+      },
+      {
+        "path": "packages/db/dist/index.js",
+        "before": "2ba1bd6d06bbc1e263b19223db69b1015180e065be41349d0da0dbeecdcf7f53",
+        "after": "02d91a0aa6eb1476297e4fdd43a1425679c4baf0ed75bf91672cfa357e955801"
+      },
+      {
+        "path": "packages/db/dist/schedule-page-runtime.js",
+        "before": "3a1bb47f2dd9cd94d85fb9a4bb016f602dd2a576ea38e82a8b283f86186f93f1",
+        "after": "718b58ed3877a26c64f929537d6c7e1d104e6701339d7ac8293601e4da690e2a"
+      },
+      {
+        "path": "packages/db/dist/v1-runtime-repository.js",
+        "before": "9f6b1974c1389363687930a18237ed7dca48330b2e062110ab8b6d04e0d6d9f3",
+        "after": "ca395f3b9374cbd34aca20ae92ad5968b14e7712333d43a4af9cfb2ba4013973"
+      }
+    ],
+    "firstRetestAndOldFailurePreserved": true,
+    "backup": {
+      "path": ".tools/v1-retest-runtime-20261110/before.dump",
+      "sha256": "2f1f49596dc4f6d9bc45deb6391e74f49e0b728fe6fac64ede76cf4a3a8adef1",
+      "archiveListChecked": true
+    },
+    "backupActuallyRestored": true
+  },
+  "providerHttp": 0,
+  "workingActivation": false,
+  "workingForecastsIssued": 0,
+  "servicesStarted": [],
+  "limitations": [
+    "conditional retrospective evaluation, not prospective performance",
+    "isolated scenario/scope were hypothetical",
+    "Linux portability not validated; frozen Windows Node 22.15.0",
+    "existing Vite chunk warning"
+  ],
+  "logs": [
+    {
+      "path": ".tools/v1-retest-runtime-20261110/qa-install.log",
+      "sha256": "896b5039d8540cd988abbb59cdaa05af3c453202b7bb998c6f7e641d998e4fec"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/final-typecheck.log",
+      "sha256": "67cf64db7ce49ca35734b9bc487fef10fa66bd91944f4d2b3a1a117a602872b3"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/final-build.log",
+      "sha256": "adce8b2cb2bd77934730d8d80f76ec45945e617c90927d628552ac0532e00cbe"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/qa-unit.log",
+      "sha256": "fee5951a30abac6784852a9c04273648f39c10da41ca326bbe894026ce7df25e"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/qa-node.log",
+      "sha256": "4436a5c999a65228e6fb7955781318b51451eadccc666fb7c5e3829d9d1e80ff"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/pg-regression.log",
+      "sha256": "9cc154cf6a975236cba4f4e974d8784593aec5c2f39d020a53e3e55ed4d3f2d8"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/api-readiness-rerun.log",
+      "sha256": "0a0a7846d0b72e189dac40f3f992853b9456d04cf8d487d0863bdcb649df171e"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/race-red.log",
+      "sha256": "386368af573dd393a63b31612d2034ddac5c45154d28a96e2f0a16babae73e4e"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/race-green.log",
+      "sha256": "fd89ad648db3d975bc6228fc07e8064a71491377f68fbed8cd289b423fc90e19"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/live-isolated.json",
+      "sha256": "6299c89ebde0493bea43cce2a489f5c7b2637b3d189e1a8f5ab6b8d0a0ff6a57"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/final-activation.json",
+      "sha256": "3efc9d92e7e0ecde0ac3cb7acf516eb29de550ea2cf6b87f5ee5180136c37f9e"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/pre-migration.json",
+      "sha256": "6904b2aefb0f3698021fa5691768910128cdc63e2be057ef5d39b87ce18d9ab9"
+    },
+    {
+      "path": ".tools/v1-retest-runtime-20261110/final.json",
+      "sha256": "d918237fe3dceeaafa6d2cdada2307cfdf09e6b8999aefcef63524e8f0313894"
+    }
+  ],
+  "nextTask": "S3-05/V1-retest/activation-owner-smoke",
+  "recommendedModel": "GPT-6 Astra",
+  "reasoningEffort": "Extra High"
+}

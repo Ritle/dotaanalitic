@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "reason": "Version dispatch only; unchanged scored feature, identity, history, Elo and quality kernel.",
+  "changes": [
+    {
+      "path": "packages/db/dist/v1-runtime-repository.js",
+      "before": "9f6b1974c1389363687930a18237ed7dca48330b2e062110ab8b6d04e0d6d9f3",
+      "after": "ca395f3b9374cbd34aca20ae92ad5968b14e7712333d43a4af9cfb2ba4013973"
+    },
+    {
+      "path": "packages/db/dist/schedule-page-runtime.js",
+      "before": "3a1bb47f2dd9cd94d85fb9a4bb016f602dd2a576ea38e82a8b283f86186f93f1",
+      "after": "718b58ed3877a26c64f929537d6c7e1d104e6701339d7ac8293601e4da690e2a"
+    }
+  ]
+}

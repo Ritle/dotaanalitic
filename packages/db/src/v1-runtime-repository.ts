@@ -2,12 +2,12 @@ import { randomUUID } from 'node:crypto';
 import { V1RuntimeRequestSchema, V1AnyRuntimeRequestSchema, V1RuntimeSnapshotSchema } from '@dota/contracts';
 import { sql, type Db, type Executor } from './index.js';
 import { ScenarioRepository, ScenarioError } from './scenario-repository.js';
-import { V1ModelRegistry } from './v1-registry-repository.js';
+import { PredictionModelRegistry, runtimeModelWarmup, runtimeModelCompatible, computeRuntimeModelFeatures, runtimeModelSnapshot } from './v1-model-runtime.js';
 import { V1DataRepository } from './v1-data-repository.js';
 import { prepareReleaseHistory } from './v1-release-inventory.js';
 import { registrySha, registryHash } from './v1-registry.js';
-import { readV1RuntimeCode, compatibleV1Runtime } from './v1-runtime-code.js';
-import { runtimeTargetReasons, computeV1RuntimeFeatures } from './v1-runtime.js';
+import { readV1RuntimeCode } from './v1-runtime-code.js';
+import { runtimeTargetReasons } from './v1-runtime.js';
 import { bindScheduledRuntime } from './v1-scheduled-runtime.js';
 
 type Row = { prediction_id: string; request_hash: string; snapshot_text: string; snapshot_sha256: string };
@@ -50,7 +50,7 @@ export class V1RuntimeRepository {
         ?await bindScheduledRuntime(this.db,tx,owner,request.realTarget,scenario):null;
       // Serialize with an owner-reviewed completed-map association, across all target revisions.
       if(scheduleBinding)await sql`SELECT pg_advisory_xact_lock(hashtextextended(${'v1-schedule-result:'+owner},0))`.execute(tx);
-      const gate = await new V1ModelRegistry(this.db).lockForPrediction(tx);
+      const gate = await new PredictionModelRegistry(this.db).lockForPrediction(tx);
       const started = await clock(tx), cutoffAt = scenario.input.cutoffAt < started.milliseconds ? scenario.input.cutoffAt : started.milliseconds;
       const leagueId = scenario.input.context.leagueId;
       const providerLeagueId = leagueId ? (await sql<{ id: string | null }>`SELECT opendota_league_id::text AS id
@@ -74,8 +74,8 @@ export class V1RuntimeRepository {
       if (gate.status === 'unavailable') reasons.push(gate.reason);
       const code = await readV1RuntimeCode();
       if (this.startupCode && registryHash(code) !== registryHash(this.startupCode)) reasons.push('SERVER_CODE_CHANGED_RESTART_REQUIRED');
-      if (gate.status === 'model_eligible' && !compatibleV1Runtime(gate.artifact.freeze, code)) reasons.push('INFERENCE_CODE_MISMATCH');
-      const warmup = gate.status === 'model_eligible' ? gate.artifact.plan.request.warmupFromAt : '2024-01-01T00:00:00.000Z';
+      if (gate.status === 'model_eligible' && !runtimeModelCompatible(gate, code)) reasons.push('INFERENCE_CODE_MISMATCH');
+      const warmup = runtimeModelWarmup(gate);
       let source: unknown = null, features: unknown = null, probability: number | null = null;
       if (cutoffAt <= warmup) reasons.push('HISTORY_WINDOW_INVALID');
       else {
@@ -85,8 +85,8 @@ export class V1RuntimeRepository {
           const inventory = await new V1DataRepository(this.db).exportReleaseInventory({ fromAt: warmup,
             toAt: cutoffAt, snapshotAt: cutoffAt, maxMaps: 5000 }, code.code);
           const prepared = prepareReleaseHistory(inventory); source = inventory;
-          const result = computeV1RuntimeFeatures(prepared.history, scenario, cutoffAt,
-            gate.status === 'model_eligible' && !reasons.includes('INFERENCE_CODE_MISMATCH') ? gate.artifact : null);
+          const result = computeRuntimeModelFeatures(prepared.history, scenario, cutoffAt,
+            gate.status === 'model_eligible' && !reasons.includes('INFERENCE_CODE_MISMATCH') ? gate : null);
           features = result.features; probability = result.probability; reasons.push(...result.reasons);
         } catch (error) {
           // Bounded failures persist an unavailable attempt; never substitute a truncated history.
@@ -98,10 +98,7 @@ export class V1RuntimeRepository {
       if (scenario.input.scheduledAt && Date.parse(finished.time) >= Date.parse(scenario.input.scheduledAt)) reasons.push('TARGET_ALREADY_STARTED');
       if (!reasons.length && probability === null) reasons.push('INFERENCE_UNAVAILABLE');
       const done = reasons.length === 0;
-      const gateSnapshot = gate.status === 'unavailable' ? gate : { status: gate.status, modelId: gate.modelId,
-        activationEventId: gate.activationEventId, planFingerprint: gate.artifact.plan.fingerprint,
-        releaseRevision: gate.releaseRevision, reportSha256: gate.reportSha256,
-        candidateSha256: gate.artifact.bytes.candidateSha256, freezeSha256: gate.artifact.bytes.freezeSha256 };
+      const gateSnapshot = runtimeModelSnapshot(gate);
       const snapshot = V1RuntimeSnapshotSchema.parse({ format: 'v1-runtime-snapshot-v1', request, scenario,
         createdAt: started.time, issuedAt: done ? finished.time : null, cutoffAt,
         status: done ? 'done' : 'unavailable', teamAWinProbability: done ? probability : null,
