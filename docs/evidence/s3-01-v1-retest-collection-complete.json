@@ -1,0 +1,173 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-01/V1-retest/collection",
+  "checkedAt": "2026-11-07T23:25:25.467Z",
+  "status": "collection_completed_source_replay_verified",
+  "codeCommit": "223c0fd",
+  "nodeVersion": "v22.15.0",
+  "collectionSha256": "916da747453e2bdb02bf58dc3c7b6aaa07991b20e214c5f9646bdbc98fd5378d",
+  "protocolSha256": "14353a129616d4757638ca91916aeb356e3944b45cdb64ab56cb8e21238452f1",
+  "closure": {
+    "sha256": "efa0e5e13d222d49e0ac424a3f51a65b49733ad029856177d8a010f15f92d114",
+    "fingerprint": "ad9e072dfea4e6d01346dd6a153c87395a8f02f4984b3b7d40068d538ed40dc5",
+    "closedAt": "2026-11-07T23:20:27.748Z",
+    "reason": "all_work_terminal"
+  },
+  "sourceReview": {
+    "sha256": "0d896fd66abc1a9d181093410838172bf54d338686ab2aaac56fd9462422d58e",
+    "exactClosureReplay": true,
+    "summary": {
+      "observedMaps": 967,
+      "capturedTargetMaps": 967,
+      "deferredTargetMaps": 0,
+      "settledTargetMaps": 967,
+      "sourceEligibleMaps": 961,
+      "priorExposedMaps": 297,
+      "unexposedMaps": 670,
+      "unexposedKnownSeries": 333,
+      "sourceHistoryReadyMaps": 670,
+      "currentIdentityReadyMaps": 658,
+      "provisionalReadyMaps": 654,
+      "historyJobs": 24,
+      "missingHistoryJobs": 0,
+      "discoveredHistoryMaps": 334,
+      "capturedHistoryMaps": 334,
+      "invalidHistoryMaps": 11,
+      "pendingHistoryMaps": 0,
+      "deferredHistoryMaps": 0
+    },
+    "collection": {
+      "terminal": true,
+      "deadlineReached": false,
+      "deadline": "2026-11-13T00:00:00.000Z",
+      "httpAttempts": 1322,
+      "cacheRecords": 7,
+      "liveRecords": 1318,
+      "interruptedAttempts": 0,
+      "lateResponses": 0,
+      "terminalHistoryJobs": 24,
+      "pendingHistoryJobs": 0
+    },
+    "unavailableSources": 0
+  },
+  "resumedBatch": {
+    "providerRequests": 25,
+    "httpStatuses": {
+      "200": 25
+    },
+    "retries": 0,
+    "cached": 0,
+    "newRuns": 1,
+    "newCollectionFiles": 52
+  },
+  "sourceReadiness": {
+    "before": 652,
+    "after": 654,
+    "denominator": 670,
+    "unknownSeriesTargets": 4,
+    "unverifiedIdentityTargetsInFrozenBaseline": 12,
+    "previousHistoryGap": {
+      "matchId": "8693723587",
+      "ready": true,
+      "minimumPriorSourceMaps": 10
+    },
+    "canonicalEligibilityVerified": false,
+    "qualityGateCalculated": false
+  },
+  "preservation": {
+    "publicTables": 83,
+    "changedTables": [
+      "provider_quotas"
+    ],
+    "maps": 939,
+    "queueUnchanged": true,
+    "activeModels": 0,
+    "originalCollectionFilesPreserved": 2632,
+    "collectionFiles": 2684,
+    "protectedArtifacts": 245,
+    "previousFrozenAndCurrentCodeFiles": 373,
+    "firstFailedEvaluationPreserved": true,
+    "preexistingChangesSinceNovember6": [
+      "auth_login_budget",
+      "auth_sessions",
+      "expected_roster_catalogue_bindings",
+      "history_refresh_runs",
+      "identity_registry_state",
+      "pandascore_request_quota",
+      "player_alias_history",
+      "provider_player_links",
+      "provider_quotas",
+      "provider_team_catalogue",
+      "ranked_practice_cache",
+      "role_profile_bindings",
+      "roster_catalogue_cache",
+      "roster_catalogue_operations",
+      "teams",
+      "upcoming_page_cache",
+      "upcoming_page_observations",
+      "upcoming_source_cache",
+      "upcoming_source_observations"
+    ],
+    "baseline": "fresh_snapshot_after_postgresql_restart_before_collection_resume"
+  },
+  "quota": {
+    "before": [
+      {
+        "provider": "opendota",
+        "day_start": "2026-11-06T00:00:00.000Z",
+        "day_used": 2000,
+        "month_start": "2026-11-01T00:00:00.000Z",
+        "month_used": 2718,
+        "blocked_until": "2026-11-06 18:45:17.972046+00",
+        "effective_day_used": 0,
+        "effective_month_used": 2718,
+        "checked_at": "2026-11-07T23:16:53.153Z"
+      }
+    ],
+    "after": [
+      {
+        "provider": "opendota",
+        "day_start": "2026-11-07T00:00:00.000Z",
+        "day_used": 25,
+        "month_start": "2026-11-01T00:00:00.000Z",
+        "month_used": 2743,
+        "blocked_until": "2026-11-06 18:45:17.972046+00",
+        "effective_day_used": 25,
+        "effective_month_used": 2743,
+        "checked_at": "2026-11-07T23:24:13.049Z"
+      }
+    ],
+    "limitsChanged": false
+  },
+  "operations": {
+    "postgresqlStarted": true,
+    "existingClusterReinitialized": false,
+    "pgMajorVersion": 16,
+    "readiness": "accepting_connections",
+    "apiWebStarted": false,
+    "generalWorkerStarted": false,
+    "launcherCleanup": "Only the verified waiting PowerShell wrapper was stopped; PostgreSQL readiness passed afterwards.",
+    "approvalInterruption": "Automatic approval review hit a usage limit on an auxiliary process check; the previously authorized collector continued. Owner resumed; no duplicate batch was launched."
+  },
+  "checks": {
+    "sourceReplay": "PASS",
+    "closureFingerprint": "PASS",
+    "newOutcomesAndAdmissions": "PASS",
+    "databaseAndQueuePreservation": "PASS",
+    "archivePreservation": "PASS",
+    "implementationSuites": "NOT_RERUN_NO_IMPLEMENTATION_CHANGES",
+    "docs": "PASS",
+    "migrationChecksums": "PASS_49",
+    "secretScan": "PASS"
+  },
+  "implementationEvidence": "s3-01-v1-retest-execution-preparation.json",
+  "workingImportPerformed": false,
+  "modelEvaluationPerformed": false,
+  "modelActivated": false,
+  "metrics": null,
+  "teamAWinProbability": null,
+  "deployable": false,
+  "nextTask": "S3-01/V1-retest/canonical-import",
+  "suggestedModel": "GPT-6 Astra",
+  "reasoningEffort": "Extra High"
+}

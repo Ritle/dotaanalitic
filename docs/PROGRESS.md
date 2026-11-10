@@ -2417,3 +2417,13 @@ Preservation after build: 2632 collection files, 245 protected artifacts, 373 pr
 Automatic approval review hit its usage limit before the final progress update/doc check/commit. Owner resumed on 8 November; finalization continues from the tested code without rerunning unchanged implementation suites. [Runbook](S3_01_V1_RETEST_EXECUTION_PREPARATION.md), [checkpoint](evidence/s3-01-v1-retest-execution-preparation.json). Preparation is complete; positive real prepare/freeze/evaluate and production registry integration remain separate steps.
 
 Next exact: **S3-01/V1-retest/collection** — ensure local PostgreSQL is running, check current quota, collect remaining 25 history details, close collection, import/reconcile canonical data. Scheduled resume time has passed; provider availability has not been assumed. Suggested model: **GPT-6 Astra · Extra High**.
+
+### 2026-11-10 — S3-01/V1-retest/collection: completion recorded
+
+The final batch actually ran on 8 November MSK: 25 HTTP 200, no retries, 334/334 history details and 967/967 target details. Closure all_work_terminal at 2026-11-07T23:20:27.748Z; independent offline status replay matches its report/fingerprint. Source readiness 654/670; previous low-history map now has at least ten earlier source maps. Twelve frozen-baseline identity targets and four unknown-series targets remain for canonical validation; source readiness is not a quality gate.
+
+Before/after read-only audit PASS: 83 public tables, only provider_quotas changed (+25); 939 maps, queue state summary and activeModels=0 retained. All 2632 previous collection files preserved, 52 added; 245 protected artifacts, 373 previous frozen/current code entries and first FAIL preserved. Nineteen table differences from 6 November already existed in the fresh before-snapshot; no unrelated user changes were reverted. Existing PostgreSQL cluster started without reinitialization; only its verified waiting PowerShell launcher was cleaned up. API/Web/general worker not started. Automatic approval review usage-limit interruptions were resumed by owner; no duplicate batch was launched.
+
+No production code, SQL or dependency changes; implementation suites not rerun. Actual source/closure/admission/archive/database checks PASS. Documentation checks and local commit finalized after owner continuation on 10 November. No canonical import, real freeze, scoring or activation in this collection slice. [Results](S3_01_V1_RETEST_COLLECTION.md), [evidence](evidence/s3-01-v1-retest-collection-complete.json).
+
+Next exact: **S3-01/V1-retest/canonical-import** — saved-source manifest/plan, verified identities/maps/series, idempotency and canonical export. Suggested model: **GPT-6 Astra · Extra High**.
