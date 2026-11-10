@@ -7,6 +7,8 @@ import { registerAuth } from './modules/auth/http.js';
 import { registerCatalog } from './modules/catalog/http.js';
 import {registerRosterContext} from './modules/catalog/roster-context-http.js';
 import {RosterContextService} from './modules/catalog/roster-context-service.js';
+import {registerTeamActivity} from './modules/catalog/team-activity-http.js';
+import {TeamActivityRepository} from './modules/catalog/team-activity-repository.js';
 import { registerProMaps } from './modules/catalog/pro-maps-http.js';
 import { registerRoster } from './modules/catalog/roster-http.js';
 import { registerPlayerHeroes } from './modules/catalog/player-hero-http.js';
@@ -118,6 +120,7 @@ export async function buildApp(config = readConfig(), options: { db?: Db; logger
   const rosterCatalogue=new RosterCatalogueService(db,upcomingService,options.catalogueProvider??liveCatalogueProvider(config.DATABASE_URL));
   registerRosterCatalogue(app,rosterCatalogue);
   registerRosterContext(app,new RosterContextService(db,()=>rosterCatalogue.refreshRegistry()));
+  registerTeamActivity(app,new TeamActivityRepository(db));
   registerScheduleTargets(app,freshScheduleTargets);
   registerTier1Scopes(app,new Tier1ScopeRepository(db));
   const history=new HistoryRefreshService(db,config.DATABASE_URL);

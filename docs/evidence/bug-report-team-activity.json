@@ -1,0 +1,146 @@
+{
+  "task": "S1-16/BUG_REPORT/team-activity",
+  "checkedAt": "2026-11-10T19:51:03.844Z",
+  "scope": {
+    "completed": [
+      "owner-reviewed activity status",
+      "immutable source or owner-decision history",
+      "directory archive filter",
+      "archived team selection",
+      "working BetBoom and B8 archive"
+    ],
+    "notImplemented": [
+      "automatic activity monitoring",
+      "automatic alternative roster provider"
+    ],
+    "predictionEffect": "none"
+  },
+  "workingReviews": [
+    {
+      "teamId": "607",
+      "status": "inactive",
+      "basis": "source",
+      "sourceUrl": "https://betboom.team/",
+      "checkedAt": "2026-11-10T19:46:00.000Z",
+      "effectiveAt": null,
+      "recordedAt": "2026-11-10T19:46:20.776Z",
+      "revision": 1
+    },
+    {
+      "teamId": "288",
+      "status": "inactive",
+      "basis": "owner",
+      "sourceUrl": null,
+      "checkedAt": "2026-11-10T19:46:00.000Z",
+      "effectiveAt": null,
+      "recordedAt": "2026-11-10T19:46:23.307Z",
+      "revision": 1
+    },
+    {
+      "teamId": "289",
+      "status": "inactive",
+      "basis": "owner",
+      "sourceUrl": null,
+      "checkedAt": "2026-11-10T19:46:00.000Z",
+      "effectiveAt": null,
+      "recordedAt": "2026-11-10T19:46:25.237Z",
+      "revision": 1
+    }
+  ],
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "passed": 904,
+      "maxWorkers": 2
+    },
+    "build": "PASS; existing chunk-size warning",
+    "apiPostgres": {
+      "passed": 12,
+      "files": [
+        "team-activity.integration.test.ts",
+        "catalog.integration.test.ts"
+      ],
+      "isolatedTestDatabases": true
+    },
+    "browser": {
+      "passed": 10,
+      "files": [
+        "team-activity.spec.ts",
+        "roster-context.spec.ts",
+        "compare.spec.ts",
+        "upcoming-compare.spec.ts"
+      ],
+      "workers": 1,
+      "syntheticFixtures": true
+    },
+    "developmentFailures": [
+      "API RED: missing endpoint404 before implementation",
+      "Initial browser run: one existing login timeout and two overly broad label selectors",
+      "Targeted browser test exposed generic role-filter error for invalid activity date; fixed component error mapping"
+    ],
+    "migration": {
+      "count": 52,
+      "working": "APPLIED 052",
+      "repeat": "SKIP 052",
+      "historicalSql001to051Unchanged": true
+    },
+    "backup": {
+      "checkedAt": "2026-11-10T19:39:19.765Z",
+      "sha256": "908f3f3a0aff51d8d975675afc8107ad700a5c917850c8de669011834208b9fc",
+      "restoredTables": 84,
+      "queueRows": 12,
+      "restoredAndMigrated": true,
+      "migrationReplay": true,
+      "readiness": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      },
+      "privateDumpCommitted": false
+    },
+    "live": {
+      "reviews": 3,
+      "pageErrors": 0,
+      "http5xx": 0,
+      "logoutProtectedStatus": 401,
+      "mobileOverflow": false,
+      "providerHttp": 0
+    }
+  },
+  "preservation": {
+    "beforeTables": 84,
+    "afterTables": 85,
+    "unchangedPriorTables": 81,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions",
+      "schema_migrations",
+      "team_activity_reviews"
+    ],
+    "maps": 2232,
+    "queueRows": 12,
+    "queueUnchanged": true,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 25228,
+    "webPid": 8376,
+    "generalWorker": "OFF"
+  },
+  "limitations": [
+    "Activity is an explicit owner review, not evidence of an expected five",
+    "B8 is archived by owner preference, not a verified official inactivity claim",
+    "Unknown status stays visible; no automatic stale-to-inactive transition",
+    "Only last20 reviews exposed in UI; older rows retained in database"
+  ],
+  "nextTask": "S2-01/BUG_REPORT/roster-card-roles",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

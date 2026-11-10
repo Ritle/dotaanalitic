@@ -3,16 +3,18 @@ import {computed,ref,useId,watch} from 'vue';
 import {useQuery} from '@tanstack/vue-query';
 import {CatalogListSchema,TeamOverviewSchema,PlayerOverviewSchema,type CatalogList,type TeamOverview,type PlayerOverview} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
+import {TeamDirectorySchema} from '../../../api/src/modules/catalog/team-activity-contract';
 type Item=CatalogList['items'][number];
 const props=defineProps<{kind:'teams'|'players';label:string;modelValue:string;excludedIds?:string[];selectedLabel?:string}>();
 const emit=defineEmits<{'update:modelValue':[value:string];selected:[item:Item]}>();
 const uid=useId(),query=ref(''),term=ref<string|null>(null),chosen=ref<Item|null>(null);
+const includeArchived=ref(false);
 const overview=useQuery({queryKey:computed(()=>['catalog','overview',props.kind,props.modelValue]),
   enabled:computed(()=>!!props.modelValue&&!props.selectedLabel&&chosen.value?.id!==props.modelValue),
   queryFn:({signal}):Promise<TeamOverview|PlayerOverview>=>props.kind==='teams'?
     readCatalog(`teams/${encodeURIComponent(props.modelValue)}`,TeamOverviewSchema,signal):readCatalog(`players/${encodeURIComponent(props.modelValue)}`,PlayerOverviewSchema,signal)});
-const results=useQuery({queryKey:computed(()=>['catalog-picker',props.kind,term.value]),enabled:computed(()=>term.value!==null),
-  queryFn:({signal})=>readCatalog(`${props.kind}?${new URLSearchParams({query:term.value??'',limit:'10',offset:'0'})}`,CatalogListSchema,signal)});
+const results=useQuery({queryKey:computed(()=>['catalog-picker',props.kind,term.value,includeArchived.value]),enabled:computed(()=>term.value!==null),
+  queryFn:({signal})=>props.kind==='teams'?readCatalog(`team-directory?${new URLSearchParams({query:term.value??'',limit:'10',offset:'0',activityView:includeArchived.value?'all':'current'})}`,TeamDirectorySchema,signal):readCatalog(`${props.kind}?${new URLSearchParams({query:term.value??'',limit:'10',offset:'0'})}`,CatalogListSchema,signal)});
 // Editing already cleared the choice; its ensuing prop update must preserve the new query.
 watch(()=>props.modelValue,value=>{if(chosen.value&&chosen.value.id!==value){chosen.value=null;query.value='';term.value=null;}});
 function edit(value:string){query.value=value;term.value=null;chosen.value=null;emit('update:modelValue','');}
@@ -31,6 +33,7 @@ function clear(){edit('');}
     <div class="picker-search"><input :id="uid" :value="query" type="search" maxlength="80" autocomplete="off"
       placeholder="Имя или ID в справочнике" @input="edit(($event.target as HTMLInputElement).value)" @keydown.enter.prevent="search" @keydown.esc="term=null" />
       <button type="button" :disabled="!query.trim()||results.isFetching.value" @click="search">Найти</button></div>
+    <label v-if="kind==='teams'" class="hint"><input v-model="includeArchived" type="checkbox"> Искать также в архиве команд</label>
     <div v-if="chosen&&chosen.id===modelValue" class="picked" role="status">
       <span>Выбрано: {{chosen.name||'Без имени'}} · ID {{chosen.id}}</span><button type="button" @click="clear">Сбросить</button>
     </div>
@@ -43,6 +46,7 @@ function clear(){edit('');}
         <ul v-else class="picker-results" :aria-label="`Результаты: ${label}`"><li v-for="entry in results.data.value.items" :key="entry.id">
           <button type="button" :disabled="excludedIds?.includes(entry.id)" :aria-label="`Выбрать ${entry.name||'Без имени'} · ID ${entry.id}`" @click="pick(entry)">
             <strong>{{entry.name||'Без имени'}}</strong><span> ID {{entry.id}}{{entry.secondary?' · '+entry.secondary:''}}</span>
+            <span v-if="'activityStatus' in entry&&entry.activityStatus==='inactive'"> · Архив</span>
             <span v-if="excludedIds?.includes(entry.id)"> · Уже выбрано в составе</span>
           </button>
         </li></ul>

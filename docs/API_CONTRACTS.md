@@ -262,3 +262,9 @@ Resume creates a distinct evidence_resume run referencing the original import an
 ### Current roster card context — S1-16 / BUG_REPORT
 
 Owner GET `/api/v1/{teams|players}/:id/roster-context` reads a shared validated OpenDota registry cache without provider HTTP. Owner/CSRF POST to the same path plus `/refresh`, strict `{}` body, reuses a fresh one-hour cache or performs bounded refresh. No query parameters; invalid request400, missing local entity404. Version1 response carries nullable verified account/team links, all registry members, source fetchedAt/SHA/status, identity status and refreshFailed; eventAt/knownAt remain null. No historical/canonical roster rewrite or probability. [Full contract and limits](S1_16_CURRENT_ROSTER_CARDS.md).
+
+### Team activity and archive — SQL052
+
+Owner GET `/api/v1/team-directory` accepts catalog filters plus `activityView=current|archived|all`, default `current`; each item adds `activityStatus`. Unknown remains visible, only explicitly inactive is archived; filtering precedes pagination. Legacy GET `/api/v1/teams` remains inclusive.
+
+Owner GET `/api/v1/teams/:id/activity` returns nullable current record, latest 20 immutable history records, hasMore and computedAt. Owner/CSRF POST takes strict `{requestId, expectedRevision, status, basis, sourceUrl, note, checkedAt, effectiveAt}`. Source basis requires HTTPS URL without credentials; owner basis requires null URL. Effective time <= checked time <= server recorded time. Exact retry returns original record; changed retry, cross-team request reuse or stale revision409; invalid clocks/body400; unknown team404. No query fields. No provider HTTP, roster inference or ML-feature change. [Contract and usage](S1_16_TEAM_ACTIVITY.md).

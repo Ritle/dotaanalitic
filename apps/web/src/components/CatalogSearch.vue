@@ -4,11 +4,13 @@ import { useQuery } from '@tanstack/vue-query';
 import { CatalogListSchema, type CatalogKind } from '@dota/contracts';
 import { readCatalog, dateLabel } from '../catalog';
 import { ownerAuth } from '../auth';
+import {TeamDirectorySchema,type TeamDirectoryQuery} from '../../../api/src/modules/catalog/team-activity-contract';
 const kinds: {id:CatalogKind;label:string}[]=[{id:'teams',label:'Команды'},{id:'players',label:'Игроки'},{id:'heroes',label:'Герои'}];
 const kind=ref<CatalogKind>('teams'), draft=ref(''), term=ref(''), offset=ref(0);
+const activityView=ref<TeamDirectoryQuery['activityView']>('current');
 const {data,isPending,isFetching,isError,error,refetch}=useQuery({
-  queryKey:computed(()=>['catalog','list',kind.value,term.value,offset.value]), enabled:computed(()=>!!ownerAuth.value),
-  queryFn:({signal})=>readCatalog(`${kind.value}?${new URLSearchParams({query:term.value,limit:'25',offset:String(offset.value)})}`,CatalogListSchema,signal)
+  queryKey:computed(()=>['catalog','list',kind.value,term.value,offset.value,activityView.value]), enabled:computed(()=>!!ownerAuth.value),
+  queryFn:({signal})=>kind.value==='teams'?readCatalog(`team-directory?${new URLSearchParams({query:term.value,limit:'25',offset:String(offset.value),activityView:activityView.value})}`,TeamDirectorySchema,signal):readCatalog(`${kind.value}?${new URLSearchParams({query:term.value,limit:'25',offset:String(offset.value)})}`,CatalogListSchema,signal)
 });
 function search(){
   const next=draft.value.trim();
@@ -16,6 +18,7 @@ function search(){
   else {offset.value=0;term.value=next;}
 }
 watch(kind,()=>{offset.value=0;draft.value='';term.value='';});
+watch(activityView,()=>{offset.value=0;});
 </script>
 
 <template>
@@ -29,6 +32,8 @@ watch(kind,()=>{offset.value=0;draft.value='';term.value='';});
       <label for="catalog-search">Имя, тег или ID</label>
       <div class="search-row"><input id="catalog-search" v-model="draft" maxlength="80" type="search" autocomplete="off"><button type="submit">Найти</button></div>
     </form>
+    <label v-if="kind==='teams'">Показывать команды <select v-model="activityView"><option value="current">Без отмеченных неактивных</option><option value="archived">Архив: неактивные</option><option value="all">Все команды</option></select></label>
+    <p v-if="kind==='teams'" class="hint">Неизвестный статус не скрывает команду. Отметку активности можно изменить в её карточке.</p>
     <p class="hint">Источник: локальный справочник. Отметка синхронизации и время изменения записи — разные поля. Полнота каталога не гарантируется.</p>
     <p v-if="isPending" role="status">Загружаем справочник…</p>
     <div v-else-if="isError" role="alert"><p class="error">{{error?.message}}</p><button type="button" @click="refetch()">Повторить</button></div>
@@ -40,6 +45,7 @@ watch(kind,()=>{offset.value=0;draft.value='';term.value='';});
           <thead><tr><th scope="col">Название / ID</th><th scope="col">Синхронизация</th><th scope="col">Изменение записи</th></tr></thead>
           <tbody><tr v-for="entry in data.items" :key="entry.id">
             <td><RouterLink v-if="kind!=='heroes'" :to="`/${kind}/${entry.id}`">{{entry.name}}</RouterLink><strong v-else>{{entry.name}}</strong>
+              <span v-if="'activityStatus' in entry&&entry.activityStatus==='inactive'" class="badge">Архив</span>
               <span class="catalog-id">{{entry.secondary || (kind==='players'?'Canonical player':'Без тега')}} · ID {{entry.id}}</span></td>
             <td>{{dateLabel(entry.syncedAt)}}</td><td>{{dateLabel(entry.metadataUpdatedAt)}}</td>
           </tr></tbody>

@@ -12,6 +12,7 @@ import RankedPractice from '../components/RankedPractice.vue';
 import StrengthReport from '../components/StrengthReport.vue';
 import HistoryRefresh from '../components/HistoryRefresh.vue';
 import CurrentRoster from '../components/CurrentRoster.vue';
+import TeamActivity from '../components/TeamActivity.vue';
 const route=useRoute();
 const kind=computed(()=>route.name==='team'?'teams':'players');
 const id=computed(()=>String(route.params.id));
@@ -33,6 +34,7 @@ const {data,isPending,isError,error,isFetching,refetch}=useQuery({
       <p>ID {{data.entity.id}}<span v-if="data.entity.secondary"> · {{data.entity.secondary}}</span></p>
       <dl class="metadata"><dt>Источник</dt><dd>Локальный справочник</dd><dt>Синхронизация</dt><dd>{{dateLabel(data.entity.syncedAt)}}</dd>
         <dt>Изменение записи</dt><dd>{{dateLabel(data.entity.metadataUpdatedAt)}}</dd><dt>Прочитано</dt><dd>{{dateLabel(data.computedAt)}}</dd></dl>
+      <TeamActivity v-if="kind==='teams'" :key="id" :id="id" />
       <CurrentRoster :key="kind+id" :kind="kind" :id="id" />
       <template v-if="data.entityType==='organization'">
         <HistoryRefresh :team-id="id" />
