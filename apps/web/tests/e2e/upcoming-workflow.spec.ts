@@ -29,7 +29,7 @@ test.beforeAll(async()=>{
 test.afterAll(async()=>{await boss?.stop({graceful:true,timeout:10000});await api?.close();await database?.close();});
 async function pick(page:Page,label:string,id:string){
   const field=page.getByRole('region',{name:label,exact:true});await field.getByRole('searchbox').fill(id);await field.getByRole('searchbox').press('Enter');
-  await field.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();
+  await field.locator(`button[data-catalog-id="${id}"]`).click();
 }
 
 test('schedule to manual scenario, full draft and immutable report keeps lineups/cohorts explicit across history refresh',async({page})=>{

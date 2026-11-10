@@ -42,7 +42,7 @@ test.afterAll(async()=>{await stop();await database?.close();});
 async function pick(page:Page,label:string,id:string){
   const region=page.getByRole('region',{name:label,exact:true});
   await region.getByRole('searchbox').fill(id);await region.getByRole('searchbox').press('Enter');
-  await region.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();
+  await region.locator(`button[data-catalog-id="${id}"]`).click();
 }
 async function lifecycle(page:Page,action:string){
   const region=page.getByRole('region',{name:'Отмена и открытие встречи',exact:true});

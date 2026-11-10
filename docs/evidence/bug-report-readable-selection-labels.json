@@ -1,0 +1,97 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/selection",
+  "slice": "common-picker",
+  "checkedAt": "2026-11-10T21:39:35.290Z",
+  "scope": {
+    "completed": [
+      "name/tag result and selection labels",
+      "collapsed technical IDs",
+      "manual account review in another tab",
+      "duplicate/empty name handling",
+      "retry display metadata without replacing selection",
+      "readable desktop layout"
+    ],
+    "wholeBug7Complete": false,
+    "unchanged": [
+      "numeric selection semantics",
+      "exclusions",
+      "API/schema/ML"
+    ],
+    "automaticPerResultRequests": false
+  },
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "uniquePassed": 908,
+      "initialRootCommand": "FAIL: one unchanged v1-release-cli timed out at90000ms",
+      "isolatedRepeat": "one recovered test PASS; root-passed second test skipped in repeat",
+      "remainingPackages": "API50/worker1 PASS",
+      "maxWorkers": 1
+    },
+    "build": "PASS; existing chunk-size warning",
+    "browser": {
+      "uniquePassed": 31,
+      "additionalMobileGeometryRepeatPassed": 1,
+      "syntheticFixtures": true,
+      "realPostgres": true,
+      "workers": 1,
+      "sourceRosterTestsRunAsWholeSerialFile": true
+    },
+    "separateApiPgSuite": false,
+    "migrationFiles": 52,
+    "development": {
+      "red": "New comparison check reproduced visible internal ID in selected value",
+      "targetedPicker": "PASS",
+      "visualFinding": "Initial desktop picker compressed beside role selector; expanded to full row and enabled reset wrapping",
+      "testSelectors": "Keep checking exact keys through non-visible data attributes; source-provider ID selectors unchanged"
+    },
+    "live": {
+      "team": "Team Spirit",
+      "player": "Yatoro",
+      "playerId": "20",
+      "verifiedSteam32": "321580662",
+      "reviewOpenedInNewTab": true,
+      "parentSelectionPreserved": true,
+      "automaticPlayerOverviewReads": 0,
+      "desktopInputWidth": 286.78125,
+      "internalIdsCollapsed": true,
+      "mobileOverflow": false,
+      "pageErrors": 0,
+      "http5xx": 0,
+      "providerHttp": 0,
+      "businessWrites": 0
+    }
+  },
+  "preservation": {
+    "tables": 85,
+    "unchangedTables": 83,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "maps": 2232,
+    "queueRows": 12,
+    "queueUnchanged": true,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 25228,
+    "webPid": 8376,
+    "generalWorker": "OFF",
+    "apiRestartRequired": false
+  },
+  "remaining": [
+    "standalone ScenariosView raw ID inputs",
+    "report/summary labels",
+    "filters and source binding labels including RosterCataloguePicker"
+  ],
+  "nextTask": "S2-01/BUG_REPORT/readable-labels/manual-scenario",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

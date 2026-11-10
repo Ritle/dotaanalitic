@@ -25,7 +25,7 @@ test.beforeEach(async({page})=>{
  await page.getByRole('link',{name:'Предстоящие матчи →',exact:true}).click();
 });
 test.afterEach(async()=>{await api?.close();await database?.close();});
-async function pick(page:Page,label:string,id:string){const p=page.getByRole('region',{name:label,exact:true});await p.getByRole('searchbox').fill(id);await p.getByRole('searchbox').press('Enter');await p.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();}
+async function pick(page:Page,label:string,id:string){const p=page.getByRole('region',{name:label,exact:true});await p.getByRole('searchbox').fill(id);await p.getByRole('searchbox').press('Enter');await p.locator(`button[data-catalog-id="${id}"]`).click();}
 async function noSavedTargets(){for(const table of ['scenarios','prediction_runs','v1_schedule_targets'])expect((await sql`SELECT 1 FROM ${sql.table(table)}`.execute(database.db)).rows).toHaveLength(0);expect(providerCalls).toBe(0);}
 test('one opponent is explicit, unrelated tournament roster is not a rival, target and provider-role prefill stay blocked',async({page})=>{
  const row=page.getByRole('row').filter({hasText:'Синтетический CyberHero — Соперник не указан'});await expect(row).toHaveCount(1);

@@ -18,7 +18,7 @@ test.beforeAll(async()=>{
 test.afterAll(async()=>{await api?.close();await database?.close();});
 async function pick(page:Page,label:string,id:string){const region=page.getByRole('region',{name:label,exact:true});
   await region.getByRole('searchbox').fill(id);await region.getByRole('searchbox').press('Enter');
-  await region.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();}
+  await region.locator(`button[data-catalog-id="${id}"]`).click();}
 test('owner pins future source, recovers a lost response and reads the original after it leaves the schedule',async({page})=>{
   const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-target-browser');await page.getByLabel('Пароль').fill(password);

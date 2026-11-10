@@ -36,7 +36,7 @@ async function prepare(page:Page){
   await page.getByRole('button',{name:'Обновить расписание',exact:true}).click();await page.getByRole('button',{name:'Выбрать',exact:true}).click();
   await page.getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();const q=scenarioInput();
   const pick=async(label:string,id:string)=>{const item=page.getByRole('region',{name:label,exact:true});await item.getByRole('searchbox').fill(id);
-    await item.getByRole('searchbox').press('Enter');await item.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();};
+    await item.getByRole('searchbox').press('Enter');await item.locator(`button[data-catalog-id="${id}"]`).click();};
   await pick('Команда A в локальной базе',q.teamAId);await pick('Команда B в локальной базе',q.teamBId);
   for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(`${slot}: игрок роли ${p.rolePos}`,p.playerId!);
   await confirmation(page).check();
@@ -53,7 +53,7 @@ test('UTC window and bigint patch/league filters preserve confirmed lineups, sho
   const q=scenarioInput();expect(requests[1]).toEqual({teamAId:q.teamAId,teamBId:q.teamBId,lineupA:q.lineupA,lineupB:q.lineupB,
     fromAt:'2024-01-01T00:00:00.000Z',cutoffAt:'2024-01-03T00:00:00.000Z',patchId:'1',leagueId});
   await expect(result(page)).toContainText(`Применённые фильтры: патч 1, лига ${leagueId}`);
-  await expect(page.getByRole('region',{name:'A: игрок роли 1',exact:true}).getByRole('status')).toContainText(q.lineupA[0]!.playerId!);
+  await expect(page.getByRole('region',{name:'A: игрок роли 1',exact:true}).getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
   await page.setViewportSize({width:1280,height:900});await section(page).screenshot({path:'test-results/upcoming-filters-desktop.png'});
   await page.setViewportSize({width:360,height:900});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await section(page).screenshot({path:'test-results/upcoming-filters-mobile.png'});

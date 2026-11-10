@@ -197,7 +197,7 @@ test('an unusable saved five is not auto-applied and a delayed binding cannot ov
  await page.route('**/api/v1/upcoming/*/catalogue',async route=>{const response=await route.fetch();await gate;await route.fulfill({response});});
  await page.getByRole('button',{name:'Выбрать',exact:true}).click();await page.getByRole('button',{name:'Изменить игроков и роли',exact:true}).click();
  const picker=page.getByRole('region',{name:'Команда A в локальной базе',exact:true});await picker.getByRole('searchbox').fill('Synthetic');
- await picker.getByRole('searchbox').press('Enter');await picker.getByRole('button',{name:/^Выбрать Synthetic Alpha · ID /}).click();
+ await picker.getByRole('searchbox').press('Enter');await picker.getByRole('button',{name:/^Выбрать Synthetic Alpha/}).click();
  const response=page.waitForResponse(r=>r.url().endsWith('/catalogue'));release();await response;
  await expect(page.getByRole('article',{name:'Выбранный состав A',exact:true})).toContainText('Synthetic Alpha');
  await expect(page.getByRole('article',{name:'Выбранный состав A',exact:true})).toContainText('Выбрано 0 / 5');

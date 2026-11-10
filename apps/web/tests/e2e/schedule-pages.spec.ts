@@ -44,7 +44,7 @@ test('explicit page navigation loads once, returns from empty end, reuses server
 });
 async function pick(page:Page,label:string,id:string){
  const field=page.getByRole('region',{name:label,exact:true});await field.getByRole('searchbox').fill(id);await field.getByRole('searchbox').press('Enter');
- await field.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();
+ await field.locator(`button[data-catalog-id="${id}"]`).click();
 }
 test('page-two match loads its roster, supports confirmed comparison and clears the unsaved form on page changes',async({page})=>{
  await next(page).click();await expect(page.getByText('Страница 2',{exact:true})).toBeVisible();

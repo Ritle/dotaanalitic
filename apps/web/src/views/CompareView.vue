@@ -41,7 +41,7 @@ async function submit(){
         <CatalogPicker :model-value="slot==='A'?teamA:teamB" kind="teams" :label="`Команда ${slot}: поиск по названию`" :selected-label="labels['team:'+(slot==='A'?teamA:teamB)]" :excluded-ids="[slot==='A'?teamB:teamA]"
           @update:model-value="value=>{if(slot==='A')teamA=value;else teamB=value;}" @selected="p=>labels['team:'+p.id]=p.name" />
         <div v-for="member in (slot==='A'?a:b)" :key="member.rolePos" class="roster-row">
-          <CatalogPicker v-model="member.playerId" kind="players" :label="`${slot}: игрок роли ${member.rolePos} · ${roleName(member.rolePos)}`" :selected-label="labels['player:'+member.playerId]" :excluded-ids="excludedPlayers(member)" @selected="p=>labels['player:'+p.id]=p.name" />
+          <CatalogPicker class="player-picker" v-model="member.playerId" kind="players" :label="`${slot}: игрок роли ${member.rolePos} · ${roleName(member.rolePos)}`" :selected-label="labels['player:'+member.playerId]" :excluded-ids="excludedPlayers(member)" @selected="p=>labels['player:'+p.id]=p.name" />
           <RoleSelect :model-value="member.rolePos" :label="`${slot}: сменить роль ${member.rolePos}`" @update:model-value="role=>changeRole(slot,member.rolePos,role)" />
           <label class="check-label"><input v-model="member.isStandin" type="checkbox" :aria-label="`${slot}: stand-in роли ${member.rolePos}`" /> Stand-in</label>
         </div>
@@ -92,3 +92,4 @@ async function submit(){
       <p v-for="m in report.h2h.maps" :key="m.matchId">{{m.matchId}} · {{m.source}} · ревизия {{m.dataRevision}} · sync {{dateLabel(m.syncedAt)}} · fetch {{dateLabel(m.sourceFetchedAt)}}</p></details>
   </section>
 </template>
+<style scoped>.player-picker{grid-column:1/-1}</style>

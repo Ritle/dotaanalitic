@@ -28,7 +28,7 @@ test.beforeAll(async()=>{
 test.afterAll(async()=>{await boss?.stop({graceful:true,timeout:10000});await api?.close();await database?.close();});
 async function pick(page:Page,label:string,id:string){
   const field=page.getByRole('region',{name:label,exact:true});await field.getByRole('searchbox').fill(id);await field.getByRole('searchbox').press('Enter');
-  await field.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();
+  await field.locator(`button[data-catalog-id="${id}"]`).click();
 }
 const confirm=(page:Page)=>page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true});
 const compare=(page:Page)=>page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true});
@@ -55,7 +55,7 @@ test('explicit confirmed comparison separates organization and exact-five histor
   await page.getByLabel('A: сменить роль 1',{exact:true}).selectOption('5');
   for(let role=1;role<=5;role++)await expect(page.getByLabel(`A: сменить роль ${role}`,{exact:true})).toHaveValue(String(role));
   await expect(confirm(page)).not.toBeChecked();await expect(compare(page)).toBeDisabled();
-  await expect(page.getByRole('region',{name:'A: игрок роли 5',exact:true}).getByRole('status')).toContainText(scenarioInput().lineupA[0]!.playerId!);
+  await expect(page.getByRole('region',{name:'A: игрок роли 5',exact:true}).getByRole('status')).toHaveAttribute('data-selected-id',scenarioInput().lineupA[0]!.playerId!);
   await page.getByLabel('A: сменить роль 5',{exact:true}).selectOption('1');await confirm(page).check();
   expect(requests).toHaveLength(0);await compare(page).click();await expect(result(page)).toBeVisible();
   const q=scenarioInput();expect(requests[0]).toEqual({teamAId:q.teamAId,teamBId:q.teamBId,lineupA:q.lineupA,lineupB:q.lineupB});
@@ -75,7 +75,7 @@ test('explicit confirmed comparison separates organization and exact-five histor
   await card.getByRole('button',{name:'Загрузить последние pro-карты',exact:true}).click();
   await expect(card.getByRole('region',{name:'Обновление pro-истории',exact:true}).getByRole('status')).toContainText('Завершено',{timeout:15000});
   await expect.poll(()=>requests.length).toBe(2);await expect(result(page)).toBeVisible();await expect(confirm(page)).toBeChecked();
-  await expect(page.getByRole('region',{name:'A: игрок роли 1',exact:true}).getByRole('status')).toContainText(q.lineupA[0]!.playerId!);
+  await expect(page.getByRole('region',{name:'A: игрок роли 1',exact:true}).getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
   await pick(page,'A: игрок роли 5',String(BigInt(catalogPlayerId)+10n));await expect(result(page)).toHaveCount(0);await expect(compare(page)).toBeDisabled();
   await confirm(page).check();await compare(page).click();await expect(result(page)).toBeVisible();
   await a.getByText('A · Организация и сыгранность',{exact:true}).click();

@@ -32,8 +32,8 @@ async function signIn(page:import('@playwright/test').Page){
 }
 async function pick(page:import('@playwright/test').Page,label:string,id:string){
   const field=page.getByRole('region',{name:label,exact:true});await field.getByRole('searchbox',{name:label,exact:true}).fill(id);
-  await field.getByRole('searchbox').press('Enter');await field.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();
-  await expect(field.getByRole('status')).toContainText('ID '+id);
+  await field.getByRole('searchbox').press('Enter');await field.locator(`button[data-catalog-id="${id}"]`).click();
+  await expect(field.getByRole('status')).toHaveAttribute('data-selected-id',id);
 }
 test('owner loads schedule and all expected players, manually chooses canonical scenario; mobile layout',async({page})=>{
   await signIn(page);await expect(page.getByText('Данные ещё не загружены.',{exact:true})).toBeVisible();
@@ -64,7 +64,7 @@ test('catalogue search requires explicit choice, distinguishes same-name records
   await page.getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();const q=scenarioInput(),id=q.lineupA[0]!.playerId!;
   const field=page.getByRole('region',{name:'A: игрок роли 1',exact:true}),input=field.getByRole('searchbox');
   await input.fill('Синтетический тёзка');await input.press('Enter');await expect(field.getByRole('button',{name:/^Выбрать Синтетический тёзка/})).toHaveCount(2);
-  await expect(field.getByText(/^Выбрано:/)).toHaveCount(0);await field.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();
+  await expect(field.getByText(/^Выбрано:/)).toHaveCount(0);await field.locator(`button[data-catalog-id="${id}"]`).click();
   const confirm=page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true});await confirm.check();
   await input.fill('такого-синтетического-игрока-нет');await expect(confirm).not.toBeChecked();await input.press('Enter');
   await expect(field.getByText('В локальном справочнике нет подходящей записи.',{exact:false})).toBeVisible();
@@ -72,9 +72,9 @@ test('catalogue search requires explicit choice, distinguishes same-name records
   await page.route('**/api/v1/players?*',route=>route.fulfill({status:503,json:{error:{code:'SYNTHETIC_FAILURE'}}}));
   await input.fill(id);await input.press('Enter');await expect(field.getByRole('alert')).toBeVisible();
   await page.unroute('**/api/v1/players?*');await field.getByRole('button',{name:'Повторить поиск',exact:true}).click();
-  await field.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();
+  await field.locator(`button[data-catalog-id="${id}"]`).click();
   const other=page.getByRole('region',{name:'A: игрок роли 2',exact:true});await other.getByRole('searchbox').fill(id);await other.getByRole('searchbox').press('Enter');
-  await expect(other.getByRole('button',{name:new RegExp(' · ID '+id+'$')})).toBeDisabled();
+  await expect(other.locator(`button[data-catalog-id="${id}"]`)).toBeDisabled();
   await expect(other.getByText('· Уже выбрано в составе',{exact:false})).toBeVisible();
   await pick(page,'A: игрок роли 2',q.lineupA[1]!.playerId!);
   await field.getByRole('button',{name:'Сбросить',exact:true}).click();await expect(input).toHaveValue('');
@@ -111,7 +111,7 @@ test('selected canonical organizations show bounded history and refresh it witho
   const job=a.getByRole('region',{name:'Обновление pro-истории',exact:true});await job.getByRole('button',{name:'Загрузить последние pro-карты',exact:true}).click();
   await expect(job.getByRole('status')).toContainText('Завершено',{timeout:15000});await expect(a.getByText('N = 2',{exact:true})).toBeVisible();
   await expect(b.getByText('N = 0',{exact:true})).toBeVisible();await expect(confirm).toBeChecked();
-  await expect(page.getByRole('region',{name:'A: игрок роли 1',exact:true}).getByRole('status')).toContainText(q.lineupA[0]!.playerId!);
+  await expect(page.getByRole('region',{name:'A: игрок роли 1',exact:true}).getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
   const quality=a.getByText('Выборка и покрытие · есть пропуски',{exact:true});await quality.click();
   await expect(a.getByText('Есть карты без проверенного патча.',{exact:true})).toBeVisible();await expect(a.getByText(/Данные обновлены:/)).toBeVisible();await quality.click();
   await expect(a.getByText(/Выборка: последние 20/)).toBeVisible();await expect(a.getByText(/История прошлых карт организации/)).toBeVisible();

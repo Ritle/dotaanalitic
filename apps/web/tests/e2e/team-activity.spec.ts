@@ -38,7 +38,7 @@ test('source review rejects future checks, preserves source and permits explicit
  await page.reload();await expect(card.getByRole('link',{name:'Источник отметки',exact:true})).toHaveAttribute('href','https://example.com/synthetic');await expect(card).toContainText('Synthetic <b>source</b> review');
  await page.goto('/compare');const picker=page.getByRole('region',{name:'Команда A: поиск по названию',exact:true});
  await picker.getByRole('searchbox').fill('Synthetic Aurora');await picker.getByRole('button',{name:'Найти',exact:true}).click();
- const choose=picker.getByRole('button',{name:`Выбрать Synthetic Aurora · ID ${catalogTeamId}`,exact:true});await expect(choose).toHaveCount(0);
+ const choose=picker.locator(`button[data-catalog-id="${catalogTeamId}"]`);await expect(choose).toHaveCount(0);
  await picker.getByLabel('Искать также в архиве команд',{exact:true}).check();await expect(choose).toBeVisible();await choose.click();await expect(picker.getByRole('status')).toContainText('Выбрано: Synthetic Aurora');
  expect((await sql<{n:number}>`SELECT count(*)::int n FROM prediction_runs`.execute(database.db)).rows[0]!.n).toBe(0);
 });
