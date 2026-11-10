@@ -13,6 +13,11 @@ readAt — время чтения текущих подписей, не histori
 Endpoint не изменяет identities/снимки, не обращается к провайдерам и не
 подтверждает участие. [UI, кэш и границы](S1_16_READABLE_HISTORY_REPORTS.md).
 
+Тот же неизменный контракт используется для [исторического сравнения](S1_16_READABLE_HISTORICAL_COMPARISON.md):
+до10 игроков раскрытой H2H-карты либо до2 соперников видимой страницы.
+Пагинация касается отображения названий, N остаётся за полный выбранный период.
+Закрытые секции и наборы без известных ID не запрашиваются.
+
 ## S2-07 — рейтинговая практика (backend reader)
 
 Дополнение известных карт: owner/CSRF `POST /ranked-practice/context`, strict `{playerId, parentObservationId:UUID, refresh?:false}`; cache-only по умолчанию, явное обновление до20 карт/5 batches по4, без произвольных account/map IDs. RankedContextReport: parent window/revision/source/policy, not_loaded/ready/partial/unavailable, reason/retryAt, parentGames/selectedMaps/matchedMaps и строки с sourceReceiptId/sourceParentObservationId/sourceFetchedAt/sourceSha256/stale, nullable estimated position/provider version/average lobby rank. Metadata разрешена только matched строкам. Raw bodies не возвращаются; source knownAt=null, receipts immutable. SQL046/per-map cache24h, negative/conflict1h, account lease120s/shared quota/partial recovery. Core/identity/parent conflicts не меняют основной N/WR. [Инструкция и границы](S2_07_STRATZ_ENRICHMENT.md).

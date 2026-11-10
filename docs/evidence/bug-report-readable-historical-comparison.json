@@ -1,0 +1,107 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/historical-comparison",
+  "checkedAt": "2026-11-10T23:23:35.332Z",
+  "scope": {
+    "completed": [
+      "named historical actual lineups loaded per expanded map",
+      "two-opponent pages with full-period N",
+      "shared bounded local-only metadata view",
+      "no lookup for empty unknown identities",
+      "current label provenance and bigint-safe links"
+    ],
+    "backendChanged": false,
+    "newMigrations": false,
+    "frozenPackagesChanged": false,
+    "inputContractsChanged": false,
+    "providerRequests": 0,
+    "predictionEffect": "none",
+    "wholeBug7Complete": false
+  },
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "passed": 911,
+      "maxWorkers": 1
+    },
+    "build": "PASS; existing chunk-size warning",
+    "browser": {
+      "uniquePassed": 16,
+      "newHistoricalTests": 2,
+      "cliExit": 0,
+      "realPostgres": true,
+      "syntheticFixtures": true,
+      "duplicateAndEmptyNames": true,
+      "allUnknownLineupsSkipLookup": true,
+      "metadataBoundsUnchanged": true,
+      "closedHistoryRequests": 0,
+      "sameIdentitySetReusesCache": true,
+      "opponentPagesDoNotRecompare": true,
+      "errorRetryAndLateReplyIsolation": true,
+      "existingScenarioAndReportDeepEquality": true,
+      "mobileWidth": 360
+    },
+    "migrationFiles": 52,
+    "development": {
+      "red": "Historical table had raw IDs and no expandable named lineup",
+      "initialCompatibility": "Two cases passed; unchanged scenario beforeAll fixture setup exceeded 30s before UI execution; run lasted15.8m, cause not established. Full subsequent16-case run passed without raising timeouts or changing that test"
+    },
+    "live": {
+      "checkedAt": "2026-11-10T23:11:37.678Z",
+      "teams": [
+        "Team Spirit",
+        "BETBOOM TEAM"
+      ],
+      "opponentNames": true,
+      "paged": true,
+      "h2hAvailable": true,
+      "h2hNamesChecked": true,
+      "summaryUnchanged": true,
+      "closedMetadataReads": 0,
+      "metadataReads": 3,
+      "comparisonRequests": 1,
+      "businessWrites": 0,
+      "providerHttp": 0,
+      "mobileOverflow": false,
+      "pageErrors": 0,
+      "http5xx": 0
+    }
+  },
+  "preservation": {
+    "tables": 85,
+    "unchangedTables": 83,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "maps": 2232,
+    "queueRows": 12,
+    "queueUnchanged": true,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 25452,
+    "webPid": 8376,
+    "apiRestarted": false,
+    "generalWorker": "OFF"
+  },
+  "notRepeated": [
+    "separate full-PG suite",
+    "Node fixture suite",
+    "Python",
+    "Linux deployment"
+  ],
+  "remaining": [
+    "context filter labels",
+    "hero names in scenario history",
+    "source matching labels"
+  ],
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/context-filters",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}
