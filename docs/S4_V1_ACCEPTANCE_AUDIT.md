@@ -1,5 +1,7 @@
 # S4/V1 — аудит приёмки и сквозной путь владельца
 
+**Обновление 10 ноября:** [независимая conditional оценка PASS](S3_03_V1_RETEST_EVALUATION.md), [рабочая активация и active backup restore PASS](S3_05_V1_RETEST_OWNER_ACTIVATION.md). Модель активна, API/Web запущены. Открыта первая реальная Tier1-карта через UI: в текущем расписании нет целевой пары, BLAST IX — TBD. Linux-развёртывание остаётся отложенным; полный двухмодельный MVP не объявляется завершённым. Таблица и записи ниже описывают прежние checkpoints.
+
 **S4-03 preflight continuation (2026-11-04):** [production preflight](S4_03_V1_DEPLOYMENT_PREFLIGHT.md) исправил missing PandaScore forwarding, environment/probe mismatch, unsafe DB errors и checks Engine/rendered services.730 unit/CLI,73 Node PASS, native read-only probe PASS. Реальный production blocked: Docker/production env отсутствуют; CI step prepared, не исполнен. S4-03/staging restore guard/Linux artifact/model/release/active-model restore gates открыты. Все78 working relations/queued Aurora/40 protected artifacts preserved.
 
 

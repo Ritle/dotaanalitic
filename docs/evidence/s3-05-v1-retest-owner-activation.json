@@ -1,0 +1,310 @@
+{
+  "schemaVersion": 1,
+  "task": "S3-05/V1-retest/activation-owner-smoke",
+  "recordedAt": "2026-11-10T14:43:12.442Z",
+  "status": "partial",
+  "activation": "completed",
+  "firstRealTier1Forecast": "pending_pairing_not_available",
+  "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+  "isActive": true,
+  "readiness": {
+    "status": "model_eligible",
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "teamAWinProbability": null
+  },
+  "activationEvent": {
+    "id": "e835100d-81f7-4532-8fba-89da39030ed3",
+    "created_at": "2026-11-10T14:29:26.871Z",
+    "event_type": "promote",
+    "stage": "pre_match",
+    "previous_model_id": null,
+    "activated_model_id": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "retest_runtime_sha256": "f52cf5fd2aa51ce21aa9e4c11d3f2cf018b81274b7e205f4a91f3c6030e82a7b",
+    "retest_report_sha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "retest_freeze_sha256": "61a718f762d24c9fa98dca1b928797adab411a097d4b6eef04782de5ca7992ab",
+    "retest_protocol_fingerprint": "0d1518cc6446685ddabb4afb880fae72821e93c4aa8444ab1cdb834d853168a9"
+  },
+  "exactRetry": "already_recorded",
+  "previousActiveModelId": null,
+  "evaluationBasis": "conditional_retrospective_unexposed_series",
+  "newEvaluationAttempt": false,
+  "workingForecastsIssued": 0,
+  "codeCommit": "613c70d",
+  "applicationCodeChanged": false,
+  "migrationsChanged": false,
+  "browser": {
+    "checkedAt": "2026-11-10T14:38:59.623Z",
+    "status": "PASS",
+    "homeActiveReadiness": true,
+    "reloadActiveReadiness": true,
+    "mobile360NoHorizontalOverflow": true,
+    "missingOpponentsCannotBeConfirmed": true,
+    "existingJournalReadable": true,
+    "logoutRevokesOnlyTestSession": true,
+    "readinessAfterLogout": 401,
+    "pageErrors": 0,
+    "http5xx": 0,
+    "workingForecastRequests": 0,
+    "realTier1ForecastTest": "pending_pairing_not_available",
+    "syntheticRouteMocks": false
+  },
+  "restore": {
+    "status": "PASS",
+    "checkedAt": "2026-11-10T14:37:19.873Z",
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "tables": 97,
+    "restoredRowsExact": true,
+    "restoredReadiness": "model_eligible",
+    "storedEvidenceReplay": true,
+    "activationRetryNoWrites": true,
+    "sourceUnchanged": true,
+    "backup": {
+      "path": ".tools/v1-retest-owner-20261110/active.dump",
+      "sha256": "b0fcc078c11afca0e077908df14a85b980198e53913154885dc5bdc6d1cf0573"
+    },
+    "isolatedDatabaseDropped": true
+  },
+  "preservation": {
+    "status": "PASS",
+    "checkedAt": "2026-11-10T14:40:57.563Z",
+    "publicTables": 84,
+    "changedTables": [
+      "auth_login_budget",
+      "auth_sessions",
+      "model_activation_events",
+      "pandascore_request_quota",
+      "prediction_model_versions",
+      "upcoming_page_cache",
+      "upcoming_page_observations",
+      "upcoming_source_cache",
+      "upcoming_source_observations"
+    ],
+    "unchangedTables": 75,
+    "canonicalMaps": 2232,
+    "queueRows": 14,
+    "queueExact": true,
+    "priorModelMetadataAndActivationRowsPreserved": true,
+    "oldSourceObservationsPreserved": true,
+    "oldOwnerSessionsPreserved": true,
+    "oldForecastsScenariosReportsPreserved": true,
+    "protectedFilesUnchangedFromPreviousCheckpoint": 9703,
+    "event": {
+      "id": "e835100d-81f7-4532-8fba-89da39030ed3",
+      "created_at": "2026-11-10T14:29:26.871Z",
+      "event_type": "promote",
+      "stage": "pre_match",
+      "previous_model_id": null,
+      "activated_model_id": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "retest_runtime_sha256": "f52cf5fd2aa51ce21aa9e4c11d3f2cf018b81274b7e205f4a91f3c6030e82a7b",
+      "retest_report_sha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "retest_freeze_sha256": "61a718f762d24c9fa98dca1b928797adab411a097d4b6eef04782de5ca7992ab",
+      "retest_protocol_fingerprint": "0d1518cc6446685ddabb4afb880fae72821e93c4aa8444ab1cdb834d853168a9"
+    },
+    "providerHttp": 6,
+    "providerObservations": [
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+        "source_fetched_at": "2026-11-10T14:32:06.154Z",
+        "source_payload_sha256": "ecb0ef42c9e13622c927161f02752601569f3cac6c33c361b1fdee30e482ed22",
+        "attempts": 1,
+        "count": 20
+      },
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=2&per_page=20",
+        "source_fetched_at": "2026-11-10T14:32:40.302Z",
+        "source_payload_sha256": "7b130608a23f7a30b27a18cef5b654959e27d42d2123dafee4ad07eedf30ae48",
+        "attempts": 1,
+        "count": 20
+      },
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=3&per_page=20",
+        "source_fetched_at": "2026-11-10T14:32:51.219Z",
+        "source_payload_sha256": "d3967b7abc4681b19f6a2cbd68bb7d12235ecf3d6cd8245e791560166358144a",
+        "attempts": 1,
+        "count": 20
+      },
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=4&per_page=20",
+        "source_fetched_at": "2026-11-10T14:33:03.567Z",
+        "source_payload_sha256": "e546cbe091838039fca6ad82ce4033050b2aca7427880ac163d9dfa5f885acf1",
+        "attempts": 1,
+        "count": 20
+      },
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=5&per_page=20",
+        "source_fetched_at": "2026-11-10T14:33:10.078Z",
+        "source_payload_sha256": "38dd9ac10522a91623faf1497535256094ce5ad561839d9cd0b7e0acebe5c441",
+        "attempts": 1,
+        "count": 10
+      },
+      {
+        "source_endpoint": "/tournaments/22402/rosters",
+        "source_fetched_at": "2026-11-10T14:34:42.989Z",
+        "source_payload_sha256": "651818fbac0f100a1e8104e65990bb182b0b562257bac1d0643082348995cb35",
+        "attempts": 1,
+        "count": 0
+      }
+    ]
+  },
+  "schedule": {
+    "pages": 5,
+    "records": 90,
+    "visibleUpcoming": 89,
+    "finalPageRecords": 10,
+    "nextPageDisabled": true,
+    "reviewedTier1PairAvailable": false,
+    "sources": [
+      {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+        "fetchedAt": "2026-11-10T14:32:06.154Z",
+        "knownAt": null,
+        "payloadSha256": "ecb0ef42c9e13622c927161f02752601569f3cac6c33c361b1fdee30e482ed22",
+        "attempts": 1,
+        "rateLimitRemaining": 999
+      },
+      {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=2&per_page=20",
+        "fetchedAt": "2026-11-10T14:32:40.302Z",
+        "knownAt": null,
+        "payloadSha256": "7b130608a23f7a30b27a18cef5b654959e27d42d2123dafee4ad07eedf30ae48",
+        "attempts": 1,
+        "rateLimitRemaining": 998
+      },
+      {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=3&per_page=20",
+        "fetchedAt": "2026-11-10T14:32:51.219Z",
+        "knownAt": null,
+        "payloadSha256": "d3967b7abc4681b19f6a2cbd68bb7d12235ecf3d6cd8245e791560166358144a",
+        "attempts": 1,
+        "rateLimitRemaining": 997
+      },
+      {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=4&per_page=20",
+        "fetchedAt": "2026-11-10T14:33:03.567Z",
+        "knownAt": null,
+        "payloadSha256": "e546cbe091838039fca6ad82ce4033050b2aca7427880ac163d9dfa5f885acf1",
+        "attempts": 1,
+        "rateLimitRemaining": 996
+      },
+      {
+        "provider": "pandascore",
+        "adapterVersion": "pandascore-schedule-audit-v1",
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=5&per_page=20",
+        "fetchedAt": "2026-11-10T14:33:10.078Z",
+        "knownAt": null,
+        "payloadSha256": "38dd9ac10522a91623faf1497535256094ce5ad561839d9cd0b7e0acebe5c441",
+        "attempts": 1,
+        "rateLimitRemaining": 995
+      }
+    ],
+    "observedEditions": [
+      "Esports Pro Circuit · Season 3 2026",
+      "Media Eleague · Season 5 2026",
+      "Asgard Championship · Season 2 2026",
+      "DreamLeague · Division 2 season 5 2026",
+      "1win Essence · Play-in season 3 2026",
+      "1win Essence · Season 3 2026"
+    ],
+    "organizer": {
+      "url": "https://blast.tv/dota/tournaments/blast-slam-ix/series",
+      "observedTeamLabels": "TBD",
+      "eventFrom": "2026-11-20",
+      "eventThrough": "2026-11-29",
+      "participantCount": 16,
+      "participantsUrl": "https://blast.tv/dota/tournaments/blast-slam-ix",
+      "announcementUrl": "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online",
+      "checkedOn": "2026-11-10"
+    }
+  },
+  "service": {
+    "api": "http://localhost:3000",
+    "web": "http://localhost:5173",
+    "apiStarted": true,
+    "webStarted": true,
+    "generalWorkerStarted": false
+  },
+  "checksReusedNotRerun": {
+    "commit": "613c70d",
+    "frozenInstall": true,
+    "typecheck": true,
+    "build": true,
+    "unitCli": 899,
+    "node": 240,
+    "postgresApiUnique": 60
+  },
+  "tools": {
+    "cua": "unavailable_missing_windows_platform_directory",
+    "nodeRepl": "unavailable_same_platform_error",
+    "browserFallback": "local Chromium/Playwright via native CLI"
+  },
+  "privateEvidence": [
+    {
+      "path": ".tools/v1-retest-owner-20261110/before.json",
+      "sha256": "6348e29e8834f0203d51516e752135f80d56f58be2d526d4a69685151d9cef5b"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/after.json",
+      "sha256": "707a418224990ed348b7b7a9fc2159f817630635aeaaa0facb02b2aee5a3132a"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/backup.json",
+      "sha256": "c6e0caaf22cd34e625d5ddd6d70dd4f048b63a4ee6eb3651525e6c8848d27e47"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/active-restore.json",
+      "sha256": "d4bca33c7d3c81077fadd1ee74ee3589968110fc00549bbdfa865d2f4e33b7e2"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/preservation.json",
+      "sha256": "104937dce977a6f21908c35fc3d5edfa779f9093fdd851e42eeb91bf4abfb8c4"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/ui-acceptance.json",
+      "sha256": "7c47d448c369a9c2342fd72264b8fc4772a4132f7436a76be14b7ca504f9930a"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/activation-request.json",
+      "sha256": "6f344f12f1bb61cf0cf8792f65f06c48171898d2448f22a974b1bc59bc4b17e1"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/browser-events.json",
+      "sha256": "deef0432ad44c21e33fd601a149b3418ad319d9ecf5a5549a4fd832854e2aef9"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/home-view.txt",
+      "sha256": "e85e886f6fe5caa251b02aad427e047de8d23360d671276680f6c638c17bf056"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/blocked-target-view.txt",
+      "sha256": "a0f3da5abf5ee61eaffe7de363cdcc717e48b23d1ffbf9e025fc056b3a4647ca"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/journal-view.txt",
+      "sha256": "4091aee04988cda464d95a97ec08b05500ca1178282a7f964746cc42d1868a51"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/home.png",
+      "sha256": "8d369bb8f7b9504796aa59d0bb1829fbbb914ad7207fcada17f0e174355becb9"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/model-mobile.png",
+      "sha256": "3190a8c00c3f2cbaac4877ad45af90aad56bb87f21c3d58944e8db3390ef8869"
+    },
+    {
+      "path": ".tools/v1-retest-owner-20261110/blocked-target.png",
+      "sha256": "8d8014f45dd24d6a23f24c5dd5c8b59ccc214a66045faac68dd25def48656b85"
+    }
+  ],
+  "nextTask": "S3-05/V1-retest/activation-owner-smoke: first real Tier 1 map after pair publication",
+  "recommendedModel": "GPT-6.1 Sol",
+  "reasoningEffort": "High"
+}
