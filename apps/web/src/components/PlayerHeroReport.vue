@@ -6,6 +6,8 @@ import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
 import SampleNote from './SampleNote.vue';
 import SmoothingNote from './SmoothingNote.vue';
+import ContextPicker from './ContextPicker.vue';
+import ContextFilterLabel from './ContextFilterLabel.vue';
 const props=defineProps<{id:string}>();
 const from=ref(''),cutoff=ref(''),patchScope=ref('current'),patch=ref(''),hero=ref(''),role=ref(''),side=ref('');
 const applied=ref('patchScope=current');
@@ -32,7 +34,7 @@ function apply(){
       <div><label for="ph-from">Герои: начало периода (UTC)</label><input id="ph-from" v-model="from" type="datetime-local" /></div>
       <div><label for="ph-cutoff">Герои: срез истории (UTC)</label><input id="ph-cutoff" v-model="cutoff" type="datetime-local" /></div>
       <div><label for="ph-scope">Патчи героя</label><select id="ph-scope" v-model="patchScope"><option value="current">Патч на дату среза</option><option value="all">Все патчи</option><option value="specific">Конкретный патч</option></select></div>
-      <div v-if="patchScope==='specific'"><label for="ph-patch">Герои: ID проверенного патча</label><input id="ph-patch" v-model="patch" inputmode="numeric" maxlength="19" /></div>
+      <ContextPicker v-if="patchScope==='specific'" v-model="patch" kind="patches" label="Герои: проверенный патч" id-label="Герои: ID проверенного патча" />
       <div><label for="ph-hero">Герои: ID героя</label><input id="ph-hero" v-model="hero" inputmode="numeric" maxlength="19" placeholder="Все герои" /></div>
       <div><label for="ph-role">Герои: подтверждённая позиция</label><select id="ph-role" v-model="role"><option value="">Все, включая неизвестную</option><option v-for="n in 5" :key="n" :value="String(n)">Позиция {{n}}</option></select></div>
       <div><label for="ph-side">Герои: сторона</label><select id="ph-side" v-model="side"><option value="">Обе стороны</option><option value="radiant">Radiant</option><option value="dire">Dire</option></select></div>
@@ -43,7 +45,7 @@ function apply(){
     <p v-else-if="data?.status==='unavailable'" role="status" class="warning">{{data.message}}</p>
     <template v-else-if="report">
       <p class="hint">Применённый период UTC: {{dateLabel(report.fromAt)}} → {{dateLabel(report.cutoffAt)}}. Старт строго раньше среза; карта завершена.</p>
-      <p class="hint">Применённые фильтры: {{report.filters.patchScope==='all'?'все патчи':`патч ID ${report.effectivePatchId}`}} · герой {{report.filters.heroId??'любой'}} · роль {{report.filters.rolePos??'все / неизвестная'}} · сторона {{report.filters.side??'обе'}}. Без ограничения last N и скрытых весов.</p>
+      <div class="hint">Применённые фильтры: <ContextFilterLabel kind="patches" :id="report.filters.patchScope==='all'?null:report.effectivePatchId" /> · герой {{report.filters.heroId??'любой'}} · роль {{report.filters.rolePos??'все / неизвестная'}} · сторона {{report.filters.side??'обе'}}. Без ограничения last N и скрытых весов.</div>
       <div class="summary-grid" role="group" aria-label="Показатели игрока на героях">
         <p><strong>N = {{report.summary.nRaw}}</strong><span>Выбранных карт · побед {{report.summary.wins}}</span></p>
         <p><strong>{{rate(report.summary.winRate)}}</strong><span>Наблюдаемый win rate</span></p>

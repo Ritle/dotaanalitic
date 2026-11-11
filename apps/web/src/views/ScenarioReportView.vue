@@ -6,6 +6,7 @@ import {ScenarioSnapshotSchema,ScenarioReportQuerySchema,ScenarioReportCreateSch
 import {readCatalog,dateLabel,CatalogRequestError} from '../catalog';
 import {ownerAuth} from '../auth';
 import ScenarioReportContent from '../components/ScenarioReportContent.vue';
+import ContextPicker from '../components/ContextPicker.vue';
 const route=useRoute(),router=useRouter(),cache=useQueryClient(),id=computed(()=>String(route.params.id??''));
 const filters=reactive({from:'',patchScope:'all',patchId:'',leagueId:'',reuseWeights:false}),offset=ref(0),busy=ref(false),error=ref('');
 const scenario=useQuery({queryKey:computed(()=>['scenario',id.value]),queryFn:({signal})=>readCatalog(`scenarios/${id.value}`,ScenarioSnapshotSchema,signal)});
@@ -39,7 +40,7 @@ async function refresh(){await scenario.refetch();}
     <section v-if="scenario.data.value" class="panel" aria-label="Создать версию отчёта"><h2>Новый отчёт</h2><p>{{scenario.data.value.input.title}} · текущая редакция {{scenario.data.value.revision}}. Каждый успешный расчёт сохраняется отдельной неизменяемой версией.</p>
       <form @submit.prevent="create"><div class="report-filters"><label>Отчёт: начало периода UTC<input v-model="filters.from" type="datetime-local" /><small>По умолчанию 90 дней до среза сценария.</small></label>
         <label>Отчёт: патч<select v-model="filters.patchScope"><option value="all">Все патчи</option><option value="current">На дату среза</option><option value="specific">Конкретный патч</option></select></label>
-        <label v-if="filters.patchScope==='specific'">Отчёт: ID патча<input v-model="filters.patchId" inputmode="numeric" /></label><label>Отчёт: ID исторической лиги<input v-model="filters.leagueId" inputmode="numeric" placeholder="Все лиги" /></label></div>
+        <ContextPicker v-if="filters.patchScope==='specific'" v-model="filters.patchId" kind="patches" label="Отчёт: выбранный патч" id-label="Отчёт: ID патча" /><ContextPicker v-model="filters.leagueId" kind="leagues" label="Отчёт: исторический турнир" id-label="Отчёт: ID исторической лиги" /></div>
         <label v-if="selected?.report.query.weights" class="reuse-policy"><input v-model="filters.reuseWeights" type="checkbox" /> Использовать экспериментальную политику весов выбранной версии</label>
         <p class="hint">Веса по умолчанию выключены. Сглаженные оценки имеют отдельную опорную выборку. Прогноз недоступен.</p>
         <button :disabled="busy" type="submit">{{busy?'Сохранение отчёта…':'Рассчитать и сохранить отчёт'}}</button></form>

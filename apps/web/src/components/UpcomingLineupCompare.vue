@@ -7,6 +7,8 @@ import {readCatalog,dateLabel} from '../catalog';
 import CompareStat from './CompareStat.vue';
 import SampleNote from './SampleNote.vue';
 import ReportEntityLabel from './ReportEntityLabel.vue';
+import ContextPicker from './ContextPicker.vue';
+import ContextFilterLabel from './ContextFilterLabel.vue';
 import {roleName} from '../role-suggestions';
 const props=defineProps<{input:CompareRequest|null;playerLabels?:Record<string,string>}>(),applied=ref<CompareRequest|null>(null);
 const period=ref('90');
@@ -47,8 +49,8 @@ const rate=(value:number|null)=>value===null?'нет данных':new Intl.Numb
       <div class="filter-grid">
         <label>Начало истории, UTC<input v-model="filters.from" type="datetime-local" step="0.001" aria-label="Пятёрки: начало UTC" /></label>
         <label>Срез истории, UTC<input v-model="filters.cutoff" type="datetime-local" step="0.001" aria-label="Пятёрки: срез UTC" /></label>
-        <label>ID патча · пусто = все<input v-model="filters.patch" inputmode="numeric" maxlength="19" aria-label="Пятёрки: ID патча" /></label>
-        <label>ID лиги · пусто = все<input v-model="filters.league" inputmode="numeric" maxlength="19" aria-label="Пятёрки: ID лиги" /></label>
+        <ContextPicker v-model="filters.patch" kind="patches" label="Пятёрки: патч" id-label="Пятёрки: ID патча" />
+        <ContextPicker v-model="filters.league" kind="leagues" label="Пятёрки: турнир" id-label="Пятёрки: ID лиги" />
       </div>
       <p class="hint">Пустой срез — время запроса; пустое начало — 90 дней до среза. Карта начинается строго раньше среза и завершается к нему. ID — из локальной базы, не PandaScore. При фильтре патча карты без проверенного патча исключаются.</p>
       <button type="button" @click="resetFilters">Сбросить фильтры пятёрок</button>
@@ -61,7 +63,7 @@ const rate=(value:number|null)=>value===null?'нет данных':new Intl.Numb
     <section v-if="report" aria-label="Результат сравнения пятёрок">
       <p>Период: {{dateLabel(report.fromAt)}} → {{dateLabel(report.cutoffAt)}}.</p>
       <p class="hint">Срез БД: {{dateLabel(report.snapshotAt)}} · источник: нормализованные локальные pro-карты · без весов.</p>
-      <p class="hint">Применённые фильтры: патч {{report.input.patchId??'все'}}, лига {{report.input.leagueId??'все'}}. Период общий для организаций, пятёрок, пар и личной истории.</p>
+      <div class="hint">Применённые фильтры: патч <ContextFilterLabel kind="patches" :id="report.input.patchId" />, турнир <ContextFilterLabel kind="leagues" :id="report.input.leagueId" />. Период общий для организаций, пятёрок, пар и личной истории.</div>
       <p class="warning">Малое N не гарантирует надёжности. Наблюдаемый win rate — частота прошлых побед. Прогноз недоступен.</p>
       <div class="lineup-columns"><article v-for="col in columns" :key="col.slot" :aria-label="`Пятёрка ${col.slot}`">
         <h4>{{col.slot}} · {{col.team.name.trim()||'Команда без названия'}}</h4>

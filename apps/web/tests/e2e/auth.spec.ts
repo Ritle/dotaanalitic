@@ -153,6 +153,7 @@ test('pro-map filters show raw map counts, native side, unknown coverage and nul
   await page.setViewportSize({width:360,height:800});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:'test-results/pro-maps-mobile.png',fullPage:true});
+  await page.getByRole('region',{name:'Карты: проверенный патч',exact:true}).getByText('Технический ID',{exact:true}).click();
   await page.getByLabel('ID проверенного патча').fill('999');await page.getByRole('button',{name:'Применить фильтры',exact:true}).click();
   await expect(page.getByRole('group',{name:'Показатели выборки'})).toContainText('N = 0');
   await expect(page.getByText('При N = 0 частота побед неизвестна.',{exact:false})).toBeVisible();

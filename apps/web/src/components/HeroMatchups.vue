@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ContextPicker from './ContextPicker.vue';
+import ContextFilterLabel from './ContextFilterLabel.vue';
 import {computed,reactive,ref,watch} from 'vue';
 import {useQuery} from '@tanstack/vue-query';
 import {HeroMatchupQuerySchema,HeroMatchupResponseSchema,type HeroMatchupQuery,type ScenarioSnapshot} from '@dota/contracts';
@@ -33,8 +35,8 @@ const coefficientFields=[['minorPenalty','Штраф minor'],['moderatePenalty',
     <form @submit.prevent="run"><div class="pair-filters">
       <label>Пары: начало периода UTC<input v-model="filters.from" type="datetime-local" step="1" /><small>По умолчанию 90 дней до среза.</small></label>
       <label>Пары: патч<select v-model="filters.patchScope"><option value="all">Все патчи</option><option value="current">На дату среза</option><option value="specific">Конкретный патч</option></select></label>
-      <label v-if="filters.patchScope==='specific'">Пары: ID патча<input v-model="filters.patchId" inputmode="numeric" /></label>
-      <label>Пары: ID исторической лиги<input v-model="filters.leagueId" inputmode="numeric" placeholder="Все лиги" /></label>
+      <ContextPicker v-if="filters.patchScope==='specific'" v-model="filters.patchId" kind="patches" label="Пары: выбранный патч" id-label="Пары: ID патча" />
+      <ContextPicker v-model="filters.leagueId" kind="leagues" label="Пары: исторический турнир" id-label="Пары: ID исторической лиги" />
     </div>
     <label class="weight-toggle"><input v-model="filters.weighted" type="checkbox" /> Эксперимент с весами</label>
     <fieldset v-if="filters.weighted"><legend>Непроверенная политика весов</legend><p class="warning">Политика не проверена на исторических данных. Значения задаёте вы; рекомендуемых коэффициентов пока нет. При нехватке сведений о патчах и героях оценка недоступна.</p>
@@ -47,7 +49,7 @@ const coefficientFields=[['minorPenalty','Штраф minor'],['moderatePenalty',
     <p v-if="applied&&request.data.value?.status==='unavailable'" role="status" class="warning">{{request.data.value.message}}</p>
     <div v-if="report" data-testid="pair-report">
       <p v-if="report.status==='insufficient_data'" class="warning">В выборке нет подходящих пар. N=0; наблюдаемый WR неизвестен.</p>
-      <p>Период: {{dateLabel(report.fromAt)}} ≤ начало карты &lt; {{dateLabel(report.cutoffAt)}}. Патч: {{report.effectivePatchId??'все, включая неизвестные'}}; историческая лига: {{report.query.leagueId??'все'}}.</p>
+      <div>Период: {{dateLabel(report.fromAt)}} ≤ начало карты &lt; {{dateLabel(report.cutoffAt)}}. Патч: <ContextFilterLabel kind="patches" :id="report.effectivePatchId" empty-label="все, включая неизвестные" />; исторический турнир: <ContextFilterLabel kind="leagues" :id="report.query.leagueId" />.</div>
       <p class="hint">Данные обновлены: {{dateLabel(report.dataUpdatedAt)}}. Отчёт: {{dateLabel(report.snapshotAt)}}. Использованы завершённые карты и сведения, доступные сейчас; историческая доступность до драфта не подтверждается.</p>
       <p>Карт с выбранными героями: {{report.coverage.candidates}}; прошли фильтры: {{report.coverage.eligibleMaps}}; неполные герои: {{report.coverage.partialHeroMaps}}; некорректные строки: {{report.coverage.invalidHeroRows}}.</p>
       <p class="warning">Неизвестный pro-статус: {{report.coverage.unknownPro}}; не pro: {{report.coverage.nonPro}}; конфликты: {{report.coverage.conflict}}; неизвестный патч до фильтра: {{report.coverage.unknownPatchMaps}}; неподтверждённая серия: {{report.coverage.unverifiedSeriesMaps}}; поздняя загрузка: {{report.coverage.lateFetchedMaps}}.</p>

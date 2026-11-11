@@ -5,6 +5,8 @@ import {ProMapResponseSchema} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
 import SampleNote from './SampleNote.vue';
+import ContextPicker from './ContextPicker.vue';
+import ContextFilterLabel from './ContextFilterLabel.vue';
 const props=defineProps<{kind:'teams'|'players';id:string}>();
 const from=ref(''),cutoff=ref(''),patch=ref(''),opponent=ref(''),player=ref(''),role=ref(''),side=ref(''),league=ref(''),limit=ref('20');
 const applied=ref('limit=20');
@@ -25,7 +27,7 @@ const rate=(n:number|null)=>n===null?'—':new Intl.NumberFormat('ru-RU',{style:
 const activeFilters=computed(()=>{
   if(!report.value)return '';
   const f=report.value.filters;
-  return `Патч: ${f.patchId??'все'} · Сторона: ${f.side??'обе'} · Соперник ID: ${f.opponentId??'любой'} · Турнир ID: ${f.leagueId??'все'} · Игрок ID: ${props.kind==='players'?props.id:f.playerId??'не задан'} · Роль: ${f.rolePos??'все'} · Последние ${f.limit} карт`;
+  return `Сторона: ${f.side??'обе'} · Соперник ID: ${f.opponentId??'любой'} · Игрок ID: ${props.kind==='players'?props.id:f.playerId??'не задан'} · Роль: ${f.rolePos??'все'} · Последние ${f.limit} карт`;
 });
 </script>
 
@@ -36,9 +38,9 @@ const activeFilters=computed(()=>{
     <form class="map-filters" @submit.prevent="apply">
       <div><label for="maps-from">С даты (UTC)</label><input id="maps-from" v-model="from" type="datetime-local"></div>
       <div><label for="maps-cutoff">До момента (UTC)</label><input id="maps-cutoff" v-model="cutoff" type="datetime-local"></div>
-      <div><label for="maps-patch">ID проверенного патча</label><input id="maps-patch" v-model="patch" inputmode="numeric" maxlength="19"></div>
+      <ContextPicker v-model="patch" kind="patches" label="Карты: проверенный патч" id-label="ID проверенного патча" />
       <div><label for="maps-opponent">ID соперника</label><input id="maps-opponent" v-model="opponent" inputmode="numeric" maxlength="19"></div>
-      <div><label for="maps-league">ID турнира</label><input id="maps-league" v-model="league" inputmode="numeric" maxlength="19"></div>
+      <ContextPicker v-model="league" kind="leagues" label="Карты: турнир" id-label="ID турнира" />
       <div v-if="kind==='teams'"><label for="maps-player">ID игрока для фильтра роли</label><input id="maps-player" v-model="player" inputmode="numeric" maxlength="19"></div>
       <div><label for="maps-role">Подтверждённая роль</label><select id="maps-role" v-model="role"><option value="">Все роли</option><option v-for="r in 5" :key="r" :value="String(r)">Позиция {{r}}</option></select></div>
       <div><label for="maps-side">Сторона карты</label><select id="maps-side" v-model="side"><option value="">Обе стороны</option><option value="radiant">Radiant</option><option value="dire">Dire</option></select></div>
@@ -50,7 +52,7 @@ const activeFilters=computed(()=>{
     <p v-else-if="data?.status==='unavailable'" role="status" class="warning">{{data.message}}</p>
     <template v-else-if="report">
       <p class="hint">Период: {{report.filters.fromAt?dateLabel(report.filters.fromAt):'вся доступная история'}} → {{dateLabel(report.filters.cutoffAt)}} (старт строго раньше, карта завершена).</p>
-      <p class="hint">{{activeFilters}}</p>
+      <div class="hint">Патч: <ContextFilterLabel kind="patches" :id="report.filters.patchId" /> · Турнир: <ContextFilterLabel kind="leagues" :id="report.filters.leagueId" /> · {{activeFilters}}</div>
       <div class="summary-grid" role="group" aria-label="Показатели выборки">
         <p><strong>N = {{report.summary.nRaw}}</strong><span>карт</span></p><p><strong>{{report.summary.wins}} / {{report.summary.losses}}</strong><span>побед / поражений</span></p>
         <p><strong>{{rate(report.summary.winRate)}}</strong><span>наблюдаемый win rate</span></p><p><strong>{{report.summary.meanDurationSeconds===null?'—':(report.summary.meanDurationSeconds/60).toFixed(1)}}</strong><span>средняя длительность, мин.</span></p>

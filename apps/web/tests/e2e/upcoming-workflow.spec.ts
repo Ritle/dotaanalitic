@@ -83,7 +83,7 @@ test('schedule to manual scenario, full draft and immutable report keeps lineups
   expect(frozen.report.scenario).toEqual(drafted);expect(frozen.report.cutoffAt).toBe(drafted.input.cutoffAt);
   expect(frozen.report.fromAt).toBe('2024-01-01T00:00:00.000Z');expect(frozen.report.coverage.eligibleProMaps).toBe(2);
   expect(frozen.report.prediction.status).toBe('unavailable');expect(frozen.report.prediction.model).toBeNull();expect(frozen.report.prediction.teamAWinProbability).toBeNull();
-  await expect(article).toContainText('Прогноз недоступен');await expect(article).toContainText('Историческая лига: все');
+  await expect(article).toContainText('Прогноз недоступен');await expect(article.getByText('Все турниры',{exact:true})).toBeVisible();
   await expect(article.getByRole('region',{name:'Контекст и качество состава',exact:true})).toContainText('историческая доступность до карты не доказана');
   await expect(page).toHaveURL(new RegExp('[?&]analysis='+frozen.id+'(?:&|$)'));
   const savedUrl=page.url();await page.setViewportSize({width:360,height:900});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

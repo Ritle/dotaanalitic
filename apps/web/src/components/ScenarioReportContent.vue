@@ -5,6 +5,7 @@ import CompareStat from './CompareStat.vue';
 import HeroPairValue from './HeroPairValue.vue';
 import ScenarioDisplayLabels from './ScenarioDisplayLabels.vue';
 import ReportEntityLabel from './ReportEntityLabel.vue';
+import ContextFilterLabel from './ContextFilterLabel.vue';
 import {roleName} from '../role-suggestions';
 const props=defineProps<{snapshot:ScenarioReport}>();
 const rate=(n:number|null)=>n===null?'нет данных':`${(n*100).toFixed(1)}%`;
@@ -15,7 +16,7 @@ const age=(value:string)=>{const hours=(Date.parse(props.snapshot.report.snapsho
   <article class="panel report-content" aria-label="Сохранённый отчёт">
     <h2>Отчёт · версия {{snapshot.version}}</h2><p>{{snapshot.report.scenario.input.title}} · редакция сценария {{snapshot.report.scenario.revision}}. Сохранён {{dateLabel(snapshot.createdAt)}}.</p>
     <ScenarioDisplayLabels :input="snapshot.report.scenario.input" v-slot="{labels}">
-    <p>Период: {{dateLabel(snapshot.report.fromAt)}} ≤ начало карты &lt; {{dateLabel(snapshot.report.cutoffAt)}}. Патч: {{snapshot.report.effectivePatchId??'все, включая неизвестные'}}. Историческая лига: {{snapshot.report.query.leagueId??'все'}}.</p>
+    <div>Период: {{dateLabel(snapshot.report.fromAt)}} ≤ начало карты &lt; {{dateLabel(snapshot.report.cutoffAt)}}. Патч: <ContextFilterLabel kind="patches" :id="snapshot.report.effectivePatchId" empty-label="все, включая неизвестные" />. Исторический турнир: <ContextFilterLabel kind="leagues" :id="snapshot.report.query.leagueId" />.</div>
     <p class="warning">Прогноз недоступен. Показатели описывают прошлые профессиональные карты; это не вероятность победы сценария.</p>
     <p v-if="snapshot.report.warnings.includes('FUTURE_CUTOFF_CLAMPED')" class="warning">Будущий срез ограничен временем расчёта: {{dateLabel(snapshot.report.snapshotAt)}}.</p>
     <section aria-label="Контекст и качество состава"><h3>Контекст и состав</h3>

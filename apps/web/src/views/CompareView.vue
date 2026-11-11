@@ -11,6 +11,8 @@ import RoleSelect from '../components/RoleSelect.vue';
 import ReportEntityLabel from '../components/ReportEntityLabel.vue';
 import HistoricalMapLineups from '../components/HistoricalMapLineups.vue';
 import CompareOpponents from '../components/CompareOpponents.vue';
+import ContextPicker from '../components/ContextPicker.vue';
+import ContextFilterLabel from '../components/ContextFilterLabel.vue';
 import {swapLineupRole,roleName} from '../role-suggestions';
 const route=useRoute(),router=useRouter(),teamA=ref(typeof route.query.teamA==='string'?route.query.teamA:''),teamB=ref(typeof route.query.teamB==='string'?route.query.teamB:'');
 const five=()=>Array.from({length:5},(_,i)=>({playerId:'',rolePos:i+1,isStandin:false}));
@@ -52,8 +54,8 @@ async function submit(){
       <p class="hint">Найдите команды и игроков по имени и выберите запись из списка. Выбор занятой роли меняет двух игроков местами: в составе всегда по одной роли 1–5. Сценарий не сохраняется.</p>
       <div class="map-filters compare-filters"><label>Начало истории, UTC<input v-model="from" type="datetime-local" aria-label="Сравнение: начало UTC" /></label>
         <label>Срез истории, UTC<input v-model="cutoff" type="datetime-local" aria-label="Сравнение: срез UTC" /></label>
-        <label>ID патча · пусто = все<input v-model="patch" inputmode="numeric" aria-label="Сравнение: ID патча" /></label>
-        <label>ID лиги · пусто = все<input v-model="league" inputmode="numeric" aria-label="Сравнение: ID лиги" /></label></div>
+        <ContextPicker v-model="patch" kind="patches" label="Сравнение: патч" id-label="Сравнение: ID патча" />
+        <ContextPicker v-model="league" kind="leagues" label="Сравнение: турнир" id-label="Сравнение: ID лиги" /></div>
       <p class="hint">Без дат: последние 90 дней до запроса. Начало карты строго раньше среза, карта должна завершиться к нему. Сырые показатели не взвешены.</p>
       <p v-if="validation" class="error" role="alert">{{validation}}</p><button type="submit" :disabled="isFetching">{{isFetching?'Сравнение…':'Сравнить команды'}}</button>
     </form>
@@ -62,8 +64,8 @@ async function submit(){
     <p v-if="applied&&data?.status==='unavailable'" class="warning" role="status">{{data.message}}</p>
   </section>
   <section v-if="report" class="panel" aria-label="Результат сравнения">
-    <p>Период: {{dateLabel(report.fromAt)}} → {{dateLabel(report.cutoffAt)}}. Патч-фильтр: {{report.input.patchId??'все'}}; лига: {{report.input.leagueId??'все'}}.</p>
-    <p>Срез БД: {{dateLabel(report.snapshotAt)}} · источник: локальные pro-карты. Патч на дату среза: {{report.currentPatchId??'не подтверждён'}}.</p>
+    <div>Период: {{dateLabel(report.fromAt)}} → {{dateLabel(report.cutoffAt)}}. Патч-фильтр: <ContextFilterLabel kind="patches" :id="report.input.patchId" />; турнир: <ContextFilterLabel kind="leagues" :id="report.input.leagueId" />.</div>
+    <div>Срез БД: {{dateLabel(report.snapshotAt)}} · источник: локальные pro-карты. Патч на дату среза: <ContextFilterLabel kind="patches" :id="report.currentPatchId" empty-label="не подтверждён" />.</div>
     <p class="warning">Победы организации не означают силу нынешней пятёрки. Малое N не гарантирует надёжности. Вероятность победы недоступна.</p>
     <p class="hint">Проценты ниже — наблюдаемый win rate, рядом указан N. Таблицы можно прокручивать вбок.</p>
     <div class="table-scroll"><table aria-label="Показатели двух команд" class="compare-table"><thead><tr><th>Выборка</th><th v-for="col in columns" :key="col.slot">{{col.slot}} · <ReportEntityLabel kind="teams" :id="col.team.organizationId" :name="col.team.name" /></th></tr></thead><tbody>

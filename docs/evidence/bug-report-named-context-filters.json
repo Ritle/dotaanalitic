@@ -1,0 +1,113 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/context-filters/patch-league",
+  "checkedAt": "2026-11-11T00:22:07.152Z",
+  "scope": {
+    "completed": [
+      "named patch and historical league filters across analytics and report screens",
+      "separate search and selected filter state",
+      "literal paginated local context catalog",
+      "exact local bigint keys and technical fallback",
+      "selected-name cache reused in effective filter labels",
+      "no per-keystroke technical ID lookups"
+    ],
+    "newMigrations": false,
+    "frozenPackagesChanged": false,
+    "inputContractsChanged": false,
+    "providerRequests": 0,
+    "predictionEffect": "none",
+    "wholeBug7Complete": false,
+    "wholeContextFilterScopeComplete": false
+  },
+  "checks": {
+    "install": "pnpm install --frozen-lockfile --offline: PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "passed": 914,
+      "maxWorkers": 1,
+      "newContractTests": 3
+    },
+    "build": "PASS; Vite chunk-size and Zod annotation warnings",
+    "browser": {
+      "uniquePassed": 20,
+      "initialCompatibilityPassed": 19,
+      "finalPassed": 10,
+      "finalCliExit": 0,
+      "realPostgres": true,
+      "syntheticFixtures": true,
+      "localVersusProviderIdDistinct": true,
+      "fullAnalysisRequestEquality": true,
+      "duplicateNameChoice": true,
+      "literalWildcardSearch": true,
+      "twentyItemPaging": true,
+      "unknownIdPreserved": true,
+      "searchAndErrorDoNotBroadenFilter": true,
+      "selectionAddsNoExactIdRead": true,
+      "technicalTypingAddsNoLookup": true,
+      "priorReportSnapshotsPreserved": true,
+      "mobileWidth": 360
+    },
+    "migrationFiles": 52,
+    "development": {
+      "red": "No named context-picker region existed",
+      "initialAssertions": "Adjusted whole-region status selectors to calculation-specific status and renamed historical league caption assertion",
+      "optimization": "Disable selected-name lookup while technical ID control is focused; blur resolves one final exact key"
+    },
+    "live": {
+      "checkedAt": "2026-11-11T00:14:15.607Z",
+      "teams": [
+        "Team Spirit",
+        "BETBOOM TEAM"
+      ],
+      "patch": {
+        "id": "",
+        "name": "Все патчи",
+        "available": false
+      },
+      "league": {
+        "id": "1786",
+        "name": "1win Essence II",
+        "available": true
+      },
+      "exactFilterInput": true,
+      "searchPreservesFilter": true,
+      "summaryUnchanged": true,
+      "comparisonRequests": 1,
+      "businessWrites": 0,
+      "providerHttp": 0,
+      "mobileOverflow": false,
+      "pageErrors": 0,
+      "http5xx": 0
+    }
+  },
+  "preservation": {
+    "tables": 85,
+    "unchangedTables": 83,
+    "changed": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "maps": 2232,
+    "queueRows": 12,
+    "queueUnchanged": true,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 23164,
+    "webPid": 8376,
+    "apiRestarted": true,
+    "generalWorker": "OFF"
+  },
+  "limitations": [
+    "Working patch catalog is empty; named patch selection verified in disposable PostgreSQL, not filled with invented records",
+    "Remaining hero/player/opponent reference filters and history/source matching are outside this slice",
+    "Separate full-PG/Node-fixture/Python/Linux suites not rerun"
+  ],
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/context-filters/references",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

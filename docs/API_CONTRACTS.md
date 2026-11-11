@@ -1,5 +1,16 @@
 # API контракт MVP — `/api/v1`
 
+## S1-16 — имена контекстных фильтров (2026-11-11)
+
+Приватный read-only `GET /api/v1/context-catalog` принимает `kind=patches|leagues`
+и либо `query` (до80 символов, literal substring)/`offset` (0..10000), либо
+точный локальный bigint `id` как строку. ID нельзя смешивать с непустым query
+или ненулевым offset; неизвестные поля/неверный kind/ID дают400, без сессии401.
+Ответ `{kind,source:'local_catalogue',readAt:<UTC ISO>,items:[{id,name}],hasMore}`:
+до20 результатов поиска либо0..1 точной записи. Пустые имена не заполняются;
+missing ID даёт пустой items. Это local IDs, не provider IDs и не release proofs.
+Никаких sync/write/provider вызовов. [UI, cache и ограничения](S1_16_NAMED_CONTEXT_FILTERS.md).
+
 ## S1-16 — текущие подписи сохранённых сценариев (2026-11-11)
 
 `GET /api/v1/catalog-labels?teams=<CSV>&players=<CSV>` — приватное read-only
