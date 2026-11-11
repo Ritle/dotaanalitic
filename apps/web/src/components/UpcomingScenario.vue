@@ -11,7 +11,7 @@ import UpcomingLineupCompare from './UpcomingLineupCompare.vue';
 import RoleSuggestions from './RoleSuggestions.vue';
 import RoleProfiles from './RoleProfiles.vue';
 import RoleSelect from './RoleSelect.vue';
-import {swapLineupRole,roleName} from '../role-suggestions';
+import {swapLineupRole,lineupForRequest} from '../role-suggestions';
 import PlayerHistory from './PlayerHistory.vue';
 import ExpectedRosterCatalogue from './ExpectedRosterCatalogue.vue';
 import type {RosterCatalogueBinding} from '@dota/contracts';
@@ -53,7 +53,7 @@ const complete=computed(()=>!!form.teamAId&&!!form.teamBId&&form.teamAId!==form.
  [...form.lineupA,...form.lineupB].every(p=>p.playerId)&&new Set([...form.lineupA,...form.lineupB].map(p=>p.playerId)).size===10);
 watch(form,()=>{confirmed.value=false;},{deep:true,flush:'sync'});
 const usedPlayers=(current:typeof form.lineupA[number])=>[...form.lineupA,...form.lineupB].filter(p=>p!==current&&p.playerId).map(p=>p.playerId);
-const input=computed(()=>ScenarioInputSchema.safeParse({...form,cutoffAt:new Date().toISOString(),scheduledAt:props.match.scheduledAt,
+const input=computed(()=>ScenarioInputSchema.safeParse({...form,lineupA:lineupForRequest(form.lineupA),lineupB:lineupForRequest(form.lineupB),cutoffAt:new Date().toISOString(),scheduledAt:props.match.scheduledAt,
   confirmedByOwner:confirmed.value,expectedLineupA:null,expectedLineupB:null,
   context:{seriesId:null,leagueId:null,mapNumber:null,teamASeriesWinsBefore:null,teamBSeriesWinsBefore:null,radiantSlot:null,
     firstPickSlot:null,venueKind:null,tournamentStage:null}}));
@@ -97,11 +97,14 @@ async function create(){
         <button v-if="proposed(slot)!.view?.canUse" type="button" :disabled="proposed(slot)!.busy" @click="catalogue?.usePrepared(slot)">{{proposed(slot)!.busy?'Сохраняем…':`Подтвердить аккаунты и выбрать пятёрку ${slot}`}}</button>
         <button v-else type="button" :disabled="proposed(slot)!.busy" @click="catalogue?.openPreparation()">Уточнить аккаунты {{slot}}</button>
       </template>
-      <ul v-else><li v-for="p in (slot==='A'?form.lineupA:form.lineupB)" :key="p.rolePos"><span class="hint">{{p.rolePos}}. {{roleName(p.rolePos)}} · </span>{{preparedLabels['player:'+p.playerId]??(p.playerId?`Игрок ${p.playerId}`:'Игрок не выбран')}}<span v-if="p.isStandin"> · замена</span></li></ul>
+      <div v-else class="selected-player-cards"><div v-for="(p,index) in (slot==='A'?form.lineupA:form.lineupB)" :key="index" class="selected-player-card" :data-player-card="`${slot}:${index+1}`">
+        <strong>{{preparedLabels['player:'+p.playerId]??(p.playerId?`Игрок ${p.playerId}`:'Игрок не выбран')}}</strong><span v-if="p.isStandin"> · замена</span>
+        <RoleSelect :model-value="p.rolePos" :disabled="busy" :label="`${slot}: роль игрока ${index+1}`" @update:model-value="role=>changeRole(slot,p.rolePos,role)" />
+      </div></div>
       <p class="hint">Выбрано {{(slot==='A'?form.lineupA:form.lineupB).filter(p=>p.playerId).length}} / 5<span v-if="savedAt[slot]"> · связи сохранены {{dateLabel(savedAt[slot]!)}}</span></p>
     </article></div>
     <p v-if="!complete" class="warning">Для сравнения нужны две пятёрки. Подготовленные игроки и причины незаполненных составов показаны в карточках выше.</p>
-    <p class="hint">Сохранённые составы — ваш исходный выбор, участие в этой встрече не гарантировано. Заменить игрока и уточнить позиции можно ниже.</p>
+    <p class="hint">Сохранённые составы — ваш исходный выбор, участие в этой встрече не гарантировано. Укажите роль под именем игрока. Если роль занята, назначения поменяются у двух игроков; карточки останутся на месте. Заменить игрока можно ниже.</p>
     <button type="button" @click="editLineups">Изменить игроков и роли</button>
     <label class="check-row"><input v-model="confirmed" type="checkbox" />Подтверждаю выбранных игроков и роли для одной карты</label>
     <UpcomingLineupCompare :input="busy?null:comparisonInput" :player-labels="preparedLabels" />
@@ -109,7 +112,7 @@ async function create(){
   <ExpectedRosterCatalogue v-if="participants.complete" ref="catalogue" :match-id="match.providerMatchId" :roster-version="rosterVersion" :automatic-allowed="automaticAllowed" @apply="useBinding" @saved="useSaved" @preparation="preparation=$event" />
   <details ref="manualEditor" class="manual-scenario" :open="manualOpen" @toggle="manualOpen=($event.target as HTMLDetailsElement).open"><summary>Выбрать игроков для анализа одной карты</summary>
     <p>Задайте игроков и их роли по локальному справочнику. Заявка турнира служит ориентиром; состав сценария подтверждаете вы.</p>
-    <p class="hint">Выбор занятой роли меняет двух игроков местами. В пятёрке всегда по одной роли 1–5; после изменения подтвердите состав заново.</p>
+    <p class="hint">Выбор занятой роли меняет назначения ролей у двух игроков, сохраняя порядок карточек. В пятёрке всегда по одной роли 1–5; после изменения подтвердите состав заново.</p>
     <p class="hint">Найдите запись по имени или ID и выберите её из списка. Если записи нет в локальной базе, состав остаётся неполным.</p>
     <p v-if="!participants.complete" class="warning">Это гипотетический сценарий с выбранными вами командами. Он не подтверждает участников этой встречи и не привязывает к ней реальный прогноз.</p>
     <form @submit.prevent="create"><fieldset :disabled="busy" class="scenario-fields">
@@ -120,10 +123,9 @@ async function create(){
         <CatalogPicker v-else v-model="form.teamBId" kind="teams" label="Команда B в локальной базе" :selected-label="preparedLabels['team:'+form.teamBId]" :excluded-ids="[form.teamAId]" @selected="p=>preparedLabels['team:'+p.id]=p.name??p.id" />
         <UpcomingTeamSummary v-if="slot==='A'?form.teamAId:form.teamBId" :key="slot+':'+(slot==='A'?form.teamAId:form.teamBId)"
           :team-id="slot==='A'?form.teamAId:form.teamBId" :side-label="slot" />
-        <div v-for="p in slot==='A'?form.lineupA:form.lineupB" :key="p.rolePos">
-          <CatalogPicker v-model="p.playerId" kind="players" :label="`${slot}: игрок роли ${p.rolePos}`" :selected-label="preparedLabels['player:'+p.playerId]" :excluded-ids="usedPlayers(p)" @selected="item=>preparedLabels['player:'+item.id]=item.name??item.id" />
-          <RoleSelect :model-value="p.rolePos" :label="`${slot}: сменить роль ${p.rolePos}`" @update:model-value="role=>changeRole(slot,p.rolePos,role)" />
-          <label class="check-row"><input v-model="p.isStandin" type="checkbox" @change="confirmed=false" />{{slot}}: замена роли {{p.rolePos}}</label>
+        <div v-for="(p,index) in slot==='A'?form.lineupA:form.lineupB" :key="index">
+          <CatalogPicker v-model="p.playerId" kind="players" compact :label="`${slot}: игрок ${index+1}`" :selected-label="preparedLabels['player:'+p.playerId]" :excluded-ids="usedPlayers(p)" @selected="item=>preparedLabels['player:'+item.id]=item.name??item.id" />
+          <label class="check-row"><input v-model="p.isStandin" type="checkbox" @change="confirmed=false" />{{slot}}: замена игрока {{index+1}}</label>
         </div>
         <PlayerHistory :slot="slot" :player-ids="(slot==='A'?form.lineupA:form.lineupB).map(p=>p.playerId)" />
         <component :is="(slot==='A'?form.teamAId:form.teamBId)?RoleProfiles:RoleSuggestions" :key="slot+':roles:'+(slot==='A'?form.teamAId:form.teamBId)"
@@ -142,6 +144,7 @@ async function create(){
 .manual-scenario{margin-top:var(--space-6);border-top:1px solid var(--color-border);padding-top:var(--space-4)}summary{cursor:pointer;min-height:44px}
 .manual-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);margin-block:var(--space-4)}
 .comparison-start{overflow-wrap:anywhere}.comparison-start article{min-width:0;background:var(--color-elevated);padding:var(--space-4);border-radius:var(--radius-sm)}.comparison-start h4{margin:0 0 8px}.comparison-start ul{margin:0;padding-left:20px}.comparison-start li{padding-block:3px}
+.selected-player-card{padding-block:var(--space-3);border-top:1px solid var(--color-border)}.selected-player-card strong{display:block;margin-bottom:var(--space-2)}
 .account-note{display:block;font-size:12px;color:var(--color-muted);margin-block:4px}.account-note.warning{color:var(--color-warning)}.comparison-start button{max-width:100%;white-space:normal}
 fieldset{min-width:0;border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:var(--space-4)}.scenario-fields{border:0;padding:0}
 label{display:block}.check-row{display:flex;gap:8px;align-items:center;font-size:14px}.check-row input{width:20px;min-height:24px;flex-shrink:0}

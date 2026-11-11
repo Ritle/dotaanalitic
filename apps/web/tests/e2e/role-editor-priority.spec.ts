@@ -28,80 +28,103 @@ async function prepare(page:Page,manualSwapBeforePlayers=false){
  await page.getByRole('heading',{name:'Справочники',exact:true}).waitFor();await page.goto('/scenarios/new');const q=scenarioInput();
  await page.getByLabel('Название',{exact:true}).fill('Синтетический приоритет ролей');await pickScenario(page,'Команда A: поиск по названию',q.teamAId);
  await pickScenario(page,'Команда B: поиск по названию',q.teamBId);await page.getByLabel('Срез данных UTC',{exact:true}).fill('2024-01-03T00:00');
- if(manualSwapBeforePlayers){await page.getByLabel('A: герой роли 1',{exact:true}).selectOption('1');await page.getByLabel('A: сменить роль 1',{exact:true}).selectOption('5');}
- for(const p of q.lineupA)await pickScenario(page,`A: игрок роли ${6-p.rolePos}`,p.playerId!);
- for(const p of q.lineupB)await pickScenario(page,`B: игрок роли ${p.rolePos}`,p.playerId!);return q;
+ if(manualSwapBeforePlayers){await page.getByLabel('A: герой роли 1',{exact:true}).selectOption('1');await page.getByLabel('A: роль игрока 1',{exact:true}).selectOption('5');}
+ for(const p of q.lineupA)await pickScenario(page,`A: игрок ${p.rolePos}`,p.playerId!);
+ for(const p of q.lineupB)await pickScenario(page,`B: игрок ${p.rolePos}`,p.playerId!);return q;
 }
-test('one history source automatically arranges the selected five without provider HTTP or consensus',async({page})=>{
- const q=await prepare(page);await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
- await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);expect(calls).toBe(0);
+test('history assigns roles without moving the selected player cards or provider HTTP',async({page})=>{
+ const q=await prepare(page);
+ await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);
+ for(const p of q.lineupA){
+  await expect(scenarioPicker(page,`A: игрок ${p.rolePos}`).getByRole('status')).toHaveAttribute('data-selected-id',p.playerId!);
+  await expect(page.getByLabel(`A: роль игрока ${p.rolePos}`,{exact:true})).toHaveValue(String(p.rolePos));
+ }
+ expect(calls).toBe(0);
 });
 
-test('a role selected before all five players are filled stays manual and does not duplicate draft positions',async({page})=>{
+test('a role selected before all five players are filled stays manual and preserves the draft',async({page})=>{
  const q=await prepare(page,true);
  await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);
  await expect(region(page).getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
- await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
- await expect(scenarioPicker(page,'A: игрок роли 5').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
+ await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
+ await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toHaveValue('5');
  await expect(page.getByLabel('A: герой роли 5',{exact:true})).toHaveValue('1');await expect(page.getByLabel('A: герой роли 1',{exact:true})).toHaveValue('');
  expect(calls).toBe(0);
 });
 
-test('manual role dropdown swaps players, moves the hero and stand-in, clears confirmation and survives saving',async({page})=>{
- const q=await prepare(page);await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
- await page.getByLabel('A: замена роли 1',{exact:true}).check();
- await page.getByLabel('A: герой роли 1',{exact:true}).selectOption('1');
+test('role belongs to the fixed player card; hero, stand-in and assignments survive save and reload',async({page})=>{
+ const q=await prepare(page),card=page.locator('[data-player-card="A:1"]'),node=await card.elementHandle();
+ await expect(page.locator('[data-player-card^="A:"]')).toHaveCount(5);
+ await page.getByLabel('A: замена игрока 1',{exact:true}).check();await page.getByLabel('A: герой роли 1',{exact:true}).selectOption('1');
  const confirmed=page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true});await confirmed.check();
- await page.getByLabel('A: сменить роль 1',{exact:true}).selectOption('5');
- for(let role=1;role<=5;role++)await expect(page.getByLabel(`A: сменить роль ${role}`,{exact:true})).toHaveValue(String(role));
+ await card.getByRole('combobox').selectOption('5');
+ expect(await node!.evaluate(n=>n===document.querySelector('[data-player-card="A:1"]'))).toBe(true);
+ for(const p of q.lineupA)await expect(scenarioPicker(page,`A: игрок ${p.rolePos}`).getByRole('status')).toHaveAttribute('data-selected-id',p.playerId!);
+ for(let i=1;i<=5;i++)await expect(page.getByLabel(`A: роль игрока ${i}`,{exact:true})).toHaveValue(String(i===1?5:i===5?1:i));
  await expect(confirmed).not.toBeChecked();await expect(region(page).getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
- await expect(scenarioPicker(page,'A: игрок роли 5').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
- await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
  await expect(page.getByLabel('A: герой роли 5',{exact:true})).toHaveValue('1');await expect(page.getByLabel('A: герой роли 1',{exact:true})).toHaveValue('');
- await expect(page.getByLabel('A: замена роли 5',{exact:true})).toBeChecked();
- await confirmed.check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
- await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();await page.reload();
- await expect(scenarioPicker(page,'A: игрок роли 5').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
- await expect(page.getByLabel('A: герой роли 5',{exact:true})).toHaveValue('1');
- for(let role=1;role<=5;role++)await expect(page.getByLabel(`A: сменить роль ${role}`,{exact:true})).toHaveValue(String(role));
- expect(calls).toBe(0);
+ await expect(page.getByLabel('A: замена игрока 1',{exact:true})).toBeChecked();
+ await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await card.screenshot({path:'test-results/player-role-card-mobile.png'});
+ await confirmed.check();const [response]=await Promise.all([page.waitForResponse(r=>r.url().endsWith('/scenarios')&&r.request().method()==='POST'),page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click()]);
+ const saved=await response.json();expect(saved.input.lineupA.find((p:{playerId:string})=>p.playerId===q.lineupA[0]!.playerId)).toMatchObject({rolePos:5,isStandin:true});
+ expect(saved.input.draft.assignments).toContainEqual({teamSlot:'A',rolePos:5,heroId:1});
+ await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();
+ await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
+ await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toHaveValue('5');
+ await page.reload();await expect(scenarioPicker(page,'A: игрок 5').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
+ await expect(page.getByLabel('A: герой роли 5',{exact:true})).toHaveValue('1');await expect(page.getByLabel('A: замена игрока 5',{exact:true})).toBeChecked();expect(calls).toBe(0);
 });
-test('Panda wins over conflicting history; manual correction locks auto until explicitly re-enabled',async({page})=>{
- const q=await prepare(page);await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
- const [response]=await Promise.all([page.waitForResponse(r=>r.url().endsWith('/lineup-role-profiles')&&r.request().postDataJSON()?.refreshProfiles===true),
-  region(page).getByRole('button',{name:'Обновить профили API A',exact:true}).click()]);
- expect((await response.json()).canAutoApply).toBe(false); // The versioned server consensus policy is deliberately unchanged.
- await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
+
+test('Panda assigns roles without moving cards; manual role overrides survive until auto is enabled',async({page})=>{
+ const q=await prepare(page);await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);
+ const [response]=await Promise.all([page.waitForResponse(r=>r.url().endsWith('/lineup-role-profiles')&&r.request().postDataJSON()?.refreshProfiles===true),region(page).getByRole('button',{name:'Обновить профили API A',exact:true}).click()]);
+ expect((await response.json()).canAutoApply).toBe(false);
  await expect(region(page).getByText('Определено автоматически · PandaScore',{exact:true})).toHaveCount(5);
  const grounds=region(page).locator('details').filter({has:page.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true})});
  await expect(grounds.getByText(/^STRATZ:/)).not.toBeVisible();await grounds.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true}).click();
  await expect(grounds.getByText('PandaScore: 5 · учтено',{exact:true})).toBeVisible();await expect(grounds.getByText(/^STRATZ:/)).toContainText('Источник не настроен');
  await grounds.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true}).click();
  await expect(region(page).getByText('Источники расходятся',{exact:false}).first()).toBeVisible();
- await clearScenario(page,'A: игрок роли 5');await pickScenario(page,'A: игрок роли 1',q.lineupA[0]!.playerId!);await pickScenario(page,'A: игрок роли 5',q.lineupA[4]!.playerId!);
+ await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
+ await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toHaveValue('5');
+ await page.getByLabel('A: роль игрока 1',{exact:true}).selectOption('1');
  const auto=region(page).getByLabel('Автоподстановка ролей A',{exact:true});await expect(auto).not.toBeChecked();
- await region(page).getByRole('button',{name:'Обновить профили API A',exact:true}).click();
- await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);expect(calls).toBe(1);
- await auto.check();await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
- await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
- await region(page).screenshot({path:'test-results/role-editor-priority-mobile.png'});
+ await region(page).getByRole('button',{name:'Обновить профили API A',exact:true}).click();await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toHaveValue('1');expect(calls).toBe(1);
+ await auto.check();await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toHaveValue('5');
+ await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
 });
+
 test('duplicate proposed roles are shown without assigning the remaining positions',async({page})=>{
- duplicate=true;const q=await prepare(page);await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
+ duplicate=true;const q=await prepare(page);await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);
  await region(page).getByRole('button',{name:'Обновить профили API A',exact:true}).click();
  await expect(region(page).getByText('Совпали позиции нескольких игроков. Расставьте их вручную.',{exact:true})).toBeVisible();
  await expect(region(page).getByRole('button',{name:'Применить роли A',exact:true})).toBeDisabled();
- for(const p of q.lineupA)await expect(scenarioPicker(page,`A: игрок роли ${p.rolePos}`).getByRole('status')).toHaveAttribute('data-selected-id',p.playerId!);
+ for(const p of q.lineupA)await expect(scenarioPicker(page,`A: игрок ${p.rolePos}`).getByRole('status')).toHaveAttribute('data-selected-id',p.playerId!);
 });
-test('manual changes before the first role response survive its late arrival',async({page})=>{
+
+test('manual role changes survive a late initial source response',async({page})=>{
+ let release!:()=>void,started!:()=>void;const gate=new Promise<void>(r=>release=r),entered=new Promise<void>(r=>started=r);let held=false;
+ await page.route('**/api/v1/lineup-role-profiles',async route=>{
+  if(route.request().postDataJSON().teamId===scenarioInput().teamAId&&!held){held=true;const response=await route.fetch();started();await gate;await route.fulfill({response});}
+  else await route.continue();
+ });
+ const q=await prepare(page);await entered;await page.getByLabel('A: роль игрока 1',{exact:true}).selectOption('5');release();
+ await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);
+ await expect(region(page).getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
+ await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toHaveValue('5');
+ await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
+});
+
+test('manual player replacements also survive a late initial source response',async({page})=>{
  let release!:()=>void,started!:()=>void;const gate=new Promise<void>(r=>release=r),entered=new Promise<void>(r=>started=r);let held=false;
  await page.route('**/api/v1/lineup-role-profiles',async route=>{
   if(route.request().postDataJSON().teamId===scenarioInput().teamAId&&!held){held=true;const response=await route.fetch();started();await gate;await route.fulfill({response});}
   else await route.continue();
  });
  const q=await prepare(page);await entered;
- await clearScenario(page,'A: игрок роли 2');await pickScenario(page,'A: игрок роли 1',q.lineupA[3]!.playerId!);await pickScenario(page,'A: игрок роли 2',q.lineupA[4]!.playerId!);
+ await clearScenario(page,'A: игрок 2');await pickScenario(page,'A: игрок 1',q.lineupA[1]!.playerId!);await pickScenario(page,'A: игрок 2',q.lineupA[0]!.playerId!);
  release();await expect(region(page).getByText('Определено автоматически · Pro-история',{exact:true})).toHaveCount(5);
  await expect(region(page).getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
- await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[3]!.playerId!);
+ await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[1]!.playerId!);
 });

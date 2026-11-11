@@ -43,7 +43,7 @@ test('explicit page navigation loads once, returns from empty end, reuses server
  await page.getByRole('navigation',{name:'Страницы расписания',exact:true}).screenshot({path:'test-results/schedule-pages-mobile.png'});
 });
 async function pick(page:Page,label:string,id:string){
- const field=page.getByRole('region',{name:label,exact:true});await field.getByRole('searchbox').fill(id);await field.getByRole('searchbox').press('Enter');
+ const field=page.getByRole('region',{name:label,exact:true});if(await field.getByRole('button',{name:'Заменить',exact:true}).count())await field.getByRole('button',{name:'Заменить',exact:true}).click();await field.getByRole('searchbox').fill(id);await field.getByRole('searchbox').press('Enter');
  await field.locator(`button[data-catalog-id="${id}"]`).click();
 }
 test('page-two match loads its roster, supports confirmed comparison and clears the unsaved form on page changes',async({page})=>{
@@ -55,7 +55,7 @@ test('page-two match loads its roster, supports confirmed comparison and clears 
  await expect(panel(page).getByText('В заявке: 6 игроков',{exact:true})).toBeVisible();
  await panel(page).getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();const q=scenarioInput();
  await pick(page,'Команда A в локальной базе',q.teamAId);await pick(page,'Команда B в локальной базе',q.teamBId);
- for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(page,`${slot}: игрок роли ${p.rolePos}`,p.playerId!);
+ for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(page,`${slot}: игрок ${p.rolePos}`,p.playerId!);
  await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
  await page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true}).click();
  await expect(page.getByRole('region',{name:'Результат сравнения пятёрок',exact:true})).toBeVisible();

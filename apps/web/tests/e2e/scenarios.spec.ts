@@ -23,8 +23,8 @@ test('save/reload baseline, null side, immutable history and stale-tab conflict;
   await page.getByRole('link',{name:'Создать сценарий →'}).click();const q=scenarioInput();
   await page.getByLabel('Название',{exact:true}).fill('Синтетический сценарий');await pickScenario(page,'Команда A: поиск по названию',q.teamAId,'Aurora');await pickScenario(page,'Команда B: поиск по названию',q.teamBId,'Aurora');
   await page.getByLabel('Срез данных UTC',{exact:true}).fill('2024-01-03T00:00');
-  for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pickScenario(page,`${slot}: игрок роли ${p.rolePos}`,p.playerId!);
-  const duplicate=scenarioPicker(page,'A: игрок роли 2');await duplicate.getByRole('searchbox').fill('Synthetic Twin');await duplicate.getByRole('searchbox').press('Enter');await expect(duplicate.locator(`button[data-catalog-id="${q.lineupA[0]!.playerId}"]`)).toBeDisabled();await duplicate.locator(`button[data-catalog-id="${q.lineupA[1]!.playerId}"]`).click();
+  for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pickScenario(page,`${slot}: игрок ${p.rolePos}`,p.playerId!);
+  const duplicate=scenarioPicker(page,'A: игрок 2');await duplicate.getByRole('button',{name:'Заменить',exact:true}).click();await duplicate.getByRole('searchbox').fill('Synthetic Twin');await duplicate.getByRole('searchbox').press('Enter');await expect(duplicate.locator(`button[data-catalog-id="${q.lineupA[0]!.playerId}"]`)).toBeDisabled();await duplicate.locator(`button[data-catalog-id="${q.lineupA[1]!.playerId}"]`).click();
   await page.getByLabel('Ожидаемый состав A',{exact:true}).check();for(const p of q.lineupA)await pickScenario(page,`A: ожидаемый игрок роли ${p.rolePos}`,p.playerId!);
   const confirm=page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true});await confirm.check();
   await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();
@@ -38,12 +38,12 @@ test('save/reload baseline, null side, immutable history and stale-tab conflict;
   await page.getByLabel('Название',{exact:true}).fill('Мои несохранённые правки');await confirm.check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
   await expect(page.getByRole('alert')).toContainText('Сценарий уже изменён');await expect(page.getByLabel('Название',{exact:true})).toHaveValue('Мои несохранённые правки');
   await page.getByRole('button',{name:'Загрузить сохранённую редакцию · заменить мои правки'}).click();await expect(page.getByLabel('Название',{exact:true})).toHaveValue('Параллельная редакция');
-  await page.getByRole('combobox',{name:'Radiant',exact:true}).selectOption('B');await page.getByRole('combobox',{name:'Первый пик',exact:true}).selectOption('A');await page.getByLabel('A: замена роли 5',{exact:true}).check();
+  await page.getByRole('combobox',{name:'Radiant',exact:true}).selectOption('B');await page.getByRole('combobox',{name:'Первый пик',exact:true}).selectOption('A');await page.getByLabel('A: замена игрока 5',{exact:true}).check();
   await expect(confirm).not.toBeChecked();await confirm.check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();await expect(page.getByRole('heading',{name:'Сценарий · редакция 3',exact:true})).toBeVisible();
   const history=page.getByRole('region',{name:'История сценария'});await expect(history).toContainText('Редакция 1 · Синтетический сценарий');await expect(history).toContainText('Редакция 3 · Параллельная редакция');
   const revisions=await (await page.request.get('/api/v1/scenarios/'+savedId+'/history?offset=0')).json();expect(revisions.items.find((s:{revision:number})=>s.revision===1)).toEqual(first);
-  await scenarioPicker(page,'A: игрок роли 1').screenshot({path:'test-results/scenarios-desktop.png'});await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await scenarioPicker(page,'A: игрок роли 1').screenshot({path:'test-results/scenarios-mobile.png'});await other.close();
+  await scenarioPicker(page,'A: игрок 1').screenshot({path:'test-results/scenarios-desktop.png'});await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await scenarioPicker(page,'A: игрок 1').screenshot({path:'test-results/scenarios-mobile.png'});await other.close();
 });
 
 test('history reads bounded labels lazily, reuses baseline IDs and preserves immutable input through refresh and failures',async({page})=>{

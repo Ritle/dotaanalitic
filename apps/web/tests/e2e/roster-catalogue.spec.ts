@@ -13,7 +13,7 @@ import {AuthService} from '../../../api/src/modules/auth/service';
 // These steps deliberately reuse the roster saved by the preceding owner journey.
 // A worker restart cannot safely continue the later steps on a fresh database.
 test.describe.configure({mode:'serial'});
-let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string;
+let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string,startedCases=0;
 let historyBoss:Awaited<ReturnType<typeof createPlayerHistoryQueue>>;const historyCalls:string[]=[];
 const source=syntheticCatalogue({withoutMembership:true});
 async function startApi(){
@@ -27,6 +27,14 @@ test.beforeAll(async()=>{
  historyBoss=await createPlayerHistoryQueue(database.url);await registerPlayerHistoryWorker(historyBoss,database.db,()=>syntheticPlayerHistory({onCall:n=>historyCalls.push(n)}));
 });
 test.afterAll(async()=>{await historyBoss?.stop({graceful:true,timeout:10000});await api?.close();await database?.close();});
+test.beforeEach(async({page})=>{
+ // Share business facts across the serial journey, but isolate each case's HTTP/IP budget.
+ // Production rate limits and persistent provider/login quotas remain unchanged.
+ if(startedCases++>0){await api.close();await startApi();}
+ page.on('response',response=>{
+  if(response.status()===429)console.log(JSON.stringify({event:'synthetic_roster_rate_limited',route:new URL(response.url()).pathname,retryAfter:response.headers()['retry-after']}));
+ });
+});
 async function sourcePick(page:Page,label:string,id:string,query=id){const field=page.getByRole('region',{name:label,exact:true});
  if(label.startsWith('Аккаунт ')&&!await field.isVisible()){const show=page.getByLabel('Показать подтверждённые аккаунты '+(label.endsWith('(B)')?'B':'A'),{exact:true});if(await show.isVisible())await show.check();}
  if(label.startsWith('Команда OpenDota ')){const switcher=page.getByRole('button',{name:'Выбрать команду OpenDota '+label.slice(-1),exact:true});if(await switcher.isVisible())await switcher.click();}
@@ -83,8 +91,8 @@ test('expected roster to explicit numeric catalogue, manual scenario and saved r
  await page.getByRole('button',{name:'Подготовить игроков',exact:true}).click();
  await expect(page.getByRole('region',{name:'Команда OpenDota B',exact:true})).toContainText('Выбрано: Synthetic Beta · ID 72');
  await page.getByRole('button',{name:'Подставить сохранённую пятёрку A',exact:true}).click();
- const first=page.getByRole('region',{name:'A: игрок роли 1',exact:true});await expect(first).toContainText('Synthetic Twin');
- await first.getByRole('button',{name:'Сбросить',exact:true}).click();await page.getByRole('button',{name:'Перечитать связи',exact:true}).click();
+ const first=page.getByRole('region',{name:'A: игрок 1',exact:true});await expect(first).toContainText('Synthetic Twin');
+ await first.getByRole('button',{name:'Заменить',exact:true}).click();await first.getByRole('button',{name:'Сбросить',exact:true}).click();await page.getByRole('button',{name:'Перечитать связи',exact:true}).click();
  await expect(first.getByRole('status')).toHaveCount(0);expect(source.calls).toHaveLength(5);
  await page.setViewportSize({width:360,height:900});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.getByRole('region',{name:'Подготовка составов из заявки',exact:true}).screenshot({path:'test-results/roster-catalogue-mobile.png'});
@@ -106,7 +114,7 @@ test('a new organization can use its Panda identity without an OpenDota profile 
  const history=page.getByRole('region',{name:'Личная pro-история A',exact:true});
  await expect(history.getByLabel('Период истории A',{exact:true})).toHaveValue('365');await expect(history.getByLabel('Глубина истории A',{exact:true})).toHaveValue('25');
  await expect(history.getByRole('button',{name:'Загрузить историю игроков',exact:true})).toBeEnabled();
- const before=await page.getByRole('region',{name:'A: игрок роли 1',exact:true}).textContent();
+ const before=await page.getByRole('region',{name:'A: игрок 1',exact:true}).textContent();
  const historyStart=page.waitForResponse(r=>r.url().endsWith('/players/history-refresh')&&r.request().method()==='POST');
  const historyFinished=page.waitForResponse(async r=>{
   if(new URL(r.url()).pathname!=='/api/v1/players/history-refresh'||r.status()!==200)return false;
@@ -124,13 +132,13 @@ test('a new organization can use its Panda identity without an OpenDota profile 
  await expect(history.getByText(/Принято 2 из 2 карт/)).toHaveCount(0);await expect(history.getByRole('button',{name:'Загрузить историю игроков',exact:true})).toBeEnabled();
  await history.getByLabel('Период истории A',{exact:true}).selectOption('365');await history.getByLabel('Глубина истории A',{exact:true}).selectOption('25');
  await expect(history.getByText(/Принято 2 из 2 карт/)).toBeVisible();expect(historyCalls).toHaveLength(5);
- expect(await page.getByRole('region',{name:'A: игрок роли 1',exact:true}).textContent()).toBe(before);
+ expect(await page.getByRole('region',{name:'A: игрок 1',exact:true}).textContent()).toBe(before);
  await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await history.screenshot({path:'test-results/player-history-mobile.png'});
  await page.reload();await page.getByRole('button',{name:'Выбрать',exact:true}).click();await page.getByRole('button',{name:'Подготовить составы',exact:true}).click();
  await page.getByRole('button',{name:'Подставить сохранённую пятёрку A',exact:true}).click();await expect(page.getByRole('region',{name:'Команда A в локальной базе',exact:true})).toContainText('Синтетическая Alpha');
  await expect(history.getByText(/Принято 2 из 2 карт/)).toBeVisible();expect(historyCalls).toHaveLength(5);
- await page.getByRole('region',{name:'A: игрок роли 1',exact:true}).getByRole('button',{name:'Сбросить',exact:true}).click();
+ await page.getByRole('region',{name:'A: игрок 1',exact:true}).getByRole('button',{name:'Заменить',exact:true}).click();await page.getByRole('region',{name:'A: игрок 1',exact:true}).getByRole('button',{name:'Сбросить',exact:true}).click();
  await expect(history.getByText('Сначала выберите пять различных игроков.',{exact:true})).toBeVisible();await expect(history.getByText(/Принято 2 из 2 карт/)).toHaveCount(0);
 });
 
@@ -151,7 +159,7 @@ test('STRATZ profile absent from registry can join four catalogue accounts witho
  expect(source.calls.filter(k=>k==='player:199')).toHaveLength(1);
  await page.reload();await page.getByRole('button',{name:'Выбрать',exact:true}).click();await page.getByRole('button',{name:'Подготовить составы',exact:true}).click();
  await expect(page.getByRole('region',{name:'Соединение B',exact:true})).toContainText('Synthetic new nickname 199 · аккаунт 199');
- await page.getByRole('button',{name:'Подставить сохранённую пятёрку B',exact:true}).click();await expect(page.getByRole('region',{name:'B: игрок роли 1',exact:true})).toContainText('Synthetic new nickname 199');
+ await page.getByRole('button',{name:'Подставить сохранённую пятёрку B',exact:true}).click();await expect(page.getByRole('region',{name:'B: игрок 1',exact:true})).toContainText('Synthetic new nickname 199');
 });
 test('batch preparation reuses saved identities, counts accounts and preserves manual corrections',async({page})=>{
  await page.goto('/upcoming');await page.getByLabel('Логин').fill('synthetic-catalogue-ui');await page.getByLabel('Пароль').fill(password);await page.getByRole('button',{name:'Войти',exact:true}).click();

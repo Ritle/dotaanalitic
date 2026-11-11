@@ -5,10 +5,11 @@ import {CatalogListSchema,TeamOverviewSchema,PlayerOverviewSchema,type CatalogLi
 import {readCatalog,dateLabel} from '../catalog';
 import {TeamDirectorySchema} from '../../../api/src/modules/catalog/team-activity-contract';
 type Item=CatalogList['items'][number];
-const props=defineProps<{kind:'teams'|'players';label:string;modelValue:string;excludedIds?:string[];selectedLabel?:string}>();
+const props=defineProps<{kind:'teams'|'players';label:string;modelValue:string;excludedIds?:string[];selectedLabel?:string;compact?:boolean}>();
 const emit=defineEmits<{'update:modelValue':[value:string];selected:[item:Item]}>();
 const uid=useId(),query=ref(''),term=ref<string|null>(null),chosen=ref<Item|null>(null);
 const includeArchived=ref(false);
+const editing=ref(false),showSearch=computed(()=>!props.compact||!props.modelValue||editing.value);
 const overview=useQuery({queryKey:computed(()=>['catalog','overview',props.kind,props.modelValue]),
   enabled:computed(()=>!!props.modelValue&&!props.selectedLabel?.trim()&&chosen.value?.id!==props.modelValue),
   queryFn:({signal}):Promise<TeamOverview|PlayerOverview>=>props.kind==='teams'?
@@ -29,23 +30,25 @@ function search(){const next=query.value.trim();if(!next)return;
 }
 function pick(item:Item){
   if(props.excludedIds?.includes(item.id))return;
-  chosen.value=item;query.value=displayName(item.name).slice(0,80);term.value=null;emit('selected',item);emit('update:modelValue',item.id);
+  chosen.value=item;query.value=displayName(item.name).slice(0,80);term.value=null;editing.value=false;emit('selected',item);emit('update:modelValue',item.id);
 }
 function clear(){edit('');}
 </script>
 <template>
   <section class="catalog-picker" :aria-label="label">
-    <label :for="uid">{{label}}</label>
-    <div class="picker-search"><input :id="uid" :value="query" type="search" maxlength="80" autocomplete="off"
+    <label v-if="showSearch" :for="uid">{{label}}</label>
+    <div v-if="showSearch" class="picker-search"><input :id="uid" :value="query" type="search" maxlength="80" autocomplete="off"
       :placeholder="kind==='teams'?'Название или тег команды':'Ник игрока'" @input="edit(($event.target as HTMLInputElement).value)" @keydown.enter.prevent="search" @keydown.esc="term=null" />
       <button type="button" :disabled="!query.trim()||results.isFetching.value" @click="search">Найти</button></div>
     <label v-if="kind==='teams'" class="hint"><input v-model="includeArchived" type="checkbox"> Искать также в архиве команд</label>
     <div v-if="modelValue" class="picked" role="status" :data-selected-id="modelValue">
-      <span>Выбрано: {{selectedName}}<span v-if="selectedTag"> · {{selectedTag}}</span></span><button type="button" @click="clear">Сбросить</button>
+      <span><strong v-if="compact">{{selectedName}}</strong><template v-else>Выбрано: {{selectedName}}</template><span v-if="selectedTag"> · {{selectedTag}}</span></span>
+      <button v-if="compact&&!showSearch" type="button" @click="editing=true">Заменить</button><button v-else type="button" @click="clear">Сбросить</button>
     </div>
     <template v-if="modelValue">
-      <RouterLink :to="recordPath(modelValue)" target="_blank" rel="noopener noreferrer" class="record-link">{{kind==='players'?'Проверить выбранный аккаунт':'Карточка выбранной команды'}}</RouterLink>
+      <RouterLink v-if="!compact" :to="recordPath(modelValue)" target="_blank" rel="noopener noreferrer" class="record-link">{{kind==='players'?'Проверить выбранный аккаунт':'Карточка выбранной команды'}}</RouterLink>
       <details class="picker-record"><summary>Данные выбранной записи</summary><p>Внутренний ID: {{modelValue}}</p>
+        <RouterLink v-if="compact" :to="recordPath(modelValue)" target="_blank" rel="noopener noreferrer">Проверить выбранный аккаунт</RouterLink>
         <button v-if="overview.error.value&&!selectedLabel?.trim()&&!picked" type="button" @click="overview.refetch()">Повторить чтение имени</button>
       </details>
     </template>

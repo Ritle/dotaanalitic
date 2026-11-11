@@ -8,7 +8,7 @@ import DraftAssessment from '../components/DraftAssessment.vue';
 import HeroMatchups from '../components/HeroMatchups.vue';
 import RoleSuggestions from '../components/RoleSuggestions.vue';
 import RoleProfiles from '../components/RoleProfiles.vue';
-import {moveRoleDraft,swapLineupRole,swapDraftRoles,type RoleMember} from '../role-suggestions';
+import {moveRoleDraft,swapLineupRole,swapDraftRoles,lineupForRequest,preservePlayerCardOrder,type RoleMember} from '../role-suggestions';
 import RoleSelect from '../components/RoleSelect.vue';
 import CatalogPicker from '../components/CatalogPicker.vue';
 import ScenarioHistoryEntry from '../components/ScenarioHistoryEntry.vue';
@@ -46,8 +46,9 @@ const utc=(key:'cutoffAt'|'scheduledAt')=>computed({get:()=>form[key]?.replace(/
 }});
 const cutoff=utc('cutoffAt'),scheduled=utc('scheduledAt');
 watch([form,expectedA,expectedB,baselineA,baselineB,draft],()=>{confirmed.value=false;dirty.value=true;preview.value=null;editGeneration++;},{deep:true,flush:'sync'});
-function hydrate(s:ScenarioSnapshot){
+function hydrate(s:ScenarioSnapshot,orderA=form.lineupA,orderB=form.lineupB){
   const copy:ScenarioInput=JSON.parse(JSON.stringify(s.input));
+  copy.lineupA=preservePlayerCardOrder(orderA,copy.lineupA);copy.lineupB=preservePlayerCardOrder(orderB,copy.lineupB);
   Object.assign(form,copy);expectedA.value=copy.expectedLineupA??five();expectedB.value=copy.expectedLineupB??five();
   draft.value=copy.draft??{assignments:[],bans:[]};
   baselineA.value=s.input.expectedLineupA!==null;baselineB.value=s.input.expectedLineupB!==null;revision.value=s.revision;saved.value=s;
@@ -78,7 +79,7 @@ function applyRoles(slot:'A'|'B',rows:RoleMember[]){
 }
 function collect(requireConfirmation=true){
   const raw=JSON.parse(JSON.stringify(form));raw.confirmedByOwner=requireConfirmation?confirmed.value:true;raw.draft=JSON.parse(JSON.stringify(draft.value));
-  const normalize=(rows:ReturnType<typeof five>)=>rows.map(p=>({...p,playerId:p.playerId||null}));
+  const normalize=(rows:ReturnType<typeof five>)=>lineupForRequest(rows).map(p=>({...p,playerId:p.playerId||null}));
   raw.lineupA=normalize(form.lineupA);raw.lineupB=normalize(form.lineupB);
   raw.expectedLineupA=baselineA.value?normalize(expectedA.value):null;raw.expectedLineupB=baselineB.value?normalize(expectedB.value):null;
   for(const key of Object.keys(raw.context))if(raw.context[key]==='')raw.context[key]=null;
@@ -94,14 +95,14 @@ async function checkDraft(){
 }
 async function save(){
   error.value='';conflict.value=false;const input=collect();if(!input)return;
-  busy.value=true;
+  busy.value=true;const orderA=[...form.lineupA],orderB=[...form.lineupB];
   try{
     const s=await readCatalog(isNew.value?'scenarios':`scenarios/${id.value}`,ScenarioSnapshotSchema,new AbortController().signal,
       {method:isNew.value?'POST':'PUT',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},
         body:JSON.stringify(isNew.value?input:{expectedRevision:revision.value,input})});
     cache.setQueryData(['scenario',s.id],s);await cache.invalidateQueries({queryKey:['scenarios']});
     if(isNew.value)await router.replace({path:`/scenarios/${s.id}`,query:originTargetId.value?{scheduleTarget:originTargetId.value}:{}});
-    hydrate(s);await cache.invalidateQueries({queryKey:['scenario-history',s.id]});
+    hydrate(s,orderA,orderB);await cache.invalidateQueries({queryKey:['scenario-history',s.id]});
   }catch(e){error.value=e instanceof Error?e.message:'Не удалось сохранить сценарий.';conflict.value=e instanceof CatalogRequestError&&e.status===409;}
   finally{busy.value=false;}
 }
@@ -134,13 +135,13 @@ async function save(){
             <label>Срез данных UTC<input v-model="cutoff" type="datetime-local" step="0.001" required /></label>
             <label>Плановое начало UTC · неизвестно, если пусто<input v-model="scheduled" type="datetime-local" step="0.001" /></label>
           </div>
-          <p class="hint">Найдите команды и игроков по названию или нику и выберите запись из списка. Выберите роль в списке у игрока: если она занята, игроки поменяются местами; герой и отметка замены сохранятся у своего игрока. После правки подтвердите состав заново.</p>
+          <p class="hint">Найдите команды и игроков по названию или нику и выберите запись из списка. Выберите роль в списке у игрока: если она занята, назначения ролей поменяются у двух игроков. Карточки остаются на месте; герой и отметка замены сохраняются за игроком. После правки подтвердите состав заново.</p>
           <div class="scenario-grid">
             <fieldset v-for="slot in (['A','B'] as const)" :key="slot"><legend>Выбранный состав {{slot}}</legend>
-              <div v-for="p in (slot==='A'?form.lineupA:form.lineupB)" :key="p.rolePos" class="scenario-player">
-                <CatalogPicker :model-value="p.playerId??''" @update:model-value="value=>p.playerId=value||null" kind="players" :label="`${slot}: игрок роли ${p.rolePos}`" :selected-label="labels['player:'+p.playerId]" :excluded-ids="excludedPlayers(p)" @selected="item=>labels['player:'+item.id]=item.name" />
-                <RoleSelect :model-value="p.rolePos" :label="`${slot}: сменить роль ${p.rolePos}`" @update:model-value="role=>changeRole(slot,p.rolePos,role)" />
-                <label class="check-row"><input v-model="p.isStandin" type="checkbox" />{{slot}}: замена роли {{p.rolePos}}</label>
+              <div v-for="(p,index) in (slot==='A'?form.lineupA:form.lineupB)" :key="index" class="scenario-player" :data-player-card="`${slot}:${index+1}`">
+                <CatalogPicker :model-value="p.playerId??''" @update:model-value="value=>p.playerId=value||null" kind="players" compact :label="`${slot}: игрок ${index+1}`" :selected-label="labels['player:'+p.playerId]" :excluded-ids="excludedPlayers(p)" @selected="item=>labels['player:'+item.id]=item.name" />
+                <RoleSelect :model-value="p.rolePos" :label="`${slot}: роль игрока ${index+1}`" @update:model-value="role=>changeRole(slot,p.rolePos,role)" />
+                <label class="check-row"><input v-model="p.isStandin" type="checkbox" />{{slot}}: замена игрока {{index+1}}</label>
               </div>
               <component :is="(slot==='A'?form.teamAId:form.teamBId)?RoleProfiles:RoleSuggestions" :key="id+':'+slot+':roles:'+(slot==='A'?form.teamAId:form.teamBId)"
                 :team-id="slot==='A'?form.teamAId:form.teamBId" :preserve-manual="!isNew||manualRoles[slot]" :lineup="slot==='A'?form.lineupA:form.lineupB" :slot="slot" :cutoff-at="form.cutoffAt" :player-labels="(slot==='A'?form.teamAId:form.teamBId)?labels:undefined" @apply="(rows:RoleMember[])=>applyRoles(slot,rows)" />
@@ -190,6 +191,6 @@ async function save(){
 .scenario-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4);margin-block:var(--space-4)}
 fieldset{min-width:0;border:1px solid var(--color-border);border-radius:var(--radius-sm);padding:var(--space-4)}
 .scenario-fieldset{border:0;padding:0}legend{padding-inline:8px;color:var(--color-muted)}label{display:block}.check-row{display:flex;align-items:center;gap:8px;font-size:14px}.check-row input{width:20px;min-height:24px;flex-shrink:0}
-.scenario-player{margin-block:var(--space-4)}.scenario-list{padding-left:20px}.scenario-list li{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}.scenario-saved{border-top:1px solid var(--color-border);margin-top:24px}.scenario-json{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}
+.scenario-player{margin-block:var(--space-4);padding:var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-sm)}.scenario-list{padding-left:20px}.scenario-list li{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}.scenario-saved{border-top:1px solid var(--color-border);margin-top:24px}.scenario-json{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}
 details{margin-block:12px}summary{cursor:pointer;min-height:44px;overflow-wrap:anywhere}@media(max-width:680px){.scenario-grid{grid-template-columns:1fr}.panel{padding:16px}.shell{padding-inline:14px}}
 </style>

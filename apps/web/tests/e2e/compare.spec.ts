@@ -7,7 +7,7 @@ import {catalogTeamId,catalogPlayerId} from '../../../../tests/helpers/catalog';
 import {buildApp} from '../../../api/src/app';
 import {readConfig} from '../../../api/src/config';
 import {AuthService} from '../../../api/src/modules/auth/service';
-import {roleName} from '../../src/role-suggestions';
+import {clearScenario} from './helpers/scenario-picker';
 import {sql} from '../../../../packages/db/src/index';
 let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string;
 test.beforeAll(async()=>{
@@ -17,8 +17,9 @@ test.beforeAll(async()=>{
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179'}),{db:database.db,logger:false});await api.listen({host:'127.0.0.1',port:3151});
 });
 test.afterAll(async()=>{await api?.close();await database?.close();});
-const playerField=(slot:string,role:number)=>`${slot}: игрок роли ${role} · ${roleName(role)}`;
+const playerField=(slot:string,role:number)=>`${slot}: игрок ${role}`;
 async function pick(page:Page,label:string,query:string,id:string){const field=page.getByRole('region',{name:label,exact:true});
+ if(await field.getByRole('button',{name:'Заменить',exact:true}).count())await field.getByRole('button',{name:'Заменить',exact:true}).click();
  await field.getByRole('searchbox').fill(query);await field.getByRole('searchbox').press('Enter');await field.locator(`button[data-catalog-id="${id}"]`).click();}
 test('compare keeps organization, actual H2H and selected fives separate with replacement, missing IDs and mobile layout',async({page})=>{
   const reads:string[]=[];page.on('request',r=>{if(/\/api\/v1\/players\/\d+$/.test(r.url()))reads.push(r.url());});
@@ -32,12 +33,12 @@ test('compare keeps organization, actual H2H and selected fives separate with re
     await pick(page,playerField('A',i+1),i<2?'Twin':`Synthetic Player ${i}`,String(BigInt(catalogPlayerId)+BigInt(i)));
     await pick(page,playerField('B',i+1),i===0?'Synthetic Player 5':'strength',String(BigInt(catalogPlayerId)+5n+BigInt(i)));
   }
-  await page.getByLabel('A: stand-in роли 1',{exact:true}).check();
-  await page.getByLabel('A: сменить роль 1',{exact:true}).selectOption('5');
-  for(let role=1;role<=5;role++)await expect(page.getByLabel(`A: сменить роль ${role}`,{exact:true})).toHaveValue(String(role));
-  await expect(page.getByRole('region',{name:playerField('A',5),exact:true}).getByRole('status')).toHaveAttribute('data-selected-id',catalogPlayerId);
-  await expect(page.getByLabel('A: stand-in роли 5',{exact:true})).toBeChecked();
-  await page.getByLabel('A: сменить роль 5',{exact:true}).selectOption('1');
+  await page.getByLabel('A: замена игрока 1',{exact:true}).check();
+  await page.getByLabel('A: роль игрока 1',{exact:true}).selectOption('5');
+  for(let role=1;role<=5;role++)await expect(page.getByLabel(`A: роль игрока ${role}`,{exact:true})).toHaveValue(String(role===1?5:role===5?1:role));
+  await expect(page.getByRole('region',{name:playerField('A',1),exact:true}).getByRole('status')).toHaveAttribute('data-selected-id',catalogPlayerId);
+  await expect(page.getByLabel('A: замена игрока 1',{exact:true})).toBeChecked();
+  await page.getByLabel('A: роль игрока 1',{exact:true}).selectOption('1');
   const submit=page.getByRole('button',{name:'Сравнить команды',exact:true});await submit.click();
   const result=page.getByRole('region',{name:'Результат сравнения',exact:true}),table=page.getByRole('table',{name:'Показатели двух команд',exact:true});
   await expect(result).toBeVisible();await expect(table.getByRole('row').filter({hasText:'Выбранная пятёрка · эта организация'})).toContainText('N = 2');
@@ -54,7 +55,7 @@ test('compare keeps organization, actual H2H and selected fives separate with re
   await pick(page,playerField('A',5),String(BigInt(catalogPlayerId)+10n),String(BigInt(catalogPlayerId)+10n));await expect(result).toHaveCount(0);await submit.click();
   await expect(table.getByRole('row').filter({hasText:'Выбранная пятёрка · эта организация'})).toContainText('N = 0');
   await expect(table.getByRole('row').filter({hasText:'Организация · весь период'})).toContainText('N = 2');
-  await page.getByRole('region',{name:playerField('A',1),exact:true}).getByRole('button',{name:'Сбросить',exact:true}).click();await submit.click();
+  await clearScenario(page,playerField('A',1));await submit.click();
   await expect(table.getByRole('row').filter({hasText:'Выбранная пятёрка · эта организация'})).toContainText('N = неизвестно');
   await result.getByText('A · 10 пар и личная история',{exact:true}).click();
   await expect(result.getByText('Игрок не указан',{exact:true})).toHaveCount(5);
@@ -85,11 +86,11 @@ test('picker uses names, preserves exact duplicate identities, avoids per-result
   await expect(row.getByRole('link',{name:'Проверить аккаунт',exact:true})).toHaveAttribute('href','/players/'+catalogPlayerId);
   await expect(row.getByRole('link')).toHaveAttribute('target','_blank');await expect(row.getByText('Внутренний ID: '+catalogPlayerId,{exact:true})).not.toBeVisible();
   await row.getByRole('button').click();await expect(field.getByRole('status')).toContainText('Synthetic Twin');await expect(field.getByRole('status')).not.toContainText(catalogPlayerId);expect(reads).toEqual([]);
-  expect((await field.getByRole('searchbox').boundingBox())!.width).toBeGreaterThan(200);await field.screenshot({path:'test-results/catalog-picker-labels-desktop.png'});
+  await expect(field.getByRole('searchbox')).toHaveCount(0);await field.screenshot({path:'test-results/catalog-picker-labels-desktop.png'});
   await expect(field.getByRole('status')).toHaveAttribute('data-selected-id',catalogPlayerId);
   const other=page.getByRole('region',{name:playerField('A',2),exact:true});await other.getByRole('searchbox').fill(catalogPlayerId);await other.getByRole('searchbox').press('Enter');await expect(other.locator(`button[data-catalog-id="${catalogPlayerId}"]`)).toBeDisabled();
-  await field.getByRole('button',{name:'Сбросить',exact:true}).click();await field.getByRole('searchbox').fill('12346');await field.getByRole('searchbox').press('Enter');await field.getByRole('button',{name:'Выбрать Игрок без ника',exact:true}).click();
-  await expect(field.getByRole('status')).toContainText('Игрок без ника');await expect(field.getByRole('status')).toHaveAttribute('data-selected-id','12346');await expect(field.getByRole('searchbox')).not.toHaveValue('12346');
+  await clearScenario(page,playerField('A',1));await field.getByRole('searchbox').fill('12346');await field.getByRole('searchbox').press('Enter');await field.getByRole('button',{name:'Выбрать Игрок без ника',exact:true}).click();
+  await expect(field.getByRole('status')).toContainText('Игрок без ника');await expect(field.getByRole('status')).toHaveAttribute('data-selected-id','12346');await expect(field.getByRole('searchbox')).toHaveCount(0);
   await page.setViewportSize({width:360,height:800});await expect.poll(async()=>(await field.boundingBox())!.width).toBeLessThan(360);await field.screenshot({path:'test-results/catalog-picker-player-mobile.png'});await page.setViewportSize({width:1280,height:720});
   await page.route(`**/api/v1/teams/${catalogTeamId}`,r=>r.fulfill({status:503,json:{error:{code:'SYNTHETIC_FAILURE'}}}));await page.reload();
   await expect(team.getByRole('status')).toContainText('Имя недоступно');await expect(team.getByRole('status')).toHaveAttribute('data-selected-id',catalogTeamId);

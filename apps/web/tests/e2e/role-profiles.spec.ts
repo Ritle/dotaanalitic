@@ -31,8 +31,8 @@ async function prepare(page:Page){
  await pickScenario(page,'Команда A: поиск по названию',q.teamAId);await pickScenario(page,'Команда B: поиск по названию',q.teamBId);
  await page.getByLabel('Автоподстановка ролей A',{exact:true}).uncheck();
  await page.getByLabel('Срез данных UTC',{exact:true}).fill('2024-01-03T00:00');
- for(const p of q.lineupA)await pickScenario(page,`A: игрок роли ${6-p.rolePos}`,p.playerId!);
- for(const p of q.lineupB)await pickScenario(page,`B: игрок роли ${p.rolePos}`,p.playerId!);
+ for(const p of q.lineupA)await pickScenario(page,`A: игрок ${6-p.rolePos}`,p.playerId!);
+ for(const p of q.lineupB)await pickScenario(page,`B: игрок ${p.rolePos}`,p.playerId!);
  return q;
 }
 test('API agreement automatically assigns roles, moves hero/stand-in, resets confirmation; saved/manual positions remain authoritative',async({page})=>{
@@ -42,21 +42,21 @@ test('API agreement automatically assigns roles, moves hero/stand-in, resets con
  page.on('pageerror',e=>debug.push({kind:'pageerror',error:e.message}));
  const q=await prepare(page),region=page.getByRole('region',{name:'Автоопределение ролей A',exact:true});
  await expect(region.getByRole('button',{name:'Обновить профили API A',exact:true})).toBeEnabled();
- await page.getByLabel('A: замена роли 5',{exact:true}).check();await page.getByRole('combobox',{name:'A: герой роли 5',exact:true}).selectOption('1');
+ await page.getByLabel('A: замена игрока 5',{exact:true}).check();await page.getByRole('combobox',{name:'A: герой роли 5',exact:true}).selectOption('1');
  const confirm=page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true});await confirm.check();
  try{await Promise.all([page.waitForResponse(r=>r.url().endsWith('/lineup-role-profiles')&&r.request().method()==='POST'&&r.request().postDataJSON()?.refreshProfiles===true),region.getByRole('button',{name:'Обновить профили API A',exact:true}).click()]);}
  catch(e){console.log(JSON.stringify({roleBrowserDebug:debug}));throw e;}
  await region.getByLabel('Автоподстановка ролей A',{exact:true}).check();
  await expect(region).toContainText(`Synthetic player 0 · ID ${q.lineupA[0]!.playerId}`);
- await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
- await expect(page.getByLabel('A: замена роли 1',{exact:true})).toBeChecked();await expect(page.getByRole('combobox',{name:'A: герой роли 1',exact:true})).toHaveValue('1');await expect(confirm).not.toBeChecked();
- await clearScenario(page,'A: игрок роли 5');await pickScenario(page,'A: игрок роли 1',q.lineupA[4]!.playerId!);await pickScenario(page,'A: игрок роли 5',q.lineupA[0]!.playerId!);
+ await expect(scenarioPicker(page,'A: игрок 5').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);await expect(page.getByLabel('A: роль игрока 5',{exact:true})).toHaveValue('1');
+ await expect(page.getByLabel('A: замена игрока 5',{exact:true})).toBeChecked();await expect(page.getByRole('combobox',{name:'A: герой роли 1',exact:true})).toHaveValue('1');await expect(confirm).not.toBeChecked();
+ await clearScenario(page,'A: игрок 5');await pickScenario(page,'A: игрок 1',q.lineupA[0]!.playerId!);await pickScenario(page,'A: игрок 5',q.lineupA[4]!.playerId!);
  await expect(region.getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
  await region.getByRole('button',{name:'Обновить профили API A',exact:true}).click();
- await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
+ await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
  await confirm.check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();await page.reload();
- await expect(scenarioPicker(page,'A: игрок роли 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
+ await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
  await expect(page.getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
  await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await region.screenshot({path:'test-results/role-profiles-mobile.png'});
@@ -101,7 +101,7 @@ test('source diagnostics separate missing profile, unknown team and stale cache 
  await expect(region).toContainText('Ответ получен, но профиль не найден');
  expect(refreshes.every(v=>!v)).toBe(true);
  await expect(page.getByLabel('Автоподстановка ролей A',{exact:true})).not.toBeChecked();
- for(const p of q.lineupA)await expect(scenarioPicker(page,`A: игрок роли ${6-p.rolePos}`).getByRole('status')).toHaveAttribute('data-selected-id',p.playerId!);
+ for(const p of q.lineupA)await expect(scenarioPicker(page,`A: игрок ${6-p.rolePos}`).getByRole('status')).toHaveAttribute('data-selected-id',p.playerId!);
  await page.setViewportSize({width:360,height:900});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await region.screenshot({path:'test-results/role-source-status-mobile.png'});expect(errors).toEqual([]);
 });

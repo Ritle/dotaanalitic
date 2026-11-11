@@ -13,7 +13,7 @@ import HistoricalMapLineups from '../components/HistoricalMapLineups.vue';
 import CompareOpponents from '../components/CompareOpponents.vue';
 import ContextPicker from '../components/ContextPicker.vue';
 import ContextFilterLabel from '../components/ContextFilterLabel.vue';
-import {swapLineupRole,roleName} from '../role-suggestions';
+import {swapLineupRole,lineupForRequest,roleName} from '../role-suggestions';
 const route=useRoute(),router=useRouter(),teamA=ref(typeof route.query.teamA==='string'?route.query.teamA:''),teamB=ref(typeof route.query.teamB==='string'?route.query.teamB:'');
 const five=()=>Array.from({length:5},(_,i)=>({playerId:'',rolePos:i+1,isStandin:false}));
 const a=ref(five()),b=ref(five()),from=ref(''),cutoff=ref(''),patch=ref(''),league=ref(''),validation=ref(''),applied=ref<CompareRequest|null>(null);
@@ -28,7 +28,7 @@ const columns=computed(()=>report.value?[{slot:'A',team:report.value.teamA},{slo
 const number=(n:number|null)=>n===null?'неизвестно':new Intl.NumberFormat('ru-RU',{maximumFractionDigits:1}).format(n);
 async function submit(){
   try{
-    const time=(s:string)=>s?new Date(s+'Z').toISOString():undefined,players=(rows:ReturnType<typeof five>)=>rows.map(p=>({...p,playerId:p.playerId.trim()||null}));
+    const time=(s:string)=>s?new Date(s+'Z').toISOString():undefined,players=(rows:ReturnType<typeof five>)=>lineupForRequest(rows).map(p=>({...p,playerId:p.playerId.trim()||null}));
     const result=CompareRequestSchema.safeParse({teamAId:teamA.value.trim(),teamBId:teamB.value.trim(),lineupA:players(a.value),lineupB:players(b.value),
       fromAt:time(from.value),cutoffAt:time(cutoff.value),patchId:patch.value.trim()||undefined,leagueId:league.value.trim()||undefined});
     if(!result.success)throw new Error('invalid_compare_input');validation.value='';
@@ -45,13 +45,13 @@ async function submit(){
       <div class="compare-columns"><fieldset v-for="slot in ['A','B']" :key="slot"><legend>Команда {{slot}}</legend>
         <CatalogPicker :model-value="slot==='A'?teamA:teamB" kind="teams" :label="`Команда ${slot}: поиск по названию`" :selected-label="labels['team:'+(slot==='A'?teamA:teamB)]" :excluded-ids="[slot==='A'?teamB:teamA]"
           @update:model-value="value=>{if(slot==='A')teamA=value;else teamB=value;}" @selected="p=>labels['team:'+p.id]=p.name" />
-        <div v-for="member in (slot==='A'?a:b)" :key="member.rolePos" class="roster-row">
-          <CatalogPicker class="player-picker" v-model="member.playerId" kind="players" :label="`${slot}: игрок роли ${member.rolePos} · ${roleName(member.rolePos)}`" :selected-label="labels['player:'+member.playerId]" :excluded-ids="excludedPlayers(member)" @selected="p=>labels['player:'+p.id]=p.name" />
-          <RoleSelect :model-value="member.rolePos" :label="`${slot}: сменить роль ${member.rolePos}`" @update:model-value="role=>changeRole(slot,member.rolePos,role)" />
-          <label class="check-label"><input v-model="member.isStandin" type="checkbox" :aria-label="`${slot}: stand-in роли ${member.rolePos}`" /> Stand-in</label>
+        <div v-for="(member,index) in (slot==='A'?a:b)" :key="index" class="roster-row" :data-player-card="`${slot}:${index+1}`">
+          <CatalogPicker class="player-picker" v-model="member.playerId" kind="players" compact :label="`${slot}: игрок ${index+1}`" :selected-label="labels['player:'+member.playerId]" :excluded-ids="excludedPlayers(member)" @selected="p=>labels['player:'+p.id]=p.name" />
+          <RoleSelect :model-value="member.rolePos" :label="`${slot}: роль игрока ${index+1}`" @update:model-value="role=>changeRole(slot,member.rolePos,role)" />
+          <label class="check-label"><input v-model="member.isStandin" type="checkbox" :aria-label="`${slot}: замена игрока ${index+1}`" /> Stand-in</label>
         </div>
       </fieldset></div>
-      <p class="hint">Найдите команды и игроков по имени и выберите запись из списка. Выбор занятой роли меняет двух игроков местами: в составе всегда по одной роли 1–5. Сценарий не сохраняется.</p>
+      <p class="hint">Найдите команды и игроков по имени и выберите запись из списка. Выбор занятой роли меняет назначения ролей у двух игроков. Карточки остаются на месте; в составе всегда по одной роли 1–5. Сценарий не сохраняется.</p>
       <div class="map-filters compare-filters"><label>Начало истории, UTC<input v-model="from" type="datetime-local" aria-label="Сравнение: начало UTC" /></label>
         <label>Срез истории, UTC<input v-model="cutoff" type="datetime-local" aria-label="Сравнение: срез UTC" /></label>
         <ContextPicker v-model="patch" kind="patches" label="Сравнение: патч" id-label="Сравнение: ID патча" />
@@ -99,4 +99,4 @@ async function submit(){
       <p v-for="m in report.h2h.maps" :key="m.matchId">{{m.matchId}} · {{m.source}} · ревизия {{m.dataRevision}} · sync {{dateLabel(m.syncedAt)}} · fetch {{dateLabel(m.sourceFetchedAt)}}</p></details>
   </section>
 </template>
-<style scoped>.player-picker{grid-column:1/-1}</style>
+<style scoped>.roster-row{display:block;padding:var(--space-3);margin-block:var(--space-4);border:1px solid var(--color-border);border-radius:var(--radius-sm)}</style>

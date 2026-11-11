@@ -42,7 +42,7 @@ test.beforeAll(async()=>{
 test.afterAll(async()=>{await stop();await database?.close();});
 async function pick(page:Page,label:string,id:string){
   const region=page.getByRole('region',{name:label,exact:true});
-  await region.getByRole('searchbox').fill(id);await region.getByRole('searchbox').press('Enter');
+  if(await region.getByRole('button',{name:'Заменить',exact:true}).count())await region.getByRole('button',{name:'Заменить',exact:true}).click();await region.getByRole('searchbox').fill(id);await region.getByRole('searchbox').press('Enter');
   await region.locator(`button[data-catalog-id="${id}"]`).click();
 }
 async function lifecycle(page:Page,action:string){
@@ -70,8 +70,8 @@ test('compiled owner CLI and API preserve the full no-model owner journey across
   await page.getByRole('link',{name:'Открыть сохранённое назначение →',exact:true}).click();const targetUrl=page.url();
   await page.getByRole('link',{name:'Подготовить новый сценарий для этой встречи →',exact:true}).click();
   for(let i=1;i<=5;i++){
-    await pickScenario(page,'A: игрок роли '+i,String(100+i));
-    await pickScenario(page,'B: игрок роли '+i,String(105+i));
+    await pickScenario(page,'A: игрок '+i,String(100+i));
+    await pickScenario(page,'B: игрок '+i,String(105+i));
   }
   await page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true}).check();
   await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();

@@ -28,7 +28,7 @@ test.beforeAll(async()=>{
 });
 test.afterAll(async()=>{await boss?.stop({graceful:true,timeout:10000});await api?.close();await database?.close();});
 async function pick(page:Page,label:string,id:string){
-  const field=page.getByRole('region',{name:label,exact:true});await field.getByRole('searchbox').fill(id);await field.getByRole('searchbox').press('Enter');
+  const field=page.getByRole('region',{name:label,exact:true});if(await field.getByRole('button',{name:'Заменить',exact:true}).count())await field.getByRole('button',{name:'Заменить',exact:true}).click();await field.getByRole('searchbox').fill(id);await field.getByRole('searchbox').press('Enter');
   await field.locator(`button[data-catalog-id="${id}"]`).click();
 }
 
@@ -42,8 +42,8 @@ test('schedule to manual scenario, full draft and immutable report keeps lineups
   await expect(page.getByText('Период и фильтры сравнения не переносятся в сценарий. Его срез фиксируется при сохранении; период отчёта выбирается отдельно.',{exact:true})).toBeVisible();
   await expect(page.getByRole('button',{name:'Создать ручной сценарий',exact:true})).toBeDisabled();
   await pick(page,'Команда A в локальной базе',q.teamAId);await pick(page,'Команда B в локальной базе',q.teamBId);
-  for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(page,`${slot}: игрок роли ${p.rolePos}`,p.playerId!);
-  await page.getByLabel('A: замена роли 5',{exact:true}).check();
+  for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(page,`${slot}: игрок ${p.rolePos}`,p.playerId!);
+  await page.getByLabel('A: замена игрока 5',{exact:true}).check();
   await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
   await page.getByText('Точные даты, патч и лига',{exact:true}).click();
   await page.getByLabel('Пятёрки: начало UTC',{exact:true}).fill('2024-01-02T00:00');
@@ -55,7 +55,14 @@ test('schedule to manual scenario, full draft and immutable report keeps lineups
   await expect(page.getByRole('region',{name:'Результат сравнения пятёрок',exact:true})).toContainText('Период:');
   expect((await sql`SELECT id FROM scenarios`.execute(database.db)).rows).toHaveLength(0);
   const createResponse=page.waitForResponse(r=>r.url().endsWith('/scenarios')&&r.request().method()==='POST'&&r.status()===201);
+  let release!:()=>void,entered!:()=>void;const gate=new Promise<void>(r=>release=r),saving=new Promise<void>(r=>entered=r);
+  await page.route('**/api/v1/scenarios',async route=>{
+    if(route.request().method()!=='POST'){await route.continue();return;}
+    entered();await gate;await route.continue();
+  });
   await page.getByRole('button',{name:'Создать ручной сценарий',exact:true}).click();
+  await saving;await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toBeDisabled();
+  await expect(page.getByLabel('B: роль игрока 5',{exact:true})).toBeDisabled();release();
   const initial=ScenarioSnapshotSchema.parse(await (await createResponse).json());
   expect(initial.revision).toBe(1);expect(initial.input.lineupA).toEqual(q.lineupA);expect(initial.input.lineupB).toEqual(q.lineupB);
   expect(initial.input.cutoffAt>comparison.cutoffAt).toBe(true);expect(initial.input.scheduledAt).toBe(scheduledAt);

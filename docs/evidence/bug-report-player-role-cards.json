@@ -1,0 +1,106 @@
+{
+  "task": "S2-01/BUG_REPORT/player-role-cards",
+  "checkedAt": "2026-11-11T01:26:54.442Z",
+  "ownerScope": "Five fixed player cards, role chosen under each; explicit user clarification supersedes the old role-slot editor.",
+  "implemented": [
+    "Stable card keys and order for manual and automatic assignments in scenarios, comparison and upcoming selected fives.",
+    "Occupied assignments exchange roles without exchanging cards; heroes and stand-ins retain their player.",
+    "Compact selected-player catalogues with explicit replacement search; role selection available directly in upcoming fives.",
+    "Canonical role-sorted request copies, unchanged contracts; existing card order retained on save in the open editor.",
+    "Manual priority, reconfirmation and late-response protection retained; upcoming role selectors disabled during scenario creation."
+  ],
+  "checks": {
+    "red": "3 of the original 5 pure tests failed before implementation; final role helper suite has 7 passing cases.",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 916,
+      "packageCounts": [
+        64,
+        34,
+        33,
+        60,
+        359,
+        309,
+        1,
+        56
+      ]
+    },
+    "build": "PASS",
+    "browser": {
+      "status": "PASS",
+      "uniquePassingCases": 50,
+      "initialCorePass": 19,
+      "initialCompatibility": {
+        "pass": 22,
+        "fail": 2,
+        "notRun": 6
+      },
+      "secondRecovery": {
+        "pass": 14,
+        "fail": 1,
+        "notRun": 3
+      },
+      "catalogueDiagnostic": {
+        "pass": 3,
+        "fail": 1,
+        "notRun": 3,
+        "reason": "Confirmed HTTP429 for team-directory/upcoming; shared 120/min HTTP/IP budget exhausted across serial test cases."
+      },
+      "finalCataloguePass": 7,
+      "finalCreationFlowPass": 1,
+      "fixtureIsolation": "Restart only the temporary API between serial cases; retain the same test DB, provider caches, identities and persistent quotas. No production limits or test timeouts changed."
+    },
+    "migrations": {
+      "status": "PASS",
+      "orderedChecksums": 52
+    },
+    "finalWebTypecheck": "PASS",
+    "documentationLinks": "PASS"
+  },
+  "working": {
+    "checkedAt": "2026-11-11T00:55:16.095Z",
+    "cards": 5,
+    "stableIdentities": true,
+    "roleSwap": true,
+    "reconfirmation": true,
+    "compactReplacement": true,
+    "mobileWidth": 360,
+    "noOverflow": true,
+    "businessWrites": 0,
+    "pageErrors": 0,
+    "publicTables": 85,
+    "changedTables": [
+      "auth_login_budget",
+      "auth_sessions"
+    ],
+    "maps": 2232,
+    "queueRows": 13,
+    "queueExactUnchanged": true,
+    "protectedFiles": 9703,
+    "protectedFilesUnchanged": true,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "baselineNote": "Fresh task baseline before UI changes: 13 queue rows. Differences from the previous checkpoint were not attributed to this task.",
+    "preservationCheckedAt": "2026-11-11T01:26:32.965Z"
+  },
+  "compatibility": {
+    "apiChanged": false,
+    "schemaChanged": false,
+    "dependenciesChanged": false,
+    "modelOrFrozenArtifactsChanged": false,
+    "fullReload": "After a full page reload cards start in saved role order; player-role, hero and stand-in assignments persist."
+  },
+  "notRun": [
+    "Standalone full API/PG/Node fixture suites",
+    "Python training/parity",
+    "Linux/Docker deployment"
+  ],
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/context-filters/references",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}
