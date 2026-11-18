@@ -1,0 +1,69 @@
+{
+  "format": "series-validation-policy-v1",
+  "status": "prepared_not_registered",
+  "target": "winner_of_whole_professional_series_before_first_map",
+  "deployable": false,
+  "collectionAllowed": false,
+  "activationAllowed": false,
+  "registration": {
+    "registeredAt": null,
+    "eventEditionIds": null,
+    "from": null,
+    "until": null,
+    "assessmentAt": null,
+    "candidateManifestSha256": null,
+    "exposureInventorySha256": null,
+    "requirement": "freeze executable, environment, reviewed native event IDs, window, membership collection and global exposure inventory before opening target outcomes; untouched historical editions may be used for conditional validation; prospective claims additionally require registration and persisted forecasts before target series start; no later expansion after metric inspection"
+  },
+  "candidate": {
+    "recipe": "fixed_player_mean_Elo_then_constant_independent_map_probability_series_transform",
+    "elo": {"initialRating": 1500, "k": 32, "scale": 400},
+    "fittedCalibration": false,
+    "minimumEarlierCompletedProMapsPerPlayer": 5,
+    "formats": [1, 3, 5],
+    "mapProbabilityBaseline": "same frozen pre-series map probability without BO transform",
+    "constantBaseline": 0.5,
+    "assumption": "map probability constant and independent within series; empirical calibration required separately for each format",
+    "historyUpdate": "earlier completed verified professional maps from all tiers; no target-series map enters its own feature snapshot"
+  },
+  "dataset": {
+    "unit": "one_series_one_label",
+    "teamA": "lower numeric canonical team ID",
+    "cutoff": "strictly before verified first actual map start; all target-series maps excluded from history",
+    "input": "10 distinct verified identities from expected lineup frozen pre-series, or explicitly reconstructed first-map lineup in conditional cohort",
+    "cohort": "conditional reconstructed historical evaluation and prospective issued forecasts reported separately; never claim historical pre-start availability from backfill",
+    "midSeriesSubstitution": "record as stratum; never replace first-map lineup with later map lineup or remove a losing series after inspecting results",
+    "membership": "complete source-backed map inventory checked against canonical maps, verified format, teams, terminal score, no advantage or technical win; no mandatory second provider; null canonical series.status alone is not rejection",
+    "labels": "verified pro map outcomes composed into one series result, kept separate from features",
+    "exposure": "old map holdouts, reviewed diagnostics and any exposed sibling exclude entire series from independent target cohort; unknown is not untouched",
+    "development": "existing exposed history allowed for development only; not reused as independent release test",
+    "split": "chronological whole series; fitted changes require earlier train/calibration/validation blocks and a newly registered untouched test",
+    "denominator": "all played series in registered editions and window; explicit exclusions, unavailable inputs and missing membership retained; unknown remote inventory means insufficient"
+  },
+  "evaluation": {
+    "gatePerFormat": true,
+    "minimumSeriesPerFormat": 100,
+    "minimumEventsPerFormat": 2,
+    "minimumCoverage": 0.8,
+    "maximumBrier": 0.245,
+    "maximumLogLoss": 0.685,
+    "maximumEce": 0.08,
+    "maximumEceUpper95": 0.15,
+    "maximumMeanProbabilityBias": 0.05,
+    "bins": [0, 0.2, 0.4, 0.6, 0.8, 1],
+    "bootstrap": {"unit": "series", "pairedDraws": 10000, "seed": 20261116, "rng": "Mulberry32", "upperQuantile": 0.95, "quantileInterpolation": "linear_index_n_minus_one_times_q"},
+    "baselineGate": "paired Brier and natural-log-loss candidate minus constant baseline upper95 strictly below zero; versus unchanged map probability upper95 at most 0.01 for each score",
+    "stability": "sort by verified series start and native key; chronological halves each at least 50 series, Brier delta versus constant <=0.02 and logloss delta <=0.04",
+    "probabilityClip": 1e-15,
+    "assessment": "one terminal assessment after fixed window and outcome grace; no metric peeking, outcome-driven stopping, or extending window to pass",
+    "insufficient": "do not publish probability; missing BO5 evidence cannot borrow BO3 approval",
+    "interpretation": "engineering pilot thresholds, not a power calculation or guarantee; bootstrap conditional on observed series does not eliminate dependence between shared teams/events"
+  },
+  "release": {
+    "separateRegistryAndJournal": true,
+    "preserveMapSnapshots": true,
+    "requiresExplicitActivation": true,
+    "initialFormatMayBeBO3Only": true,
+    "noBO2DrawOrLiveBetweenMaps": true
+  }
+}

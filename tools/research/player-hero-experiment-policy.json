@@ -1,0 +1,240 @@
+{
+  "format": "player-hero-experiment-policy-v1",
+  "experimentId": "S3-04/player-hero-practice-v1",
+  "basis": "conditional_previously_exposed_development",
+  "deployable": false,
+  "featureContract": {
+    "version": "player-hero-observed-practice-90d-v1",
+    "featureOrder": [
+      "observedHeroPracticeLog90Delta"
+    ],
+    "days": 90,
+    "window": "started_at_in_[cutoff-90days,cutoff);completed_at<cutoff",
+    "transform": "natural_log1p_count",
+    "aggregate": "mean_of_five_A_minus_mean_of_five_B",
+    "count": "one_verified_pro_map_per_same_player_account_hero",
+    "patch": "all_patches_observed_volume_only_no_transfer_or_performance_claim",
+    "role": "all_roles_no_inference",
+    "availability": "conditional_event_time_assumed",
+    "missing": "observed_zero_is_not_absence_of_experience;unknown_hero_maps_reported_separately",
+    "fitting": false,
+    "probabilities": false,
+    "deployable": false
+  },
+  "models": {
+    "H0": {
+      "features": [
+        "eloLogit"
+      ],
+      "method": "fixed_sigmoid_of_existing_elo_logit",
+      "fitting": false,
+      "calibration": false
+    },
+    "H1": {
+      "features": [
+        "eloLogit"
+      ],
+      "method": "L2_logistic"
+    },
+    "H2": {
+      "features": [
+        "eloLogit",
+        "observedHeroPracticeLog90Delta"
+      ],
+      "method": "L2_logistic"
+    }
+  },
+  "windows": [
+    {
+      "name": "warmup",
+      "from": "2024-01-01T00:00:00.000Z",
+      "until": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "train",
+      "from": "2025-01-01T00:00:00.000Z",
+      "until": "2026-05-01T00:00:00.000Z"
+    },
+    {
+      "name": "validation",
+      "from": "2026-05-01T00:00:00.000Z",
+      "until": "2026-07-01T00:00:00.000Z"
+    },
+    {
+      "name": "calibration",
+      "from": "2026-07-01T00:00:00.000Z",
+      "until": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "name": "development_test",
+      "from": "2026-09-01T00:00:00.000Z",
+      "until": "2026-11-05T00:00:00.000Z"
+    }
+  ],
+  "fitting": {
+    "solver": "lbfgs",
+    "maxIterations": 2000,
+    "tolerance": 1e-08,
+    "classWeight": null,
+    "sampleWeight": "one map, uniform",
+    "CGrid": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "selection": "minimum validation log loss; tie within 1e-12 selects smaller C",
+    "refitAfterSelection": false,
+    "convergenceFailure": "candidate invalid; no silent max_iter/parameter change",
+    "models": [
+      "H1",
+      "H2"
+    ],
+    "coefficientWindow": "train_only",
+    "selectionWindow": "validation_only",
+    "sameCohortForBoth": true,
+    "fitIntercept": false,
+    "preprocessing": "identity_no_centering_scaling_or_imputation",
+    "augmentation": "none_one_map_one_row",
+    "randomSeed": 42,
+    "threads": 1,
+    "parameterBounds": "coefficients_unconstrained_no_assumed_positive_practice_effect",
+    "lateDevelopmentMaySelect": false
+  },
+  "calibration": {
+    "models": [
+      "H1",
+      "H2"
+    ],
+    "method": "positive temperature scaling of selected frozen logits",
+    "TBounds": [
+      0.25,
+      4.0
+    ],
+    "objective": "calibration log loss",
+    "solver": "scipy bounded scalar minimization",
+    "xTolerance": 1e-08,
+    "maxIterations": 1000,
+    "intercept": false,
+    "testMayChooseCalibrator": false,
+    "boundaryOrNonconvergence": "insufficient, no fallback promotion",
+    "cohort": "identical_common_calibration_maps_for_H1_H2",
+    "boundaryEpsilon": 1e-06
+  },
+  "sampleFloors": {
+    "trainMaps": 200,
+    "validationMaps": 50,
+    "calibrationMaps": 50,
+    "developmentTestMaps": 50,
+    "developmentTestSeries": 25,
+    "minEachLabelPerFittedOrScoredBlock": 10,
+    "meaning": "operational research floors, not power analysis or accuracy guarantee"
+  },
+  "missingness": {
+    "zeroObservedCount": "retain_exact_count_transform;not_imputed_skill_or_fixed_penalty",
+    "unknownHeroHistory": "retain_observed_lower_bound_and_exact_missing_map_ids;report_strata;not_an_extra_numeric_feature",
+    "unknownRoleOrCanonicalPatch": "explicit_research_warning;no_inference_or_provider_fallback",
+    "truncatedWindowOrNonfiniteFeature": "exclude_whole_known_series_from_paired_cohort;keep_full_ledger_and_baseline_only",
+    "minimumHeroGames": null,
+    "imputation": null,
+    "missingnessStrata": [
+      "any_unknown_hero_history_vs_none",
+      "any_zero_observed_hero_count_vs_none"
+    ],
+    "strataMayChooseModelOrGate": false
+  },
+  "dataset": {
+    "targets": "exact_R2_2232_target_ledger;28_added_maps_history_only",
+    "eligibility": "R2_paired_eligible_intersect_finite_registered_feature;whole_known_series_common_to_H0_H1_H2",
+    "historyMinimumProMapsPerPlayer": 5,
+    "cutoff": "start_and_completion_strictly_before_target_start;exclude_target",
+    "series": "known_alias_checked;unknown_or_cross_boundary_excluded;recheck_all_known_siblings",
+    "remoteSeriesCompleteness": "unknown_not_inferred",
+    "identity": "same_verified_numeric_account_and_canonical_player;no_nickname_or_cross_account_merges",
+    "orientation": "exact_frozen_R2_scenario_A_B;not_array_index",
+    "labels": "verified_actual_pro_map_outcome_in_separate_table;not_forecast_or_user_guess",
+    "historyUpdates": "completed_prior_outcomes_may_update_elo_and_counts;never_refit_parameters",
+    "historicalAvailability": "event_time_assumed;reconstructed_final_heroes;no_known_at_backdating",
+    "tier": "mixed_verified_pro_corpus;no_invented_Tier1_label_or_new_owner_form"
+  },
+  "evaluation": {
+    "primary": "paired_logloss_H2_cal_minus_H1_cal_on_exact_common_maps",
+    "secondary": [
+      "H2_cal_minus_H0_logloss",
+      "Brier_deltas_vs_H0_and_H1_cal",
+      "raw_and_calibrated_ECE_reliability_accuracy",
+      "N_maps_series_full_denominator_unavailable_baseline_only",
+      "predeclared_missingness_and_provider_patch_date_league_strata_with_N"
+    ],
+    "pairedCoverageMinimum": 0.8,
+    "ECEBins": 10,
+    "bootstrap": {
+      "unit": "whole_series",
+      "replicates": 2000,
+      "seed": 42,
+      "rng": "numpy.PCG64",
+      "weighting": "map_weighted",
+      "interval": "percentile95_linear_exploratory"
+    },
+    "positiveResearchSignal": [
+      "sample_floors_and_provenance_and_parity_pass",
+      "paired_coverage_at_least_0.80",
+      "primary_CI_upper_below_0",
+      "H2_cal_logloss_below_H0",
+      "H2_cal_Brier_not_above_H0_or_H1_cal",
+      "H2_cal_ECE_at_most_0.10"
+    ],
+    "insufficient": "missing_sample_or_coverage_or_calibrator;no_raw_fallback_promotion",
+    "firstResult": "immutable_including_negative_or_insufficient;new_linked_revision_for_correction",
+    "releaseGatePassed": false
+  },
+  "independentEvaluation": {
+    "status": "not_registered_not_ready",
+    "from": null,
+    "until": null,
+    "eventEditionScope": null,
+    "candidateSha256": null,
+    "independentMapsEstablished": 0,
+    "earliestStart": "strictly_after_candidate_builder_calibrator_evaluator_source_policy_freeze_and_registration;before_new_target_series_begin",
+    "prerequisites": [
+      "freeze_candidate_and_all_executables_environment_parity",
+      "register_event_universe_dates_floors_terminal_assessment_before_collection",
+      "check_exact_map_and_canonical_series_disjointness_against_entire_exposed_history",
+      "capture_final10_heroes_selected_lineups_verified_accounts_and_history_before_map_start",
+      "separate_verified_outcome_link_after_completion",
+      "keep_unavailable_cancelled_postponed_and_source_misses_in_enrollment_ledger",
+      "resolve_patch_role_and_hero_eligibility_release_scope"
+    ],
+    "stopping": "fixed_registered_deadline;insufficient_stays_insufficient;no_extension_or_best_revision_selection_from_metrics",
+    "existingV1Window": "not_reused_or_modified"
+  },
+  "workflow": [
+    "freeze_experiment_dataset_and_separate_labels",
+    "freeze_fitter_environment_and_fit_manifest",
+    "fit_train_select_on_validation_freeze_then_calibrate",
+    "verify_Python_TS_parity",
+    "freeze_evaluator_before_first_late_development_scoring",
+    "preserve_first_research_result",
+    "separate_future_independent_registration_before_any_release"
+  ],
+  "release": {
+    "activationAllowed": false,
+    "probabilitiesInUIAllowed": false,
+    "automaticPromotion": false,
+    "currentPreMatchModel": "unchanged"
+  },
+  "environment": {
+    "requirements": "tools/ml/requirements-ci.txt",
+    "sklearn": "1.8.0",
+    "state": "exact_installed_environment_and_executables_to_freeze_before_fit",
+    "parityTolerance": 1e-07,
+    "parityCases": [
+      "ordinary",
+      "swapped_A_B",
+      "zero_practice",
+      "missing_history_annotations",
+      "extreme_logits",
+      "calibrator_unavailable"
+    ],
+    "artifacts": "JSON_with_SHA256_no_pickle_in_runtime"
+  }
+}

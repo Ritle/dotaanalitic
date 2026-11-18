@@ -1,0 +1,99 @@
+{
+  "format": "player-hero-independent-protocol-v1",
+  "status": "prepared_not_registered",
+  "purpose": "independent_research_validation_of_fixed_H0_H1_H2",
+  "registration": {
+    "registeredAt": null,
+    "from": null,
+    "until": null,
+    "assessmentAt": null,
+    "eventEditionScope": null,
+    "executableManifestSha256": null,
+    "collectorReadinessEvidenceSha256": null,
+    "globalExposureInventorySha256": null,
+    "collectionAllowed": false,
+    "durationDays": 28,
+    "outcomeGraceDays": 7,
+    "order": "freeze_all_executables_and_environment_then_register_before_target_series_start",
+    "amendment": "new_linked_version_before_affected_series_start;never_rewrite_first_result_or_extend_after_metrics"
+  },
+  "enrollment": {
+    "domain": "explicit_Tier1_event_editions_registered_before_outcomes",
+    "tierEvidence": "reviewed_scope_evidence_in_manifest;no_new_owner_confirmation_in_runtime",
+    "universe": "all_actual_verified_pro_maps_of_registered_editions_in_fixed_window;all_scheduled_series_tracked",
+    "series": "canonical_provider_alias_checked;exclude_entire_series_on_overlap_missing_member_or_boundary_failure",
+    "exposure": "union_all_previously_exposed_maps_and_series_across_project_at_registration;current_S3_list_is_minimum_only",
+    "historyOverlap": "prior_exposed_maps_allowed_as_history_only_when_available_before_cutoff;never_as_independent_targets",
+    "denominator": "all_actual_verified_pro_maps_in_scope_even_if_inputs_or_predictions_missing",
+    "cancelledWithoutMap": "administrative_ledger_only_not_a_verified_map",
+    "postponedOutsideWindow": "administrative_ledger_and_no_window_extension",
+    "unknownInventory": "insufficient_denominator_unknown;never_assume_first_page_complete",
+    "remoteSeriesCompleteness": "must_be_established_before_terminal_assessment;unknown_is_insufficient"
+  },
+  "cohorts": {
+    "primary": "prospective_owner_asserted_or_verified_asof_selected_5v5_final10",
+    "provenanceStrata": ["owner_asserted_asof", "verified_asof"],
+    "retrospective": "separate_diagnostic_only_never_pooled_into_primary_or_repairing_a_missing_snapshot",
+    "lineupMatch": "later_verified_actual_accounts_and_hero_assignments_must_match_frozen_snapshot;otherwise_unavailable_in_primary_with_original_snapshot_retained",
+    "notIndependent": "already_exposed_map_or_series_even_if_missing_from_old_eligible_test"
+  },
+  "availability": {
+    "clocks": ["event_at", "known_at", "fetched_at", "snapshot_frozen_at", "prediction_persisted_at", "actual_gameplay_started_at"],
+    "cutoff": "decision_cutoff_fixed_before_inference;never_replaced_by_later_verified_map_start",
+    "history": "started_at_and_completed_at_and_known_at_and_fetched_at_strictly_before_decision_cutoff",
+    "inputs": "ten_distinct_verified_accounts_and_ten_distinct_heroes_with_player_bindings;lineup_draft_identity_observed_and_persisted_before_cutoff",
+    "prediction": "cutoff<=prediction_persisted_at<verified_actual_gameplay_start;no_live_telemetry",
+    "clockSemantics": "verify_provider_start_time_meaning_and_draft_to_gameplay_boundary;scheduled_time_is_not_actual_start",
+    "nullKnownAt": "unavailable_for_primary_not_backdated_from_event_or_fetch_time",
+    "historySnapshot": "immutable_bytes_and_revision_at_cutoff;later_backfill_or_correction_cannot_repair_primary",
+    "featureParity": "same_frozen_numeric_recipe_on_availability_filtered_snapshot;separate_new_adapter_and_evaluator_with_golden_parity",
+    "currentBuilder": "conditional_event_time_assumed_is_not_an_asof_gate;keep_original_builder_unchanged",
+    "rollingHistory": "earlier_completed_verified_outcomes_can_update_fixed_Elo_and_counts_only_when_observed_before_next_cutoff;no_parameter_refit"
+  },
+  "evaluation": {
+    "models": ["H0", "H1_raw", "H1_cal", "H2_raw", "H2_cal"],
+    "parameters": "exact_frozen_artifact_coefficients_feature_order_and_temperatures_no_refit_or_recalibration",
+    "criteria": "exact_numeric_floors_coverage_metrics_and_bootstrap_from_frozen_development_policy",
+    "primary": "paired_logloss_H2_cal_minus_H1_cal_on_one_common_complete_series_cohort",
+    "assessment": "one_terminal_assessment_after_fixed_window_and_outcome_grace;no_metric_peeking_or_stop_when_significant",
+    "insufficient": "missing_denominator_or_series_evidence_snapshot_coverage_or_floors;retain_negative_and_insufficient_results",
+    "labels": "verified_actual_pro_map_outcomes_linked_separately_after_completion;not_user_guesses_or_predictions",
+    "primaryForecast": "first_valid_persisted_full_input_snapshot_per_map;recalculations_audit_only",
+    "classificationTie": "A_when_probability_at_least_0.5",
+    "strata": "all_predeclared_missingness_provider_patch_month_league_and_provenance_groups;never_select_gate_or_candidate_by_subgroup",
+    "corrections": "append_new_linked_revision_preserving_original_no_best_revision_selection"
+  },
+  "budget": {
+    "meaning": "operational_ceiling_not_power_analysis_or_authorization_to_spend_now",
+    "maxTargetMaps": 300,
+    "maxHttpAttemptsIncludingRetries": 1000,
+    "maxHttpAttemptsPerUtcDay": 100,
+    "maxAttemptsPerRequestKey": 2,
+    "maxConcurrentRequests": 1,
+    "providers": ["existing_named_backend_clients_only"],
+    "quota": "minimum_of_protocol_ceiling_and_existing_shared_provider_quota;never_raise_current_limits",
+    "cache": "reuse_frozen_receipts_and_deduplicate_provider_endpoint_parameters_across_maps",
+    "retry": "respect_Retry_After_and_persist_pause;no_busy_loop_or_provider_fallback_to_bypass_limits",
+    "exhaustion": "stop_remote_work_keep_full_enrollment_ledger_terminal_insufficient_no_silent_truncation_or_budget_increase",
+    "businessDatabaseWrites": false,
+    "paidUpgradeAllowed": false
+  },
+  "registrationPrerequisites": [
+    "immutable_prospective_capture_adapter_with_asof_tests_and_ten_hero_account_binding",
+    "verified_provider_clock_semantics_and_map_series_linking_without_outcome_features",
+    "frozen_candidate_builder_inference_evaluator_environment_and_python_ts_parity",
+    "complete_global_exposure_inventory_and_canonical_series_alias_checks",
+    "explicit_future_Tier1_event_editions_dates_scope_evidence_and_full_pagination_policy",
+    "shared_quota_budget_cache_retry_and_recovery_tests",
+    "pre_registered_power_feasibility_note_without_claiming_50_maps_guarantee_power"
+  ],
+  "release": {
+    "independentTestCompleted": false,
+    "releaseGatePassed": false,
+    "activationAllowed": false,
+    "probabilitiesInUIAllowed": false,
+    "automaticPromotion": false,
+    "currentV1": "unchanged_no_new_roster_role_or_tier_confirmation",
+    "additionalReleaseWork": "separate_stage_safe_registry_gate_and_patch_hero_eligibility_applicability_review;research_pass_is_not_activation"
+  }
+}

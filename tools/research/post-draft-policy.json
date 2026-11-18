@@ -1,0 +1,175 @@
+{
+  "format": "conditional-final-draft-research-policy-v1",
+  "deployable": false,
+  "evaluationBasis": "retrospective_development_previously_exposed_history",
+  "target": "one_professional_map_any_map_number",
+  "firstMapOnly": false,
+  "inputs": {
+    "inventoryPolicy": "post-draft-readiness-inventory-v1",
+    "maxMaps": 5000,
+    "gameMode": "2",
+    "lobbyType": "1",
+    "allKnownSeriesSiblingsRequired": true,
+    "unknownSeries": "exclude",
+    "boundarySeries": "purge_if_any_known_map_crosses_window_in_start_or_completion",
+    "unknownMapNumber": "not_inferred",
+    "historicalLineupsAndHeroes": "explicitly_reconstructed_after_map",
+    "rolesAndPatchAvailability": "unknown_not_upgraded"
+  },
+  "windows": [
+    {
+      "name": "warmup",
+      "from": "2024-01-01T00:00:00.000Z",
+      "until": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "name": "train",
+      "from": "2025-01-01T00:00:00.000Z",
+      "until": "2026-05-01T00:00:00.000Z"
+    },
+    {
+      "name": "validation",
+      "from": "2026-05-01T00:00:00.000Z",
+      "until": "2026-07-01T00:00:00.000Z"
+    },
+    {
+      "name": "calibration",
+      "from": "2026-07-01T00:00:00.000Z",
+      "until": "2026-09-01T00:00:00.000Z"
+    },
+    {
+      "name": "development_test",
+      "from": "2026-09-01T00:00:00.000Z",
+      "until": "2026-11-05T00:00:00.000Z"
+    }
+  ],
+  "history": {
+    "builder": "existing V1 verified history/feature builder, unchanged",
+    "initialRating": 1500,
+    "k": 32,
+    "scale": 400,
+    "minCompletedProMapsPerPlayer": 5,
+    "warmupFrom": "2024-01-01T00:00:00.000Z",
+    "cutoff": "started_at < target_start AND completed_at < target_start, exclude target",
+    "availability": "event_time_assumed, not historical verified known_at",
+    "onlineState": "earlier validation/calibration/test outcomes may update chronological Elo after completion, never fitted weights or thresholds",
+    "sameSeriesEarlierMaps": "allowed only as strictly completed chronological history; not live between-map product",
+    "historyPool": "independently verified earlier pro maps; target split membership is not history eligibility"
+  },
+  "features": {
+    "orientation": "Team A smaller numeric canonical team ID, B larger; map side mapping verified",
+    "elo": "ln(10) * eloDifference / 400",
+    "heroEncoding": "signed presence: +1 Team A, -1 Team B, 0 absent; 10 distinct heroes",
+    "heroVocabulary": "ascending hero IDs from train maps only",
+    "unseenHero": "post model unavailable, paired cohort excludes with reason; retain baseline-only denominator",
+    "trainMinimumHeroOccurrences": 1,
+    "preprocessing": "no fitted centering, no imputation, no data-dependent scaling",
+    "intercept": false,
+    "excluded": [
+      "current map results/statistics",
+      "series score/map number",
+      "role guesses",
+      "patch features/weights",
+      "pick order/bans",
+      "pair/counter/player-hero aggregates",
+      "pub data",
+      "team-ID/nickname features"
+    ]
+  },
+  "models": {
+    "M0": "unchanged fixed V1 Elo, no calibrator",
+    "M1": "L2 logistic regression on elo feature only",
+    "M2": "L2 logistic regression on same elo plus signed heroes",
+    "solver": "lbfgs",
+    "maxIterations": 2000,
+    "tolerance": 1e-08,
+    "classWeight": null,
+    "sampleWeight": "one map, uniform",
+    "CGrid": [
+      0.01,
+      0.1,
+      1.0
+    ],
+    "selection": "minimum validation log loss; tie within 1e-12 selects smaller C",
+    "refitAfterSelection": false,
+    "convergenceFailure": "candidate invalid; no silent max_iter/parameter change",
+    "coefficientFitting": "train only; validation chooses C independently for M1 and M2",
+    "trainingCohort": "identical final verified train examples for M1 and M2",
+    "selectionCohort": "identical common-eligibility validation maps for M1/M2; preserve full denominator"
+  },
+  "calibration": {
+    "models": [
+      "M1",
+      "M2"
+    ],
+    "method": "positive temperature scaling of selected frozen logits",
+    "TBounds": [
+      0.25,
+      4.0
+    ],
+    "objective": "calibration log loss",
+    "solver": "scipy bounded scalar minimization",
+    "xTolerance": 1e-08,
+    "maxIterations": 1000,
+    "intercept": false,
+    "testMayChooseCalibrator": false,
+    "boundaryOrNonconvergence": "insufficient, no fallback promotion",
+    "cohort": "identical common-eligibility calibration maps for M1/M2"
+  },
+  "sampleFloors": {
+    "trainMaps": 200,
+    "validationMaps": 50,
+    "calibrationMaps": 50,
+    "developmentTestMaps": 50,
+    "developmentTestSeries": 25,
+    "minEachLabelPerFittedOrScoredBlock": 10,
+    "meaning": "operational research floors, not power analysis or accuracy guarantee"
+  },
+  "evaluation": {
+    "primary": "paired log-loss delta M2_cal - M1_cal on exact same eligible maps",
+    "secondary": [
+      "M2_cal - M0 log loss",
+      "Brier deltas against M0 and M1_cal",
+      "raw and calibrated reliability/ECE",
+      "accuracy, N maps/series, source and history coverage",
+      "provider-patch/date/league strata with N; provider patch is not verified release context"
+    ],
+    "pairedSample": "intersection of M0/M1/M2 predeclared eligibility; report full target ledger and baseline-only scores separately",
+    "reliabilityBins": "10 equal-width probability bins; empty bin rate null",
+    "bootstrap": {
+      "unit": "whole series",
+      "replicates": 2000,
+      "seed": 42,
+      "interval": "two-sided percentile 95%, exploratory, not a new blind-test guarantee"
+    },
+    "researchSignalRequires": [
+      "all sample floors and provenance/parity checks",
+      "paired coverage >= 0.80 of planned development_test target map denominator",
+      "upper 95% series-bootstrap CI of primary log-loss delta < 0",
+      "mean M2_cal log loss < M0",
+      "mean M2_cal Brier <= both M0 and M1_cal",
+      "M2_cal ECE <= 0.10"
+    ],
+    "firstResult": "record once including insufficient/negative; corrections append a new linked revision",
+    "noAutomaticExclusionOrRetuning": true,
+    "releaseGatePassed": false
+  },
+  "release": {
+    "activationAllowed": false,
+    "probabilitiesInUIAllowed": false,
+    "futureIndependentStudy": "separate registration after executable/candidate freeze; do not reuse these dates as untouched holdout",
+    "mustAddress": [
+      "historical/owner post-draft availability",
+      "post-draft feature/patch scope deviation from full S3-04",
+      "Python/TS artifact parity and pinned environment",
+      "independent temporal evaluation and explicit activation"
+    ],
+    "existingV1Protocol": "unchanged, no sharing or overriding its future observation window"
+  },
+  "environment": {
+    "python": "3.11-3.13",
+    "requirements": "tools/ml/requirements-ci.txt",
+    "sklearn": "1.8.0",
+    "state": "to provision and freeze before fitting; no installs or fitting in protocol step"
+  }
+}
