@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { ownerAuth, logout } from '../auth';
+import { ownerAuth, accountAccess, logout } from '../auth';
 import CatalogSearch from '../components/CatalogSearch.vue';
 import ModelReadiness from '../components/ModelReadiness.vue';
 const router = useRouter();
@@ -24,10 +24,11 @@ async function signOut() {
       <h2>Личный кабинет</h2>
       <button type="button" @click="signOut" :disabled="busy">{{ busy ? 'Выход…' : 'Выйти' }}</button>
     </div>
-    <p>Владелец: <strong>{{ ownerAuth?.owner.login }}</strong></p>
+    <p>{{accountAccess?.role==='owner'?'Владелец':'Пользователь'}}: <strong>{{ ownerAuth?.owner.login }}</strong></p>
     <p v-if="error" role="alert" class="error">{{ error }}</p>
     <p>Справочники и профессиональная история доступны ниже.</p><RouterLink to="/compare">Сравнить две команды →</RouterLink><p><RouterLink to="/scenarios">Сохранённые сценарии →</RouterLink></p>
     <p><RouterLink to="/upcoming">Предстоящие матчи →</RouterLink></p>
+    <p><RouterLink to="/live">Live — матчи сейчас →</RouterLink></p>
     <p><RouterLink to="/forecast-journal">Журнал прогнозов →</RouterLink></p>
   </section>
   <ModelReadiness />

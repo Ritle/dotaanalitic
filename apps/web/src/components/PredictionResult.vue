@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import type { V1PredictionView } from '@dota/contracts';
+import ForecastLineups from './ForecastLineups.vue';
 import { dateLabel } from '../catalog';
 import { predictionReason, probabilityLabel, favouriteLabel } from '../predictions';
-defineProps<{ result: Omit<V1PredictionView,'purpose'> & {purpose:'what_if_single_map'|'real_map'} }>();
+defineProps<{ compact?:boolean; result: Omit<V1PredictionView,'purpose'> & {purpose:'what_if_single_map'|'real_map'} }>();
 </script>
 <template>
   <article class="panel prediction-result" aria-label="Сохранённый расчёт">
@@ -14,17 +15,10 @@ defineProps<{ result: Omit<V1PredictionView,'purpose'> & {purpose:'what_if_singl
       <p><span>Команда B</span><strong>{{ probabilityLabel(1 - result.teamAWinProbability) }}</strong></p>
       <p>{{ favouriteLabel(result.teamAWinProbability) }}</p>
     </div>
+    <p v-if="result.warnings.includes('TOURNAMENT_TIER_UNVERIFIED')" class="hint">{{predictionReason('TOURNAMENT_TIER_UNVERIFIED')}}</p>
     <ul v-if="result.reasons.length" aria-label="Причины недоступности"><li v-for="reason in result.reasons" :key="reason">{{ predictionReason(reason) }}</li></ul>
     <p><strong>{{ result.scenario.input.title }}</strong> · сохранённая редакция {{ result.scenario.revision }}</p>
-    <div class="lineups">
-      <section v-for="slot in (['A','B'] as const)" :key="slot" :aria-label="`Сохранённый состав ${slot}`">
-        <h3>Команда {{ slot }} · <RouterLink :to="`/teams/${slot === 'A' ? result.scenario.input.teamAId : result.scenario.input.teamBId}`">#{{ slot === 'A' ? result.scenario.input.teamAId : result.scenario.input.teamBId }}</RouterLink></h3>
-        <ul><li v-for="p in (slot === 'A' ? result.scenario.input.lineupA : result.scenario.input.lineupB)" :key="p.playerId!">
-          <RouterLink :to="`/players/${p.playerId}`">Игрок #{{ p.playerId }}</RouterLink>
-          <template v-if="result.players"> · N={{ (slot === 'A' ? result.players.teamA : result.players.teamB).find(row => row.playerId === p.playerId)?.maps ?? 'неизвестно' }}</template>
-        </li></ul>
-      </section>
-    </div>
+    <ForecastLineups :lazy="compact" :input="result.scenario.input" :samples="result.players" label-prefix="Сохранённый состав" />
     <section aria-label="Покрытие данных расчёта">
       <h3>Профессиональная история</h3>
       <p v-if="result.coverage">Завершённых карт в истории: N={{ result.coverage.nRaw }}; эффективный N={{ result.coverage.nEff }}.
@@ -44,7 +38,7 @@ defineProps<{ result: Omit<V1PredictionView,'purpose'> & {purpose:'what_if_singl
   </article>
 </template>
 <style scoped>
-.prediction-result{min-width:0;overflow-wrap:anywhere}.lineups,.probabilities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
+.prediction-result{min-width:0;overflow-wrap:anywhere}.probabilities{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
 .probabilities p{display:grid;gap:var(--space-2)}.probabilities strong{font-size:2rem;color:var(--color-text)}
-li{margin-block:var(--space-2)}ul{padding-left:20px}h3{font-size:1rem}@media(max-width:600px){.lineups,.probabilities{grid-template-columns:1fr}.panel{padding:var(--space-4)}}
+li{margin-block:var(--space-2)}ul{padding-left:20px}h3{font-size:1rem}@media(max-width:600px){.probabilities{grid-template-columns:1fr}.panel{padding:var(--space-4)}}
 </style>

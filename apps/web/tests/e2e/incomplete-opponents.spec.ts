@@ -60,11 +60,11 @@ test('zero participants ignores stale match name; unnamed teams with two IDs are
 test('same match gains or loses opponent: source refresh resets old manual choice and target confirmation',async({page})=>{
  await page.getByRole('row').filter({hasText:known.name}).getByRole('button',{name:'Выбрать',exact:true}).click();
  await panel(page).getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();await pick(page,'Команда A в локальной базе','11');
- await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
+ await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toBeDisabled();
  await publishTargetSchedule(database.db,[{...one(),opponents:[known,rival]}]);await page.getByRole('button',{name:'Обновить расписание',exact:true}).click();
  await expect(page.getByRole('row').filter({hasText:'Синтетический CyberHero — Синтетический соперник'})).toHaveCount(1);
  await panel(page).getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();
- await expect(page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true})).not.toBeChecked();
+ await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toHaveAttribute('aria-pressed','false');
  await expect(page.getByRole('region',{name:'Команда A в локальной базе',exact:true}).getByText(/^Выбрано:/)).toHaveCount(0);
  await panel(page).getByText('Зафиксировать назначение первой карты',{exact:true}).click();
  const confirmation=page.getByLabel('Подтверждаю соответствие участников и назначение карты 1',{exact:true});await expect(confirmation).toBeEnabled();await confirmation.check();

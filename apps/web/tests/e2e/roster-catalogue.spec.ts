@@ -18,19 +18,29 @@ let historyBoss:Awaited<ReturnType<typeof createPlayerHistoryQueue>>;const histo
 const source=syntheticCatalogue({withoutMembership:true});
 async function startApi(){
  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),{
-  db:database.db,logger:false,catalogueProvider:source.provider,pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()))});
+  db:database.db,logger:false,playerHistoryProvider:()=>syntheticPlayerHistory({mode:'empty'}),catalogueProvider:source.provider,pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()))});
  await api.listen({host:'127.0.0.1',port:3151});
 }
 test.beforeAll(async()=>{
  database=await testDatabase();password=randomBytes(24).toString('base64url');await new AuthService(database.db).provision('synthetic-catalogue-ui',password);
  await startApi();
- historyBoss=await createPlayerHistoryQueue(database.url);await registerPlayerHistoryWorker(historyBoss,database.db,()=>syntheticPlayerHistory({onCall:n=>historyCalls.push(n)}));
+ historyBoss=await createPlayerHistoryQueue(database.url);
 });
 test.afterAll(async()=>{await historyBoss?.stop({graceful:true,timeout:10000});await api?.close();await database?.close();});
 test.beforeEach(async({page})=>{
  // Share business facts across the serial journey, but isolate each case's HTTP/IP budget.
  // Production rate limits and persistent provider/login quotas remain unchanged.
- if(startedCases++>0){await api.close();await startApi();}
+ if(startedCases++>0){
+  await api.close();
+  if(startedCases===2){
+   // The previous comparison now prepares history. This case tests a fresh explicit manual attempt.
+   await sql`UPDATE player_history_runs SET next_allowed_at=clock_timestamp()-interval '1 second' WHERE status NOT IN ('queued','running')`.execute(database.db);
+   historyCalls.length=0;
+   // The manual import journey starts here; it must not race the comparison's separate empty synthetic source.
+   await registerPlayerHistoryWorker(historyBoss,database.db,()=>syntheticPlayerHistory({onCall:n=>historyCalls.push(n)}));
+  }
+  await startApi();
+ }
  page.on('response',response=>{
   if(response.status()===429)console.log(JSON.stringify({event:'synthetic_roster_rate_limited',route:new URL(response.url()).pathname,retryAfter:response.headers()['retry-after']}));
  });
@@ -38,7 +48,11 @@ test.beforeEach(async({page})=>{
 async function sourcePick(page:Page,label:string,id:string,query=id){const field=page.getByRole('region',{name:label,exact:true});
  if(label.startsWith('Аккаунт ')&&!await field.isVisible()){const show=page.getByLabel('Показать подтверждённые аккаунты '+(label.endsWith('(B)')?'B':'A'),{exact:true});if(await show.isVisible())await show.check();}
  if(label.startsWith('Команда OpenDota ')){const switcher=page.getByRole('button',{name:'Выбрать команду OpenDota '+label.slice(-1),exact:true});if(await switcher.isVisible())await switcher.click();}
- await field.getByRole('searchbox').fill(query);await field.getByRole('button',{name:'Найти в OpenDota',exact:true}).click();
+ await field.getByRole('searchbox').fill(query);
+ const search=page.waitForResponse(r=>r.url().endsWith('/catalogue/search')&&r.request().method()==='POST'&&r.request().postDataJSON()?.query===query);
+ await field.getByRole('button',{name:'Найти в OpenDota',exact:true}).click();
+ const response=await search;expect(response.status(),await response.text()).toBe(200);
+ expect(await response.json()).toMatchObject({items:expect.arrayContaining([expect.objectContaining({id})])});
  await field.getByRole('button',{name:new RegExp(' · ID '+id+'$')}).click();
 }
 test('expected roster to explicit numeric catalogue, manual scenario and saved reuse without provider spam',async({page})=>{
@@ -65,8 +79,8 @@ test('expected roster to explicit numeric catalogue, manual scenario and saved r
  await page.getByLabel('Подтверждаю соответствие команды и пяти аккаунтов B',{exact:true}).check();
  await page.getByRole('button',{name:'Сохранить связи и подставить пятёрку B',exact:true}).click();
  await expect(page.getByRole('region',{name:'Команда B в локальной базе',exact:true})).toContainText('Выбрано: Synthetic Beta');
- const confirm=page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true});await expect(confirm).not.toBeChecked();
- await confirm.check();await expect(page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true})).toBeEnabled();
+ const confirm=page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true});await expect(confirm).toHaveAttribute('aria-pressed','false');
+ await confirm.click();await expect(page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true})).toBeEnabled();
  await page.getByRole('button',{name:'Создать ручной сценарий',exact:true}).click();
  await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();
  expect((await sql<{n:number}>`SELECT count(*)::int n FROM players`.execute(database.db)).rows[0]!.n).toBe(10);
@@ -79,7 +93,7 @@ test('expected roster to explicit numeric catalogue, manual scenario and saved r
  await expect(page.getByRole('region',{name:'Ожидаемые составы',exact:true}).getByRole('searchbox')).toHaveCount(0);
  await expect(page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true})).toBeDisabled();
  const comparisons:Record<string,unknown>[]=[];page.on('request',r=>{if(r.url().endsWith('/teams/compare'))comparisons.push(r.postDataJSON());});
- await confirm.check();await page.getByLabel('Период сравнения',{exact:true}).selectOption('365');
+ await confirm.click();await page.getByLabel('Период сравнения',{exact:true}).selectOption('365');
  await page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true}).click();
  await expect(page.getByRole('region',{name:'Результат сравнения пятёрок',exact:true})).toBeVisible();
  await expect(page.getByRole('table',{name:'Личная статистика A',exact:true})).toContainText('Synthetic Twin');
@@ -115,6 +129,7 @@ test('a new organization can use its Panda identity without an OpenDota profile 
  await expect(history.getByLabel('Период истории A',{exact:true})).toHaveValue('365');await expect(history.getByLabel('Глубина истории A',{exact:true})).toHaveValue('25');
  await expect(history.getByRole('button',{name:'Загрузить историю игроков',exact:true})).toBeEnabled();
  const before=await page.getByRole('region',{name:'A: игрок 1',exact:true}).textContent();
+ const labelCalls:string[]=[];page.on('request',r=>{if(r.url().includes('/catalog-labels?'))labelCalls.push(r.url());});
  const historyStart=page.waitForResponse(r=>r.url().endsWith('/players/history-refresh')&&r.request().method()==='POST');
  const historyFinished=page.waitForResponse(async r=>{
   if(new URL(r.url()).pathname!=='/api/v1/players/history-refresh'||r.status()!==200)return false;
@@ -127,6 +142,17 @@ test('a new organization can use its Panda identity without an OpenDota profile 
  await expect(history.getByText(/Подготовка истории: подтверждено аккаунтов/)).toBeVisible();
  await expect(history.getByText(/Проверка истории V1:/)).toBeVisible();
  await expect(history.getByText(/допущено к истории Elo 0 \/ минимум 5/)).toHaveCount(5);
+ const frozenReport=(await(await historyFinished).json()).run.report;
+ const named={players:(await sql<{id:string;name:string}>`SELECT id::text,nickname AS name FROM players WHERE id=ANY(${frozenReport.players.map((p:{playerId:string})=>p.playerId)}::bigint[])`.execute(database.db)).rows};
+ for(const p of frozenReport.players){const name=named.players.find((n:{id:string;name:string})=>n.id===p.playerId)!.name;
+  await expect(history.locator(`[data-history-eligibility-id="${p.playerId}"] a[href="/players/${p.playerId}"]`)).toHaveText(name.trim()||'Игрок без ника');}
+ expect(labelCalls.length).toBeLessThanOrEqual(1);const labelsBeforeRefresh=labelCalls.length;await history.getByText('Покрытие игроков',{exact:true}).click();
+ await expect(history.locator('[data-history-coverage-id]')).toHaveCount(5);
+ await history.getByRole('button',{name:'Обновить подписи каталога',exact:true}).click();await expect(history.getByRole('button',{name:'Обновить подписи каталога',exact:true})).toBeEnabled();expect(labelCalls).toHaveLength(labelsBeforeRefresh+1);
+ const historyQuery=new URLSearchParams({playerIds:frozenReport.players.map((p:{playerId:string})=>p.playerId).sort().join(','),windowDays:'365',maxMaps:'25'});
+ expect((await(await page.request.get('/api/v1/players/history-refresh?'+historyQuery)).json()).run.report).toEqual(frozenReport);
+ expect(historyCalls).toHaveLength(5);
+
  await expect(history.getByRole('button',{name:'Загрузить историю игроков',exact:true})).toBeDisabled();
  await history.getByLabel('Период истории A',{exact:true}).selectOption('90');await history.getByLabel('Глубина истории A',{exact:true}).selectOption('10');
  await expect(history.getByText(/Принято 2 из 2 карт/)).toHaveCount(0);await expect(history.getByRole('button',{name:'Загрузить историю игроков',exact:true})).toBeEnabled();
@@ -197,7 +223,7 @@ test('an unusable saved five is not auto-applied and a delayed binding cannot ov
  await page.getByRole('button',{name:'Выбрать',exact:true}).click();
  await expect(page.getByRole('article',{name:'Выбранный состав B',exact:true})).toContainText('Выбрано 5 / 5');
  await expect(page.getByRole('article',{name:'Выбранный состав A',exact:true})).toContainText('Выбрано 0 / 5');
- await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
+ await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toBeDisabled();
  await expect(page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true})).toBeDisabled();
  await page.unroute('**/api/v1/upcoming/*/catalogue');await page.reload();
  await expect(page.getByRole('button',{name:'Выбрать',exact:true})).toBeVisible();

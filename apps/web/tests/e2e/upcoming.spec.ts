@@ -36,7 +36,7 @@ async function pick(page:import('@playwright/test').Page,label:string,id:string)
   await expect(field.getByRole('status')).toHaveAttribute('data-selected-id',id);
 }
 test('owner loads schedule and all expected players, manually chooses canonical scenario; mobile layout',async({page})=>{
-  await signIn(page);await expect(page.getByText('Данные ещё не загружены.',{exact:true})).toBeVisible();
+  await signIn(page);await expect(page.getByText('Синтетическая Alpha — Синтетическая Beta',{exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Обновить расписание',exact:true}).click();await expect(page.getByText('Синтетическая Alpha — Синтетическая Beta',{exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Выбрать',exact:true}).click();await page.getByRole('button',{name:'Обновить составы',exact:true}).click();
   const rosters=page.getByRole('region',{name:'Ожидаемые составы'});await rosters.getByText('Заявка турнира и участники источника',{exact:true}).click();await expect(rosters.getByText('В заявке: 6 игроков',{exact:true})).toBeVisible();
@@ -49,7 +49,7 @@ test('owner loads schedule and all expected players, manually chooses canonical 
   for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)
     await pick(page,`${slot}: игрок ${p.rolePos}`,p.playerId!);
   await expect(page.getByRole('button',{name:'Создать ручной сценарий',exact:true})).toBeDisabled();
-  await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
+  await page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true}).click();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:'test-results/upcoming-picker-mobile.png',fullPage:true});await page.setViewportSize({width:1280,height:900});
   await page.screenshot({path:'test-results/upcoming-picker-desktop.png',fullPage:true});await page.setViewportSize({width:360,height:800});
@@ -65,8 +65,8 @@ test('catalogue search requires explicit choice, distinguishes same-name records
   const field=page.getByRole('region',{name:'A: игрок 1',exact:true}),input=field.getByRole('searchbox');
   await input.fill('Синтетический тёзка');await input.press('Enter');await expect(field.getByRole('button',{name:/^Выбрать Синтетический тёзка/})).toHaveCount(2);
   await expect(field.getByText(/^Выбрано:/)).toHaveCount(0);await field.locator(`button[data-catalog-id="${id}"]`).click();
-  const confirm=page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true});await confirm.check();
-  await field.getByRole('button',{name:'Заменить',exact:true}).click();await input.fill('такого-синтетического-игрока-нет');await expect(confirm).not.toBeChecked();await input.press('Enter');
+  const confirm=page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true});await expect(confirm).toBeDisabled();
+  await field.getByRole('button',{name:'Заменить',exact:true}).click();await input.fill('такого-синтетического-игрока-нет');await expect(confirm).toHaveAttribute('aria-pressed','false');await input.press('Enter');
   await expect(field.getByText('В локальном справочнике нет подходящей записи.',{exact:false})).toBeVisible();
   await expect(field.getByText(/^Выбрано:/)).toHaveCount(0);
   await page.route('**/api/v1/players?*',route=>route.fulfill({status:503,json:{error:{code:'SYNTHETIC_FAILURE'}}}));
@@ -84,6 +84,7 @@ test('catalogue search requires explicit choice, distinguishes same-name records
 });
 test('source failure keeps saved schedule visible with freshness warning',async({page})=>{
   await signIn(page);await page.getByRole('button',{name:'Обновить расписание',exact:true}).click();
+  await expect(page.getByText('Синтетическая Alpha — Синтетическая Beta',{exact:true})).toBeVisible();
   failed=true;await sql`UPDATE upcoming_source_cache SET expires_at=clock_timestamp()-interval '1 second' WHERE payload IS NOT NULL`.execute(database.db);
   await sql`UPDATE pandascore_request_quota SET next_request_at='-infinity'`.execute(database.db);
   await page.getByRole('button',{name:'Обновить расписание',exact:true}).click();
@@ -106,12 +107,12 @@ test('selected canonical organizations show bounded history and refresh it witho
   await expect(a.getByRole('link',{name:'Полный отчёт организации A →',exact:true})).toHaveAttribute('href','/teams/1101');
   await expect(page.getByRole('link',{name:'Открыть сравнение организаций →',exact:true})).toHaveAttribute('href','/compare?teamA=1101&teamB=1102');
   const q=scenarioInput();for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(page,`${slot}: игрок ${p.rolePos}`,p.playerId!);
-  const confirm=page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true});await confirm.check();
+  const confirm=page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true});await confirm.click();
   await expect(page.getByRole('button',{name:'Создать ручной сценарий',exact:true})).toBeEnabled();
   await a.getByText('Обновить историю организации A',{exact:true}).click();
   const job=a.getByRole('region',{name:'Обновление pro-истории',exact:true});await job.getByRole('button',{name:'Загрузить последние pro-карты',exact:true}).click();
   await expect(job.getByRole('status')).toContainText('Завершено',{timeout:15000});await expect(a.getByText('N = 2',{exact:true})).toBeVisible();
-  await expect(b.getByText('N = 0',{exact:true})).toBeVisible();await expect(confirm).toBeChecked();
+  await expect(b.getByText('N = 0',{exact:true})).toBeVisible();await expect(confirm).toHaveAttribute('aria-pressed','true');
   await expect(page.getByRole('region',{name:'A: игрок 1',exact:true}).getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
   const quality=a.getByText('Выборка и покрытие · есть пропуски',{exact:true});await quality.click();
   await expect(a.getByText('Есть карты без проверенного патча.',{exact:true})).toBeVisible();await expect(a.getByText(/Данные обновлены:/)).toBeVisible();await quality.click();
@@ -122,7 +123,7 @@ test('selected canonical organizations show bounded history and refresh it witho
   await page.setViewportSize({width:360,height:900});await a.screenshot({path:'test-results/upcoming-summary-mobile.png'});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.getByRole('region',{name:'Команда A в локальной базе',exact:true}).getByRole('button',{name:'Сбросить',exact:true}).click();
-  await expect(a).toHaveCount(0);await expect(confirm).not.toBeChecked();await expect(page.getByRole('link',{name:'Открыть сравнение организаций →',exact:true})).toHaveCount(0);
+  await expect(a).toHaveCount(0);await expect(confirm).toHaveAttribute('aria-pressed','false');await expect(page.getByRole('link',{name:'Открыть сравнение организаций →',exact:true})).toHaveCount(0);
 });
 
 test('summary handles delayed old selection, read errors, zero samples and unavailable windows without showing a stale organization',async({page})=>{

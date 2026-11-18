@@ -32,6 +32,7 @@ const messages: Record<string, string> = {
   TARGET_ALREADY_STARTED: 'Плановое начало карты уже наступило.',
   TARGET_SERIES_ALREADY_STARTED:'Для этой встречи уже известна начавшаяся карта. Новый прогноз до игры недоступен.',
   TARGET_OWNER_CANCELLED:'Владелец отметил отмену встречи. Новая вероятность не выдаётся до повторного открытия.',
+  TOURNAMENT_TIER_UNVERIFIED: 'Уровень турнира не подтверждён. Точность модели для этого уровня отдельно не установлена.',
   TIER1_SCOPE_NOT_REVIEWED: 'Турнир ещё не подтверждён как Tier 1.',
   TARGET_OUTSIDE_REVIEWED_TIER1_SCOPE: 'Лига или дата карты не совпадает с проверенным турниром Tier 1.',
   BETWEEN_MAP_PREDICTION_UNSUPPORTED: 'Расчёт между картами начавшейся серии пока не поддерживается.',

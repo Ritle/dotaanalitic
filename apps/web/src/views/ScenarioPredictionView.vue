@@ -2,16 +2,16 @@
 import { computed, ref, watch, onBeforeUnmount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useQuery, useQueryClient } from '@tanstack/vue-query';
-import { ScenarioSnapshotSchema, V1PredictionCreateSchema, V1PredictionViewSchema, V1PredictionHistorySchema, type V1PredictionCreate, type Tier1Scope } from '@dota/contracts';
+import { ScenarioSnapshotSchema, V1PredictionCreateSchema, V1PredictionViewSchema, V1PredictionHistorySchema, type V1PredictionCreate } from '@dota/contracts';
 import { readCatalog, dateLabel } from '../catalog';
 import { createPrediction, readPrediction, PredictionRequestError } from '../predictions';
+import ForecastLineups from '../components/ForecastLineups.vue';
 import PredictionResult from '../components/PredictionResult.vue';
-import Tier1ScopeSelector from '../components/Tier1ScopeSelector.vue';
 const route = useRoute(), router = useRouter(), cache = useQueryClient();
 const id = computed(() => String(route.params.id ?? '')), selectedId = computed(() => typeof route.query.prediction === 'string' ? route.query.prediction : '');
 const offset = ref(0), busy = ref(false), error = ref(''), conflict = ref(false);
 const pending = ref<V1PredictionCreate | null>(null);
-const scope = ref<Tier1Scope|null>(null), scopeInvalid=ref(false); let controller: AbortController | null = null;
+let controller: AbortController | null = null;
 const scenario = useQuery({ queryKey: computed(() => ['scenario', id.value]),
   queryFn: ({ signal }) => readCatalog(`scenarios/${id.value}`, ScenarioSnapshotSchema, signal) });
 const history = useQuery({ queryKey: computed(() => ['predictions', id.value, offset.value]),
@@ -23,18 +23,17 @@ watch(selected, s => { if (s && pending.value?.requestId === s.requestId) {
   pending.value = null; error.value = ''; void cache.invalidateQueries({ queryKey: ['predictions', id.value] });
 } });
 watch(id, () => { controller?.abort(); busy.value = false; error.value = ''; conflict.value = false; pending.value = null;
-  offset.value = 0; scope.value = null; scopeInvalid.value=false; });
+  offset.value = 0;  });
 onBeforeUnmount(() => controller?.abort());
 async function submit(retry = false) {
   error.value = ''; conflict.value = false;
   if (!scenario.data.value || busy.value) return;
   let body = retry ? pending.value : null;
   if (!body) {
-    if(scopeInvalid.value){error.value='Заполните проверку турнира: ID лиги OpenDota, название, период UTC, HTTPS-источник и обоснование от 20 символов.';return;}
     try {
       body = V1PredictionCreateSchema.parse({ requestId: crypto.randomUUID(), expectedRevision: scenario.data.value.revision,
-        purpose: 'what_if_single_map', targetScope: scope.value });
-    } catch { error.value = 'Заполните проверку турнира: ID лиги OpenDota, название, период UTC, HTTPS-источник и обоснование от 20 символов.'; return; }
+        purpose: 'what_if_single_map', targetScope: null });
+    } catch { error.value = 'Проверьте сохранённую редакцию сценария.'; return; }
   }
   const scenarioId = id.value, activeController = new AbortController();
   pending.value = body; busy.value = true; controller = activeController;
@@ -62,13 +61,12 @@ async function refresh() { if (conflict.value) pending.value = null; error.value
     <p v-if="scenario.error.value" role="alert" class="error">{{ scenario.error.value.message }}</p>
     <section v-if="scenario.data.value" class="panel" aria-label="Новый расчёт">
       <h2>{{ scenario.data.value.input.title }} · редакция {{ scenario.data.value.revision }}</h2>
-      <p>Команда A #{{ scenario.data.value.input.teamAId }} — команда B #{{ scenario.data.value.input.teamBId }}.</p>
+      <ForecastLineups :input="scenario.data.value.input" />
       <p>Плановое начало: {{ dateLabel(scenario.data.value.input.scheduledAt) }}. Выбранный срез: {{ dateLabel(scenario.data.value.input.cutoffAt) }}.</p>
       <form @submit.prevent="submit()">
         <fieldset :disabled="busy">
-          <legend>Проверка турнира</legend>
-          <Tier1ScopeSelector :key="id" v-model="scope" :local-league-id="scenario.data.value.input.context.leagueId??null" :scheduled-at="scenario.data.value.input.scheduledAt" @invalid="scopeInvalid=$event" />
-          <p class="hint">ID OpenDota сопоставляется с лигой сохранённого сценария. Без проверки турнира попытка сохранится с причиной недоступности.</p>
+          <legend>Расчёт по сохранённому составу</legend>
+          <p class="hint">Подтверждать Tier 1 не требуется. Неизвестный уровень турнира будет отмечен в результате.</p>
           <button type="submit">{{ busy ? 'Расчёт и сохранение…' : 'Рассчитать и сохранить попытку' }}</button>
         </fieldset>
       </form>

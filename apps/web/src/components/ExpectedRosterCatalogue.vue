@@ -2,7 +2,7 @@
 import {computed,reactive,ref,watch,onBeforeUnmount,nextTick} from 'vue';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {RosterCatalogueStateSchema,RosterCatalogueBindingSchema,RosterCataloguePreparedSchema,type RosterCataloguePrepared,type RosterCatalogueCandidate,type RosterCatalogueBinding} from '@dota/contracts';
-import {readCatalog,dateLabel} from '../catalog';
+import {readCatalog,dateLabel,CatalogRequestError} from '../catalog';
 import {ownerAuth} from '../auth';
 import RosterCataloguePicker from './RosterCataloguePicker.vue';
 import {preparedTeamView,preferredHistoryCandidate,type RosterPreparationNotice} from '../roster-preparation';
@@ -13,16 +13,19 @@ const automaticAttempts=new Set<string>(),automaticSaves=new Set<string>();
 const opened=ref(false),registrySha=ref(''),notice=ref('');
 const prepared=ref<RosterCataloguePrepared|null>(null),preparing=ref(false);
 const cache=useQueryClient();
-type Draft={team:RosterCatalogueCandidate|null;accounts:Record<string,RosterCatalogueCandidate|null>;selected:Record<string,boolean>;confirmed:boolean;busy:boolean;error:string;pending:{text:string;id:string}|null};
+type Draft={team:RosterCatalogueCandidate|null;accounts:Record<string,RosterCatalogueCandidate|null>;selected:Record<string,boolean>;confirmed:boolean;busy:boolean;needsReread:boolean;error:string;pending:{text:string;id:string}|null};
 const drafts=reactive<Record<string,Draft>>({});
 const showConfirmed=reactive<Record<string,boolean>>({}),editedAccounts=reactive(new Set<string>());
 const query=useQuery({queryKey:computed(()=>['roster-catalogue',props.matchId,props.rosterVersion??'']),
  queryFn:({signal})=>readCatalog(`upcoming/${props.matchId}/catalogue`,RosterCatalogueStateSchema,signal)});
-watch(()=>query.data.value,data=>{for(const team of data?.teams??[]){if(drafts[team.providerTeamId]||!team.players.length)continue;
+watch(()=>query.data.value,(data,previous)=>{for(const team of data?.teams??[]){
+ const existing=drafts[team.providerTeamId],old=previous?.teams.find(t=>t.providerTeamId===team.providerTeamId);
+ if(existing&&previous&&(data?.rosterSha256!==previous.rosterSha256||team.binding?.revision!==old?.binding?.revision||JSON.stringify(team.players.map(p=>[p.providerPlayerId,p.linkToken]))!==JSON.stringify(old?.players.map(p=>[p.providerPlayerId,p.linkToken])))){existing.confirmed=false;existing.pending=null;}
+ if(existing||!team.players.length)continue;
  const sourceTeam=team.binding?.usable?team.binding.source.team:undefined;
  drafts[team.providerTeamId]={team:sourceTeam?{id:sourceTeam.externalTeamId,name:team.binding!.teamName,provider:sourceTeam.provider,teamId:null,teamName:null}:null,accounts:Object.fromEntries(team.players.map(p=>{const saved=team.binding?.usable?team.binding.players.find(s=>s.providerPlayerId===p.providerPlayerId&&s.identityStatus==='verified'):undefined;
   return [p.providerPlayerId,saved?{id:saved.accountId,name:saved.name,localPlayerId:saved.playerId,teamId:null,teamName:null}:null];})),
-  selected:Object.fromEntries(team.players.map(p=>[p.providerPlayerId,team.binding?.usable?team.binding.players.some(s=>s.providerPlayerId===p.providerPlayerId):team.players.length===5])),confirmed:false,busy:false,error:'',pending:null};
+  selected:Object.fromEntries(team.players.map(p=>[p.providerPlayerId,team.binding?.usable?team.binding.players.some(s=>s.providerPlayerId===p.providerPlayerId):team.players.length===5])),confirmed:false,busy:false,needsReread:false,error:'',pending:null};
 }if(data)emit('saved',data.teams.map(t=>t.binding?.usable?t.binding:null));},{immediate:true});
 watch(()=>props.rosterVersion,()=>{for(const d of Object.values(drafts))d.confirmed=false;});
 function observed(sha:string|null){if(!sha)return;if(registrySha.value&&registrySha.value!==sha){for(const d of Object.values(drafts))d.confirmed=false;notice.value='Каталог источника обновился. Проверьте выбранные аккаунты перед подтверждением.';}registrySha.value=sha;}
@@ -61,11 +64,16 @@ async function preparePlayers(automatic=false){if(preparing.value)return;prepari
  }catch(e){notice.value=e instanceof Error?e.message:'Не удалось подготовить игроков.';}finally{preparing.value=false;}
 }
 function selection(id:string){const d=drafts[id]!;return (query.data.value?.teams.find(t=>t.providerTeamId===id)?.players??[]).filter(p=>d.selected[p.providerPlayerId]);}
-function valid(id:string){const d=drafts[id]!,selected=selection(id),ids=selected.map(p=>d.accounts[p.providerPlayerId]?.id);
- return !!d.team&&d.confirmed&&(!!registrySha.value||selected.every(p=>{const a=d.accounts[p.providerPlayerId];return a?.localPlayerId||a?.profileSha256;}))&&!!query.data.value?.rosterSha256&&selected.length===5&&ids.every(Boolean)&&new Set(ids).size===5;}
+async function reread(){
+ for(const d of Object.values(drafts))d.confirmed=false;
+ const fresh=await query.refetch();
+ if(!fresh.isError)for(const d of Object.values(drafts)){d.needsReread=false;d.pending=null;}
+}
+function valid(id:string,requireConfirmation=true){const d=drafts[id]!,selected=selection(id),ids=selected.map(p=>d.accounts[p.providerPlayerId]?.id);
+ return !d.needsReread&&!query.isFetching.value&&!!d.team&&(!requireConfirmation||d.confirmed)&&(!!registrySha.value||selected.every(p=>{const a=d.accounts[p.providerPlayerId];return a?.localPlayerId||a?.profileSha256;}))&&!!query.data.value?.rosterSha256&&selected.length===5&&ids.every(Boolean)&&new Set(ids).size===5;}
 async function save(id:string,index:number,openEditor=true,automatic=false){const d=drafts[id]!,state=query.data.value;if(!state||!valid(id))return;d.busy=true;d.error='';
  const raw={providerTeamId:id,teamId:d.team!.id,...(d.team!.provider==='pandascore'?{teamProvider:'pandascore'}:{}),expectedRevision:state.teams.find(t=>t.providerTeamId===id)?.binding?.revision??0,
-  rosterSha256:state.rosterSha256,registrySha256:selection(id).some(p=>{const a=d.accounts[p.providerPlayerId];return a&&!a.localPlayerId&&!a.profileSha256;})?registrySha.value||null:null,players:selection(id).map(p=>{const account=d.accounts[p.providerPlayerId]!,linkToken=preparedRow(id,p.providerPlayerId)?.linkToken??p.linkToken;return {providerPlayerId:p.providerPlayerId,accountId:account.id,...(account.profileSha256?{profileSha256:account.profileSha256}:{}),...(account.localPlayerId?{localPlayerId:account.localPlayerId}:{}),...(linkToken?{linkToken}:{})};}),confirmedByOwner:true};
+  rosterSha256:state.rosterSha256,registrySha256:selection(id).some(p=>{const a=d.accounts[p.providerPlayerId];return a&&!a.localPlayerId&&!a.profileSha256;})?registrySha.value||null:null,players:selection(id).map(p=>{const account=d.accounts[p.providerPlayerId]!,linkToken=p.linkToken;return {providerPlayerId:p.providerPlayerId,accountId:account.id,...(account.profileSha256?{profileSha256:account.profileSha256}:{}),...(account.localPlayerId?{localPlayerId:account.localPlayerId}:{}),...(linkToken?{linkToken}:{})};}),confirmedByOwner:true};
  const text=JSON.stringify(raw);if(d.pending?.text!==text)d.pending={text,id:crypto.randomUUID()};
  try{const binding=await readCatalog(`upcoming/${props.matchId}/catalogue/apply`,RosterCatalogueBindingSchema,new AbortController().signal,{method:'POST',
   headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},body:JSON.stringify({...raw,requestId:d.pending.id})});
@@ -73,7 +81,10 @@ async function save(id:string,index:number,openEditor=true,automatic=false){cons
   const fresh=await query.refetch();
   for(const team of prepared.value?.teams??[])for(const player of team.players){const current=fresh.data?.teams.find(t=>t.providerTeamId===team.providerTeamId)?.players.find(p=>p.providerPlayerId===player.providerPlayerId);if(current?.linkToken)player.linkToken=current.linkToken;}
   await cache.invalidateQueries({queryKey:['upcoming-rosters']});d.confirmed=false;d.pending=null;
- }catch(e){d.error=e instanceof Error?e.message:'Не удалось сохранить связи.';}finally{d.busy=false;}
+  return !disposed&&binding.usable?binding:null;
+ }catch(e){d.error=e instanceof Error?e.message:'Не удалось сохранить связи.';
+  if(e instanceof CatalogRequestError&&e.status===409){d.confirmed=false;d.needsReread=true;d.pending=null;}
+ }finally{d.busy=false;}
 }
 const notices=computed<RosterPreparationNotice[]>(()=>query.data.value?.teams.map((team,index)=>{
  const slot=index===0?'A':'B',d=drafts[team.providerTeamId],row=prepared.value?.rosterSha256===query.data.value?.rosterSha256?prepared.value?.teams.find(t=>t.providerTeamId===team.providerTeamId):null;
@@ -82,7 +93,7 @@ const notices=computed<RosterPreparationNotice[]>(()=>query.data.value?.teams.ma
   const other=drafts[t.providerTeamId];return other?Object.entries(other.selected).flatMap(([id,on])=>on&&other.accounts[id]?[other.accounts[id]!.id]:[]):[];
  });
  const view=row&&d?preparedTeamView(row,d.accounts,selection(team.providerTeamId).map(p=>p.providerPlayerId),reserved):null;
- return {slot,view,message:team.binding?.usable?'Сохранённая пятёрка доступна.':view?.message??(preparing.value?'Подготавливаем аккаунты игроков…':!team.players.length?'Заявка отсутствует. Обновите составы.':'Подготовка аккаунтов ещё не выполнена.'),busy:preparing.value||!!d?.busy,error:d?.error||notice.value};
+ return {slot,view,message:team.binding?.usable?'Сохранённая пятёрка доступна.':view?.message??(preparing.value?'Подготавливаем аккаунты игроков…':!team.players.length?'Заявка отсутствует. Обновите составы.':'Подготовка аккаунтов ещё не выполнена.'),busy:query.isFetching.value||preparing.value||!!d?.busy,error:d?.error||notice.value};
 })??(['A','B'] as const).map(slot=>({slot,view:null,message:query.error.value?'Не удалось прочитать сохранённые составы.':'Читаем составы и проверяем аккаунты…',busy:query.isFetching.value,error:query.error.value?.message??''})));
 watch(notices,value=>emit('preparation',value),{immediate:true,deep:true});
 watch([()=>query.data.value,()=>props.automaticAllowed,preparing],([state])=>{
@@ -96,24 +107,29 @@ watch(notices,rows=>{for(const n of rows){
  if(automaticSaves.has(key))continue;automaticSaves.add(key);d.confirmed=true;void save(team.providerTeamId,n.slot==='A'?0:1,false,true);
 }},{deep:true});
 function togglePlayer(slot:'A'|'B',id:string,on:boolean){const team=query.data.value?.teams[slot==='A'?0:1],d=team&&drafts[team.providerTeamId];if(d&&!d.busy){d.selected[id]=on;d.confirmed=false;}}
-async function usePrepared(slot:'A'|'B'){
+function canUsePrepared(slot:'A'|'B'){
  const n=notices.value.find(n=>n.slot===slot),team=query.data.value?.teams[slot==='A'?0:1],d=team&&drafts[team.providerTeamId];
- if(!n?.view?.canUse||n.busy||!team||!d)return;d.confirmed=true;await save(team.providerTeamId,slot==='A'?0:1,false);
+ return !!n?.view?.canUse&&!n.busy&&!!team&&!!d&&!d.busy&&valid(team.providerTeamId,false);
+}
+async function usePrepared(slot:'A'|'B'){
+ const team=query.data.value?.teams[slot==='A'?0:1],d=team&&drafts[team.providerTeamId];
+ if(!team||!d||!canUsePrepared(slot))return null;d.confirmed=true;
+ return await save(team.providerTeamId,slot==='A'?0:1,false)??null;
 }
 async function openPreparation(){opened.value=true;await nextTick();bridge.value?.querySelector('button')?.focus();bridge.value?.scrollIntoView({block:'start'});}
-defineExpose({togglePlayer,usePrepared,openPreparation});
+defineExpose({togglePlayer,usePrepared,canUsePrepared,openPreparation});
 </script>
 <template>
  <section ref="bridge" class="catalogue-bridge" aria-label="Подготовка составов из заявки">
   <button type="button" @click="opened=!opened">{{opened?'Свернуть подготовку':'Подготовить составы'}}</button>
   <p v-if="query.isPending.value" role="status">Читаем сохранённые составы…</p>
-  <p v-if="query.error.value" class="error" role="alert">{{query.error.value.message}} <button type="button" @click="query.refetch()">Повторить чтение составов</button></p>
+  <p v-if="query.error.value" class="error" role="alert">{{query.error.value.message}} <button type="button" :disabled="query.isFetching.value||Object.values(drafts).some(d=>d.busy)" @click="reread">Повторить чтение составов</button></p>
   <template v-if="opened">
    <h3>Соединить заявку с историей игроков</h3>
    <p>Подготовьте игроков всей заявки. Сохранённые связи работают при смене ника и команды; новые совпадения нужно проверить.</p>
    <p v-if="query.isFetching.value" role="status">Читаем сохранённые связи…</p>
    <p v-if="notice" class="warning" role="status">{{notice}}</p>
-   <button type="button" :disabled="query.isFetching.value" @click="query.refetch()">Перечитать связи</button>
+   <button type="button" :disabled="query.isFetching.value||Object.values(drafts).some(d=>d.busy)" @click="reread">Перечитать связи</button>
    <button type="button" :disabled="preparing||query.isFetching.value||!query.data.value?.rosterSha256" @click="preparePlayers(false)">{{preparing?'Подготавливаем игроков…':'Подготовить игроков'}}</button>
    <p v-if="prepared" role="status">Подготовлено {{dateLabel(prepared.preparedAt)}}. Повторная подготовка сохраняет ваш выбор. Подсказки не подтверждают участие в матче.</p>
    <p class="hint">Совпадение ника — подсказка для поиска. Проверьте числовые ID. Команда в OpenDota может устареть после трансфера. При заявке больше пяти участников выберите нужных пятерых.</p>
@@ -148,13 +164,13 @@ defineExpose({togglePlayer,usePrepared,openPreparation});
       </div>
       <p>Выбрано участников: {{selection(team.providerTeamId).length}} / 5.</p>
       <p>Выбрано аккаунтов: {{selection(team.providerTeamId).filter(p=>drafts[team.providerTeamId]!.accounts[p.providerPlayerId]).length}} / 5. Проверьте пять разных ID и подтвердите соответствие ниже.</p>
-      <label class="check-row"><input v-model="drafts[team.providerTeamId]!.confirmed" type="checkbox" />Подтверждаю соответствие команды и пяти аккаунтов {{index===0?'A':'B'}}</label>
+      <label class="check-row"><input v-model="drafts[team.providerTeamId]!.confirmed" type="checkbox" :disabled="drafts[team.providerTeamId]!.busy||drafts[team.providerTeamId]!.needsReread||query.isFetching.value" />Подтверждаю соответствие команды и пяти аккаунтов {{index===0?'A':'B'}}</label>
       <button type="button" :disabled="drafts[team.providerTeamId]!.busy||!valid(team.providerTeamId)" @click="save(team.providerTeamId,index)">Сохранить связи и подставить пятёрку {{index===0?'A':'B'}}</button>
       <p v-if="drafts[team.providerTeamId]!.error" class="error" role="alert">{{drafts[team.providerTeamId]!.error}}</p>
      </template>
     </details>
    </section></div>
-   <p class="hint">После подстановки проверьте роли ниже и подтвердите состав для одной карты. Подготовка аккаунтов не загружает автоматически историю карт и не запускает прогноз.</p>
+   <p class="hint">Проверьте выбранные пятёрки и роли в общем блоке выше и подтвердите их одним действием. Подготовка аккаунтов не загружает автоматически историю карт и не запускает прогноз.</p>
   </template>
  </section>
 </template>

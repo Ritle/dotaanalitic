@@ -61,15 +61,18 @@ test('filters by distinct BIGINT provider IDs despite identical names, preserves
  await expect(page.getByRole('button',{name:'Выбрать',exact:true})).toHaveCount(0);await expect(page.getByText(/не на полный календарь/)).toBeVisible();
  await filter(page).selectOption('');await expect(page.getByRole('button',{name:'Выбрать',exact:true})).toHaveCount(4);await unchanged();
 });
-test('changing event clears the selected meeting and unsaved confirmation even if the same meeting is selected again',async({page})=>{
+test('changing event clears the selected meeting and unsaved manual choices even if the same meeting is selected again',async({page})=>{
  await filter(page).selectOption(eventA);await page.getByRole('button',{name:'Выбрать',exact:true}).first().click();
  await panel(page).getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();
- await panel(page).getByRole('searchbox',{name:'Команда A в локальной базе',exact:true}).fill('unsaved choice');
- await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
+ for(const [slot,id] of [['A','11'],['B','22']]){
+  const picker=page.getByRole('region',{name:`Команда ${slot} в локальной базе`,exact:true}),input=picker.getByRole('searchbox');
+  await input.fill(id!);await input.press('Enter');await picker.locator(`button[data-catalog-id="${id}"]`).click();
+ }
+ await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toBeDisabled();
  await filter(page).selectOption(eventB);await expect(panel(page)).toHaveCount(0);
  await filter(page).selectOption(eventA);await expect(panel(page)).toHaveCount(0);await page.getByRole('button',{name:'Выбрать',exact:true}).first().click();
  await panel(page).getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();
- await expect(page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true})).not.toBeChecked();
+ await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toHaveAttribute('aria-pressed','false');
  await expect(panel(page).getByRole('searchbox',{name:'Команда A в локальной базе',exact:true})).toHaveValue('');await unchanged();
 });
 test('a late roster response for the former event cannot replace the newly selected event',async({page})=>{

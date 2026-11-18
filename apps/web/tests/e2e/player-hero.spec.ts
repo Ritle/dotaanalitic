@@ -39,14 +39,15 @@ test('player-hero report preserves roles, missing metric coverage, explicit patc
   const table=page.getByRole('table',{name:'Игрок, герой и подтверждённая позиция',exact:true});
   await expect(table.locator('tbody tr')).toHaveCount(2);await expect(table).toContainText('роль 1');await expect(table).toContainText('роль 2');
   await expect(table).toContainText('неизвестно · N 0/1');
-  await page.locator('section').last().screenshot({path:'test-results/player-hero-desktop.png'});
+  await page.locator('[aria-labelledby="player-hero-title"]').screenshot({path:'test-results/player-hero-desktop.png'});
   await page.setViewportSize({width:360,height:800});
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await page.locator('section').last().screenshot({path:'test-results/player-hero-mobile.png'});
+  await page.locator('[aria-labelledby="player-hero-title"]').screenshot({path:'test-results/player-hero-mobile.png'});
   await page.getByLabel('Герои: подтверждённая позиция',{exact:true}).selectOption('2');
   await page.getByRole('button',{name:'Применить фильтры героев',exact:true}).click();
   await expect(summary).toContainText('N = 1');await expect(summary).toContainText('KDA · N 0/1');
   await expect(table.locator('tbody tr')).toHaveCount(1);await expect(table).toContainText('600 · N 1/1');
+  await page.getByRole('region',{name:'Герои: герой',exact:true}).getByText('Технический ID',{exact:true}).click();
   await page.getByLabel('Герои: ID героя',{exact:true}).fill('999');
   await page.getByRole('button',{name:'Применить фильтры героев',exact:true}).click();
   await expect(summary).toContainText('N = 0');await expect(page.getByText('Нет подтверждённых профессиональных игр на герое за выбранный период.',{exact:false})).toBeVisible();

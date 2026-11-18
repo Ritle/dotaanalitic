@@ -81,10 +81,10 @@ test('Panda assigns roles without moving cards; manual role overrides survive un
  const [response]=await Promise.all([page.waitForResponse(r=>r.url().endsWith('/lineup-role-profiles')&&r.request().postDataJSON()?.refreshProfiles===true),region(page).getByRole('button',{name:'Обновить профили API A',exact:true}).click()]);
  expect((await response.json()).canAutoApply).toBe(false);
  await expect(region(page).getByText('Определено автоматически · PandaScore',{exact:true})).toHaveCount(5);
- const grounds=region(page).locator('details').filter({has:page.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true})});
- await expect(grounds.getByText(/^STRATZ:/)).not.toBeVisible();await grounds.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true}).click();
+ const grounds=region(page).locator(`[data-role-player-id="${q.lineupA[0]!.playerId}"] > details`);
+ await expect(grounds.getByText(/^STRATZ:/)).not.toBeVisible();await grounds.locator('summary').first().click();
  await expect(grounds.getByText('PandaScore: 5 · учтено',{exact:true})).toBeVisible();await expect(grounds.getByText(/^STRATZ:/)).toContainText('Источник не настроен');
- await grounds.getByText(`Основания игрока ${q.lineupA[0]!.playerId}`,{exact:true}).click();
+ await grounds.locator('summary').first().click();
  await expect(region(page).getByText('Источники расходятся',{exact:false}).first()).toBeVisible();
  await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[0]!.playerId!);
  await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toHaveValue('5');

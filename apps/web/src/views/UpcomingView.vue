@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import {computed,nextTick,ref,watch} from 'vue';
+import {computed,nextTick,onMounted,onBeforeUnmount,ref,watch} from 'vue';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {SchedulePageResponseSchema,UpcomingRostersResponseSchema,SCHEDULE_PAGE_LIMIT} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
-import {ownerAuth} from '../auth';
+import {ownerAuth,accountAccess} from '../auth';
+import {scheduleAutoAction,AUTO_SCHEDULE_CHECK_MS} from '../schedule-auto-refresh';
 import UpcomingScenario from '../components/UpcomingScenario.vue';
 import UpcomingTarget from '../components/UpcomingTarget.vue';
 import {upcomingParticipants,upcomingParticipantKey,upcomingTeamLabel} from '../upcoming-participants';
 const cache=useQueryClient(),selectedId=ref(''),busy=ref(false),error=ref('');
-const eventFilter=ref(''),page=ref(1);
+const eventFilter=ref(''),page=ref(1),autoEnabled=ref(true);
+const visible=ref(document.visibilityState==='visible'),online=ref(navigator.onLine);
+const lastAttempts=new Map<number,number>(),lastReads=new Map<number,number>();
+let autoTimer:ReturnType<typeof setInterval>|undefined,requestController:AbortController|undefined,disposed=false;
 const pageKey=(number:number)=>number===1?['upcoming']:['upcoming',number];
 const pagePath=(number:number,refresh=false)=>`upcoming${refresh?'/refresh':''}${number===1?'':`?page=${number}`}`;
 const mutation=()=>({method:'POST',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},body:'{}'});
@@ -26,8 +30,12 @@ async function changePage(number:number){
   try{
     const key=pageKey(number),saved=await cache.fetchQuery({queryKey:key,staleTime:60000,
       queryFn:({signal})=>readCatalog(pagePath(number),SchedulePageResponseSchema,signal)});
-    if(saved.configured&&saved.reason==='not_loaded')cache.setQueryData(key,
-      await readCatalog(pagePath(number,true),SchedulePageResponseSchema,new AbortController().signal,mutation()));
+    if(saved.configured&&saved.reason==='not_loaded'){
+      lastAttempts.set(number,Date.now());
+      const loaded=await readCatalog(pagePath(number,true),SchedulePageResponseSchema,new AbortController().signal,mutation());
+      if(loaded.status==='ready')lastAttempts.delete(number);
+      cache.setQueryData(key,loaded);
+    }
     selectedId.value='';eventFilter.value='';page.value=number;
   }catch(e){error.value=e instanceof Error?e.message:'Не удалось загрузить страницу.';}finally{busy.value=false;}
 }
@@ -54,11 +62,20 @@ const message=(reason:string|null|undefined)=>({not_configured:'Источник
   source_unavailable:'Не удалось обновить источник. Сохранённые данные показаны ниже.',refresh_in_progress:'Обновление уже выполняется. Перечитайте сохранённые данные через несколько секунд.',
   cooldown:'Повторное обновление пока недоступно.',invalid_cached_data:'Сохранённые данные требуют обновления.',not_loaded:'Данные ещё не загружены.'}[reason??'']??'');
 async function refresh(kind:'schedule'|'rosters'){
-  busy.value=true;error.value='';const id=tournament.value;
+  if(busy.value||disposed)return;
+  busy.value=true;error.value='';const id=tournament.value;requestController=new AbortController();
   try{
     const init=mutation(),number=page.value;
-    if(kind==='schedule')cache.setQueryData(pageKey(number),await readCatalog(pagePath(number,true),SchedulePageResponseSchema,new AbortController().signal,init));
-    else cache.setQueryData(['upcoming-rosters',id],await readCatalog(`upcoming/tournaments/${id}/refresh`,UpcomingRostersResponseSchema,new AbortController().signal,init));
+    if(kind==='schedule'){
+      lastAttempts.set(number,Date.now());lastReads.set(number,Date.now());
+      await cache.cancelQueries({queryKey:pageKey(number),exact:true});
+      const data=await readCatalog(pagePath(number,true),SchedulePageResponseSchema,requestController.signal,init);
+      if(data.status==='ready')lastAttempts.delete(number);
+      if(!disposed)cache.setQueryData(pageKey(number),data);
+    }else{
+      const data=await readCatalog(`upcoming/tournaments/${id}/refresh`,UpcomingRostersResponseSchema,requestController.signal,init);
+      if(!disposed)cache.setQueryData(['upcoming-rosters',id],data);
+    }
   }catch(e){error.value=e instanceof Error?e.message:'Не удалось обновить данные.';}finally{busy.value=false;}
 }
 // Selecting a match authorizes its initial roster lookup. Existing/stale snapshots stay manual;
@@ -68,15 +85,31 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
   if(!id||loading||fetching||!data?.configured||data.snapshot||data.reason!=='not_loaded'||initialRosterAttempts.has(id))return;
   initialRosterAttempts.add(id);void refresh('rosters');
 });
+// Check locally every 30s; only an expired/missing current page causes a bounded POST.
+async function automaticTick(){
+ if(disposed)return;
+ const action=scheduleAutoAction({data:schedule.data.value,now:Date.now(),receivedAt:schedule.dataUpdatedAt.value||Date.now(),enabled:autoEnabled.value,
+  allowed:!!ownerAuth.value&&accountAccess.value?.role==='owner',paused:!visible.value||!online.value||!!selectedId.value||busy.value||schedule.isFetching.value,
+  lastAttemptAt:lastAttempts.get(page.value),lastReadAt:lastReads.get(page.value)});
+ if(action==='refresh')await refresh('schedule');
+ else if(action==='read'){lastReads.set(page.value,Date.now());await schedule.refetch();}
+}
+function wake(){visible.value=document.visibilityState==='visible';online.value=navigator.onLine;void automaticTick();}
+watch([()=>schedule.data.value,schedule.isFetching,busy,page,selectedId,autoEnabled,accountAccess],()=>void automaticTick(),{flush:'post'});
+onMounted(()=>{document.addEventListener('visibilitychange',wake);window.addEventListener('online',wake);window.addEventListener('offline',wake);autoTimer=setInterval(wake,AUTO_SCHEDULE_CHECK_MS);wake();});
+onBeforeUnmount(()=>{disposed=true;requestController?.abort();if(autoTimer)clearInterval(autoTimer);document.removeEventListener('visibilitychange',wake);window.removeEventListener('online',wake);window.removeEventListener('offline',wake);});
 </script>
 <template>
   <section class="shell upcoming"><RouterLink to="/">← Личный кабинет</RouterLink>
     <p class="eyebrow">DOTA 2 · РАСПИСАНИЕ</p><h1>Предстоящие матчи</h1>
     <p>Выберите встречу, сверьте ожидаемые составы и подготовьте свой сценарий одной карты.</p>
+    <p>Уже начавшиеся встречи — в разделе <RouterLink to="/live">Live — матчи сейчас</RouterLink>.</p>
     <section class="panel" aria-label="Расписание встреч">
       <div class="account-row"><h2>Ближайшие встречи</h2>
         <button :disabled="busy||!schedule.data.value?.configured" @click="refresh('schedule')">{{busy?'Обновление…':'Обновить расписание'}}</button></div>
       <p class="hint">Источник: PandaScore · до 20 встреч на странице. Время — московское. Каждая страница обновляется не чаще раза в пять минут.</p>
+      <label class="schedule-auto"><input v-model="autoEnabled" type="checkbox" :disabled="accountAccess?.role!=='owner'" /> Автообновление расписания раз в 5 минут</label>
+      <p v-if="autoEnabled" class="hint" role="status">{{selectedId?'Автообновление на паузе, пока открыта встреча. Составы и роли сохраняются; расписание можно обновить вручную.':!online?'Нет соединения: автообновление на паузе.':'Автообновление работает для текущей страницы в активной вкладке. Кэш и паузы источника учитываются.'}}</p>
       <nav class="schedule-pages" aria-label="Страницы расписания">
         <button :disabled="busy||schedule.isFetching.value||page===1" @click="changePage(page-1)">Предыдущая страница</button>
         <span role="status">Страница {{page}}</span>
@@ -107,7 +140,7 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
           <tbody><tr v-for="m in matches" :key="m.providerMatchId" :class="{chosen:selectedId===m.providerMatchId}">
             <td>{{moscow(m.scheduledAt)}}</td><td><span class="match-name">{{upcomingParticipants(m).label}}</span>
               <span v-if="!upcomingParticipants(m).complete&&m.name" class="hint source-name">Запись источника: {{m.name}}</span>
-              <button :aria-pressed="selectedId===m.providerMatchId" @click="selectMatch(m.providerMatchId)">Выбрать</button></td>
+              <button :disabled="busy||schedule.isFetching.value" :aria-pressed="selectedId===m.providerMatchId" @click="selectMatch(m.providerMatchId)">Выбрать</button></td>
             <td>{{m.league.name??'Турнир не назван'}} · {{m.eventSeries?.name}} · {{m.tournament.name??'Стадия не указана'}}</td>
             <td>{{m.seriesBestOf?'BO'+m.seriesBestOf:'Не объявлен'}}</td>
           </tr></tbody>
@@ -116,6 +149,7 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
     </section>
     <p v-if="error" class="error" role="alert">{{error}}</p>
     <section v-if="selected" ref="selectedPanel" class="panel" tabindex="-1" aria-label="Ожидаемые составы">
+      <button type="button" :disabled="busy" @click="selectedId=''">Закрыть встречу</button>
       <div class="account-row"><h2>{{participants?.complete?(selected.name??participants.label):participants?.label}}</h2><button :disabled="busy||!rosters.data.value?.configured" @click="refresh('rosters')">Обновить составы</button></div>
       <p>{{moscow(selected.scheduledAt)}} · {{selected.league.name}} · {{selected.tournament.name}}</p>
       <p v-if="!participants?.complete&&selected.name" class="hint">Запись источника: {{selected.name}}</p>
@@ -148,6 +182,7 @@ watch(()=>[tournament.value,busy.value,rosters.isFetching.value,rosters.data.val
   </section>
 </template>
 <style scoped>
+.schedule-auto{display:flex;align-items:center;gap:8px;margin-block:12px}.schedule-auto input{width:auto;flex:none}
 .event-filter{display:grid;gap:var(--space-2);margin-block:var(--space-4);min-width:0}.event-filter select{width:100%;max-width:100%;min-width:0}
 .expected-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-6)}article{min-width:0}article li{padding-block:4px;overflow-wrap:anywhere}
 .upcoming td{vertical-align:top;min-width:130px}.chosen{background:var(--color-elevated)}.upcoming h2{overflow-wrap:anywhere}

@@ -1,3 +1,4 @@
+import {syntheticPlayerHistory} from '../../../../tests/helpers/player-history';
 import {test,expect,type Page} from '@playwright/test';
 import {randomBytes} from 'node:crypto';
 import type {FastifyInstance} from 'fastify';
@@ -22,7 +23,7 @@ test.beforeAll(async()=>{
   await new AuthService(database.db).provision('synthetic-workflow-browser',password);
   const schedule=syntheticSchedule();scheduledAt=schedule[0]!.scheduled_at;
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),
-    {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():schedule))});
+    {db:database.db,logger:false,playerHistoryProvider:()=>syntheticPlayerHistory({mode:'empty'}),catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():schedule))});
   await api.listen({host:'127.0.0.1',port:3151});boss=await createHistoryQueue(database.url);
   await registerHistoryWorker(boss,database.db,()=>syntheticHistoryProvider());
 });
@@ -44,7 +45,7 @@ test('schedule to manual scenario, full draft and immutable report keeps lineups
   await pick(page,'Команда A в локальной базе',q.teamAId);await pick(page,'Команда B в локальной базе',q.teamBId);
   for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(page,`${slot}: игрок ${p.rolePos}`,p.playerId!);
   await page.getByLabel('A: замена игрока 5',{exact:true}).check();
-  await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
+  await page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true}).click();
   await page.getByText('Точные даты, патч и лига',{exact:true}).click();
   await page.getByLabel('Пятёрки: начало UTC',{exact:true}).fill('2024-01-02T00:00');
   await page.getByLabel('Пятёрки: срез UTC',{exact:true}).fill('2024-01-03T00:00');

@@ -3,8 +3,8 @@ import {computed,ref,useId,watch} from 'vue';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {ContextCatalogSchema,type ContextKind} from '../../../api/src/modules/catalog/context-catalog-contract';
 import {readCatalog,dateLabel} from '../catalog';
-import {contextNameKey,useContextLabel} from '../context-catalog';
-const props=defineProps<{kind:ContextKind;label:string;idLabel:string;modelValue:string}>();
+import {contextNameKey,useContextLabel,emptyContextLabel,unnamedContextLabel} from '../context-catalog';
+const props=defineProps<{kind:ContextKind;label:string;idLabel:string;modelValue:string;emptyLabel?:string;selectionLabel?:string}>();
 const emit=defineEmits<{'update:modelValue':[value:string]}>();
 const uid=useId(),cache=useQueryClient(),searchText=ref(''),term=ref<string|null>(null),offset=ref(0),editingId=ref(false);
 const {query:selected,name}=useContextLabel(()=>props.kind,()=>editingId.value?'':props.modelValue);
@@ -23,11 +23,11 @@ function clear(){emit('update:modelValue','');term.value=null;searchText.value='
  <section class="context-picker" :aria-label="label">
   <label :for="uid">{{label}}</label>
   <div class="search"><input :id="uid" v-model="searchText" type="search" maxlength="80" placeholder="Поиск по названию" @keydown.enter.prevent="search" /><button type="button" :disabled="results.isFetching.value" @click="search">Найти</button></div>
-  <div role="status" :data-selected-id="modelValue" class="selected"><span>Фильтр: {{modelValue?(editingId?'Редактируется числовой ключ':name):kind==='patches'?'Все патчи':'Все турниры'}}</span><button v-if="modelValue" type="button" @click="clear">Сбросить</button></div>
-  <p class="hint">Поиск не меняет фильтр. Выберите запись из локального справочника.</p>
+  <div role="status" :data-selected-id="modelValue" class="selected"><span>{{selectionLabel??'Фильтр'}}: {{modelValue?(editingId?'Редактируется числовой ключ':name):emptyLabel??emptyContextLabel(kind)}}</span><button v-if="modelValue" type="button" @click="clear">Сбросить</button></div>
+  <p class="hint">{{selectionLabel?'Поиск не меняет выбранную запись.':'Поиск не меняет фильтр.'}} Выберите запись из локального справочника.</p>
   <p v-if="modelValue&&selected.error.value" class="warning">Не удалось прочитать название. Числовой ключ сохранён.<button type="button" @click="selected.refetch()">Повторить название</button></p>
   <details><summary>Технический ID</summary><label :for="uid+'-id'">{{idLabel}}</label><input :id="uid+'-id'" :value="modelValue" inputmode="numeric" maxlength="19" @focus="editingId=true" @blur="editingId=false" @input="emit('update:modelValue',($event.target as HTMLInputElement).value)" />
-   <p class="hint">Локальный ключ, не ID внешнего провайдера. Название не подтверждает релиз патча или участие в турнире.</p>
+   <p class="hint">Локальный ключ, не ID внешнего провайдера. Подпись из текущего каталога не подтверждает историческую доступность или участие.</p>
    <p v-if="selected.data.value" class="hint">Название прочитано: {{dateLabel(selected.data.value.readAt)}}.</p>
   </details>
   <template v-if="term!==null">
@@ -35,7 +35,7 @@ function clear(){emit('update:modelValue','');term.value=null;searchText.value='
    <div v-else-if="results.error.value" role="alert"><p class="error">{{results.error.value.message}}</p><button type="button" @click="results.refetch()">Повторить поиск</button></div>
    <template v-else-if="results.data.value">
     <p v-if="!results.data.value.items.length" class="hint">Подходящие записи не найдены. Текущий фильтр сохранён.</p>
-    <ul><li v-for="item in results.data.value.items" :key="item.id"><button type="button" :data-context-id="item.id" @click="pick(item)">Выбрать {{item.name.trim()||(kind==='patches'?'Патч без названия':'Турнир без названия')}}</button>
+    <ul><li v-for="item in results.data.value.items" :key="item.id"><button type="button" :data-context-id="item.id" @click="pick(item)">Выбрать {{item.name.trim()||unnamedContextLabel(kind)}}</button>
      <p v-if="results.data.value.items.filter(i=>i.name===item.name).length>1" class="hint">Название повторяется. Сверьте локальный ID.</p><details><summary>Данные записи</summary><span>Локальный ID: {{item.id}}</span></details>
     </li></ul>
     <div class="pages"><button type="button" :disabled="offset===0" @click="offset-=20">Предыдущие названия</button><button type="button" :disabled="!results.data.value.hasMore" @click="offset+=20">Следующие названия</button></div>

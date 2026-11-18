@@ -62,6 +62,7 @@ test('compiled owner CLI and API preserve the full no-model owner journey across
   await page.getByText('Зафиксировать назначение первой карты',{exact:true}).click();
   await page.getByLabel('Участник источника для команды A',{exact:true}).selectOption('74');
   await pick(page,'Назначение: локальная команда A','11');await pick(page,'Назначение: локальная команда B','22');
+  await page.getByRole('region',{name:'Локальный турнир назначения',exact:true}).getByText('Технический ID',{exact:true}).click();
   await page.getByLabel('ID локального турнира · необязательно',{exact:true}).fill('77');
   await page.getByLabel('Источник сопоставления · HTTPS',{exact:true}).fill('https://example.test/synthetic-acceptance');
   await page.getByLabel('Обоснование сопоставления',{exact:true}).fill('Synthetic acceptance mapping by explicit organization and source IDs');

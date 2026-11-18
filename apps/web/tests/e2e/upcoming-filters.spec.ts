@@ -1,3 +1,4 @@
+import {syntheticPlayerHistory} from '../../../../tests/helpers/player-history';
 import {test,expect,type Page} from '@playwright/test';
 import {randomBytes} from 'node:crypto';
 import type {FastifyInstance} from 'fastify';
@@ -20,7 +21,7 @@ test.beforeAll(async()=>{
   await sql`UPDATE teams SET opendota_team_id=31 WHERE id=${scenarioInput().teamAId}`.execute(database.db);
   await new AuthService(database.db).provision('synthetic-filter-browser',password);
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),
-    {db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()))});
+    {db:database.db,logger:false,playerHistoryProvider:()=>syntheticPlayerHistory({mode:'empty'}),catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>new Response(JSON.stringify(url.pathname.endsWith('/rosters')?syntheticRosters():syntheticSchedule()))});
   await api.listen({host:'127.0.0.1',port:3151});boss=await createHistoryQueue(database.url);
   await registerHistoryWorker(boss,database.db,()=>syntheticHistoryProvider());
 });
@@ -29,7 +30,7 @@ const section=(page:Page)=>page.getByRole('region',{name:'Сравнение п�
 const result=(page:Page)=>page.getByRole('region',{name:'Результат сравнения пятёрок',exact:true});
 const compare=(page:Page)=>page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true});
 const field=(page:Page,label:string)=>page.getByLabel('Пятёрки: '+label,{exact:true});
-const confirmation=(page:Page)=>page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true});
+const confirmation=(page:Page)=>page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true});
 async function prepare(page:Page){
   await page.goto('/upcoming');await page.getByLabel('Логин').fill('synthetic-filter-browser');await page.getByLabel('Пароль').fill(password);
   await page.getByRole('button',{name:'Войти',exact:true}).click();await page.getByRole('link',{name:'Предстоящие матчи →'}).click();
@@ -39,7 +40,7 @@ async function prepare(page:Page){
     await item.getByRole('searchbox').press('Enter');await item.locator(`button[data-catalog-id="${id}"]`).click();};
   await pick('Команда A в локальной базе',q.teamAId);await pick('Команда B в локальной базе',q.teamBId);
   for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(`${slot}: игрок ${p.rolePos}`,p.playerId!);
-  await confirmation(page).check();
+  await confirmation(page).click();
   await page.getByText('Точные даты, патч и лига',{exact:true}).click();
   for(const label of ['Пятёрки: патч','Пятёрки: турнир'])await page.getByRole('region',{name:label,exact:true}).getByText('Технический ID',{exact:true}).click();
 }
@@ -49,7 +50,7 @@ const exactA=(page:Page)=>result(page).getByRole('group',{name:'Точная п�
 test('UTC window and bigint patch/league filters preserve confirmed lineups, show effective cohorts and reset explicitly without saving',async({page})=>{
   const requests:unknown[]=[];page.on('request',r=>{if(r.url().endsWith('/teams/compare'))requests.push(r.postDataJSON());});
   await prepare(page);await window2024(page);expect(requests).toHaveLength(0);await compare(page).click();await expect(exactA(page)).toContainText('N = 2');
-  await field(page,'ID патча').fill('1');await expect(result(page)).toHaveCount(0);await expect(confirmation(page)).toBeChecked();expect(requests).toHaveLength(1);
+  await field(page,'ID патча').fill('1');await expect(result(page)).toHaveCount(0);await expect(confirmation(page)).toHaveAttribute('aria-pressed','true');expect(requests).toHaveLength(1);
   await field(page,'ID лиги').fill(leagueId);await field(page,'ID лиги').press('Enter');await expect(exactA(page)).toContainText('N = 1');
   const q=scenarioInput();expect(requests[1]).toEqual({teamAId:q.teamAId,teamBId:q.teamBId,lineupA:q.lineupA,lineupB:q.lineupB,
     fromAt:'2024-01-01T00:00:00.000Z',cutoffAt:'2024-01-03T00:00:00.000Z',patchId:'1',leagueId});
@@ -60,7 +61,7 @@ test('UTC window and bigint patch/league filters preserve confirmed lineups, sho
   await section(page).screenshot({path:'test-results/upcoming-filters-mobile.png'});
   await field(page,'ID патча').fill('2');await compare(page).click();await expect(exactA(page)).toContainText('N = 0');await expect(exactA(page)).toContainText('неизвестно');
   await expect(field(page,'ID лиги')).toHaveValue(leagueId);await expect(field(page,'ID патча')).toHaveValue('2');expect(requests).toHaveLength(3);
-  await page.getByRole('button',{name:'Сбросить фильтры пятёрок',exact:true}).click();await expect(result(page)).toHaveCount(0);await expect(confirmation(page)).toBeChecked();
+  await page.getByRole('button',{name:'Сбросить фильтры пятёрок',exact:true}).click();await expect(result(page)).toHaveCount(0);await expect(confirmation(page)).toHaveAttribute('aria-pressed','true');
   for(const label of ['начало UTC','срез UTC','ID патча','ID лиги'])await expect(field(page,label)).toHaveValue('');
   expect(requests).toHaveLength(3);await compare(page).click();await expect(exactA(page)).toContainText('N = 0');
   expect(requests[3]).toEqual({teamAId:q.teamAId,teamBId:q.teamBId,lineupA:q.lineupA,lineupB:q.lineupB});
@@ -74,20 +75,20 @@ test('invalid filters make no request; filter edits discard delayed/overflow res
   await field(page,'начало UTC').fill('2024-01-01T00:00');await field(page,'срез UTC').fill('2099-01-01T00:00');await compare(page).click();await expect(section(page).getByRole('alert')).toBeVisible();
   await field(page,'срез UTC').fill('2024-01-03T00:00');
   for(const bad of ['-1','abc','9223372036854775808']){await field(page,'ID лиги').fill(bad);await compare(page).click();await expect(section(page).getByRole('alert')).toBeVisible();}
-  expect(requests).toHaveLength(0);await expect(confirmation(page)).toBeChecked();await field(page,'ID лиги').fill(leagueId);await field(page,'ID патча').fill('1');
+  expect(requests).toHaveLength(0);await expect(confirmation(page)).toHaveAttribute('aria-pressed','true');await field(page,'ID лиги').fill(leagueId);await field(page,'ID патча').fill('1');
   let release:()=>void=()=>undefined;const gate=new Promise<void>(r=>{release=r;});
   await page.route('**/api/v1/teams/compare',async route=>{const response=await route.fetch();await gate;await route.fulfill({response}).catch(()=>undefined);});
   await compare(page).click();await expect(section(page).getByText('Сравниваем подтверждённые пятёрки…',{exact:true})).toBeVisible();await field(page,'начало UTC').fill('2024-01-02T00:00');release();
-  await expect(result(page)).toHaveCount(0);await expect(confirmation(page)).toBeChecked();await page.unroute('**/api/v1/teams/compare');expect(requests).toHaveLength(1);
+  await expect(result(page)).toHaveCount(0);await expect(confirmation(page)).toHaveAttribute('aria-pressed','true');await page.unroute('**/api/v1/teams/compare');expect(requests).toHaveLength(1);
   await field(page,'начало UTC').fill('2024-01-01T00:00');await compare(page).click();await expect(exactA(page)).toContainText('N = 1');
   const card=page.getByRole('region',{name:'История организации A',exact:true});await card.getByText('Обновить историю организации A',{exact:true}).click();
   await card.getByRole('button',{name:'Загрузить последние pro-карты',exact:true}).click();
   await expect(card.getByRole('region',{name:'Обновление pro-истории',exact:true}).getByRole('status')).toContainText('Завершено',{timeout:15000});
-  await expect.poll(()=>requests.length).toBe(3);expect(requests[2]).toEqual(requests[1]);await expect(exactA(page)).toContainText('N = 1');await expect(confirmation(page)).toBeChecked();
+  await expect.poll(()=>requests.length).toBe(3);expect(requests[2]).toEqual(requests[1]);await expect(exactA(page)).toContainText('N = 1');await expect(confirmation(page)).toHaveAttribute('aria-pressed','true');
   await page.route('**/api/v1/teams/compare',route=>route.fulfill({json:{status:'unavailable',reason:'WINDOW_TOO_LARGE',maxCandidates:5000,message:'В периоде больше 5000 карт.'}}));
   await compare(page).click();await expect(section(page).getByRole('status').filter({hasText:'Окно не расширяется автоматически'})).toBeVisible();await expect(result(page)).toHaveCount(0);
   await expect(field(page,'начало UTC')).toHaveValue('2024-01-01T00:00');await expect(field(page,'ID лиги')).toHaveValue(leagueId);
   await field(page,'начало UTC').fill('2024-01-02T00:00');await expect(section(page).getByRole('status').filter({hasText:'Окно не расширяется автоматически'})).toHaveCount(0);expect(requests).toHaveLength(4);
-  await page.unroute('**/api/v1/teams/compare');await compare(page).click();await expect(exactA(page)).toContainText('N = 0');await expect(confirmation(page)).toBeChecked();
+  await page.unroute('**/api/v1/teams/compare');await compare(page).click();await expect(exactA(page)).toContainText('N = 0');await expect(confirmation(page)).toHaveAttribute('aria-pressed','true');
   expect((await sql`SELECT id FROM scenarios`.execute(database.db)).rows).toHaveLength(0);
 });

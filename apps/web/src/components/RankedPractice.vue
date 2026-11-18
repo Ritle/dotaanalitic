@@ -6,6 +6,7 @@ import {ownerAuth} from '../auth';
 import {dateLabel} from '../catalog';
 import {readRankedPractice,rankedPracticeMessage,rankedPracticeReason,rankedExclusionLabel} from '../ranked-practice';
 import RankedContext from './RankedContext.vue';
+import ReportEntityLabel from './ReportEntityLabel.vue';
 const props=defineProps<{id:string}>();
 const opened=ref(false),provider=ref<RankedProvider>('opendota'),busy=ref(false),submitError=ref(''),clock=ref(Date.now());
 const contextBusy=ref(false);
@@ -61,7 +62,7 @@ function changeSource(){submitError.value='';}
       <div class="table-scroll" role="region" aria-label="Таблица рейтинговой практики" tabindex="0"><table class="ranked-hero-table">
        <caption class="sr-only">Наблюдаемая рейтинговая практика по героям · OpenDota</caption>
        <thead><tr><th scope="col">Герой</th><th scope="col">Игры (N)</th><th scope="col">Победы</th><th scope="col">Наблюдаемый WR</th><th scope="col">Последняя игра (UTC)</th></tr></thead>
-       <tbody><tr v-for="hero in summary.heroes" :key="hero.heroId"><th scope="row">{{hero.heroName??`Герой ID ${hero.heroId}`}}</th><td>{{hero.games}}</td><td>{{hero.wins}}</td><td>{{rate(hero.winRate)}}</td><td>{{dateLabel(hero.lastPlayedAt)}}</td></tr></tbody>
+       <tbody><tr v-for="hero in summary.heroes" :key="hero.heroId"><th scope="row"><ReportEntityLabel kind="heroes" :id="hero.heroId" :name="hero.heroName" /></th><td>{{hero.games}}</td><td>{{hero.wins}}</td><td>{{rate(hero.winRate)}}</td><td>{{dateLabel(hero.lastPlayedAt)}}</td></tr></tbody>
       </table></div>
       <p class="hint">Все роли вместе, без скрытых весов и сглаживания. Это рейтинговые игры, а не оценка вероятности победы в профессиональном матче.</p>
      </section>

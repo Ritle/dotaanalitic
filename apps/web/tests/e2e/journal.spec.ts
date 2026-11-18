@@ -88,7 +88,7 @@ test('shows owner-reported cancellation and reopening while preserving the archi
   const report=page.getByRole('article',{name:'Сохранённый отчёт журнала',exact:true});
   await expect(report).toContainText('Отменённых назначений карты: 1');await expect(report).toContainText('Отменена · отметка владельца');
   await expect(report).toContainText('Расчёт недоступен');await expect(report).toContainText('Метрики · N=0');
-  const oldUrl=page.url();await report.getByText('Сведения о прогнозе',{exact:true}).click();
+  const oldUrl=page.url();await report.getByText('Составы, причины и сведения о прогнозе',{exact:true}).click();await report.getByText('Сведения о прогнозе',{exact:true}).click();
   await expect(report).toContainText(req.reason);await expect(report).toContainText(req.sourceUrl);
   await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:'test-results/journal-cancellation-mobile.png',fullPage:true});

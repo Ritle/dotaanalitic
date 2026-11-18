@@ -31,6 +31,12 @@ async function prepare(page:Page){
 test('manual mode applies suggestions explicitly, preserves hero/player/stand-in, resets confirmation and saves selected positions',async({page})=>{
   const q=await prepare(page),region=page.getByRole('region',{name:'Автоопределение ролей A',exact:true});
   await expect(region.getByRole('button',{name:'Применить роли A',exact:true})).toBeEnabled();
+  const row=region.locator(`[data-role-player-id="${q.lineupA[0]!.playerId}"]`);
+  await expect(row.locator('[data-role-label]')).toHaveText('Выбранный игрок: Synthetic Twin');
+  const key=row.getByText('Локальный ID игрока: '+q.lineupA[0]!.playerId,{exact:true});await expect(key).not.toBeVisible();
+  await row.locator('details > summary').first().focus();await page.keyboard.press('Enter');await expect(key).toBeVisible();
+  await page.keyboard.press('Enter');await expect(key).not.toBeVisible();
+
   await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
   await page.getByLabel('A: замена игрока 5',{exact:true}).check();
   await page.getByRole('combobox',{name:'A: герой роли 5',exact:true}).selectOption('1');
@@ -53,4 +59,13 @@ test('an incomplete or edited lineup cannot apply stale suggestions; manual edit
   await pickScenario(page,'A: игрок 1',q.lineupA[4]!.playerId!);
   await expect(region.getByRole('button',{name:'Применить роли A',exact:true})).toBeEnabled();
   await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveAttribute('data-selected-id',q.lineupA[4]!.playerId!);
+  // No organization selects the historical-only component, independently of the API profile view.
+  await clearScenario(page,'Команда A: поиск по названию');
+  await expect(region.getByRole('button',{name:'Применить роли A',exact:true})).toBeEnabled();
+  const row=region.locator(`[data-role-player-id="${q.lineupA[0]!.playerId}"]`),key=row.getByText('Локальный ID игрока: '+q.lineupA[0]!.playerId,{exact:true});
+  await expect(row.locator('[data-role-label]')).toHaveText('Выбранный игрок: Synthetic Twin');
+  await expect(key).not.toBeVisible();await row.getByText('Данные игрока',{exact:true}).focus();await page.keyboard.press('Enter');await expect(key).toBeVisible();
+  await page.keyboard.press('Enter');await expect(key).not.toBeVisible();
+  await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await region.screenshot({path:'test-results/label-audit-history-mobile.png'});
 });

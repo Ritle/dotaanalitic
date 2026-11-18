@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type {HeroPairStat} from '@dota/contracts';
-defineProps<{pair:HeroPairStat}>();
+import PatchDistribution from './PatchDistribution.vue';
+defineProps<{pair:HeroPairStat;labels:Record<string,string>}>();
 const rate=(n:number|null)=>n===null?'нет данных':`${(n*100).toFixed(1)}%`;
 const reasons:Record<string,string>={CONTEXT_NOT_SPECIFIC:'неизвестный или смешанный патч',TARGET_SERIES_UNVERIFIED:'серия карты не подтверждена',NO_COMPARABLE_REFERENCE_MAPS:'нет сопоставимых ранних карт',REFERENCE_HAS_ONLY_ONE_OUTCOME:'в ранних картах только один исход',REFERENCE_TOO_LARGE:'раннее окно превышает лимит'};
 </script>
@@ -9,7 +10,7 @@ const reasons:Record<string,string>={CONTEXT_NOT_SPECIFIC:'неизвестны�
     <span v-if="pair.sampleEvidence.smallSample" class="warning">Малая выборка</span>
     <span>Сглаженный: {{rate(pair.smoothing.estimate)}}{{pair.smoothing.priorOnly?' · только ранняя выборка':''}}</span>
     <details><summary>Выборка и оценка</summary>
-      <p>Патчи: {{pair.patchDistribution.map(p=>`${p.patchId??'неизвестен'}: ${p.nRaw}`).join(', ')||'нет карт'}}.</p>
+      <div>Патчи: <PatchDistribution :rows="pair.patchDistribution" :labels="labels" />.</div>
       <p v-if="pair.smoothing.prior">Ранняя опорная выборка: N={{pair.smoothing.prior.mass}}, среднее {{rate(pair.smoothing.prior.mean)}}. Это описательная оценка без подтверждённой калибровки.</p>
       <p v-else>Сглаживание недоступно: {{reasons[pair.smoothing.reason??'']??pair.smoothing.reason}}.</p>
     </details>

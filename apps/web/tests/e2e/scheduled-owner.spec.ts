@@ -1,4 +1,4 @@
-import {scenarioPicker,pickScenario} from './helpers/scenario-picker';
+import {LineupTemplateRepository} from '../../../api/src/modules/catalog/lineup-templates-repository';
 import {test,expect} from '@playwright/test';
 import {randomBytes,randomUUID} from 'node:crypto';
 import type {FastifyInstance} from 'fastify';
@@ -35,6 +35,7 @@ test('owner calculates from the saved meeting and keeps the frozen five and book
   await expect(page.getByRole('article',{name:'Сохранённое назначение карты',exact:true})).toBeVisible();
   await page.getByLabel('Сохранённый сценарий',{exact:true}).selectOption(f.scenario.id);
   await expect(page.getByRole('region',{name:'Прогноз назначенной карты'})).toContainText('Команды, турнир, время и карта 1 совпадают');
+  await expect(page.getByRole('region',{name:'Выбранный состав A',exact:true}).locator('a[href="/players/101"]')).toHaveText('Synthetic player');
   await page.getByRole('button',{name:'Рассчитать назначенную карту',exact:true}).click();
   const result=page.getByRole('article',{name:'Сохранённый расчёт',exact:true});await expect(result).toContainText('Нет активной проверенной модели');
   await expect(result).toContainText('Прогноз для назначенной карты');await expect(result).not.toContainText('50 %');await expect(result).toContainText(f.scenario.input.title);
@@ -62,16 +63,29 @@ test('lost POST response retries the same UUID and frozen body even after the me
   expect(bodies).toHaveLength(2);expect(bodies[0]).toBe(bodies[1]);
   expect((await sql`SELECT 1 FROM v1_runtime_snapshots WHERE schedule_target_request_id=${f.target.record.request.requestId}::uuid`.execute(database.db)).rows).toHaveLength(1);
 });
-test('prepares a separate scenario from the target with empty players and returns after manual confirmation',async({page})=>{
+test('requires confirmed templates then prepares a map without a second lineup confirmation',async({page})=>{
   const f=await fixture(null);await page.goto(f.url);await page.getByLabel('Сохранённый сценарий',{exact:true}).selectOption(f.scenario.id);
   await expect(page.getByRole('button',{name:'Рассчитать назначенную карту',exact:true})).toBeDisabled();
   await expect(page.getByRole('region',{name:'Прогноз назначенной карты'})).toContainText('выберите карту 1');
   await page.getByRole('link',{name:'Подготовить новый сценарий для этой встречи →',exact:true}).click();
-  await expect(page.getByLabel('Название',{exact:true})).toHaveValue(f.match.name!);await expect(scenarioPicker(page,'Команда A: поиск по названию').getByRole('status')).toHaveAttribute('data-selected-id','11');
-  await expect(scenarioPicker(page,'A: игрок 1').getByRole('status')).toHaveCount(0);
-  for(let i=1;i<=5;i++){await pickScenario(page,'A: игрок '+i,String(i+100));await pickScenario(page,'B: игрок '+i,String(i+105));}
-  await page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true}).check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
+  await expect(page.getByLabel('Название',{exact:true})).toHaveValue(f.match.name!);
+  await expect(page.getByRole('button',{name:'Сохранить карту',exact:true})).toBeDisabled();
+  await expect(page.getByRole('link',{name:'Подготовить составы встречи →',exact:true})).toBeVisible();
+  await expect(page.getByLabel('A: игрок 1',{exact:true})).toHaveCount(0);
+  const templates=new LineupTemplateRepository(database.db);
+  for(const [teamId,lineup] of [['11',base.lineupA],['22',base.lineupB]] as const){
+    const old=await templates.report(teamId);
+    await templates.save(owner,teamId,{requestId:randomUUID(),expectedRevision:old.current?.revision??0,confirmedByOwner:true,lineup:lineup.map(p=>({playerId:p.playerId!,rolePos:p.rolePos}))});
+  }
+  await page.getByRole('button',{name:'Повторить загрузку составов',exact:true}).click();
+  await page.getByText('Параметры карты и составы',{exact:true}).click();await page.getByText('Подтверждённые игроки и роли',{exact:true}).click();
+  await expect(page.getByRole('region',{name:'Подтверждённый состав A',exact:true})).toContainText('Carry');
+  await expect(page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true})).toHaveCount(0);
+  await page.getByRole('button',{name:'Сохранить карту',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();
+  await page.getByRole('link',{name:'Открыть Draft Lab →',exact:true}).click();
+  expect(new URL(page.url()).searchParams.get('scheduleTarget')).toBe(f.target.record.request.requestId);
+  await expect(page.getByRole('link',{name:'Открыть расчёт одной карты',exact:true})).toHaveAttribute('href',f.url+'?scenario='+new URL(page.url()).pathname.split('/')[2]);
   await page.getByRole('link',{name:'← Вернуться к назначению карты',exact:true}).click();
   await expect(page.getByRole('region',{name:'Прогноз назначенной карты'})).toContainText('Команды, турнир, время и карта 1 совпадают');
   await page.getByRole('button',{name:'Рассчитать назначенную карту',exact:true}).click();
@@ -84,4 +98,27 @@ test('changed source requires a fresh review and cannot silently create a predic
   await page.getByRole('button',{name:'Рассчитать назначенную карту',exact:true}).click();
   await expect(page.getByRole('region',{name:'Прогноз назначенной карты'})).toContainText('Расписание изменилось');
   expect((await sql`SELECT 1 FROM v1_runtime_snapshots WHERE schedule_target_request_id=${f.target.record.request.requestId}::uuid`.execute(database.db)).rows).toHaveLength(0);
+});
+
+test('direct saved map preserves frozen roles after template changes and saves map context without reconfirmation',async({page})=>{
+ const f=await fixture();const templates=new LineupTemplateRepository(database.db),old=await templates.report('11');
+ await templates.save(owner,'11',{requestId:randomUUID(),expectedRevision:old.current?.revision??0,confirmedByOwner:true,
+   lineup:base.lineupA.map(p=>({playerId:p.playerId!,rolePos:6-p.rolePos}))});
+ const requests:string[]=[];page.on('request',r=>{if(new URL(r.url()).pathname.match(/^\/api\/v1\/teams\/[^/]+\/lineup-template$/))requests.push(r.url());});
+ await page.goto('/scenarios/'+f.scenario.id+'/draft');
+ await expect(page.getByRole('heading',{name:'Подготовка карты',exact:true})).toBeVisible();
+ await expect(page.getByLabel('A: роль игрока 1',{exact:true})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'Применить роли A',exact:true})).toHaveCount(0);
+ await page.getByText('Параметры карты и составы',{exact:true}).click();await page.getByText('Подтверждённые игроки и роли',{exact:true}).click();
+ const roster=page.getByRole('region',{name:'Подтверждённый состав A',exact:true});
+ await expect(roster.locator('li').first()).toContainText('Carry');
+ await expect(roster.locator('li').first().locator('a')).toHaveAttribute('href','/players/'+base.lineupA[0]!.playerId);
+ await page.getByRole('combobox',{name:'Radiant',exact:true}).selectOption('B');
+ await page.getByRole('button',{name:'Сохранить карту',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'Сценарий · редакция 2',exact:true})).toBeVisible();
+ const snapshot=await (await page.request.get('/api/v1/scenarios/'+f.scenario.id)).json();
+ expect(snapshot?.input.lineupA).toEqual(f.scenario.input.lineupA);expect(snapshot?.input.context.radiantSlot).toBe('B');
+ expect(requests).toEqual([]);
+ await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.screenshot({path:'test-results/map-workspace-mobile.png',fullPage:true});
 });

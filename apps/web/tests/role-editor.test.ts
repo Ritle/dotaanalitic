@@ -67,14 +67,25 @@ test('STRATZ fallback labels only its verified numeric account, without choosing
 test('selected labels identify the chosen catalogue row without resolving missing or conflicting evidence',()=>{
  const report=nameReport();report.sources[0]!.status='stale';
  const player={...namePlayer(),identityStatus:'conflict' as const},before=JSON.stringify({report,player});
- expect(rolePlayerLabel(report,player,'Saved player')).toBe(`Выбранный игрок: Saved player · ID ${player.playerId}`);
+ expect(rolePlayerLabel(report,player,'Saved player')).toBe('Выбранный игрок: Saved player');
  expect(rolePlayerName(report,player)).toBeNull();expect(JSON.stringify({report,player})).toBe(before);
- expect(selectedRolePlayerLabel('9007199254740993','  ')).toBe('Игрок 9007199254740993');
- expect(selectedRolePlayerLabel('59',String.fromCodePoint(0x20e4,0x20df))).toBe('Игрок 59');
+ expect(selectedRolePlayerLabel('9007199254740993','  ')).toBe('Игрок без ника');
+ expect(selectedRolePlayerLabel('59',String.fromCodePoint(0x20e4,0x20df))).toBe('Игрок без ника');
  report.sources[0]!.status='ready';report.sources[0]!.observation!.players[0]!.name=String.fromCodePoint(0x20e4,0x20df);
- expect(rolePlayerLabel(report,namePlayer(),'Readable selected name')).toBe(`Выбранный игрок: Readable selected name · ID ${namePlayer().playerId}`);
+ expect(rolePlayerLabel(report,namePlayer(),'Readable selected name')).toBe('Выбранный игрок: Readable selected name');
 });
 test('a fresh verified provider alias takes precedence over the selected display name',()=>{
  const report=nameReport();report.sources[0]!.observation!.players[0]!.name='Fresh provider alias';
- expect(rolePlayerLabel(report,namePlayer(),'Saved player')).toBe(`Fresh provider alias · ID ${namePlayer().playerId}`);
+ expect(rolePlayerLabel(report,namePlayer(),'Saved player')).toBe('Fresh provider alias');
+});
+
+
+test('unknown display names never substitute the internal key or change source eligibility',()=>{
+ const report=nameReport(),player={...namePlayer(),identityStatus:'unknown' as const},before=JSON.stringify({report,player});
+ expect(selectedRolePlayerLabel(player.playerId)).toBe('Имя недоступно');
+ expect(rolePlayerLabel(report,player)).toBe('Имя недоступно');
+ expect(rolePlayerLabel(report,player,'   ')).toBe('Игрок без ника');
+ expect(rolePlayerLabel(report,player,'Shared nickname')).toBe('Выбранный игрок: Shared nickname');
+ expect(selectedRolePlayerLabel('9007199254740995','Shared nickname')).toBe('Выбранный игрок: Shared nickname');
+ expect(JSON.stringify({report,player})).toBe(before);expect(rolePlayerName(report,player)).toBeNull();
 });

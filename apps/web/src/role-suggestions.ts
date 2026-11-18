@@ -1,6 +1,6 @@
 import type {DraftInput,RoleSuggestionReport} from '@dota/contracts';
 export type RoleMember={rolePos:number;playerId:string|null;isStandin:boolean};
-export const roleName=(role:number)=>['','Carry','Mid','Offlane','Semi-support','Hard support'][role]??'Не определена';
+export const roleName=(role:number)=>['','Carry','Mid','Offlane','SemiSupport','Hard Support'][role]??'Не определена';
 /** Swap assignments, keeping each player's card and fields in place. */
 export function swapLineupRole<T extends RoleMember>(lineup:readonly T[],from:number,to:number):T[]|null{
   if(lineup.length!==5||new Set(lineup.map(p=>p.rolePos)).size!==5||lineup.some(p=>!Number.isInteger(p.rolePos)||p.rolePos<1||p.rolePos>5)||

@@ -26,6 +26,7 @@ test('owner pins future source, recovers a lost response and reads the original 
   await page.getByRole('button',{name:'Выбрать',exact:true}).click();await page.getByText('Зафиксировать назначение первой карты',{exact:true}).click();
   await page.getByLabel('Участник источника для команды A',{exact:true}).selectOption('75');
   await pick(page,'Назначение: локальная команда A','22');await pick(page,'Назначение: локальная команда B','11');
+  const event=page.getByRole('region',{name:'Локальный турнир назначения',exact:true});await event.getByRole('searchbox').fill('Synthetic Target Event');await event.getByRole('button',{name:'Найти',exact:true}).click();await event.locator('button[data-context-id="77"]').click();
   await page.getByLabel('Источник сопоставления · HTTPS',{exact:true}).fill('https://example.test/synthetic-review');
   await page.getByLabel('Обоснование сопоставления',{exact:true}).fill('Синтетическое сопоставление по явным ID источника и локального справочника');
   await page.getByLabel('Подтверждаю соответствие участников и назначение карты 1',{exact:true}).check();

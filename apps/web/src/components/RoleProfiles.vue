@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {roleSortedRows} from '../role-display';
 import {computed,reactive,ref,watch,nextTick} from 'vue';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {CatalogIdSchema,RoleProfilesReportSchema,RoleProfileBindingSavedSchema,RoleProfileBindingSchema,type RoleProfileBinding} from '@dota/contracts';
@@ -7,8 +8,9 @@ import {readCatalog,dateLabel} from '../catalog';
 import {arrangeSuggestedRoles,roleName,type RoleMember} from '../role-suggestions';
 import {roleEditorHints,roleSourceName,rolePlayerLabel} from '../role-editor';
 import {roleCandidateStatus,roleSourceStatus} from '../role-source-status';
-const props=defineProps<{teamId:string;lineup:RoleMember[];slot:'A'|'B';cutoffAt?:string;preserveManual?:boolean;pandaTournamentId?:string;pandaTeamId?:string;playerLabels?:Record<string,string>}>();
-const emit=defineEmits<{apply:[lineup:RoleMember[]]}>(),cache=useQueryClient();
+import {matchingPlayerName,matchingSourceName} from '../source-matching-labels';
+const props=defineProps<{teamId:string;lineup:RoleMember[];slot:'A'|'B';cutoffAt?:string;preserveManual?:boolean;disabled?:boolean;confirmationAction?:string;pandaTournamentId?:string;pandaTeamId?:string;playerLabels?:Record<string,string>}>();
+const emit=defineEmits<{apply:[lineup:RoleMember[],automatic?:boolean]}>(),cache=useQueryClient();
 const ids=computed(()=>props.lineup.map(p=>p.playerId??'').filter(Boolean)),idsKey=computed(()=>[...ids.value].sort().join(':'));
 const validTeam=computed(()=>CatalogIdSchema.safeParse(props.teamId).success);
 const complete=computed(()=>validTeam.value&&ids.value.length===5&&new Set(ids.value).size===5&&ids.value.every(id=>CatalogIdSchema.safeParse(id).success));
@@ -32,7 +34,11 @@ const report=computed(()=>complete.value?query.data.value:undefined);
 const editor=computed(()=>report.value?roleEditorHints(report.value.players):null);
 const historyCoverage=computed(()=>report.value?.history.players.filter(p=>p.nRaw>0).length??0);
 function playerLabel(player:NonNullable<typeof editor.value>['players'][number]){
- return report.value?rolePlayerLabel(report.value,player,props.playerLabels?.['player:'+player.playerId]):`Игрок ${player.playerId}`;}
+ return report.value?rolePlayerLabel(report.value,player,props.playerLabels?.['player:'+player.playerId]):'Имя недоступно';}
+const matchingName=(id:string)=>matchingPlayerName(id,props.playerLabels?.['player:'+id],report.value);
+const matchingTeamName=computed(()=>props.playerLabels?.['team:'+props.teamId]?.trim()||`Выбранная команда ${props.slot}`);
+function repeatedName(id:string){const name=matchingName(id);return !['Игрок без ника','Имя недоступно'].includes(name)&&ids.value.filter(other=>matchingName(other).toLowerCase()===name.toLowerCase()).length>1;}
+function selectedRole(id:string){const role=props.lineup.find(p=>p.playerId===id)?.rolePos;return role?`${role} · ${roleName(role)}`:'Не указана';}
 const bindingQuery=useQuery({queryKey:computed(()=>['role-profile-binding',props.teamId]),enabled:validTeam,
   queryFn:({signal})=>readCatalog(`teams/${props.teamId}/role-profile-binding`,RoleProfileBindingSavedSchema,signal)});
 const fields=reactive({stratzTeamId:'',pandaTournamentId:props.pandaTournamentId??'',pandaTeamId:props.pandaTeamId??'',players:{} as Record<string,string>});
@@ -47,13 +53,14 @@ const selectedRoles=computed(()=>{
   if(!report.value||!editor.value?.canArrange)return null;
   return arrangeSuggestedRoles(props.lineup,{...report.value.history,players:report.value.history.players.map(p=>({...p,suggestedRole:editor.value!.players.find(r=>r.playerId===p.playerId)?.rolePos??null}))});
 });
+const alreadyApplied=computed(()=>!!selectedRoles.value&&selectedRoles.value.every(p=>props.lineup.find(old=>old.playerId===p.playerId)?.rolePos===p.rolePos));
 async function apply(auto=false){
-  if(!selectedRoles.value||busy.value)return;
+  if(!selectedRoles.value||busy.value||props.disabled||alreadyApplied.value)return;
   internallyApplying=true;if(!auto)automatic.value=false;
   const rows=selectedRoles.value;observedComplete=true;
-  emit('apply',rows);await nextTick();internallyApplying=false;
+  emit('apply',rows,auto);await nextTick();internallyApplying=false;
 }
-watch([editor,automatic,busy],()=>{if(automatic.value&&selectedRoles.value&&layout.value!==selectedRoles.value.map(p=>`${p.rolePos}:${p.playerId??''}`).sort().join('|'))void apply(true);});
+watch([editor,automatic,busy,()=>props.disabled],()=>{if(!props.disabled&&automatic.value&&selectedRoles.value&&layout.value!==selectedRoles.value.map(p=>`${p.rolePos}:${p.playerId??''}`).sort().join('|'))void apply(true);});
 async function refresh(){
   if(!complete.value||busy.value)return;error.value='';busy.value=true;
   const key=[...requestKey.value];
@@ -97,36 +104,48 @@ const reason=(code:string)=>({IDENTITY_UNRESOLVED:'аккаунт не подт�
       <p v-if="!report.configured.enabled">Профили API выключены настройкой ROLE_PROFILES_ENABLED. Доступны локальные подсказки.</p>
       <button type="button" :disabled="busy||!report.configured.enabled" @click="refresh">{{busy?'Обновление…':`Обновить профили API ${slot}`}}</button>
       <p v-if="report.sources.some(s=>s.status!=='ready')" class="hint" role="status">Не все профили доступны для автоподстановки. Проверьте состояние источников ниже. Доступная pro-история и ручной выбор ролей сохраняются.</p>
-      <ul><li v-for="p in editor?.players??[]" :key="p.playerId">
-        {{playerLabel(p)}}: <strong :class="{warning:p.editorDuplicate}">{{p.rolePos===null?'Роль не определена':`${p.rolePos} · ${roleName(p.rolePos)}`}}</strong>
+      <ul><li v-for="p in roleSortedRows(editor?.players??[],p=>p.rolePos)" :key="p.playerId" :data-role-player-id="p.playerId">
+        <span data-role-label>{{playerLabel(p)}}</span>: <strong :class="{warning:p.editorDuplicate}">{{p.rolePos===null?'Роль не определена':`${p.rolePos} · ${roleName(p.rolePos)}`}}</strong>
         <span v-if="p.editorSource" class="hint role-source">Определено автоматически · {{roleSourceName(p.editorSource)}}</span>
         <span class="hint"> · pro-карт с оценкой {{p.historyMaps}} · {{p.historyScope==='selected_team'?'в выбранной команде':'за все организации'}}</span>
         <p v-if="p.editorConflict" class="warning">Источники расходятся. Подсказка выбрана по приоритету; проверьте роль и при необходимости исправьте её вручную.</p>
         <p v-if="p.editorAmbiguous" class="warning">Доступные источники не задают однозначную позицию. Выберите роль вручную.</p>
         <p v-if="p.identityStatus!=='verified'" class="warning">Аккаунт не подтверждён однозначно. Автоматическая подсказка недоступна.</p>
-        <details><summary>Основания игрока {{p.playerId}}</summary>
+        <details><summary>Основания игрока: {{matchingName(p.playerId)}}</summary>
+          <p class="hint">Локальный ID игрока: {{p.playerId}}</p>
           <p class="hint">{{p.reasons.filter(r=>r!=='ROLE_SOURCES_CONFLICT'&&!p.candidates.some(c=>c.reason===r)).map(reason).join('; ')}}</p>
           <p v-for="(c,i) in p.candidates" :key="i">{{roleSourceName(c.source)}}: {{c.roles.join('/')||'неизвестно'}} · {{c.eligible?'учтено':roleCandidateStatus(report,p,c)??reason(c.reason??'')}}</p>
         </details>
       </li></ul>
       <p v-if="editor?.hasDuplicates" role="status">Совпали позиции нескольких игроков. Расставьте их вручную.</p>
-      <button type="button" :disabled="!selectedRoles||busy" @click="apply(false)">Применить роли {{slot}}</button>
+      <p v-if="alreadyApplied" class="hint" role="status">Роли {{slot}} уже расставлены в форме.<template v-if="confirmationAction"> Для подтверждения состава проверьте пятёрку и нажмите «{{confirmationAction}}».</template></p>
+      <button type="button" :disabled="!selectedRoles||busy||disabled||alreadyApplied" @click="apply(false)">Применить роли {{slot}}</button>
       <details><summary>Время обновления источников {{slot}}</summary><div v-for="s in report.sources" :key="s.sourceKey">
-        <p>{{roleSourceName(s.provider)}} · ID {{s.sourceKey.split(':')[2]}} · {{s.status==='ready'?'ответ актуален':s.status==='stale'?'устарело':'нет данных'}} · {{dateLabel(s.fetchedAt)}}</p>
+        <p>{{matchingSourceName(s,report,playerLabels)}} · {{s.status==='ready'?'ответ актуален':s.status==='stale'?'устарело':'нет данных'}} · {{dateLabel(s.fetchedAt)}}</p>
         <p class="hint">{{roleSourceStatus(s)}}<span v-if="s.reason"> Причина: {{reason(s.reason)}}.</span></p>
+        <details><summary>Технический ключ источника</summary><p>{{s.sourceKey}}</p></details>
       </div></details>
       <p class="hint">Профиль может устареть после трансфера. При расхождениях подсказка следует приоритету источников — проверьте спорные позиции. Точность ролей не измерена. V1 Elo от ролей не зависит.</p>
     </template>
-    <details v-if="validTeam"><summary>Сопоставление источников {{slot}}</summary>
+    <details v-if="validTeam" :data-source-matching="slot"><summary>Сопоставление источников {{slot}}</summary>
+      <p>Локальная команда: <RouterLink :to="`/teams/${teamId}`" target="_blank" rel="noopener noreferrer">{{matchingTeamName}}</RouterLink></p>
+      <details><summary>Данные выбранной команды</summary><p>Локальный ID команды: {{teamId}}</p></details>
       <p class="hint">Сохраните соответствие команде один раз. Для PandaScore выберите каждого игрока явно: совпадение имени не подтверждает личность. Эти связи используются только для подсказок ролей.</p>
-      <label>ID команды STRATZ {{slot}}<input v-model="fields.stratzTeamId" inputmode="numeric" @input="bindingConfirmed=false" /></label>
-      <p v-for="s in report?.sources.filter(s=>s.provider==='stratz'&&s.observation?.players.length)??[]" :key="s.sourceKey" class="hint">{{s.observation?.players[0]?.name}} · команда источника {{s.observation?.players[0]?.providerTeamId??'неизвестна'}}</p>
-      <label>ID турнира PandaScore {{slot}}<input v-model="fields.pandaTournamentId" inputmode="numeric" @input="bindingConfirmed=false" /></label>
-      <label>ID команды PandaScore {{slot}}<input v-model="fields.pandaTeamId" inputmode="numeric" @input="bindingConfirmed=false" /></label>
-      <label v-for="id in ids" :key="id">PandaScore для игрока {{slot}} {{id}}<select v-model="fields.players[id]" @change="bindingConfirmed=false"><option value="">Не сопоставлен</option>
-        <option v-if="fields.players[id]&&!options.some(p=>p.providerPlayerId===fields.players[id])" :value="fields.players[id]">ID {{fields.players[id]}} · обновите заявку</option>
+      <details><summary>Идентификаторы источников {{slot}}</summary>
+       <p class="hint">Здесь нужны внешние ID, не локальные ключи. Названия команды и турнира в этом ответе отсутствуют; имя локальной команды не подтверждает соответствие источнику.</p>
+       <label>ID команды STRATZ {{slot}}<input v-model="fields.stratzTeamId" inputmode="numeric" @input="bindingConfirmed=false" /></label>
+       <label>ID турнира PandaScore {{slot}}<input v-model="fields.pandaTournamentId" inputmode="numeric" @input="bindingConfirmed=false" /></label>
+       <label>ID команды PandaScore {{slot}}<input v-model="fields.pandaTeamId" inputmode="numeric" @input="bindingConfirmed=false" /></label>
+      </details>
+      <div v-for="id in ids" :key="id" class="matching-player" :data-matching-player-id="id">
+       <strong data-matching-name>{{matchingName(id)}}</strong><p class="hint">Выбранная роль: {{selectedRole(id)}}</p>
+       <p v-if="repeatedName(id)" class="warning">Ник повторяется. Сверьте локальный ID и выбранную запись источника.</p>
+       <details><summary>Данные выбранного игрока</summary><p>Локальный ID игрока: {{id}}</p><p class="hint">Имя — подпись выбранной записи, не доказательство соответствия аккаунту источника.</p></details>
+       <label>Запись игрока PandaScore<select v-model="fields.players[id]" :aria-label="`PandaScore ${slot}: ${selectedRole(id)} · ${matchingName(id)}`" @change="bindingConfirmed=false"><option value="">Не сопоставлен</option>
+        <option v-if="fields.players[id]&&!options.some(p=>p.providerPlayerId===fields.players[id])" :value="fields.players[id]">Запись PandaScore {{fields.players[id]}} · {{report?.sources.some(s=>s.provider==='pandascore'&&s.observation)?'нет в загруженной заявке':'заявка ещё не загружена'}}</option>
         <option v-for="p in options" :key="p.providerPlayerId" :value="p.providerPlayerId">{{p.name??'Без имени'}} · ID {{p.providerPlayerId}} · {{p.roles.join('/')||'роль неизвестна'}}</option>
-      </select></label>
+       </select></label>
+      </div>
       <label class="check-row"><input v-model="bindingConfirmed" type="checkbox" />Подтверждаю соответствие команды и игроков источникам {{slot}}</label>
       <button type="button" :disabled="busy||!bindingConfirmed||bindingRevision===null" @click="saveBinding">Сохранить сопоставление {{slot}}</button>
       <button type="button" :disabled="busy" @click="async()=>{const r=await bindingQuery.refetch();if(r.data)hydrate(r.data);}">Перечитать сопоставление {{slot}}</button>
@@ -138,4 +157,5 @@ const reason=(code:string)=>({IDENTITY_UNRESOLVED:'аккаунт не подт�
 <style scoped>
 .role-profiles{margin-block:var(--space-4);padding:var(--space-3);border:1px solid var(--color-border);border-radius:var(--radius-sm);overflow-wrap:anywhere}h3{font-size:16px}label{display:block}
 .role-source{display:block}.check-row{display:flex;align-items:center;gap:8px}.check-row input{width:20px;min-height:24px;flex-shrink:0}ul{padding-left:var(--space-4)}li{margin-block:var(--space-3)}summary{cursor:pointer;min-height:36px}
+.matching-player{margin-block:12px;padding:10px;border:1px solid var(--color-border);border-radius:var(--radius-sm);min-width:0}.matching-player select{width:100%;max-width:100%}.matching-player .hint{font-size:12px}
 </style>

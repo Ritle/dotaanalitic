@@ -3,6 +3,8 @@ import {computed,ref} from 'vue';
 import {useQuery} from '@tanstack/vue-query';
 import {StrengthResponseSchema} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
+import TeamDisplayLabels from './TeamDisplayLabels.vue';
+import ReportEntityLabel from './ReportEntityLabel.vue';
 import {ownerAuth} from '../auth';
 const props=defineProps<{id:string}>(),from=ref(''),cutoff=ref(''),limit=ref('20'),applied=ref('limit=20');
 const {data,isPending,isFetching,isError,error,refetch}=useQuery({queryKey:computed(()=>['strength',props.id,applied.value]),enabled:computed(()=>!!ownerAuth.value),
@@ -44,14 +46,14 @@ function apply(){const q=new URLSearchParams({limit:limit.value});
       <p class="hint">Базовое начальное значение: {{report.policy.initialRating}}; шаг обновления {{report.policy.k}}; масштаб {{report.policy.scale}}. Параметры зафиксированы для воспроизводимости и ещё не настроены на хронологической проверке.</p>
       <p class="warning">Соперник содержит игроков без предшествующих рейтинговых карт в {{report.coverage.opponentPriorMaps}}/{{report.summary.ratedMaps}} обновлений. Начальное значение — условная отправная точка, не измеренная сила.</p>
       <p class="hint">Источник: локальные pro-карты · синхронизация {{dateLabel(report.summary.dataUpdatedAt)}} · расчёт {{dateLabel(report.snapshotAt)}} · {{report.policy.version}} · ревизия личностей {{report.identityRevision}}.</p>
-      <div v-if="report.maps.length" class="table-scroll"><table class="strength-table"><caption class="sr-only">История Elo организации</caption>
+      <TeamDisplayLabels v-if="report.maps.length" :team-ids="report.maps.map(m=>m.opponentId)" v-slot="{labels}"><div class="table-scroll"><table class="strength-table"><caption class="sr-only">История Elo организации</caption>
         <thead><tr><th>Карта / исход</th><th>Свой рейтинг до / соперника до</th><th>Изменение</th><th>Игроки без истории</th><th>Доступность и состав</th></tr></thead><tbody>
-          <tr v-for="m in report.maps" :key="m.matchId"><td>{{m.matchId}} · {{m.won?'победа':'поражение'}}<span class="catalog-id">{{dateLabel(m.startedAt)}} · {{m.side}} · соперник {{m.opponentId??'неизвестен'}}</span></td>
+          <tr v-for="m in report.maps" :key="m.matchId"><td>{{m.matchId}} · {{m.won?'победа':'поражение'}}<span class="catalog-id">{{dateLabel(m.startedAt)}} · {{m.side}}</span>Соперник: <ReportEntityLabel kind="teams" :id="m.opponentId" :name="labels['team:'+m.opponentId]" /></td>
             <template v-if="m.rating"><td>{{number(m.rating.ownBefore)}} / {{number(m.rating.opponentBefore)}}</td><td>{{number(m.rating.change)}}</td>
               <td>{{m.rating.priorPlayers}}/5 своих · {{m.rating.opponentPriorPlayers}}/5 соперника</td><td>{{m.rating.updateApplied?'Результат учтён':'Обновление ещё недоступно на срез'}}<span class="catalog-id">Доступность: {{available(m.rating.availableAtUs)}}</span><span class="catalog-id">{{m.rating.lineupKnownBeforeStart?'Есть доказательство состава до старта':'Состав восстановлен по завершённой карте'}}</span></td></template>
             <td v-else colspan="4" class="warning">Рейтинг неизвестен: не подтверждены историческая личность, pro-статус, исход или доступность состава.</td>
           </tr>
-        </tbody></table></div>
+        </tbody></table></div></TeamDisplayLabels>
       <details><summary>Покрытие расчёта</summary><p>Кандидатов всей истории: {{report.coverage.globalCandidates}}. Исключено: pro неизвестен {{report.coverage.unknownPro}}, не pro {{report.coverage.nonPro}}, конфликт {{report.coverage.conflict}}, незавершённые {{report.coverage.unfinished}}, личности неизвестны на старт {{report.coverage.identityUnavailable}}, недоказанная доступность фактов {{report.coverage.evidenceUnavailable}}.</p>
         <p>Допущено карт во всей истории {{report.coverage.globalReplayMaps}}, применено обновлений {{report.coverage.updatesApplied}}, не применено из-за времени доступности или конфликта {{report.coverage.pendingUpdates}}. Десять игроков одной карты не являются десятью независимыми матчами. Полнота локальной истории не гарантирована.</p>
         <p v-for="m in report.maps" :key="m.matchId">Карта {{m.matchId}} · {{m.source}} · ревизия {{m.dataRevision}} · синхронизация {{dateLabel(m.syncedAt)}} · доказательств личности {{m.identityProofIds.length}}, фактов {{m.factProofIds.length}}.</p>

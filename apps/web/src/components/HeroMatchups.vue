@@ -6,6 +6,7 @@ import {useQuery} from '@tanstack/vue-query';
 import {HeroMatchupQuerySchema,HeroMatchupResponseSchema,type HeroMatchupQuery,type ScenarioSnapshot} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
+import AnalyticDisplayLabels from './AnalyticDisplayLabels.vue';
 import HeroPairValue from './HeroPairValue.vue';
 const props=defineProps<{scenario:ScenarioSnapshot}>();
 const filters=reactive({from:'',patchScope:'all',patchId:'',leagueId:'',weighted:false,version:'',halfLifeDays:'',minorPenalty:'',moderatePenalty:'',majorPenalty:'',minorFactor:'',moderateFactor:'',majorFactor:'',reworkFactor:''});
@@ -47,7 +48,7 @@ const coefficientFields=[['minorPenalty','Штраф minor'],['moderatePenalty',
     <button :disabled="request.isFetching.value" type="submit">{{request.isFetching.value?'Расчёт пар…':'Рассчитать пары'}}</button></form>
     <p v-if="error" role="alert" class="error">{{error}}</p><p v-if="applied&&request.error.value" role="alert" class="error">{{request.error.value.message}}</p>
     <p v-if="applied&&request.data.value?.status==='unavailable'" role="status" class="warning">{{request.data.value.message}}</p>
-    <div v-if="report" data-testid="pair-report">
+    <div v-if="report" data-testid="pair-report"><AnalyticDisplayLabels :patch-ids="[...report.allies,...report.enemies].flatMap(p=>p.patchDistribution.map(d=>d.patchId))" v-slot="{labels:analyticLabels}">
       <p v-if="report.status==='insufficient_data'" class="warning">В выборке нет подходящих пар. N=0; наблюдаемый WR неизвестен.</p>
       <div>Период: {{dateLabel(report.fromAt)}} ≤ начало карты &lt; {{dateLabel(report.cutoffAt)}}. Патч: <ContextFilterLabel kind="patches" :id="report.effectivePatchId" empty-label="все, включая неизвестные" />; исторический турнир: <ContextFilterLabel kind="leagues" :id="report.query.leagueId" />.</div>
       <p class="hint">Данные обновлены: {{dateLabel(report.dataUpdatedAt)}}. Отчёт: {{dateLabel(report.snapshotAt)}}. Использованы завершённые карты и сведения, доступные сейчас; историческая доступность до драфта не подтверждается.</p>
@@ -59,16 +60,16 @@ const coefficientFields=[['minorPenalty','Штраф minor'],['moderatePenalty',
       <div v-for="slot in (['A','B'] as const)" :key="slot"><h3>Союзные пары {{slot}}</h3>
         <p v-if="!report.allies.some(p=>p.teamSlot===slot)">Назначьте хотя бы двух героев этой стороны.</p>
         <div v-else class="table-scroll" tabindex="0" :aria-label="`Таблица союзных пар ${slot}`"><table><thead><tr><th>Пара</th><th>Наблюдения и оценки</th></tr></thead><tbody>
-          <tr v-for="p in report.allies.filter(p=>p.teamSlot===slot)" :key="p.heroA.heroId+'-'+p.heroB.heroId"><th scope="row">{{p.heroA.name}} + {{p.heroB.name}}</th><td><HeroPairValue :pair="p" /></td></tr>
+          <tr v-for="p in report.allies.filter(p=>p.teamSlot===slot)" :key="p.heroA.heroId+'-'+p.heroB.heroId"><th scope="row">{{p.heroA.name}} + {{p.heroB.name}}</th><td><HeroPairValue :pair="p" :labels="analyticLabels" /></td></tr>
         </tbody></table></div>
       </div>
       <h3>Контрматчапы A → B</h3><p>Строка A против столбца B. WR — доля побед стороны героя строки на реальных картах; A и B не означают Radiant и Dire.</p>
       <p v-if="!report.enemies.length">Нужен хотя бы один герой с каждой стороны.</p>
       <div v-else class="table-scroll" tabindex="0" aria-label="Матрица контрматчапов"><table><thead><tr><th scope="col">A / B</th><th v-for="h in report.heroes.filter(h=>h.teamSlot==='B')" :key="h.heroId" scope="col">{{h.name}}</th></tr></thead>
-        <tbody><tr v-for="h in report.heroes.filter(h=>h.teamSlot==='A')" :key="h.heroId"><th scope="row">{{h.name}}</th><td v-for="p in report.enemies.filter(p=>p.heroA.heroId===h.heroId)" :key="p.heroB.heroId"><HeroPairValue :pair="p" /></td></tr></tbody>
+        <tbody><tr v-for="h in report.heroes.filter(h=>h.teamSlot==='A')" :key="h.heroId"><th scope="row">{{h.name}}</th><td v-for="p in report.enemies.filter(p=>p.heroA.heroId===h.heroId)" :key="p.heroB.heroId"><HeroPairValue :pair="p" :labels="analyticLabels" /></td></tr></tbody>
       </table></div>
       <details><summary>Источники и параметры расчёта</summary><p>Источники: {{[...new Set(report.provenance.map(m=>m.source))].join(', ')||'нет карт'}}. Политика: {{report.policyVersion}}; реестр: {{report.registryRevision}}.</p><p class="pair-hash">Fingerprint: {{report.fingerprint}}</p><pre>{{JSON.stringify({query:report.query,reference:report.reference,provenance:report.provenance,weighted:report.query.weights?[...report.allies,...report.enemies].map(p=>({heroA:p.heroA.heroId,heroB:p.heroB.heroId,...p.weighted})):undefined},null,2)}}</pre></details>
-    </div>
+    </AnalyticDisplayLabels></div>
   </section>
 </template>
 <style scoped>.hero-matchups{min-width:0}.pair-filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:16px;margin-block:16px}.pair-filters label{display:grid;gap:6px;min-width:0}.pair-filters input,.pair-filters select{width:100%;min-width:0;box-sizing:border-box}.weight-toggle{display:flex;align-items:center;gap:10px;margin-block:16px}.weight-toggle input{width:auto}fieldset{min-width:0;margin-block:16px}th,td{vertical-align:top;text-align:left;padding:12px}th{min-width:140px;max-width:220px;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse}tr{border-bottom:1px solid var(--color-border)}summary{cursor:pointer;min-height:44px;padding-block:10px}pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:360px;overflow:auto;font-size:12px}.pair-hash{overflow-wrap:anywhere}</style>

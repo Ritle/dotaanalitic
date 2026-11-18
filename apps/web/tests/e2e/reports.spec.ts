@@ -7,7 +7,7 @@ import {ScenarioRepository,sql} from '../../../../packages/db/src/index';
 import {buildApp} from '../../../api/src/app';import {readConfig} from '../../../api/src/config';import {AuthService} from '../../../api/src/modules/auth/service';
 let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string,id:string,ownerId:string;
 test.beforeAll(async()=>{
-  database=await testDatabase();await seedScenarioReports(database.db);password=randomBytes(24).toString('base64url');
+  database=await testDatabase();await seedScenarioReports(database.db);await sql`UPDATE heroes SET localized_name=' ' WHERE id=1`.execute(database.db);password=randomBytes(24).toString('base64url');
   ownerId=(await new AuthService(database.db).provision('synthetic-reports-browser',password)).id;
   id=(await new ScenarioRepository(database.db).save(ownerId,reportInput())).id;
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179'}),{db:database.db,logger:false});await api.listen({host:'127.0.0.1',port:3151});
@@ -28,6 +28,15 @@ test('saved report versions preserve source/input snapshots, coverage and indepe
   await expect(report.getByLabel('Таблица игроков по ролям').getByRole('link',{name:'Synthetic Twin',exact:true})).toHaveCount(2);
   expect(metadata).toHaveLength(1);expect(profiles).toEqual([]);
   const firstUrl=page.url(),firstId=new URL(firstUrl).searchParams.get('analysis')!,frozen=await (await page.request.get('/api/v1/analyses/'+firstId)).json();
+  const patchLabels=report.locator('[data-distribution-patch="1"] [data-analytic-kind="patches"]');
+  await expect(patchLabels.first()).toContainText('synthetic draft patch');
+  const rawCounts=await report.locator('[data-patch-count]').allTextContents();
+  const analyticRequests:string[]=[];page.on('request',r=>{if(r.url().includes('/context-catalog?')&&new URL(r.url()).searchParams.has('ids'))analyticRequests.push(r.url());});
+  await sql`UPDATE patches SET label='Synthetic renamed report patch' WHERE id=1`.execute(database.db);
+  await report.getByRole('button',{name:'Обновить подписи аналитики',exact:true}).click();
+  await expect(patchLabels.first()).toContainText('Synthetic renamed report patch');expect(analyticRequests).toHaveLength(1);
+  expect(await report.locator('[data-patch-count]').allTextContents()).toEqual(rawCounts);
+  expect(await (await page.request.get('/api/v1/analyses/'+firstId)).json()).toEqual(frozen);
   const playerId=reportInput().lineupA[0]!.playerId!;
   await expect(report.getByLabel('Таблица игроков по ролям').getByRole('link',{name:'Synthetic Twin',exact:true}).first()).toHaveAttribute('href','/players/'+playerId);
   await expect(report.getByLabel('Таблица игроков по ролям').getByText('Внутренний ID: '+playerId,{exact:true})).not.toBeVisible();
@@ -44,6 +53,8 @@ test('saved report versions preserve source/input snapshots, coverage and indepe
   await page.reload();await expect(page.getByText('Текущая редакция сценария 2.',{exact:false})).toBeVisible();await expect(report).toContainText('Synthetic single map');
   await page.getByRole('button',{name:'Рассчитать и сохранить отчёт',exact:true}).click();await expect(report.getByRole('heading',{name:'Отчёт · версия 2',exact:true})).toBeVisible();await expect(report).toContainText('Synthetic updated report input');
   await expect(history.getByRole('link')).toHaveCount(2);await page.goto(firstUrl);await expect(report.getByRole('heading',{name:'Отчёт · версия 1',exact:true})).toBeVisible();await expect(report).toContainText('Synthetic single map');
+  const frozenHero=report.getByLabel('Таблица игроков по ролям').locator('tbody tr').first().locator('td').first();
+  await expect(frozenHero).toContainText('Герой без названия');await frozenHero.getByText('Данные записи',{exact:true}).click();await expect(frozenHero.getByText('Внутренний ID: 1',{exact:true})).toBeVisible();
   expect(await (await page.request.get('/api/v1/analyses/'+firstId)).json()).toEqual(frozen);
   for(const params of ['players=0','teams=1,2,3','refresh=true','players='+Array(21).fill('1').join(',')])expect((await page.request.get('/api/v1/catalog-labels?'+params)).status()).toBe(400);
   const bounded=await page.request.get('/api/v1/catalog-labels?players='+[playerId,playerId,'9223372036854775807'].join(','));expect(bounded.status()).toBe(200);

@@ -42,7 +42,7 @@ test('named context filters preserve exact local IDs and the selected cohort',as
 
 test('context catalog protects scope, pages literal searches and retains unknown IDs',async({page})=>{
  expect((await page.request.get('/api/v1/context-catalog?kind=patches')).status()).toBe(401);await prepare(page);
- for(const query of ['kind=players','kind=patches&offset=10001','kind=patches&id=1&query=x','kind=leagues&id=9223372036854775808'])expect((await page.request.get('/api/v1/context-catalog?'+query)).status()).toBe(400);
+ for(const query of ['kind=matches','kind=patches&offset=10001','kind=patches&id=1&query=x','kind=leagues&id=9223372036854775808'])expect((await page.request.get('/api/v1/context-catalog?'+query)).status()).toBe(400);
  const league=page.getByRole('region',{name:'Сравнение: турнир',exact:true});await league.getByRole('searchbox').fill('Synthetic page');await league.getByRole('searchbox').press('Enter');await expect(league.locator('button[data-context-id]')).toHaveCount(20);await league.getByRole('button',{name:'Следующие названия',exact:true}).click();await expect(league.locator('button[data-context-id]')).toHaveCount(2);
  await league.getByRole('searchbox').fill('%_');await league.getByRole('searchbox').press('Enter');await expect(league.locator('button[data-context-id]')).toHaveCount(1);await league.locator('button[data-context-id="1232"]').click();
   await league.getByText('Технический ID',{exact:true}).click();const id=league.getByLabel('Сравнение: ID лиги',{exact:true});

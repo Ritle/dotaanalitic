@@ -4,6 +4,9 @@ import {useQuery} from '@tanstack/vue-query';
 import {PlayerHeroResponseSchema} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth} from '../auth';
+import AnalyticDisplayLabels from './AnalyticDisplayLabels.vue';
+import PatchDistribution from './PatchDistribution.vue';
+import AnalyticEntityLabel from './AnalyticEntityLabel.vue';
 import SampleNote from './SampleNote.vue';
 import SmoothingNote from './SmoothingNote.vue';
 import ContextPicker from './ContextPicker.vue';
@@ -25,6 +28,7 @@ function apply(){
     if(value?.trim())query.set(key!,value.trim());
   const next=query.toString();if(next===applied.value)void refetch();else applied.value=next;
 }
+const metadata=computed(()=>{const r=report.value;return {patchIds:r?[...r.patchDistribution,...r.referencePool.buckets].map(p=>p.patchId).concat(r.smoothing.prior?.patchId??null):[],heroIds:r?[...r.referencePool.globalBuckets.map(g=>String(g.heroId)),...(r.smoothing.prior?[String(r.smoothing.prior.heroId)]:[])]:[]};});
 </script>
 <template>
   <section class="panel" aria-labelledby="player-hero-title">
@@ -35,7 +39,7 @@ function apply(){
       <div><label for="ph-cutoff">Герои: срез истории (UTC)</label><input id="ph-cutoff" v-model="cutoff" type="datetime-local" /></div>
       <div><label for="ph-scope">Патчи героя</label><select id="ph-scope" v-model="patchScope"><option value="current">Патч на дату среза</option><option value="all">Все патчи</option><option value="specific">Конкретный патч</option></select></div>
       <ContextPicker v-if="patchScope==='specific'" v-model="patch" kind="patches" label="Герои: проверенный патч" id-label="Герои: ID проверенного патча" />
-      <div><label for="ph-hero">Герои: ID героя</label><input id="ph-hero" v-model="hero" inputmode="numeric" maxlength="19" placeholder="Все герои" /></div>
+      <ContextPicker v-model="hero" kind="heroes" label="Герои: герой" id-label="Герои: ID героя" />
       <div><label for="ph-role">Герои: подтверждённая позиция</label><select id="ph-role" v-model="role"><option value="">Все, включая неизвестную</option><option v-for="n in 5" :key="n" :value="String(n)">Позиция {{n}}</option></select></div>
       <div><label for="ph-side">Герои: сторона</label><select id="ph-side" v-model="side"><option value="">Обе стороны</option><option value="radiant">Radiant</option><option value="dire">Dire</option></select></div>
       <button type="submit">Применить фильтры героев</button>
@@ -43,9 +47,9 @@ function apply(){
     <p v-if="isPending" role="status">Загружаем историю героев…</p>
     <div v-else-if="isError" role="alert"><p class="error">{{error?.message}}</p><button type="button" @click="refetch()">Повторить расчёт героев</button></div>
     <p v-else-if="data?.status==='unavailable'" role="status" class="warning">{{data.message}}</p>
-    <template v-else-if="report">
+    <AnalyticDisplayLabels v-else-if="report" :patch-ids="metadata.patchIds" :hero-ids="metadata.heroIds" v-slot="{labels:analyticLabels}">
       <p class="hint">Применённый период UTC: {{dateLabel(report.fromAt)}} → {{dateLabel(report.cutoffAt)}}. Старт строго раньше среза; карта завершена.</p>
-      <div class="hint">Применённые фильтры: <ContextFilterLabel kind="patches" :id="report.filters.patchScope==='all'?null:report.effectivePatchId" /> · герой {{report.filters.heroId??'любой'}} · роль {{report.filters.rolePos??'все / неизвестная'}} · сторона {{report.filters.side??'обе'}}. Без ограничения last N и скрытых весов.</div>
+      <div class="hint">Применённые фильтры: <ContextFilterLabel kind="patches" :id="report.filters.patchScope==='all'?null:report.effectivePatchId" /> · герой <ContextFilterLabel kind="heroes" :id="report.filters.heroId" /> · роль {{report.filters.rolePos??'все / неизвестная'}} · сторона {{report.filters.side??'обе'}}. Без ограничения last N и скрытых весов.</div>
       <div class="summary-grid" role="group" aria-label="Показатели игрока на героях">
         <p><strong>N = {{report.summary.nRaw}}</strong><span>Выбранных карт · побед {{report.summary.wins}}</span></p>
         <p><strong>{{rate(report.summary.winRate)}}</strong><span>Наблюдаемый win rate</span></p>
@@ -53,7 +57,7 @@ function apply(){
         <p><strong>{{rate(report.selectedHeroShare)}}</strong><span>Доля выбранных героев среди {{report.playerMapsInScope}} pro-карт тех же фильтров</span></p>
       </div>
       <SampleNote :evidence="report.summary.sampleEvidence" />
-      <SmoothingNote :data="report.smoothing" />
+      <SmoothingNote :data="report.smoothing" :labels="analyticLabels" />
       <p v-if="report.status==='insufficient_data'">Нет подтверждённых профессиональных игр на герое за выбранный период. При N = 0 наблюдаемые показатели неизвестны; отдельная исходная оценка пула возможна только с указанным prior.</p>
       <p class="hint">Средние K / D / A: {{metric(report.summary.meanKills,report.summary.nRaw)}} / {{metric(report.summary.meanDeaths,report.summary.nRaw)}} / {{metric(report.summary.meanAssists,report.summary.nRaw)}}.</p>
       <p class="hint">GPM: {{metric(report.summary.meanGpm,report.summary.nRaw)}}. XPM: {{metric(report.summary.meanXpm,report.summary.nRaw)}}.</p>
@@ -63,14 +67,14 @@ function apply(){
       <div v-if="report.groups.length" class="table-scroll"><table class="player-hero-table"><caption class="sr-only">Игрок, герой и подтверждённая позиция</caption>
         <thead><tr><th scope="col">Герой / роль</th><th scope="col">N / победы / WR</th><th scope="col">Сглаженная частота / prior</th><th scope="col">Средние K / D / A (N)</th><th scope="col">KDA (N)</th><th scope="col">GPM / XPM (N)</th><th scope="col">Доля героя</th><th scope="col">Последняя карта</th></tr></thead>
         <tbody><tr v-for="g in report.groups" :key="`${g.heroId}:${g.rolePos}`"><td>{{g.heroName??(g.heroId?'Название неизвестно':'Герой неизвестен')}}<span class="catalog-id">ID {{g.heroId??'неизвестен'}} · роль {{g.rolePos??'не подтверждена'}}</span></td>
-          <td>{{g.nRaw}} / {{g.wins}} / {{rate(g.winRate)}}<span v-if="g.sampleEvidence.smallSample" class="catalog-id warning">Малая выборка: менее 30 карт</span></td><td><SmoothingNote :data="g.smoothing" compact /></td><td>{{metric(g.meanKills,g.nRaw)}}<br />{{metric(g.meanDeaths,g.nRaw)}}<br />{{metric(g.meanAssists,g.nRaw)}}</td>
+          <td>{{g.nRaw}} / {{g.wins}} / {{rate(g.winRate)}}<span v-if="g.sampleEvidence.smallSample" class="catalog-id warning">Малая выборка: менее 30 карт</span></td><td><SmoothingNote :data="g.smoothing" :labels="analyticLabels" compact /></td><td>{{metric(g.meanKills,g.nRaw)}}<br />{{metric(g.meanDeaths,g.nRaw)}}<br />{{metric(g.meanAssists,g.nRaw)}}</td>
           <td>{{metric(g.kda,g.nRaw)}}</td><td>{{metric(g.meanGpm,g.nRaw)}}<br />{{metric(g.meanXpm,g.nRaw)}}</td><td>{{rate(g.heroPickRate)}}<span class="catalog-id">{{g.heroMaps}}/{{report.playerMapsInScope}} карт, все роли применённых фильтров</span></td><td>{{dateLabel(g.lastPlayedAt)}}</td></tr></tbody>
       </table></div>
       <details><summary>Ранний pro-пул и prior</summary>
         <p>Состояние: {{report.referencePool.status==='ready'?'прочитан':'недоступен'}}. Только карты до {{dateLabel(report.referencePool.beforeAt)}}. Карт {{number(report.referencePool.coverage.eligibleMaps)}}; строк герой×позиция {{number(report.referencePool.coverage.heroObservations)}} — это не число независимых матчей.</p>
         <p class="hint">Сглаживание использует тот же герой, подтверждённую позицию и проверенный патч; серии выбранной выборки исключаются. Неизвестные серии и односторонний пул не создают prior. Все патчи ниже показаны отдельной глобальной справкой, без подмешивания в патчевую оценку.</p>
         <div class="table-scroll"><table aria-label="Глобальные и патчевые reference показатели"><thead><tr><th>Герой / позиция</th><th>Все патчи: N / победы / WR</th><th>Отдельные патчи (N / победы)</th></tr></thead><tbody>
-          <tr v-for="g in report.referencePool.globalBuckets" :key="`${g.heroId}:${g.rolePos}`"><td>ID {{g.heroId}} / {{g.rolePos??'не подтверждена'}}</td><td>{{g.nRaw}} / {{g.wins}} / {{rate(g.winRate)}}</td><td>{{report.referencePool.buckets.filter(b=>b.heroId===g.heroId&&b.rolePos===g.rolePos).map(b=>`${b.patchId??'неизвестен'}: ${b.nRaw} / ${b.wins}`).join('; ')}}</td></tr>
+          <tr v-for="g in report.referencePool.globalBuckets" :key="`${g.heroId}:${g.rolePos}`"><td><AnalyticEntityLabel kind="heroes" :id="String(g.heroId)" :labels="analyticLabels" /> / {{g.rolePos??'не подтверждена'}}</td><td>{{g.nRaw}} / {{g.wins}} / {{rate(g.winRate)}}</td><td><PatchDistribution :rows="report.referencePool.buckets.filter(b=>b.heroId===g.heroId&&b.rolePos===g.rolePos)" :labels="analyticLabels" show-wins /></td></tr>
         </tbody></table></div>
         <p class="hint">{{report.referencePool.policyVersion}}. Параметры alpha=победы, beta=поражения раннего пула; текущие исходы не подбирают prior. Сглаживание не является обученной вероятностью победы.</p>
         <p v-for="m in report.referencePool.provenance" :key="m.matchId">Ранняя карта {{m.matchId}} · {{dateLabel(m.startedAt)}} · {{m.source}} · ревизия {{m.dataRevision}} · синхронизация {{dateLabel(m.syncedAt)}}</p>
@@ -78,10 +82,10 @@ function apply(){
       <details><summary>Покрытие и карты расчёта</summary>
         <p>Кандидатов {{report.coverage.candidates}}. Исключено: pro неизвестен {{report.coverage.unknownPro}}, не pro {{report.coverage.nonPro}}, конфликт {{report.coverage.conflict}}, незавершённые {{report.coverage.unfinished}}, игрок не подтверждён {{report.coverage.identityUnresolved}}, основные фильтры {{report.coverage.filterMismatch}}, другой герой {{report.coverage.heroFilterMismatch}}.</p>
         <p>Получено после среза: {{report.coverage.lateFetchedMaps}} карт; дата получения неизвестна: {{report.coverage.sourceFetchUnknown}}. Поздняя загрузка не подтверждает предматчевую доступность данных.</p>
-        <p>Патчи (N): {{report.patchDistribution.map(p=>`${p.patchId??'неизвестен'}: ${p.maps}`).join(', ')||'нет карт'}}. Ревизии: личности {{report.identityRevision}}, registry {{report.registryRevision}}; {{report.policyVersion}}.</p>
+        <div>Патчи (N): <PatchDistribution :rows="report.patchDistribution" :labels="analyticLabels" />. Ревизии: личности {{report.identityRevision}}, registry {{report.registryRevision}}; {{report.policyVersion}}.</div>
         <p v-for="m in report.maps" :key="m.matchId">Карта {{m.matchId}} · {{dateLabel(m.startedAt)}} · {{m.side}} · {{m.won?'победа':'поражение'}} · {{m.source}} · ревизия {{m.dataRevision}} · синхронизация {{dateLabel(m.syncedAt)}}.</p>
       </details>
       <button type="button" :disabled="isFetching" @click="refetch()">{{isFetching?'Обновление…':'Перечитать героев'}}</button>
-    </template>
+    </AnalyticDisplayLabels>
   </section>
 </template>

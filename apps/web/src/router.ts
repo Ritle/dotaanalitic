@@ -1,3 +1,4 @@
+import LiveView from './views/LiveView.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import LoginView from './views/LoginView.vue';
 import HomeView from './views/HomeView.vue';
@@ -16,6 +17,7 @@ export const router = createRouter({
   routes: [
     { path: '/login', component: LoginView },
     { path: '/', component: HomeView, meta: { requiresAuth: true } },
+    { path: '/live', component: LiveView, meta: { requiresAuth: true } },
     { path: '/upcoming', component: UpcomingView, meta: { requiresAuth: true } },
     { path: '/schedule-targets/:requestId', component: ScheduleTargetView, meta: { requiresAuth: true } },
     { path: '/forecast-journal', component: ForecastJournalView, meta: { requiresAuth: true } },

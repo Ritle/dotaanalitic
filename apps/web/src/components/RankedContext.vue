@@ -4,6 +4,7 @@ import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {ownerAuth} from '../auth';
 import {dateLabel} from '../catalog';
 import {readRankedContext,rankedContextReason} from '../ranked-context';
+import ReportEntityLabel from './ReportEntityLabel.vue';
 const props=defineProps<{playerId:string;parentObservationId:string;heroes:readonly {heroId:string;heroName:string|null}[];disabled?:boolean}>(),emit=defineEmits<{busy:[value:boolean]}>();
 const opened=ref(false),busy=ref(false),error=ref(''),clock=ref(Date.now()),cache=useQueryClient(),key=computed(()=>['ranked-context',props.playerId,props.parentObservationId]);
 const query=useQuery({queryKey:key,enabled:computed(()=>opened.value&&!!ownerAuth.value),staleTime:60000,gcTime:300000,retry:false,refetchOnWindowFocus:false,refetchOnReconnect:false,
@@ -13,7 +14,7 @@ const waiting=computed(()=>!!report.value?.retryAt&&Date.parse(report.value.retr
 const counts=computed(()=>({conflict:report.value?.maps.filter(m=>m.status==='conflict').length??0,missing:report.value?.maps.filter(m=>m.status==='unavailable').length??0,stale:report.value?.maps.filter(m=>m.stale).length??0}));
 const coverage=computed(()=>({position:report.value?.maps.filter(m=>m.position!==null).length??0,version:report.value?.maps.filter(m=>m.gameVersionCode!==null).length??0}));
 const lastFetchedAt=computed(()=>report.value?.maps.reduce<string|null>((last,m)=>m.sourceFetchedAt&&(!last||m.sourceFetchedAt>last)?m.sourceFetchedAt:last,null)??null);
-const heroName=(id:string)=>props.heroes.find(h=>h.heroId===id)?.heroName??`Герой ID ${id}`;
+const heroName=(id:string)=>props.heroes.find(h=>h.heroId===id)?.heroName;
 let controller:AbortController|undefined;const timer=setInterval(()=>{if(opened.value)clock.value=Date.now();},1000);
 onUnmounted(()=>{clearInterval(timer);controller?.abort();emit('busy',false);});
 function toggle(event:Event){opened.value=(event.currentTarget as HTMLDetailsElement).open;clock.value=Date.now();}
@@ -46,7 +47,7 @@ async function refresh(){
     <div v-if="report.maps.some(m=>m.sourceReceiptId)" class="table-scroll" role="region" aria-label="Таблица дополнения STRATZ" tabindex="0"><table>
      <caption class="sr-only">Дополнение известных рейтинговых карт STRATZ</caption>
      <thead><tr><th scope="col">Карта / начало (UTC)</th><th scope="col">Герой</th><th scope="col">Оценка позиции</th><th scope="col">Версия STRATZ</th><th scope="col">Проверка</th></tr></thead>
-     <tbody><tr v-for="m in report.maps" :key="m.matchId"><th scope="row">{{m.matchId}}<br/><span class="hint">{{dateLabel(m.startedAt)}}</span></th><td>{{heroName(m.heroId)}}</td><td>{{m.position?m.position.replace('POSITION_','')+' (оценка)':'Неизвестна'}}</td><td>{{m.gameVersionCode??'Неизвестна'}}</td><td>{{m.status==='matched'?'Совпадение':m.status==='not_loaded'?'Не загружено':rankedContextReason(m.reason)}}</td></tr></tbody>
+     <tbody><tr v-for="m in report.maps" :key="m.matchId"><th scope="row">{{m.matchId}}<br/><span class="hint">{{dateLabel(m.startedAt)}}</span></th><td><ReportEntityLabel kind="heroes" :id="m.heroId" :name="heroName(m.heroId)" /></td><td>{{m.position?m.position.replace('POSITION_','')+' (оценка)':'Неизвестна'}}</td><td>{{m.gameVersionCode??'Неизвестна'}}</td><td>{{m.status==='matched'?'Совпадение':m.status==='not_loaded'?'Не загружено':rankedContextReason(m.reason)}}</td></tr></tbody>
     </table></div>
    </template>
    <p v-if="error" role="alert" class="error">{{error}}</p>

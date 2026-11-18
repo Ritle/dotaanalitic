@@ -7,6 +7,8 @@ import {readPrediction,PredictionRequestError} from '../predictions';
 import {postScheduledResult} from '../scheduled-results';
 import {dateLabel} from '../catalog';
 import {journalReason,rosterLabel} from '../journal';
+import ForecastVerdict from './ForecastVerdict.vue';
+import CatalogDisplayLabels from './CatalogDisplayLabels.vue';
 const props=defineProps<{forecast:V1ScheduledPredictionView}>(),cache=useQueryClient();
 const targetId=computed(()=>props.forecast.target.targetRequestId),forecastId=computed(()=>props.forecast.requestId);
 const root=computed(()=>`schedule-targets/${targetId.value}/forecasts/${forecastId.value}`);
@@ -51,6 +53,11 @@ async function reload(){
 </script>
 <template><section class="panel" aria-label="Связь с результатом карты">
   <h3>Результат сыгранной карты</h3>
+  <CatalogDisplayLabels compact :team-ids="[forecast.scenario.input.teamAId,forecast.scenario.input.teamBId]" v-slot="{labels}">
+    <ForecastVerdict :input="{status:display?.result.status==='linked'?(display.result.prospectiveEligible?'eligible':'excluded'):'pending_verification',calculationStatus:forecast.status,probability:forecast.teamAWinProbability,actualWinner:display?.result.outcome?(display.result.outcome.teamAWon?'A':'B'):null}"
+      :team-a-name="labels['team:'+forecast.scenario.input.teamAId]" :team-b-name="labels['team:'+forecast.scenario.input.teamBId]" />
+  </CatalogDisplayLabels>
+  <p v-if="display" class="hint">По сверке от {{dateLabel(display.result.checkedAt)}} · редакция {{display.revision}}<template v-if="display.revision!==head.data.value?.items[0]?.revision"> · архивная версия</template>.</p>
   <p>Сопоставьте встречу PandaScore #{{forecast.target.providerMatchId}} с первой картой OpenDota. Победитель и время начала берутся из проверенных данных.</p>
   <p v-if="bindingQuery.isFetching.value" role="status">Загрузка связи…</p><p v-if="bindingQuery.error.value" role="alert" class="error">{{bindingQuery.error.value.message}}</p>
   <article v-if="binding" aria-label="Сохранённая связь с картой"><p><strong>Карта #{{binding.matchId}} · серия OpenDota #{{binding.providerSeriesId}}</strong></p>

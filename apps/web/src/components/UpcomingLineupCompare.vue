@@ -4,6 +4,7 @@ import {useQuery} from '@tanstack/vue-query';
 import {CompareRequestSchema,CompareResponseSchema,type CompareRequest} from '@dota/contracts';
 import {ownerAuth} from '../auth';
 import {readCatalog,dateLabel} from '../catalog';
+import ComparisonHistory from './ComparisonHistory.vue';
 import CompareStat from './CompareStat.vue';
 import SampleNote from './SampleNote.vue';
 import ReportEntityLabel from './ReportEntityLabel.vue';
@@ -11,13 +12,13 @@ import ContextPicker from './ContextPicker.vue';
 import ContextFilterLabel from './ContextFilterLabel.vue';
 import {roleName} from '../role-suggestions';
 const props=defineProps<{input:CompareRequest|null;playerLabels?:Record<string,string>}>(),applied=ref<CompareRequest|null>(null);
-const period=ref('90');
+const period=ref('90'),historyTrigger=ref(0);
 const filters=reactive({from:'',cutoff:'',patch:'',league:''}),validation=ref(''),filterForm=ref<HTMLFormElement|null>(null);
 watch([()=>props.input,filters,period],()=>{applied.value=null;validation.value='';},{deep:true,flush:'sync'});
 const query=useQuery({queryKey:computed(()=>['compare','upcoming',applied.value]),enabled:computed(()=>!!ownerAuth.value&&!!applied.value),
   queryFn:({signal})=>readCatalog('teams/compare',CompareResponseSchema,signal,{method:'POST',
     headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value!.csrfToken},body:JSON.stringify(applied.value)})});
-const report=computed(()=>applied.value&&!query.isFetching.value&&!query.isError.value&&query.data.value?.status!=='unavailable'?query.data.value:null);
+const report=computed(()=>applied.value&&!query.isError.value&&query.data.value?.status!=='unavailable'?query.data.value:null);
 const columns=computed(()=>report.value?[{slot:'A',team:report.value.teamA},{slot:'B',team:report.value.teamB}]:[]);
 function compare(){
   if(!props.input)return;
@@ -31,6 +32,7 @@ function compare(){
     const now=new Date().toISOString();
     if(next.cutoffAt&&next.cutoffAt>now||next.fromAt&&next.fromAt>=(next.cutoffAt??now))throw new Error('invalid_filter_window');
     validation.value='';
+    historyTrigger.value++;
     if(JSON.stringify(applied.value)===JSON.stringify(next)){void query.refetch();return;}
     applied.value=next;
   }catch{applied.value=null;validation.value='Проверьте даты UTC: начало строго раньше среза, срез не в будущем. ID патча и лиги — положительные целые ID из локальной базы.';}
@@ -57,6 +59,7 @@ const rate=(value:number|null)=>value===null?'нет данных':new Intl.Numb
       </details>
       <p v-if="validation" class="error" role="alert">{{validation}}</p>
     </form>
+    <ComparisonHistory v-if="applied" :input="applied" :trigger="historyTrigger" @updated="query.refetch()" />
     <p v-if="applied&&query.isFetching.value" role="status">Сравниваем подтверждённые пятёрки…</p>
     <div v-if="applied&&query.isError.value" role="alert"><p class="error">{{query.error.value?.message}}</p><button type="button" @click="query.refetch()">Повторить сравнение пятёрок</button></div>
     <p v-if="applied&&!query.isFetching.value&&!query.isError.value&&query.data.value?.status==='unavailable'" class="warning" role="status">{{query.data.value.message}} Уточните начало истории выше и запустите сравнение снова. Окно не расширяется автоматически.</p>
@@ -72,7 +75,7 @@ const rate=(value:number|null)=>value===null?'нет данных':new Intl.Numb
         <div class="table-scroll"><table class="player-overview" :aria-label="`Личная статистика ${col.slot}`"><thead><tr><th>Игрок</th><th>Карт</th><th>Побед</th><th>Доля побед</th></tr></thead><tbody>
           <tr v-for="p in col.team.cohesion.actual.players" :key="p.playerId??p.rolePos"><td><ReportEntityLabel kind="players" :id="p.playerId" :name="playerLabels?.['player:'+p.playerId]" /><br /><span class="hint">{{roleName(p.rolePos)}}</span></td><td>{{p.nRaw??'—'}}</td><td>{{p.wins??'—'}}</td><td>{{rate(p.winRate)}}</td></tr>
         </tbody></table></div>
-        <p v-if="col.team.cohesion.actual.players.some(p=>!p.nRaw)" class="warning">У части игроков нет данных за этот период. Можно выбрать год или загрузить историю в разделе ручного выбора.</p>
+        <p v-if="col.team.cohesion.actual.players.some(p=>!p.nRaw)" class="warning">У части игроков нет данных за этот период. Проверьте результат подготовки истории выше или выберите более широкий период.</p>
         <div role="group" :aria-label="`Точная пятёрка ${col.slot} в любых организациях`"><p>Сыграли вместе · выбранные пять игроков</p><CompareStat :stats="col.team.cohesion.actual.exactFive" /></div>
         <p v-if="col.team.cohesion.actual.exactFive.nRaw===0" class="hint">Совместные карты всей пятёрки не найдены в выбранном периоде.</p>
         <details><summary>{{col.slot}} · Организация и сыгранность</summary>

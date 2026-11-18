@@ -1,3 +1,4 @@
+import {syntheticPlayerHistory} from '../../../../tests/helpers/player-history';
 import {test,expect,type Page} from '@playwright/test';
 import {randomBytes} from 'node:crypto';
 import type {FastifyInstance} from 'fastify';
@@ -17,7 +18,7 @@ test.beforeEach(async({page})=>{
  database=await testDatabase();await seedStrength(database.db);calls=[];fail=false;
  const password=randomBytes(24).toString('hex');await new AuthService(database.db).provision('synthetic-pages-browser',password);
  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),{
-  db:database.db,logger:false,catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>{
+  db:database.db,logger:false,playerHistoryProvider:()=>syntheticPlayerHistory({mode:'empty'}),catalogueProvider:async()=>{throw Error('Synthetic catalogue unavailable');},pandascoreFetch:async url=>{
    if(url.pathname.endsWith('/rosters'))return new Response(JSON.stringify(syntheticRosters()));
    const number=Number(url.searchParams.get('page'));calls.push(number);
    const rows=number===3?[]:Array.from({length:20},(_,i)=>({...syntheticSchedule()[0],id:number*10000+i+1,name:`Synthetic page ${number} match ${i+1}`,
@@ -56,12 +57,12 @@ test('page-two match loads its roster, supports confirmed comparison and clears 
  await panel(page).getByText('Выбрать игроков для анализа одной карты',{exact:true}).click();const q=scenarioInput();
  await pick(page,'Команда A в локальной базе',q.teamAId);await pick(page,'Команда B в локальной базе',q.teamBId);
  for(const [slot,line] of [['A',q.lineupA],['B',q.lineupB]] as const)for(const p of line)await pick(page,`${slot}: игрок ${p.rolePos}`,p.playerId!);
- await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();
+ await page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true}).click();
  await page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true}).click();
  await expect(page.getByRole('region',{name:'Результат сравнения пятёрок',exact:true})).toBeVisible();
  await previous(page).click();await expect(panel(page)).toHaveCount(0);await next(page).click();
  await expect(page.getByText('Страница 2',{exact:true})).toBeVisible();await page.getByRole('button',{name:'Выбрать',exact:true}).first().click();
- await expect(page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true})).not.toBeChecked();
+ await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toHaveAttribute('aria-pressed','false');
  await expect(page.getByRole('region',{name:'Результат сравнения пятёрок',exact:true})).toHaveCount(0);
  expect((await sql`SELECT id FROM scenarios`.execute(database.db)).rows).toHaveLength(0);
 });

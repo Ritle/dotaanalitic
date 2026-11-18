@@ -18,6 +18,7 @@ async function call<T>(path:string,schema:{parse(v:unknown):T},signal:AbortSigna
   try{return schema.parse(await response.json());}catch{throw new Error('Не удалось проверить ответ журнала. Повторите запрос или обновите историю.');}
 }
 export const readJournal=<T>(path:string,schema:{parse(v:unknown):T},signal:AbortSignal)=>call(path,schema,signal);
+export const refreshJournalResult=<T>(requestId:string,schema:{parse(v:unknown):T},signal:AbortSignal)=>call('/results/'+requestId+'/refresh',schema,signal,{});
 export const createJournal=(body:{requestId:string;filters:V1JournalCurrentFilters},signal:AbortSignal):Promise<V1JournalView>=>call('',V1JournalViewSchema,signal,body);
 export const journalStatus={primary:'Основной',superseded:'Предыдущий пересчёт',what_if:'Условный расчёт',unavailable:'Недоступен',
   pending_verification:'Ожидает проверки',unlinked:'Карта не привязана',excluded:'Исключён из метрик',cancelled:'Отменена · отметка владельца'};

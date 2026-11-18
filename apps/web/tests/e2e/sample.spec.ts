@@ -32,9 +32,10 @@ test('sample size, raw frequency and experimental prior stay distinct including 
   await enter(page);await page.goto('/players/'+catalogPlayerId);
   await page.getByLabel('Герои: начало периода (UTC)',{exact:true}).fill('2024-01-01T00:00');
   await page.getByLabel('Герои: срез истории (UTC)',{exact:true}).fill('2024-01-03T00:00');
+  await page.getByRole('region',{name:'Герои: герой',exact:true}).getByText('Технический ID',{exact:true}).click();
   await page.getByLabel('Герои: ID героя',{exact:true}).fill('1');await page.getByLabel('Герои: подтверждённая позиция',{exact:true}).selectOption('1');
   await page.getByRole('button',{name:'Применить фильтры героев',exact:true}).click();
-  const panel=page.locator('section').last(),summary=page.getByRole('group',{name:'Показатели игрока на героях'});
+  const panel=page.locator('[aria-labelledby="player-hero-title"]'),summary=page.getByRole('group',{name:'Показатели игрока на героях'});
   await expect(summary).toContainText('N = 1');await expect(summary).toContainText('100');
   await expect(panel.getByRole('group',{name:'Сглаженная историческая оценка',exact:true})).toContainText('50');
   await expect(panel.getByText('Исходная частота',{exact:false}).first()).toContainText('объём prior 3 карт');

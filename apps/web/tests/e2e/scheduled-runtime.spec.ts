@@ -54,7 +54,9 @@ test('scheduled forecast keeps its provider identity, frozen lineup and target l
   await page.goto('/forecast-journal?report='+report.report.request.requestId);
   const row=page.getByRole('row').filter({has:page.getByRole('link',{name:'Синтетическая карта из расписания',exact:true})});
   await row.getByText('Сведения о прогнозе',{exact:true}).click();await expect(row).toContainText('PandaScore встреча #'+match.providerMatchId);
-  await expect(row).toContainText('#101, #102, #103, #104, #105');await expect(row).not.toContainText('OpenDota series');
+  await row.getByText('Команды и ожидаемые составы A/B',{exact:true}).click();
+  for(const id of ['101','102','103','104','105'])await expect(row.locator(`a[href="/players/${id}"]`)).toBeVisible();
+  await expect(row).not.toContainText('OpenDota series');
   await expect(row).toContainText('Связь с результатом карты ещё не подтверждена');await expect(row).toContainText('Расчёт недоступен');
   await page.screenshot({path:'test-results/scheduled-runtime-journal-desktop.png',fullPage:true});
   await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -63,4 +65,9 @@ test('scheduled forecast keeps its provider identity, frozen lineup and target l
   await row.getByRole('link',{name:'Сохранённый выбор встречи →',exact:true}).click();
   await expect(page.getByRole('article',{name:'Сохранённое назначение карты',exact:true})).toContainText(match.name!);
   expect(forecast.snapshot.teamAWinProbability).toBeNull();
+  await page.getByLabel('Сохранённый сценарий',{exact:true}).selectOption(scenario.id);
+  await page.getByRole('button',{name:'Рассчитать назначенную карту',exact:true}).click();
+  await expect(page.getByRole('article',{name:'Сохранённый расчёт',exact:true})).toContainText('Уровень турнира не подтверждён');
+  await expect(page.getByLabel('Я проверил, что карта относится к основному событию Tier 1')).toHaveCount(0);
+
 });

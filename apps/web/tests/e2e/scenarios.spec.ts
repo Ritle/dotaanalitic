@@ -15,6 +15,12 @@ test.beforeAll(async()=>{
   ownerId=(await new AuthService(database.db).provision('synthetic-scenario-browser',password)).id;
   api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179'}),{db:database.db,logger:false});await api.listen({host:'127.0.0.1',port:3151});
 });
+// Independent cases keep their shared fixture but do not consume each other's HTTP rate budget.
+let startedCases=0;
+test.beforeEach(async()=>{if(startedCases++===0)return;await api.close();
+ api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179'}),{db:database.db,logger:false});
+ await api.listen({host:'127.0.0.1',port:3151});
+});
 test.afterAll(async()=>{await api?.close();await database?.close();});
 test('save/reload baseline, null side, immutable history and stale-tab conflict; mobile layout',async({page,context})=>{
   await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-scenario-browser');await page.getByLabel('Пароль').fill(password);
@@ -37,7 +43,10 @@ test('save/reload baseline, null side, immutable history and stale-tab conflict;
   await other.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();await expect(other.getByRole('heading',{name:'Сценарий · редакция 2',exact:true})).toBeVisible();
   await page.getByLabel('Название',{exact:true}).fill('Мои несохранённые правки');await confirm.check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
   await expect(page.getByRole('alert')).toContainText('Сценарий уже изменён');await expect(page.getByLabel('Название',{exact:true})).toHaveValue('Мои несохранённые правки');
+  let reloadWrites=0;const reloadPath='**/api/v1/scenarios/'+savedId;
+  await page.route(reloadPath,async r=>{if(r.request().method()==='PUT')reloadWrites++;await r.continue();});
   await page.getByRole('button',{name:'Загрузить сохранённую редакцию · заменить мои правки'}).click();await expect(page.getByLabel('Название',{exact:true})).toHaveValue('Параллельная редакция');
+  expect(reloadWrites).toBe(0);await page.unroute(reloadPath);
   await page.getByRole('combobox',{name:'Radiant',exact:true}).selectOption('B');await page.getByRole('combobox',{name:'Первый пик',exact:true}).selectOption('A');await page.getByLabel('A: замена игрока 5',{exact:true}).check();
   await expect(confirm).not.toBeChecked();await confirm.check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();await expect(page.getByRole('heading',{name:'Сценарий · редакция 3',exact:true})).toBeVisible();
   const history=page.getByRole('region',{name:'История сценария'});await expect(history).toContainText('Редакция 1 · Синтетический сценарий');await expect(history).toContainText('Редакция 3 · Параллельная редакция');
@@ -48,10 +57,11 @@ test('save/reload baseline, null side, immutable history and stale-tab conflict;
 
 test('history reads bounded labels lazily, reuses baseline IDs and preserves immutable input through refresh and failures',async({page})=>{
   const q=scenarioInput(),first=await new ScenarioRepository(database.db).save(ownerId,{...q,title:'Синтетическая история подписей',expectedLineupA:q.lineupA}),savedId=first.id;
-  const metadata:string[]=[];page.on('request',r=>{if(r.url().includes('/api/v1/catalog-labels?'))metadata.push(r.url());});
+  const metadata:string[]=[],editorNames:string[]=[];page.on('request',r=>{if(r.url().includes('/api/v1/catalog-labels?')){if(new URL(r.url()).searchParams.get('teams'))metadata.push(r.url());else editorNames.push(r.url());}});
   await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-scenario-browser');await page.getByLabel('Пароль').fill(password);
   await page.getByRole('button',{name:'Войти',exact:true}).click();await page.getByRole('heading',{name:'Справочники',exact:true}).waitFor();await page.goto('/scenarios/'+savedId);
   const history=page.getByRole('region',{name:'История сценария',exact:true});await expect(history).toContainText('Синтетическая история подписей');
+  await expect(page.locator('#draftlab').getByRole('link',{name:'Synthetic Twin',exact:true})).toHaveCount(2);expect(editorNames).toHaveLength(1);
   expect(metadata).toEqual([]);
   const old=history.locator(':scope > details').filter({hasText:'Редакция 1 · Синтетическая история подписей'});
   await old.locator('summary').first().click();await expect(old.getByRole('link',{name:'Synthetic Twin',exact:true})).toHaveCount(4);

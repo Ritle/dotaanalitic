@@ -37,7 +37,8 @@ test('synthetic raw hero table shows observed 0/100 percent, sample sizes and re
   heroes:[{heroId:'1',heroName:'Synthetic winning hero',games:1,wins:1,winRate:1,lastPlayedAt:first.startedAt},{heroId:'2',heroName:null,games:1,wins:0,winRate:0,lastPlayedAt:first.startedAt}]};
  await page.route('**/api/v1/ranked-practice',async r=>{const p=r.request().postDataJSON();await r.fulfill({json:fixture(p.playerId,p.provider,{status:'partial',reason:null,observationIdentityRevision:'10',observationId,observation:o,statisticsEnabled:true,heroSummary})});});
  await open(page);const table=panel(page).getByRole('table');await expect(table.getByRole('row')).toHaveCount(3);
- await expect(table.getByRole('row',{name:/Synthetic winning hero/})).toContainText('100');await expect(table.getByRole('row',{name:/Герой ID 2/})).toContainText('0');
+ await expect(table.getByRole('row',{name:/Synthetic winning hero/})).toContainText('100');await expect(table.getByRole('row',{name:/Название героя недоступно/})).toContainText('0');
+ const missing=table.getByRole('row',{name:/Название героя недоступно/});await missing.getByText('Данные записи',{exact:true}).click();await expect(missing.getByText('Внутренний ID: 2',{exact:true})).toBeVisible();await expect(table.getByRole('link')).toHaveCount(0);
  await expect(panel(page)).toContainText('2 наблюдаемых игр · героев 2');await expect(panel(page)).toContainText('При малом числе игр');await expect(table.getByRole('columnheader',{name:'Последняя игра (UTC)'})).toBeVisible();
  await expect(panel(page)).not.toContainText('Показатели по героям этого источника пока недоступны.');
  await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);

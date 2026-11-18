@@ -22,13 +22,13 @@ export function rolePlayerName(report:Pick<RoleProfilesReport,'binding'|'sources
 
 /** A selected catalogue name is a display label, never new identity or provider evidence. */
 const readableRoleName=(name:string|undefined|null)=>!!name&&/[\p{L}\p{N}\p{P}\p{S}]/u.test(name);
-export function selectedRolePlayerLabel(playerId:string,selectedLabel?:string):string{
- const name=selectedLabel?.trim();return readableRoleName(name)?`Выбранный игрок: ${name} · ID ${playerId}`:`Игрок ${playerId}`;
+export function selectedRolePlayerLabel(_playerId:string,selectedLabel?:string):string{
+ const name=selectedLabel?.trim();return readableRoleName(name)?`Выбранный игрок: ${name}`:selectedLabel===undefined?'Имя недоступно':'Игрок без ника';
 }
 export function rolePlayerLabel(report:Pick<RoleProfilesReport,'binding'|'sources'>,
  player:Pick<RoleProfilesReport['players'][number],'playerId'|'accountIds'|'identityStatus'>,selectedLabel?:string):string{
  const name=rolePlayerName(report,player);
- return readableRoleName(name)?`${name} · ID ${player.playerId}`:selectedRolePlayerLabel(player.playerId,selectedLabel);
+ return readableRoleName(name)?name!:selectedRolePlayerLabel(player.playerId,selectedLabel);
 }
 
 /** Editor suggestions only. Server consensus/identity eligibility and historical facts are unchanged. */

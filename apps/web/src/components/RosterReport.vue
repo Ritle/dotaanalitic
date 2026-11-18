@@ -4,6 +4,8 @@ import {useQuery} from '@tanstack/vue-query';
 import {RosterRequestSchema,RosterResponseSchema,type RosterRequest} from '@dota/contracts';
 import {ownerAuth} from '../auth';
 import {readCatalog,dateLabel} from '../catalog';
+import AnalyticDisplayLabels from './AnalyticDisplayLabels.vue';
+import PatchDistribution from './PatchDistribution.vue';
 import SampleNote from './SampleNote.vue';
 const props=defineProps<{id:string}>();
 const five=()=>Array.from({length:5},(_,i)=>({playerId:'',rolePos:i+1,isStandin:false}));
@@ -51,7 +53,7 @@ function submit(){
     <p v-if="applied&&isFetching" role="status">Читаем историю профессиональных карт…</p>
     <div v-if="applied&&isError" role="alert"><p class="error">{{error?.message}}</p><button type="button" @click="refetch()">Повторить расчёт</button></div>
     <p v-if="applied&&data?.status==='unavailable'" role="status" class="warning">{{data.message}}</p>
-    <template v-if="report">
+    <AnalyticDisplayLabels v-if="report" :patch-ids="report.actual.pairs.flatMap(p=>p.patchDistribution.map(d=>d.patchId))" v-slot="{labels:analyticLabels}">
       <h3>Результат расчёта</h3>
       <p v-if="report.status==='partial'" class="warning">Часть личностей или исторических составов неизвестна. Подсчёт сыгранности неполный; проверьте покрытие ниже.</p>
       <p class="warning">Наблюдаемая история, без прогноза силы или штрафа за замену. Поздно полученные данные не доказывают предматчевую известность состава. Полнота всей pro-истории не гарантирована.</p>
@@ -75,7 +77,7 @@ function submit(){
       <h3>10 исторических пар</h3><p class="hint">Каждая пара считает карту один раз на одной стороне, включая прошлые организации. Сумма десяти N не является числом карт команды. Неполные исторические пятёрки исключены из co-play.</p>
       <div class="table-scroll"><table aria-label="Исторические пары" class="roster-table"><thead><tr><th>Игроки</th><th>N / победы</th><th>За 90 дней / здесь</th><th>Последняя карта</th><th>Патчи (N)</th></tr></thead><tbody>
         <tr v-for="(pair,i) in report.actual.pairs" :key="i"><td>{{pair.playerIds.map(id=>id??'неизвестен').join(' + ')}}</td><td>{{value(pair.nRaw)}} / {{value(pair.wins)}}</td>
-          <td>{{value(pair.recentMaps)}} / {{value(pair.organizationMaps)}}</td><td>{{dateLabel(pair.lastAt)}}</td><td>{{pair.patchDistribution.map(p=>`${p.patchId??'неизвестен'}: ${p.maps}`).join(', ')||'нет наблюдений'}}</td></tr>
+          <td>{{value(pair.recentMaps)}} / {{value(pair.organizationMaps)}}</td><td>{{dateLabel(pair.lastAt)}}</td><td><PatchDistribution :rows="pair.patchDistribution" :labels="analyticLabels" empty-label="нет наблюдений" /></td></tr>
       </tbody></table></div>
       <details v-if="report.expected"><summary>Исторические пары базовой пятёрки</summary><div class="table-scroll"><table aria-label="Базовые исторические пары"><thead><tr><th>Игроки</th><th>N</th><th>Последняя карта</th></tr></thead><tbody><tr v-for="(pair,i) in report.expected.pairs" :key="i"><td>{{pair.playerIds.join(' + ')}}</td><td>{{value(pair.nRaw)}}</td><td>{{dateLabel(pair.lastAt)}}</td></tr></tbody></table></div></details>
       <h3>Личная история и роли</h3><div class="table-scroll"><table aria-label="Личная история выбранных игроков" class="roster-table"><thead><tr><th>Игрок / выбранная роль</th><th>N / победы</th><th>Роль подтверждена / совпадает</th><th>История организаций</th></tr></thead><tbody>
@@ -90,6 +92,6 @@ function submit(){
         <p class="warning" v-if="report.coverage.incompleteSides||report.actual.fingerprint===null">Часть истории или личностей неизвестна. Наблюдаемые N не показывают полную историю сыгранности.</p>
         <p v-for="m in report.provenance" :key="m.matchId">Карта {{m.matchId}} · {{m.source}} · ревизия {{m.dataRevision}} · синхронизация {{dateLabel(m.syncedAt)}} · получение {{dateLabel(m.sourceFetchedAt)}}</p>
       </details>
-    </template>
+    </AnalyticDisplayLabels>
   </section>
 </template>

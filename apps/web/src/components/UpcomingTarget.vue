@@ -5,6 +5,7 @@ import {V1ScheduleTargetPreviewSchema,V1ScheduleTargetHistorySchema,V1ScheduleTa
   type V1ScheduleTargetRequest,type UpcomingMatch} from '@dota/contracts';
 import {scheduleTargetCall} from '../schedule-targets';
 import {dateLabel} from '../catalog';
+import ContextPicker from './ContextPicker.vue';
 import CatalogPicker from './CatalogPicker.vue';
 import ScheduleTargetDetails from './ScheduleTargetDetails.vue';
 import ScheduleFreshness from './ScheduleFreshness.vue';
@@ -57,7 +58,7 @@ async function submit(retry=false){
         <p>Участник B: {{participantB?upcomingTeamLabel(participantB):'не выбран'}}.</p>
         <CatalogPicker v-model="form.teamAId" kind="teams" label="Назначение: локальная команда A" :excluded-ids="[form.teamBId]" @update:model-value="form.confirmed=false" />
         <CatalogPicker v-model="form.teamBId" kind="teams" label="Назначение: локальная команда B" :excluded-ids="[form.teamAId]" @update:model-value="form.confirmed=false" />
-        <label>ID локального турнира · необязательно<input v-model="form.leagueId" inputmode="numeric" @input="form.confirmed=false" /></label>
+        <ContextPicker v-model="form.leagueId" kind="leagues" label="Локальный турнир назначения" id-label="ID локального турнира · необязательно" selection-label="Турнир" empty-label="Не указан" @update:model-value="form.confirmed=false" />
         <label>Источник сопоставления · HTTPS<input v-model="form.reviewSourceUrl" type="url" maxlength="2048" required @input="form.confirmed=false" /></label>
         <label>Обоснование сопоставления<textarea v-model="form.reason" minlength="20" maxlength="1000" required @input="form.confirmed=false" /></label>
         <label class="check"><input v-model="form.confirmed" type="checkbox" required />Подтверждаю соответствие участников и назначение карты 1</label>

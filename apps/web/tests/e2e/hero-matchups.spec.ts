@@ -17,6 +17,7 @@ test('pair tables and directed matrix keep filters, raw/prior/weight states and 
   const pageErrors:string[]=[];page.on('pageerror',e=>pageErrors.push(e.message));
   await page.goto('/login');await page.getByLabel('Логин').fill('synthetic-pairs-browser');await page.getByLabel('Пароль').fill(password);await page.getByRole('button',{name:'Войти',exact:true}).click();
   await expect(page.getByRole('heading',{name:'Справочники',exact:true})).toBeVisible();await page.goto(`/scenarios/${id}`);
+  await page.getByRole('heading',{name:/^Сценарий · редакция \d+$/}).waitFor();if(await page.getByText('Статистика пар героев',{exact:true}).count())await page.getByText('Статистика пар героев',{exact:true}).click();
   const section=page.getByRole('region',{name:'Пары героев',exact:true}),report=section.getByTestId('pair-report'),run=section.getByRole('button',{name:'Рассчитать пары',exact:true});
   await section.getByLabel('Пары: начало периода UTC').fill('2024-01-01T00:00');await run.click();await expect(report).toBeVisible();
   await expect(section.getByRole('table')).toHaveCount(3);
@@ -30,6 +31,6 @@ test('pair tables and directed matrix keep filters, raw/prior/weight states and 
   for(const label of ['Фактор minor','Фактор moderate','Фактор major','Фактор rework'])await section.getByLabel(label,{exact:true}).fill('0.5');
   await section.getByLabel('Пары: начало периода UTC').fill('2024-01-01T00:00');await run.click();await expect(report).toContainText('Недостаточно подтверждений для весов');
   await page.getByRole('combobox',{name:'A: герой роли 1',exact:true}).selectOption('3');await expect(section).toHaveCount(0);
-  await page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true}).check();await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
+  await page.getByRole('button',{name:'Сохранить карту',exact:true}).click();await expect(page.getByRole('heading',{name:'Сценарий · редакция 2',exact:true})).toBeVisible();await page.getByText('Статистика пар героев',{exact:true}).click();
   await expect(section).toContainText('редакция 2');await expect(report).toHaveCount(0);expect(pageErrors).toEqual([]);
 });

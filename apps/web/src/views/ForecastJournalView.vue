@@ -4,6 +4,9 @@ import {useRoute,useRouter} from 'vue-router';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {V1JournalViewSchema,V1JournalHistorySchema,V1JournalCurrentRequestSchema,V1JournalCurrentStatusSchema,type V1JournalCurrentFilters} from '@dota/contracts';
 import {createJournal,readJournal,JournalRequestError,journalStatus,journalReason,metricLabel,rosterLabel} from '../journal';
+import ForecastLineups from '../components/ForecastLineups.vue';
+import ForecastJournalRow from '../components/ForecastJournalRow.vue';
+import CurrentForecastJournal from '../components/CurrentForecastJournal.vue';
 import {dateLabel} from '../catalog';
 const route=useRoute(),router=useRouter(),cache=useQueryClient();
 const selectedId=computed(()=>typeof route.query.report==='string'?route.query.report:'');
@@ -41,43 +44,25 @@ async function refresh(){error.value='';await history.refetch();if(selectedId.va
     <RouterLink to="/">← Личный кабинет</RouterLink>
     <h1>Журнал прогнозов</h1>
     <p>Статистика собственных предматчевых прогнозов одной карты и проверенных профессиональных результатов.</p>
-    <section class="panel" aria-label="Новый отчёт журнала">
-      <h2>Создать отчёт</h2>
-      <p>Каждая версия сохраняет статистику на момент проверки. Фильтры ниже относятся к новому отчёту.</p>
-      <p class="hint">Проверяются уже привязанные локальные карты. Поиск и первичная привязка новых результатов выполняются отдельно.</p>
-      <form @submit.prevent="submit()">
-        <fieldset :disabled="busy"><legend>Фильтры нового отчёта</legend>
-          <div class="filter-grid">
-            <label>Создан с · UTC<input v-model="form.fromAt" type="datetime-local" /></label>
-            <label>Создан до · UTC, не включая<input v-model="form.until" type="datetime-local" /></label>
-            <label>ID модели · UUID<input v-model="form.modelId" placeholder="Все модели" /></label>
-            <div class="filter-control"><label for="journal-status">Статус</label><select id="journal-status" v-model="form.status"><option value="">Все статусы</option><option v-for="s in V1JournalCurrentStatusSchema.options" :key="s" :value="s">{{ journalStatus[s] }}</option></select></div>
-          </div>
-          <p class="hint">Основной прогноз выбирается по всему журналу до фильтрации. Ранний пересчёт не заменяет основной после выбора периода или модели.</p>
-          <button type="submit">{{ busy?'Создание отчёта…':'Создать и сохранить отчёт' }}</button>
-        </fieldset>
-      </form>
-      <p v-if="busy" role="status">Проверяем локальные исходы и сохраняем отчёт…</p>
-      <p v-if="error" role="alert" class="error">{{ error }}</p>
-      <button v-if="pending&&!busy&&!conflict" @click="submit(true)">Повторить тот же запрос</button>
-      <button :disabled="busy" @click="refresh">Обновить историю</button>
-    </section>
-    <section class="panel" aria-label="История отчётов">
-      <h2>История отчётов</h2>
-      <p v-if="history.isFetching.value" role="status">Загрузка истории…</p>
-      <p v-if="history.error.value" role="alert" class="error">{{ history.error.value.message }}</p>
-      <p v-if="history.data.value&&!history.data.value.items.length">Сохранённых отчётов пока нет.</p>
-      <ul><li v-for="item in history.data.value?.items" :key="item.requestId"><RouterLink :to="{query:{report:item.requestId}}" :aria-current="selectedId===item.requestId?'page':undefined">
-        Версия {{ item.revision }} · {{ dateLabel(item.capturedAt) }} · N={{ item.n }} · accuracy {{ metricLabel(item.accuracy,true) }}
-      </RouterLink></li></ul>
-      <div class="pagination"><button v-if="cursors.length>1" @click="cursors=cursors.slice(0,-1)">Новые отчёты</button>
-        <button v-if="history.data.value?.nextBeforeRevision" @click="cursors=[...cursors,history.data.value.nextBeforeRevision]">Ранние отчёты</button></div>
-    </section>
+    <nav class="journal-actions" aria-label="Действия журнала"><a href="#journal-create">Создать новый отчёт</a><a href="#journal-history">История отчётов</a></nav>
+    <RouterLink v-if="selectedId" :to="{path:'/forecast-journal'}">← Все текущие прогнозы</RouterLink>
+    <CurrentForecastJournal v-else />
     <p v-if="selectedId&&saved.isFetching.value&&!busy" role="status">Загрузка сохранённого отчёта…</p>
     <p v-if="selectedId&&saved.error.value&&!busy&&!pending" role="alert" class="error">{{ saved.error.value.message }}</p>
     <article v-if="selected" class="panel" aria-label="Сохранённый отчёт журнала">
       <h2>Отчёт · версия {{ selected.revision }}</h2>
       <p>Проверено: {{ dateLabel(selected.capturedAt) }}. Последующие изменения результатов не переписывают эту версию.</p>
+      <section class="result-summary" aria-label="Итоги прогнозов">
+        <h3>Насколько верно определён победитель</h3>
+        <div class="summary-grid">
+          <p class="correct-count"><strong>{{selected.summary.metrics.correct}}</strong><span>Верных прогнозов</span></p>
+          <p class="incorrect-count"><strong>{{selected.summary.metrics.accuracyN-selected.summary.metrics.correct}}</strong><span>Неверных прогнозов</span></p>
+          <p><strong>{{metricLabel(selected.summary.metrics.accuracy,true)}}</strong><span>Точность · проверено {{selected.summary.metrics.accuracyN}}</span></p>
+          <p><strong>{{selected.summary.counts.pendingVerification+selected.summary.counts.unlinked}}</strong><span>Ещё не проверены / не связаны</span></p>
+        </div>
+        <p class="hint">Верным считается прогноз, в котором выбранный фаворит выиграл одну карту. Это не оценка исхода всей серии. Ожидание, отмена и равные вероятности не считаются ошибками.</p>
+      </section>
+      <details><summary>Все счётчики и подробные метрики</summary>
       <p>Период создания прогноза: {{ selected.summary.filters.fromAt?dateLabel(selected.summary.filters.fromAt):'без нижней границы' }} — {{ selected.summary.filters.until?dateLabel(selected.summary.filters.until):'без верхней границы' }} (конец не включён).</p>
       <p>Модель: {{ selected.summary.filters.modelId??'все' }}. Статус: {{ selected.summary.filters.status?journalStatus[selected.summary.filters.status]:'все' }}.</p>
       <p class="hint">Учтены только локально проверенные исходы. Полнота внешней истории неизвестна. Несовпадения и неизвестные составы остаются в общей статистике.</p>
@@ -105,23 +90,28 @@ async function refresh(){error.value='';await history.refetch();if(selectedId.va
         <p>Верных фаворитов: {{ selected.summary.metrics.correct }}. Без фаворита при p=0,5: {{ selected.summary.metrics.ties }}; они исключены только из accuracy.</p>
         <p>При совпавшем составе: N={{ selected.summary.matchedLineupMetrics.n }}, accuracy {{ metricLabel(selected.summary.matchedLineupMetrics.accuracy,true) }} (N={{ selected.summary.matchedLineupMetrics.accuracyN }}), Brier {{ metricLabel(selected.summary.matchedLineupMetrics.brier) }}, log loss {{ metricLabel(selected.summary.matchedLineupMetrics.logLoss) }}.</p>
       </section>
+      </details>
       <details><summary>Таблица калибровки и правила расчёта</summary>
         <p>Вероятности победы A без округления участвуют в метриках. Log loss использует натуральный логарифм и ограничение вероятности 1e-15. Таблица описывает наблюдения и сама по себе не подтверждает качество модели.</p>
         <div class="table-scroll" tabindex="0" role="region" aria-label="Таблица калибровки"><table><thead><tr><th>Вероятность A</th><th>N</th><th>Средняя вероятность</th><th>Частота побед A</th></tr></thead><tbody>
           <tr v-for="bin in selected.summary.metrics.reliability" :key="bin.lower"><td>[{{ metricLabel(bin.lower,true) }}; {{ metricLabel(bin.upper,true) }}{{ bin.upperInclusive?']':')' }}</td><td>{{ bin.n }}</td><td>{{ metricLabel(bin.meanProbability,true) }}</td><td>{{ metricLabel(bin.observedWinRate,true) }}</td></tr>
         </tbody></table></div>
       </details>
-      <section aria-label="Попытки прогноза"><h3>Попытки прогноза</h3>
+      <section aria-label="Попытки прогноза"><h3>Прогнозы и результаты</h3>
         <p v-if="!selected.rows.length">В этой странице выборки нет попыток.</p>
         <p v-if="selected.rows.length" class="hint">Показаны {{ selected.offset+1 }}–{{ selected.offset+selected.rows.length }} из {{ selected.summary.counts.attempts }}; от новых к ранним.</p>
-        <div v-if="selected.rows.length" class="table-scroll" tabindex="0" role="region" aria-label="Таблица попыток"><table class="attempt-table"><thead><tr><th>Сценарий / создание</th><th>Статус</th><th>Вероятность A / фаворит</th><th>Исход / состав</th><th>Причины и данные</th></tr></thead><tbody>
-          <tr v-for="row in selected.rows" :key="row.predictionId"><td><RouterLink :to="`/scenarios/${row.scenario.id}`">{{ row.scenario.title }}</RouterLink><small>Редакция {{ row.scenario.revision }} · A #{{ row.scenario.teamAId }} / B #{{ row.scenario.teamBId }}</small><small>{{ dateLabel(row.createdAt) }}</small></td>
-            <td>{{ journalStatus[row.status] }}<small v-if="row.primaryPredictionId&&row.status==='superseded'">Основной #{{ row.primaryPredictionId }}</small></td>
-            <td>{{ metricLabel(row.probability,true) }}<small v-if="row.calculationStatus==='unavailable'">Расчёт недоступен</small><small>{{ row.favourite?'Фаворит: '+row.favourite:'Фаворит не определён' }}</small><small v-if="row.correct!==null">{{ row.correct?'Фаворит выиграл':'Фаворит проиграл' }}</small></td>
-            <td>{{ row.actualWinner?'Победа '+row.actualWinner:'Результат неизвестен' }}<small>Состав: {{ rosterLabel(row.rosterStatus) }}</small><small v-if="row.matchId">Карта #{{ row.matchId }}</small></td>
-            <td><p v-for="reason in [...new Set([...row.reasons,...row.attemptReasons])]" :key="reason">{{ journalReason(reason) }}</p><p v-if="row.sourceChangedSinceRefresh" class="warning">Источник изменился после последней отдельной проверки.</p>
+         <div v-if="selected.rows.length" class="table-scroll" role="region" aria-label="Таблица прогнозов отчёта" tabindex="0"><table>
+          <thead><tr><th scope="col">Рассчитано</th><th scope="col">Встреча</th><th scope="col">Прогноз</th><th scope="col">Победитель карты</th><th scope="col">Итог проверки</th><th scope="col">Подробности</th></tr></thead><tbody>
+          <ForecastJournalRow v-for="row in selected.rows" :key="row.predictionId" :row="row">
+            <details><summary>Составы, причины и сведения о прогнозе</summary><small>Редакция {{ row.scenario.revision }}</small>
+              <ForecastLineups :key="row.predictionId+':'+selected.sha256" lazy label-prefix="Ожидаемый состав" :input="{teamAId:row.scenario.teamAId,teamBId:row.scenario.teamBId,lineupA:row.expectedLineups.teamA.map(playerId=>({playerId})),lineupB:row.expectedLineups.teamB.map(playerId=>({playerId}))}" />
+            <small v-if="row.primaryPredictionId&&row.status==='superseded'">Основной #{{ row.primaryPredictionId }}</small>
+            <p>Вероятность A: {{metricLabel(row.probability,true)}}</p><p v-if="row.calculationStatus==='unavailable'">Расчёт недоступен</p>
+            <p>Состав: {{rosterLabel(row.rosterStatus)}}</p>
+            <p>Статус: {{journalStatus[row.status]}}</p>
+            <p v-for="reason in [...new Set([...row.reasons,...row.attemptReasons])]" :key="reason">{{ journalReason(reason) }}</p><p v-if="row.sourceChangedSinceRefresh" class="warning">Источник изменился после последней отдельной проверки.</p>
               <details><summary>Сведения о прогнозе</summary><p>Версия модели ID: {{ row.modelId??'отсутствует' }}</p><p>Выдан: {{ dateLabel(row.issuedAt) }}. Срез: {{ dateLabel(row.cutoffAt) }}.</p>
-                <p>Ожидаемый состав A: {{ row.expectedLineups.teamA.map(id=>'#'+id).join(', ') }}</p><p>Ожидаемый состав B: {{ row.expectedLineups.teamB.map(id=>'#'+id).join(', ') }}</p>
+
                 <p v-if="row.target?.provider==='opendota'">Назначение: OpenDota series #{{ row.target.providerSeriesId }}, карта {{ row.target.mapNumber }}.</p>
                 <p v-else-if="row.target?.provider==='pandascore'">Назначение: PandaScore встреча #{{ row.target.providerMatchId }}, карта 1.
                   <RouterLink :to="`/schedule-targets/${row.target.targetRequestId}`">Сохранённый выбор встречи →</RouterLink>
@@ -131,18 +121,52 @@ async function refresh(){error.value='';await history.refetch();if(selectedId.va
                   <span v-else>Связь с результатом карты ещё не подтверждена.</span></p>
                 <p v-if="row.lifecycle">Отметка владельца: {{ row.lifecycle.event.request.action==='cancelled'?'отмена':'повторное открытие' }}, редакция {{ row.lifecycle.event.revision }}. Записана {{ dateLabel(row.lifecycle.event.recordedAt) }}; дата события: {{ dateLabel(row.lifecycle.event.request.eventAt) }}. Причина: {{ row.lifecycle.event.request.reason }}. Источник: {{ row.lifecycle.event.request.sourceUrl }}. SHA: {{ row.lifecycle.sha256 }}</p>
                 <p v-if="row.outcomeSource">Исход: OpenDota receipt #{{ row.outcomeSource.receiptId }}, редакция данных {{ row.outcomeSource.dataRevision }}. Получен {{ dateLabel(row.outcomeSource.fetchedAt) }}, подтверждён {{ dateLabel(row.outcomeSource.verifiedAt) }}. SHA источника: {{ row.outcomeSource.payloadSha256 }}</p>
-                <p>ID: {{ row.predictionId }}</p><p>SHA снимка: {{ row.snapshotSha256 }}</p></details></td></tr>
-        </tbody></table></div>
+                <p>ID: {{ row.predictionId }}</p><p>SHA снимка: {{ row.snapshotSha256 }}</p></details></details></ForecastJournalRow>
+         </tbody></table></div>
         <div class="pagination"><button v-if="offset" @click="offset=Math.max(0,offset-50)">Новые попытки</button><button v-if="selected.hasMore" @click="offset+=50">Ранние попытки</button></div>
       </section>
       <details><summary>Идентификаторы отчёта</summary><p>Запрос: {{ selected.requestId }}</p><p>SHA отчёта: {{ selected.sha256 }}</p><p>SHA исходных данных: {{ selected.inputSha256 }}</p><p>Полный журнал до фильтрации: {{ selected.summary.inventoryCount }} попыток, {{ selected.summary.globalPrimaryMaps }} основных карт.</p></details>
     </article>
+    <section id="journal-create" class="panel" aria-label="Новый отчёт журнала">
+      <h2>Создать отчёт</h2>
+      <p>Каждая версия сохраняет статистику на момент проверки. Фильтры ниже относятся к новому отчёту.</p>
+      <p class="hint">Проверяются уже привязанные локальные карты. Поиск и первичная привязка новых результатов выполняются отдельно.</p>
+      <form @submit.prevent="submit()">
+        <fieldset :disabled="busy"><legend>Фильтры нового отчёта</legend>
+          <div class="filter-grid">
+            <label>Создан с · UTC<input v-model="form.fromAt" type="datetime-local" /></label>
+            <label>Создан до · UTC, не включая<input v-model="form.until" type="datetime-local" /></label>
+            <label>ID модели · UUID<input v-model="form.modelId" placeholder="Все модели" /></label>
+            <div class="filter-control"><label for="journal-status">Статус</label><select id="journal-status" v-model="form.status"><option value="">Все статусы</option><option v-for="s in V1JournalCurrentStatusSchema.options" :key="s" :value="s">{{ journalStatus[s] }}</option></select></div>
+          </div>
+          <p class="hint">Основной прогноз выбирается по всему журналу до фильтрации. Ранний пересчёт не заменяет основной после выбора периода или модели.</p>
+          <button type="submit">{{ busy?'Создание отчёта…':'Создать и сохранить отчёт' }}</button>
+        </fieldset>
+      </form>
+      <p v-if="busy" role="status">Проверяем локальные исходы и сохраняем отчёт…</p>
+      <p v-if="error" role="alert" class="error">{{ error }}</p>
+      <button v-if="pending&&!busy&&!conflict" @click="submit(true)">Повторить тот же запрос</button>
+      <button :disabled="busy" @click="refresh">Обновить историю</button>
+    </section>
+    <section id="journal-history" class="panel" aria-label="История отчётов">
+      <h2>История отчётов</h2>
+      <p v-if="history.isFetching.value" role="status">Загрузка истории…</p>
+      <p v-if="history.error.value" role="alert" class="error">{{ history.error.value.message }}</p>
+      <p v-if="history.data.value&&!history.data.value.items.length">Сохранённых отчётов пока нет.</p>
+      <ul><li v-for="item in history.data.value?.items" :key="item.requestId"><RouterLink :to="{query:{report:item.requestId}}" :aria-current="selectedId===item.requestId?'page':undefined">
+        Версия {{ item.revision }} · {{ dateLabel(item.capturedAt) }} · N={{ item.n }} · точность {{ metricLabel(item.accuracy,true) }}
+      </RouterLink></li></ul>
+      <div class="pagination"><button v-if="cursors.length>1" @click="cursors=cursors.slice(0,-1)">Новые отчёты</button>
+        <button v-if="history.data.value?.nextBeforeRevision" @click="cursors=[...cursors,history.data.value.nextBeforeRevision]">Ранние отчёты</button></div>
+    </section>
   </main>
 </template>
 <style scoped>
 .journal-page{min-width:0;overflow-wrap:anywhere}.filter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-4)}
-label,.filter-control{display:grid;gap:var(--space-2)}.panel button{margin:var(--space-2) var(--space-2) 0 0}ul{padding-left:20px}.attempt-table{min-width:1120px;table-layout:fixed}
-.attempt-table th:first-child{width:230px}.attempt-table th:nth-child(2){width:180px}.attempt-table th:nth-child(3){width:170px}.attempt-table th:nth-child(4){width:180px}
+label,.filter-control{display:grid;gap:var(--space-2)}.panel button{margin:var(--space-2) var(--space-2) 0 0}ul{padding-left:20px}
+.correct-count strong{color:var(--color-success)}.incorrect-count strong{color:var(--color-danger)}summary{cursor:pointer;min-height:44px;padding-block:var(--space-3)}
+.journal-actions{display:flex;flex-wrap:wrap;gap:var(--space-4)}.journal-actions a{padding-block:var(--space-3);min-height:44px}
 small{display:block;color:var(--color-muted);margin-top:var(--space-2)}td p{margin:0 0 var(--space-2)}
 @media(max-width:600px){.filter-grid{grid-template-columns:1fr}}
+.table-scroll{max-width:100%;overflow:auto}.table-scroll table{min-width:1080px;width:100%}.table-scroll th{text-align:left}
 </style>

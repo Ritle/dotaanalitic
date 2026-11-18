@@ -1,3 +1,4 @@
+import {syntheticPlayerHistory} from '../../../../tests/helpers/player-history';
 import {test,expect,type Page} from '@playwright/test';
 import {randomBytes,createHash,randomUUID} from 'node:crypto';
 import type {FastifyInstance} from 'fastify';
@@ -21,7 +22,7 @@ test.beforeEach(async()=>{
  await new AuthService(database.db).provision('synthetic-auto-roster',password);
  const fixture=syntheticCatalogue(),players=fixture.players.map((p,i)=>({...p,name:`Synthetic Player ${String(i+1).padStart(2,'0')}`}));
  api=await buildApp(readConfig({DATABASE_URL:database.url,WEB_ORIGIN:'http://127.0.0.1:5179',PANDASCORE_API_TOKEN:scheduleToken}),{
-  db:database.db,logger:false,catalogueProvider:async key=>{
+  db:database.db,logger:false,playerHistoryProvider:()=>syntheticPlayerHistory({mode:'empty'}),catalogueProvider:async key=>{
    calls.push(key);if(key!=='registry')throw Error('Unexpected external search in automatic preparation');
    const rawBody=JSON.stringify(players.map((p,i)=>({...p,name:ambiguous&&(i===0||i===6)?'Synthetic Twin':p.name})));
    return {rawBody,source:{endpoint:'/proPlayers',fetchedAt:new Date().toISOString(),payloadSha256:createHash('sha256').update(rawBody).digest('hex')}};
@@ -43,22 +44,21 @@ async function open(page:Page){
 const card=(page:Page,slot:string)=>page.getByRole('article',{name:'Выбранный состав '+slot,exact:true});
 test('automatic preparation displays candidates, selects five of six without technical forms, and reuses saved fives',async({page})=>{
  const preparations:unknown[]=[],writes:string[]=[];page.on('request',r=>{if(r.url().endsWith('/catalogue/prepare'))preparations.push(r.postDataJSON());if(r.method()==='POST')writes.push(new URL(r.url()).pathname);});
- await open(page);await expect(card(page,'B').getByRole('button',{name:'Подтвердить аккаунты и выбрать пятёрку B',exact:true})).toBeEnabled();
+ await open(page);await expect(card(page,'B').getByRole('combobox',{name:'B: роль игрока 1',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toBeDisabled();
  await expect(card(page,'A')).toContainText('В заявке 6 игроков');await expect(card(page,'B')).toContainText('Steam32 1007');
  expect(preparations).toEqual([{externalSearch:false}]);expect(calls).toEqual(['registry']);
  expect((await sql`SELECT id FROM provider_player_links`.execute(database.db)).rows).toHaveLength(0);
- await card(page,'B').getByRole('button',{name:'Подтвердить аккаунты и выбрать пятёрку B',exact:true}).click();await expect(card(page,'B')).toContainText('Выбрано 5 / 5');
  for(let i=1;i<=5;i++)await card(page,'A').getByLabel(`Synthetic Player ${String(i).padStart(2,'0')} — в пятёрку A`,{exact:true}).check();
- await card(page,'A').getByRole('button',{name:'Подтвердить аккаунты и выбрать пятёрку A',exact:true}).click();await expect(card(page,'A')).toContainText('Выбрано 5 / 5');
+ await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toBeEnabled();await expect(card(page,'A')).toContainText('Выбрано 5 / 5');
  await expect(page.getByRole('region',{name:'Команда A в локальной базе',exact:true})).not.toBeVisible();
- await page.getByLabel('Подтверждаю выбранных игроков и роли для одной карты',{exact:true}).check();await expect(page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true})).toBeEnabled();
+ await page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true}).click();await expect(page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true})).toBeEnabled();
  expect(preparations).toHaveLength(1);expect(writes.filter(p=>p.endsWith('/catalogue/apply'))).toHaveLength(2);
  expect((await sql`SELECT id FROM provider_player_links`.execute(database.db)).rows).toHaveLength(10);
  await page.reload();await page.getByRole('button',{name:'Выбрать',exact:true}).click();await expect(card(page,'B')).toContainText('Выбрано 5 / 5');expect(preparations).toHaveLength(1);
  await page.getByRole('button',{name:'Изменить игроков и роли',exact:true}).click();
  for(const slot of ['A','B']){
   const auto=page.getByLabel(`Автоподстановка ролей ${slot}`,{exact:true});
-  await expect(auto).not.toBeChecked();await auto.check();await expect(auto).toBeChecked();
+  await auto.uncheck();await expect(auto).not.toBeChecked();await auto.check();await expect(auto).toBeChecked();
  }
  await page.setViewportSize({width:360,height:900});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
@@ -75,7 +75,7 @@ test('verified global player links automatically fill a new organization without
  let applies=0;page.on('request',r=>{if(r.url().endsWith('/catalogue/apply'))applies++;});
  await open(page);await expect(card(page,'B')).toContainText('Выбрано 5 / 5');expect(applies).toBe(1);
  await expect(card(page,'A')).toContainText('В заявке 6 игроков');
- expect((await sql`SELECT id FROM expected_roster_catalogue_bindings`.execute(database.db)).rows).toHaveLength(2);
+ await expect.poll(async()=>(await sql`SELECT id FROM expected_roster_catalogue_bindings`.execute(database.db)).rows.length).toBe(2);
 });
 test('partial verified links are labelled separately from suggestions and a manual account replacement loses the verified label',async({page})=>{
  const ready=(await post(url+'/prepare',{externalSearch:false})).json(),state=(await http(url)).json(),team=ready.teams[1];
@@ -92,7 +92,7 @@ test('partial verified links are labelled separately from suggestions and a manu
  await expect(b.getByText('Связь аккаунта подтверждена ранее',{exact:true})).toHaveCount(4);
  await expect(b.getByText('Предложенный аккаунт — проверьте и подтвердите',{exact:true})).toHaveCount(1);
  await expect(b.getByText('Аккаунт требует уточнения',{exact:true})).toHaveCount(0);
- await expect(b.getByRole('button',{name:'Подтвердить аккаунты и выбрать пятёрку B',exact:true})).toBeEnabled();
+ await expect(b.getByRole('combobox',{name:'B: роль игрока 1',exact:true})).toBeVisible();await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toBeDisabled();
  await expect(page.getByRole('button',{name:'Сравнить выбранные пятёрки',exact:true})).toBeDisabled();expect(applies).toBe(0);
  await page.getByRole('button',{name:'Подготовить составы',exact:true}).click();const editor=page.getByRole('region',{name:'Соединение B',exact:true});
  await editor.getByLabel('Показать подтверждённые аккаунты B',{exact:true}).check();
@@ -112,7 +112,7 @@ test('ambiguous nicknames remain visible and make no automatic identity decision
  await sql`UPDATE pandascore_request_quota SET next_request_at='-infinity'`.execute(database.db);
  await post('/api/v1/upcoming/tournaments/71001/refresh',{});
  await open(page);await expect(card(page,'B')).toContainText('Несколько аккаунтов');
- await expect(card(page,'B').getByRole('button',{name:'Подтвердить аккаунты и выбрать пятёрку B',exact:true})).toHaveCount(0);
+ await expect(page.getByRole('button',{name:'Подтвердить пятёрки и роли',exact:true})).toBeDisabled();
  expect(calls).toEqual(['registry']);expect((await sql`SELECT id FROM provider_player_links`.execute(database.db)).rows).toHaveLength(0);
 });
 

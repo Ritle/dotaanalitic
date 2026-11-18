@@ -3,6 +3,8 @@ import {computed,reactive,ref,watch} from 'vue';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {SelectedPlayerHistoryRequestSchema,PlayerHistoryResponseSchema,PlayerHistoryOptionsSchema,type PlayerHistoryOptions} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
+import CatalogDisplayLabels from './CatalogDisplayLabels.vue';
+import ReportEntityLabel from './ReportEntityLabel.vue';
 import {ownerAuth} from '../auth';
 const props=defineProps<{playerIds:string[];slot:'A'|'B'}>(),cache=useQueryClient(),busy=ref(false),submitError=ref('');
 const ids=computed(()=>[...props.playerIds].sort()),valid=computed(()=>SelectedPlayerHistoryRequestSchema.safeParse({playerIds:ids.value}).success);
@@ -32,7 +34,7 @@ async function start(resume=false){if(blocked.value||resume&&!data.value?.canRes
   <p v-if="query.isError.value&&valid" role="alert">{{query.error.value?.message}} <button type="button" @click="query.refetch()">Проверить снова</button></p>
   <template v-if="data">
    <p role="status">{{data.message}}</p>
-   <template v-if="data.run?.report">
+   <CatalogDisplayLabels v-if="data.run?.report" :player-ids="[...data.run.report.players,...(data.run.report.enrichment?.players??[])].map(p=>p.playerId)" v-slot="{labels}">
     <p class="hint">Период загрузки: {{dateLabel(data.run.report.fromAt)}} — {{dateLabel(data.run.report.cutoffAt)}}.</p>
     <p>{{data.run.report.operation==='evidence_resume'?'Повторно проверено':'Принято'}} {{data.run.report.accepted}} из {{data.run.report.selected}} карт · повторных {{data.run.report.duplicates}} · исключено {{data.run.report.excluded}} · ошибок {{data.run.report.failed}} · конфликтов {{data.run.report.conflicts}}</p>
     <p v-if="data.run.report.operation==='evidence_resume'" class="hint">Проверка {{dateLabel(data.run.report.fetchedAt)}} по сохранённым проекциям OpenDota. Исходные записи и время получения сохранены отдельно; нового скачивания карт не было.</p>
@@ -40,19 +42,19 @@ async function start(resume=false){if(blocked.value||resume&&!data.value?.canRes
     <p v-if="data.run.report.maps.some(m=>m.reasons.includes('STORED_PROJECTION_UNAVAILABLE'))" class="hint">Для части карт не хватает сохранённых исходных записей. Они пропущены. При необходимости используйте «Загрузить историю игроков»; повторного скачивания в этой проверке не было.</p>
     <p v-if="data.run.report.players.some(p=>p.sourceLimitReached)" class="hint">Достигнут лимит поиска для части игроков. Более ранние карты могут остаться за пределами загрузки.</p>
     <p class="hint">Для просмотра старых карт выберите соответствующее начало периода в сравнении. Период подсказок ролей остаётся 90 дней.</p>
-    <details><summary>Покрытие игроков</summary><ul><li v-for="p in data.run.report.players" :key="p.playerId">Игрок {{p.playerId}} · Steam32 {{p.accountId}}: <span v-if="data.run.report.operation!=='evidence_resume'">найдено {{p.discovered}}, </span>проверено {{p.selected}}, принято {{p.accepted}}<span v-if="p.sourceLimitReached"> · достигнут лимит поиска</span></li></ul></details>
+    <details><summary>Покрытие игроков</summary><ul><li v-for="p in data.run.report.players" :key="p.playerId" :data-history-coverage-id="p.playerId"><ReportEntityLabel kind="players" :id="p.playerId" :name="labels['player:'+p.playerId]" /> · Steam32 {{p.accountId}}: <span v-if="data.run.report.operation!=='evidence_resume'">найдено {{p.discovered}}, </span>проверено {{p.selected}}, принято {{p.accepted}}<span v-if="p.sourceLimitReached"> · достигнут лимит поиска</span></li></ul></details>
     <template v-if="data.run.report.enrichment">
      <p>Подготовка истории: подтверждено аккаунтов {{data.run.report.enrichment.accountsVerified}}, добавлено серий {{data.run.report.enrichment.seriesCreated}}. Не разрешено аккаунтов: {{data.run.report.enrichment.unresolvedAccounts.length}}.</p>
      <p v-if="data.run.report.enrichment.status!=='completed'" class="hint">Подготовка частичная: часть данных отсутствует, конфликтует или достигнут лимит обработки. Принятые карты сохранены.</p>
      <template v-if="data.run.report.enrichment.assessedAt">
       <p class="hint">Проверка истории V1: {{dateLabel(data.run.report.enrichment.assessedAt)}}. Локальные карты до этого среза, начиная с 2024 года для Elo; окно загрузки выше применяется отдельно.</p>
-      <ul><li v-for="p in data.run.report.enrichment.players" :key="p.playerId">Игрок {{p.playerId}}: описательных карт {{p.rawMaps}}, допущено к истории Elo {{p.eligibleMaps}} / минимум 5.</li></ul>
+      <ul><li v-for="p in data.run.report.enrichment.players" :key="p.playerId" :data-history-eligibility-id="p.playerId"><ReportEntityLabel kind="players" :id="p.playerId" :name="labels['player:'+p.playerId]" />: описательных карт {{p.rawMaps}}, допущено к истории Elo {{p.eligibleMaps}} / минимум 5.</li></ul>
       <p v-if="data.run.report.enrichment.players.some(p=>p.eligibleMaps<5)" class="hint">Для части игроков истории недостаточно. Можно выбрать большую глубину или период и повторить загрузку после указанного времени. Поиск остаётся ограниченным.</p>
      </template>
      <p v-else class="hint">Пригодность для Elo пока не оценена.</p>
      <p class="hint">Наличие истории не означает, что модель проверена и активирована.</p>
     </template>
-   </template>
+   </CatalogDisplayLabels>
    <p v-if="data.retryAt&&!active" class="hint">Повторное обновление: {{dateLabel(data.retryAt)}}</p>
    <button type="button" :disabled="blocked" @click="start(false)">{{busy?'Отправляем…':active?'История загружается':'Загрузить историю игроков'}}</button>
    <button v-if="data.canResume" type="button" :disabled="blocked" @click="start(true)">Продолжить проверку загруженных карт</button>
