@@ -1,0 +1,107 @@
+{
+  "task": "S3-04/post-draft-validation-readiness/exposure-ledger/reference-namespace-resolution",
+  "date": "2026-11-14",
+  "status": "reference_queue_resolved_global_inventory_not_certified",
+  "artifact": {
+    "path": ".tools/s304-namespace-report-r1.json",
+    "sha256": "be55c46227c122aaf004e9595c644d5e41ba5e774154f95621efe65ea94b41d9"
+  },
+  "sourcePlan": {
+    "path": ".tools/s304-namespace-plan-r1.json",
+    "sha256": "4797660a027279707d3f6ac72faefb54d6aa8e4de3f954901499e2b620ab45fd"
+  },
+  "parents": {
+    "original": {
+      "path": ".tools/s304-exposure-ledger-r2.json",
+      "sha256": "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7"
+    },
+    "archive": {
+      "path": ".tools/s304-archive-review-r3.json",
+      "sha256": "01e4b85f3658ba912ae28f3b150bfe039bdc44149e1f2861a86f31d44c6437cc"
+    },
+    "queue": {
+      "path": ".tools/s304-archive-triage-r1.json",
+      "sha256": "dd201a915ceef2b08f950bbe47f32055484b121baa59589a00128a4a57bcb1c0"
+    }
+  },
+  "pandascoreSnapshot": {
+    "path": ".tools/s304-namespace-panda-r1.json",
+    "sha256": "184fbe2b79dddc0f080a53a6760739ab1b6c698b060a7edbdfa7e61c98740636"
+  },
+  "pandascoreObservations": 37,
+  "pendingBefore": 181,
+  "counts": {
+    "pandascore_match": 13,
+    "dota2_native_map": 168
+  },
+  "unresolved": 0,
+  "conflicts": 0,
+  "ledger": {
+    "sources": 3348,
+    "maps": 5674,
+    "knownSeries": 1744,
+    "localAliases": 1096,
+    "unresolvedMaps": 1954,
+    "conflictingMaps": 0,
+    "unresolvedAliases": 0,
+    "conflictingAliases": 0
+  },
+  "newNativeMaps": 168,
+  "newOpenDotaSeries": 1,
+  "referenceNamespaceComplete": true,
+  "valveSeriesPolicy": "Separate Valve namespace; no numeric-equality binding to OpenDota",
+  "normalizedSourcePolicy": "Archived player/depth/league projections are not original HTTP raw bytes; no raw re-verification claim",
+  "checks": {
+    "targetedNode": 13,
+    "combinedNode": 72,
+    "replay": "PASS",
+    "independentOracle": "PASS",
+    "migrationChecksums": 61,
+    "installFrozenOffline": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "packageTests": 1053,
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "priorArtifacts": "Parent SHA checked; previous full archive walk not repeated",
+    "separatePgBrowserPython": "Not run: no runtime/schema/UI/model-math changes",
+    "packagePipelineExitCode": 0,
+    "priorFrozenCodeHashBindings": 8
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T20:10:02.359Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "externalProviderRequests": 0,
+  "businessDatabaseWrites": 0,
+  "training": 0,
+  "activation": 0,
+  "completeGlobalInventory": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "nextTask": "S3-04/post-draft-validation-readiness/exposure-ledger/coverage-and-series-audit",
+  "nextModel": "GPT-6 Astra · High"
+}

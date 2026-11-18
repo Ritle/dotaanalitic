@@ -1,0 +1,113 @@
+{
+  "task": "S3-04/player-hero-prospective-source-readiness",
+  "date": "2026-11-14",
+  "status": "audit_complete_collector_not_ready",
+  "artifacts": {
+    ".tools/s304-source-readiness-report-r1.json": "59b452b5addf708a6b8352b79c5f1cfa837adce1e373308d159dfb3ef190ec0c",
+    ".tools/s304-source-readiness-inventory-r1.json": "fbd19a806b6dfd4e1593a15b5b6b6fd3a3ebfdff7b9cf6bb55c662dc75d42c53",
+    ".tools/s304-source-readiness-live-r1.json": "7d522f7bac515e4c0d98cc2abc79d8c7e9465cab630b0227778642174c02c8bb",
+    ".tools/s304-source-readiness-live-r1.body": "422e36a0d8c4685309bd62de6342807a4c6d724dde5b7021bddebf7c75da5d9d",
+    ".tools/s304-source-readiness-bindings-r1.json": "4e94cdb250e3e8d6118acf585967b8b4d6ded4652a357d8fb5c99bdaf4bc1019",
+    ".tools/s304-source-readiness-trigger-r1.json": "5e8d7daef14ca0f28f6b8ce81f3a2184f13e239995ac01b600c193f5cd787270"
+  },
+  "sources": {
+    ".tools/s304-source-readiness-inventory-r1.json": "fbd19a806b6dfd4e1593a15b5b6b6fd3a3ebfdff7b9cf6bb55c662dc75d42c53",
+    ".tools/s304-dataset-capture-final.json": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2",
+    ".tools/stratz-owner-pilot-20261102/match-9070527945.json": "a7294a136c96a108c3721fcf2b994f54fe764790737a55eb1b2c41c28f85cb46",
+    ".tools/stratz-owner-pilot-20261102/match-9070527945.body": "610bf9319ad9217a64d5cae7355dab3a02f34f37ef76ce136d146362c70eebcf",
+    ".tools/stratz-owner-pilot-20261102/match-9068910292.json": "e92fe91d68c291eb54c231eaf4f2dbaf6ab3ae6df67d89a69cf4a143610a20de",
+    ".tools/stratz-owner-pilot-20261102/match-9068910292.body": "b94fe9d57ace35a8ed8e715673a8eb096613dcea4458e6acde5907e018b07b2b",
+    ".tools/stratz-owner-pilot-20261102/match-9067177642.json": "d8fb5f092b760b80d6e86585083bc77abad180ef42e6b0b154664b26a51ae682",
+    ".tools/stratz-owner-pilot-20261102/match-9067177642.body": "587d734bf303fd5b58c9c5867ee55f435710baf6d531bd478538baf002c4c778",
+    ".tools/s304-source-readiness-live-r1.json": "7d522f7bac515e4c0d98cc2abc79d8c7e9465cab630b0227778642174c02c8bb",
+    ".tools/s304-source-readiness-live-r1.body": "422e36a0d8c4685309bd62de6342807a4c6d724dde5b7021bddebf7c75da5d9d",
+    ".tools/stratz-review-20261102/schema.body": "ad1da0b6e4e09fb6b4dc43f58ba3627982abca1f91a4b16dec5d89d5445fbb17",
+    ".tools/stratz-review-20261102/schema.json": "8fa13a471bf8192664dc1964eb3b2e3bce8b9556cc0a12a1d77f33751180ac7d",
+    "packages/db/src/scenario-repository.ts": "6267ae6f14435f1a6c2ec3bba0f8a411584a45caf40b7020a77f8f5e95b3842c",
+    "packages/contracts/src/scenario.ts": "20088b2367621ad15adf3346d37178e7680979ff71d7b86665cf05639583e0fd",
+    "apps/web/src/views/ScenariosView.vue": "e26d84dc39102bc9c6bb1f96b73aa161b18e91dc763dc87236544f3eb3bebdd4",
+    "packages/db/migrations/015_scenario_snapshots.sql": "c743257c561ae725f3191867f9118905a6136902165465dda3d651359f81d103",
+    "packages/db/migrations/016_scenario_draft.sql": "e597a4ddbda5fb822284eb3ff8671d0a25cf9e03cc13002dad71f44c77e0724c",
+    "packages/db/src/schedule-page-binding.ts": "e3ed78e1bad138764e65688409aa4059b943b4694bc33cc06f602369e4311d1d",
+    "packages/ingestion/src/pandascore/schemas.ts": "7762f176cf59bbb1893bf8fa29f0d80c8980b0a6cf1078170e39e452f4a7c3cd",
+    "tools/audits/player-hero-source-readiness.mjs": "c9b1f3625ed559ca8a4b7d7d3afac52718b13929e2b00df88c4dd87d74554b89",
+    "tests/node/player-hero-source-readiness.test.mjs": "ce0ceccebd11adce2c708248bf257baecb89cf4263eddf3f5ff16bdcdee091d6"
+  },
+  "local": {
+    "snapshots": {
+      "total": 10,
+      "full_draft": 4,
+      "recorded_before_input_cutoff": 9,
+      "with_series": 0,
+      "with_map_number": 9,
+      "with_target_map_id": 0
+    },
+    "fullDraftRevisionsObserved": 4,
+    "distinctFullDraftScenarios": 1,
+    "exactMicrosRecordedAtAvailable": true,
+    "immutableScenarioTrigger": true,
+    "frozenAccountBindingsInScenario": false,
+    "serverDecisionCutoffInScenario": false,
+    "durableDraftMapBinding": false
+  },
+  "cachedHistoricalMaps": 3,
+  "slotAccountHeroChecks": 30,
+  "live": {
+    "attempts": 1,
+    "status": 200,
+    "result": "captured_for_validation",
+    "returnedMaps": 0,
+    "observations": [],
+    "coverage": "not_demonstrated_no_live_sample",
+    "prestartVerifiedMaps": 0
+  },
+  "blockers": [
+    "TRUSTED_COMPLETE_INPUT_CAPTURE_NOT_IMPLEMENTED",
+    "DECISION_CUTOFF_MUST_BE_SERVER_GENERATED",
+    "MAP_OR_PENDING_SERIES_SLOT_BINDING_NOT_PERSISTED",
+    "FINAL_INPUT_MATCH_TO_ACTUAL_ACCOUNTS_HEROES_NOT_VERIFIED",
+    "ACTUAL_GAMEPLAY_START_CLOCK_SEMANTICS_UNVERIFIED",
+    "PREDICTION_PERSISTENCE_NOT_IMPLEMENTED_FOR_H1_H2"
+  ],
+  "businessDatabaseWrites": 0,
+  "quotaWrites": "one STRATZ attempt through existing shared durable budget",
+  "manualDraftAllowed": true,
+  "automaticDraftRequired": false,
+  "checks": {
+    "targetedNodeTests": 10,
+    "externalShaReplay": "passed",
+    "wrongShaAndOverwrite": "rejected_without_changes",
+    "actualDatabaseSnapshotTrigger": "enabled_body_matches_migration015_read_only",
+    "frozenOfflineInstall": "passed_existing_user_store",
+    "typecheck": "passed",
+    "packageTests": 978,
+    "packageTestCommand": "pnpm test --maxWorkers=1",
+    "build": "passed",
+    "orderedMigrations": 57,
+    "historicalMigrationChecksums": "passed",
+    "browserAndPostgresIntegrationSuites": "not_run_no_UI_API_SQL_changes",
+    "documentationLinks": "passed",
+    "gitDiffWhitespace": "passed",
+    "newFilesWhitespace": "passed"
+  },
+  "service": {
+    "api": 200,
+    "web": 200,
+    "unauthenticatedPrivate": 401,
+    "activeModelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "activeReportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "sourceLinks": [
+    "https://developers.pandascore.co/docs/matches-lifecycle",
+    "https://stratz.com/api",
+    "https://github.com/odota/core/blob/master/svc/api/responses/properties/commonProperties.ts",
+    "https://github.com/odota/parser/blob/master/src/main/java/opendota/Parse.java"
+  ],
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "deployable": false,
+  "nextTask": "S3-04/player-hero-owner-capture"
+}

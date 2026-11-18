@@ -1,0 +1,159 @@
+{
+  "task": "S3-04/post-draft-validation-readiness/exposure-ledger/remaining-archives/structured-source-reconciliation",
+  "date": "2026-11-14",
+  "status": "archive_review_completed_global_inventory_not_certified",
+  "artifact": {
+    "path": ".tools/s304-archive-review-r3.json",
+    "sha256": "01e4b85f3658ba912ae28f3b150bfe039bdc44149e1f2861a86f31d44c6437cc"
+  },
+  "sourcePlan": {
+    "path": ".tools/s304-archive-plan-r3.json",
+    "sha256": "461e1e320a68cf0c43f3d1c21ee8012ff66db1b248495467c330262187e0fe26"
+  },
+  "triage": {
+    "path": ".tools/s304-archive-triage-r1.json",
+    "sha256": "dd201a915ceef2b08f950bbe47f32055484b121baa59589a00128a4a57bcb1c0",
+    "counts": {
+      "unresolved": 181,
+      "only_verified_synthetic_sources": 8,
+      "native_ranked_evidence": 200
+    }
+  },
+  "reviewedFiles": 13760,
+  "statusCounts": {
+    "no_explicit_references": 4019,
+    "requires_review": 131,
+    "references_covered_or_foreign": 9608,
+    "synthetic_excluded": 2
+  },
+  "scope": {
+    "priorNonWrapper": 12421,
+    "outsidePriorFamilies": 997,
+    "documentEvidence": 342,
+    "excludedEntries": 269,
+    "changedPriorSources": 0
+  },
+  "extendedLedger": {
+    "sources": 3343,
+    "maps": 5506,
+    "knownSeries": 1743,
+    "localAliases": 1096,
+    "unresolvedMaps": 1787,
+    "conflictingMaps": 0,
+    "unresolvedAliases": 0,
+    "conflictingAliases": 0
+  },
+  "archiveSourceFiles": 1357,
+  "archiveSourceBlocks": 1405,
+  "novelNumericIdsBeforeTriage": 389,
+  "sourceIssues": [
+    {
+      "path": "docs/evidence/s0-08-manifest.json",
+      "pointer": "/cohorts/0",
+      "reason": "live_cohort_rejected"
+    },
+    {
+      "path": "docs/evidence/s0-08-manifest.json",
+      "pointer": "/cohorts/1",
+      "reason": "live_cohort_rejected"
+    },
+    {
+      "path": "docs/evidence/s0-08-manifest.json",
+      "pointer": "/cohorts/2",
+      "reason": "live_cohort_rejected"
+    },
+    {
+      "path": "docs/evidence/s0-08-manifest.json",
+      "pointer": "/cohorts/3",
+      "reason": "live_cohort_rejected"
+    },
+    {
+      "path": "docs/evidence/s0-08-manifest.json",
+      "pointer": "/cohorts/4",
+      "reason": "live_cohort_rejected"
+    }
+  ],
+  "oracle": {
+    "status": "pass",
+    "maps": 5506,
+    "series": 1743,
+    "additionalMaps": 3173,
+    "additionalSeries": 645,
+    "sourceFiles": 1357,
+    "sourceBlocks": 1405,
+    "basisCounts": {
+      "observed_live_opendota_audit_report_not_raw": 31,
+      "manifest_bound_legacy_opendota_receipt": 3,
+      "sha_verified_raw_opendota": 1366,
+      "observed_live_opendota_discovery_report_not_raw": 5
+    }
+  },
+  "checks": {
+    "newNodeTests": 28,
+    "nodeRegression": {
+      "passed": 59,
+      "failed": 0
+    },
+    "packageTests": {
+      "passed": 1053,
+      "failed": 0
+    },
+    "frozenOfflineInstall": "pass",
+    "typecheck": "pass",
+    "build": "pass",
+    "archiveReplay": "pass",
+    "triageReplay": "pass",
+    "previousLedgerReplay": "pass",
+    "sourceTamperRejected": true,
+    "rehashedSummaryRejected": true,
+    "externalShaRequired": true,
+    "overwriteRejected": true,
+    "migrationChecksums": 61,
+    "documentationLinks": "pass",
+    "diffWhitespace": "pass",
+    "postgresTests": "not_run_no_schema_or_business_runtime_changes",
+    "browserTests": "not_run_no_ui_changes",
+    "pythonTests": "not_run_no_model_math_changes",
+    "buildWarnings": [
+      "existing_zod_annotations",
+      "existing_web_chunk_over_500kb"
+    ]
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T19:52:03.405Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 7,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "externalProviderRequests": 0,
+  "databaseWrites": 0,
+  "trainingPerformed": false,
+  "modelActivationPerformed": false,
+  "completeGlobalInventory": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "nextTask": "S3-04/post-draft-validation-readiness/exposure-ledger/reference-namespace-resolution",
+  "suggestedModel": "GPT-6 Astra",
+  "reasoningEffort": "High"
+}

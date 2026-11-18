@@ -1,0 +1,145 @@
+{
+  "task": "S3-07/current-forecast-journal",
+  "date": "2026-11-16",
+  "status": "verified",
+  "files": [
+    {
+      "path": "packages/contracts/src/v1-journal-feed.ts",
+      "sha256": "1b2eef97f7a9d1be344d233c8a689ede6916a3a190e66e728b215deabc4d6e4b"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "0bfbdc899a616da50761a206bb2cb4d875e336b2003acbf9166cddc2b70be663"
+    },
+    {
+      "path": "packages/db/src/v1-journal-feed.ts",
+      "sha256": "9e2d4cb160c9d67da11b200c3bf37753a7d65148aedba1791671aab350bf5132"
+    },
+    {
+      "path": "packages/db/src/index.ts",
+      "sha256": "05ef803ad106b7fba02085d21c158dd078b322e287da824d7297c591af43342f"
+    },
+    {
+      "path": "apps/api/src/app.ts",
+      "sha256": "39425817ad327b10778869ed734653befd9e08e2fae6089d9d6a531b7fb36514"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-feed-http.ts",
+      "sha256": "1b8fc10df56cf0ea3c6b7b99fe2067f5f0af9489265570477bf4691f8d2d4cba"
+    },
+    {
+      "path": "apps/api/tests/journal.integration.test.ts",
+      "sha256": "532dffe05f59f77f09ffa70ed9e9230f0e3e873381b8255aa156501ab17371c1"
+    },
+    {
+      "path": "packages/db/tests/v1-forecast.integration.test.ts",
+      "sha256": "b96b58ce37a312b28702434b3090e747bfeea6e0b2e8a3ba52447a1187dc81bc"
+    },
+    {
+      "path": "apps/web/src/components/CurrentForecastJournal.vue",
+      "sha256": "bf8b7a77145c3d5a7dbddd45085323372027de3985c4a93f67a24a8715b1f475"
+    },
+    {
+      "path": "apps/web/src/components/UpcomingForecast.vue",
+      "sha256": "804c361ae15d58e6124863ad3096c8b09877968f709d1955b9013cc09076b9b6"
+    },
+    {
+      "path": "apps/web/src/views/ForecastJournalView.vue",
+      "sha256": "ac7a229dc3500f369c554349f4697429a9dd00929c238382bcdbb0ab6268761d"
+    },
+    {
+      "path": "apps/web/tests/e2e/journal-current.spec.ts",
+      "sha256": "c95629eba51d8e51a35e8872e2eecb4ea758c98a25c2a1212c850992404bd7c6"
+    },
+    {
+      "path": "apps/web/tests/e2e/forecast-verdict.spec.ts",
+      "sha256": "c503ee047cbfe490bbabfd538ccd540951a2c76dd757f09568b8ec84420a9c1c"
+    },
+    {
+      "path": "apps/web/tests/e2e/quick-forecast.spec.ts",
+      "sha256": "34d9fa9c016378c7ab2b8348e94668a1bad8fbdd4540128adb04f99b5a5fb47c"
+    }
+  ],
+  "checks": [
+    {
+      "name": "install",
+      "exitCode": 0,
+      "log": ".tools/s307-feed-install.log"
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "log": ".tools/s307-feed-typecheck.log"
+    },
+    {
+      "name": "test",
+      "exitCode": 0,
+      "log": ".tools/s307-feed-test.log"
+    },
+    {
+      "name": "build",
+      "exitCode": 0,
+      "log": ".tools/s307-feed-build.log"
+    }
+  ],
+  "packageTests": 1056,
+  "integrationTests": 23,
+  "browserTests": 11,
+  "logs": [
+    ".tools/s307-feed-integration-final.log (16 DB tests passed; API fixture failure superseded by final API log)",
+    ".tools/s307-feed-api-final.log",
+    ".tools/s307-feed-browser.log",
+    ".tools/s307-feed-projection-tests.log",
+    ".tools/s307-feed-projection-build.log",
+    ".tools/s307-feed-web-final.log"
+  ],
+  "localRead": {
+    "before": {
+      "predictions": 12,
+      "reports": 2,
+      "outcomes": 0
+    },
+    "after": {
+      "predictions": 12,
+      "reports": 2,
+      "outcomes": 0
+    },
+    "results": [
+      {
+        "rows": 12,
+        "hasMore": false,
+        "elapsedMs": 3377,
+        "issued": 11,
+        "states": {
+          "pending_verification": 10,
+          "unavailable": 1,
+          "what_if": 1
+        }
+      }
+    ]
+  },
+  "compatibility": {
+    "unchangedCoreFiles": 299,
+    "additiveBarrels": 2,
+    "migrationsApplied": false,
+    "modelChanged": false
+  },
+  "initialIssues": [
+    "Sandbox pnpm store unavailable; same frozen offline install passed with existing store access.",
+    "Foreign fixture creation violated single-owner CLI and SQL constraints; corrected to foreign UUID read with existing owned records, without weakening constraints.",
+    "Real read exposed expensive repeated target JSON scans; limited to cancellations and materialized target projection.",
+    "Metadata projection moved to the contracts package to preserve Zod refinement checks and existing dependency boundaries. Full snapshot SHA remains checked."
+  ],
+  "nextTask": "S3-04/conditional-collection-v2-remote-adapter",
+  "finalProjectionChecks": {
+    "integrationTests": 23,
+    "contractsAndDbBuild": "passed",
+    "webTypecheckAndBuild": "passed",
+    "fullSuiteBeforeProjectionOptimization": true
+  },
+  "localService": {
+    "apiRestarted": true,
+    "webStatus": 200,
+    "apiHealthStatus": 200
+  }
+}

@@ -1,0 +1,625 @@
+{
+  "input": {
+    "path": ".tools/s309-development-r1.json",
+    "sha256": "3f2e106de2798fa93bcbff47f6dca6597b4d9063f1c6d6cbdc9381b00aebe35c"
+  },
+  "policySha256": "2c3e6dbabac4301329c022af637050d3dff1ada81a662ce41dc4272d1a57edaa",
+  "result": {
+    "format": "series-development-evaluation-v1",
+    "purpose": "development_only",
+    "syntheticOnly": false,
+    "independent": false,
+    "deployable": false,
+    "qualityGate": "not_evaluated",
+    "pooled": {
+      "denominator": 35,
+      "scored": 33,
+      "coverage": 0.9428571428571428,
+      "models": {
+        "series": {
+          "n": 33,
+          "correct": 20,
+          "accuracyN": 33,
+          "ties": 0,
+          "accuracy": 0.6060606060606061,
+          "brier": 0.2227064820724211,
+          "logLoss": 0.6405246592589958,
+          "ece": 0.14099285633052572,
+          "reliability": [
+            {
+              "lower": 0,
+              "upper": 0.2,
+              "n": 1,
+              "meanProbability": 0.15302891298247037,
+              "observedWinRate": 1
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 9,
+              "meanProbability": 0.3403684232985747,
+              "observedWinRate": 0.2222222222222222
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 14,
+              "meanProbability": 0.4852099374809768,
+              "observedWinRate": 0.6428571428571429
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 8,
+              "meanProbability": 0.7018542973126827,
+              "observedWinRate": 0.75
+            },
+            {
+              "lower": 0.8,
+              "upper": 1,
+              "n": 1,
+              "meanProbability": 0.8497491345622167,
+              "observedWinRate": 1
+            }
+          ]
+        },
+        "map": {
+          "n": 33,
+          "correct": 20,
+          "accuracyN": 33,
+          "ties": 0,
+          "accuracy": 0.6060606060606061,
+          "brier": 0.22626613126840142,
+          "logLoss": 0.645475243144233,
+          "ece": 0.07597358314098668,
+          "reliability": [
+            {
+              "lower": 0,
+              "upper": 0.2,
+              "n": 0,
+              "meanProbability": null,
+              "observedWinRate": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 5,
+              "meanProbability": 0.3379250082615138,
+              "observedWinRate": 0.4
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 20,
+              "meanProbability": 0.4755520568521606,
+              "observedWinRate": 0.5
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 8,
+              "meanProbability": 0.6615256972495822,
+              "observedWinRate": 0.875
+            },
+            {
+              "lower": 0.8,
+              "upper": 1,
+              "n": 0,
+              "meanProbability": null,
+              "observedWinRate": null
+            }
+          ]
+        },
+        "constant": {
+          "n": 33,
+          "correct": 0,
+          "accuracyN": 0,
+          "ties": 33,
+          "accuracy": null,
+          "brier": 0.25,
+          "logLoss": 0.6931471805599448,
+          "ece": 0.07575757575757576,
+          "reliability": [
+            {
+              "lower": 0,
+              "upper": 0.2,
+              "n": 0,
+              "meanProbability": null,
+              "observedWinRate": null
+            },
+            {
+              "lower": 0.2,
+              "upper": 0.4,
+              "n": 0,
+              "meanProbability": null,
+              "observedWinRate": null
+            },
+            {
+              "lower": 0.4,
+              "upper": 0.6,
+              "n": 33,
+              "meanProbability": 0.5,
+              "observedWinRate": 0.5757575757575758
+            },
+            {
+              "lower": 0.6,
+              "upper": 0.8,
+              "n": 0,
+              "meanProbability": null,
+              "observedWinRate": null
+            },
+            {
+              "lower": 0.8,
+              "upper": 1,
+              "n": 0,
+              "meanProbability": null,
+              "observedWinRate": null
+            }
+          ]
+        }
+      }
+    },
+    "byFormat": {
+      "1": {
+        "denominator": 5,
+        "scored": 5,
+        "coverage": 1,
+        "models": {
+          "series": {
+            "n": 5,
+            "correct": 2,
+            "accuracyN": 5,
+            "ties": 0,
+            "accuracy": 0.4,
+            "brier": 0.25504161400703007,
+            "logLoss": 0.7032395404677567,
+            "ece": 0.3032765989355183,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 5,
+                "meanProbability": 0.4967234010644817,
+                "observedWinRate": 0.8
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              }
+            ]
+          },
+          "map": {
+            "n": 5,
+            "correct": 2,
+            "accuracyN": 5,
+            "ties": 0,
+            "accuracy": 0.4,
+            "brier": 0.25504161400703007,
+            "logLoss": 0.7032395404677567,
+            "ece": 0.3032765989355183,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 5,
+                "meanProbability": 0.4967234010644817,
+                "observedWinRate": 0.8
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              }
+            ]
+          },
+          "constant": {
+            "n": 5,
+            "correct": 0,
+            "accuracyN": 0,
+            "ties": 5,
+            "accuracy": null,
+            "brier": 0.25,
+            "logLoss": 0.6931471805599453,
+            "ece": 0.3,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 5,
+                "meanProbability": 0.5,
+                "observedWinRate": 0.8
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              }
+            ]
+          }
+        }
+      },
+      "3": {
+        "denominator": 30,
+        "scored": 28,
+        "coverage": 0.9333333333333333,
+        "models": {
+          "series": {
+            "n": 28,
+            "correct": 18,
+            "accuracyN": 28,
+            "ties": 0,
+            "accuracy": 0.6428571428571429,
+            "brier": 0.21693235136981243,
+            "logLoss": 0.62932557332886,
+            "ece": 0.11201361657963416,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 1,
+                "meanProbability": 0.15302891298247037,
+                "observedWinRate": 1
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 9,
+                "meanProbability": 0.3403684232985747,
+                "observedWinRate": 0.2222222222222222
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 9,
+                "meanProbability": 0.47881356882347414,
+                "observedWinRate": 0.5555555555555556
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 8,
+                "meanProbability": 0.7018542973126827,
+                "observedWinRate": 0.75
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 1,
+                "meanProbability": 0.8497491345622167,
+                "observedWinRate": 1
+              }
+            ]
+          },
+          "map": {
+            "n": 28,
+            "correct": 18,
+            "accuracyN": 28,
+            "ties": 0,
+            "accuracy": 0.6428571428571429,
+            "brier": 0.22112765220793204,
+            "logLoss": 0.6351601900507468,
+            "ece": 0.1087711968720206,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 5,
+                "meanProbability": 0.3379250082615138,
+                "observedWinRate": 0.4
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 15,
+                "meanProbability": 0.4684949421147202,
+                "observedWinRate": 0.4
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 8,
+                "meanProbability": 0.6615256972495822,
+                "observedWinRate": 0.875
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              }
+            ]
+          },
+          "constant": {
+            "n": 28,
+            "correct": 0,
+            "accuracyN": 0,
+            "ties": 28,
+            "accuracy": null,
+            "brier": 0.25,
+            "logLoss": 0.6931471805599451,
+            "ece": 0.03571428571428571,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 28,
+                "meanProbability": 0.5,
+                "observedWinRate": 0.5357142857142857
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              }
+            ]
+          }
+        }
+      },
+      "5": {
+        "denominator": 0,
+        "scored": 0,
+        "coverage": null,
+        "models": {
+          "series": {
+            "n": 0,
+            "correct": 0,
+            "accuracyN": 0,
+            "ties": 0,
+            "accuracy": null,
+            "brier": null,
+            "logLoss": null,
+            "ece": null,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              }
+            ]
+          },
+          "map": {
+            "n": 0,
+            "correct": 0,
+            "accuracyN": 0,
+            "ties": 0,
+            "accuracy": null,
+            "brier": null,
+            "logLoss": null,
+            "ece": null,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              }
+            ]
+          },
+          "constant": {
+            "n": 0,
+            "correct": 0,
+            "accuracyN": 0,
+            "ties": 0,
+            "accuracy": null,
+            "brier": null,
+            "logLoss": null,
+            "ece": null,
+            "reliability": [
+              {
+                "lower": 0,
+                "upper": 0.2,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.2,
+                "upper": 0.4,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.4,
+                "upper": 0.6,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.6,
+                "upper": 0.8,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              },
+              {
+                "lower": 0.8,
+                "upper": 1,
+                "n": 0,
+                "meanProbability": null,
+                "observedWinRate": null
+              }
+            ]
+          }
+        }
+      }
+    },
+    "excluded": [
+      {
+        "seriesKey": "opendota:951544",
+        "bestOf": 3,
+        "reasons": [
+          "INSUFFICIENT_PLAYER_HISTORY"
+        ]
+      },
+      {
+        "seriesKey": "opendota:951935",
+        "bestOf": 3,
+        "reasons": [
+          "INSUFFICIENT_PLAYER_HISTORY"
+        ]
+      }
+    ]
+  }
+}

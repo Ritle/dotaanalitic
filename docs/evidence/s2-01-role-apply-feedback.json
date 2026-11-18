@@ -1,0 +1,155 @@
+{
+  "task": "S2-01/role-apply-feedback",
+  "date": "2026-11-12",
+  "status": "implemented_owner_acceptance_pending",
+  "reportedControl": "Применить роли A",
+  "causes": [
+    "Already matching assignments left a seemingly active no-op button without feedback.",
+    "Prepared-stage manual flag blocked explicit application together with automatic late hints."
+  ],
+  "behavior": {
+    "alreadyMatching": "disabled button plus visible status and next confirmation action",
+    "manualEdit": "explicit apply restores unambiguous hints; automatic late responses preserve manual assignments",
+    "persistence": "Apply changes the form; confirmation remains explicit",
+    "newApiCalls": 0,
+    "roleSourcePolicyChanged": false
+  },
+  "files": [
+    "apps/web/src/components/RoleSuggestions.vue",
+    "apps/web/src/components/RoleProfiles.vue",
+    "apps/web/src/components/UpcomingScenario.vue",
+    "apps/web/tests/e2e/unified-lineup.spec.ts",
+    "apps/web/tests/e2e/role-profiles.spec.ts",
+    "README.md",
+    "docs/S2_01_ROLE_APPLY_FEEDBACK.md",
+    "docs/evidence/s2-01-role-apply-feedback.json",
+    "docs/IMPLEMENTATION_PLAN.md",
+    "docs/PROJECT_STATE.md",
+    "docs/PROGRESS.md"
+  ],
+  "checks": {
+    "red": {
+      "status": "EXPECTED_FAIL",
+      "cases": 2,
+      "log": ".tools/role-apply-red.log"
+    },
+    "browserInitial": {
+      "status": "PASS",
+      "cases": 26,
+      "log": ".tools/role-apply-browser.log",
+      "providers": "synthetic",
+      "database": "disposable PostgreSQL"
+    },
+    "workingAurora": {
+      "status": "PASS",
+      "matchId": "1793320",
+      "flow": "Existing canonical lineup, manual role change, explicit restore, matching-disabled feedback",
+      "pageErrors": 0,
+      "businessSaves": 0,
+      "log": ".tools/aurora-roles-smoke.log",
+      "screenshot": ".tools/aurora-confirm-20261112/roles-inspect.png",
+      "visuallyInspected": true
+    },
+    "install": {
+      "status": "PASS",
+      "command": "pnpm install --frozen-lockfile --offline",
+      "log": ".tools/role-apply-install.log"
+    },
+    "typecheck": {
+      "status": "PASS",
+      "command": "pnpm typecheck",
+      "log": ".tools/role-apply-types.log",
+      "notes": "Initial targeted vue-tsc found implicit-any dynamic event parameters; corrected before final typecheck."
+    },
+    "unitCli": {
+      "status": "PASS",
+      "command": "pnpm test --maxWorkers=1 --no-file-parallelism",
+      "uniqueTests": 956,
+      "packageCounts": [
+        64,
+        34,
+        33,
+        93,
+        359,
+        309,
+        1,
+        63
+      ],
+      "retries": 0,
+      "log": ".tools/role-apply-test.log"
+    },
+    "migrations": {
+      "status": "PASS",
+      "count": 53,
+      "log": ".tools/role-apply-migrations.log"
+    },
+    "docsLinks": {
+      "status": "PASS",
+      "log": ".tools/role-apply-doc-links.log"
+    },
+    "build": {
+      "status": "PASS",
+      "command": "pnpm build",
+      "log": ".tools/role-apply-build.log",
+      "notes": "Existing Rollup pure-annotation and bundle-size warnings."
+    },
+    "browserFinal": {
+      "status": "PASS",
+      "cases": 4,
+      "retries": 0,
+      "log": ".tools/role-apply-final-browser.log",
+      "coverage": [
+        "automatic prepared hints and matching feedback",
+        "explicit prepared hints after manual edit",
+        "canonical profile explicit restore retains hero and stand-in",
+        "manual roles survive late owner template"
+      ]
+    },
+    "browserUniqueTests": 26,
+    "mobile": {
+      "width": 360,
+      "overflow": false,
+      "screenshot": "test-results/role-profiles-mobile.png",
+      "visuallyInspected": true
+    },
+    "diffCheck": {
+      "status": "PASS"
+    },
+    "health": {
+      "api": 200,
+      "web": 200,
+      "privateUpcoming": 401,
+      "apiPid": 28108,
+      "webPid": 18408,
+      "generalWorkerProcesses": 0
+    }
+  },
+  "preservation": {
+    "maps": 2232,
+    "publicTables": 86,
+    "protectedFiles": 9703,
+    "queueRows": 13,
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "modelStatus": "model_eligible",
+    "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "ownerConcurrentSave": "Aurora binding10 plus Aurora/GL templates recorded at 2026-11-11T23:13:26Z; preserved, no rollback.",
+    "priorRows": "Nine changed append/business tables verified against original before snapshot using timestamp projections/exclusion of the new owner operation.",
+    "providerTraffic": "No new provider requests introduced by fix; ordinary page cache/quota updates occurred during diagnosis. Total provider HTTP zero is not claimed.",
+    "businessSavesByDiagnosticBrowser": 0,
+    "generalWorker": "OFF",
+    "status": "PASS",
+    "exactUnchangedTables": 72,
+    "changedTablesWithPriorRowsVerified": 9,
+    "mutableAuthCacheQuotaTables": 4,
+    "identityRevisionDelta": 5,
+    "queue": "exact hash and count preserved",
+    "snapshot": ".tools/aurora-confirm-20261112/verified-final.json",
+    "priorRowsSnapshot": ".tools/aurora-confirm-20261112/owner-preservation.json"
+  },
+  "nextTask": {
+    "id": "S3-06/non-tier1-diagnostic-preflight",
+    "scope": "Recheck a future non-Tier1 professional match, selected5+5, verified identities and eligible earlier history for a separate diagnostic Elo assessment; no unvalidated probabilities or production gate bypass.",
+    "recommendedModel": "GPT-6 Astra · High"
+  },
+  "overallVerification": "PASS"
+}

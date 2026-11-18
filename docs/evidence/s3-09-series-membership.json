@@ -1,0 +1,195 @@
+{
+  "task": "S3-09/series-corpus-and-protocol/membership-evidence",
+  "status": "membership_slice_complete_model_not_activated",
+  "artifact": {
+    "path": ".tools/s309-membership-r2.json",
+    "sha256": "7a8c4d61ada459e63a9ee42ea08186f3816f46a47b273ea9cf61026650b13067"
+  },
+  "inputs": {
+    "format": "series-membership-input-v1",
+    "corpus": {
+      "path": ".tools/s309-corpus-r2.json",
+      "sha256": "ecf8fefa6b70eb513e00cec59d18c8c1e111f7b47c6fbe434e539253a2b73c9a"
+    },
+    "exposure": {
+      "path": ".tools/s304-series-reconciliation-r1.json",
+      "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+    },
+    "proto": {
+      "path": ".tools/s1-08-bo2-proto-pinned.proto",
+      "sha256": "622cf814a414297bdc0eaa3af20bb0e5cef0109384b75b94f94283f88ab42646"
+    },
+    "valveSources": [
+      {
+        "path": ".tools/s1-08-bo2-valve-league.json",
+        "sha256": "7e11bc0e168dc0fe3f783938c4a0b9af8d8a64548ded2dbc8a4c5c452df44b09",
+        "receipt": {
+          "file": ".tools/s1-08-bo2-valve-league.json",
+          "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=16935&delay_seconds=0",
+          "sha256": "7e11bc0e168dc0fe3f783938c4a0b9af8d8a64548ded2dbc8a4c5c452df44b09",
+          "savedAt": "2026-11-01T19:53:41.938Z"
+        }
+      },
+      {
+        "path": ".tools/s3-01-e1-valve-league.json",
+        "sha256": "a68314d2ce0d563e270338d12a0ba82a4be500e7ae3d327814b8ff6a5cb65e26",
+        "receipt": {
+          "file": ".tools/s3-01-e1-valve-league.json",
+          "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=17765&delay_seconds=0",
+          "status": 200,
+          "fetchedAt": "2026-11-01T22:00:26.555Z",
+          "sha256": "a68314d2ce0d563e270338d12a0ba82a4be500e7ae3d327814b8ff6a5cb65e26",
+          "bytes": 90857
+        }
+      }
+    ]
+  },
+  "summary": {
+    "series": 1112,
+    "sourceNodes": 150,
+    "verifiedSeries": 35,
+    "verifiedMaps": 77,
+    "independentSeries": 0,
+    "datasetEligibleSeries": 0,
+    "byFormat": {
+      "1": {
+        "series": 158,
+        "sourced": 5,
+        "verified": 5
+      },
+      "2": {
+        "series": 225,
+        "sourced": 58,
+        "verified": 0
+      },
+      "3": {
+        "series": 693,
+        "sourced": 33,
+        "verified": 30
+      },
+      "5": {
+        "series": 36,
+        "sourced": 2,
+        "verified": 0
+      }
+    },
+    "reasons": {
+      "MEMBERSHIP_SOURCE_MISSING": 1014,
+      "NO_VALID_TERMINAL_SCORE": 112,
+      "CANONICAL_MEMBERSHIP_MISMATCH": 5,
+      "UNSUPPORTED_FORMAT": 225,
+      "SOURCE_SCORE_MAP_COUNT_MISMATCH": 2
+    }
+  },
+  "limitation": "development-only reconstructed source evidence; no feature eligibility, independent release evaluation or activation",
+  "rejectedSourceScores": [
+    {
+      "providerSeriesId": "952116",
+      "source": {
+        "path": ".tools/s3-01-e1-valve-league.json",
+        "sha256": "a68314d2ce0d563e270338d12a0ba82a4be500e7ae3d327814b8ff6a5cb65e26",
+        "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=17765&delay_seconds=0",
+        "fetchedAt": "2026-11-01T22:00:26.555Z",
+        "valveLeagueId": "17765",
+        "valveSeriesId": "952116",
+        "nodeId": "92",
+        "mapIds": [
+          "8187040217"
+        ],
+        "score": [
+          0,
+          2
+        ],
+        "reportedNodeStartAt": "2025-02-23T10:46:05.000Z",
+        "reportedSeriesStartAt": "2025-02-23T10:46:04.000Z"
+      }
+    },
+    {
+      "providerSeriesId": "954819",
+      "source": {
+        "path": ".tools/s3-01-e1-valve-league.json",
+        "sha256": "a68314d2ce0d563e270338d12a0ba82a4be500e7ae3d327814b8ff6a5cb65e26",
+        "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=17765&delay_seconds=0",
+        "fetchedAt": "2026-11-01T22:00:26.555Z",
+        "valveLeagueId": "17765",
+        "valveSeriesId": "954819",
+        "nodeId": "86",
+        "mapIds": [
+          "8200366179",
+          "8200463236"
+        ],
+        "score": [
+          2,
+          3
+        ],
+        "reportedNodeStartAt": "2025-03-04T15:00:00.000Z",
+        "reportedSeriesStartAt": "2025-03-04T15:00:00.000Z"
+      }
+    }
+  ],
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "scoringPerformed": false,
+  "activationPerformed": false,
+  "checks": {
+    "node": 23,
+    "newNode": 13,
+    "cliCases": 6,
+    "independentNativeScoreAndMapSetTally": true,
+    "migrationChecks": 71,
+    "workspace": "passed_across_original_and_recovery_runs",
+    "packageTests": 1067,
+    "workspaces": 8,
+    "commands": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s309-membership-install.log"
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s309-membership-typecheck.log"
+      },
+      {
+        "name": "test",
+        "exitCode": 1,
+        "log": ".tools/s309-membership-test.log"
+      }
+    ],
+    "recovery": [
+      {
+        "name": "ingestion-retry",
+        "exitCode": 0,
+        "log": ".tools/s309-membership-ingestion-retry.log"
+      },
+      {
+        "name": "remaining-tests",
+        "exitCode": 0,
+        "log": ".tools/s309-membership-remaining-tests.log"
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s309-membership-build.log"
+      }
+    ],
+    "initialFailure": "one pre-existing frozen-manifest CLI timeout at explicit90000ms; isolated retry kept same timeout",
+    "runtime": {
+      "activationIntegrity": true,
+      "currentMatchesActivation": true,
+      "runtime": {
+        "added": [],
+        "changed": [],
+        "missing": []
+      },
+      "admission": {
+        "added": [],
+        "changed": [],
+        "missing": []
+      }
+    },
+    "docLinks": "passed",
+    "gitDiffCheck": "passed"
+  }
+}

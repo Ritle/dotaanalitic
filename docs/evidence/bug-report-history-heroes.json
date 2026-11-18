@@ -1,0 +1,97 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/scenario-history-heroes",
+  "date": "2026-11-11",
+  "scope": "Current local hero names for assigned and banned heroes in expanded scenario history; frozen assessments and all snapshots remain unchanged",
+  "design": {
+    "endpoint": "GET /api/v1/catalog-labels",
+    "optionalHeroes": true,
+    "maxHeroIds": 50,
+    "maxTeams": 2,
+    "maxPlayers": 20,
+    "legacyRequestAndResponseShapePreserved": true,
+    "legacyCacheKeysPreserved": true,
+    "readOnlySql": true,
+    "providers": false,
+    "perHeroHttp": false,
+    "lazyClosedHistory": true,
+    "identicalIdSetsShareCache": true,
+    "ttlMs": 300000,
+    "heroProfileLinks": false,
+    "idsInDetails": true,
+    "emptyAndMissingDistinct": true
+  },
+  "checks": {
+    "install": "PASS frozen/offline",
+    "typecheck": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 925,
+      "perWorkspace": [
+        64,
+        34,
+        33,
+        67,
+        359,
+        309,
+        1,
+        58
+      ]
+    },
+    "build": "PASS",
+    "chromiumPostgres": {
+      "status": "PASS",
+      "unique": 7,
+      "files": [
+        "draft.spec.ts",
+        "historical-comparison.spec.ts",
+        "history-heroes.spec.ts",
+        "reports.spec.ts",
+        "scenarios.spec.ts"
+      ]
+    },
+    "red": {
+      "unit": "New optional hero contract failed; three prior cases passed",
+      "browser": "Valid fixture failed because historical named-hero group was absent"
+    },
+    "fixtureCorrection": "Initial delete of hero50 rejected by current scenario_bans FK. Created third revision without hero50 through normal repository, then removed its metadata in test DB; first two JSON snapshots retained. No constraint bypass.",
+    "compatibility": "Initial6 PASS/1 Draft Lab failure observed older2-hero assessment after third save. Added field/request/response preconditions; isolated Draft Lab PASS and complete7-case rerun PASS. Production scenario-save code unchanged; original failure cause not proven.",
+    "verified": [
+      "10 picks/40 bans in one batch",
+      "Two duplicate names retained as separate IDs",
+      "Blank hero3 and missing hero50 honest fallback",
+      "A/B, roles, actions and snapshot order retained",
+      "IDs collapsed by default, no broken hero route",
+      "Closed history0 requests, same-set revisions1 cached request",
+      "Rename,503 refresh and explicit retry preserve three full ScenarioSnapshot objects/inputHash/draftAssessment",
+      "401, invalid/oversized51, dedup/unknown bigint, old response without heroes",
+      "desktop/360px visual inspection"
+    ],
+    "notRerun": [
+      "standalone full API/PG suite",
+      "full Node fixture suite",
+      "Python",
+      "Docker/Linux"
+    ]
+  },
+  "preservation": {
+    "tables": 85,
+    "changedTables": [],
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingProviderHTTP": 0,
+    "workingBusinessWrites": 0,
+    "dependenciesChanged": false,
+    "migrationsChanged": false,
+    "frozenPackagesChanged": false
+  },
+  "runtime": "Working PostgreSQL retained; main API/Web initially OFF and not started; general worker OFF. Only temporary browser API/Web/DB used.",
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/source-matching",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

@@ -1,0 +1,150 @@
+{
+  "task": "S3-04/player-hero-capture-target-resolution/source-pilot",
+  "date": "2026-11-14",
+  "status": "source_pilot_complete_runtime_binding_open",
+  "planSha256": "cb76f6ccbd55f7de48ae54612cc262f51c1263840843cf6d394ff1ad8e7e0c5a",
+  "analysisSha256": "219d9f5dfe22905cae5918ff8b29dc82f5dcb7b9e4ea715e589117054745d314",
+  "receiptsSha256": "71961deff481783767801952b74ebf67969995cf7241c78551bd7972e50c1af6",
+  "bodyHashes": {
+    "response-1.json": "911622aeefbff29372aadd1eed8f8027f10649f3dffdb95d218e422c502f15c0",
+    "response-2.json": "2e756fcd4fb8ba846ed0094f77ff6615928aff60ab7463a579edd7e828072218",
+    "response-3.json": "03228f92a5124b6dae37d0351255469a4b9a719abcac802fe312873a715bd253",
+    "response-5.json": "bbdbf4d71c93348be02dcc304e68be9018ea99a51bc1fb81495dd98c84b7267a"
+  },
+  "sourceFiles": [
+    "tools/audits/draft-target-source-pilot.mjs",
+    "tools/audits/draft-target-source-report.mjs",
+    "tests/node/draft-target-source-pilot.test.mjs"
+  ],
+  "requests": [
+    {
+      "provider": "pandascore",
+      "endpoint": "/matches/1793327",
+      "attempts": 1,
+      "status": 200,
+      "result": "captured",
+      "fetchedAt": "2026-11-13T23:30:07.296Z",
+      "knownAt": null
+    },
+    {
+      "provider": "pandascore",
+      "endpoint": "/matches/1806970",
+      "attempts": 1,
+      "status": 200,
+      "result": "captured",
+      "fetchedAt": "2026-11-13T23:30:10.868Z",
+      "knownAt": null
+    },
+    {
+      "provider": "pandascore",
+      "endpoint": "/matches/1793321",
+      "attempts": 1,
+      "status": 200,
+      "result": "captured",
+      "fetchedAt": "2026-11-13T23:30:14.825Z",
+      "knownAt": null
+    },
+    {
+      "provider": "pandascore",
+      "endpoint": "/dota2/games/741518",
+      "attempts": 1,
+      "status": 403,
+      "result": "source_http_error",
+      "fetchedAt": null,
+      "knownAt": null
+    },
+    {
+      "provider": "stratz",
+      "endpoint": "/graphql",
+      "attempts": 1,
+      "status": 200,
+      "result": "captured",
+      "fetchedAt": "2026-11-13T23:30:19.251Z",
+      "knownAt": null
+    }
+  ],
+  "coverage": {
+    "pandaSample": 3,
+    "pandaSummaries": 3,
+    "explicitPandaPositions": 8,
+    "stratzSample": 3,
+    "stratzSeriesMemberships": 3,
+    "nativeMapBindings": 0,
+    "verifiedGameplayStarts": 0
+  },
+  "separateProviderSamples": true,
+  "canonicalWrites": 0,
+  "training": false,
+  "primaryEligible": false,
+  "deployable": false,
+  "checks": {
+    "targetedNode": {
+      "status": "PASS",
+      "tests": 10
+    },
+    "realArtifactReplay": "PASS",
+    "tamperRejection": "PASS",
+    "overwriteRejection": "PASS",
+    "collectorRepeatRejectedBeforeHttp": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": {
+      "status": "PASS",
+      "tests": 993,
+      "workspaceConcurrency": 1,
+      "maxWorkers": 1,
+      "testTimeoutsUnchanged": true,
+      "log": ".tools/s304-source-pilot-test-serial.log"
+    },
+    "build": "PASS",
+    "migrations": {
+      "status": "PASS",
+      "count": 58
+    },
+    "browser": "NOT_RUN_NO_UI_CHANGE",
+    "defaultParallelPackageRun": {
+      "status": "FAIL",
+      "reason": "Two existing CLI tests exceeded their 20000ms timeout",
+      "tests": [
+        "research-plan-cli.test.ts",
+        "research-execution-cli.test.ts"
+      ],
+      "log": ".tools/s304-source-pilot-test.log"
+    },
+    "docsLinks": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "service": {
+    "checkedAt": "2026-11-13T23:44:42.073Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "api": 200,
+    "web": 200,
+    "privateEndpoint": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61",
+    "migration058": "a6dfe58d1be8b5cf81d9a319a6cecd907674e3a4f7c204c10ce5825344b41c21",
+    "realCaptureRows": "0"
+  },
+  "nextTask": "S3-04/player-hero-native-target-binding",
+  "nextModel": "GPT-6 Astra · High",
+  "sourceDocumentation": [
+    "https://developers.pandascore.co/docs/plan-reference",
+    "https://developers.pandascore.co/docs/matches-lifecycle"
+  ],
+  "limitations": [
+    "PANDASCORE_GAME_IDS_ARE_NOT_NATIVE_DOTA_IDS",
+    "STRATZ_ARRAY_ORDER_IS_NOT_MAP_NUMBER",
+    "PROVIDER_START_CLOCK_SEMANTICS_UNVERIFIED",
+    "POSTGAME_RECEIPTS_NOT_PRESTART_FEATURE_EVIDENCE"
+  ],
+  "stratzSequenceNum": {
+    "schemaType": "Long",
+    "schemaDescription": null,
+    "queried": false,
+    "ordinalSemantics": "unverified"
+  }
+}

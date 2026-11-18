@@ -1,0 +1,281 @@
+{
+  "task": "S3-04/R2-frozen-dataset",
+  "status": "PASS",
+  "datasetPath": ".tools/s304-r2-dataset-r1.json",
+  "datasetSha256": "0bbcf34030232ea6f067d5de61bf096eaef3efb8eae1ab6b4e11b153dfff6fe0",
+  "datasetBytes": 34425978,
+  "fingerprint": "cb82469057fe243130d7456bac5328ffa8d6109e42571e8d7a48d33f17e130e6",
+  "protocolFingerprint": "27a876cd66744bd8617b270a76073d7650e1ee2e3a9ba50e7fc57e437446e592",
+  "inputs": {
+    "r2PlanSha256": "b0a7b34dd5d4caf88217e8d5a14310328f8368b52b94cd01727691ab50625efe",
+    "baselineCaptureSha256": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2",
+    "importPlanSha256": "7f03db0d51ffd63f404ee304b43dba8575341ce950942676cda9eb038da3616f",
+    "protocolSha256": "7f88a919de2bbd2cf3e61b95476c0bb7c435dd4d8f191aff2365838c2ef9eeab",
+    "baselineMetadataSha256": "86b9683c5e2fd4057d6fd2fd15b96250911a9a878a1ac5d673a828ef24a75d16",
+    "metadataSha256": "24bd5a3261e755527e1111f9c9a32fe8b69676e6948551c7075e2eb5788a3ce7",
+    "coverageSha256": "355497abc510afe83b659867c934d5f5979e8b9a4fa1176d3e47c5c2d9acb4d2",
+    "fitSummarySha256": "95dec01cc8f510fed072cfa741c7b7d4a5354d828b0fd6ffcbf02f601c458728",
+    "evaluationSummarySha256": "dba18c0f05f1da6a44f6bc1f2a26abf707dd21eddef9d7743dc14c5d4e2137c7",
+    "importReportSha256": "a368bd90f7739b166a0781a9cc8dad2a9d1dd46865078b2d292bf21fa63bac76",
+    "r1DatasetSha256": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd",
+    "r1ArtifactSha256": "70916658f4db7162039a7a3bed772457aa5f387d3f0cc0025cfea64590500951",
+    "r1EvaluationSha256": "30f6d9696c07a4e1085236ca7b29af8a615f81aae8f9b37ce24cb35308f611e5",
+    "historyCaptureSha256": "4ebad584fa29c3bd2c0a3a0ba9be665f701fdcf5d559992616ca9d831454de7b"
+  },
+  "partitions": {
+    "warmup": {
+      "plannedDenominator": 6,
+      "plannedMaps": 5,
+      "baselineMaps": 0,
+      "pairedMaps": 0,
+      "pairedSeries": 0,
+      "pairedCoverage": 0,
+      "labels": {
+        "teamAWins": 0,
+        "teamBWins": 0
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 5,
+        "INVENTORY_INELIGIBLE": 1,
+        "SERIES_HAS_EXCLUDED_MAP": 1,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 5
+      }
+    },
+    "train": {
+      "plannedDenominator": 1252,
+      "plannedMaps": 1183,
+      "baselineMaps": 881,
+      "pairedMaps": 881,
+      "pairedSeries": 421,
+      "pairedCoverage": 0.7036741214057508,
+      "labels": {
+        "teamAWins": 501,
+        "teamBWins": 380
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 281,
+        "INVENTORY_INELIGIBLE": 53,
+        "MODE_OR_LOBBY_OUTSIDE_SCOPE": 7,
+        "SERIES_HAS_EXCLUDED_MAP": 52,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 302,
+        "SERIES_UNVERIFIED": 17
+      }
+    },
+    "validation": {
+      "plannedDenominator": 398,
+      "plannedMaps": 392,
+      "baselineMaps": 306,
+      "pairedMaps": 306,
+      "pairedSeries": 170,
+      "pairedCoverage": 0.7688442211055276,
+      "labels": {
+        "teamAWins": 170,
+        "teamBWins": 136
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 77,
+        "INVENTORY_INELIGIBLE": 3,
+        "MODE_OR_LOBBY_OUTSIDE_SCOPE": 1,
+        "SERIES_HAS_EXCLUDED_MAP": 3,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 86,
+        "SERIES_UNVERIFIED": 3
+      }
+    },
+    "calibration": {
+      "plannedDenominator": 338,
+      "plannedMaps": 335,
+      "baselineMaps": 284,
+      "pairedMaps": 284,
+      "pairedSeries": 124,
+      "pairedCoverage": 0.8402366863905325,
+      "labels": {
+        "teamAWins": 160,
+        "teamBWins": 124
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 46,
+        "INVENTORY_INELIGIBLE": 1,
+        "MODE_OR_LOBBY_OUTSIDE_SCOPE": 1,
+        "SERIES_HAS_EXCLUDED_MAP": 2,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 51,
+        "SERIES_UNVERIFIED": 1
+      }
+    },
+    "development_test": {
+      "plannedDenominator": 223,
+      "plannedMaps": 216,
+      "baselineMaps": 186,
+      "pairedMaps": 186,
+      "pairedSeries": 86,
+      "pairedCoverage": 0.8340807174887892,
+      "labels": {
+        "teamAWins": 119,
+        "teamBWins": 67
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 24,
+        "INVENTORY_INELIGIBLE": 7,
+        "SERIES_HAS_EXCLUDED_MAP": 2,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 30,
+        "SERIES_UNVERIFIED": 5
+      }
+    }
+  },
+  "earlyParity": {
+    "train": {
+      "targetRows": 1252,
+      "pairedMaps": 881,
+      "semanticRowsSha256": "66901a594213d3c03bf01abeb5dd79ea813b4b2a2163c9a64ca7be50769cd54f",
+      "labelsSha256": "61b75e2193e73a8ab1671f46663262e6d9f70eac27d4b602fba85fc8c2bd7a98",
+      "status": "exact_except_declared_snapshot_provenance"
+    },
+    "validation": {
+      "targetRows": 398,
+      "pairedMaps": 306,
+      "semanticRowsSha256": "bada2f2d406c9287700db9ac2e8541bb91f1fa371426d2fe59cea237032aed62",
+      "labelsSha256": "ee62cce53b6b8b124ab7d5ec77e4c01dda7d121809c0df7a01d6c085e2c08826",
+      "status": "exact_except_declared_snapshot_provenance"
+    }
+  },
+  "codeCompatibility": {
+    "originalFilesPreserved": 243,
+    "additiveMigrations": [
+      {
+        "path": "packages/db/migrations/055_live_schedule.sql",
+        "sha256": "77a0bbd41623e2d080d4168823ac58b23796a0792444d0fce6fd7c84ee2d36d2"
+      },
+      {
+        "path": "packages/db/migrations/056_live_lineup_estimates.sql",
+        "sha256": "ebf4ebdcedf9f0462ca4e93a21f3ecca2863e3c2f9ad8616c913412a28b63c21"
+      },
+      {
+        "path": "packages/db/migrations/057_history_projection_import_audit.sql",
+        "sha256": "f6fe9cee6368acfbb2e98a59a022fef3579ba941b905b10bb65b89c6e72b00b8"
+      }
+    ]
+  },
+  "targetLedger": {
+    "count": 2232,
+    "addedHistoryOnlyIds": [
+      "8938855404",
+      "8964837315",
+      "8971007454",
+      "8971016820",
+      "8971115054",
+      "8976665322",
+      "8976751962",
+      "8976806033",
+      "8978242189",
+      "8982015595",
+      "8982107035",
+      "9030292632",
+      "9030351357",
+      "9030456472",
+      "9030565813",
+      "9031679372",
+      "9031923491",
+      "9032007166",
+      "9032112877",
+      "9032252060",
+      "9033153920",
+      "9033223673",
+      "9041213547",
+      "9041268553",
+      "9041588706",
+      "9041689216",
+      "9042812648",
+      "9042896918"
+    ],
+    "seriesDispositionChanges": [],
+    "knownSeriesMembershipChecked": true,
+    "remoteSeriesCompleteness": "unknown_not_inferred"
+  },
+  "historyEligibleMaps": 2186,
+  "heroVocabularySize": 127,
+  "labelRecords": 1698,
+  "comparison": {
+    "calibration": {
+      "commonMaps": 284,
+      "recoveredIds": [],
+      "lostIds": [],
+      "commonChangedInputs": 0
+    },
+    "development_test": {
+      "commonMaps": 175,
+      "recoveredIds": [
+        "9031755269",
+        "9031849890",
+        "9036525071",
+        "9042812804",
+        "9042886394",
+        "9043084117",
+        "9043219852",
+        "9043490716",
+        "9043640925",
+        "9047488648",
+        "9047583318"
+      ],
+      "lostIds": [],
+      "commonChangedInputs": 145
+    }
+  },
+  "dataChecks": {
+    "status": "passed_data_floors_only",
+    "reasons": [],
+    "modelQualityGate": "not_evaluated",
+    "activationAllowed": false
+  },
+  "audit": {
+    "providerHttp": 0,
+    "businessWrites": 0,
+    "coefficientFitting": false,
+    "calibrationFitting": false,
+    "targetScoring": false,
+    "independentTest": false
+  },
+  "checks": {
+    "targetedNodeTests": 9,
+    "offlineReplay": "PASS",
+    "generalRegression": {
+      "passed": 978,
+      "failed": 0,
+      "firstRun": true
+    },
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "orderedMigrationChecksums": 57,
+    "documentationLinks": "PASS",
+    "build": "PASS",
+    "buildWarnings": [
+      "existing_zod_annotations",
+      "existing_web_chunk_over_500kb"
+    ],
+    "finalReplayAfterBuild": "PASS",
+    "newFileWhitespaceAndTargetedDiff": "PASS"
+  },
+  "deployable": false,
+  "nextTask": "S3-04/R2-offline-evaluation",
+  "runtimeReadiness": {
+    "checkedAt": "2026-11-13T17:14:53.837Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "validationLogs": {
+    "s304-r2-dataset-targeted-final.log": "82645fc07676cbe4aeb7bc28dbf602bbdadd48f1d258e1ae5f25f9539822ef04",
+    "s304-r2-dataset-sql-order-red.log": "f7515b5ea2320e1697b4e19d894e32b06fb06385109fa07dbc8da623cd59881f",
+    "s304-r2-dataset-install.log": "ad5fd28076dd7f36081cc78f9f99bd3c8874caeb11c3b3e1dd08f3eeb2d81322",
+    "s304-r2-dataset-typecheck.log": "0582be245cfe411511899221d93ae44a91d29bf045fb587f439980a1cdccb98b",
+    "s304-r2-dataset-tests.log": "82d6f682b7ca314e59c7b2e9aa99b4e08e44e5b352f09744177af28120d897f8",
+    "s304-r2-dataset-build.log": "36c1aec74e7a798701a7dea4e9274488ff7430bcfaf4a3e2c189f79d47fb0677",
+    "s304-r2-dataset-final-verify.log": "56efc17cf25b1983332a800f324bdddf0531474b193b676099c41dc6a3b89e33",
+    "s304-r2-dataset-migrations.log": "15d40448b0a5c66d67677453551ea81dcae53f4607b9634b27971fb73aef0627"
+  }
+}

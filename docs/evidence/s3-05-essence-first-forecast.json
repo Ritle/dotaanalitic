@@ -1,0 +1,63 @@
+{
+  "task": "S3-05/V1-retest/activation-owner-smoke/essence-main-event",
+  "status": "PASS",
+  "checkedAt": "2026-11-12T00:03:31.669Z",
+  "forecast": {
+    "id": "25290370-25ee-464a-9e24-4fa946f5abab",
+    "requestId": "17380251-5eba-49ac-8da3-4a78518c91b9",
+    "status": "done",
+    "probabilityA": 0.5476897217211073,
+    "probabilityB": 0.4523102782788927,
+    "issuedAt": "2026-11-12T00:02:09.197563Z",
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "model": {
+      "id": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "eligibleAtCalculation": true,
+      "featureProfile": "player-mean-elo-completed-strict-v1",
+      "candidateSha256": null,
+      "freezeSha256": "61a718f762d24c9fa98dca1b928797adab411a097d4b6eef04782de5ca7992ab",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790"
+    },
+    "coverage": {
+      "nRaw": 2158,
+      "nEff": 2158,
+      "minimumPlayerMaps": 143,
+      "playersWithHistory": 10,
+      "playersMeetingMinimum": 10
+    }
+  },
+  "targetId": "a53fa5cc-be10-4d6d-83dd-91fa19d36ff1",
+  "scenarioId": "4c1203eb-4e20-4eaf-9545-ac5f0a49cf9a",
+  "league": {
+    "localId": "7186",
+    "opendotaId": "20486",
+    "scopeFrom": "2026-11-12T00:00:00.000Z",
+    "scopeUntil": "2026-11-19T00:00:00.000Z",
+    "basis": "owner-reviewed current November event, main stage date window; verified outcome linkage still required"
+  },
+  "countsAfter": {
+    "matches": 2232,
+    "prediction_runs": 1,
+    "v1_runtime_snapshots": 1,
+    "owner_tier1_scopes": 1,
+    "scenarios": 2,
+    "leagues": 54
+  },
+  "queue": {
+    "count": 13,
+    "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+  },
+  "checks": {
+    "liveBrowser": "PASS: target/scenario/scope/forecast, reopen and journal",
+    "pageErrors": 0,
+    "snapshotSha": "PASS",
+    "issuedBeforeScheduledStart": "PASS",
+    "currentRegistry": "model_eligible",
+    "journal": "one waiting forecast; verified outcomes0; accuracy null",
+    "sourceCodeChanges": 0,
+    "generalRegression": "not repeated; operational setup only",
+    "docsLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "remaining": "Wait for verified actual first-map result to evaluate forecast; simplify tournament onboarding separately"
+}

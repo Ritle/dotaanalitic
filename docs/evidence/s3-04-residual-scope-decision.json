@@ -1,0 +1,154 @@
+{
+  "task": "S3-04/post-draft-validation-readiness/exposure-ledger/residual-scope-decision",
+  "date": "2026-11-15",
+  "status": "19_file_residual_disposition_complete_scoped_inventory_only",
+  "artifact": {
+    "path": ".tools/s304-residual-disposition-r1.json",
+    "sha256": "3f07108c3af26b3b34051f6f3bfe5ff649e258da2d2bcff7e02e84a1bc16afff"
+  },
+  "parents": {
+    "series": {
+      "path": ".tools/s304-series-reconciliation-r1.json",
+      "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+    },
+    "coverage": {
+      "path": ".tools/s304-coverage-report-r1.json",
+      "sha256": "1ebee3f0061fde43abc0e74eef990b56c082aee3c03f7051282727482cceada7"
+    },
+    "namespace": {
+      "path": ".tools/s304-namespace-report-r1.json",
+      "sha256": "be55c46227c122aaf004e9595c644d5e41ba5e774154f95621efe65ea94b41d9"
+    }
+  },
+  "files": 19,
+  "fields": 336,
+  "kinds": {
+    "field_dispositions": 15,
+    "valve_series_namespace": 2,
+    "verified_synthetic_input": 2
+  },
+  "categories": {
+    "display_name_not_identity": 8,
+    "vue_template_source": 2,
+    "api_schema_declaration": 38,
+    "explicit_unknown_series_context": 72,
+    "isolated_test_database_alias": 42,
+    "chat_text_outside_machine_inventory": 1,
+    "narrative_news_outside_machine_inventory": 16,
+    "summary_count_not_id_list": 1,
+    "graphql_type_declaration": 154,
+    "comparison_boolean_not_id": 2
+  },
+  "scopeDecision": {
+    "scope": "fixed archived JSON artifacts and explicit native references only",
+    "narrativeTextIncludedInMachineInventory": false,
+    "excludedArchiveEntries": 269,
+    "inheritedSourceIssues": [
+      {
+        "path": "docs/evidence/s0-08-manifest.json",
+        "pointer": "/cohorts/0",
+        "reason": "live_cohort_rejected"
+      },
+      {
+        "path": "docs/evidence/s0-08-manifest.json",
+        "pointer": "/cohorts/1",
+        "reason": "live_cohort_rejected"
+      },
+      {
+        "path": "docs/evidence/s0-08-manifest.json",
+        "pointer": "/cohorts/2",
+        "reason": "live_cohort_rejected"
+      },
+      {
+        "path": "docs/evidence/s0-08-manifest.json",
+        "pointer": "/cohorts/3",
+        "reason": "live_cohort_rejected"
+      },
+      {
+        "path": "docs/evidence/s0-08-manifest.json",
+        "pointer": "/cohorts/4",
+        "reason": "live_cohort_rejected"
+      }
+    ],
+    "unknownSeriesMaps": 1923,
+    "futureCandidateNeedsOwnMapSeriesAndTemporalEvidence": true,
+    "note": "Resolved field meaning is not proof of whole-project exposure absence. Source text, logs, other formats and later files are outside this certification."
+  },
+  "ledgerUnchanged": {
+    "sources": 3379,
+    "maps": 5674,
+    "knownSeries": 1768,
+    "localAliases": 1096,
+    "unresolvedMaps": 1923,
+    "conflictingMaps": 0,
+    "unresolvedAliases": 0,
+    "conflictingAliases": 0
+  },
+  "guards": {
+    "checkedAt": "2026-11-14T21:31:44.087Z",
+    "overwriteRejected": true,
+    "wrongShaRejected": true,
+    "rehashedAdmissionRejected": true,
+    "originalUnchanged": true,
+    "files": 19,
+    "fields": 336,
+    "localUuidAliases": 16,
+    "aliasOccurrences": 46,
+    "residualAliasOccurrences": 42,
+    "newNativeMaps": 0,
+    "globalCompletenessCertified": false
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T21:31:58.888Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "checks": {
+    "newNode": 9,
+    "combinedNode": 95,
+    "migrationChecksums": 61,
+    "newReplay": "PASS",
+    "parentSeriesAndNamespaceReplay": "PASS",
+    "installFrozenOffline": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "packageTests": 1053,
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "initialOracleCorrection": "46 total UUID occurrences versus 42 residual; expectation corrected, classifier unchanged",
+    "separatePgBrowserPython": "Not run: runtime/schema/UI/model math unchanged",
+    "packagePipelineExitCode": 0
+  },
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "training": 0,
+  "activation": 0,
+  "residualDispositionComplete": true,
+  "completeGlobalInventory": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "nextTask": "S3-04/post-draft-validation-readiness/independent-registration-proposal",
+  "nextModel": "GPT-6 Astra · High"
+}

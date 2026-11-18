@@ -1,0 +1,194 @@
+{
+  "task": "S3-04/frozen-dataset",
+  "status": "frozen_verified_research_only",
+  "datasetFingerprint": "b53cf9adf97b21076757e016fae1147d7f569198b55ca97a75dc9d807bf11cdc",
+  "protocolFingerprint": "1d2c8ac3a0972d5f8301f36c561298d944eae0e8f6701b74ea18b87f562538e6",
+  "capturedAt": "2026-11-12T22:19:16.872Z",
+  "artifacts": [
+    {
+      "path": ".tools/s304-dataset-final.json",
+      "sha256": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd",
+      "bytes": 33668140
+    },
+    {
+      "path": ".tools/s304-dataset-capture-final.json",
+      "sha256": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2",
+      "bytes": 26665092
+    },
+    {
+      "path": ".tools/s304-final.json",
+      "sha256": "93292795acbf891cffbc79c1f429d5122786f5735c5c09ce5761f250b2bc3b4b",
+      "bytes": 2748265
+    },
+    {
+      "path": ".tools/s304-plan-metadata-final.json",
+      "sha256": "86b9683c5e2fd4057d6fd2fd15b96250911a9a878a1ac5d673a828ef24a75d16",
+      "bytes": 817263
+    },
+    {
+      "path": "docs/evidence/s3-04-conditional-protocol.json",
+      "sha256": "7f88a919de2bbd2cf3e61b95476c0bb7c435dd4d8f191aff2365838c2ef9eeab",
+      "bytes": 1157930
+    }
+  ],
+  "partitions": {
+    "warmup": {
+      "plannedDenominator": 6,
+      "plannedMaps": 5,
+      "baselineMaps": 0,
+      "pairedMaps": 0,
+      "pairedSeries": 0,
+      "pairedCoverage": 0,
+      "labels": {
+        "teamAWins": 0,
+        "teamBWins": 0
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 5,
+        "INVENTORY_INELIGIBLE": 1,
+        "SERIES_HAS_EXCLUDED_MAP": 1,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 5
+      }
+    },
+    "train": {
+      "plannedDenominator": 1252,
+      "plannedMaps": 1183,
+      "baselineMaps": 881,
+      "pairedMaps": 881,
+      "pairedSeries": 421,
+      "pairedCoverage": 0.7036741214057508,
+      "labels": {
+        "teamAWins": 501,
+        "teamBWins": 380
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 281,
+        "INVENTORY_INELIGIBLE": 53,
+        "MODE_OR_LOBBY_OUTSIDE_SCOPE": 7,
+        "SERIES_HAS_EXCLUDED_MAP": 52,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 302,
+        "SERIES_UNVERIFIED": 17
+      }
+    },
+    "validation": {
+      "plannedDenominator": 398,
+      "plannedMaps": 392,
+      "baselineMaps": 306,
+      "pairedMaps": 306,
+      "pairedSeries": 170,
+      "pairedCoverage": 0.7688442211055276,
+      "labels": {
+        "teamAWins": 170,
+        "teamBWins": 136
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 77,
+        "INVENTORY_INELIGIBLE": 3,
+        "MODE_OR_LOBBY_OUTSIDE_SCOPE": 1,
+        "SERIES_HAS_EXCLUDED_MAP": 3,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 86,
+        "SERIES_UNVERIFIED": 3
+      }
+    },
+    "calibration": {
+      "plannedDenominator": 338,
+      "plannedMaps": 335,
+      "baselineMaps": 284,
+      "pairedMaps": 284,
+      "pairedSeries": 124,
+      "pairedCoverage": 0.8402366863905325,
+      "labels": {
+        "teamAWins": 160,
+        "teamBWins": 124
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 46,
+        "INVENTORY_INELIGIBLE": 1,
+        "MODE_OR_LOBBY_OUTSIDE_SCOPE": 1,
+        "SERIES_HAS_EXCLUDED_MAP": 2,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 51,
+        "SERIES_UNVERIFIED": 1
+      }
+    },
+    "development_test": {
+      "plannedDenominator": 223,
+      "plannedMaps": 216,
+      "baselineMaps": 175,
+      "pairedMaps": 175,
+      "pairedSeries": 80,
+      "pairedCoverage": 0.7847533632286996,
+      "labels": {
+        "teamAWins": 112,
+        "teamBWins": 63
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 39,
+        "INVENTORY_INELIGIBLE": 7,
+        "SERIES_HAS_EXCLUDED_MAP": 2,
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP": 41,
+        "SERIES_UNVERIFIED": 5
+      }
+    }
+  },
+  "historyMaps": 2158,
+  "heroes": 127,
+  "ledgerMaps": 2232,
+  "pairedMaps": 1646,
+  "dataChecks": {
+    "status": "insufficient",
+    "reasons": [
+      "DEVELOPMENT_TEST_COVERAGE_BELOW_0_80"
+    ],
+    "modelQualityGate": "not_evaluated",
+    "activationAllowed": false
+  },
+  "deployable": false,
+  "trainingRunCreated": false,
+  "evaluation": "not_performed",
+  "newProviderHttpRequests": 0,
+  "businessWrites": 0,
+  "checks": {
+    "targetedNode": 21,
+    "newNodeTests": 10,
+    "install": "PASS",
+    "typecheck": "PASS",
+    "fullTest": "PASS",
+    "build": "PASS",
+    "migrationChecksums": 54,
+    "offlineReplay": "PASS",
+    "overwriteRefusal": "PASS",
+    "rehashedTamperRefusal": "PASS",
+    "syntheticCliRefusal": "PASS",
+    "semanticAudit": {
+      "status": "PASS",
+      "uniqueLedgerMaps": 2232,
+      "pairedMaps": 1646,
+      "wholeSeriesPartitions": true,
+      "trainOnlyVocabulary": true,
+      "strictHistoricalEdgesChecked": 1900509,
+      "distinctHeroesAndSideMapping": true
+    },
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "fullTestCount": 962,
+    "postBuildCodeManifest": "PASS",
+    "protocolReplay": "PASS",
+    "preservation": "PASS"
+  },
+  "nextTask": "S3-04/offline-fit",
+  "suggestedModel": "GPT-6 Astra · High",
+  "preservation": {
+    "exactFields": [
+      "counts",
+      "queue",
+      "snapshotSha256",
+      "readiness"
+    ],
+    "proMaps": 2232,
+    "predictions": 3,
+    "scenarios": 3,
+    "queueRows": 13,
+    "activeModelStatus": "model_eligible",
+    "servicesRestarted": false
+  }
+}

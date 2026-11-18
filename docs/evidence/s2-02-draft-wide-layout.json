@@ -1,0 +1,101 @@
+{
+  "task": "S2-02/draft-wide-layout",
+  "status": "PASS",
+  "checkedAt": "2026-11-12T01:13:27.610Z",
+  "scope": "UI only; no API, SQL, dependency or prediction model change",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "unitCliTests": 959,
+    "build": "PASS",
+    "browserFinalCases": 13,
+    "browserFinalReloadRegressionCases": 2,
+    "browserRetries": 0,
+    "orderedMigrationChecksums": 53,
+    "docsLinks": "PASS",
+    "diffWhitespace": "PASS"
+  },
+  "liveReadOnly": {
+    "status": "PASS",
+    "checkedAt": "2026-11-12T01:02:58.958Z",
+    "scenarioRevision": 4,
+    "picks": 10,
+    "measurements": [
+      {
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "board": {
+          "x": 43,
+          "y": 312.796875,
+          "width": 1038,
+          "height": 753.390625
+        },
+        "lastPickBottom": 797.1875,
+        "overflow": false
+      },
+      {
+        "viewport": {
+          "width": 1280,
+          "height": 800
+        },
+        "board": {
+          "x": 43,
+          "y": 312.796875,
+          "width": 878,
+          "height": 753.390625
+        },
+        "lastPickBottom": 797.1875,
+        "overflow": false
+      },
+      {
+        "viewport": {
+          "width": 360,
+          "height": 800
+        },
+        "board": {
+          "x": 45,
+          "y": 409.59375,
+          "width": 270,
+          "height": 1309.78125
+        },
+        "lastPickBottom": 1318.375,
+        "overflow": false
+      }
+    ],
+    "businessWrites": 0,
+    "jsErrors": 0,
+    "scenarioUnchanged": true
+  },
+  "preservation": {
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 2,
+      "v1_runtime_snapshots": 2,
+      "owner_tier1_scopes": 1,
+      "scenarios": 2,
+      "leagues": 54
+    },
+    "queue": {
+      "count": 13,
+      "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+    },
+    "forecastSnapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "registry": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "warnings": [
+    "Existing Vite large chunk and Zod annotation warnings; build succeeded."
+  ],
+  "limitations": [
+    "Post-draft model is not implemented; pre-match map1 does not use hero picks.",
+    "Unknown patch/hero eligibility is distinct from valid ten-hero input."
+  ],
+  "nextProposedTask": "S3-04/readiness: final ten-hero coverage and draft temporal availability",
+  "recommendedModel": "GPT-6 Astra · High"
+}

@@ -1,0 +1,123 @@
+{
+  "task": "S3-04/conditional-future-registration-contract",
+  "date": "2026-11-15",
+  "status": "local_synthetic_contract_complete_durable_real_storage_pending",
+  "files": [
+    {
+      "path": "tools/research/conditional-registration.mjs",
+      "sha256": "bfc6010d9cdb4dc8e6402a8a1c2310de63cd9fba4150b9952805bf4c956e73a4"
+    },
+    {
+      "path": "tools/research/conditional-registration-files.mjs",
+      "sha256": "d3598895ea0004a7e6c7d05edf3bcf447259229f47850c92f54464585f9f6950"
+    },
+    {
+      "path": "tests/fixtures/conditional-registration.mjs",
+      "sha256": "5b052bbc78e6e56ce87b8dbb2aec8220efc9b7356e7997f95ddc0e0a1569a3f9"
+    },
+    {
+      "path": "tests/node/conditional-registration.test.mjs",
+      "sha256": "e28e8027a06b7c088d4556cd3b6dabe750962a6508aa50aea63e5415594d1907"
+    },
+    {
+      "path": "tests/node/conditional-registration-files.test.mjs",
+      "sha256": "a68a80479cfa7fc7de494a98c62cb16b653eec1e9550dc356b4dd778e56e609a"
+    },
+    {
+      "path": "tests/node/conditional-registration-replay.test.mjs",
+      "sha256": "d95cb9fec6fd06525a28007944358a60a84cafd79e14015052f2c0f856515994"
+    }
+  ],
+  "diagnostic": {
+    "directory": ".tools/s304-registration-contract-synthetic-r1",
+    "registration": {
+      "registrationSha256": "b57d81811ed5e0ccc85caceb2072ad4c6f4ccdbdad773dfb1246f0b393691343",
+      "registrationFingerprint": "f258eeb655bd370576bbbd1b56248e6bab633698a20350f27097d1a1ab6cbf74",
+      "headSha256": "-"
+    },
+    "commit": {
+      "revision": 1,
+      "headSha256": "8254b9a964609c895df98f96949224b29e14d435e9828de1819032fc1d57e872",
+      "registrationSha256": "b57d81811ed5e0ccc85caceb2072ad4c6f4ccdbdad773dfb1246f0b393691343"
+    },
+    "replay": {
+      "status": "synthetic_contract_verified",
+      "revisions": 1,
+      "firstStatus": "insufficient",
+      "headSha256": "8254b9a964609c895df98f96949224b29e14d435e9828de1819032fc1d57e872",
+      "realRegistration": false,
+      "realEvaluationAllowed": false,
+      "deployable": false
+    },
+    "simulationOnly": true,
+    "actualCreatedAt": "2026-11-15T01:04:50.536Z"
+  },
+  "checks": {
+    "nodeTests": 129,
+    "newNodeTests": 28,
+    "nodeLog": ".tools/s304-registration-contract-node-final.log",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "migrations": 61,
+    "packageRegression": {
+      "status": "PASS",
+      "tests": 1053,
+      "workspaces": 8,
+      "log": ".tools/s304-registration-contract-suite.log"
+    },
+    "registrationReportParentChainReplay": "PASS",
+    "frozenPolicySourceHashes": "PASS",
+    "concurrentFirstWrite": "PASS",
+    "unfinishedWriteAndLockRefusal": "PASS",
+    "previousEvaluatorByteHashes": "PASS",
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "separatePgBrowserPythonSuites": "not_run_no_production_DB_UI_or_numeric_change"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T01:01:06.958Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerRequests": 0,
+  "businessWrites": 0,
+  "realRegistration": false,
+  "realEvaluationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "limitations": [
+    "clock_is_synthetic_injected_not_real_registration_provenance",
+    "local_fsync_not_database_commit_time_or_complete_power_loss_durability",
+    "unfinished_lock_requires_explicit_recovery_no_auto_reset",
+    "real_native_main_event_ids_and_source_readiness_pending"
+  ],
+  "executionNotes": [
+    "Initial test failed with missing implementation.",
+    "Adversarial read-during-lock test failed before correction; reads now reject pending writes.",
+    "Validation failures release lock; uncertain file write or fsync failure retains it.",
+    "Diagnostic creates modeled pre-window timestamps from a previously computed synthetic result; explicitly not actual historical registration."
+  ],
+  "nextTask": "S3-04/conditional-future-registration-storage"
+}

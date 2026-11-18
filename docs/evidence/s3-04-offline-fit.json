@@ -1,0 +1,187 @@
+{
+  "task": "S3-04/offline-fit",
+  "status": "completed_research_only",
+  "registeredAt": "2026-11-12T22:35:47.730Z",
+  "startedAt": "2026-11-12T22:36:09.853Z",
+  "trainingRunDirectory": ".tools/s304-fit-r1",
+  "artifacts": [
+    {
+      "path": ".tools/s304-fit-r1/manifest.json",
+      "sha256": "0ada189f2e2e4865f72983bac33810e6317bce234ad689d3484bd305dbd82816",
+      "bytes": 6246
+    },
+    {
+      "path": ".tools/s304-fit-r1/fit-input.json",
+      "sha256": "4da0279a49dc4fcd24dbb9e7aa0ac312dbdeda137672afb7d4654b11eb0ccec6",
+      "bytes": 1523737
+    },
+    {
+      "path": ".tools/s304-fit-r1/started.json",
+      "sha256": "2fe8c81238a6979eb912ba3fdd55478257f2a5f8369aede6f659ff15daf0060b",
+      "bytes": 157
+    },
+    {
+      "path": ".tools/s304-fit-r1/artifact.json",
+      "sha256": "70916658f4db7162039a7a3bed772457aa5f387d3f0cc0025cfea64590500951",
+      "bytes": 156155
+    },
+    {
+      "path": ".tools/s304-fit-r1/result.json",
+      "sha256": "7f3a36710fd9ffc39888f6dc812efda04915e8b55b9f65195e9cc7b6d291a63a",
+      "bytes": 1346
+    },
+    {
+      "path": ".tools/s304-fit-r1/compiled/post-draft-inference.mjs",
+      "sha256": "52d54e937d9bfa6c5df9b3f335fabb2616281838252bb7647184c826a40f4f54",
+      "bytes": 2024
+    }
+  ],
+  "datasetSha256": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd",
+  "protocolFingerprint": "1d2c8ac3a0972d5f8301f36c561298d944eae0e8f6701b74ea18b87f562538e6",
+  "counts": {
+    "train": 881,
+    "validation": 306,
+    "calibration": 284
+  },
+  "models": {
+    "M1": {
+      "status": "fitted",
+      "selectedC": 1,
+      "calibration": {
+        "status": "fitted",
+        "temperature": 0.7933639640518718,
+        "reason": null,
+        "calibrationLogLoss": 0.6337369125536233,
+        "bounds": [
+          0.25,
+          4
+        ]
+      }
+    },
+    "M2": {
+      "status": "fitted",
+      "selectedC": 0.01,
+      "calibration": {
+        "status": "fitted",
+        "temperature": 0.29059695077869957,
+        "reason": null,
+        "calibrationLogLoss": 0.6165524066488955,
+        "bounds": [
+          0.25,
+          4
+        ]
+      }
+    }
+  },
+  "candidateSelection": {
+    "M1": [
+      {
+        "C": 0.01,
+        "status": "valid",
+        "validationLogLoss": 0.66542218340304,
+        "iterations": 3
+      },
+      {
+        "C": 0.1,
+        "status": "valid",
+        "validationLogLoss": 0.6525454176112333,
+        "iterations": 5
+      },
+      {
+        "C": 1,
+        "status": "valid",
+        "validationLogLoss": 0.652525760932482,
+        "iterations": 5
+      }
+    ],
+    "M2": [
+      {
+        "C": 0.01,
+        "status": "valid",
+        "validationLogLoss": 0.6716861374131801,
+        "iterations": 9
+      },
+      {
+        "C": 0.1,
+        "status": "valid",
+        "validationLogLoss": 0.698766428649846,
+        "iterations": 22
+      },
+      {
+        "C": 1,
+        "status": "valid",
+        "validationLogLoss": 0.8192645987598232,
+        "iterations": 58
+      }
+    ]
+  },
+  "parity": {
+    "status": "PASS",
+    "maxAbsoluteError": 2.220446049250313e-16,
+    "tolerance": 1e-07,
+    "comparisons": 1554,
+    "vectorsPerModel": {
+      "M0": 259,
+      "M1": 259,
+      "M2": 259
+    }
+  },
+  "dataChecks": {
+    "status": "insufficient",
+    "reasons": [
+      "DEVELOPMENT_TEST_COVERAGE_BELOW_0_80"
+    ],
+    "modelQualityGate": "not_evaluated",
+    "activationAllowed": false
+  },
+  "developmentTestConsumed": false,
+  "qualityGate": "not_evaluated",
+  "deployable": false,
+  "businessWrites": 0,
+  "newProviderHttpRequests": 0,
+  "checks": {
+    "pythonTests": 23,
+    "newPythonTests": 17,
+    "targetedNodeTests": 23,
+    "newNodeTests": 2,
+    "strictResearchTypeScript": "PASS",
+    "cli": {
+      "status": "PASS",
+      "offlineVerification": true,
+      "duplicateRunRefused": true,
+      "sourceShaRefused": true,
+      "environmentMismatchRefused": true,
+      "lateMapsExcluded": 216,
+      "fitRows": 1471,
+      "registrationBeforeFirstFit": true,
+      "m0ExistingRuntimeMaxError": 1.1102230246251565e-16
+    },
+    "migrationChecksums": 54,
+    "install": "PASS",
+    "typecheck": "PASS",
+    "fullTest": "PASS",
+    "build": "PASS",
+    "fullTestCount": 962,
+    "postBuildFitVerification": "PASS",
+    "sourceDatasetCodeAndProtocol": "PASS",
+    "preservation": "PASS",
+    "docsLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "nextTask": "S3-04/offline-evaluation",
+  "suggestedModel": "GPT-6 Astra · High",
+  "preservation": {
+    "proMaps": 2232,
+    "predictions": 3,
+    "scenarios": 3,
+    "queueRows": 13,
+    "exactFields": [
+      "counts",
+      "queue",
+      "snapshotSha256",
+      "readiness"
+    ],
+    "activeModelStatus": "model_eligible",
+    "servicesRestarted": false
+  }
+}

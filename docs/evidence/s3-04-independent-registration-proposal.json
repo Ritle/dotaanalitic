@@ -1,0 +1,232 @@
+{
+  "format": "post-draft-independent-registration-proposal-v1",
+  "localDate": "2026-11-15",
+  "status": "B_protocol_scope_approved_not_registered",
+  "selectedOption": "B",
+  "recommendation": "B_conditional_future_holdout",
+  "registeredAt": null,
+  "collectionAllowed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "proposedDates": {
+    "decisionDeadline": "2026-11-19T18:00:00.000Z",
+    "from": "2026-11-20T00:00:00.000Z",
+    "until": "2026-12-18T00:00:00.000Z",
+    "assessmentAt": "2026-12-25T00:00:00.000Z"
+  },
+  "events": [
+    {
+      "name": "BLAST SLAM IX",
+      "stage": "main_event",
+      "fromDate": "2026-11-20",
+      "throughDate": "2026-11-29",
+      "openDotaLeagueId": null,
+      "pandaScoreTournamentId": null,
+      "source": "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online"
+    },
+    {
+      "name": "DreamLeague Season 30",
+      "stage": "main_event",
+      "fromDate": "2026-12-02",
+      "throughDate": "2026-12-13",
+      "openDotaLeagueId": null,
+      "pandaScoreTournamentId": null,
+      "source": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/"
+    }
+  ],
+  "excludedQualifier": {
+    "openDotaLeagueId": "20359",
+    "name": "DreamLeague Season 30 Qualifiers"
+  },
+  "options": {
+    "A": {
+      "cohort": "strict_prospective",
+      "nextTask": "S3-04/gameplay-clock-evidence-plan"
+    },
+    "B": {
+      "cohort": "conditional_reconstructed_future_targets",
+      "requiresNewLinkedProtocol": true,
+      "nextTask": "S3-04/conditional-future-holdout-protocol",
+      "changes": [
+        "primary_cohort_availability",
+        "future_event_scope_independence_rule"
+      ],
+      "notEvidenceOf": [
+        "timely_real_forecasts",
+        "current_shadow_adapter_quality",
+        "release_permission"
+      ]
+    }
+  },
+  "inheritedSampleFloors": {
+    "trainMaps": 200,
+    "validationMaps": 50,
+    "calibrationMaps": 50,
+    "developmentTestMaps": 50,
+    "developmentTestSeries": 25,
+    "minEachLabelPerFittedOrScoredBlock": 10,
+    "meaning": "operational research floors, not power analysis or accuracy guarantee"
+  },
+  "inheritedEvaluation": {
+    "primary": "paired_logloss_H2_cal_minus_H1_cal_on_exact_common_maps",
+    "secondary": [
+      "H2_cal_minus_H0_logloss",
+      "Brier_deltas_vs_H0_and_H1_cal",
+      "raw_and_calibrated_ECE_reliability_accuracy",
+      "N_maps_series_full_denominator_unavailable_baseline_only",
+      "predeclared_missingness_and_provider_patch_date_league_strata_with_N"
+    ],
+    "pairedCoverageMinimum": 0.8,
+    "ECEBins": 10,
+    "bootstrap": {
+      "unit": "whole_series",
+      "replicates": 2000,
+      "seed": 42,
+      "rng": "numpy.PCG64",
+      "weighting": "map_weighted",
+      "interval": "percentile95_linear_exploratory"
+    },
+    "positiveResearchSignal": [
+      "sample_floors_and_provenance_and_parity_pass",
+      "paired_coverage_at_least_0.80",
+      "primary_CI_upper_below_0",
+      "H2_cal_logloss_below_H0",
+      "H2_cal_Brier_not_above_H0_or_H1_cal",
+      "H2_cal_ECE_at_most_0.10"
+    ],
+    "insufficient": "missing_sample_or_coverage_or_calibrator;no_raw_fallback_promotion",
+    "firstResult": "immutable_including_negative_or_insufficient;new_linked_revision_for_correction",
+    "releaseGatePassed": false
+  },
+  "inheritedBudget": {
+    "meaning": "operational_ceiling_not_power_analysis_or_authorization_to_spend_now",
+    "maxTargetMaps": 300,
+    "maxHttpAttemptsIncludingRetries": 1000,
+    "maxHttpAttemptsPerUtcDay": 100,
+    "maxAttemptsPerRequestKey": 2,
+    "maxConcurrentRequests": 1,
+    "providers": [
+      "existing_named_backend_clients_only"
+    ],
+    "quota": "minimum_of_protocol_ceiling_and_existing_shared_provider_quota;never_raise_current_limits",
+    "cache": "reuse_frozen_receipts_and_deduplicate_provider_endpoint_parameters_across_maps",
+    "retry": "respect_Retry_After_and_persist_pause;no_busy_loop_or_provider_fallback_to_bypass_limits",
+    "exhaustion": "stop_remote_work_keep_full_enrollment_ledger_terminal_insufficient_no_silent_truncation_or_budget_increase",
+    "businessDatabaseWrites": false,
+    "paidUpgradeAllowed": false
+  },
+  "independence": {
+    "frozenLedgerMaps": 5674,
+    "frozenLedgerSeries": 1768,
+    "unknownSeriesMaps": 1923,
+    "globalInventoryComplete": false,
+    "excludeWholeExposedSeries": true,
+    "denominator": "all_actual_verified_pro_maps_in_registered_scope",
+    "noOutcomePeeking": true
+  },
+  "readiness": {
+    "nativeEventBindingsVerified": false,
+    "gameplayClockVerified": false,
+    "realProspectiveBundleImplemented": false,
+    "conditionalFutureAdapterImplemented": false,
+    "registrationReady": false
+  },
+  "publicCalendarResearch": true,
+  "newGameDataProviderRequests": 0,
+  "businessDatabaseWrites": 0,
+  "inputs": [
+    {
+      "path": "tools/research/player-hero-independent-policy.json",
+      "sha256": "70f121b2686e04ce74a822f8b5161d70311631701c33441a40a903eccb4cee3a"
+    },
+    {
+      "path": "tools/research/player-hero-experiment-policy.json",
+      "sha256": "32785db3ae5c7e227940c44fa2be5bfd1a9be747ab9cf4479e4a39932be810c9"
+    },
+    {
+      "path": ".tools/s304-hero-fit-r1/artifact.json",
+      "sha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b"
+    },
+    {
+      "path": ".tools/s304-hero-independent-plan-r1.json",
+      "sha256": "b9c12e9bb008294869b0487b7323b1c57ae7143ea37ba2132b733a3b9a84509d"
+    },
+    {
+      "path": ".tools/s304-registration-proposal-inventory-r2.json",
+      "sha256": "ce645751ee76b88bf87854362ab1a87d6d21ebf7dc3fedb3b263d7919c0e7003"
+    },
+    {
+      "path": ".tools/s304-exposure-ledger-r2.json",
+      "sha256": "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7"
+    },
+    {
+      "path": ".tools/s304-series-reconciliation-r1.json",
+      "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+    },
+    {
+      "path": ".tools/s304-residual-disposition-r1.json",
+      "sha256": "3f07108c3af26b3b34051f6f3bfe5ff649e258da2d2bcff7e02e84a1bc16afff"
+    }
+  ],
+  "checks": {
+    "frozenHashes": "PASS",
+    "dateIntervals": "PASS",
+    "oldProtocolStillUnregistered": "PASS",
+    "packageRegression": {
+      "status": "PASS",
+      "tests": 1053,
+      "workspaces": 8,
+      "log": ".tools/s304-registration-proposal-suite.log"
+    },
+    "targetedNodeTests": {
+      "status": "PASS",
+      "tests": 14
+    },
+    "preservation": {
+      "checkedAt": "2026-11-14T22:06:15.299Z",
+      "model": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      },
+      "counts": {
+        "maps": "2260",
+        "captures": "0",
+        "observations": "0",
+        "links": "0",
+        "bindings": "0",
+        "shadowruns": "0",
+        "shadowreceipts": "0"
+      },
+      "predictions": 8,
+      "preservedPredictionHashes": 7,
+      "preservedMigrations": 60,
+      "migrations": 61,
+      "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+      "api": 200,
+      "web": 200,
+      "privateStatus": 401
+    },
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "migrations": {
+      "status": "PASS",
+      "files": 61
+    },
+    "docsLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "ownerDecision": {
+    "selectedOption": "B",
+    "decisionRecordedAt": "2026-11-14T22:10:20.638Z",
+    "source": "owner_reply_in_current_session",
+    "answer": "B — условный тест будущих карт (рекомендую)",
+    "scope": "new_linked_conditional_future_holdout_protocol;not_registration_collection_or_activation"
+  },
+  "linkedProtocol": {
+    "path": "tools/research/player-hero-conditional-future-policy.json",
+    "sha256": "77fa352544f4938e8b1cd69a2772894cff6b34df4b954e97677d36ea10ce388f"
+  }
+}

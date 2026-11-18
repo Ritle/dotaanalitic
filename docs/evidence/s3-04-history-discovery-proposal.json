@@ -1,0 +1,224 @@
+{
+  "format": "post-draft-history-discovery-proposal-v1",
+  "status": "draft_not_registered_not_executed",
+  "sourceAuditSha256": "95a79ce4b3ba7a134455c466c50ee6c0caba83772e934487691c9e3b84991cde",
+  "purpose": "diagnostic_discovery_only",
+  "accounts": [
+    "164047347",
+    "188351504",
+    "450454900",
+    "892486081",
+    "860145568",
+    "331711578",
+    "389276156",
+    "480210721",
+    "120840516",
+    "127530803",
+    "312542697",
+    "1220993352",
+    "1150772339",
+    "194555122",
+    "482364904",
+    "169516760",
+    "333700720",
+    "24045849",
+    "28229163",
+    "36162063"
+  ],
+  "deferredAccounts": [
+    "80560677",
+    "214853734",
+    "1256269806",
+    "91535476",
+    "162798290",
+    "293769213",
+    "880173582",
+    "156485213",
+    "196481318",
+    "402285018",
+    "1114792376",
+    "193564777",
+    "876690044",
+    "187123736"
+  ],
+  "queries": [
+    {
+      "accountIds": [
+        "164047347",
+        "188351504",
+        "450454900",
+        "892486081"
+      ],
+      "cutoffAt": "2026-09-05T18:05:56.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-09-05T18:05:56.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    },
+    {
+      "accountIds": [
+        "860145568"
+      ],
+      "cutoffAt": "2026-09-05T19:57:42.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-09-05T19:57:42.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    },
+    {
+      "accountIds": [
+        "331711578",
+        "389276156"
+      ],
+      "cutoffAt": "2026-10-06T09:28:52.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-10-06T09:28:52.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    },
+    {
+      "accountIds": [
+        "480210721"
+      ],
+      "cutoffAt": "2026-10-09T14:16:18.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-10-09T14:16:18.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    },
+    {
+      "accountIds": [
+        "120840516",
+        "127530803",
+        "312542697",
+        "1220993352"
+      ],
+      "cutoffAt": "2026-10-13T09:01:00.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-10-13T09:01:00.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    },
+    {
+      "accountIds": [
+        "1150772339"
+      ],
+      "cutoffAt": "2026-10-13T17:00:03.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-10-13T17:00:03.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    },
+    {
+      "accountIds": [
+        "194555122",
+        "482364904"
+      ],
+      "cutoffAt": "2026-10-14T13:25:59.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-10-14T13:25:59.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    },
+    {
+      "accountIds": [
+        "169516760",
+        "333700720"
+      ],
+      "cutoffAt": "2026-10-15T07:12:51.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-10-15T07:12:51.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    },
+    {
+      "accountIds": [
+        "24045849",
+        "28229163",
+        "36162063"
+      ],
+      "cutoffAt": "2026-10-15T16:31:57.000Z",
+      "options": {
+        "windowDays": 730,
+        "maxMaps": 10
+      },
+      "page": {
+        "limit": 10,
+        "cursors": {}
+      },
+      "fromAt": "2024-10-15T16:31:57.000Z",
+      "maxHttpAttemptsIncludingRetry": 2
+    }
+  ],
+  "budget": {
+    "logicalDiscoveryQueries": 9,
+    "maxHttpAttemptsIncludingRetries": 18,
+    "maxAccountMapRows": 200,
+    "detailRequests": 0,
+    "profileRequests": 0,
+    "leagueCatalogueRequests": 0,
+    "heroCatalogueRequests": 0,
+    "businessWrites": 0
+  },
+  "method": "OpenDotaPlayerHistoryClient.discover with existing validation and persistent provider budget",
+  "noAutomaticPagination": true,
+  "remoteCompleteness": "unknown",
+  "fullWarmupCoverage": false,
+  "stopOn": [
+    "budget_exhausted",
+    "provider_quota_exhausted",
+    "retry_after_exceeds_current_wait_policy",
+    "source_schema_invalid"
+  ],
+  "dedup": "numeric match ID across all accounts; reuse verified stored details before any later detail request",
+  "nextAfterDiscovery": "Review coverage/source-limit flags and register a separate bounded details phase if justified",
+  "deployable": false
+}

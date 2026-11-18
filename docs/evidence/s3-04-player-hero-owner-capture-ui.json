@@ -1,0 +1,49 @@
+{
+  "task": "S3-04/player-hero-owner-capture-ui",
+  "date": "2026-11-14",
+  "status": "implemented",
+  "sourceSha256": {
+    "apps/web/src/components/DraftCapture.vue": "fc6b02c6d3f3c2be635173eae29ec4286d5beae4d14f91ec3a2ae009a7d86b58",
+    "apps/web/src/draft-capture.ts": "9b3ea47e9218d95bbe4f754412af44110c06cc24eb91e808c6b9c64ec8e15b23",
+    "apps/web/src/views/ScenariosView.vue": "29d5b1dfc19133b68aeed3046e70c43c93ac3747e6df94884ee06a4d2ba5946e",
+    "apps/web/tests/e2e/draft-capture.spec.ts": "ba8052b07f754b3a2d84d8d49dfc16c058f81572324881a4419102ac0fbb4b1e"
+  },
+  "checks": {
+    "frozenOfflineInstall": "passed",
+    "typecheck": "passed_full",
+    "build": "passed_full_then_final_web",
+    "packageTests": 982,
+    "browserTests": 5,
+    "browserDatabase": "isolated_synthetic",
+    "browserInitialAttempt": "1 SQL assertion used wrong column name; two navigation timeouts during concurrent shared builds. SQL fixed; final run after shared build passed.",
+    "mobile360": "no_horizontal_overflow_and_screenshot_visually_reviewed",
+    "orderedMigrations": 58,
+    "historicalMigrationChecksums": "passed",
+    "apiAndSqlHashes": "unchanged_from_prior_capture_evidence",
+    "documentationLinks": "passed",
+    "gitDiffWhitespace": "passed",
+    "newFilesWhitespace": "passed"
+  },
+  "service": {
+    "checkedAt": "2026-11-13T22:59:30.475Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "api": 200,
+    "web": 200,
+    "privateEndpoint": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61",
+    "migration058": "a6dfe58d1be8b5cf81d9a319a6cecd907674e3a4f7c204c10ce5825344b41c21",
+    "realCaptureRows": "0"
+  },
+  "providerCalls": 0,
+  "productionCapturesCreatedByAgent": 0,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "activationChanges": 0,
+  "postDraftPredictionAvailable": false,
+  "nextTask": "S3-04/player-hero-capture-target-resolution"
+}

@@ -1,0 +1,131 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/history-strength",
+  "date": "2026-11-11",
+  "status": "complete",
+  "scope": [
+    "PlayerHistory coverage/enrichment",
+    "StrengthReport opponent organization labels"
+  ],
+  "design": {
+    "historyLabels": "Existing catalog-labels; report-owned canonical IDs; one shared batch<=10, normally5",
+    "teamLabels": "Existing context-catalog extended with optional teams-only ids CSV1..20,400 characters",
+    "lookupOnlyLocalIds": true,
+    "mixedModesRejected": true,
+    "legacyRequestResponseAndCachePreserved": true,
+    "parameterizedSqlAny": true,
+    "teamBatchSize": 20,
+    "maxOpponentLabels": 100,
+    "maxTeamHTTP": 5,
+    "cacheMs": 300000,
+    "retryOnlyFailedBatches": true,
+    "nullOpponentRequests": 0,
+    "ratingsOrHistoryMutation": false,
+    "additionalProviderHTTP": 0,
+    "dependenciesChanged": false,
+    "sharedPackagesChanged": false,
+    "migrationsChanged": false
+  },
+  "checks": {
+    "focusedApiUnit": "PASS6",
+    "focusedBatchUnit": "PASS3",
+    "focusedWebTypecheck": "PASS before and after timestamp display cleanup",
+    "rootQA": {
+      "install": "PASS frozen/offline",
+      "typecheck": "PASS",
+      "unitCli": {
+        "status": "PASS",
+        "count": 936,
+        "perWorkspace": [
+          {
+            "workspace": "packages/analytics",
+            "passed": 64
+          },
+          {
+            "workspace": "packages/contracts",
+            "passed": 34
+          },
+          {
+            "workspace": "packages/prediction",
+            "passed": 33
+          },
+          {
+            "workspace": "apps/web",
+            "passed": 76
+          },
+          {
+            "workspace": "packages/db",
+            "passed": 359
+          },
+          {
+            "workspace": "packages/ingestion",
+            "passed": 309
+          },
+          {
+            "workspace": "apps/worker",
+            "passed": 1
+          },
+          {
+            "workspace": "apps/api",
+            "passed": 60
+          }
+        ]
+      },
+      "build": "PASS"
+    },
+    "chromiumPostgres": {
+      "status": "PASS",
+      "unique": 17,
+      "files": [
+        "history-strength-labels.spec.ts",
+        "strength.spec.ts",
+        "roster-catalogue.spec.ts",
+        "reference-filters.spec.ts",
+        "context-filters.spec.ts",
+        "upcoming-workflow.spec.ts"
+      ],
+      "finalTargetRepeat": "PASS2 after visual timestamp cleanup"
+    },
+    "sql": "PASS52 ordered migrations and historical checksums",
+    "red": "New valid20-ID mode failed strict old contract;5 other cases passed",
+    "fixtureNote": "23-map strength response is an explicit synthetic display expansion, never imported. Summary wins/rating means aligned with repeated source row before full17-case run. Real two-map chronology separately passed strength.spec. No model accuracy claim.",
+    "verified": [
+      "Private401; batch20 accepted/21 rejected; unknown/empty/mixed/unsafe modes rejected",
+      "Local bigint keys >2^53 retained; matching provider team number does not resolve a local ID",
+      "Duplicate organizations and duplicate names retained as separate rows/keys; unknown and blank labels distinct; null opponent no lookup",
+      "21 unique opponents2 requests;100-ID pure bound5 requests; duplicate keys dedup only for metadata",
+      "Rename refresh2 batches; partial503 preserves good names; retry only failed final batch1 request",
+      "Metadata actions do not reread StrengthReport or change rating cells/summary",
+      "Existing2-map chronological Elo, cutoff/error/N0 and warmup checks passed",
+      "Synthetic history worker:1 lookup across coverage/enrichment5 players; explicit refresh2 total; frozen run.report JSON unchanged; discovery/provider call counter remains5",
+      "17 full browser cases plus2 target repeats; source flows and360px screenshots inspected"
+    ],
+    "notRerun": [
+      "Full standalone PostgreSQL/API integration suite",
+      "Full standalone Node fixture suite",
+      "Python",
+      "Docker/Linux",
+      "Live provider/source validation"
+    ],
+    "docLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/draft-context",
+  "wholeBug7Closed": false,
+  "suggestedModel": "GPT-6.1 Sol · High",
+  "preservation": {
+    "tables": 85,
+    "changedTables": [],
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingProviderHTTP": 0,
+    "workingBusinessWrites": 0
+  },
+  "runtime": "Working PostgreSQL retained; main API/Web initiallyOFF and not started; general workerOFF. Only temporary test API/Web/PostgreSQL and synthetic-provider worker used."
+}

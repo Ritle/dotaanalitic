@@ -1,0 +1,135 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/prediction-flow",
+  "date": "2026-11-11",
+  "status": "complete",
+  "scope": [
+    "ScenarioPredictionView",
+    "ScheduledForecastPanel",
+    "PredictionResult",
+    "ForecastJournalView"
+  ],
+  "design": {
+    "component": "ForecastLineups.vue",
+    "endpoint": "Existing private GET /api/v1/catalog-labels, local SELECT only",
+    "teamsPerBatchMax": 2,
+    "selectedPlayersPerBatchMax": 10,
+    "heroesOrBaselinesFetched": false,
+    "sharedCacheMs": 300000,
+    "previewAndResultShareCache": true,
+    "journalLazyPerRow": true,
+    "journalClosed50RowsLabelHTTP": 0,
+    "perPlayerHTTP": false,
+    "providerHTTP": 0,
+    "namesEstablishIdentity": false,
+    "metadataErrorBlocksCalculation": false,
+    "snapshotMutation": false,
+    "sourceReadAtShown": true,
+    "numericIdsInDetails": true,
+    "rolesInventedForJournal": false,
+    "newDependencies": false,
+    "newSQL": false,
+    "newEndpointOrSharedExport": false
+  },
+  "checks": {
+    "rootQA": {
+      "install": "PASS frozen/offline",
+      "typecheck": "PASS",
+      "unitCli": {
+        "status": "PASS",
+        "count": 931,
+        "perWorkspace": [
+          {
+            "workspace": "packages/analytics",
+            "passed": 64
+          },
+          {
+            "workspace": "packages/contracts",
+            "passed": 34
+          },
+          {
+            "workspace": "packages/prediction",
+            "passed": 33
+          },
+          {
+            "workspace": "apps/web",
+            "passed": 73
+          },
+          {
+            "workspace": "packages/db",
+            "passed": 359
+          },
+          {
+            "workspace": "packages/ingestion",
+            "passed": 309
+          },
+          {
+            "workspace": "apps/worker",
+            "passed": 1
+          },
+          {
+            "workspace": "apps/api",
+            "passed": 58
+          }
+        ]
+      },
+      "build": "PASS"
+    },
+    "newBrowserCases": "PASS2",
+    "compatibilityBrowser": "PASS19",
+    "red": "Valid synthetic catalogue: preview lacked named team link before implementation",
+    "fixtureCorrection": "Initial implementation run1PASS/1FAIL at final save status: test expected201 but existing predictions-http returns200. Corrected expectation to200; added metadata recovery and row metric equality assertions; complete2-case repeat PASS. Production POST unchanged.",
+    "verified": [
+      "One2-team/10-player batch shared by preview and saved result",
+      "Duplicate nicknames remain separate numeric records; blank and omitted105 distinct",
+      "Rename and503 retain old cached names; cold503 does not prevent successful POST200",
+      "Full saved prediction API view, ScenarioSnapshot and raw v1_runtime_snapshots.snapshot_text unchanged by label refresh",
+      "Explicit metadata retry recovers names without recalculating saved probability",
+      "Closed50-row journal0 label calls; two expanded identical lineups1 batch",
+      "Close/reopen and next-page51st row reuse cache; page change closes new rows",
+      "Observed row status/probability/outcome cells and N=1 unchanged",
+      "Synthetic journal response fixtures unchanged;0 persisted journal reports in label test",
+      "360px screenshots inspected; internal table horizontal scrolling retained"
+    ],
+    "notRerun": [
+      "Full standalone API/PG integration suite",
+      "Full standalone Node fixture suite",
+      "Python",
+      "Docker/Linux",
+      "Live roster/provider validation"
+    ],
+    "chromiumPostgres": {
+      "status": "PASS",
+      "unique": 21,
+      "files": [
+        "prediction-labels.spec.ts",
+        "predictions.spec.ts",
+        "journal.spec.ts",
+        "scheduled-owner.spec.ts",
+        "scheduled-results.spec.ts",
+        "scheduled-lifecycle.spec.ts"
+      ]
+    },
+    "migrations": "PASS52 ordered migrations and historical checksums",
+    "docLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/history-strength",
+  "wholeBug7Closed": false,
+  "suggestedModel": "GPT-6.1 Sol · High",
+  "preservation": {
+    "tables": 85,
+    "changedTables": [],
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingProviderHTTP": 0,
+    "workingBusinessWrites": 0
+  },
+  "runtime": "Main API/Web initiallyOFF and not started; general workerOFF. Working PostgreSQL retained; only temporary browser API/Web/databases used."
+}

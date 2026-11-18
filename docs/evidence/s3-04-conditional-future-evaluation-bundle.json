@@ -1,0 +1,176 @@
+{
+  "task": "S3-04/conditional-future-evaluation-bundle",
+  "date": "2026-11-15",
+  "status": "local_bundle_implemented_conditional_numerical_consumer_pending",
+  "files": [
+    {
+      "path": "tools/research/conditional-evaluation.mjs",
+      "sha256": "2a14fb5b8d8d223725956922a3ae62c1b71728dcfd52fd9f5f75431de3b28686"
+    },
+    {
+      "path": "tools/research/conditional-evaluation-files.mjs",
+      "sha256": "338e21d3761a5cea431cfcd1f3c68fa518f605e55e8622ad2484177c82820cdc"
+    },
+    {
+      "path": "tests/fixtures/conditional-evaluation.mjs",
+      "sha256": "2dd0a4c5e9dc20edb727fa0befe3b50d46f07201c50779413683f9f24f7d7429"
+    },
+    {
+      "path": "tests/node/conditional-evaluation.test.mjs",
+      "sha256": "bfcc85bc4f4e568202ee8bc63e0a3852815cbfe016c9b0617331fdcb0105ba50"
+    },
+    {
+      "path": "tests/node/conditional-evaluation-files.test.mjs",
+      "sha256": "36df1694a0413a246a8aeb1a066051cd7c4f6ac4cfefa0311edfa954ae6ea805"
+    }
+  ],
+  "artifacts": {
+    "local": {
+      "directory": ".tools/s304-evaluation-local-bundle-r1",
+      "status": "evaluation_bundle_saved",
+      "manifestSha256": "fa37909f8d00ddbeea3d580fd99e5b0061886f1709a5c38786660cc7928b25fa",
+      "syntheticOnly": false,
+      "cohortStatus": "insufficient",
+      "counts": {
+        "knownPossibleMaps": 2,
+        "verifiedProDenominator": 2,
+        "pairedMaps": 0,
+        "pairedSeries": 0,
+        "verifiedLabels": 2
+      },
+      "pairedCoverage": null,
+      "scoringPerformed": false,
+      "deployable": false,
+      "parents": {
+        "format": "conditional-evaluation-files-input-v1",
+        "source": {
+          "directory": ".tools/s304-evaluation-local-source-r1",
+          "manifestSha256": "69969080cecc3a3821e5899d398f7990b8c42b8bfe5f2537947de0c81592c91c"
+        },
+        "enrollment": {
+          "directory": ".tools/s304-evaluation-local-enrollment-r1",
+          "manifestSha256": "da62b21c7bdd3fcd6ad6e51e52a1f9a3a2621de8d9cc7086efee6998da78bdc0"
+        }
+      },
+      "files": {
+        "cohort.json": "0002f5393775d5d83197608cd6fc293d6b95e084f08545f53b9c6fc873869f7e",
+        "features.json": "68d0c2f1f3e28934c5a4facc4932f7f2332552f2849695b1143c5cec62f23863",
+        "labels.json": "f7590913c21e621544065a0748fc6b1c2ee93d261789264fd713e9dcf9a0e3fc",
+        "audit.json": "95fe5ecafdd318ca740a7efe7f6b740c54dd0963b3f237cc4ea47866c9d3f7cf"
+      },
+      "requiredExposure": {
+        "path": ".tools/s304-series-reconciliation-r1.json",
+        "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3",
+        "applied": true
+      }
+    },
+    "synthetic": {
+      "directory": ".tools/s304-evaluation-synthetic-bundle-r1",
+      "status": "evaluation_bundle_saved",
+      "manifestSha256": "6439e6d7250a5af64d3a67733314caa78af6481df8f5d9b92ae9afc9ca201913",
+      "syntheticOnly": true,
+      "cohortStatus": "prepared_local_inputs",
+      "counts": {
+        "knownPossibleMaps": 2,
+        "verifiedProDenominator": 2,
+        "pairedMaps": 2,
+        "pairedSeries": 1,
+        "verifiedLabels": 2
+      },
+      "pairedCoverage": 1,
+      "scoringPerformed": false,
+      "deployable": false,
+      "parents": {
+        "format": "conditional-evaluation-files-input-v1",
+        "source": {
+          "directory": ".tools/s304-evaluation-synthetic-source-r1",
+          "manifestSha256": "607872fb4dc72e0f51ff7a95e8ec0b8788258d172264639e986d8f86bffb0f10"
+        },
+        "enrollment": {
+          "directory": ".tools/s304-evaluation-synthetic-enrollment-r1",
+          "manifestSha256": "31221f5e7a069f1789c7efec467b1b8277a69754b6bf3dddb3e1621e507b015c"
+        }
+      },
+      "files": {
+        "cohort.json": "2aecf9a488edb8808b3f3c36423f53a8fe4959a39f312c035f024fee10286343",
+        "features.json": "b9fa08b3f44b8bb75e5534bb9058e0c4a523ec6205b7e0190dd6b1b066103fca",
+        "labels.json": "f92d4f205a87a9935d271b4b766b586feb7b8f6a50b4b62fd414886ca0521b02",
+        "audit.json": "21d918573d3dd9b9bfe0fb9b4948a25d7852ae8a09f0cc11546f1bad32280a4b"
+      },
+      "requiredExposure": {
+        "path": ".tools/s304-series-reconciliation-r1.json",
+        "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3",
+        "applied": false
+      }
+    }
+  },
+  "checks": {
+    "nodeTests": 101,
+    "newNodeTests": 22,
+    "log": ".tools/s304-evaluation-bundle-node-final.log",
+    "frozenOfflineInstall": "PASS_after_normal_user_store_retry",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "migrations": 61,
+    "packageRegression": {
+      "status": "PASS",
+      "tests": 1053,
+      "workspaces": 8,
+      "log": ".tools/s304-evaluation-bundle-suite.log"
+    },
+    "newParentChainAndBundleReplay": "PASS",
+    "oldSourceEnrollmentHoldoutStrictPlanReplay": "PASS",
+    "frozenPolicySourceHashes": "PASS",
+    "targetLabelDoesNotChangeNumericInputs": "PASS",
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "separatePgBrowserPythonSuites": "not_run_no_production_UI_DB_or_numeric_recipe_change"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T00:08:37.917Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerRequests": 0,
+  "businessWrites": 0,
+  "modelScoringPerformed": false,
+  "trainingPerformed": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "evaluationAllowed": false,
+  "deployable": false,
+  "limitations": [
+    "real_future_scope_and_enrollment_not_registered",
+    "local_register_remains_trust_boundary",
+    "conditional_consumer_not_yet_implemented_existing_prospective_kernel_unchanged",
+    "real_two_map_example_already_exposed_not_independent_test"
+  ],
+  "executionNotes": [
+    "Initial tests failed with missing implementation.",
+    "Provider patch annotation test failed before adding existing validated source parser; numeric inputs unchanged.",
+    "First sandbox pnpm install refused module relocation without TTY; same offline frozen command in normal user context passed without replacing dependencies.",
+    "Old local feature and enrollment windows differ at microsecond precision; new explicitly aligned diagnostic revisions preserve originals and include the full frozen exposure ledger."
+  ],
+  "nextTask": "S3-04/conditional-future-evaluator"
+}

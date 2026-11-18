@@ -1,0 +1,108 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/draft-context",
+  "date": "2026-11-11",
+  "status": "complete",
+  "scope": [
+    "DraftEditor player labels",
+    "DraftAssessment hero/patch/league labels",
+    "Scenario and upcoming target local league selection"
+  ],
+  "design": {
+    "component": "DraftDisplayLabels.vue",
+    "endpoints": "Existing private catalog-labels and context-catalog only",
+    "newBackendOrContracts": false,
+    "selectedNamesReused": true,
+    "savedEditorPlayerBatchMax": 10,
+    "assessmentHeroBatchMax": 50,
+    "emptySetHTTP": 0,
+    "historyInheritsParentMetadata": true,
+    "cacheMs": 300000,
+    "namesEstablishEligibility": false,
+    "decisionsAndProofClocksUnchanged": true,
+    "localLeagueIdOrNullPreserved": true,
+    "tierClassificationByName": false,
+    "heroProfileLinks": false,
+    "dependenciesChanged": false,
+    "sharedPackagesChanged": false,
+    "migrationsChanged": false
+  },
+  "checks": {
+    "rootQA": {
+      "install": "PASS frozen/offline",
+      "typecheck": "PASS",
+      "initialTest": "Existing research-execution-cli exceeded20000ms:358 db tests passed,1 timeout; root command stopped before ingestion/api/worker",
+      "isolatedRepeat": "PASS2 CLI cases with unchanged code and deadlines; first case11403ms",
+      "remainingWorkspaces": "PASS ingestion309/api60/worker1; sequential continuation after original root test stopped",
+      "build": "PASS",
+      "uniqueUnitCLITests": 936,
+      "workspaceCounts": {
+        "analytics": 64,
+        "contracts": 34,
+        "prediction": 33,
+        "web": 76,
+        "db": 359,
+        "ingestion": 309,
+        "worker": 1,
+        "api": 60
+      },
+      "singleRootTestInvocationPassed": false
+    },
+    "targetedBrowser": "PASS2; stricter exact availability text assertion also passed in full compatibility run",
+    "red": "Before implementation, Draft Lab had0 matching player-name links, expected2",
+    "verified": [
+      "Existing selected names reused; saved input IDs loaded as one batch",
+      "History assessment uses existing parent labels and only one refresh button",
+      "Full ScenarioSnapshot history/inputHash/draftAssessment unchanged after hero metadata rename and blocked save attempt",
+      "Forbidden hero remains blocked after503; metadata refresh does not invoke eligibility check",
+      "Local league >2^53 retained exactly; search preserves selection and confirmation; explicit change clears confirmation; reset sendsnull",
+      "History counters distinguish current editor player query from lazy historical metadata; editor1 request, closed history0",
+      "Immutable50-hero histories preserve blank/missing/duplicates and raw snapshots after refresh/error/retry",
+      "Named future target league saved through existing owner flow; technical ID input remains available",
+      "Role/card/hero swaps, confirmed choices, default filters and compiled owner CLI flow passed",
+      "Mobile assessment screenshot inspected; no page overflow"
+    ],
+    "notRerun": [
+      "Full standalone API/PG integration suite",
+      "Full standalone Node fixture suite",
+      "Python",
+      "Docker/Linux",
+      "Live roster/patch/hero evidence validation"
+    ],
+    "chromiumPostgres": {
+      "status": "PASS",
+      "unique": 18,
+      "firstCompleteRun": "16PASS/2FAIL: old broad name count and global lookup counter",
+      "targetedRecovery": "3-case repeat2PASS/1FAIL (remaining blank-name count); final history-only1PASS after consistently scoping picks/bans",
+      "files": [
+        "draft-context-labels.spec.ts",
+        "draft.spec.ts",
+        "history-heroes.spec.ts",
+        "schedule-targets.spec.ts",
+        "v1-acceptance.spec.ts",
+        "scenarios.spec.ts",
+        "role-editor-priority.spec.ts",
+        "context-filters.spec.ts",
+        "upcoming-workflow.spec.ts"
+      ]
+    },
+    "sqlMigrations": "PASS52; historical checksums/order unchanged",
+    "docsAndDiff": "PASS links and git diff --check"
+  },
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/analytic-breakdowns",
+  "wholeBug7Closed": false,
+  "suggestedModel": "GPT-6.1 Sol · High",
+  "preservation": {
+    "status": "PASS",
+    "tables": 85,
+    "maps": 2232,
+    "exactQueueRows": 13,
+    "protectedFiles": 9703,
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "readiness": "model_eligible",
+    "reportSHA256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "workingBusinessWrites": 0,
+    "workingProviderHTTP": 0,
+    "mainAPIWebStarted": false,
+    "generalWorker": "OFF"
+  }
+}

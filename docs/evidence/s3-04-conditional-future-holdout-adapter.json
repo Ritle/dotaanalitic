@@ -1,0 +1,97 @@
+{
+  "task": "S3-04/conditional-future-holdout-adapter",
+  "date": "2026-11-15",
+  "status": "offline_feature_adapter_implemented_source_authentication_pending",
+  "artifact": {
+    "path": ".tools/s304-future-bundle-r2.json",
+    "sha256": "4f1d5a4db898c8f4c6c1d17e73244b421925055b40159fd6faae65178891c8a0",
+    "fingerprint": "b652b837268ce81ef4b5e8ccaa6a20cf0e6003353c50f871da4623ef566f6060"
+  },
+  "syntheticOnly": true,
+  "realIndependentMaps": 0,
+  "files": [
+    {
+      "path": "tools/research/conditional-future-holdout.mts",
+      "sha256": "ed810d7a0f7e81dc372d504a535aab015c8ce8157e551af0652c6114b1f564e8"
+    },
+    {
+      "path": "tools/research/conditional-future-holdout.mjs",
+      "sha256": "308ca091840b2729b4dd91ec44f3c8625208c0fb6ad7413f990ed59b06e52bc6"
+    },
+    {
+      "path": "tests/fixtures/conditional-future-holdout.mjs",
+      "sha256": "f35c8cbdf8edc9007d3da6b2f13305ed98338fc08ae624f65ce7b7fb72944628"
+    },
+    {
+      "path": "tests/node/conditional-future-holdout.test.mjs",
+      "sha256": "3bf7b0f9d8430236f5648daa6c253908817dc5c1e17eaf3649201a3d473bd139"
+    },
+    {
+      "path": "tests/node/conditional-future-holdout-file.test.mjs",
+      "sha256": "127a268fb25fadcf81031dfb0317c24220c4bae85639d7ada8484038f0fd0f81"
+    }
+  ],
+  "policySha256": "77fa352544f4938e8b1cd69a2772894cff6b34df4b954e97677d36ea10ce388f",
+  "tests": {
+    "targetedNode": 40,
+    "newNode": 26,
+    "log": ".tools/s304-future-adapter-final-node.log",
+    "strictCompile": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "replay": "PASS",
+    "exclusiveWriteAndRehashedTampering": "PASS",
+    "oldStrictPlanReplay": "PASS",
+    "migrations": 61,
+    "packageRegression": {
+      "status": "PASS",
+      "tests": 1053,
+      "workspaces": 8,
+      "log": ".tools/s304-future-adapter-suite.log"
+    },
+    "docsLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T22:19:01.822Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerRequests": 0,
+  "businessWrites": 0,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "limitations": [
+    "declared_map_receipts_and_inventory_are_not_authenticated",
+    "no_future_target_collection",
+    "no_real_label_binding_or_evaluator",
+    "no_new_Python_TS_artifact_parity_claim",
+    "distinct_from_shadow_runtime"
+  ],
+  "nextTask": "S3-04/conditional-future-source-binding"
+}

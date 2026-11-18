@@ -1,0 +1,257 @@
+{
+  "task": "S3-04/conditional-collection-journal",
+  "date": "2026-11-15",
+  "status": "durable_bookkeeping_implemented_transport_disabled",
+  "files": [
+    {
+      "path": "tools/research/conditional-collection-journal.mjs",
+      "sha256": "2dd6d5c629b30868cc5afcfa8ee0aaf943e11bde67b55cc29408494fc7797bd6"
+    },
+    {
+      "path": "packages/db/migrations/064_conditional_collection_journal.sql",
+      "sha256": "08498c590bbdbb7c2a3e1b506723e71b1ddf85b146d65d840f162c924b4b7a0f"
+    },
+    {
+      "path": "packages/db/tests/conditional-collection-journal.integration.test.ts",
+      "sha256": "d1a79b43af14468e2ab143d924d7b571d01c0964424243d348ce66ab9728161e"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "tools/research/conditional-registration.mjs",
+      "sha256": "bfc6010d9cdb4dc8e6402a8a1c2310de63cd9fba4150b9952805bf4c956e73a4"
+    },
+    {
+      "path": "tools/research/conditional-registration-files.mjs",
+      "sha256": "d3598895ea0004a7e6c7d05edf3bcf447259229f47850c92f54464585f9f6950"
+    },
+    {
+      "path": "tests/fixtures/conditional-registration.mjs",
+      "sha256": "5b052bbc78e6e56ce87b8dbb2aec8220efc9b7356e7997f95ddc0e0a1569a3f9"
+    },
+    {
+      "path": "tests/node/conditional-registration.test.mjs",
+      "sha256": "e28e8027a06b7c088d4556cd3b6dabe750962a6508aa50aea63e5415594d1907"
+    },
+    {
+      "path": "tests/node/conditional-registration-files.test.mjs",
+      "sha256": "a68a80479cfa7fc7de494a98c62cb16b653eec1e9550dc356b4dd778e56e609a"
+    },
+    {
+      "path": "tests/node/conditional-registration-replay.test.mjs",
+      "sha256": "d95cb9fec6fd06525a28007944358a60a84cafd79e14015052f2c0f856515994"
+    },
+    {
+      "path": "packages/db/migrations/062_conditional_registration.sql",
+      "sha256": "9d592d9930b8e5cefa0f608f5aabd92a59bf2f5c8533403fda3b39bc1fe2740d"
+    },
+    {
+      "path": "tools/research/conditional-registration-storage.mjs",
+      "sha256": "cf7e7cfd27e5916fddcd384b197c1f191afc025c0e36e80460b6c6e944c67aa1"
+    },
+    {
+      "path": "packages/db/tests/conditional-registration-storage.integration.test.ts",
+      "sha256": "2a211b4e9a87c55a47c9325f48cf4bc17e9ce28edfc45c6a6f3e5fb5a8a87b38"
+    },
+    {
+      "path": "tools/research/conditional-registration-preflight.mjs",
+      "sha256": "6da09619aa93127d0503aa6a6bf530cf2afd8b0cce3a1f6e035f6defc0bb8d02"
+    },
+    {
+      "path": "tests/node/conditional-registration-preflight.test.mjs",
+      "sha256": "5f72358b02007e349beab5f6755ab899a3c1acf44a50b17bf61c50c1ffaf86b4"
+    },
+    {
+      "path": "tools/research/conditional-real-registration.mjs",
+      "sha256": "a6d0cc1ecfdd75f0645a6de430e821e1e5dc32f69b27524d438d91e30d0db440"
+    },
+    {
+      "path": "tools/research/conditional-real-registration-store.mjs",
+      "sha256": "da59156d8714a085c99079410e3e3c53aea21a145f2b81065ca55b72532002cd"
+    },
+    {
+      "path": "packages/db/migrations/063_conditional_real_registration.sql",
+      "sha256": "4fb31bf0f6753a90929d2808076e3cffa754f1e4fbdefe90d7b32051fd40d16d"
+    },
+    {
+      "path": "tests/fixtures/conditional-real-registration.mjs",
+      "sha256": "c267f59b21e5c54ab41e80238f4b0f1f2878455e131c623d532aafa77c93a8c0"
+    },
+    {
+      "path": "tests/node/conditional-real-registration.test.mjs",
+      "sha256": "3b3832de996c34c22034603ac22a75a17fe406f07954e78aadb52ef1a143737d"
+    },
+    {
+      "path": "packages/db/tests/conditional-real-registration.integration.test.ts",
+      "sha256": "1cdc83bb9239c6219c93264bdd295aaa9ab03a4a7e76673541971fd931bd92f8"
+    },
+    {
+      "path": "tools/research/conditional-registered-collector.mjs",
+      "sha256": "6f6bbe91712ff8f415465b2283cfa89547675984e587a050fb901b98047aac02"
+    },
+    {
+      "path": "tools/research/conditional-registered-collector-store.mjs",
+      "sha256": "b58c767f6caa9867cd8f40874575b90228f1d9b61c5a518b6b2fba1d8906c78d"
+    },
+    {
+      "path": "tests/fixtures/conditional-registered-collector.mjs",
+      "sha256": "eac8fce036f052624231dd2afbf99ba7a9325347d8913c58948ce085cc417ec9"
+    },
+    {
+      "path": "tests/node/conditional-registered-collector.test.mjs",
+      "sha256": "c1a7504bbd33f45ba8dd6ba70f5798e8c47bb6ece6470bc64ea767f426882c75"
+    },
+    {
+      "path": "packages/db/tests/conditional-registered-collector.integration.test.ts",
+      "sha256": "47631f2565f3abecbeb1e8b9bdf0160d70537567bbda130af661b438e4ce9340"
+    },
+    {
+      "path": "tools/research/player-hero-independent-policy.json",
+      "sha256": "70f121b2686e04ce74a822f8b5161d70311631701c33441a40a903eccb4cee3a"
+    },
+    {
+      "path": "tools/research/player-hero-experiment-policy.json",
+      "sha256": "32785db3ae5c7e227940c44fa2be5bfd1a9be747ab9cf4479e4a39932be810c9"
+    },
+    {
+      "path": ".tools/s304-hero-fit-r1/artifact.json",
+      "sha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b"
+    },
+    {
+      "path": ".tools/s304-hero-independent-plan-r1.json",
+      "sha256": "b9c12e9bb008294869b0487b7323b1c57ae7143ea37ba2132b733a3b9a84509d"
+    },
+    {
+      "path": ".tools/s304-registration-proposal-inventory-r2.json",
+      "sha256": "ce645751ee76b88bf87854362ab1a87d6d21ebf7dc3fedb3b263d7919c0e7003"
+    },
+    {
+      "path": ".tools/s304-exposure-ledger-r2.json",
+      "sha256": "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7"
+    },
+    {
+      "path": ".tools/s304-series-reconciliation-r1.json",
+      "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+    },
+    {
+      "path": ".tools/s304-residual-disposition-r1.json",
+      "sha256": "3f07108c3af26b3b34051f6f3bfe5ff649e258da2d2bcff7e02e84a1bc16afff"
+    }
+  ],
+  "checks": {
+    "steps": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-journal-install.log",
+        "error": null
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-journal-typecheck.log",
+        "error": null
+      },
+      {
+        "name": "test",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-journal-test.log",
+        "error": null
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-journal-build.log",
+        "error": null
+      },
+      {
+        "name": "migrations",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-journal-migrations.log",
+        "error": null
+      },
+      {
+        "name": "node",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-journal-node.log",
+        "error": null
+      }
+    ],
+    "packageTests": 1053,
+    "workspaces": 8,
+    "nodeTests": 52,
+    "newPostgresTests": 15,
+    "migrationFiles": 64,
+    "pgLog": ".tools/s304-collection-journal-pg-r4.log",
+    "docsLinks": "PASS",
+    "diffCheck": "PASS_including_new_file_whitespace",
+    "workload": {
+      "reservations": 1000,
+      "events": 2001,
+      "utcDays": 10,
+      "perUtcDay": 100,
+      "guardsEnabled": true,
+      "temporaryDatabaseOnly": true
+    },
+    "initialFailures": [
+      "missing_implementation_red_test",
+      "stress_timeout_from_repeated_pending_history_scan_fixed_using_last_event",
+      "UUID_case_idempotency_red_test_fixed_by_normalizing_command_and_operation_UUIDs"
+    ],
+    "cancelledTestQuery": {
+      "database": "codex_ingest_5102d9ef9bce",
+      "pid": 14460,
+      "reason": "own_timed_out_stress_DO_query_only"
+    },
+    "separateBrowserAndNumericalPythonSuites": "not_run_UI_and_numerical_code_unchanged_Python_environment_checked_in_fixture",
+    "temporaryDatabaseActivityAfterTests": "none"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T12:38:40.102Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "shadowruns": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "migrations": 61,
+    "preservedMigrations": 60,
+    "productionWrites": 0,
+    "webAndApi": "not_started_or_tested_in_this_task"
+  },
+  "providerHttpRequests": 0,
+  "businessDatabaseWrites": 0,
+  "newMigrations": 1,
+  "productionMigrationApplied": false,
+  "realRegistrationPerformed": false,
+  "collectionAllowed": false,
+  "dispatchAllowed": false,
+  "realEvaluationAllowed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "storageLimits": {
+    "maxEncodedCommandBytes": 9000000,
+    "maxEvents": 3000,
+    "maxReplayBytes": 67108864,
+    "recoveryAfterMs": 120000
+  },
+  "limitations": [
+    "reservation_is_not_proof_of_HTTP_dispatch",
+    "unknown_outcome_keeps_budget_reserved_no_refund",
+    "120s_recovery_is_not_proof_remote_HTTP_stopped",
+    "late_completion_rejected_after_recovery",
+    "transport_abort_shared_provider_budget_and_exact_receipt_provenance_still_required",
+    "DBA_can_disable_SQL_guards",
+    "serialized_command_limit_may_bind_before_raw_response_limit"
+  ],
+  "nextTask": "S3-04/conditional-collection-transport",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedEffort": "High"
+}

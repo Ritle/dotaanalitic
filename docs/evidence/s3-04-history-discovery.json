@@ -1,0 +1,292 @@
+{
+  "task": "S3-04/history-discovery",
+  "date": "2026-11-13",
+  "registeredAt": "2026-11-12T23:39:59.976Z",
+  "startedAt": "2026-11-12T23:40:25.174Z",
+  "manifestSha256": "a46a34701935d309039f04bbc737399601bbd3a3f01a09d45eeb0bd10029e3ba",
+  "reportSha256": "e3782947f338d7a8afa91eb477f7ea959f372278c1bed95b9ec67df0a7bac53d",
+  "sourceHashes": {
+    "proposal": "94d839fbbfc19e948a8edd5e9926e2e7bcfe25fd45e1dff791d2dd07a7ec4823",
+    "audit": "95a79ce4b3ba7a134455c466c50ee6c0caba83772e934487691c9e3b84991cde",
+    "capture": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2"
+  },
+  "result": {
+    "status": "completed_discovery",
+    "counts": {
+      "queries": 9,
+      "observedQueries": 9,
+      "accountMapRows": 192,
+      "uniqueMaps": 97,
+      "knownInFrozenCapture": 2,
+      "newToFrozenCapture": 95,
+      "conflictedMaps": 0
+    },
+    "httpAttempts": 9,
+    "accounts": [
+      {
+        "accountId": "164047347",
+        "queryIndex": 0,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "188351504",
+        "queryIndex": 0,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "450454900",
+        "queryIndex": 0,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "892486081",
+        "queryIndex": 0,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "860145568",
+        "queryIndex": 1,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "331711578",
+        "queryIndex": 2,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "389276156",
+        "queryIndex": 2,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "480210721",
+        "queryIndex": 3,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "120840516",
+        "queryIndex": 4,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "127530803",
+        "queryIndex": 4,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "312542697",
+        "queryIndex": 4,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "1220993352",
+        "queryIndex": 4,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "1150772339",
+        "queryIndex": 5,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "194555122",
+        "queryIndex": 6,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "482364904",
+        "queryIndex": 6,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "169516760",
+        "queryIndex": 7,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "333700720",
+        "queryIndex": 7,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "24045849",
+        "queryIndex": 8,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "28229163",
+        "queryIndex": 8,
+        "status": "observed",
+        "rows": 2,
+        "sourceLimitReached": false,
+        "remoteCompleteness": "unknown"
+      },
+      {
+        "accountId": "36162063",
+        "queryIndex": 8,
+        "status": "observed",
+        "rows": 10,
+        "sourceLimitReached": true,
+        "remoteCompleteness": "unknown"
+      }
+    ],
+    "sourceLimitAccounts": 19,
+    "cacheHits": 0
+  },
+  "receipts": [
+    {
+      "index": 0,
+      "fileSha256": "c5e4224d851b40f697965d14d53fe92fc85423f61d3fc2de65af81404a5ccf28",
+      "payloadSha256": "dad42d0bd45e499bb9baca305cdd3cee12cdbc3d22efa093c160a734bf2a684b"
+    },
+    {
+      "index": 1,
+      "fileSha256": "c3b35362f2422ba0eebafa74ad99a2455b0b3ef32a524bbec04ca838d88c4c0f",
+      "payloadSha256": "f93bcd62580e807e07d735b2f8183d90cf3cbf9f1bfe64c1cdd59552198c0c51"
+    },
+    {
+      "index": 2,
+      "fileSha256": "c0e888d1be14fce9707f2bfe50804841b96dfeba47a31dd63c52738dcde1d53a",
+      "payloadSha256": "b83cb1aa1da21b50c5630bbf39ccbd5087008f3056e97fe34ad565bd7654faa5"
+    },
+    {
+      "index": 3,
+      "fileSha256": "ba3edcfafd4d55dd3168bdbcf7b6394ca59f19f841ae2907ec6e3311814f8544",
+      "payloadSha256": "b778a4d413af638d830f07586bd554ebe7f9c39065e33d8f86c24254c5d5d870"
+    },
+    {
+      "index": 4,
+      "fileSha256": "b3b3db3dac4b11c6a2c19019445605e647f658d4ad1d3ed8da1d9ef8794939a5",
+      "payloadSha256": "253c17c00287af692904c8bb7fba64aeebd89a981f220b57bf93003cee5edff8"
+    },
+    {
+      "index": 5,
+      "fileSha256": "4fe10b73301618f3079ae58e30398358c6505fa2e608346614f4721020b0baae",
+      "payloadSha256": "15b2f8414ba618b54687209a563bdf13d4e9e5496018bc9dbd964a842383d894"
+    },
+    {
+      "index": 6,
+      "fileSha256": "43a89da2219a5029db8c4f5e3399cd6e5e3823333bc2219a3a83986946f16e5d",
+      "payloadSha256": "39119462333c9adeb4c85a538df2d0f96d9477f39997452dbc9b5d7bee8a5ddc"
+    },
+    {
+      "index": 7,
+      "fileSha256": "86a3fb226da102fe7c9b5d28b4dceb79270de58a7d08917494022d9c423eda7e",
+      "payloadSha256": "1c1ad01fbfe9f0a00428dda6b00121abf84381ba9815eedee01333d6612523bd"
+    },
+    {
+      "index": 8,
+      "fileSha256": "72741b7d8d6931bfb16c4daa1a6a3416c47c503f3e7dc5a60114f61a1859186b",
+      "payloadSha256": "e760c08cfa97770b891d3405ee5f244c9c917c4b10e1178ec74229169814dce3"
+    }
+  ],
+  "checks": {
+    "targetedNodeTests": 8,
+    "cli": {
+      "status": "PASS",
+      "offlineReplay": true,
+      "repeatRefusedBeforeDbOrHttp": true,
+      "originalFilesUnchanged": true,
+      "registrationBeforeRequests": true,
+      "independentRows": 192,
+      "independentUniqueMaps": 97,
+      "httpAttempts": 9,
+      "http200": 9,
+      "reportSha256": "e3782947f338d7a8afa91eb477f7ea959f372278c1bed95b9ec67df0a7bac53d",
+      "manifestSha256": "a46a34701935d309039f04bbc737399601bbd3a3f01a09d45eeb0bd10029e3ba",
+      "tamperedReportRefused": true
+    },
+    "fullRegression": {
+      "frozenOfflineInstall": "PASS",
+      "typecheck": "PASS",
+      "tests": 962,
+      "build": "PASS"
+    },
+    "preservation": {
+      "status": "PASS",
+      "counts": {
+        "matches": 2232,
+        "prediction_runs": 3,
+        "v1_runtime_snapshots": 3,
+        "owner_tier1_scopes": 1,
+        "scenarios": 3,
+        "leagues": 54
+      },
+      "queue": {
+        "count": 13,
+        "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+      },
+      "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+      "readiness": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      }
+    },
+    "migrations": 54,
+    "documentationLinks": "PASS",
+    "diffWhitespace": "PASS",
+    "finalReplay": "PASS"
+  },
+  "operationalWrites": "provider_quotas_only",
+  "businessWrites": 0,
+  "importedMaps": 0,
+  "trainingPerformed": false,
+  "deployable": false,
+  "nextTask": "S3-04/history-details"
+}

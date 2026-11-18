@@ -1,0 +1,422 @@
+{
+  "task": "S3-04/R2-offline-evaluation",
+  "status": "completed_negative_research_result",
+  "registeredAt": "2026-11-13T17:24:21.269Z",
+  "startedAt": "2026-11-13T17:24:45.961Z",
+  "runDirectory": ".tools/s304-r2-eval-r1",
+  "artifacts": {
+    "manifest.json": "d8b360c84b5dcfbab8a0a7c81ba63e6808075c60ea2bedd29a2b64932cfbbab4",
+    "started.json": "a6ad183e0094ccb5572035946744579cd0bb2c9bbb24bbd370d257868fe99e27",
+    "input.json": "f2d82db85f4b706701785fe5a86a0c727bb220a5c075f972482a8e5576fbc606",
+    "report.json": "0ecb78c03ce7e0927730c8b9bcf6e9409758e5b55f7e893499c701406e91d446",
+    "result.json": "2c0ec2eadfccb32c4835252a449f23d16f827c6973bdfcc45360f04f4a6c71b2"
+  },
+  "sourceHashes": {
+    "dataset": "0bbcf34030232ea6f067d5de61bf096eaef3efb8eae1ab6b4e11b153dfff6fe0",
+    "protocol": "b0a7b34dd5d4caf88217e8d5a14310328f8368b52b94cd01727691ab50625efe",
+    "fitManifest": "0ada189f2e2e4865f72983bac33810e6317bce234ad689d3484bd305dbd82816",
+    "fitArtifact": "70916658f4db7162039a7a3bed772457aa5f387d3f0cc0025cfea64590500951",
+    "fitResult": "7f3a36710fd9ffc39888f6dc812efda04915e8b55b9f65195e9cc7b6d291a63a",
+    "inventory": "93292795acbf891cffbc79c1f429d5122786f5735c5c09ce5761f250b2bc3b4b",
+    "metadata": "24bd5a3261e755527e1111f9c9a32fe8b69676e6948551c7075e2eb5788a3ce7",
+    "r1Protocol": "7f88a919de2bbd2cf3e61b95476c0bb7c435dd4d8f191aff2365838c2ef9eeab",
+    "previousInput": "adab2147770f6846f977bb89b5462e19b7217791ab5685e70c393ef95396cc6e",
+    "previousReport": "30f6d9696c07a4e1085236ca7b29af8a615f81aae8f9b37ce24cb35308f611e5",
+    "previousManifest": "cd75521a4dcd9a43e109c824b720890f630d4a693cfaa894309fa7e4ba442ef7",
+    "datasetEvidence": "ea6d1441bf48284d1a3d3ec5e792b18ffb1ed2d1f11242ab7eeac249744a792a",
+    "evaluationEvidence": "dba18c0f05f1da6a44f6bc1f2a26abf707dd21eddef9d7743dc14c5d4e2137c7"
+  },
+  "code": {
+    "tests/node/post-draft-r2-evaluate.test.mjs": "a8febd7c498f369dd714016db068061d1a052d5df99f54ca2b4125938f1392b0",
+    "tests/research/test_post_draft_r2_evaluate.py": "39fe82158173e0354d735dbab120aea69bd17434c9f1d44f24019250f43c2b4d",
+    "tools/research/post-draft-r2-evaluate.mjs": "cf215a006e7e103118255020e65b506c205aaa258d40175c04f139ea76d0f985",
+    "tools/research/post_draft_r2_evaluate.py": "93a6bc8d69ea9e24929d44a605c005e7560a55ee1e096a1e946a44c3c1035c96"
+  },
+  "result": {
+    "status": "completed_research_evaluation",
+    "manifestSha256": "d8b360c84b5dcfbab8a0a7c81ba63e6808075c60ea2bedd29a2b64932cfbbab4",
+    "reportSha256": "0ecb78c03ce7e0927730c8b9bcf6e9409758e5b55f7e893499c701406e91d446",
+    "counts": {
+      "plannedDenominator": 223,
+      "datasetPairedMaps": 186,
+      "pairedMaps": 186,
+      "pairedSeries": 86,
+      "baselineMaps": 186,
+      "baselineOnlyMaps": 0,
+      "coverage": 0.8340807174887892
+    },
+    "decision": {
+      "status": "negative",
+      "metricSignal": "negative",
+      "dataReasons": [],
+      "metricReasons": [
+        "NO_SIGNIFICANT_LOGLOSS_GAIN_OVER_M1",
+        "LOGLOSS_NOT_BETTER_THAN_M0",
+        "BRIER_WORSE_THAN_M0",
+        "BRIER_WORSE_THAN_M1",
+        "M2_ECE_ABOVE_0_10"
+      ]
+    },
+    "metrics": {
+      "M0": {
+        "n": 186,
+        "series": 86,
+        "logLoss": 0.6354276261283724,
+        "brier": 0.22191817541204334,
+        "accuracy": 0.6451612903225806,
+        "correct": 120,
+        "ece": 0.09093909163212166
+      },
+      "M1_raw": {
+        "n": 186,
+        "series": 86,
+        "logLoss": 0.6402593987465999,
+        "brier": 0.22414203898429697,
+        "accuracy": 0.6451612903225806,
+        "correct": 120,
+        "ece": 0.09899486547286014
+      },
+      "M1_cal": {
+        "n": 186,
+        "series": 86,
+        "logLoss": 0.6348335191616628,
+        "brier": 0.22164441651774727,
+        "accuracy": 0.6451612903225806,
+        "correct": 120,
+        "ece": 0.08961136956970983
+      },
+      "M2_raw": {
+        "n": 186,
+        "series": 86,
+        "logLoss": 0.6626556238925627,
+        "brier": 0.23487328061807297,
+        "accuracy": 0.6612903225806451,
+        "correct": 123,
+        "ece": 0.12100445074174382
+      },
+      "M2_cal": {
+        "n": 186,
+        "series": 86,
+        "logLoss": 0.6412370689530479,
+        "brier": 0.22420641395102764,
+        "accuracy": 0.6612903225806451,
+        "correct": 123,
+        "ece": 0.11477153525691977
+      }
+    },
+    "bootstrap": {
+      "unit": "whole_series",
+      "replicates": 2000,
+      "seed": 42,
+      "rng": "numpy.PCG64",
+      "interval": "percentile_95_linear",
+      "series": 86,
+      "maps": 186,
+      "drawSha256": "fcd2150da8bec20fcb6e10407b8f515ca5de387e0244912d02ed67bbb12e569e",
+      "deltas": {
+        "logLoss_M2_cal_minus_M1_cal": {
+          "mean": 0.006403549791385313,
+          "lower": -0.02465277531758196,
+          "upper": 0.037860451307120443
+        },
+        "logLoss_M2_cal_minus_M0": {
+          "mean": 0.005809442824675637,
+          "lower": -0.02532406260049351,
+          "upper": 0.037549755180631125
+        },
+        "brier_M2_cal_minus_M1_cal": {
+          "mean": 0.0025619974332803867,
+          "lower": -0.01155389178630906,
+          "upper": 0.016294497765865636
+        },
+        "brier_M2_cal_minus_M0": {
+          "mean": 0.0022882385389843274,
+          "lower": -0.011805000864614125,
+          "upper": 0.01617814241342712
+        }
+      }
+    },
+    "common": {
+      "maps": 175,
+      "R1": {
+        "M0": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6324918393226884,
+          "brier": 0.2205182879914407,
+          "accuracy": 0.6571428571428571,
+          "correct": 115,
+          "ece": 0.09176001603794497
+        },
+        "M1_raw": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6380834104267045,
+          "brier": 0.2230803555767767,
+          "accuracy": 0.6571428571428571,
+          "correct": 115,
+          "ece": 0.1021515803850342
+        },
+        "M1_cal": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6317594154792588,
+          "brier": 0.22018529948665455,
+          "accuracy": 0.6571428571428571,
+          "correct": 115,
+          "ece": 0.09043844131327432
+        },
+        "M2_raw": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6627684847484555,
+          "brier": 0.23491968360196186,
+          "accuracy": 0.6628571428571428,
+          "correct": 116,
+          "ece": 0.1231869717271661
+        },
+        "M2_cal": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6408742732256698,
+          "brier": 0.2237532908748111,
+          "accuracy": 0.6628571428571428,
+          "correct": 116,
+          "ece": 0.11072634638463162
+        }
+      },
+      "R2": {
+        "M0": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6331205006659106,
+          "brier": 0.22078563322562972,
+          "accuracy": 0.6514285714285715,
+          "correct": 114,
+          "ece": 0.08911185635119358
+        },
+        "M1_raw": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6381044679183742,
+          "brier": 0.22308499340059865,
+          "accuracy": 0.6514285714285715,
+          "correct": 114,
+          "ece": 0.09749749075100801
+        },
+        "M1_cal": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6325111428893833,
+          "brier": 0.22050341890805336,
+          "accuracy": 0.6514285714285715,
+          "correct": 114,
+          "ece": 0.08773017796375374
+        },
+        "M2_raw": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.662119819391667,
+          "brier": 0.23460788434017393,
+          "accuracy": 0.6685714285714286,
+          "correct": 117,
+          "ece": 0.12763347404590075
+        },
+        "M2_cal": {
+          "n": 175,
+          "series": 80,
+          "logLoss": 0.6407416881500841,
+          "brier": 0.2238863504109018,
+          "accuracy": 0.6685714285714286,
+          "correct": 117,
+          "ece": 0.11808595847221279
+        }
+      },
+      "deltas": {
+        "maps": 175,
+        "series": 80,
+        "unit": "whole_series",
+        "direction": "R2_minus_R1",
+        "replicates": 2000,
+        "seed": 42,
+        "rng": "numpy.PCG64",
+        "interval": "exploratory_percentile95_linear",
+        "drawSha256": "d3fdc7d54c64decce28763ee5b9cc400ac4657431457eec870f2bf70b0f7bba5",
+        "models": {
+          "M0": {
+            "logLoss": {
+              "mean": 0.0006286613432222825,
+              "lower": -0.004358104164258928,
+              "upper": 0.006797997646372899
+            },
+            "brier": {
+              "mean": 0.00026734523418904066,
+              "lower": -0.001993591096738283,
+              "upper": 0.0029859143574419546
+            },
+            "accuracyDelta": -0.005714285714285672,
+            "eceDelta": -0.002648159686751389
+          },
+          "M1_raw": {
+            "logLoss": {
+              "mean": 2.105749166965947e-05,
+              "lower": -0.004086622472726727,
+              "upper": 0.004881485830079752
+            },
+            "brier": {
+              "mean": 4.637823821953388e-06,
+              "lower": -0.0019192261884601145,
+              "upper": 0.002302535923877686
+            },
+            "accuracyDelta": -0.005714285714285672,
+            "eceDelta": -0.004654089634026193
+          },
+          "M1_cal": {
+            "logLoss": {
+              "mean": 0.0007517274101243436,
+              "lower": -0.0043748917936658705,
+              "upper": 0.007089906090315053
+            },
+            "brier": {
+              "mean": 0.00031811942139876816,
+              "lower": -0.0019976647047600265,
+              "upper": 0.003131384083801899
+            },
+            "accuracyDelta": -0.005714285714285672,
+            "eceDelta": -0.0027082633495205816
+          },
+          "M2_raw": {
+            "logLoss": {
+              "mean": -0.0006486653567886558,
+              "lower": -0.0023847457407450983,
+              "upper": 0.001243390614799058
+            },
+            "brier": {
+              "mean": -0.0003117992617879444,
+              "lower": -0.001170967200377326,
+              "upper": 0.000625279521839026
+            },
+            "accuracyDelta": 0.005714285714285783,
+            "eceDelta": 0.004446502318734655
+          },
+          "M2_cal": {
+            "logLoss": {
+              "mean": -0.00013258507558560126,
+              "lower": -0.005282635128109362,
+              "upper": 0.00587386000354563
+            },
+            "brier": {
+              "mean": 0.00013305953609077346,
+              "lower": -0.002287651083690108,
+              "upper": 0.003045758274326966
+            },
+            "accuracyDelta": 0.005714285714285783,
+            "eceDelta": 0.007359612087581166
+          }
+        }
+      }
+    },
+    "recovered": {
+      "maps": 11,
+      "metrics": {
+        "M0": {
+          "n": 11,
+          "series": 6,
+          "logLoss": 0.6721318948493539,
+          "brier": 0.2399358920140774,
+          "accuracy": 0.5454545454545454,
+          "correct": 6,
+          "ece": 0.1378253212928654
+        },
+        "M1_raw": {
+          "n": 11,
+          "series": 6,
+          "logLoss": 0.6745423891956441,
+          "brier": 0.24095867327040701,
+          "accuracy": 0.5454545454545454,
+          "correct": 6,
+          "ece": 0.12281673604777973
+        },
+        "M1_cal": {
+          "n": 11,
+          "series": 6,
+          "logLoss": 0.6717804144024723,
+          "brier": 0.23979665121742277,
+          "accuracy": 0.5454545454545454,
+          "correct": 6,
+          "ece": 0.13790720442355747
+        },
+        "M2_raw": {
+          "n": 11,
+          "series": 6,
+          "logLoss": 0.6711797864068151,
+          "brier": 0.2390954941301028,
+          "accuracy": 0.5454545454545454,
+          "correct": 6,
+          "ece": 0.12524597769820672
+        },
+        "M2_cal": {
+          "n": 11,
+          "series": 6,
+          "logLoss": 0.6491181271820178,
+          "brier": 0.22929833390757468,
+          "accuracy": 0.5454545454545454,
+          "correct": 6,
+          "ece": 0.12630049392187576
+        }
+      }
+    },
+    "lostMaps": 0,
+    "trainingPerformed": false,
+    "calibrationFittingPerformed": false,
+    "independentTest": false,
+    "activationAllowed": false,
+    "deployable": false
+  },
+  "independentOracle": {
+    "status": "PASS",
+    "independentMetricComparisons": 60,
+    "previousReportExactReplay": true,
+    "maps": 223,
+    "common": 175,
+    "recovered": 11,
+    "lost": 0
+  },
+  "nextTask": "S3-04/player-hero-feature-audit — проверить на локальных pro-картах, достаточно ли ранней истории игрока на выбранном герое для следующего отдельного эксперимента; зафиксировать покрытие, cutoff, patch/provenance и ограничения без обучения, новых прогнозов и подбора по старому тесту.",
+  "checks": {
+    "nodeTests": 4,
+    "pythonTests": 30,
+    "exactReplay": "PASS",
+    "overwriteRefused": "PASS",
+    "generalChecks": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 978,
+    "build": "PASS",
+    "finalPostBuildReplay": "PASS",
+    "orderedMigrations": 57,
+    "historicalSqlChecksums": "PASS",
+    "relativeDocLinks": "PASS",
+    "newFileWhitespace": "PASS",
+    "gitDiffCheck": "PASS",
+    "browserTests": "not_run_research_only",
+    "postgresIntegrationTests": "not_run_no_sql_changes"
+  },
+  "readiness": {
+    "checkedAt": "2026-11-13T17:29:01.603Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "buildWarnings": [
+    "existing_zod_annotations",
+    "existing_web_chunk_over_500kb"
+  ]
+}

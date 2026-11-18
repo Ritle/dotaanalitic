@@ -1,0 +1,126 @@
+{
+  "task": "S3-04/player-hero-native-target-binding",
+  "date": "2026-11-14",
+  "status": "complete_native_binding_available_postdraft_prediction_not_activated",
+  "files": [
+    "apps/api/src/modules/scenarios/draft-native-contract.ts",
+    "apps/api/src/modules/scenarios/draft-native-verify.ts",
+    "apps/api/src/modules/scenarios/draft-native-repository.ts",
+    "apps/api/src/modules/scenarios/draft-native-http.ts",
+    "apps/api/src/app.ts",
+    "apps/web/src/components/DraftNativeBinding.vue",
+    "apps/web/src/components/DraftCapture.vue",
+    "packages/db/migrations/059_owner_draft_native_bindings.sql",
+    "apps/api/tests/draft-native.test.ts",
+    "apps/api/tests/draft-native.integration.test.ts",
+    "apps/web/tests/e2e/draft-native.spec.ts",
+    "apps/web/tests/e2e/draft-capture.spec.ts"
+  ],
+  "fileSha256": {
+    "apps/api/src/modules/scenarios/draft-native-contract.ts": "828e3ac655274619ede83cd40693793a737d4454785e6bf404eea624f78cacdd",
+    "apps/api/src/modules/scenarios/draft-native-verify.ts": "eb155c6759887149c4879f7118cd3b6b2eda3e28f536808980fd687cc0fdb45b",
+    "apps/api/src/modules/scenarios/draft-native-repository.ts": "b023bfb130710d5eeca48cca5af6a95417d15ee81d575c1465efc4ce9b7d55c4",
+    "apps/api/src/modules/scenarios/draft-native-http.ts": "50dc537d3f4b97b7019f28ac2dd5720d3080a8fb88cf53da057d465a78a0b605",
+    "apps/api/src/app.ts": "8650e7180d2969742ab13bec106b63470edb67f834c7ef2166a7b547e74850c8",
+    "apps/web/src/components/DraftNativeBinding.vue": "156f9920b4c42b18cdc6e1486159d6a565198cce1fc7b7b0d3863abb6de044cd",
+    "apps/web/src/components/DraftCapture.vue": "b23224f9ca893f3de3c3cec43069729eb71348a5a68f779a2478ecf5c73e055d",
+    "packages/db/migrations/059_owner_draft_native_bindings.sql": "636b9587eb650edd520fb86a8ebd2aacb5710b484ebce40de7f967d933eb5281",
+    "apps/api/tests/draft-native.test.ts": "60f5e3159eb4ba22fafaebabd877d8dcf8f8a85e556b23ad120d7590faf722db",
+    "apps/api/tests/draft-native.integration.test.ts": "3c9030bd6347d13dc4a8dd18a97f356ed1c84d698c5e89f04fd2718caeb6059f",
+    "apps/web/tests/e2e/draft-native.spec.ts": "765bcfed64e7f769dba4b0656f113162009dbebe2816a6567dc1bb662b4e08a1",
+    "apps/web/tests/e2e/draft-capture.spec.ts": "4e3540eb8e5ddeeae3a08fd103196069c99c24a5d4dc0e710b5ed9f31a99e9c2"
+  },
+  "checks": {
+    "pureTests": {
+      "status": "PASS",
+      "tests": 9
+    },
+    "apiPostgres": {
+      "status": "PASS",
+      "tests": 16
+    },
+    "browser": {
+      "status": "PASS",
+      "tests": 6,
+      "log": ".tools/s304-native-browser-final.log"
+    },
+    "mobile360": "PASS_SCREENSHOTS_INSPECTED",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": {
+      "status": "PASS",
+      "tests": 1002,
+      "maxWorkers": 1,
+      "workspaceConcurrency": 1
+    },
+    "build": "PASS",
+    "migrations": {
+      "status": "PASS",
+      "files": 59
+    },
+    "migrationApply": "PASS_059_APPLIED_AND_REPEAT_SKIPPED",
+    "docsLinks": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "initialFailures": [
+    {
+      "stage": "integration",
+      "reason": "Local PostgreSQL was stopped; started existing data directory, then full isolated integration passed"
+    },
+    {
+      "stage": "browser",
+      "reason": "Default Playwright Chromium missing; used already installed local chromium-1248"
+    },
+    {
+      "stage": "browser regression",
+      "reason": "Shared test API exhausted unchanged global 120/min limit; diagnostic confirmed HTTP429, isolated API instance per capture test; all six passed"
+    }
+  ],
+  "productionBefore": {
+    "at": "2026-11-14T07:04:23.414Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "captures": "0",
+      "predictions": "6",
+      "maps": "2260"
+    }
+  },
+  "providerHttpRequests": 0,
+  "training": false,
+  "modelActivation": false,
+  "realBindingsVerified": 0,
+  "sourceEvidence": "Positive paths are synthetic isolated test DB evidence, not live coverage",
+  "limitations": [
+    "Owner-selected native ID is a candidate, not proof of PandaScore mapping",
+    "Only locally stored completed verified pro maps",
+    "Map ordinal and exact gameplay start unverified",
+    "One verified binding per capture, corrections require another saved revision",
+    "No post-draft forecast enabled"
+  ],
+  "nextTask": "S3-04/player-hero-native-binding-export",
+  "nextModel": "GPT-6 Astra · High",
+  "productionAfter": {
+    "checkedAt": "2026-11-14T11:52:56.547Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "captures": "0",
+      "predictions": "6",
+      "maps": "2260"
+    },
+    "bindings": "0",
+    "migration059": "636b9587eb650edd520fb86a8ebd2aacb5710b484ebce40de7f967d933eb5281",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  }
+}

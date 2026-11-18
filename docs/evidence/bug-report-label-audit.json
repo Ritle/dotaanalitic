@@ -1,0 +1,167 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/final-audit",
+  "date": "2026-11-11",
+  "status": "complete",
+  "audit": {
+    "method": "Static candidate scan of Vue templates and manual classification with formatter/caller review. Not a complete browser audit.",
+    "vueFiles": 57,
+    "filesWithCandidateLines": 43,
+    "wholeBug7Closed": false,
+    "requiredKeysRetained": [
+      "Steam32/account",
+      "OpenDota map/series",
+      "PandaScore/STRATZ provider keys",
+      "model/request UUID",
+      "snapshot/artifact SHA",
+      "revisions/receipts"
+    ],
+    "remainingGroups": [
+      {
+        "slice": "prediction-flow",
+        "files": [
+          "ScenarioPredictionView.vue",
+          "ScheduledForecastPanel.vue",
+          "PredictionResult.vue",
+          "ForecastJournalView.vue"
+        ],
+        "remaining": "Local team/player IDs in scenario preview, saved forecast and journal"
+      },
+      {
+        "slice": "history-strength",
+        "files": [
+          "PlayerHistory.vue",
+          "StrengthReport.vue"
+        ],
+        "remaining": "Local player coverage/enrichment IDs and opponent ID"
+      },
+      {
+        "slice": "draft-context",
+        "files": [
+          "DraftEditor.vue",
+          "DraftAssessment.vue",
+          "ScenariosView.vue",
+          "UpcomingTarget.vue"
+        ],
+        "remaining": "Local player labels, hero/patch/league assessment and local league input"
+      },
+      {
+        "slice": "analytic-breakdowns",
+        "files": [
+          "ProMapReport.vue",
+          "PlayerHeroReport.vue",
+          "RosterReport.vue",
+          "HeroPairValue.vue",
+          "ScenarioReportContent.vue",
+          "SmoothingNote.vue"
+        ],
+        "remaining": "Local patch distributions and prior context"
+      },
+      {
+        "slice": "cosmetic-fallback",
+        "files": [
+          "RankedPractice.vue",
+          "DraftEditor.vue",
+          "ScenarioReportContent.vue"
+        ],
+        "remaining": "Unknown hero name numeric fallback remains honest but can be unified"
+      }
+    ]
+  },
+  "implementation": {
+    "files": [
+      "apps/web/src/role-editor.ts",
+      "apps/web/src/components/RoleProfiles.vue",
+      "apps/web/src/components/RoleSuggestions.vue",
+      "apps/web/src/views/ScenariosView.vue"
+    ],
+    "idsMovedToDetails": true,
+    "existingAliasPriorityPreserved": true,
+    "manualRolesAndEligibilityUnchanged": true,
+    "missingSelectedNamesPassedWithoutOrganization": true,
+    "additionalHTTP": 0,
+    "identityByNickname": false,
+    "payloadChanges": false,
+    "dependenciesChanges": false,
+    "migrationsChanges": false,
+    "sharedPackagesChanges": false
+  },
+  "checks": {
+    "pureTargeted": "PASS14 tests",
+    "browserUnique": 14,
+    "browserNote": "12 profile/priority cases passed; history2 cases passed after targeted repeat. Initial wrong-branch selector corrected. Added no-team branch reproduced missing labels prop; fixed forwarding and repeated2 cases PASS. Production roles/limits/timeouts unchanged.",
+    "red": "3 failed/11 passed before label formatter implementation",
+    "rootQA": {
+      "install": "PASS frozen/offline",
+      "typecheck": "PASS",
+      "unitCli": {
+        "status": "PASS",
+        "count": 931,
+        "perWorkspace": [
+          {
+            "workspace": "packages/analytics",
+            "passed": 64
+          },
+          {
+            "workspace": "packages/contracts",
+            "passed": 34
+          },
+          {
+            "workspace": "packages/prediction",
+            "passed": 33
+          },
+          {
+            "workspace": "apps/web",
+            "passed": 73
+          },
+          {
+            "workspace": "packages/db",
+            "passed": 359
+          },
+          {
+            "workspace": "packages/ingestion",
+            "passed": 309
+          },
+          {
+            "workspace": "apps/worker",
+            "passed": 1
+          },
+          {
+            "workspace": "apps/api",
+            "passed": 58
+          }
+        ]
+      },
+      "build": "PASS"
+    },
+    "sql": "PASS52 ordered migrations",
+    "desktopAnd360px": "Desktop and keyboard exercised in Chromium;360px screenshot inspected, no horizontal overflow",
+    "notRerun": [
+      "Full standalone API/PostgreSQL suite",
+      "Full standalone Node fixture suite",
+      "Python",
+      "Docker/Linux",
+      "All prediction/draft/analytics residual UI routes",
+      "Live provider validation"
+    ],
+    "docLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/prediction-flow",
+  "suggestedModel": "GPT-6.1 Sol · High",
+  "preservation": {
+    "tables": 85,
+    "changedTables": [],
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingProviderHTTP": 0,
+    "workingBusinessWrites": 0
+  },
+  "runtime": "Working PostgreSQL retained; main API/Web initially OFF and not started; general worker OFF. Only temporary test API/Web/databases used."
+}

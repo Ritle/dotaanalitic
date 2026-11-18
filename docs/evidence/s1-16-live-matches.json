@@ -1,0 +1,129 @@
+{
+  "task": "S1-16/live-page",
+  "date": "2026-11-13",
+  "status": "PASS",
+  "scope": "Descriptive running series only; no live prediction or canonical outcome import",
+  "providerEndpoint": "/dota2/matches/running?sort=scheduled_at,id&page=1&per_page=20",
+  "liveObservation": {
+    "checkedAt": "2026-11-13T14:15:19.106Z",
+    "source": {
+      "provider": "pandascore",
+      "adapterVersion": "pandascore-running-v1",
+      "endpoint": "/dota2/matches/running?sort=scheduled_at,id&page=1&per_page=20",
+      "fetchedAt": "2026-11-13T14:15:18.663Z",
+      "knownAt": null,
+      "payloadSha256": "a623f4859444ff171945950905ec6840da7ef97f11187a0e4a7002f9abc2af40",
+      "attempts": 1,
+      "rateLimitRemaining": 997
+    },
+    "matches": [
+      {
+        "id": "1805036",
+        "teams": [
+          "potn9ki",
+          "oveA"
+        ],
+        "status": "running",
+        "score": [
+          {
+            "providerTeamId": "129222",
+            "wins": 1
+          },
+          {
+            "providerTeamId": "139391",
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "id": "1793318",
+        "teams": [
+          "PARIVISION",
+          "Yellow Submarine"
+        ],
+        "status": "running",
+        "score": [
+          {
+            "providerTeamId": "135712",
+            "wins": 0
+          },
+          {
+            "providerTeamId": "1931",
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "id": "1807954",
+        "teams": [
+          "4ikibamboni",
+          "Spirit Academy"
+        ],
+        "status": "running",
+        "score": [
+          {
+            "providerTeamId": "138761",
+            "wins": 0
+          },
+          {
+            "providerTeamId": "137540",
+            "wins": 0
+          }
+        ]
+      }
+    ],
+    "jsErrors": [],
+    "mobileOverflow": false
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "generalTests": 976,
+    "targetedTests": 17,
+    "targetedPostgresTests": 3,
+    "browserTests": 2,
+    "build": "PASS",
+    "migrationApply": "055 applied; repeat skipped",
+    "migrationFiles": 55,
+    "frozenPlanVerify": "PASS",
+    "frozenDryRunVerify": "PASS",
+    "docLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "preservation": {
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 3,
+      "v1_runtime_snapshots": 3,
+      "owner_tier1_scopes": 1,
+      "scenarios": 3,
+      "leagues": 54
+    },
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "queue": {
+      "count": 3,
+      "hash": "f52fadc151a75bae5bd2559e096fd4e5"
+    },
+    "queueBaselineNote": "Current post-service-start baseline; earlier 13-row stopped-worker checkpoint remains historical."
+  },
+  "files": {
+    ".tools/live-install.log": "d5fac4e90611ad6f2dc815ea5b490be4906fc897a8ca8a6664cbe9076d26b927",
+    ".tools/live-typecheck.log": "12308a1a50cf719911d5a318fad923c9716daa3ebacd6771d11124b4de79c328",
+    ".tools/live-test.log": "125932cfa5ad0dcece7b2b498fb0eee202c8ac6a8e72cc344249b14df9c896c8",
+    ".tools/live-build.log": "2afce83ea972ca0640073ce001acfbf8b346c4e58b6d9876a0dd0dc4dd582741",
+    ".tools/live-targeted-tests.log": "1306ae3b6dc4b3c754e6fecadc95639568a561b1cd3b7c2a65d36ee29ad6cd48",
+    ".tools/live-e2e.log": "9d511635a98efe6e70e17606a5a9e987ee86ad302d0bc5f614c71381cfd5ba88",
+    ".tools/live-20261113/ui-smoke.json": "6621bf9d9f71d89fdb635703458f93bfa3b09a9b2ce6b12705c1ba9768dfab09",
+    ".tools/live-20261113/desktop-real.png": "0e52517265744105e2d4adee0bdfd8db48d310e4968d2f7c84196c8983efb4f6",
+    ".tools/live-20261113/mobile-real.png": "00b3817c7958a7c7a25fb5be073e0cd7cda5e82e902fa713c9a2ced53fa80a3e",
+    "packages/db/migrations/055_live_schedule.sql": "77a0bbd41623e2d080d4168823ac58b23796a0792444d0fce6fd7c84ee2d36d2"
+  },
+  "nextTask": "S3-04/history-import-apply",
+  "suggestedModel": "GPT-6 Astra · High"
+}

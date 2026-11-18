@@ -1,0 +1,85 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/analytic-breakdowns",
+  "date": "2026-11-11",
+  "status": "complete",
+  "design": {
+    "metadataSource": "Existing private read-only context-catalog, optional ids mode expanded to patches/heroes",
+    "batchMax": 20,
+    "keyBudgetPerKind": 200,
+    "maxAnalyticRequestsPerReport": 20,
+    "cacheMs": 300000,
+    "emptyIdsHTTP": 0,
+    "childrenReceiveLabels": true,
+    "failedOnlyRetry": true,
+    "oldRequestsAndResponseShapePreserved": true,
+    "reportRowsTruncated": false,
+    "namesEstablishPatchOrHeroEligibility": false,
+    "dependenciesSharedPackagesMigrationsChanged": false
+  },
+  "checks": {
+    "red": "New API contract test failed before implementation:6PASS/1FAIL; patch/hero batch unsupported",
+    "webTypecheck": "PASS",
+    "browserTarget": "PASS3: actual API/PG batches, prior/rename/error/partial retry, saved report JSON preservation",
+    "launchCorrections": "First launch used workspace cwd; second lacked .env; neither validated implementation. Root cwd and node --env-file-if-exists=.env used on successful run.",
+    "edgeRecovery": "PASS2 after scoping technical ID selector to patch kind; blank/missing/null names, exact key and unknown verified-release coverage map tested",
+    "remainingQA": "PASS frozen offline install/full typecheck/root pnpm test939/full build",
+    "unitCLI": {
+      "total": 939,
+      "analytics": 64,
+      "contracts": 34,
+      "prediction": 33,
+      "web": 78,
+      "db": 359,
+      "ingestion": 309,
+      "api": 61,
+      "worker": 1
+    },
+    "chromiumPostgres": {
+      "unique": 18,
+      "targeted": 3,
+      "additionalEdgeRepeat": 2,
+      "compatibility": 15,
+      "compatibilityInitial": "14PASS/1FAIL: filter counter included new metadata batch",
+      "referenceFilterRepeat": 4,
+      "compatibilityFiles": [
+        "automatic-roster.spec.ts",
+        "context-filters.spec.ts",
+        "hero-matchups.spec.ts",
+        "player-hero.spec.ts",
+        "reference-filters.spec.ts",
+        "roster.spec.ts",
+        "sample.spec.ts"
+      ]
+    },
+    "visualQA": "360px prior screenshot inspected; no page overflow",
+    "sqlMigrations": 52,
+    "linksAndDiff": "PASS",
+    "notRun": [
+      "Full standalone API/PostgreSQL suite",
+      "Full standalone Node fixture suite",
+      "Python",
+      "Docker/Linux",
+      "Live provider/source validation"
+    ]
+  },
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/cosmetic-fallback",
+  "wholeBug7Closed": false,
+  "suggestedModel": "GPT-6.1 Sol · High",
+  "preservation": {
+    "tables": 85,
+    "maps": 2232,
+    "queueRows": 13,
+    "changedTables": [],
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingBusinessWrites": 0,
+    "workingProviderHTTP": 0,
+    "mainAPIWebStarted": false,
+    "generalWorker": "OFF"
+  }
+}

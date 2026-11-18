@@ -1,0 +1,237 @@
+{
+  "task": "S3-04/error-audit",
+  "date": "2026-11-13",
+  "scope": "post_hoc_exposed_development_diagnostics",
+  "auditSha256": "f55fd7bee5dfa68335f97cdbe0decbb458e06787249f670ffa6657c9da4a01f7",
+  "auditCodeSha256": "65682ab4f4d8c54dd7cc5efefb36e6c7032240ec5c6a2a1142b1a21032a4d1be",
+  "sourceHashes": {
+    "fitManifest": "0ada189f2e2e4865f72983bac33810e6317bce234ad689d3484bd305dbd82816",
+    "fitArtifact": "70916658f4db7162039a7a3bed772457aa5f387d3f0cc0025cfea64590500951",
+    "fitResult": "7f3a36710fd9ffc39888f6dc812efda04915e8b55b9f65195e9cc7b6d291a63a",
+    "dataset": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd",
+    "inventory": "93292795acbf891cffbc79c1f429d5122786f5735c5c09ce5761f250b2bc3b4b",
+    "metadata": "86b9683c5e2fd4057d6fd2fd15b96250911a9a878a1ac5d673a828ef24a75d16",
+    "protocol": "7f88a919de2bbd2cf3e61b95476c0bb7c435dd4d8f191aff2365838c2ef9eeab",
+    "report": "30f6d9696c07a4e1085236ca7b29af8a615f81aae8f9b37ce24cb35308f611e5",
+    "input": "adab2147770f6846f977bb89b5462e19b7217791ab5685e70c393ef95396cc6e"
+  },
+  "counts": {
+    "planned": 223,
+    "paired": 175,
+    "excluded": 48
+  },
+  "totals": {
+    "maps": 175,
+    "series": 80,
+    "deltaLogLoss": 0.009114857746410913,
+    "deltaBrier": 0.003567991388156454,
+    "sumDeltaLogLoss": 1.5951001056219098
+  },
+  "classification": [
+    {
+      "value": "both_correct",
+      "maps": 103,
+      "series": 62,
+      "deltaLogLoss": -0.045773416498600554,
+      "deltaBrier": -0.018131366601782932,
+      "sumDeltaLogLoss": -4.714661899355857
+    },
+    {
+      "value": "both_wrong",
+      "maps": 47,
+      "series": 34,
+      "deltaLogLoss": 0.14921265992293758,
+      "deltaBrier": 0.060186435180454405,
+      "sumDeltaLogLoss": 7.012995016378066
+    },
+    {
+      "value": "broken",
+      "maps": 12,
+      "series": 12,
+      "deltaLogLoss": 0.18746139590424116,
+      "deltaBrier": 0.09262893915146637,
+      "sumDeltaLogLoss": 2.249536750850894
+    },
+    {
+      "value": "fixed",
+      "maps": 13,
+      "series": 8,
+      "deltaLogLoss": -0.22713613555778434,
+      "deltaBrier": -0.1114138823375333,
+      "sumDeltaLogLoss": -2.9527697622511964
+    }
+  ],
+  "byLeague": [
+    {
+      "value": "1",
+      "maps": 23,
+      "series": 10,
+      "deltaLogLoss": 0.05662882572914553,
+      "deltaBrier": 0.028724818766657806,
+      "sumDeltaLogLoss": 1.3024629917703472
+    },
+    {
+      "value": "1093",
+      "maps": 2,
+      "series": 2,
+      "deltaLogLoss": 0.12261313325518075,
+      "deltaBrier": 0.06056138522474913,
+      "sumDeltaLogLoss": 0.2452262665103615
+    },
+    {
+      "value": "1973",
+      "maps": 111,
+      "series": 48,
+      "deltaLogLoss": 0.0037646418972462686,
+      "deltaBrier": -0.0003877569369029115,
+      "sumDeltaLogLoss": 0.41787525059433583
+    },
+    {
+      "value": "24",
+      "maps": 39,
+      "series": 20,
+      "deltaLogLoss": -0.009499087262900932,
+      "deltaBrier": -0.0029321561322826852,
+      "sumDeltaLogLoss": -0.37046440325313634
+    }
+  ],
+  "byMonth": [
+    {
+      "value": "2026-09",
+      "maps": 116,
+      "series": 50,
+      "deltaLogLoss": 0.0074885857135215915,
+      "deltaBrier": 0.00146899967991622,
+      "sumDeltaLogLoss": 0.8686759427685046
+    },
+    {
+      "value": "2026-10",
+      "maps": 43,
+      "series": 22,
+      "deltaLogLoss": 0.0035582814533716106,
+      "deltaBrier": 0.003469574499601768,
+      "sumDeltaLogLoss": 0.15300610249497926
+    },
+    {
+      "value": "2026-11",
+      "maps": 16,
+      "series": 8,
+      "deltaLogLoss": 0.03583862877240161,
+      "deltaBrier": 0.019050176660888866,
+      "sumDeltaLogLoss": 0.5734180603584258
+    }
+  ],
+  "exclusionCombinations": [
+    {
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY",
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP"
+      ],
+      "maps": 39
+    },
+    {
+      "reasons": [
+        "INVENTORY_INELIGIBLE",
+        "SERIES_HAS_EXCLUDED_MAP"
+      ],
+      "maps": 2
+    },
+    {
+      "reasons": [
+        "INVENTORY_INELIGIBLE",
+        "SERIES_UNVERIFIED"
+      ],
+      "maps": 5
+    },
+    {
+      "reasons": [
+        "SERIES_HAS_INELIGIBLE_DATASET_MAP"
+      ],
+      "maps": 2
+    }
+  ],
+  "siblingOnlyExclusions": 2,
+  "slopes": {
+    "M1RawElo": 0.8180622966556597,
+    "M2RawElo": 0.3156825215216388,
+    "M1CalibratedElo": 1.0311311500432265,
+    "M2CalibratedElo": 1.0863242737947474,
+    "M2TemperatureMultiplier": 3.44119233639701
+  },
+  "heroExposure": {
+    "vocabulary": 127,
+    "minimum": 1,
+    "median": 44,
+    "heroesBelow20TrainMaps": 29,
+    "pairedMapsWithHeroBelow20TrainMaps": 139,
+    "thresholdIsDiagnosticOnly": true
+  },
+  "originalDecision": {
+    "status": "insufficient",
+    "metricSignal": "negative",
+    "dataReasons": [
+      "DEVELOPMENT_TEST_COVERAGE_BELOW_0_80"
+    ],
+    "metricReasons": [
+      "NO_SIGNIFICANT_LOGLOSS_GAIN_OVER_M1",
+      "LOGLOSS_NOT_BETTER_THAN_M0",
+      "BRIER_WORSE_THAN_M0",
+      "BRIER_WORSE_THAN_M1",
+      "M2_ECE_ABOVE_0_10"
+    ]
+  },
+  "checks": {
+    "pythonTests": 51,
+    "fullRegression": {
+      "frozenOfflineInstall": "PASS",
+      "typecheck": "PASS",
+      "tests": 962,
+      "build": "PASS"
+    },
+    "preservation": {
+      "status": "PASS",
+      "counts": {
+        "matches": 2232,
+        "prediction_runs": 3,
+        "v1_runtime_snapshots": 3,
+        "owner_tier1_scopes": 1,
+        "scenarios": 3,
+        "leagues": 54
+      },
+      "queue": {
+        "count": 13,
+        "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+      },
+      "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+      "readiness": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      }
+    },
+    "cli": {
+      "status": "PASS",
+      "replay": true,
+      "overwriteRefused": true,
+      "tamperRefused": true,
+      "auditSha256": "f55fd7bee5dfa68335f97cdbe0decbb458e06787249f670ffa6657c9da4a01f7",
+      "trainingPerformed": false
+    },
+    "migrations": 54,
+    "documentationLinks": "PASS",
+    "diffWhitespace": "PASS",
+    "finalReplay": "PASS"
+  },
+  "trainingPerformed": false,
+  "activationAllowed": false,
+  "providerHttpRequests": 0,
+  "workingBusinessWrites": 0,
+  "nextTask": "S3-04/history-gap-audit",
+  "bothWrongConfidence": {
+    "maps": 47,
+    "M1": 0.6163843715606806,
+    "M2": 0.6597408091690784,
+    "increasedMaps": 32
+  }
+}

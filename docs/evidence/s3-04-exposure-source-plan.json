@@ -1,0 +1,346 @@
+{
+  "format": "exposure-source-plan-v1",
+  "capturedAt": "2026-11-14T18:42:22.738Z",
+  "sources": [
+    {
+      "path": ".tools/elo-readiness-inventory.json",
+      "sha256": "0ac359bb9225c7b56e74329f0c06e845daf359e30c87bd741a3750d2df87e39b",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/s3-01-e0-export-replay.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/s3-01-e0-export.json",
+      "sha256": "726c7e256f81f31485cd4a99f6bbd4b96625ae7bff22309373522a693d91bc51",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/s304-dataset-capture-final.json",
+      "sha256": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/s304-dataset-capture-preview.json",
+      "sha256": "e44146321b007e536c0900caa1422b3a27d625afda7e7f5fd8251db899421eba",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/s304-dataset-final.json",
+      "sha256": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd",
+      "adapter": "post-draft-rows"
+    },
+    {
+      "path": ".tools/s304-dataset-preview.json",
+      "sha256": "3655443d822192dfb19ef3f9d8d79cf55b395109c967f0ce7db8fdf366f1993e",
+      "adapter": "post-draft-rows"
+    },
+    {
+      "path": ".tools/s304-hero-dataset-r1/dataset.json",
+      "sha256": "51d07fc0531a07f004a41598f195efd31b1222a25b663f1a8f78af74f8a8856a",
+      "adapter": "post-draft-rows"
+    },
+    {
+      "path": ".tools/s304-plan-metadata-final.json",
+      "sha256": "86b9683c5e2fd4057d6fd2fd15b96250911a9a878a1ac5d673a828ef24a75d16",
+      "adapter": "metadata"
+    },
+    {
+      "path": ".tools/s304-plan-metadata.json",
+      "sha256": "dc282488db961b834b19f6957152a27433d25594f892fdece8a9d904628663a7",
+      "adapter": "metadata"
+    },
+    {
+      "path": ".tools/s304-r2-dataset-r1.json",
+      "sha256": "0bbcf34030232ea6f067d5de61bf096eaef3efb8eae1ab6b4e11b153dfff6fe0",
+      "adapter": "post-draft-rows"
+    },
+    {
+      "path": ".tools/s304-r2-metadata-r1.json",
+      "sha256": "24bd5a3261e755527e1111f9c9a32fe8b69676e6948551c7075e2eb5788a3ce7",
+      "adapter": "metadata"
+    },
+    {
+      "path": ".tools/v1-data-export.json",
+      "sha256": "79ae50020134a30ad822d9780934518e64010fb85fc367885d3e12092c70eed5",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/v1-historical-import-20261106/export-01/dataset.json",
+      "sha256": "6396235552a52691b7611e35c0900ee70eaae139ea07370b89cf561212b53045",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/v1-retest-freeze-20261110/scope-01/export-01/dataset.json",
+      "sha256": "d36fd0d696622165a2fa6711589707f59d38d134aa5b4844393eb85206478fed",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/v1-retest-import-20261110/export-02/dataset.json",
+      "sha256": "0014b951bff370c2d950d8ff2fb60fb12eaa2743859415db07e1a3d074b9d64d",
+      "adapter": "v1-source"
+    },
+    {
+      "path": ".tools/v1-retest-proposal-20261106/inventory.json",
+      "sha256": "22095b1b74627a078b0163c11de30d3197f1ab80862800958b451c14e20ece59",
+      "adapter": "opendota-discovery-ledger"
+    },
+    {
+      "path": ".tools/s304-validation-readiness-r3.json",
+      "sha256": "0fd3d666134c1b2e444c3d6e0cbd850e88fe24def13f5ebfe79aa7f7fe0b3e90",
+      "adapter": "readiness"
+    },
+    {
+      "path": ".tools/s304-exposure-database-r1.json",
+      "sha256": "a9305fd832fca3fe09eecc8b3db9a2939ed5bd250a64e3d7726db646e4bad323",
+      "adapter": "database"
+    }
+  ],
+  "survey": {
+    "path": ".tools/s304-exposure-survey.json",
+    "sha256": "9b6201cddc2c6a7202e9938a39db8f2bed730b86baddbcd4725beaedc451505d",
+    "scope": "named research families; dataset/capture/export/inventory/metadata JSON names; QA/runtime/private directories excluded",
+    "review": [
+      {
+        "path": ".tools/elo-readiness-inventory.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/s3-01-e0-export-replay.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/s3-01-e0-export.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/s3-01-e1-links-profile-capture.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s3-07-metrics-empty-export.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-capture-ui-service.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-committed-export-preservation-r2.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-committed-export-preservation.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-dataset-capture-final.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/s304-dataset-capture-preview.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/s304-dataset-cli-qa.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-dataset-final-code-qa.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-dataset-final.json",
+        "status": "included",
+        "adapter": "post-draft-rows"
+      },
+      {
+        "path": ".tools/s304-dataset-preservation-before.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-dataset-preservation-final.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-dataset-preview.json",
+        "status": "included",
+        "adapter": "post-draft-rows"
+      },
+      {
+        "path": ".tools/s304-dataset-semantic-qa.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-dataset-synthetic-rejection.json",
+        "status": "excluded_synthetic"
+      },
+      {
+        "path": ".tools/s304-draft-inventory-replay.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-draft-inventory.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-fit-dataset-code-final.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-hero-dataset-oracle.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-hero-dataset-r1/dataset.json",
+        "status": "included",
+        "adapter": "post-draft-rows"
+      },
+      {
+        "path": ".tools/s304-hero-dataset-readiness.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-import-plan-capture.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-inventory.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-local-readiness-capture.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-native-export-after.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-native-export-local-r1.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-owner-capture-process.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-owner-capture-service.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-plan-metadata-final.json",
+        "status": "included",
+        "adapter": "metadata"
+      },
+      {
+        "path": ".tools/s304-plan-metadata.json",
+        "status": "included",
+        "adapter": "metadata"
+      },
+      {
+        "path": ".tools/s304-prospective-capture-oracle-cases.json",
+        "status": "excluded_synthetic"
+      },
+      {
+        "path": ".tools/s304-prospective-capture-oracle.json",
+        "status": "excluded_synthetic"
+      },
+      {
+        "path": ".tools/s304-prospective-capture-readiness.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-prospective-demo-capture-r1.json",
+        "status": "excluded_synthetic"
+      },
+      {
+        "path": ".tools/s304-r2-dataset-r1.json",
+        "status": "included",
+        "adapter": "post-draft-rows"
+      },
+      {
+        "path": ".tools/s304-r2-dataset-readiness.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/s304-r2-metadata-r1.json",
+        "status": "included",
+        "adapter": "metadata"
+      },
+      {
+        "path": ".tools/s304-source-readiness-inventory-r1.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/v1-data-export.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/v1-freeze-early-capture.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/v1-historical-20261106/captures.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/v1-historical-import-20261106/export-01/dataset.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/v1-historical-import-20261106/profile-capture-summary.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/v1-retest-collection-20261106/repeat-capture.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/v1-retest-freeze-20261110/scope-01/export-01/dataset.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/v1-retest-import-20261110/after-export.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/v1-retest-import-20261110/export-02/dataset.json",
+        "status": "included",
+        "adapter": "v1-source"
+      },
+      {
+        "path": ".tools/v1-retest-import-20261110/export-diagnostic.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/v1-retest-proposal-20261106/captures.json",
+        "status": "not_an_authoritative_dataset_or_requires_adapter"
+      },
+      {
+        "path": ".tools/v1-retest-proposal-20261106/inventory.json",
+        "status": "included",
+        "adapter": "opendota-discovery-ledger"
+      }
+    ]
+  },
+  "pendingReview": [
+    "Raw provider discovery/detail collections not all projected (including files without dataset/inventory names)",
+    "Imports/forecast journals/scenario history outside the selected research families require inventory reconciliation",
+    "Historical local alias conflicts and missing native series must be reviewed without retroactively rewriting frozen artifacts",
+    "Documents/manual observations/external files are outside this machine-readable inventory; no global completeness certification"
+  ],
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false
+}

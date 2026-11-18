@@ -1,0 +1,307 @@
+{
+  "task": "S3-04/post-draft-validation-readiness/gameplay-boundary-evidence",
+  "date": "2026-11-14",
+  "outcome": "audit_completed_UTC_gameplay_boundary_not_established",
+  "artifact": {
+    "path": ".tools/s304-gameplay-boundary-r1/analysis.json",
+    "sha256": "175c446a0e513245d9afe37fc7fdc65bc4d4f1dc0d7e4f93068da0cf45f5de1b"
+  },
+  "planSha256": "fa7d1532b7e61148cc02db66d2dddb591e7623abda967450a45bce8a6229357b",
+  "counts": {
+    "plannedMaps": 3,
+    "openDotaMaps": 3,
+    "stratzMaps": 3,
+    "mapsWithPreZeroWardActions": 3,
+    "mapsWithDraftTimingRows": 0,
+    "mapsWithPauseRecords": 3,
+    "verifiedGameplayStarts": 0,
+    "verifiedDraftEnds": 0
+  },
+  "sourceSummary": [
+    {
+      "matchId": "9070527945",
+      "openDotaPresent": true,
+      "stratzPresent": true,
+      "localVerifiedProReceiptPresent": true,
+      "openDota": {
+        "startTime": 1793472691,
+        "durationSeconds": 2830,
+        "preGameDurationSeconds": 90,
+        "draftTimingRows": 0,
+        "draftRowsWithTime": 0,
+        "pauseRows": 2,
+        "pauseSeconds": 39,
+        "observerWards": {
+          "rows": 44,
+          "validTimes": 44,
+          "negative": 4,
+          "minimum": -55
+        },
+        "sentries": {
+          "rows": 82,
+          "validTimes": 82,
+          "negative": 1,
+          "minimum": -49
+        }
+      },
+      "stratz": {
+        "startDateTime": 1793472691,
+        "endDateTime": 1793475521,
+        "durationSeconds": 2830,
+        "endMinusStartMinusDuration": 0
+      },
+      "agreement": {
+        "start": true,
+        "duration": true,
+        "savedStart": true,
+        "savedDuration": true
+      },
+      "observedActionsBeforeGameClockZero": true,
+      "verifiedGameplayStartedAt": null,
+      "verifiedDraftCompletedAt": null,
+      "primaryEligible": false,
+      "reasons": [
+        "UTC_ANCHOR_SEMANTICS_UNVERIFIED",
+        "FIRST_CONTROL_BOUNDARY_NOT_OBSERVED",
+        "DRAFT_TIMINGS_MISSING_OR_EMPTY"
+      ]
+    },
+    {
+      "matchId": "9068910292",
+      "openDotaPresent": true,
+      "stratzPresent": true,
+      "localVerifiedProReceiptPresent": true,
+      "openDota": {
+        "startTime": 1793385476,
+        "durationSeconds": 2793,
+        "preGameDurationSeconds": 90,
+        "draftTimingRows": 0,
+        "draftRowsWithTime": 0,
+        "pauseRows": 1,
+        "pauseSeconds": 70,
+        "observerWards": {
+          "rows": 42,
+          "validTimes": 42,
+          "negative": 3,
+          "minimum": -52
+        },
+        "sentries": {
+          "rows": 78,
+          "validTimes": 78,
+          "negative": 1,
+          "minimum": -11
+        }
+      },
+      "stratz": {
+        "startDateTime": 1793385476,
+        "endDateTime": 1793388269,
+        "durationSeconds": 2793,
+        "endMinusStartMinusDuration": 0
+      },
+      "agreement": {
+        "start": true,
+        "duration": true,
+        "savedStart": true,
+        "savedDuration": true
+      },
+      "observedActionsBeforeGameClockZero": true,
+      "verifiedGameplayStartedAt": null,
+      "verifiedDraftCompletedAt": null,
+      "primaryEligible": false,
+      "reasons": [
+        "UTC_ANCHOR_SEMANTICS_UNVERIFIED",
+        "FIRST_CONTROL_BOUNDARY_NOT_OBSERVED",
+        "DRAFT_TIMINGS_MISSING_OR_EMPTY"
+      ]
+    },
+    {
+      "matchId": "9067177642",
+      "openDotaPresent": true,
+      "stratzPresent": true,
+      "localVerifiedProReceiptPresent": true,
+      "openDota": {
+        "startTime": 1793286508,
+        "durationSeconds": 4346,
+        "preGameDurationSeconds": 90,
+        "draftTimingRows": 0,
+        "draftRowsWithTime": 0,
+        "pauseRows": 5,
+        "pauseSeconds": 211,
+        "observerWards": {
+          "rows": 64,
+          "validTimes": 64,
+          "negative": 4,
+          "minimum": -19
+        },
+        "sentries": {
+          "rows": 117,
+          "validTimes": 117,
+          "negative": 2,
+          "minimum": -39
+        }
+      },
+      "stratz": {
+        "startDateTime": 1793286508,
+        "endDateTime": 1793290854,
+        "durationSeconds": 4346,
+        "endMinusStartMinusDuration": 0
+      },
+      "agreement": {
+        "start": true,
+        "duration": true,
+        "savedStart": true,
+        "savedDuration": true
+      },
+      "observedActionsBeforeGameClockZero": true,
+      "verifiedGameplayStartedAt": null,
+      "verifiedDraftCompletedAt": null,
+      "primaryEligible": false,
+      "reasons": [
+        "UTC_ANCHOR_SEMANTICS_UNVERIFIED",
+        "FIRST_CONTROL_BOUNDARY_NOT_OBSERVED",
+        "DRAFT_TIMINGS_MISSING_OR_EMPTY"
+      ]
+    }
+  ],
+  "providerHttpAttempts": 4,
+  "capturedPublicGithubResponses": 7,
+  "publicSources": [
+    {
+      "url": "https://api.github.com/repos/odota/parser/commits/master",
+      "file": "parser-head.json",
+      "requestedAt": "2026-11-14T17:51:53.752Z",
+      "fetchedAt": "2026-11-14T17:51:54.739Z",
+      "status": 200,
+      "bytes": 22734,
+      "sha256": "3898aa9fb49e9a5205a3b8327ebf007d826fc2b006be80af562d0236fdea7fab"
+    },
+    {
+      "url": "https://api.github.com/repos/odota/core/commits/master",
+      "file": "core-head.json",
+      "requestedAt": "2026-11-14T17:51:54.742Z",
+      "fetchedAt": "2026-11-14T17:51:56.016Z",
+      "status": 200,
+      "bytes": 6058,
+      "sha256": "99ff754b599a9858d8a0f2226a3a108b7b6db9ad7282b760154b9347498eb370"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/odota/parser/67945be040de92d0ba9cdedc77434886d4f736be/src/main/java/opendota/Parse.java",
+      "file": "Parse.java",
+      "requestedAt": "2026-11-14T17:51:56.020Z",
+      "fetchedAt": "2026-11-14T17:51:56.781Z",
+      "status": 200,
+      "bytes": 59147,
+      "sha256": "4f390bd4d518773a6129f785d9e6123404937a11ff9c0ea5e761554f9d002e6e"
+    },
+    {
+      "url": "https://api.github.com/repos/odota/core/git/trees/df9c93e280ac9a5f7c354737a1dab81049b1ddbf?recursive=1",
+      "file": "core-tree.json",
+      "requestedAt": "2026-11-14T17:51:56.783Z",
+      "fetchedAt": "2026-11-14T17:51:58.956Z",
+      "status": 200,
+      "bytes": 76772,
+      "sha256": "24b01ab7a623c3fd223cef37c04fd169eafe74a9163095e965886ea369a1fe18"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/odota/core/df9c93e280ac9a5f7c354737a1dab81049b1ddbf/svc/api/responses/MatchResponse.ts",
+      "file": "MatchResponse.ts",
+      "fetchedAt": "2026-11-14T17:54:27.888Z",
+      "status": 200,
+      "sha256": "eba054596428e829e7066694cf0388276ecd02ee24a94e5891ce5a92a3ebb83e",
+      "bytes": 39477
+    },
+    {
+      "url": "https://raw.githubusercontent.com/odota/core/df9c93e280ac9a5f7c354737a1dab81049b1ddbf/svc/fetcher/ParsedFetcher.ts",
+      "file": "ParsedFetcher.ts",
+      "fetchedAt": "2026-11-14T17:54:28.208Z",
+      "status": 200,
+      "sha256": "23ebaa37cc76a87cdc46cb805f4773805c9ab8de225359e3d917ce548a7e1fd3",
+      "bytes": 3112
+    },
+    {
+      "url": "https://raw.githubusercontent.com/odota/core/df9c93e280ac9a5f7c354737a1dab81049b1ddbf/svc/util/compute.ts",
+      "file": "compute.ts",
+      "fetchedAt": "2026-11-14T17:54:28.482Z",
+      "status": 200,
+      "sha256": "8c846774824b7069c76aa421810909d233b4b1d32d9f25c2100168b05243d861",
+      "bytes": 16181
+    }
+  ],
+  "quotaAccountingWrites": true,
+  "canonicalWrites": 0,
+  "checks": {
+    "newNodeTests": 7,
+    "nodeRegression": {
+      "passed": 25,
+      "failed": 0
+    },
+    "packageTests": {
+      "passed": 1053,
+      "failed": 0
+    },
+    "frozenOfflineInstall": "pass",
+    "typecheck": "pass",
+    "build": "pass",
+    "reportReplay": "pass",
+    "invalidShaRejected": true,
+    "overwriteRejected": true,
+    "migrationChecksums": 61,
+    "previousCommittedShadowReplay": "pass",
+    "previousShadowReplay": "pass",
+    "preparedIndependentPlanReplay": "pass",
+    "postgresTests": "not_run_no_database_schema_or_business_code_changes",
+    "browserTests": "not_run_no_ui_changes",
+    "pythonTests": "not_run_no_model_math_changes",
+    "buildWarnings": [
+      "existing_zod_annotations",
+      "existing_web_chunk_over_500kb"
+    ],
+    "documentationLinks": "pass",
+    "diffWhitespace": "pass"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T17:59:26.219Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 7,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "verifiedGameplayStartEstablished": false,
+  "verifiedDraftEndEstablished": false,
+  "frozenPolicyChanged": false,
+  "trainingPerformed": false,
+  "modelActivationPerformed": false,
+  "collectionAllowed": false,
+  "primaryEligible": false,
+  "deployable": false,
+  "logs": [
+    ".tools/s304-gameplay-install.log",
+    ".tools/s304-gameplay-typecheck.log",
+    ".tools/s304-gameplay-build.log",
+    ".tools/s304-gameplay-node-regression.log",
+    ".tools/s304-gameplay-suite.log",
+    ".tools/s304-gameplay-replay.log"
+  ],
+  "nextTask": "S3-04/post-draft-validation-readiness/exposure-ledger",
+  "suggestedModel": "GPT-6 Astra",
+  "reasoningEffort": "High"
+}

@@ -1,0 +1,594 @@
+{
+  "task": "S3-09/series-foundation",
+  "date": "2026-11-16",
+  "scope": "independent series contract, development baseline, result validation, readiness UI; no published series probabilities",
+  "checks": [
+    {
+      "name": "install",
+      "exitCode": 0,
+      "log": ".tools/s309-series-install.log"
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "log": ".tools/s309-series-typecheck.log"
+    },
+    {
+      "name": "test",
+      "exitCode": 0,
+      "log": ".tools/s309-series-test.log"
+    },
+    {
+      "name": "build",
+      "exitCode": 0,
+      "log": ".tools/s309-series-build.log"
+    }
+  ],
+  "packageTests": 1067,
+  "integrationTests": 27,
+  "browserTests": 7,
+  "nodeCliTests": 1,
+  "files": [
+    {
+      "path": "packages/contracts/src/series/forecast.ts",
+      "sha256": "af6433d5b9ce78b19bb131dbbb96e74f014d6621e882f49aa0677db42bbb3077"
+    },
+    {
+      "path": "packages/prediction/src/series/candidate.ts",
+      "sha256": "fa59a3036ae7beb028ea50c90879650e70dedec4e5b192c3a8acc81f92109f56"
+    },
+    {
+      "path": "tools/research/evaluate-series-candidate.mjs",
+      "sha256": "0bf6e275e3e46776d852d9e031f6aef7f03f827a75391e26c662ddbe82cc26b3"
+    },
+    {
+      "path": "apps/api/src/modules/upcoming/series-readiness.ts",
+      "sha256": "ea9aceae9f487378cf07e8518cc776ff446c5d0826937e95c552edaef8fabea1"
+    },
+    {
+      "path": "apps/api/src/modules/upcoming/series-result.ts",
+      "sha256": "4468992ca877aaffefc6b848acaf351cddcdd82ece94b3fe2a9a2caea038bdc3"
+    },
+    {
+      "path": "apps/api/src/app.ts",
+      "sha256": "d3f38a475f1a353289bde12f38dd58adaf14f84f82630847b71063794fe67664"
+    },
+    {
+      "path": "apps/web/src/components/SeriesForecastReadiness.vue",
+      "sha256": "95b5c5236c101abcb02a13b1b19ce190f257aca87b00d42c37dc9ca3015ae101"
+    },
+    {
+      "path": "apps/web/src/components/UpcomingForecast.vue",
+      "sha256": "e45c36a32bdb4f99089be727b58abc15af8aa539290b9647dada7366929f5cb5"
+    },
+    {
+      "path": "packages/contracts/src/journal/feed.ts",
+      "sha256": "7c727f1764a7efb73846a6c93f43358f0c35ff41c13ce920b7d70ce3e0e12a0e"
+    },
+    {
+      "path": "packages/db/src/journal/feed.ts",
+      "sha256": "56878a1994f530765aa3b75275093df7ce8d7d4f97bf6193daeeecf45ae47e03"
+    },
+    {
+      "path": "packages/contracts/src/index.ts",
+      "sha256": "4442f84b145855aaea838be3d5485119b041dd2f76bc53c4cf97062d3a7fd62b"
+    },
+    {
+      "path": "packages/db/src/index.ts",
+      "sha256": "b5e75d1bde6655ef9040f85e4605b3ceb29e3db16dc99842e0ca893a24304572"
+    },
+    {
+      "path": "packages/prediction/src/index.ts",
+      "sha256": "92109f2d18e74db7b8052c2a3ba7e3b600c169b2a684d2cd38a7da9451ba1d25"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-feed-http.ts",
+      "sha256": "2fde2126ce58a805016d5c9ac1ce149d6d072e3f575e22220765875d6407dd22"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-result-service.ts",
+      "sha256": "044519f1728741ab7deddc49482dcaaae3919545900fddf5dce8ae57c6ef596f"
+    },
+    {
+      "path": "apps/web/src/components/CurrentForecastJournal.vue",
+      "sha256": "fe67502e0041ae41ac5c6a124fa979bab6aa98495cf4bebad74a6c6c7d17adf0"
+    },
+    {
+      "path": "apps/web/src/components/ForecastJournalRow.vue",
+      "sha256": "11f248bb35bd91ba1aa807ed3af89d3c77687acd1c85015100e155b4746e0c73"
+    },
+    {
+      "path": "packages/prediction/tests/series-candidate.test.ts",
+      "sha256": "424672fc61799f971063e56ab004cbc1e351134a8ef062672fa56957f6af12fb"
+    },
+    {
+      "path": "apps/api/tests/series-result.test.ts",
+      "sha256": "e8ce9a8eee1c3937a27e53b975b96ad074c1bf5de1fc47c31f20a5aa269de469"
+    },
+    {
+      "path": "apps/api/tests/series-readiness.integration.test.ts",
+      "sha256": "bf33dc3dd57946a6fc80b243d78d41ee8d1d719d43124fee164a17e9d64fadb8"
+    },
+    {
+      "path": "tests/node/series-candidate-cli.test.mjs",
+      "sha256": "651669ba4ad9c068cb471fb928c33a7000ff31bd321503274636cd2c1b886847"
+    },
+    {
+      "path": "apps/api/tests/journal.integration.test.ts",
+      "sha256": "fcd85c8fb9948196ad84901e56009f5bcbe11b8f51eb242db159cc2bd76fdce3"
+    },
+    {
+      "path": "packages/db/tests/v1-forecast.integration.test.ts",
+      "sha256": "3460854fba228a743efec85c4e982fb8e7b93ef02a6f46be66d1291269900314"
+    },
+    {
+      "path": "apps/web/tests/e2e/quick-forecast.spec.ts",
+      "sha256": "d6b95a6ef3d019c620b54b9fccf4c801a97d40526e46f7e14b5bf1ed31b77683"
+    },
+    {
+      "path": "apps/web/tests/e2e/journal-current.spec.ts",
+      "sha256": "761d8c574e0c5d2e09cbf7a84238ff5345565283ee4df4162a331ed5ae21f8d8"
+    },
+    {
+      "path": "apps/web/tests/e2e/journal-source-results.spec.ts",
+      "sha256": "c0d828c395e1f833a8badf58e336124d3d72874d8a0862b0ec2049911dfacb98"
+    }
+  ],
+  "liveAudit": {
+    "mode": "live_opendota",
+    "status": "complete",
+    "generatedAt": "2026-11-16T00:01:38.713Z",
+    "requested": 2,
+    "received": 2,
+    "requests": {
+      "attempts": 4,
+      "httpStatuses": {
+        "200": 4
+      },
+      "transportErrors": {}
+    },
+    "coverage": {
+      "confirmed_pro": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "completed_outcome": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "series": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "teams_2": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      },
+      "identity_10": {
+        "count": 2,
+        "of": 2,
+        "ratio": 1,
+        "missing_match_ids": [],
+        "not_assessed_match_ids": []
+      }
+    },
+    "reportSha256": "5f9071c65e2da5918df270349f030f2bd7daacb36d8e76b149e3bd0ad6a463c4"
+  },
+  "inventory": {
+    "series": [
+      {
+        "best_of": 1,
+        "status": null,
+        "provider": "opendota",
+        "series_count": 158,
+        "pro_maps": 158
+      },
+      {
+        "best_of": 2,
+        "status": null,
+        "provider": "opendota",
+        "series_count": 225,
+        "pro_maps": 437
+      },
+      {
+        "best_of": 3,
+        "status": null,
+        "provider": "opendota",
+        "series_count": 693,
+        "pro_maps": 1550
+      },
+      {
+        "best_of": 5,
+        "status": null,
+        "provider": "opendota",
+        "series_count": 36,
+        "pro_maps": 114
+      }
+    ],
+    "cardinality": [
+      {
+        "n": 1,
+        "series_count": 267
+      },
+      {
+        "n": 2,
+        "series_count": 567
+      },
+      {
+        "n": 3,
+        "series_count": 261
+      },
+      {
+        "n": 4,
+        "series_count": 10
+      },
+      {
+        "n": 5,
+        "series_count": 7
+      }
+    ],
+    "counts": {
+      "pro_maps": 2285,
+      "with_series": 2259
+    },
+    "frozenKeys": [
+      "schemaVersion",
+      "format",
+      "preparedAt",
+      "protocolInputs",
+      "protocolSources",
+      "protocol",
+      "closure",
+      "sourceManifest",
+      "importPlan",
+      "dataset",
+      "coverage",
+      "fingerprint"
+    ]
+  },
+  "outcomes": {
+    "externalCalls": 0,
+    "snapshotsUnchanged": true,
+    "outcomes": [
+      {
+        "providerMatchId": "1793320",
+        "status": "verified_provider_result",
+        "targetUnit": "series",
+        "bestOf": 3,
+        "teamAWon": true,
+        "startedAt": "2026-11-12T13:04:34.000Z",
+        "endedAt": "2026-11-12T16:12:25.000Z",
+        "reportedEndedAt": "2026-11-12T16:12:24.000Z",
+        "lastMapEndedAt": "2026-11-12T16:12:25.000Z",
+        "warnings": [
+          "SERIES_END_BEFORE_LAST_MAP_END"
+        ],
+        "scoreA": 2,
+        "scoreB": 1,
+        "providerGameIds": [
+          "741497",
+          "741498",
+          "741499"
+        ],
+        "canonicalProOutcome": false,
+        "sourceSha256": "3747281a5ef0a39eb2a27e71f99bff672cc52e952d4337322847ceac9a422fec"
+      },
+      {
+        "providerMatchId": "1793321",
+        "status": "verified_provider_result",
+        "targetUnit": "series",
+        "bestOf": 3,
+        "teamAWon": true,
+        "startedAt": "2026-11-13T10:03:25.000Z",
+        "endedAt": "2026-11-13T13:33:47.000Z",
+        "reportedEndedAt": "2026-11-13T13:33:47.000Z",
+        "lastMapEndedAt": "2026-11-13T13:33:47.000Z",
+        "warnings": [],
+        "scoreA": 2,
+        "scoreB": 1,
+        "providerGameIds": [
+          "741500",
+          "741501",
+          "741502"
+        ],
+        "canonicalProOutcome": false,
+        "sourceSha256": "958e06cb88fc3df1a08ec24f47c955a2557ec2fc76b7f15cf3f9ea752abe7478"
+      },
+      {
+        "providerMatchId": "1806970",
+        "status": "verified_provider_result",
+        "targetUnit": "series",
+        "bestOf": 3,
+        "teamAWon": false,
+        "startedAt": "2026-11-13T16:14:20.000Z",
+        "endedAt": "2026-11-13T19:51:16.000Z",
+        "reportedEndedAt": "2026-11-13T19:51:16.000Z",
+        "lastMapEndedAt": "2026-11-13T19:51:16.000Z",
+        "warnings": [],
+        "scoreA": 1,
+        "scoreB": 2,
+        "providerGameIds": [
+          "741595",
+          "741596",
+          "741597"
+        ],
+        "canonicalProOutcome": false,
+        "sourceSha256": "63c98312fe59dde0b5ab3c5ef2197bdb7c09801450217f6cdffbb9c2679be9a1"
+      },
+      {
+        "providerMatchId": "1793327",
+        "status": "verified_provider_result",
+        "targetUnit": "series",
+        "bestOf": 3,
+        "teamAWon": false,
+        "startedAt": "2026-11-13T20:12:11.000Z",
+        "endedAt": "2026-11-13T22:31:53.000Z",
+        "reportedEndedAt": "2026-11-13T22:31:52.000Z",
+        "lastMapEndedAt": "2026-11-13T22:31:53.000Z",
+        "warnings": [
+          "SERIES_END_BEFORE_LAST_MAP_END"
+        ],
+        "scoreA": 0,
+        "scoreB": 2,
+        "providerGameIds": [
+          "741518",
+          "741519"
+        ],
+        "canonicalProOutcome": false,
+        "sourceSha256": "4710742b4f0322e8eea277fffecda0e067c13c520d52390a15e9119a8fb89955"
+      },
+      {
+        "providerMatchId": "1793319",
+        "status": "verified_provider_result",
+        "targetUnit": "series",
+        "bestOf": 3,
+        "teamAWon": true,
+        "startedAt": "2026-11-14T12:05:38.000Z",
+        "endedAt": "2026-11-14T15:47:26.000Z",
+        "reportedEndedAt": "2026-11-14T15:47:26.000Z",
+        "lastMapEndedAt": "2026-11-14T15:47:26.000Z",
+        "warnings": [],
+        "scoreA": 2,
+        "scoreB": 1,
+        "providerGameIds": [
+          "741494",
+          "741495",
+          "741496"
+        ],
+        "canonicalProOutcome": false,
+        "sourceSha256": "54dba0e30c3902c5b2420ffb25e5c9088d94f884d7e298c4f1377e6727c5504a"
+      },
+      {
+        "providerMatchId": "1793322",
+        "status": "verified_provider_result",
+        "targetUnit": "series",
+        "bestOf": 3,
+        "teamAWon": true,
+        "startedAt": "2026-11-14T20:08:03.000Z",
+        "endedAt": "2026-11-14T22:02:03.000Z",
+        "reportedEndedAt": "2026-11-14T22:02:02.000Z",
+        "lastMapEndedAt": "2026-11-14T22:02:03.000Z",
+        "warnings": [
+          "SERIES_END_BEFORE_LAST_MAP_END"
+        ],
+        "scoreA": 2,
+        "scoreB": 0,
+        "providerGameIds": [
+          "741503",
+          "741504"
+        ],
+        "canonicalProOutcome": false,
+        "sourceSha256": "f1cf18461f9b683a0a4725c0b616f84d1037f578a23d0ee2c1d69e114ea555a6"
+      },
+      {
+        "providerMatchId": "1793337",
+        "status": "verified_provider_result",
+        "targetUnit": "series",
+        "bestOf": 3,
+        "teamAWon": false,
+        "startedAt": "2026-11-15T14:25:03.000Z",
+        "endedAt": "2026-11-15T16:53:49.000Z",
+        "reportedEndedAt": "2026-11-15T16:53:48.000Z",
+        "lastMapEndedAt": "2026-11-15T16:53:49.000Z",
+        "warnings": [
+          "SERIES_END_BEFORE_LAST_MAP_END"
+        ],
+        "scoreA": 0,
+        "scoreB": 2,
+        "providerGameIds": [
+          "741533",
+          "741534"
+        ],
+        "canonicalProOutcome": false,
+        "sourceSha256": "b7167e06be4a47e38c6b14cc20a668ec42ad0e5a0843e34914f3ebb541f7dc0a"
+      },
+      {
+        "providerMatchId": "1793341",
+        "status": "unavailable",
+        "targetUnit": "series",
+        "reason": "SERIES_NOT_FINISHED",
+        "canonicalProOutcome": false,
+        "sourceSha256": "83da931649aefbccd0c6f9b15ccef0a3fdea191356a05a7749b1ad05fa5886c5"
+      },
+      {
+        "providerMatchId": "1793342",
+        "status": "unavailable",
+        "targetUnit": "series",
+        "reason": "SERIES_NOT_FINISHED",
+        "canonicalProOutcome": false,
+        "sourceSha256": "6f0f0c8c707bccfdbb718e93a0605d4bf844e3934e5fc0c425d2feb467a1885f"
+      }
+    ]
+  },
+  "diagnostic": {
+    "format": "series-development-diagnostic-v1",
+    "targetUnit": "series",
+    "purpose": "development_only",
+    "deployable": false,
+    "qualityGate": "not_evaluated",
+    "independentValidation": false,
+    "inputRows": 8,
+    "uniqueSeries": 6,
+    "selectedForecastIds": [
+      "17380251-5eba-49ac-8da3-4a78518c91b9",
+      "daaec898-7db5-41dd-92a1-578e107febef",
+      "586359de-9ec5-4b87-b540-46b8ae34b006",
+      "9ebba347-7167-48c1-814a-3faac55ec74f",
+      "1e7bf3e7-759f-460e-986b-daf8681188a6",
+      "1016b89d-dcc6-4e3c-a0a2-5bc965f1a900"
+    ],
+    "excluded": [],
+    "seriesCandidate": {
+      "n": 6,
+      "brier": 0.2771169590582898,
+      "logLoss": 0.9020608265385363
+    },
+    "unchangedMapProbability": {
+      "n": 6,
+      "brier": 0.26906089860738974,
+      "logLoss": 0.7788011568493376
+    },
+    "constantBaseline": {
+      "n": 6,
+      "brier": 0.25,
+      "logLoss": 0.6931471805599453
+    },
+    "formats": [
+      {
+        "bestOf": 1,
+        "n": 0
+      },
+      {
+        "bestOf": 3,
+        "n": 6
+      },
+      {
+        "bestOf": 5,
+        "n": 0
+      }
+    ],
+    "inputSha256": "33ad4f9a3235f6de7f9b63438e9345bcef93babe88e60aed2c15a9ceced59a2f",
+    "policy": {
+      "version": "iid-map-series-v1",
+      "targetUnit": "series",
+      "assumption": "constant_independent_map_probability",
+      "formats": [
+        1,
+        3,
+        5
+      ],
+      "featureBoundary": "before_series_start",
+      "validation": "not_evaluated",
+      "deployable": false
+    }
+  },
+  "runtime": {
+    "activationIntegrity": true,
+    "currentMatchesActivation": true,
+    "runtime": {
+      "added": [],
+      "changed": [],
+      "missing": []
+    },
+    "admission": {
+      "added": [],
+      "changed": [],
+      "missing": []
+    }
+  },
+  "legacyReadiness": {
+    "status": "model_eligible",
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "teamAWinProbability": null
+  },
+  "liveReadiness": {
+    "before": {
+      "predictions": 12,
+      "snapshots": 12,
+      "activations": 1,
+      "reports": 2
+    },
+    "after": {
+      "predictions": 12,
+      "snapshots": 12,
+      "activations": 1,
+      "reports": 2
+    },
+    "results": [
+      {
+        "targetUnit": "series",
+        "provider": "pandascore",
+        "providerMatchId": "1793341",
+        "bestOf": 3,
+        "scheduledAt": "2026-11-16T13:00:00.000Z",
+        "checkedAt": "2026-11-16T00:25:37.619772Z",
+        "sourceFetchedAt": "2026-11-15T23:54:11.900Z",
+        "sourceSha256": "9993d16677417015b60ef480de8b654b93bf0393d2712c0d841af663036f2a3f",
+        "status": "unavailable",
+        "teamAWinProbability": null,
+        "teamBWinProbability": null,
+        "modelVersion": null,
+        "reasons": [
+          "SCHEDULE_SOURCE_STALE",
+          "SERIES_MODEL_NOT_VALIDATED"
+        ]
+      },
+      {
+        "targetUnit": "series",
+        "provider": "pandascore",
+        "providerMatchId": "1793342",
+        "bestOf": 3,
+        "scheduledAt": "2026-11-16T10:00:00.000Z",
+        "checkedAt": "2026-11-16T00:25:37.656540Z",
+        "sourceFetchedAt": "2026-11-15T23:54:11.900Z",
+        "sourceSha256": "9993d16677417015b60ef480de8b654b93bf0393d2712c0d841af663036f2a3f",
+        "status": "unavailable",
+        "teamAWinProbability": null,
+        "teamBWinProbability": null,
+        "modelVersion": null,
+        "reasons": [
+          "SCHEDULE_SOURCE_STALE",
+          "SERIES_MODEL_NOT_VALIDATED"
+        ]
+      }
+    ],
+    "providerRequests": 0
+  },
+  "localService": {
+    "apiRestarted": true,
+    "apiHealthStatus": 200,
+    "upcomingPageStatus": 200,
+    "unauthenticatedSeriesStatus": 401
+  },
+  "migrationsApplied": false,
+  "modelActivation": false,
+  "canonicalOutcomeWrites": false,
+  "seriesForecastsPublished": 0,
+  "initialIssues": [
+    "Old journal feed root modules and new series root modules changed exact activation runtime; moved new code to isolated subdirectories, restored old barrels, no activation rewrite or weakened gate.",
+    "Four source series end clocks precede last map end by one second; retained both clocks and used conservative later completion boundary.",
+    "Historical JSONB inventory changed JSON key order; replay integrity now verifies original stored record_text bytes.",
+    "Browser reload test updated to explicitly open the legacy first-map block.",
+    "Initial full suite interrupted for module isolation; final full suite rerun."
+  ],
+  "logs": [
+    ".tools/s309-series-test-before-isolation.log",
+    ".tools/s309-integration-final.log",
+    ".tools/s309-browser-isolation.log",
+    ".tools/s309-cli-test.log"
+  ],
+  "nextTask": "S3-09/series-corpus-and-protocol"
+}

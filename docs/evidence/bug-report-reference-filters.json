@@ -1,0 +1,96 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/context-filters/references",
+  "date": "2026-11-11",
+  "scope": [
+    "Opponent organization and role-player filters in ProMapReport",
+    "Hero filter in PlayerHeroReport",
+    "Applied labels from report keys, not pending edits"
+  ],
+  "architecture": {
+    "existingContextCatalogKinds": [
+      "patches",
+      "leagues",
+      "heroes",
+      "players",
+      "teams"
+    ],
+    "localOnly": true,
+    "readOnly": true,
+    "searchLimit": 20,
+    "maxQuery": 80,
+    "maxOffset": 10000,
+    "exactIdLimit": 1,
+    "closedSqlMapping": true,
+    "literalUnicodeSearch": true,
+    "teamTagAndHeroInternalNameSearch": true,
+    "identityMerges": false,
+    "scopeOrProbabilityChanges": false,
+    "patchOrRoleSemanticsUnchanged": true,
+    "dependenciesOrSqlChanges": false,
+    "frozenPackagesChanged": false
+  },
+  "checks": {
+    "install": "PASS frozen/offline",
+    "typecheck": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 924,
+      "perWorkspace": [
+        64,
+        34,
+        33,
+        67,
+        359,
+        309,
+        1,
+        57
+      ]
+    },
+    "build": "PASS",
+    "chromiumPostgres": {
+      "status": "PASS",
+      "unique": 16,
+      "files": [
+        "compare.spec.ts",
+        "context-filters.spec.ts",
+        "player-hero.spec.ts",
+        "reference-filters.spec.ts",
+        "reports.spec.ts",
+        "sample.spec.ts",
+        "upcoming-compare.spec.ts",
+        "upcoming-filters.spec.ts"
+      ]
+    },
+    "red": {
+      "unit": "New reference-kind contract case failed before implementation (3 existing cases passed)",
+      "browser": "Named opponent picker absent before implementation"
+    },
+    "intermediate": "First new run3 PASS/1 metadata-count failure; removed redundant own-player lookup and counted only hero lookups (patch label remains legitimate). Compatibility7 PASS/1 outdated last-section selector failure; semantic player-hero panel selectors restored full sample/smoothing check.",
+    "cohorts": "Exact bigint team/player IDs versus provider777 retained; opponent+player+role/from/cutoff yieldsN1, hero1 yieldsN2, unknown hero yieldsN0/null WR. Duplicate and blank names, explicit reset, unknown max bigint, invalid IDs, Unicode literal%_,20-row pages,503 retry, late-result discard and360px verified.",
+    "requests": "Selection primes shared cache; opponent/player selection2 metadata searches, applied report0 extra lookups. Hero selection1 hero search/0 extra hero reads; no redundant own-player lookup. Technical19-digit input0 requests until blur, then1. Search edits do not rerun statistics.",
+    "notRerun": [
+      "standalone full API/PG suite",
+      "full Node fixture suite",
+      "Python",
+      "Docker/Linux"
+    ]
+  },
+  "preservation": {
+    "tables": 85,
+    "changedTables": [],
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingProviderHTTP": 0,
+    "workingBusinessWrites": 0
+  },
+  "runtime": "Working PostgreSQL retained; main API/Web initially OFF and not started, general worker OFF. Browser API/Web/DB fixtures temporary.",
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/scenario-history-heroes",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

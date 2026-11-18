@@ -1,0 +1,389 @@
+{
+  "task": "S3-04/conditional-collection-live-preflight",
+  "checkedAt": "2026-11-15T15:06:03.513Z",
+  "status": "audit_complete_real_collection_not_ready",
+  "sources": {
+    "manifest": {
+      "path": ".tools/s304-collection-live-preflight-sources-r1/manifest.json",
+      "sha256": "f47169fdcb1991e04a4c1a58b38df4eb5287298328bd084d517251cb487601a6"
+    },
+    "archivedManifests": [
+      {
+        "path": ".tools/evaluation-details-e1-20261102/manifest.json",
+        "sha256": "8145065b3460c7b76ad3e487b2bf2bb9aa0d7f4ed49b94ca335eedcb7a77b855"
+      },
+      {
+        "path": ".tools/s304-gameplay-boundary-r1/receipts.json",
+        "sha256": "6a31431ad7aeb668f89b2b0cf69b9b93c02850cbdca04b8a2c241b4ecb8c558d"
+      }
+    ],
+    "requests": {
+      "opendota": {
+        "attempts": 2,
+        "httpStatuses": {
+          "200": 2
+        },
+        "transportErrors": {}
+      },
+      "pandascore": {
+        "attempts": 5,
+        "httpStatuses": {
+          "200": 5
+        },
+        "transportErrors": {}
+      }
+    }
+  },
+  "schedule": {
+    "scan": "endpoint_end_observed",
+    "pages": 5,
+    "rows": 87,
+    "duplicateMatchIds": 0,
+    "atomicSnapshot": false,
+    "futureDenominatorComplete": false,
+    "retainedRepresentation": "normalized_provider_observations",
+    "fetchedAt": [
+      "2026-11-15T15:04:07.788Z",
+      "2026-11-15T15:04:12.570Z",
+      "2026-11-15T15:04:17.580Z",
+      "2026-11-15T15:04:22.546Z",
+      "2026-11-15T15:04:27.095Z"
+    ]
+  },
+  "scope": [
+    {
+      "name": "BLAST SLAM IX",
+      "stage": "main_event",
+      "calendar": {
+        "fromDate": "2026-11-20",
+        "throughDate": "2026-11-29",
+        "source": "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online"
+      },
+      "openDota": {
+        "status": "candidate_records_observed",
+        "candidates": [
+          {
+            "leagueId": "20208",
+            "name": "BLAST SLAM IX",
+            "tier": "professional"
+          }
+        ],
+        "excludedRelated": [
+          {
+            "leagueId": "20144",
+            "name": "RES Unchained - A Blast Dota Slam IX Qualifier SEA"
+          },
+          {
+            "leagueId": "20145",
+            "name": "RES Unchained - A Blast Dota Slam IX Qualifier EU"
+          },
+          {
+            "leagueId": "20250",
+            "name": "BLAST Slam IX China Qualifier"
+          },
+          {
+            "leagueId": "20389",
+            "name": "BLAST Slam IX China Qualifier"
+          }
+        ],
+        "bindingVerified": false,
+        "fetchedAt": "2026-11-15T15:04:06.825Z"
+      },
+      "pandaScore": {
+        "status": "not_observed_in_scan",
+        "matchIds": [],
+        "tournamentIds": [],
+        "eventSeriesIds": [],
+        "excludedRelatedMatches": 0,
+        "firstListedSeriesAt": null,
+        "bindingVerified": false
+      },
+      "verifiedNativeLeagueId": null,
+      "verifiedStageTournamentIds": [],
+      "earliestVerifiedSeriesAt": null
+    },
+    {
+      "name": "DreamLeague Season 30",
+      "stage": "main_event",
+      "calendar": {
+        "fromDate": "2026-12-02",
+        "throughDate": "2026-12-13",
+        "source": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/"
+      },
+      "openDota": {
+        "status": "not_observed_in_catalogue",
+        "candidates": [],
+        "excludedRelated": [
+          {
+            "leagueId": "18769",
+            "name": "DreamLeague Division 2 Season 1"
+          },
+          {
+            "leagueId": "18897",
+            "name": "DreamLeague Division 2 Season 2"
+          },
+          {
+            "leagueId": "19290",
+            "name": "DreamLeague Division 2 Season 3"
+          },
+          {
+            "leagueId": "19532",
+            "name": "DreamLeague Division 2 Season 4"
+          },
+          {
+            "leagueId": "20359",
+            "name": "DreamLeague Season 30 Qualifiers"
+          },
+          {
+            "leagueId": "20511",
+            "name": "DreamLeague Division 2 Series 5"
+          }
+        ],
+        "bindingVerified": false,
+        "fetchedAt": "2026-11-15T15:04:06.825Z"
+      },
+      "pandaScore": {
+        "status": "not_observed_in_scan",
+        "matchIds": [],
+        "tournamentIds": [],
+        "eventSeriesIds": [],
+        "excludedRelatedMatches": 10,
+        "firstListedSeriesAt": null,
+        "bindingVerified": false
+      },
+      "verifiedNativeLeagueId": null,
+      "verifiedStageTournamentIds": [],
+      "earliestVerifiedSeriesAt": null
+    }
+  ],
+  "nativeBinding": {
+    "candidateLeagueId": "20208",
+    "candidateKeys": [
+      "leagueid",
+      "ticket",
+      "banner",
+      "tier",
+      "name"
+    ],
+    "exactRequiredArticlePresent": false,
+    "bindingVerified": false,
+    "contractRequiresExactCalendarArticleInNativeJson": true,
+    "missingLinkCannotBeInvented": true
+  },
+  "payloads": {
+    "samples": [
+      {
+        "path": ".tools/evaluation-details-e1-20261102/receipt-000.json",
+        "endpoint": "/heroes",
+        "payloadSha256": "c179babbb9bd910f60f91980ad0f9daec783b7743cf3a26baeb827569afb22f0",
+        "receiptSha256": "da67d13d276642657e35ebbc9cbdc87c3fdbbb38b5f2862424ea36f416a1698b",
+        "rawUtf8Bytes": 21804,
+        "jsonStringBytes": 25582,
+        "exceedsTransportLimit": false,
+        "collectorEndpoint": false
+      },
+      {
+        "path": ".tools/evaluation-details-e1-20261102/receipt-001.json",
+        "endpoint": "/leagues",
+        "payloadSha256": "7a196061f09dc507afac6ad8e9e31d48427b150398fd5c0fa82123415291c5c9",
+        "receiptSha256": "ad54cf8cc74c1626d14785dcb07ee6c7b44d157c15281ed8c6cccd5e7bffa52b",
+        "rawUtf8Bytes": 1063506,
+        "jsonStringBytes": 1210028,
+        "exceedsTransportLimit": true,
+        "collectorEndpoint": false
+      },
+      {
+        "path": ".tools/evaluation-details-e1-20261102/receipt-002.json",
+        "endpoint": "/matches/9072857576",
+        "payloadSha256": "3672f586187f3c6e7ae616ffd6194cc1c8bdd3c54f66f114568644dea99d0a13",
+        "receiptSha256": "9edb4d5f79933b63913105bd54492088b744c2f086b75576416f3185c4afedad",
+        "rawUtf8Bytes": 270138,
+        "jsonStringBytes": 304832,
+        "exceedsTransportLimit": false,
+        "collectorEndpoint": true
+      },
+      {
+        "path": ".tools/s304-gameplay-boundary-r1/opendota-9070527945.json",
+        "endpoint": "/matches/9070527945",
+        "payloadSha256": "3cb0be25092cae87d4098cd3390b4dd62a4953858fd92d9ce924e34d93aaac7b",
+        "receiptSha256": "3cb0be25092cae87d4098cd3390b4dd62a4953858fd92d9ce924e34d93aaac7b",
+        "rawUtf8Bytes": 303394,
+        "jsonStringBytes": 342906,
+        "exceedsTransportLimit": false,
+        "collectorEndpoint": true
+      },
+      {
+        "path": ".tools/s304-gameplay-boundary-r1/opendota-9068910292.json",
+        "endpoint": "/matches/9068910292",
+        "payloadSha256": "9ec886020f4ddcdf8403acb868be95b40fff2d0bc984c26080bc9c01fcd356a9",
+        "receiptSha256": "9ec886020f4ddcdf8403acb868be95b40fff2d0bc984c26080bc9c01fcd356a9",
+        "rawUtf8Bytes": 313155,
+        "jsonStringBytes": 352549,
+        "exceedsTransportLimit": false,
+        "collectorEndpoint": true
+      },
+      {
+        "path": ".tools/s304-gameplay-boundary-r1/opendota-9067177642.json",
+        "endpoint": "/matches/9067177642",
+        "payloadSha256": "6370f739b2d208a2d6c3648092b254b0e75fbf255f18895447f380fcde4eaf12",
+        "receiptSha256": "6370f739b2d208a2d6c3648092b254b0e75fbf255f18895447f380fcde4eaf12",
+        "rawUtf8Bytes": 383965,
+        "jsonStringBytes": 431723,
+        "exceedsTransportLimit": false,
+        "collectorEndpoint": true
+      },
+      {
+        "path": ".tools/s304-collection-live-preflight-sources-r1/opendota-catalogue.json",
+        "endpoint": "/leagues",
+        "payloadSha256": "fd10aac82990de8e1144fd35412992b96ffb81da1b2825e088a3d1a6b2364b89",
+        "receiptSha256": "71aecb5b3d5acdb757cbe711df31d32f7b786db5f7f54b69cb63846ed66bfad4",
+        "rawUtf8Bytes": 1063711,
+        "jsonStringBytes": 1210261,
+        "exceedsTransportLimit": true,
+        "collectorEndpoint": false
+      },
+      {
+        "path": ".tools/s304-collection-live-preflight-sources-r1/opendota-candidate-maps.json",
+        "endpoint": "/leagues/20208/matches",
+        "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "receiptSha256": "fede3e35e8a794c354ee2c4b6dfddd6e28dc9073b4a5307c54bb30203f691ad5",
+        "rawUtf8Bytes": 2,
+        "jsonStringBytes": 4,
+        "exceedsTransportLimit": false,
+        "collectorEndpoint": true
+      }
+    ],
+    "mapSampleCount": 4,
+    "uniqueMaps": 4,
+    "sampleSelection": "four previously exposed maps; not representative of future payload distribution",
+    "transportBytes": 1048576,
+    "journalBytes": 67108864,
+    "reserveBytes": 6356992,
+    "thresholdBytes": 60751872,
+    "boundaryVerified": true,
+    "repeatedMapScenario300": {
+      "minJsonBodyBytes": 91449600,
+      "maxJsonBodyBytes": 129516900,
+      "interpretation": "Illustration only; JSON body values before event/discovery overhead, not forecast or guaranteed capacity"
+    },
+    "catalogueExcessIsNotRuntimeEndpointFailure": true
+  },
+  "quotas": {
+    "database": {
+      "checkedAt": "2026-11-15T15:06:03.473Z",
+      "quotas": [
+        {
+          "provider": "opendota",
+          "next_request_at": "2026-11-15T15:04:08.497Z",
+          "blocked_until": "2026-11-13T11:46:16.517Z",
+          "minute_start": "2026-11-15T15:04:00.000Z",
+          "day_start": "2026-11-15T00:00:00.000Z",
+          "month_start": "2026-11-01T00:00:00.000Z",
+          "minute_used": 2,
+          "day_used": 5,
+          "month_used": 2890
+        }
+      ],
+      "pandaQuota": [
+        {
+          "singleton": true,
+          "hour_start": "2026-11-15T15:00:00.000Z",
+          "requests_used": 5,
+          "next_request_at": "2026-11-15T15:04:30.665Z",
+          "blocked_until": null
+        }
+      ],
+      "maps": 2260,
+      "predictions": 10
+    },
+    "configured": {
+      "rpm": 45,
+      "daily": 2000,
+      "monthly": 45000
+    },
+    "lastObservedHeaders": {
+      "minute": 58,
+      "day": 2995,
+      "month": null
+    },
+    "futureCapacityReserved": false,
+    "providerPlanEntitlementsVerified": false
+  },
+  "runtime": {
+    "manifestFiles": 285,
+    "draftBundle": {
+      "path": ".tools/s304-collection-live-preflight-r1/draft-bundle.json",
+      "sha256": "23c71e707fe6fd6430e202c2aee91a8cfd81b81ca06409cd50220d081bcbe33a"
+    },
+    "environmentSha256": "333c38866307e924e6c86f31b94070e05a678422b3f0d7d851a38ea13729f6bf",
+    "previousFilesVerified": 39,
+    "remoteImplemented": false,
+    "numericalConsumerConnected": false
+  },
+  "policySha256": "77fa352544f4938e8b1cd69a2772894cff6b34df4b954e97677d36ea10ce388f",
+  "deadlines": {
+    "decisionDeadline": "2026-11-19T18:00:00.000Z",
+    "from": "2026-11-20T00:00:00.000Z",
+    "until": "2026-12-18T00:00:00.000Z",
+    "assessmentAt": "2026-12-25T00:00:00.000Z",
+    "events": [
+      {
+        "name": "BLAST SLAM IX",
+        "stage": "main_event",
+        "fromDate": "2026-11-20",
+        "throughDate": "2026-11-29",
+        "openDotaLeagueId": null,
+        "pandaScoreTournamentId": null,
+        "source": "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online"
+      },
+      {
+        "name": "DreamLeague Season 30",
+        "stage": "main_event",
+        "fromDate": "2026-12-02",
+        "throughDate": "2026-12-13",
+        "openDotaLeagueId": null,
+        "pandaScoreTournamentId": null,
+        "source": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/"
+      }
+    ]
+  },
+  "blockers": [
+    "MAIN_EVENT_NATIVE_BINDINGS_NOT_VERIFIED",
+    "EXACT_ARTICLE_NATIVE_REFERENCE_UNAVAILABLE_IN_OBSERVED_CATALOGUE",
+    "TARGET_START_BOUND_NOT_VERIFIED",
+    "FULL_WINDOW_ARCHIVE_CAPACITY_NOT_VALIDATED",
+    "REMOTE_TRANSPORT_NOT_IMPLEMENTED",
+    "REAL_NUMERICAL_CONSUMER_NOT_CONNECTED"
+  ],
+  "legacyDiagnosticWarning": "source parser reused; its old SQL062/consumer blockers are historical, superseded by SQL063 and local runtime; not current readiness conclusions",
+  "businessWrites": 0,
+  "quotaAccountingWrites": true,
+  "registrationPerformed": false,
+  "collectionAllowed": false,
+  "realEvaluationAllowed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "checks": {
+    "nodeTests": 60,
+    "nodeLog": ".tools/s304-live-preflight-node.log",
+    "nodeLogSha256": "57bdfeafd505d5186c8d48a9c4fbad089f42027e9ed5ffa256c64fa3a7075872",
+    "migrationFiles": 65,
+    "historicalMigrationChecksums": "passed",
+    "rawArchiveHashes": "passed",
+    "capacityBoundary": "passed",
+    "environment": "inspected",
+    "fullPackagePgBrowserBuild": "not_repeated_documentation_and_source_audit_only_no_production_changes",
+    "webStatus": 200,
+    "proxiedHealthStatus": 200,
+    "privateScenariosWithoutSessionStatus": 401,
+    "docsLinks": "passed",
+    "diffCheck": "passed"
+  },
+  "auditScript": {
+    "path": ".tools/s304-live-preflight-audit.mjs",
+    "sha256": "64c6200d770a94929ba608e70aa0a2280e9987ef6705500c8e1a22a42ece64ac"
+  },
+  "nextTask": "S3-04/conditional-registration-binding-v2",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedEffort": "High"
+}

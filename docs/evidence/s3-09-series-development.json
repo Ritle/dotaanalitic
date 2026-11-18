@@ -1,0 +1,183 @@
+{
+  "task": "S3-09/series-development-dataset",
+  "status": "development_dataset_complete_no_scoring_or_activation",
+  "artifact": {
+    "path": ".tools/s309-development-r1.json",
+    "sha256": "3f2e106de2798fa93bcbff47f6dca6597b4d9063f1c6d6cbdc9381b00aebe35c"
+  },
+  "inputs": {
+    "format": "series-development-input-v1",
+    "inventory": {
+      "path": ".tools/s309-development-inventory-r1.json",
+      "sha256": "ddb668a0f5f4c6ffaf28db15354de3a237e978ff58c87075f5fbf8209ee86c2b"
+    },
+    "membership": {
+      "path": ".tools/s309-membership-r2.json",
+      "sha256": "7a8c4d61ada459e63a9ee42ea08186f3816f46a47b273ea9cf61026650b13067"
+    }
+  },
+  "summary": {
+    "series": 35,
+    "ready": 33,
+    "unavailable": 2,
+    "suppliedMaps": 2285,
+    "eligibleHistoryMaps": 2211,
+    "byFormat": {
+      "1": {
+        "series": 5,
+        "ready": 5
+      },
+      "3": {
+        "series": 30,
+        "ready": 28
+      }
+    },
+    "reasons": {
+      "INSUFFICIENT_PLAYER_HISTORY": 2
+    }
+  },
+  "oracle": {
+    "summary": {
+      "series": 35,
+      "ready": 33,
+      "unavailable": 2,
+      "suppliedMaps": 2285,
+      "eligibleHistoryMaps": 2211,
+      "byFormat": {
+        "1": {
+          "series": 5,
+          "ready": 5
+        },
+        "3": {
+          "series": 30,
+          "ready": 28
+        }
+      },
+      "reasons": {
+        "INSUFFICIENT_PLAYER_HISTORY": 2
+      }
+    },
+    "checkedHistory": 5324,
+    "aIsDire": 14,
+    "historyMapsRange": [
+      117,
+      193
+    ],
+    "failures": [
+      {
+        "seriesKey": "opendota:951544",
+        "cutoff": "1740146405000000",
+        "minimum": 0,
+        "players": [
+          {
+            "playerId": "82",
+            "accountId": "111620041",
+            "maps": 0
+          }
+        ]
+      },
+      {
+        "seriesKey": "opendota:951935",
+        "cutoff": "1740243303000000",
+        "minimum": 2,
+        "players": [
+          {
+            "playerId": "82",
+            "accountId": "111620041",
+            "maps": 2
+          }
+        ]
+      }
+    ],
+    "changesAfterFirst": 0,
+    "unknownLaterLineups": 0,
+    "noTargetLabelsInFeatureRows": true,
+    "tenIdentitiesPerSeries": true,
+    "strictEarlierCompletedHistory": true
+  },
+  "sourceSnapshotAt": "2026-11-16T09:01:56.536Z",
+  "warmupFromAt": "2024-01-01T00:00:00.000Z",
+  "availability": "conditional_reconstruction_event_time_assumed_current_verified_identities",
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "scoringPerformed": false,
+  "activationPerformed": false,
+  "checks": {
+    "node": 33,
+    "newNode": 10,
+    "cli": [
+      {
+        "name": "exact offline replay with unusable DATABASE_URL",
+        "exitCode": 0
+      },
+      {
+        "name": "wrong external SHA",
+        "exitCode": 1
+      },
+      {
+        "name": "exclusive output",
+        "exitCode": 1
+      },
+      {
+        "name": "changed features with new outer SHA",
+        "exitCode": 1
+      },
+      {
+        "name": "output traversal",
+        "exitCode": 1
+      },
+      {
+        "name": "private path rejected",
+        "exitCode": 1
+      }
+    ],
+    "adapter": {
+      "inMemoryNegativeChecks": true,
+      "changedCanonicalRevisionRejected": true,
+      "missingFirstMapIdentityRetainsDenominator": true,
+      "sourceFilesUnchanged": true
+    },
+    "migrationChecks": 71,
+    "workspace": "passed",
+    "packageTests": 1067,
+    "workspaces": 8,
+    "commands": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s309-development-install.log"
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s309-development-typecheck.log"
+      },
+      {
+        "name": "test",
+        "exitCode": 0,
+        "log": ".tools/s309-development-test.log"
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s309-development-build.log"
+      }
+    ],
+    "runtime": {
+      "activationIntegrity": true,
+      "currentMatchesActivation": true,
+      "runtime": {
+        "added": [],
+        "changed": [],
+        "missing": []
+      },
+      "admission": {
+        "added": [],
+        "changed": [],
+        "missing": []
+      }
+    },
+    "docLinks": "passed",
+    "gitDiffCheck": "passed"
+  }
+}

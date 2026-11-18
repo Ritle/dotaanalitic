@@ -1,0 +1,103 @@
+{
+  "task": "S3-04/conditional-plan",
+  "status": "registered_verified",
+  "registeredAt": "2026-11-12T22:03:10.595Z",
+  "protocolFile": "s3-04-conditional-protocol.json",
+  "protocolSha256": "7f88a919de2bbd2cf3e61b95476c0bb7c435dd4d8f191aff2365838c2ef9eeab",
+  "protocolFingerprint": "1d2c8ac3a0972d5f8301f36c561298d944eae0e8f6701b74ea18b87f562538e6",
+  "policySha256": "e95461ae5bba97aa4e5772789b87339cd19fb35b22b5e26713903ac0d932b36f",
+  "inventoryPath": ".tools/s304-final.json",
+  "metadataPath": ".tools/s304-plan-metadata-final.json",
+  "partitions": {
+    "warmup": {
+      "from": "2024-01-01T00:00:00.000Z",
+      "until": "2025-01-01T00:00:00.000Z",
+      "maps": 5,
+      "series": 5,
+      "plannedDenominator": 6
+    },
+    "train": {
+      "from": "2025-01-01T00:00:00.000Z",
+      "until": "2026-05-01T00:00:00.000Z",
+      "maps": 1183,
+      "series": 567,
+      "plannedDenominator": 1252
+    },
+    "validation": {
+      "from": "2026-05-01T00:00:00.000Z",
+      "until": "2026-07-01T00:00:00.000Z",
+      "maps": 392,
+      "series": 213,
+      "plannedDenominator": 398
+    },
+    "calibration": {
+      "from": "2026-07-01T00:00:00.000Z",
+      "until": "2026-09-01T00:00:00.000Z",
+      "maps": 335,
+      "series": 147,
+      "plannedDenominator": 338
+    },
+    "development_test": {
+      "from": "2026-09-01T00:00:00.000Z",
+      "until": "2026-11-05T00:00:00.000Z",
+      "maps": 216,
+      "series": 98,
+      "plannedDenominator": 223
+    }
+  },
+  "excludedMaps": 101,
+  "exclusionReasons": {
+    "INVENTORY_INELIGIBLE": 65,
+    "MODE_OR_LOBBY_OUTSIDE_SCOPE": 9,
+    "OUTSIDE_WINDOWS": 15,
+    "SERIES_HAS_EXCLUDED_MAP": 75,
+    "SERIES_UNVERIFIED": 26
+  },
+  "labelsRead": false,
+  "trainingRunCreated": false,
+  "deployable": false,
+  "independentReleaseEvidence": false,
+  "checks": {
+    "targetedNode": 11,
+    "install": "PASS",
+    "typecheck": "PASS",
+    "test": "PASS",
+    "build": "PASS",
+    "protocolReplay": "PASS",
+    "overwriteAndTamper": "PASS",
+    "testCount": 962,
+    "migrationChecksums": 54,
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "finalPreservation": "PASS"
+  },
+  "sourceAudit": "reuse s3-04-live-opendota.json; 0 new HTTP",
+  "environment": {
+    "systemPython": "sklearn missing",
+    "existingVenv": ".venv",
+    "verifiedVersions": {
+      "python": "3.11.9",
+      "sklearn": "1.8.0",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    "installationPerformed": false,
+    "fullFittingManifest": "pending before fitting"
+  },
+  "nextTask": "S3-04/frozen-dataset",
+  "suggestedModel": "GPT-6 Astra · High",
+  "preservation": {
+    "comparison": ".tools/s304-plan-preservation-before.json vs .tools/s304-plan-preservation-final.json",
+    "exactFields": [
+      "counts",
+      "queue",
+      "snapshotSha256",
+      "readiness"
+    ],
+    "proMaps": 2232,
+    "predictionRuns": 3,
+    "scenarios": 3,
+    "queueRows": 13,
+    "activeModelStatus": "model_eligible"
+  }
+}

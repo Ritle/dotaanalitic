@@ -1,0 +1,219 @@
+{
+  "task": "S3-04/conditional-registration-binding-v2",
+  "date": "2026-11-15",
+  "status": "offline_binding_review_implemented_registration_integration_pending",
+  "files": [
+    {
+      "path": "tools/research/conditional-tournament-binding-v2.mjs",
+      "sha256": "f17e555ab47f26cdf7c64691dd93b3753c06781816ccd510a355179a7ffc5920"
+    },
+    {
+      "path": "tools/research/inspect-tournament-bindings-v2.mjs",
+      "sha256": "71bc3cb47f55bac7687444b6439cdc5567276e059cbb6ac55dcff5987d0ea7a1"
+    },
+    {
+      "path": "tests/node/conditional-tournament-binding-v2.test.mjs",
+      "sha256": "1fa15865c12f3760e35166e658228a9a24a4cc209da9a0ac1b77f532658eb0fa"
+    }
+  ],
+  "preserved": {
+    "previousRuntimeFiles": 39,
+    "previousRuntimeManifestFiles": 285,
+    "sqlFilesUnchanged": 65,
+    "policySha256": "77fa352544f4938e8b1cd69a2772894cff6b34df4b954e97677d36ea10ce388f"
+  },
+  "checks": {
+    "steps": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s304-binding-v2-install.log",
+        "error": null
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s304-binding-v2-typecheck.log",
+        "error": null
+      },
+      {
+        "name": "test",
+        "exitCode": 0,
+        "log": ".tools/s304-binding-v2-test.log",
+        "error": null
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s304-binding-v2-build.log",
+        "error": null
+      },
+      {
+        "name": "migrations",
+        "exitCode": 0,
+        "log": ".tools/s304-binding-v2-migrations.log",
+        "error": null
+      },
+      {
+        "name": "node",
+        "exitCode": 0,
+        "log": ".tools/s304-binding-v2-node.log",
+        "error": null
+      }
+    ],
+    "packageTests": 1053,
+    "workspaces": 8,
+    "newNodeTests": 22,
+    "existingNodeTests": 60,
+    "totalNodeTests": 82,
+    "newAndPreflightLog": ".tools/s304-binding-v2-node-final-r2.log",
+    "failingTestsBeforeImplementation": true,
+    "initialCliFailure": "synthetic review timestamp was later than actual CLI process time; fixture changed to earlier fixed timestamp",
+    "extraNegativeCases": "data-href/title/duplicate href and edition/year prefix tests failed before literal-attribute/token-boundary fix",
+    "postgresBrowserPythonNumerical": "not_repeated_no_DB_UI_or_model_changes",
+    "service": {
+      "checkedAt": "2026-11-15T15:19:37.972Z",
+      "rows": [
+        {
+          "path": "/",
+          "status": 200
+        },
+        {
+          "path": "/health",
+          "status": 200
+        },
+        {
+          "path": "/api/v1/scenarios",
+          "status": 401
+        }
+      ]
+    },
+    "docsLinks": "passed",
+    "diffCheck": "passed"
+  },
+  "liveAudit": {
+    "task": "S3-04/conditional-registration-binding-v2",
+    "checkedAt": "2026-11-15T15:15:53.098Z",
+    "liveProviderCalls": 0,
+    "businessDatabaseWrites": 0,
+    "sourceManifest": {
+      "path": ".tools/s304-collection-live-preflight-sources-r1/manifest.json",
+      "sha256": "f47169fdcb1991e04a4c1a58b38df4eb5287298328bd084d517251cb487601a6"
+    },
+    "catalogue": {
+      "wrapper": {
+        "name": "opendota-catalogue",
+        "path": ".tools/s304-collection-live-preflight-sources-r1/opendota-catalogue.json",
+        "sha256": "71aecb5b3d5acdb757cbe711df31d32f7b786db5f7f54b69cb63846ed66bfad4"
+      },
+      "rawSha256": "fd10aac82990de8e1144fd35412992b96ffb81da1b2825e088a3d1a6b2364b89",
+      "rows": 10413,
+      "fetchedAt": "2026-11-15T15:04:06.825Z"
+    },
+    "input": {
+      "path": ".tools/s304-binding-v2-live-r1/input.json",
+      "sha256": "62a1ab6832ceb74764b461fabb27aa2735b9eb9d5b6378afbbc9de586f6fa1a8"
+    },
+    "result": {
+      "path": ".tools/s304-binding-v2-live-r1/report.json",
+      "sha256": "fdd0a3981ba47a36ca7b0a45391a06e49a731aee23e7aa2090221b97bb076e02",
+      "status": "unavailable"
+    },
+    "reasons": [
+      {
+        "editionKey": "BLAST SLAM IX",
+        "candidateId": "20208",
+        "reasons": [
+          "CALENDAR_EVIDENCE_MISSING",
+          "ORGANIZER_NATIVE_LINK_MISSING"
+        ]
+      },
+      {
+        "editionKey": "DreamLeague Season 30",
+        "candidateId": null,
+        "reasons": [
+          "NATIVE_ID_MISSING",
+          "CALENDAR_EVIDENCE_MISSING",
+          "NATIVE_RECORD_NOT_FOUND",
+          "ORGANIZER_NATIVE_LINK_MISSING"
+        ]
+      }
+    ],
+    "rejectedNativeAlternatives": [
+      {
+        "editionKey": "BLAST SLAM IX",
+        "id": "20144",
+        "name": "RES Unchained - A Blast Dota Slam IX Qualifier SEA",
+        "reasons": [
+          "CALENDAR_EVIDENCE_MISSING",
+          "NATIVE_EDITION_OR_STAGE_MISMATCH",
+          "ORGANIZER_NATIVE_LINK_MISSING"
+        ]
+      },
+      {
+        "editionKey": "BLAST SLAM IX",
+        "id": "20250",
+        "name": "BLAST Slam IX China Qualifier",
+        "reasons": [
+          "CALENDAR_EVIDENCE_MISSING",
+          "NATIVE_EDITION_OR_STAGE_MISMATCH",
+          "ORGANIZER_NATIVE_LINK_MISSING"
+        ]
+      },
+      {
+        "editionKey": "DreamLeague Season 30",
+        "id": "20359",
+        "name": "DreamLeague Season 30 Qualifiers",
+        "reasons": [
+          "CALENDAR_EVIDENCE_MISSING",
+          "NATIVE_EDITION_OR_STAGE_MISMATCH",
+          "ORGANIZER_NATIVE_LINK_MISSING"
+        ]
+      },
+      {
+        "editionKey": "DreamLeague Season 30",
+        "id": "20511",
+        "name": "DreamLeague Division 2 Series 5",
+        "reasons": [
+          "CALENDAR_EVIDENCE_MISSING",
+          "NATIVE_EDITION_OR_STAGE_MISMATCH",
+          "ORGANIZER_NATIVE_LINK_MISSING"
+        ]
+      }
+    ],
+    "literalOrganizerLinkEvidenceRetained": false,
+    "ownerReviewSupplied": false,
+    "priorRuntimeFilesVerified": 39,
+    "priorManifestFilesVerified": 285,
+    "registrationPerformed": false,
+    "collectionAllowed": false,
+    "realEvaluationAllowed": false,
+    "activationAllowed": false,
+    "deployable": false
+  },
+  "compatibility": {
+    "oldRegistrationV1Unchanged": true,
+    "sql063StillRejectsNewFormat": true,
+    "newReportAcceptedByStorage": false,
+    "newMigrations": 0,
+    "workingServiceRestarted": false,
+    "realProviderCalls": 0,
+    "businessDatabaseWrites": 0
+  },
+  "limitations": [
+    "only_explicit_organizer_OpenDota_league_anchor_supported",
+    "real_positive_binding_not_yet_observed",
+    "calendar_period_and_link_context_are_owner_reviewed_not_signed",
+    "reviewer_UUID_is_not_authentication",
+    "synthetic_positive_cases_do_not_establish_live_readiness",
+    "archive_capacity_and_remote_transport_unchanged"
+  ],
+  "registrationPerformed": false,
+  "collectionAllowed": false,
+  "realEvaluationAllowed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "nextTask": "S3-04/conditional-registration-v2-storage",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedEffort": "High"
+}

@@ -1,0 +1,217 @@
+{
+  "task": "S3-04/conditional-future-evaluator",
+  "date": "2026-11-15",
+  "status": "synthetic_numerical_consumer_complete_real_registration_pending",
+  "files": [
+    {
+      "path": "tools/research/conditional_future_evaluate.py",
+      "sha256": "eeda2524d1a2dc968bd7cc2a835fb06f9180673c2a69289d2418c7042211882e"
+    },
+    {
+      "path": "tools/research/conditional-evaluator.mjs",
+      "sha256": "39e1742a3c284804b5f7f877f80d146a9a8705b010346c6258052ac2da5bf9d6"
+    },
+    {
+      "path": "tests/research/test_conditional_future_evaluate.py",
+      "sha256": "685fa15999464281747f3bc74ae01d70cc13da6282ff8469d5539bb80ca78cf2"
+    },
+    {
+      "path": "tests/fixtures/conditional-evaluator.mjs",
+      "sha256": "5bd91c1cb9df077c47bc5a408907439be1540bfe54b3e34d92e0f5d2c3bde87e"
+    },
+    {
+      "path": "tests/node/conditional-evaluator.test.mjs",
+      "sha256": "2c176506c84968c102cfb66bbf87184fb597000c3478fb62337b84d3aa23ef89"
+    }
+  ],
+  "artifacts": {
+    "synthetic": {
+      "directory": ".tools/s304-conditional-evaluator-synthetic-r1",
+      "status": "conditional_evaluation_saved",
+      "manifestSha256": "2338cd98c9cdd892567e55f2a3bad04dcebdb79deb1704544a1a2e91622c6492",
+      "syntheticOnly": true,
+      "result": "insufficient",
+      "scoringPerformed": true,
+      "counts": {
+        "knownPossibleMaps": 2,
+        "verifiedProDenominator": 2,
+        "pairedMaps": 2,
+        "pairedSeries": 1,
+        "baselineMaps": 2
+      },
+      "parity": {
+        "goldens": {
+          "status": "PASS",
+          "maxAbsoluteError": 1.1102230246251565e-16,
+          "tolerance": 1e-7,
+          "comparisons": 1570,
+          "vectorsPerModel": {
+            "H0": 262,
+            "H1": 262,
+            "H2": 262
+          },
+          "cases": [
+            "calibrator_unavailable",
+            "extreme_logits",
+            "missing_history_annotations",
+            "ordinary",
+            "swapped_A_B",
+            "zero_practice"
+          ]
+        },
+        "currentPython": {
+          "comparisons": 2620,
+          "maxAbsoluteError": 1.1102230246251565e-16,
+          "tolerance": 1e-12
+        },
+        "bundleRows": {
+          "comparisons": 20,
+          "maxAbsoluteError": 0,
+          "tolerance": 1e-12
+        }
+      },
+      "deployable": false,
+      "files": {
+        "input.json": "ca663e43271ad3432eda011215077e1e829034e62a7825fc2a989982d179f388",
+        "report.json": "42ea541215225226a28af7bc524de7f683051bd4e823d14a98ee0cd7d2fa1bd7",
+        "parity.json": "986c2276d10bb871f2dde5259dec916c9178326d547aea556eef46738ada489f"
+      },
+      "parent": {
+        "directory": ".tools/s304-conditional-evaluator-bundle-r1",
+        "manifestSha256": "5a589bb7f57b0f3dd6044ea58dc96ba879b981ff702d4dd12481457d59157220"
+      },
+      "coverage": 1,
+      "dataReasons": [
+        "MAPS_BELOW_50",
+        "SERIES_BELOW_25",
+        "LABELS_BELOW_10_EACH"
+      ],
+      "reasons": null
+    },
+    "real": {
+      "directory": ".tools/s304-conditional-evaluator-real-r1",
+      "status": "conditional_evaluation_saved",
+      "manifestSha256": "a29f930b2259503ae09bbaec5e1fd929620e8f5ee7d9179ace2b50130415ec19",
+      "syntheticOnly": false,
+      "result": "unregistered",
+      "scoringPerformed": false,
+      "counts": {
+        "knownPossibleMaps": 2,
+        "verifiedProDenominator": 2
+      },
+      "parity": {
+        "goldens": {
+          "status": "PASS",
+          "maxAbsoluteError": 1.1102230246251565e-16,
+          "tolerance": 1e-7,
+          "comparisons": 1570,
+          "vectorsPerModel": {
+            "H0": 262,
+            "H1": 262,
+            "H2": 262
+          },
+          "cases": [
+            "calibrator_unavailable",
+            "extreme_logits",
+            "missing_history_annotations",
+            "ordinary",
+            "swapped_A_B",
+            "zero_practice"
+          ]
+        },
+        "currentPython": {
+          "comparisons": 2620,
+          "maxAbsoluteError": 1.1102230246251565e-16,
+          "tolerance": 1e-12
+        }
+      },
+      "deployable": false,
+      "files": {
+        "input.json": "a1e89535009e23d9d316143ca8b52381ef842ae203cd618832ccd1f96c6de9b0",
+        "report.json": "426e16b7b85ca6b2d6083246b109f7234d3182fc3b147094cabc55082de2f734",
+        "parity.json": "8bd2669c6d2019f99f4761de64374d91aa0316237103d0164c05a745d5eed98d"
+      },
+      "parent": {
+        "directory": ".tools/s304-evaluation-local-bundle-r1",
+        "manifestSha256": "fa37909f8d00ddbeea3d580fd99e5b0061886f1709a5c38786660cc7928b25fa"
+      },
+      "coverage": null,
+      "dataReasons": null,
+      "reasons": [
+        "DURABLE_CONDITIONAL_REGISTRATION_NOT_IMPLEMENTED"
+      ]
+    }
+  },
+  "checks": {
+    "nodeTests": 102,
+    "newNodeTests": 1,
+    "pythonTests": 79,
+    "newPythonTests": 14,
+    "nodeLog": ".tools/s304-conditional-evaluator-node-final.log",
+    "pythonLog": ".tools/s304-conditional-evaluator-pytest.log",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "migrations": 61,
+    "packageRegression": {
+      "status": "PASS",
+      "tests": 1053,
+      "workspaces": 8,
+      "log": ".tools/s304-conditional-evaluator-suite.log"
+    },
+    "oldGoldensCurrentPythonAndBundleTsParity": "PASS",
+    "newSyntheticRealRefusalAndParentChainReplay": "PASS",
+    "frozenPolicySourceHashes": "PASS",
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "separatePgBrowserSuites": "not_run_no_production_UI_DB_change"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T00:37:14.793Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerRequests": 0,
+  "businessWrites": 0,
+  "realModelScoringPerformed": false,
+  "syntheticScoringPerformed": true,
+  "trainingPerformed": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "realEvaluationAllowed": false,
+  "deployable": false,
+  "limitations": [
+    "durable_real_registration_and_first_result_journal_pending",
+    "real_future_main_event_binding_and_enrollment_pending",
+    "baseline_diagnostic_only_covers_features_retained_by_bundle_not_all_incomplete_maps",
+    "local_reviewed_register_remains_trust_boundary"
+  ],
+  "executionNotes": [
+    "Initial tests failed with missing implementation.",
+    "Adversarial whitespace in native series key reproduced bootstrap unit inflation; canonical JSON identity guard added and retested.",
+    "PowerShell labels unittest stderr as NativeCommandError even on exit0; pytest final suite provides explicit passed count.",
+    "Positive numerical unit harness uses explicitly synthetic coefficients; CLI uses unchanged real candidate on synthetic features only."
+  ],
+  "nextTask": "S3-04/conditional-future-registration-contract"
+}

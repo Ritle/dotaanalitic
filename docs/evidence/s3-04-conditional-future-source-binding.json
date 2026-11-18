@@ -1,0 +1,131 @@
+{
+  "task": "S3-04/conditional-future-source-binding",
+  "date": "2026-11-15",
+  "status": "local_source_binding_implemented_remote_inventory_pending",
+  "files": [
+    {
+      "path": "tools/research/conditional-future-source-binding.mjs",
+      "sha256": "3164edd28193866433c991d7f30fbbe333e3f19ed7e23b6b69df55a918d7b6f6"
+    },
+    {
+      "path": "tools/research/conditional-future-source-files.mjs",
+      "sha256": "cdc3d7410a90104f4fcd7642b466457828cb1964c5a3c86127ed3d66e8282473"
+    },
+    {
+      "path": "tests/fixtures/conditional-source-binding.mjs",
+      "sha256": "8e173cf0d11fc94f0e5ecce0b8cbf97ea35ee7f45a3b3623f33f1e1dd88a4eed"
+    },
+    {
+      "path": "tests/node/conditional-source-binding.test.mjs",
+      "sha256": "39c5cc048f73568d4597fece5a742d66a83b0985351fab13dbdb732f57b70e44"
+    },
+    {
+      "path": "tests/node/conditional-source-files.test.mjs",
+      "sha256": "9aa0811b75fd6688e220c75c7ae723b80ca7d6326e3f597db2445ac7ddeda69e"
+    }
+  ],
+  "artifact": {
+    "directory": ".tools/s304-source-binding-local-bound-r1",
+    "manifestSha256": "94afb82ab59402c0ec60a90726e1f4b36f796746f82bbe7c6f294e0076963046",
+    "sources": {
+      "input": {
+        "path": ".tools\\s304-source-binding-local-input-r2.json",
+        "sha256": "d710d3fdec9b46541ad08e958dca41fcf752b2fdeca0bf4bc8e67fe5f2992918"
+      },
+      "archive": {
+        "path": ".tools\\s304-source-binding-local-archive-r2.json",
+        "sha256": "06bb0adcd6b999d7a976c9ea769a80a513a462130a611f6dd892cce17e2fc6fc"
+      }
+    },
+    "artifacts": {
+      "features.json": "ff731ee483cb01fa5f931ab5d0497fe78ca8a2c4366d0e6d756cb36b4cbe35c9",
+      "labels.json": "f978b263698824f62e56e95cad1f98aec269b8bbb14fa6df1b934d19a72fb8a7",
+      "sources.json": "ddc4d07443e7bce7ae5919039886d6980991c866ceab7aa273a61d9bdcc81b10"
+    }
+  },
+  "localVerification": {
+    "syntheticOnly": false,
+    "maps": 2,
+    "labels": 2,
+    "pairedMaps": 0,
+    "independentMaps": 0,
+    "alreadyExposed": true,
+    "originalHttpBytesRetained": false,
+    "oracle": {
+      "status": "PASS",
+      "verifiedLocalMaps": 2,
+      "independentMaps": 0,
+      "comparedAgainst": "existing_SQL018_OutcomeVerifier",
+      "checks": [
+        "canonical_A_B_label",
+        "receipt_id_and_original_SHA",
+        "start_completion_verification_clocks",
+        "labels_separate_from_features",
+        "exposure_exclusion"
+      ],
+      "deployable": false
+    }
+  },
+  "checks": {
+    "nodeTests": 60,
+    "newNodeTests": 20,
+    "log": ".tools/s304-source-binding-final-node.log",
+    "sourceReplay": "PASS",
+    "externalManifestHash": "PASS",
+    "previousAdapterReplay": "PASS",
+    "strictPlanReplay": "PASS",
+    "allPolicySourceHashes": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "migrations": 61,
+    "packageRegression": {
+      "status": "PASS",
+      "tests": 1053,
+      "workspaces": 8,
+      "log": ".tools/s304-source-binding-suite.log"
+    },
+    "docsLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T22:34:34.448Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerRequests": 0,
+  "businessWrites": 0,
+  "modelScoringPerformed": false,
+  "trainingPerformed": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "limitations": [
+    "local_export_is_the_trust_boundary_not_a_server_signature",
+    "pro_does_not_establish_Tier1_edition",
+    "remote_series_and_event_inventory_not_proven",
+    "projections_do_not_restore_original_HTTP_bytes"
+  ],
+  "nextTask": "S3-04/conditional-future-enrollment-verifier"
+}

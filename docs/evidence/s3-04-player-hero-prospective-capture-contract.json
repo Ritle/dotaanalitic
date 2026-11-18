@@ -1,0 +1,118 @@
+{
+  "task": "S3-04/player-hero-prospective-capture-contract",
+  "status": "implemented_offline_contract_only",
+  "artifactPath": ".tools/s304-prospective-demo-capture-r1.json",
+  "artifactSha256": "fd26110d7bb87ef856ca6635c14f35f4f96836e8700fa6fc7f00ecbf8058a6db",
+  "preparedAt": "2026-11-13T20:14:57.531Z",
+  "fingerprint": "6cf61db86eb97b5f942b44f8cff4f55554d41fbda7aa3f2c426e57df702a6342",
+  "captureFingerprint": "4040d76ee3cc4de2a1693a99b645b988d2903a36ffad5b48034e9a2be26c00c1",
+  "syntheticOnly": true,
+  "realProspectiveCaptures": 0,
+  "environment": {
+    "node": "v22.15.0",
+    "compilerArgs": [
+      "node_modules/typescript/bin/tsc",
+      "tools/research/player-hero-prospective-capture.mts",
+      "--strict",
+      "--noUncheckedIndexedAccess",
+      "--skipLibCheck",
+      "--target",
+      "ES2022",
+      "--module",
+      "NodeNext",
+      "--moduleResolution",
+      "NodeNext",
+      "--types",
+      "node",
+      "--typeRoots",
+      "packages/db/node_modules/@types",
+      "--outDir",
+      ".tools/s304-prospective-capture-runtime"
+    ],
+    "code": {
+      "tools/research/player-hero-prospective-capture.mts": "79f37b70c5318d8b929a0f736f420a9e6fa69845eef21ee760398d2bfef5285c",
+      "tools/research/player-hero-prospective-capture.mjs": "eba46aec263f0f6b491c337c2f521e16f06540bc9a76b59e797831f3ca52b6be",
+      "tools/research/player-hero-feature.mts": "0b91225fae18a638385162f62447a939d47ed84b1fc549fc4951000d4e3d1496",
+      "tests/node/player-hero-prospective-capture.test.mjs": "5c7d283dd6e425bc8006d34c97092e6bf5265286906c08951a361d5de324aa42",
+      "tests/node/player-hero-prospective-capture-cli.test.mjs": "2fb233ffc474069341ebba6030e16c51c81e9944e71bc89bbb2979460605cb6e",
+      "tests/fixtures/player-hero-prospective-input.mjs": "993d43aa7f9f02f3d6c16a5d0fd36df5a5f73729b94611e001b980d630c9558f",
+      "package.json": "6a8defbb365fe3d5a50757e187461ec5b61d985123bc0c0cfb12dc8cf5d48355",
+      "pnpm-lock.yaml": "0297a50b1d23f5550d66fa0d305d332869316316fbd3c1014e4570d411be089d",
+      "node_modules/typescript/lib/typescript.js": "3ae902c92cc44dace175c0e69e13a4b0899f6983c6121d76b9ab8dd5795e7675",
+      "node_modules/typescript/lib/_tsc.js": "e8f349eabd48486bdb2bf9dc1a00c89d58297270c54b745838879e2859194419",
+      "packages/db/node_modules/@types/node/package.json": "234e64edc31580d6052f8abc89b96f156de29d3b4c7121214b960dec09bd2a25",
+      "packages/db/node_modules/@types/node/index.d.ts": "71d3ae6a5e73ca4130762560425e00984ebaff64d5353a3333d1bb7eb86ef336",
+      "packages/contracts/node_modules/zod/package.json": "c2d190d9ee4e0bdb60332aaa2130a6a98d65ddb903fe1d29248b15de57832c45"
+    },
+    "runtime": {
+      "player-hero-prospective-capture.mjs": "8b0284953eaa192e5b0879fa3d3b1afc2133913de7d094fe8668913ebfebe3a6",
+      "player-hero-feature.mjs": "937c43efc29997b6f979f961ac5fb2f577966a1ec6a0233c5683277cd2cea20b"
+    },
+    "frozenBuilderManifestSha256": "2e39139c0f7daf1f029246a1804ebb56c281b92a603bf2b8a9faf80a31b5fd54"
+  },
+  "checks": {
+    "targetedNode": {
+      "status": "passed",
+      "tests": 25
+    },
+    "strictTypeScript": "passed",
+    "offlineDemoVerify": "passed",
+    "oracle": {
+      "status": "passed",
+      "syntheticOnly": true,
+      "cases": 24,
+      "playerChecks": 960,
+      "receiptDigestChecks": 132,
+      "scalarAndEligibilityCases": 24
+    },
+    "mandatoryQA": {
+      "frozenOfflineInstall": "passed",
+      "typecheck": "passed",
+      "tests": {
+        "status": "passed",
+        "count": 978,
+        "command": "pnpm test --maxWorkers=1",
+        "timeoutsChanged": false
+      },
+      "build": "passed",
+      "migrations": {
+        "status": "passed",
+        "count": 57,
+        "historicalChecksumsPreserved": true
+      },
+      "browserAndPgIntegration": "not_run_no_ui_api_sql_changes"
+    },
+    "readiness": {
+      "checkedAt": "2026-11-13T20:21:16.625Z",
+      "model": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      },
+      "apiHealth": 200,
+      "web": 200,
+      "privateEndpointWithoutSession": 401,
+      "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+    },
+    "docsLinks": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "primaryEligible": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "predictionPerformed": false,
+  "deployable": false,
+  "limitations": [
+    "offline_assertions_not_authenticated",
+    "actual_start_clock_semantics_not_verified",
+    "elo_inference_not_connected",
+    "independent_protocol_not_registered"
+  ],
+  "nextTask": {
+    "id": "S3-04/player-hero-prospective-feature-parity",
+    "scope": "связать прошедший контракт снимок с фиксированным Elo через отдельные проверенные прошлые исходы, собрать два входа H1/H2 и проверить численную совместимость; без live-сбора, переобучения и активации",
+    "model": "GPT-6 Astra",
+    "reasoning": "High"
+  }
+}

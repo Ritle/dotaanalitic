@@ -1,0 +1,177 @@
+{
+  "task": "S3-04/conditional-future-registration-preflight",
+  "date": "2026-11-15",
+  "status": "diagnostic_complete_registration_blocked",
+  "files": [
+    {
+      "path": "tools/research/conditional-registration-preflight.mjs",
+      "sha256": "6da09619aa93127d0503aa6a6bf530cf2afd8b0cce3a1f6e035f6defc0bb8d02"
+    },
+    {
+      "path": "tests/node/conditional-registration-preflight.test.mjs",
+      "sha256": "5f72358b02007e349beab5f6755ab899a3c1acf44a50b17bf61c50c1ffaf86b4"
+    }
+  ],
+  "sourceManifest": {
+    "path": ".tools/s304-registration-preflight-sources-r1/manifest.json",
+    "sha256": "5a342ed16f1b71954d9799f7d101837377356e72e622c8e18c251b530135ea0e"
+  },
+  "sourceReport": {
+    "path": ".tools/s304-registration-preflight-r1/report.json",
+    "sha256": "48ce91c478b20f01d96f97f84e244f7edc7a84c1106616f6ea4a55383b7a86cc"
+  },
+  "bundle": {
+    "path": ".tools/s304-registration-preflight-r1/bundle.json",
+    "sha256": "f996a6948b26c475873202376196c095b870d191943c82f685d75e154bb20e32"
+  },
+  "observedAt": "2026-11-15T01:44:44.057Z",
+  "providerRequests": 7,
+  "providerRequestStats": {
+    "opendota": {
+      "attempts": 2,
+      "httpStatuses": {
+        "200": 2
+      },
+      "transportErrors": {}
+    },
+    "pandascore": {
+      "attempts": 5,
+      "httpStatuses": {
+        "200": 5
+      },
+      "transportErrors": {}
+    }
+  },
+  "quotaAccountingWrites": true,
+  "businessDatabaseWrites": 0,
+  "findings": {
+    "catalogueRows": 10413,
+    "blastNativeCandidate": "20208",
+    "dreamLeagueMainNativeId": null,
+    "excludedDreamLeagueQualifier": "20359",
+    "blastCandidateMapsObserved": 0,
+    "pandaScorePages": 5,
+    "pandaScoreRows": 98,
+    "pandaScoreTargetRows": 0,
+    "endpointEndObserved": true,
+    "atomicScheduleSnapshot": false,
+    "futureDenominatorComplete": false,
+    "editionBindingsVerified": false,
+    "currentHarnessFiles": 42,
+    "currentEnvironmentMatched": true,
+    "priorExposureMaps": 5674,
+    "priorExposureSeries": 1768,
+    "newLocalExposures": 0,
+    "globalExposureInventoryComplete": false
+  },
+  "checks": {
+    "steps": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-preflight-install.log",
+        "error": null
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-preflight-typecheck.log",
+        "error": null
+      },
+      {
+        "name": "test",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-preflight-test.log",
+        "error": null
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-preflight-build.log",
+        "error": null
+      },
+      {
+        "name": "migrations",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-preflight-migrations.log",
+        "error": null
+      },
+      {
+        "name": "node",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-preflight-node.log",
+        "error": null
+      }
+    ],
+    "nodeTests": 8,
+    "packageTests": 1053,
+    "workspaces": 8,
+    "migrationFiles": 62,
+    "existingSyntheticEvaluatorReplay": "PASS",
+    "currentHarnessAndEnvironmentSHA": "PASS",
+    "oldFrozenContractStoragePolicyFiles": "PASS",
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "separatePgBrowserPythonSuites": "not_run_SQL_UI_and_numerical_code_unchanged",
+    "newFileWhitespace": "PASS"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T01:58:46.381Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "registrationBlockers": [
+    "MAIN_EVENT_NATIVE_BINDINGS_NOT_VERIFIED",
+    "TARGET_START_BOUND_NOT_VERIFIED",
+    "REAL_REGISTRATION_CONSUMER_NOT_IMPLEMENTED",
+    "SQL062_REJECTS_REAL_REGISTRATION",
+    "REAL_CONSUMER_EXECUTABLE_ENVIRONMENT_MANIFEST_NOT_FROZEN"
+  ],
+  "registrationPerformed": false,
+  "registrationReady": false,
+  "collectionAllowed": false,
+  "realEvaluationAllowed": false,
+  "deployable": false,
+  "calendarSources": [
+    {
+      "fromDate": "2026-11-20",
+      "throughDate": "2026-11-29",
+      "source": "https://blast.tv/dota/news/blast-slam-ix-the-battle-moves-online"
+    },
+    {
+      "fromDate": "2026-12-02",
+      "throughDate": "2026-12-13",
+      "source": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/"
+    }
+  ],
+  "limitations": [
+    "candidate_name_is_not_verified_main_event_binding",
+    "PandaScore_normalized_observations_not_retained_raw_HTTP_bodies",
+    "short_last_page_does_not_prove_future_or_atomic_completeness",
+    "current_harness_manifest_does_not_freeze_unimplemented_real_consumer"
+  ],
+  "nextTask": "S3-04/conditional-real-registration-adapter",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedEffort": "High"
+}

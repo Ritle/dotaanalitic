@@ -1,0 +1,130 @@
+{
+  "task": "S2-01/auto-comparison-history",
+  "date": "2026-11-12",
+  "status": "implemented_owner_acceptance_pending",
+  "policy": {
+    "version": "comparison-history-v1",
+    "source": "existing OpenDota adapter",
+    "trigger": "explicit owner comparison with missing global normalized pro coverage",
+    "minimumMapsPerPlayer": 5,
+    "minimumIsPredictionEligibility": false,
+    "defaultOptions": {
+      "windowDays": 365,
+      "maxMaps": 25
+    },
+    "scope": "unique maps per selected five, across organizations",
+    "historicalCutoffDownloads": false,
+    "queue": "opendota-player-history",
+    "selectedPriority": 100,
+    "generalWorkerStarted": false,
+    "newMigrations": 0,
+    "newDependencies": 0
+  },
+  "checks": {
+    "install": {
+      "status": "PASS",
+      "command": "pnpm install --frozen-lockfile --offline",
+      "note": "Initial sandbox call refused a non-TTY modules-directory change; same command in existing authorized store succeeded, lockfile unchanged."
+    },
+    "typecheck": {
+      "status": "PASS",
+      "command": "pnpm typecheck"
+    },
+    "unitCli": {
+      "status": "PASS_AFTER_TARGETED_RETRIES",
+      "uniqueTests": 951,
+      "initialCommand": "pnpm test",
+      "initialResult": "exit 1: two db CLI timeouts; downstream ingestion run had three CLI timeouts under parallel load",
+      "targetedRetries": {
+        "db": "research-plan-cli/research-execution-cli: 3 tests PASS, maxWorkers=1",
+        "ingestion": "evaluation-details-cli/evaluation-discovery-cli/v1-release-cli: 4 tests PASS, maxWorkers=1",
+        "remainingApiWorker": "64 tests PASS"
+      },
+      "thresholdsChanged": false
+    },
+    "build": {
+      "status": "PASS",
+      "command": "pnpm build",
+      "notes": "Existing Rollup Zod annotation and bundle-size warnings remain."
+    },
+    "apiPostgres": {
+      "status": "PASS",
+      "tests": 30,
+      "files": [
+        "comparison-history.integration.test.ts",
+        "player-history.integration.test.ts",
+        "auth.integration.test.ts",
+        "lineup-templates.integration.test.ts"
+      ],
+      "database": "disposable test databases",
+      "providers": "synthetic only"
+    },
+    "browser": {
+      "status": "PASS_AFTER_TARGETED_RETRIES",
+      "uniqueTests": 29,
+      "initial": "22 pass, roster serial case failed/cascaded skips, one legacy role-edit timeout",
+      "corrections": "Legacy status selector scoped; serial manual-history fixture cooldown/cache expectations adapted; manual synthetic worker starts after the automatic empty-source comparison, avoiding mixed-provider races. Full seven-case roster journey PASS; isolated role-edit case PASS without timeout changes.",
+      "newCases": [
+        "bounded imports and current comparison refresh without role/filter changes",
+        "no duplicate active source work or repeated downloads during cooldown",
+        "historical selection stays offline",
+        "late response cannot restore edited lineup comparison"
+      ],
+      "mobileWidth": 360,
+      "mobileVisuallyInspected": true
+    },
+    "migrations": {
+      "status": "PASS",
+      "count": 53
+    },
+    "docsLinks": {
+      "status": "PASS",
+      "command": "node scripts/check-doc-links.mjs"
+    },
+    "finalLocalHealth": {
+      "status": "PASS",
+      "api": 200,
+      "web": 200,
+      "privateAccessWithoutSession": 401,
+      "comparisonHistoryWithoutSession": 401,
+      "note": "Initial restricted-sandbox localhost probe received EACCES; authorized read-only repeat passed."
+    },
+    "gitDiffCheck": {
+      "status": "PASS",
+      "note": "Only existing LF/CRLF conversion notices."
+    }
+  },
+  "workingState": {
+    "tables": 86,
+    "changedTables": [],
+    "maps": 2232,
+    "exactQueueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiPid": 28108,
+    "webPid": 18408,
+    "health": 200,
+    "web": 200,
+    "externalProviderHttp": 0,
+    "newForecasts": 0,
+    "newScenarios": 0,
+    "newTrainingRuns": 0,
+    "newTemplates": 0,
+    "generalWorker": "OFF"
+  },
+  "limits": [
+    "Source coverage is synthetic integration coverage, not a new live-provider audit.",
+    "Five raw maps is only an automatic loading policy, not model eligibility or a reliability guarantee.",
+    "A saved projection can be unavailable on evidence resume; explicit partial/skip remains and maps are not silently redownloaded.",
+    "First real supported Tier1 map forecast and owner UI acceptance remain open.",
+    "Additional user-account provisioning remains deferred."
+  ],
+  "nextTask": "S3-05/V1-retest/activation-owner-smoke on a ready supported Tier1 pair",
+  "suggestedModel": "GPT-6.1 Sol",
+  "reasoningEffort": "High"
+}

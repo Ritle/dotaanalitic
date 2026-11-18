@@ -1,0 +1,157 @@
+{
+  "task": "S3-04/post-draft-validation-readiness/exposure-ledger/coverage-and-series-audit",
+  "date": "2026-11-15",
+  "status": "scoped_audit_completed_global_inventory_not_certified",
+  "artifact": {
+    "path": ".tools/s304-coverage-report-r1.json",
+    "sha256": "1ebee3f0061fde43abc0e74eef990b56c082aee3c03f7051282727482cceada7"
+  },
+  "parents": {
+    "archive": {
+      "path": ".tools/s304-archive-review-r3.json",
+      "sha256": "01e4b85f3658ba912ae28f3b150bfe039bdc44149e1f2861a86f31d44c6437cc"
+    },
+    "triage": {
+      "path": ".tools/s304-archive-triage-r1.json",
+      "sha256": "dd201a915ceef2b08f950bbe47f32055484b121baa59589a00128a4a57bcb1c0"
+    },
+    "namespace": {
+      "path": ".tools/s304-namespace-report-r1.json",
+      "sha256": "be55c46227c122aaf004e9595c644d5e41ba5e774154f95621efe65ea94b41d9"
+    }
+  },
+  "reviewedFiles": 131,
+  "bytes": 156944183,
+  "statusCounts": {
+    "scoped_references_accounted": 74,
+    "authorization_error_no_payload": 2,
+    "requires_review": 55
+  },
+  "utf16Recovered": 14,
+  "resourceLimitRecovered": 3,
+  "remaining": {
+    "seriesReferenceFiles": 38,
+    "syntheticInputFiles": 2,
+    "opaqueFiles": 15
+  },
+  "newExplicitOpenDotaSeriesIds": [
+    "1054606",
+    "1084738",
+    "1084757",
+    "1135339",
+    "1145525",
+    "1145790",
+    "1145838",
+    "1145869",
+    "1146274",
+    "1146309",
+    "1152225",
+    "1153910",
+    "1154159",
+    "1154256",
+    "1154541",
+    "1154687",
+    "1167282",
+    "980651",
+    "982345",
+    "982368",
+    "982601",
+    "982629",
+    "982651",
+    "983008"
+  ],
+  "opaqueReasons": {
+    "unparsed_structured_text": 219,
+    "unknown_local_or_invalid_series_id": 115,
+    "invalid_id_list": 1,
+    "invalid_or_unsafe_map_id": 1
+  },
+  "inheritedExcluded": 269,
+  "inheritedSourceIssues": 5,
+  "valveSeries": {
+    "groups": 155,
+    "counts": {
+      "partial_map_agreement": 5,
+      "no_opendota_link": 56,
+      "all_maps_agree": 94
+    },
+    "reverseConflicts": 0,
+    "missingMaps": 0,
+    "partialUnknownMaps": 8,
+    "canonicalAliasesCreated": 0
+  },
+  "ledgerUnchanged": {
+    "sources": 3348,
+    "maps": 5674,
+    "knownSeries": 1744,
+    "localAliases": 1096,
+    "unresolvedMaps": 1954,
+    "conflictingMaps": 0,
+    "unresolvedAliases": 0,
+    "conflictingAliases": 0
+  },
+  "guards": {
+    "checkedAt": "2026-11-14T21:08:22.769Z",
+    "overwriteRejected": true,
+    "wrongShaRejected": true,
+    "rehashedResultRejected": true,
+    "originalUnchanged": true,
+    "independentSeriesCounts": {
+      "partial_map_agreement": 5,
+      "no_opendota_link": 56,
+      "all_maps_agree": 94
+    },
+    "missingValveMaps": 0,
+    "priorCodeBindings": 10
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T21:07:59.694Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "checks": {
+    "newNode": 7,
+    "combinedNode": 79,
+    "migrationChecksums": 61,
+    "replay": "PASS",
+    "installFrozenOffline": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "packageTests": 1053,
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "separatePgBrowserPython": "Not run: runtime/schema/UI/model math unchanged",
+    "packagePipelineExitCode": 0
+  },
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "training": 0,
+  "activation": 0,
+  "completeGlobalInventory": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "nextTask": "S3-04/post-draft-validation-readiness/exposure-ledger/series-projection-reconciliation",
+  "nextModel": "GPT-6 Astra · High"
+}

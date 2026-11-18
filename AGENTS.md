@@ -1,5 +1,9 @@
 # AGENTS.md — Dota 2 Pro Analytics
 
+## Owner decision 2026-11-16 — series forecast scope
+
+The owner selected S3-09: the primary five-player-lineup forecast targets the whole BO1/BO3/BO5 meeting; Draft Lab remains one map. This supersedes the older single-map-only scope for this new mode, not its validation/security/provenance gates. Preserve all old map snapshots and evaluations. Series probabilities require independent whole-series temporal evaluation and separate activation/storage; do not relabel map probabilities or reuse their quality pass. No BO2/draw or between-map/Live series scope yet. Read `docs/S3_09_SERIES_DEVELOPMENT_EVALUATION.md`; next subtask is `S3-09/series-independent-scope` to identify untouched BO3 events. Independent registration, evaluation and activation remain open; this does not finish S3-09 or authorize publication.
+
 > This file is the primary operating contract for Codex in this repository. Read this file first, then the documentation listed below. This product is a personal **single-owner** Dota 2 **professional-match** analytics application, NOT a commercial/multi-user SaaS.
 
 ## v10 — owner-approved first prediction release (2026-11-02)

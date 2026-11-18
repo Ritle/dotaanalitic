@@ -1,0 +1,324 @@
+{
+  "localService": { "apiRestarted": true, "apiHealthStatus": 200, "journalPageStatus": 200, "unauthenticatedResultStatus": 401 },
+  "task": "S3-07/result-availability-table",
+  "date": "2026-11-16",
+  "checks": [
+    {
+      "name": "install",
+      "exitCode": 0,
+      "log": ".tools/s307-results-install.log"
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "log": ".tools/s307-results-typecheck.log"
+    },
+    {
+      "name": "test",
+      "exitCode": 0,
+      "log": ".tools/s307-results-test.log"
+    },
+    {
+      "name": "build",
+      "exitCode": 2,
+      "log": ".tools/s307-results-build.log"
+    },
+    {
+      "name": "build-after-query-type-fix",
+      "exitCode": 0,
+      "log": ".tools/s307-results-build-final.log"
+    }
+  ],
+  "packageTests": 1060,
+  "integrationTests": 9,
+  "browserTests": 12,
+  "finalCancellationBrowserCheck": 1,
+  "files": [
+    {
+      "path": "apps/api/src/app.ts",
+      "sha256": "f3a5452f941455b481afe92dc36375933bfdfd388f18b8d947cdc8dc8110f756"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-result-provider.ts",
+      "sha256": "3cd2bb0abff1a939f6e11f97095f1629168074c06e85130aa808119b12cd8fd9"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-result-contract.ts",
+      "sha256": "99addc6311d39e91a68ce0ee9062b7d80babcc7b8eb13ca6bf1872beb5e5c57d"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-result-service.ts",
+      "sha256": "776e3dcc11bbfe8735527737cf56d9ce79f9be31b9d3e90c009bb9e982a8d6bf"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-result-http.ts",
+      "sha256": "ff469f49083ae0032fa3797697534c3e4be4b68fa71610ffbd8c98451b77a92e"
+    },
+    {
+      "path": "apps/api/tests/journal-result.test.ts",
+      "sha256": "39b90cf5c1f474a44d6890de429bed2949da82224620d26b8fc0e8844b89bafa"
+    },
+    {
+      "path": "apps/api/tests/journal-result.integration.test.ts",
+      "sha256": "6876821583225a4c41e81c923d0831f00ebcd29ba77f87499dae6706a0f95d2b"
+    },
+    {
+      "path": "apps/web/src/components/ForecastJournalRow.vue",
+      "sha256": "a84703404626030b22cac2790eecaa7e35f05879964ae4e74b5de27c781e59b0"
+    },
+    {
+      "path": "apps/web/src/components/CurrentForecastJournal.vue",
+      "sha256": "ab72a2f0805232010897358ee517fe0853402379f6a1b67824fe9c346c0ce9a4"
+    },
+    {
+      "path": "apps/web/src/views/ForecastJournalView.vue",
+      "sha256": "462e511bbd97b53c865cc86df93efaca1cc8209814013bbacf493217cc4a2963"
+    },
+    {
+      "path": "apps/web/tests/e2e/journal-current.spec.ts",
+      "sha256": "76be013aa430866ab5d99cdd4cd4848d6c4326a42ba52a462ddc12e6686743f3"
+    },
+    {
+      "path": "apps/web/tests/e2e/forecast-verdict.spec.ts",
+      "sha256": "534bcb0dc7546278781ed1540d312c97dc31ea6a4ee284b58faf64e58dee1660"
+    },
+    {
+      "path": "apps/web/tests/e2e/journal-source-results.spec.ts",
+      "sha256": "e463f435ef61f1749e076d9efed78957356f4b1e5f77d37d605a8ff06c766b45"
+    }
+  ],
+  "liveEvidence": {
+    "date": "2026-11-16",
+    "externalCallsDuringReplay": 0,
+    "before": {
+      "snapshots": 12,
+      "bindings": 0,
+      "outcomes": 0,
+      "reports": 2
+    },
+    "after": {
+      "snapshots": 12,
+      "bindings": 0,
+      "outcomes": 0,
+      "reports": 2
+    },
+    "sourceRequests": 9,
+    "sourceStatusCounts": {
+      "finished": 7,
+      "not_started": 2
+    },
+    "rows": [
+      {
+        "probability": 0.5476897217211073,
+        "provider": "pandascore",
+        "providerMatchId": "1793320",
+        "state": "finished",
+        "actualWinner": "B",
+        "correct": false,
+        "providerGameId": "741497",
+        "beganAt": "2026-11-12T13:04:37.000Z",
+        "endedAt": "2026-11-12T13:53:20.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:00.313Z",
+        "sourceSha256": "3747281a5ef0a39eb2a27e71f99bff672cc52e952d4337322847ceac9a422fec",
+        "sourceUrl": "https://api.pandascore.co/matches/1793320",
+        "reason": "PROVIDER_FIRST_MAP_RESULT",
+        "canonicalOutcome": false,
+        "title": "Aurora — GamerLegion · 1win Essence III · карта 1"
+      },
+      {
+        "probability": 0.6377069260818982,
+        "provider": "pandascore",
+        "providerMatchId": "1793321",
+        "state": "finished",
+        "actualWinner": "A",
+        "correct": true,
+        "providerGameId": "741500",
+        "beganAt": "2026-11-13T10:03:27.000Z",
+        "endedAt": "2026-11-13T11:23:06.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:04.043Z",
+        "sourceSha256": "958e06cb88fc3df1a08ec24f47c955a2557ec2fc76b7f15cf3f9ea752abe7478",
+        "sourceUrl": "https://api.pandascore.co/matches/1793321",
+        "reason": "PROVIDER_FIRST_MAP_RESULT",
+        "canonicalOutcome": false,
+        "title": "GL vs CH"
+      },
+      {
+        "probability": 0.5767609513627475,
+        "provider": "pandascore",
+        "providerMatchId": "1806970",
+        "state": "finished",
+        "actualWinner": "A",
+        "correct": true,
+        "providerGameId": "741595",
+        "beganAt": "2026-11-13T16:14:24.000Z",
+        "endedAt": "2026-11-13T17:13:54.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:08.072Z",
+        "sourceSha256": "63c98312fe59dde0b5ab3c5ef2197bdb7c09801450217f6cdffbb9c2679be9a1",
+        "sourceUrl": "https://api.pandascore.co/matches/1806970",
+        "reason": "PROVIDER_FIRST_MAP_RESULT",
+        "canonicalOutcome": false,
+        "title": "Liquid vs LGD"
+      },
+      {
+        "probability": 0.8661130509688345,
+        "provider": "pandascore",
+        "providerMatchId": "1793327",
+        "state": "finished",
+        "actualWinner": "B",
+        "correct": false,
+        "providerGameId": "741518",
+        "beganAt": "2026-11-13T20:12:14.000Z",
+        "endedAt": "2026-11-13T21:15:17.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:12.073Z",
+        "sourceSha256": "4710742b4f0322e8eea277fffecda0e067c13c520d52390a15e9119a8fb89955",
+        "sourceUrl": "https://api.pandascore.co/matches/1793327",
+        "reason": "PROVIDER_FIRST_MAP_RESULT",
+        "canonicalOutcome": false,
+        "title": "TS vs Froglings"
+      },
+      {
+        "probability": 0.8661130509688345,
+        "provider": "pandascore",
+        "providerMatchId": "1793327",
+        "state": "finished",
+        "actualWinner": "B",
+        "correct": false,
+        "providerGameId": "741518",
+        "beganAt": "2026-11-13T20:12:14.000Z",
+        "endedAt": "2026-11-13T21:15:17.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:12.073Z",
+        "sourceSha256": "4710742b4f0322e8eea277fffecda0e067c13c520d52390a15e9119a8fb89955",
+        "sourceUrl": "https://api.pandascore.co/matches/1793327",
+        "reason": "PROVIDER_FIRST_MAP_RESULT",
+        "canonicalOutcome": false,
+        "title": "TS vs Froglings"
+      },
+      {
+        "probability": null,
+        "provider": "pandascore",
+        "providerMatchId": "1793319",
+        "state": "finished",
+        "actualWinner": "B",
+        "correct": null,
+        "providerGameId": "741494",
+        "beganAt": "2026-11-14T12:05:40.000Z",
+        "endedAt": "2026-11-14T13:05:27.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:16.056Z",
+        "sourceSha256": "54dba0e30c3902c5b2420ffb25e5c9088d94f884d7e298c4f1377e6727c5504a",
+        "sourceUrl": "https://api.pandascore.co/matches/1793319",
+        "reason": "NO_ISSUED_PROBABILITY",
+        "canonicalOutcome": false,
+        "title": "KONCA vs YeS"
+      },
+      {
+        "probability": 0.6904790850175772,
+        "provider": "pandascore",
+        "providerMatchId": "1793322",
+        "state": "finished",
+        "actualWinner": "A",
+        "correct": true,
+        "providerGameId": "741503",
+        "beganAt": "2026-11-14T20:08:05.000Z",
+        "endedAt": "2026-11-14T21:00:14.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:20.087Z",
+        "sourceSha256": "f1cf18461f9b683a0a4725c0b616f84d1037f578a23d0ee2c1d69e114ea555a6",
+        "sourceUrl": "https://api.pandascore.co/matches/1793322",
+        "reason": "PROVIDER_FIRST_MAP_RESULT",
+        "canonicalOutcome": false,
+        "title": "AUR vs CH"
+      },
+      {
+        "probability": 0.3160954341834455,
+        "provider": "pandascore",
+        "providerMatchId": "1793337",
+        "state": "finished",
+        "actualWinner": "B",
+        "correct": true,
+        "providerGameId": "741533",
+        "beganAt": "2026-11-15T14:25:06.000Z",
+        "endedAt": "2026-11-15T15:44:38.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:24.236Z",
+        "sourceSha256": "b7167e06be4a47e38c6b14cc20a668ec42ad0e5a0843e34914f3ebb541f7dc0a",
+        "sourceUrl": "https://api.pandascore.co/matches/1793337",
+        "reason": "PROVIDER_FIRST_MAP_RESULT",
+        "canonicalOutcome": false,
+        "title": "Upper Bracket Quarterfinal 4: Froglings vs LEGION"
+      },
+      {
+        "probability": 0.3160954341834455,
+        "provider": "pandascore",
+        "providerMatchId": "1793337",
+        "state": "finished",
+        "actualWinner": "B",
+        "correct": true,
+        "providerGameId": "741533",
+        "beganAt": "2026-11-15T14:25:06.000Z",
+        "endedAt": "2026-11-15T15:44:38.000Z",
+        "sourceFetchedAt": "2026-11-15T23:34:24.236Z",
+        "sourceSha256": "b7167e06be4a47e38c6b14cc20a668ec42ad0e5a0843e34914f3ebb541f7dc0a",
+        "sourceUrl": "https://api.pandascore.co/matches/1793337",
+        "reason": "PROVIDER_FIRST_MAP_RESULT",
+        "canonicalOutcome": false,
+        "title": "Upper Bracket Quarterfinal 4: Froglings vs LEGION"
+      },
+      {
+        "probability": 0.5366060809293464,
+        "provider": "pandascore",
+        "providerMatchId": "1793341",
+        "state": "not_started",
+        "actualWinner": null,
+        "correct": null,
+        "providerGameId": "741545",
+        "beganAt": null,
+        "endedAt": null,
+        "sourceFetchedAt": "2026-11-15T23:34:28.122Z",
+        "sourceSha256": "83da931649aefbccd0c6f9b15ccef0a3fdea191356a05a7749b1ad05fa5886c5",
+        "sourceUrl": "https://api.pandascore.co/matches/1793341",
+        "reason": "FIRST_MAP_NOT_FINISHED",
+        "canonicalOutcome": false,
+        "title": "Lower Bracket Round 1 Match 1: GL vs LGD"
+      },
+      {
+        "probability": 0.26443419369922994,
+        "provider": "pandascore",
+        "providerMatchId": "1793342",
+        "state": "not_started",
+        "actualWinner": null,
+        "correct": null,
+        "providerGameId": "741548",
+        "beganAt": null,
+        "endedAt": null,
+        "sourceFetchedAt": "2026-11-15T23:34:32.090Z",
+        "sourceSha256": "6f0f0c8c707bccfdbb718e93a0605d4bf844e3934e5fc0c425d2feb467a1885f",
+        "sourceUrl": "https://api.pandascore.co/matches/1793342",
+        "reason": "FIRST_MAP_NOT_FINISHED",
+        "canonicalOutcome": false,
+        "title": "Lower Bracket Round 1 Match 2: Froglings vs KONCA"
+      }
+    ]
+  },
+  "compatibility": {
+    "unchangedCoreFiles": 299,
+    "additiveBarrels": 2,
+    "migrationsApplied": false,
+    "modelChanged": false,
+    "outcomeWrites": false
+  },
+  "logs": [
+    ".tools/s307-results-integration.log",
+    ".tools/s307-results-browser.log",
+    ".tools/s307-results-browser-final.log"
+  ],
+  "limits": [
+    "PandaScore first-map source check is transient and separate from canonical OpenDota outcomes and immutable reports.",
+    "Repeated forecasts are not independent accuracy observations.",
+    "Archived rows and owner cancellations never request source results."
+  ],
+  "fixes": [
+    "Nullable winner.id observed in future live payloads is accepted.",
+    "Owner cancellation preserved without source requests.",
+    "Parent postponed/canceled states respected.",
+    "Full build caught lost Vue Query type inference after adding the polling callback; explicit JournalResult generic fixed it, full build rerun."
+  ],
+  "nextTask": "S3-07/canonical-result-linking"
+}

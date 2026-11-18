@@ -1,0 +1,558 @@
+{
+  "task": "S3-04/history-gap-audit",
+  "date": "2026-11-13",
+  "sourceHashes": {
+    "evaluationManifest": "cd75521a4dcd9a43e109c824b720890f630d4a693cfaa894309fa7e4ba442ef7",
+    "dataset": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd",
+    "capture": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2"
+  },
+  "auditSha256": "95a79ce4b3ba7a134455c466c50ee6c0caba83772e934487691c9e3b84991cde",
+  "auditCodeSha256": "f6ce3cd5ea9eeb9886160ecdc02868caa7344c3ee4a72e1c666d72fa2934d590",
+  "counts": {
+    "targetMaps": 39,
+    "targetSeries": 18,
+    "distinctDeficientAccounts": 34,
+    "deficientPlayerMapSlots": 98,
+    "summedSlotDeficit": 272
+  },
+  "sourceCohort": {
+    "planned": 223,
+    "paired": 175,
+    "excluded": 48,
+    "unexaminedExclusions": [
+      {
+        "matchId": "9010695250",
+        "reasons": [
+          "INVENTORY_INELIGIBLE",
+          "SERIES_UNVERIFIED"
+        ]
+      },
+      {
+        "matchId": "9036406856",
+        "reasons": [
+          "INVENTORY_INELIGIBLE",
+          "SERIES_UNVERIFIED"
+        ]
+      },
+      {
+        "matchId": "9040119007",
+        "reasons": [
+          "INVENTORY_INELIGIBLE",
+          "SERIES_UNVERIFIED"
+        ]
+      },
+      {
+        "matchId": "9040197051",
+        "reasons": [
+          "INVENTORY_INELIGIBLE",
+          "SERIES_UNVERIFIED"
+        ]
+      },
+      {
+        "matchId": "9043219852",
+        "reasons": [
+          "SERIES_HAS_INELIGIBLE_DATASET_MAP"
+        ]
+      },
+      {
+        "matchId": "9045164434",
+        "reasons": [
+          "INVENTORY_INELIGIBLE",
+          "SERIES_UNVERIFIED"
+        ]
+      },
+      {
+        "matchId": "9048684915",
+        "reasons": [
+          "INVENTORY_INELIGIBLE",
+          "SERIES_HAS_EXCLUDED_MAP"
+        ]
+      },
+      {
+        "matchId": "9048749977",
+        "reasons": [
+          "INVENTORY_INELIGIBLE",
+          "SERIES_HAS_EXCLUDED_MAP"
+        ]
+      },
+      {
+        "matchId": "9051744853",
+        "reasons": [
+          "SERIES_HAS_INELIGIBLE_DATASET_MAP"
+        ]
+      }
+    ]
+  },
+  "accounts": [
+    {
+      "accountId": "164047347",
+      "playerId": "209",
+      "affectedMaps": 2,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-09-05T18:05:56.000Z",
+      "latestCutoffAt": "2026-10-09T14:16:18.000Z",
+      "requiredBeforeEarliestCutoff": 2,
+      "identityProofIds": [
+        "proof:209"
+      ]
+    },
+    {
+      "accountId": "188351504",
+      "playerId": "210",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-09-05T18:05:56.000Z",
+      "latestCutoffAt": "2026-09-05T19:57:42.000Z",
+      "requiredBeforeEarliestCutoff": 2,
+      "identityProofIds": [
+        "proof:210"
+      ]
+    },
+    {
+      "accountId": "450454900",
+      "playerId": "211",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-09-05T18:05:56.000Z",
+      "latestCutoffAt": "2026-09-05T19:57:42.000Z",
+      "requiredBeforeEarliestCutoff": 2,
+      "identityProofIds": [
+        "proof:211"
+      ]
+    },
+    {
+      "accountId": "892486081",
+      "playerId": "212",
+      "affectedMaps": 5,
+      "affectedSeries": 3,
+      "earliestCutoffAt": "2026-09-05T18:05:56.000Z",
+      "latestCutoffAt": "2026-10-13T13:04:58.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:212"
+      ]
+    },
+    {
+      "accountId": "860145568",
+      "playerId": "54",
+      "affectedMaps": 1,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-09-05T19:57:42.000Z",
+      "latestCutoffAt": "2026-09-05T19:57:42.000Z",
+      "requiredBeforeEarliestCutoff": 1,
+      "identityProofIds": [
+        "proof:54"
+      ]
+    },
+    {
+      "accountId": "331711578",
+      "playerId": "202",
+      "affectedMaps": 3,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-06T09:28:52.000Z",
+      "latestCutoffAt": "2026-10-13T09:01:00.000Z",
+      "requiredBeforeEarliestCutoff": 3,
+      "identityProofIds": [
+        "proof:202"
+      ]
+    },
+    {
+      "accountId": "389276156",
+      "playerId": "258",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-06T09:28:52.000Z",
+      "latestCutoffAt": "2026-10-06T11:15:09.000Z",
+      "requiredBeforeEarliestCutoff": 2,
+      "identityProofIds": [
+        "proof:258"
+      ]
+    },
+    {
+      "accountId": "480210721",
+      "playerId": "213",
+      "affectedMaps": 2,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-09T14:16:18.000Z",
+      "latestCutoffAt": "2026-10-13T13:04:58.000Z",
+      "requiredBeforeEarliestCutoff": 2,
+      "identityProofIds": [
+        "proof:213"
+      ]
+    },
+    {
+      "accountId": "120840516",
+      "playerId": "219",
+      "affectedMaps": 4,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-13T09:01:00.000Z",
+      "latestCutoffAt": "2026-10-16T14:11:47.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:219"
+      ]
+    },
+    {
+      "accountId": "127530803",
+      "playerId": "223",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-13T09:01:00.000Z",
+      "latestCutoffAt": "2026-10-13T10:22:24.000Z",
+      "requiredBeforeEarliestCutoff": 2,
+      "identityProofIds": [
+        "proof:223"
+      ]
+    },
+    {
+      "accountId": "312542697",
+      "playerId": "248",
+      "affectedMaps": 1,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-13T09:01:00.000Z",
+      "latestCutoffAt": "2026-10-13T09:01:00.000Z",
+      "requiredBeforeEarliestCutoff": 1,
+      "identityProofIds": [
+        "proof:248"
+      ]
+    },
+    {
+      "accountId": "1220993352",
+      "playerId": "270",
+      "affectedMaps": 3,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-13T09:01:00.000Z",
+      "latestCutoffAt": "2026-10-16T13:13:25.000Z",
+      "requiredBeforeEarliestCutoff": 3,
+      "identityProofIds": [
+        "proof:270"
+      ]
+    },
+    {
+      "accountId": "1150772339",
+      "playerId": "59",
+      "affectedMaps": 3,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-13T17:00:03.000Z",
+      "latestCutoffAt": "2026-10-16T19:55:54.000Z",
+      "requiredBeforeEarliestCutoff": 3,
+      "identityProofIds": [
+        "proof:59"
+      ]
+    },
+    {
+      "accountId": "194555122",
+      "playerId": "237",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-14T13:25:59.000Z",
+      "latestCutoffAt": "2026-10-14T14:40:01.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:237"
+      ]
+    },
+    {
+      "accountId": "482364904",
+      "playerId": "265",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-14T13:25:59.000Z",
+      "latestCutoffAt": "2026-10-14T14:40:01.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:265"
+      ]
+    },
+    {
+      "accountId": "169516760",
+      "playerId": "230",
+      "affectedMaps": 2,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-15T07:12:51.000Z",
+      "latestCutoffAt": "2026-10-16T19:55:54.000Z",
+      "requiredBeforeEarliestCutoff": 2,
+      "identityProofIds": [
+        "proof:230"
+      ]
+    },
+    {
+      "accountId": "333700720",
+      "playerId": "252",
+      "affectedMaps": 5,
+      "affectedSeries": 3,
+      "earliestCutoffAt": "2026-10-15T07:12:51.000Z",
+      "latestCutoffAt": "2026-10-18T19:14:43.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:252"
+      ]
+    },
+    {
+      "accountId": "24045849",
+      "playerId": "272",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-15T16:31:57.000Z",
+      "latestCutoffAt": "2026-10-15T17:45:53.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:272"
+      ]
+    },
+    {
+      "accountId": "28229163",
+      "playerId": "273",
+      "affectedMaps": 5,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-15T16:31:57.000Z",
+      "latestCutoffAt": "2026-10-15T21:49:40.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:273"
+      ]
+    },
+    {
+      "accountId": "36162063",
+      "playerId": "274",
+      "affectedMaps": 5,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-15T16:31:57.000Z",
+      "latestCutoffAt": "2026-10-15T21:49:40.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:274"
+      ]
+    },
+    {
+      "accountId": "80560677",
+      "playerId": "275",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-15T16:31:57.000Z",
+      "latestCutoffAt": "2026-10-15T17:45:53.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:275"
+      ]
+    },
+    {
+      "accountId": "214853734",
+      "playerId": "125",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-15T16:31:57.000Z",
+      "latestCutoffAt": "2026-10-15T17:45:53.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:125"
+      ]
+    },
+    {
+      "accountId": "1256269806",
+      "playerId": "289",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-15T16:31:57.000Z",
+      "latestCutoffAt": "2026-10-15T17:45:53.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:289"
+      ]
+    },
+    {
+      "accountId": "91535476",
+      "playerId": "276",
+      "affectedMaps": 5,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-15T19:16:39.000Z",
+      "latestCutoffAt": "2026-10-16T18:09:08.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:276"
+      ]
+    },
+    {
+      "accountId": "162798290",
+      "playerId": "279",
+      "affectedMaps": 5,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-15T19:16:39.000Z",
+      "latestCutoffAt": "2026-10-16T18:09:08.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:279"
+      ]
+    },
+    {
+      "accountId": "293769213",
+      "playerId": "280",
+      "affectedMaps": 5,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-15T19:16:39.000Z",
+      "latestCutoffAt": "2026-10-16T18:09:08.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:280"
+      ]
+    },
+    {
+      "accountId": "880173582",
+      "playerId": "284",
+      "affectedMaps": 3,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-16T16:56:07.000Z",
+      "latestCutoffAt": "2026-10-16T19:24:47.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:284"
+      ]
+    },
+    {
+      "accountId": "156485213",
+      "playerId": "205",
+      "affectedMaps": 1,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-17T10:04:56.000Z",
+      "latestCutoffAt": "2026-10-17T10:04:56.000Z",
+      "requiredBeforeEarliestCutoff": 1,
+      "identityProofIds": [
+        "proof:205"
+      ]
+    },
+    {
+      "accountId": "196481318",
+      "playerId": "239",
+      "affectedMaps": 3,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-17T10:04:56.000Z",
+      "latestCutoffAt": "2026-10-17T12:42:56.000Z",
+      "requiredBeforeEarliestCutoff": 3,
+      "identityProofIds": [
+        "proof:239"
+      ]
+    },
+    {
+      "accountId": "402285018",
+      "playerId": "260",
+      "affectedMaps": 3,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-17T10:04:56.000Z",
+      "latestCutoffAt": "2026-10-17T12:42:56.000Z",
+      "requiredBeforeEarliestCutoff": 3,
+      "identityProofIds": [
+        "proof:260"
+      ]
+    },
+    {
+      "accountId": "1114792376",
+      "playerId": "287",
+      "affectedMaps": 3,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-17T10:04:56.000Z",
+      "latestCutoffAt": "2026-10-17T12:42:56.000Z",
+      "requiredBeforeEarliestCutoff": 3,
+      "identityProofIds": [
+        "proof:287"
+      ]
+    },
+    {
+      "accountId": "193564777",
+      "playerId": "236",
+      "affectedMaps": 5,
+      "affectedSeries": 2,
+      "earliestCutoffAt": "2026-10-18T15:45:26.000Z",
+      "latestCutoffAt": "2026-10-18T20:34:35.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:236"
+      ]
+    },
+    {
+      "accountId": "876690044",
+      "playerId": "312",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-20T15:01:35.000Z",
+      "latestCutoffAt": "2026-10-20T16:28:43.000Z",
+      "requiredBeforeEarliestCutoff": 5,
+      "identityProofIds": [
+        "proof:312"
+      ]
+    },
+    {
+      "accountId": "187123736",
+      "playerId": "234",
+      "affectedMaps": 2,
+      "affectedSeries": 1,
+      "earliestCutoffAt": "2026-10-22T09:12:26.000Z",
+      "latestCutoffAt": "2026-10-22T10:03:12.000Z",
+      "requiredBeforeEarliestCutoff": 2,
+      "identityProofIds": [
+        "proof:234"
+      ]
+    }
+  ],
+  "earliestObservedMapCounts": {
+    "0": 17,
+    "2": 6,
+    "3": 8,
+    "4": 3
+  },
+  "proposalFile": "s3-04-history-discovery-proposal.json",
+  "checks": {
+    "targetedNodeTests": 8,
+    "fullRegression": {
+      "frozenOfflineInstall": "PASS",
+      "typecheck": "PASS",
+      "tests": 962,
+      "build": "PASS"
+    },
+    "preservation": {
+      "status": "PASS",
+      "counts": {
+        "matches": 2232,
+        "prediction_runs": 3,
+        "v1_runtime_snapshots": 3,
+        "owner_tier1_scopes": 1,
+        "scenarios": 3,
+        "leagues": 54
+      },
+      "queue": {
+        "count": 13,
+        "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+      },
+      "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+      "readiness": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      }
+    },
+    "cli": {
+      "status": "PASS",
+      "offlineReplay": true,
+      "overwriteRefused": true,
+      "tamperRefused": true,
+      "auditSha256": "95a79ce4b3ba7a134455c466c50ee6c0caba83772e934487691c9e3b84991cde"
+    },
+    "collectionProposal": {
+      "status": "PASS",
+      "queries": 9,
+      "accounts": 20,
+      "maxHttpAttempts": 18,
+      "providerHttpRequests": 0,
+      "existingQueryBuilderValidated": true
+    },
+    "migrations": 54,
+    "documentationLinks": "PASS",
+    "diffWhitespace": "PASS",
+    "finalReplay": "PASS"
+  },
+  "providerHttpRequests": 0,
+  "trainingPerformed": false,
+  "workingBusinessWrites": 0,
+  "deployable": false,
+  "nextTask": "S3-04/history-discovery"
+}

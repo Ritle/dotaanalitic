@@ -1,0 +1,115 @@
+{
+  "task": "S3-04/post-draft-validation-readiness/exposure-ledger/native-source-inventory",
+  "date": "2026-11-14",
+  "outcome": "source_backed_exclusion_inventory_expanded;global_completeness_not_certified",
+  "artifact": {
+    "path": ".tools/s304-exposure-ledger-r2.json",
+    "sha256": "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7"
+  },
+  "sourcePlan": {
+    "path": "docs/evidence/s3-04-exposure-source-plan-r2.json",
+    "sha256": "5f1df4b5bc8166c5b459269879a504adc5d960f913dd09d0cee59cce76d97957"
+  },
+  "summary": {
+    "sources": 1938,
+    "maps": 2333,
+    "knownSeries": 1098,
+    "localAliases": 1096,
+    "unresolvedMaps": 93,
+    "conflictingMaps": 0,
+    "unresolvedAliases": 0,
+    "conflictingAliases": 0
+  },
+  "discovery": {
+    "files": 14401,
+    "bytes": 1705310685,
+    "receipts": 1919,
+    "unreviewedNativeReceipts": 58,
+    "reviewedNonMapReceipts": 58,
+    "nonWrapperFiles": 12423
+  },
+  "independentOracle": {
+    "status": "pass",
+    "maps": 2333,
+    "series": 1098,
+    "additionalMaps": 73,
+    "additionalSeries": 2,
+    "rawReceipts": 1919,
+    "duplicatePlayerRowsNotCountedAsMaps": true,
+    "networkRequests": 0,
+    "dbWrites": 0
+  },
+  "pendingReview": [
+    "12423 files in the surveyed research families have no supported raw-source wrapper; authoritative dataset files are separately included, other shapes remain uncertified",
+    "Documents/manual observations/external files are outside machine-readable inventory; no global completeness certification",
+    "Working forecast/scenario/import archives outside declared research families and bare provider payloads need reconciliation against verified map/series IDs"
+  ],
+  "checks": {
+    "newNodeTests": 17,
+    "nodeRegression": {
+      "passed": 31,
+      "failed": 0
+    },
+    "packageTests": {
+      "passed": 1053,
+      "failed": 0
+    },
+    "frozenOfflineInstall": "pass_after_sandbox_store_access_retry",
+    "typecheck": "pass",
+    "build": "pass",
+    "reportReplay": "pass",
+    "sourceTamperRejected": true,
+    "rehashedReportTamperRejected": true,
+    "invalidExternalShaRejected": true,
+    "overwriteRejected": true,
+    "migrationChecksums": 61,
+    "postgresTests": "not_run_no_schema_or_runtime_changes",
+    "browserTests": "not_run_no_ui_changes",
+    "pythonTests": "not_run_no_model_math_changes",
+    "documentationLinks": "pass",
+    "diffWhitespace": "pass",
+    "buildWarnings": [
+      "existing_zod_annotations",
+      "existing_web_chunk_over_500kb"
+    ]
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T18:50:47.388Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 7,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerHttpRequests": 0,
+  "databaseSnapshotMode": "repeatable_read_read_only",
+  "databaseWrites": 0,
+  "frozenPolicyChanged": false,
+  "trainingPerformed": false,
+  "modelActivationPerformed": false,
+  "completeGlobalInventory": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "nextTask": "S3-04/post-draft-validation-readiness/exposure-ledger/remaining-archives",
+  "suggestedModel": "GPT-6 Astra",
+  "reasoningEffort": "High"
+}

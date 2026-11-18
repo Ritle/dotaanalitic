@@ -1,0 +1,92 @@
+{
+  "task": "S2-01/owner-lineup-templates",
+  "ownerChoiceDate": "2026-11-11",
+  "completedDate": "2026-11-12",
+  "status": "complete",
+  "scope": "Shared owner-managed expected five/role templates in upcoming-match preparation; explicit account-role foundation",
+  "migration": "053_owner_lineup_templates.sql",
+  "design": {
+    "writer": "Active owner from the authenticated DB session, rechecked under row lock in the write transaction and validated by insert trigger",
+    "reader": "Any authenticated account; templates are shared by canonical teamId, not private to each reader",
+    "accountRole": "owner/user database enum check, owner default; existing singleton constraint and owner CLI retained",
+    "reservedUser": "Readonly foundation; all non-GET/HEAD/OPTIONS actions denied except CSRF-protected logout; full user provisioning and POST permissions deferred",
+    "metadata": [
+      "canonical player ID",
+      "expected rolePos",
+      "teamId",
+      "revision",
+      "server author ID/login",
+      "server confirmedAt"
+    ],
+    "reuse": "Same canonical team and exact five IDs; player card order and match-specific stand-in flags preserved",
+    "notHistoricalRoleEvidence": true,
+    "manualPriority": true,
+    "immutableRevisions": true,
+    "concurrency": "Shared team CAS + canonical lowercase UUID idempotency key",
+    "pageConfirmationTransient": true,
+    "roleOnlyUnchangedReconfirmWrites": 0,
+    "multiTeamAtomic": false,
+    "fullMultiAccountProductImplemented": false,
+    "sharedKernelManifestsExportsDependenciesChanged": false
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "fullTypecheck": "PASS",
+    "rootUnitCLI": 949,
+    "fullBuild": "PASS",
+    "newAPIAndPostgresCases": 6,
+    "existingAuthCases": 11,
+    "postgresMigrationBaselineCases": 4,
+    "sqlFiles": 53,
+    "uniqueChromiumPostgres": 45,
+    "browserRuns": [
+      "Initial owner5 + prior unified5:10/10 PASS",
+      "New disposed-page case:1/1 PASS",
+      "Compatibility:37 PASS,1 obsolete incomplete-confirmation assertion FAIL,2 serial cases not run",
+      "Full sequential catalogue repeat after assertion correction:7/7 PASS"
+    ],
+    "finalAPI": "6/6 PASS, including equivalent uppercase/lowercase UUID replay",
+    "visualQA": "360px owner template with author/time/revision inspected, overflow check PASS; duplicate explanatory copy shortened before final web build",
+    "mainService": "SQL053 apply/replay PASS; API restarted PID16688 /health200; existing web18408 health200; unauthenticated /auth/access401",
+    "startupNote": "First restart helper rejected its own escaped path check before stopping anything; PID2540/path independently reverified, normalized path check fixed, restart succeeded",
+    "docsAndDiff": "PASS",
+    "notRun": [
+      "Full standalone API/PostgreSQL suite",
+      "Full standalone Node fixtures suite",
+      "Python",
+      "Docker/Linux",
+      "Live provider roster accuracy",
+      "Working forecast creation",
+      "Real multi-account onboarding"
+    ]
+  },
+  "preservation": {
+    "publicTablesBefore": 85,
+    "publicTablesAfter": 86,
+    "changedTables": [
+      "app_users",
+      "owner_lineup_templates",
+      "schema_migrations"
+    ],
+    "oldPublicTablesByteHashUnchanged": 83,
+    "previousOwnerRowProjectionUnchanged": true,
+    "previous52MigrationRowsUnchanged": true,
+    "workingTemplateRows": 0,
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingProviderHTTP": 0,
+    "workingPredictionScenarioReportWrites": 0,
+    "generalWorker": "OFF",
+    "mainAPIWeb": "ON"
+  },
+  "remainingIdea13": "Additional user account provisioning, user-specific POST permissions, full readonly navigation and separate multi-account scope approval remain future work",
+  "nextTask": "S3-05/V1-retest/activation-owner-smoke when a supported Tier1 pair is ready",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

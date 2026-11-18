@@ -1,0 +1,63 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/cosmetic-fallback",
+  "date": "2026-11-11",
+  "status": "complete",
+  "scope": [
+    "DraftEditor",
+    "RankedPractice/RankedContext",
+    "ScenarioReportContent",
+    "ReportEntityLabel"
+  ],
+  "design": {
+    "helper": "hero-display.ts",
+    "additionalHTTP": 0,
+    "draftNameCache": "Per component, keyed by numeric hero ID, populated only by existing catalogue responses",
+    "selectedOptionIdsUnchanged": true,
+    "nullAndBlankNamesDistinct": true,
+    "technicalIdsAvailable": true,
+    "heroProfileLinks": false,
+    "frozenReportNamesRemainAuthoritative": true,
+    "legacySnapshotTextNotParsedAsIdentity": true,
+    "backendSharedPackagesMigrationsDependenciesChanged": false
+  },
+  "checks": {
+    "red": "New browser case failed before implementation: selected label hook absent, names/fallback behavior not implemented",
+    "targetedChromiumPostgres": "PASS10: draft search/error/cache/IDs/history and raw ranked 0/100/N, real saved report blank name/hash preservation",
+    "remainingQA": "PASS frozen offline install/full typecheck/root pnpm test939/full build",
+    "unitCLI": 939,
+    "compatibilityChromiumPostgres": 22,
+    "uniqueChromiumPostgres": 32,
+    "visualQA": "360px Draft Lab screenshot inspected: selected known/blank names, unknown ban, exact key,503 and no page overflow",
+    "sqlMigrations": 52,
+    "linksAndDiff": "PASS",
+    "notRun": [
+      "Full standalone API/PostgreSQL suite",
+      "Full standalone Node fixture suite",
+      "Python",
+      "Docker/Linux",
+      "Live schedule/provider/roster validation",
+      "Working forecast creation"
+    ]
+  },
+  "nextTask": "S3-05/V1-retest/activation-owner-smoke",
+  "nextTaskCondition": "A ready Tier1 pair with the required verified identities/history; not checked live by this UI task",
+  "wholeBug7OwnerAccepted": false,
+  "suggestedModel": "GPT-6.1 Sol · High",
+  "preservation": {
+    "tables": 85,
+    "maps": 2232,
+    "queueRows": 13,
+    "changedTables": [],
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingBusinessWrites": 0,
+    "workingProviderHTTP": 0,
+    "mainAPIWebStarted": false,
+    "generalWorker": "OFF"
+  }
+}

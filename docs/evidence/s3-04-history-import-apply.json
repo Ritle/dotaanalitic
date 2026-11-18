@@ -1,0 +1,109 @@
+{
+  "task": "S3-04/history-import-apply",
+  "status": "PASS",
+  "checkedAt": "2026-11-13T15:14:45.610Z",
+  "importId": "e76ec1dd-77ab-4481-a8c4-ab3bf612b3ea",
+  "counts": {
+    "mapsAdded": 28,
+    "playersAdded": 280,
+    "teamsAdded": 2,
+    "verifiedOutcomes": 30,
+    "seriesCreated": 15
+  },
+  "totalMaps": 2260,
+  "seriesTouched": 16,
+  "receipts": 83,
+  "excludedMapsAbsent": 5,
+  "baselineTables": 104,
+  "previousMapsUnchanged": true,
+  "previousForecastsAndLiveEstimateUnchanged": true,
+  "model": {
+    "status": "model_eligible",
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "teamAWinProbability": null
+  },
+  "queueUnchangedDuringImport": true,
+  "repeatRowsUnchanged": true,
+  "backup": {
+    "privatePath": ".tools/s304-history-import-apply-r1/private-before.dump",
+    "sha256": "2eebe380fc66dfd71a39d9e33c788f490d338f460b575916a0c624bce542bc89",
+    "fullRestoreVerified": true,
+    "sameExportedSnapshot": true
+  },
+  "lineage": {
+    "registeredBeforeMaps": true,
+    "storedInDatabase": true,
+    "originalHttpBytesRetained": false,
+    "originalSourceAndProjectionShaDistinct": true,
+    "knownAt": null
+  },
+  "referenceDrift": {
+    "unrelatedManualTeams": [
+      {
+        "id": "14307",
+        "name": "PARIVISION"
+      },
+      {
+        "id": "14308",
+        "name": "Froglings"
+      },
+      {
+        "id": "14309",
+        "name": "Team Liquid"
+      }
+    ],
+    "rebuiltPlanUnchanged": true
+  },
+  "checks": {
+    "nodeTests": 11,
+    "postgresAuditTests": 1,
+    "cloneRehearsal": "PASS",
+    "workingImport": "PASS",
+    "offlineVerification": "PASS",
+    "databaseAuditVerification": "PASS",
+    "independentSqlRecount": "PASS",
+    "migrationRepeat": "PASS",
+    "migrationFiles": 57,
+    "generalQa": {
+      "frozenOfflineInstall": "PASS",
+      "typecheck": "PASS",
+      "packageTests": 978,
+      "build": "PASS",
+      "postBuildOfflineAndDatabaseVerification": "PASS",
+      "originalDryRunAndPlanVerification": "PASS"
+    },
+    "browserTests": "not_run_no_UI_changes"
+  },
+  "providerHttp": 0,
+  "trainingRuns": 0,
+  "modelActivations": 0,
+  "serviceRestored": true,
+  "failedRehearsal": {
+    "path": ".tools/s304-history-import-apply-rehearsal-r1",
+    "phase": "backup_restore",
+    "mapImports": 0,
+    "resolution": "Backup and fingerprint now share an exported PostgreSQL snapshot; rehearsal-r2 PASS."
+  },
+  "files": {
+    ".tools/s304-history-import-apply-r1/manifest.json": "5a18623c84775faacc11ee7694ef8a85d67d1426a39f0295fba24853c0de8bba",
+    ".tools/s304-history-import-apply-r1/report.json": "a368bd90f7739b166a0781a9cc8dad2a9d1dd46865078b2d292bf21fa63bac76",
+    ".tools/s304-history-import-apply-r1/seal.json": "ef1a82abf7ddb72c8b517735c1288b3b3899bcf357f727c4efbf2b4f8ec700a5",
+    ".tools/s304-history-import-apply-rehearsal-r2/manifest.json": "e726efaf83c91b9663135b7cfc8b074b1f898a9ab12510234832084a8987610c",
+    ".tools/s304-history-import-apply-rehearsal-r2/report.json": "046b459d74ca3cc36abd1efc4e52da2dccefada13cd2af50de3f3ce01ea782d7",
+    ".tools/s304-history-import-apply-rehearsal-r1/failure.json": "c304e100aef304d1fdd72670a5dfd8dc8a295249ae9bce2f4c23042e381ae1c6",
+    ".tools/s304-apply-independent.json": "533fb14a8961d964e07bde1bfc133d3fac9c3fcb993f0f5bfbe2ba80dcde4bf8",
+    "packages/db/migrations/057_history_projection_import_audit.sql": "f6fe9cee6368acfbb2e98a59a022fef3579ba941b905b10bb65b89c6e72b00b8",
+    ".tools/s304-apply-install.log": "a9446a7bdf6bf55b44d35d155556a63be13a6af6b5edd62d2c7197844a584644",
+    ".tools/s304-apply-typecheck.log": "bbbaf3e3a07889123b8682ab7983ad2dc83a2ccc3df3dbfeb85346bc612870d6",
+    ".tools/s304-apply-tests.log": "fea36917196ca193462b772e4673700b21e904a4da3dd7ba004dd41666bf8cdb",
+    ".tools/s304-apply-build.log": "8d7262ee0f6a555f1de3af9f361d9ce2c10ac6fefc67fb4740f59c71616b4d14"
+  },
+  "nextTask": "S3-04/history-coverage-check",
+  "suggestedModel": "GPT-6 Astra · High",
+  "qaCompletedAt": "2026-11-13T15:27:58.639762+00:00",
+  "buildWarnings": [
+    "Zod annotation placement",
+    "web chunk exceeds 500 kB"
+  ]
+}

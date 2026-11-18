@@ -1,0 +1,24 @@
+{
+  "task": "S3-04/player-hero-observation-readiness-ui",
+  "date": "2026-11-14",
+  "providerRequests": 0,
+  "migrationsAdded": 0,
+  "trainingPerformed": false,
+  "probabilityCalculationPerformed": false,
+  "endpoint": "GET /api/v1/scenarios/:id/draft-captures/:revision/history-summary",
+  "checks": {
+    "install": {"status": "PASS", "log": ".tools/s304-readiness-install.log", "command": "pnpm install --frozen-lockfile --offline"},
+    "typecheck": {"status": "PASS", "log": ".tools/s304-readiness-typecheck.log"},
+    "postgres": {"status": "PASS", "tests": 17, "log": ".tools/s304-readiness-pg-final.log", "cases": ["owner/anonymous/viewer/foreign owner access", "counts and no raw player data", "read preserves hashes and zero predictions", "legacy missing observation", "history limit keeps counts null"]},
+    "browser": {"status": "PASS_AFTER_CORRECTIONS", "uniqueTests": 5, "existingFourLog": ".tools/s304-readiness-browser-final.log", "newTestLog": ".tools/s304-readiness-browser-verified.log", "mobileScreenshot": "test-results/draft-history-summary-mobile.png", "visualInspection": "PASS: 360px text wraps and no horizontal overflow", "cases": ["read failure and retry", "unavailable source receipts", "verified counts with exclusion reason", "legacy missing observation", "360px"], "initialFailures": ["First run used default absent Chromium location; corrected PLAYWRIGHT_BROWSERS_PATH to existing .tools/playwright", "New test initially expected captured zero history; seedDraft has maps without receipts. Added explicit unavailable-source explanation and corrected fixture expectation. No schema or gate weakened."]},
+    "packageTests": {"status": "PASS", "tests": 1029, "log": ".tools/s304-readiness-suite.log", "command": "pnpm --recursive --workspace-concurrency=1 --if-present test --maxWorkers=1"},
+    "build": {"status": "PASS", "log": ".tools/s304-readiness-build.log", "warnings": "Existing Zod annotations and web chunk size"},
+    "preservation": {"status": "PASS", "checkedAt": "2026-11-14T15:34:12.045Z", "path": ".tools/s304-readiness-preservation.json", "modelStatus": "model_eligible", "preservedPredictionHashes": 7, "maps": 2260, "captures": 0, "api": 200, "web": 200, "private": 401, "apiRestarted": true},
+    "migrations": {"status": "PASS", "count": 60, "log": ".tools/s304-readiness-migrations.log"},
+    "docsAndDiff": {"status": "PASS", "commands": ["node scripts/check-doc-links.mjs", "git diff --check"]}
+  },
+  "limitations": ["Verified outcome count is not feature-ready or training-map count", "Remote history completeness unknown", "No real SQL060 captures currently available in working database", "Actual gameplay-start evidence and independent post-draft model gate remain open"],
+  "nextTask": "S3-04/player-hero-post-draft-cutoff-contract",
+  "nextEssence": "Establish evidence-backed post-draft decision boundary, distinguishing lobby/draft start from gameplay start, without reinterpreting old captures or weakening gates retrospectively",
+  "recommendedModel": "GPT-6 Astra · High"
+}

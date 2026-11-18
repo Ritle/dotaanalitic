@@ -1,0 +1,132 @@
+{
+    "task":  "S3-04/post-draft-validation-readiness/committed-shadow-export",
+    "date":  "2026-11-14",
+    "checks":  {
+                   "frozenOfflineInstall":  "pass",
+                   "typecheck":  "pass",
+                   "build":  "pass",
+                   "packageTests":  {
+                                        "passed":  1053,
+                                        "failed":  0,
+                                        "newTests":  8
+                                    },
+                   "targetedUnitTests":  {
+                                             "passed":  8
+                                         },
+                   "postgres":  {
+                                    "passed":  8,
+                                    "newTests":  1,
+                                    "finalNewTestRepeat":  1,
+                                    "isolatedDatabase":  true
+                                },
+                   "migrationChecksums":  61,
+                   "committedShadowReplay":  "pass",
+                   "previousShadowReplay":  "pass",
+                   "preparedIndependentPlanReplay":  "pass",
+                   "browserTests":  "not_run_no_ui_changes",
+                   "pythonTests":  "not_run_no_math_changes",
+                   "buildWarnings":  [
+                                         "existing_zod_annotations",
+                                         "existing_web_chunk_over_500kb"
+                                     ],
+                   "documentationLinks":  "pass",
+                   "diffWhitespace":  "pass"
+               },
+    "artifact":  {
+                     "path":  ".tools/s304-committed-shadow-local-r2.json",
+                     "sha256":  "c344696af055ccd2339e032b5b5d41847ef18baee6090ce45df0d8ac575590fa",
+                     "counts":  {
+                                    "captures":  0,
+                                    "runs":  0,
+                                    "receipts":  0,
+                                    "observations":  0,
+                                    "links":  0,
+                                    "bindingAttempts":  0,
+                                    "missingResults":  0,
+                                    "awaitingReceipts":  0,
+                                    "committedComputed":  0,
+                                    "committedUnavailable":  0,
+                                    "distinctActualMaps":  0,
+                                    "distinctCommittedComputedMaps":  0,
+                                    "primaryExamples":  0,
+                                    "trainingExamples":  0
+                                }
+                 },
+    "preservation":  {
+                         "checkedAt":  "2026-11-14T17:41:47.864Z",
+                         "artifact":  {
+                                          "path":  ".tools/s304-committed-shadow-local-r2.json",
+                                          "sha256":  "c344696af055ccd2339e032b5b5d41847ef18baee6090ce45df0d8ac575590fa",
+                                          "counts":  {
+                                                         "captures":  0,
+                                                         "runs":  0,
+                                                         "receipts":  0,
+                                                         "observations":  0,
+                                                         "links":  0,
+                                                         "bindingAttempts":  0,
+                                                         "missingResults":  0,
+                                                         "awaitingReceipts":  0,
+                                                         "committedComputed":  0,
+                                                         "committedUnavailable":  0,
+                                                         "distinctActualMaps":  0,
+                                                         "distinctCommittedComputedMaps":  0,
+                                                         "primaryExamples":  0,
+                                                         "trainingExamples":  0
+                                                     }
+                                      },
+                         "model":  {
+                                       "status":  "model_eligible",
+                                       "modelId":  "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+                                       "reportSha256":  "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+                                       "teamAWinProbability":  null
+                                   },
+                         "maps":  "2260",
+                         "predictions":  7,
+                         "preservedPredictionHashes":  7,
+                         "migrations":  61,
+                         "sourceRowsUnchanged":  true,
+                         "api":  200,
+                         "web":  200,
+                         "privateStatus":  401,
+                         "primaryEligible":  false,
+                         "collectionAllowed":  false,
+                         "deployable":  false
+                     },
+    "supersededLocalArtifact":  {
+                                    "path":  ".tools/s304-committed-shadow-local-r1.json",
+                                    "sha256":  "6b70912dfe77eb89941cbf30685b0689d24de9c21a2d387f55b54f4417898ff2",
+                                    "reason":  "r2_checks_history_link_exists_at_calculation_start_not_only_result_recording",
+                                    "overwritten":  false
+                                },
+    "limits":  {
+                   "captures":  100,
+                   "observations":  100,
+                   "links":  100,
+                   "runs":  100,
+                   "receipts":  100,
+                   "bindingAttempts":  1000,
+                   "rawTextBytes":  125829120,
+                   "exportBytes":  268435456
+               },
+    "livePositiveCoverageEstablished":  false,
+    "productionDatabaseWrites":  0,
+    "providerHttpRequests":  0,
+    "trainingPerformed":  false,
+    "modelActivationPerformed":  false,
+    "collectionAllowed":  false,
+    "primaryEligible":  false,
+    "deployable":  false,
+    "logs":  [
+                 ".tools/s304-committed-export-install.log",
+                 ".tools/s304-committed-export-typecheck.log",
+                 ".tools/s304-committed-export-build.log",
+                 ".tools/s304-committed-export-unit.log",
+                 ".tools/s304-committed-export-pg.log",
+                 ".tools/s304-committed-export-pg-final.log",
+                 ".tools/s304-committed-export-suite.log",
+                 ".tools/s304-committed-export-replay.log"
+             ],
+    "nextTask":  "S3-04/post-draft-validation-readiness/gameplay-boundary-evidence",
+    "suggestedModel":  "GPT-6 Astra",
+    "reasoningEffort":  "High"
+}

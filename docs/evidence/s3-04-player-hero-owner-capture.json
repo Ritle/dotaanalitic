@@ -1,0 +1,66 @@
+{
+  "task": "S3-04/player-hero-owner-capture",
+  "date": "2026-11-14",
+  "status": "server_capture_implemented_ui_trigger_pending",
+  "sourceSha256": {
+    "apps/api/src/modules/scenarios/draft-capture-contract.ts": "618b3b384eb13c8371003ac4105becff578b209da854fa9dba6a02e3214685aa",
+    "apps/api/src/modules/scenarios/draft-capture-repository.ts": "3556b086148ffa5d10125dfc3ebaea2a7f59123ec81880f8ab239d2d18a48de6",
+    "apps/api/src/modules/scenarios/draft-capture-source.ts": "2cc2e00263bb9b3e2bb1f29a2453ac9d6e4e82ea82537f65f448f20e095d6a08",
+    "apps/api/src/modules/scenarios/draft-capture-players.ts": "d5ed0d215cf615c0046e14f33720c97d810431ea066acbcf0c9b453ee55746fb",
+    "apps/api/src/modules/scenarios/draft-capture-http.ts": "9a0d132f96b915d89accb86648c8ff114ef9a3090c59b545eeca3199c41a68ae",
+    "apps/api/src/app.ts": "8e522b81723be2c97bd4e71cce5ed965640b488b234482cc4fb2668d0ed3cc3e",
+    "apps/api/tests/draft-capture.integration.test.ts": "8314e16487b44b285b33391e8a61bfa4494ec6c2940014eb432d2152ec01262e",
+    "apps/api/tests/draft-capture.test.ts": "20d7e2e2de9caed4913cf180ce1ced00b7741b9cded31289d3f524bb692be132",
+    "packages/db/migrations/058_owner_draft_captures.sql": "a6dfe58d1be8b5cf81d9a319a6cecd907674e3a4f7c204c10ce5825344b41c21"
+  },
+  "checks": {
+    "frozenOfflineInstall": "passed_existing_user_store",
+    "typecheck": "passed_full_then_final_API",
+    "packageTests": 982,
+    "packageTestScope": "all package cases: root attempt + remaining worker + isolated CLI + final API 79 plus four timed-out CLI cases passing isolated rerun; no duplicate count",
+    "rootFailure": "research-evidence CLI ENOENT after sandbox EPERM/link during executable manifest publication; unchanged CLI passed approved rerun",
+    "apiInitialFailure": "four unchanged local-restore CLI cases exceeded default 5s during concurrent QA; isolated seven-case rerun with 30s test budget passed, child-process limit and assertions unchanged",
+    "build": "passed_final_full",
+    "targetedPureAndCapturePg": 14,
+    "existingScenarioPg": 7,
+    "existingEvidenceCli": 1,
+    "finalBrowserTests": 1,
+    "browserInitialAttempt": "default_browser_directory_missing; existing_dot_tools_playwright_used",
+    "orderedMigrations": 58,
+    "historicalMigrationChecksums": "passed",
+    "localMigration058": "applied_then_idempotent_skip",
+    "documentationLinks": "passed",
+    "gitDiffWhitespace": "passed",
+    "newFilesWhitespace": "passed",
+    "sharedRuntimeSourcesDiff": "empty"
+  },
+  "runtimeCompatibility": {
+    "initialSharedImplementation": "rejected_by_unchanged_active_runtime_hash_gate",
+    "resolution": "new capture isolated in API; shared source edits reverted; eight new intermediate shared outputs moved to ignored archive",
+    "finalReadiness": "model_eligible",
+    "activationChanges": 0,
+    "admissionRulesChanged": false
+  },
+  "service": {
+    "checkedAt": "2026-11-13T22:39:48.676Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "api": 200,
+    "web": 200,
+    "privateEndpoint": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61",
+    "migration058": "a6dfe58d1be8b5cf81d9a319a6cecd907674e3a4f7c204c10ce5825344b41c21",
+    "realCaptureRows": "0"
+  },
+  "realCapturesCreated": 0,
+  "providerCalls": 0,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "primaryEligible": false,
+  "deployable": false,
+  "nextTask": "S3-04/player-hero-owner-capture-ui"
+}

@@ -1,0 +1,578 @@
+{
+  "format": "player-hero-error-audit-v1",
+  "basis": "post_hoc_exposed_development_diagnostics",
+  "counts": {
+    "planned": 223,
+    "paired": 186,
+    "excluded": 37
+  },
+  "totals": {
+    "maps": 186,
+    "series": 86,
+    "sumDeltaLogLoss": -0.6958947151128032,
+    "deltaLogLoss": -0.0037413694360903397,
+    "deltaBrier": -0.0016849604350526815,
+    "improved": 107,
+    "worsened": 79,
+    "unchanged": 0,
+    "h1Correct": 120,
+    "h2Correct": 124
+  },
+  "originalDecision": {
+    "status": "negative",
+    "metricSignal": "negative",
+    "dataReasons": [],
+    "metricReasons": [
+      "NO_SIGNIFICANT_LOGLOSS_GAIN_OVER_H1"
+    ]
+  },
+  "originalPrimaryInterval": {
+    "mean": -0.0037413694360903397,
+    "lower": -0.009918934492183566,
+    "upper": 0.0020966246325202606
+  },
+  "trainingPerformed": false,
+  "calibrationFittingPerformed": false,
+  "thresholdSelectionPerformed": false,
+  "independentTest": false,
+  "releaseGatePassed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "causalAttribution": false,
+  "sourceHashes": {
+    "plan": "befbca5cc9d1310b8837f1e7a4f047e336ba8a1e386372dff95ce96af4d428df",
+    "dataset": "51d07fc0531a07f004a41598f195efd31b1222a25b663f1a8f78af74f8a8856a",
+    "labels": "2a373fad2379142364dd66838852e8e0803989ea3b65454eebbb5517b2bc5b63",
+    "features": "cf90f79e27efda760848e2bfa47f5a081cc0c5c9c282b24e9bc58dd53832e934",
+    "inventory": "93292795acbf891cffbc79c1f429d5122786f5735c5c09ce5761f250b2bc3b4b",
+    "metadata": "24bd5a3261e755527e1111f9c9a32fe8b69676e6948551c7075e2eb5788a3ce7",
+    "fitManifest": "f5ad3fa4ac06ae66ef75f5db5af91fdbc651bc722433af360b310db5e99ffd52",
+    "fitArtifact": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+    "fitResult": "7f00ec15d7e736aef805ada33d6a874d74ce56395d3ca830d287ba808654e633",
+    "manifest": "2721ac651c6261052a382bff4aab142d62b852611328d99b61c3b0a99b5fc28e",
+    "input": "f66bfff41e86fbeb7b3cd3eb298b8a26e428008124ea04faad58a36f68e283cc",
+    "report": "b4d052346ea840c557029da0bc0cfd4a3f6bc17b6f19a32b6418778a1982adc3",
+    "result": "b97bf8d86633d7634d658775d5a03023d8f1c7d20609a5852e170e158cf3511f"
+  },
+  "auditCodeSha256": "b2e3d75f37bb3da153bfe64a5b6f35a18491549b2603e7d0d1920a8108ae98f1",
+  "task": "S3-04/player-hero-error-audit",
+  "artifactPath": ".tools/s304-hero-error-audit-r1.json",
+  "artifactSha256": "0e7340318035d4cb3e7e753459d4b2a7bf7e34b1c592ec8d2cbbc9025aad9d70",
+  "classification": [
+    {
+      "value": "both_correct",
+      "maps": 117,
+      "series": 71,
+      "sumDeltaLogLoss": -0.5155757418872855,
+      "deltaLogLoss": -0.004406630272540902,
+      "deltaBrier": -0.0018463124827575138,
+      "improved": 71,
+      "worsened": 46,
+      "unchanged": 0,
+      "h1Correct": 117,
+      "h2Correct": 117
+    },
+    {
+      "value": "both_wrong",
+      "maps": 59,
+      "series": 39,
+      "sumDeltaLogLoss": 0.03657635930028469,
+      "deltaLogLoss": 0.0006199382932251642,
+      "deltaBrier": 0.0001861988484804591,
+      "improved": 29,
+      "worsened": 30,
+      "unchanged": 0,
+      "h1Correct": 0,
+      "h2Correct": 0
+    },
+    {
+      "value": "broken",
+      "maps": 3,
+      "series": 3,
+      "sumDeltaLogLoss": 0.14081388868004607,
+      "deltaLogLoss": 0.04693796289334869,
+      "deltaBrier": 0.023451782301332724,
+      "improved": 0,
+      "worsened": 3,
+      "unchanged": 0,
+      "h1Correct": 3,
+      "h2Correct": 0
+    },
+    {
+      "value": "fixed",
+      "maps": 7,
+      "series": 7,
+      "sumDeltaLogLoss": -0.35770922120584847,
+      "deltaLogLoss": -0.05110131731512121,
+      "deltaBrier": -0.025532165628787844,
+      "improved": 7,
+      "worsened": 0,
+      "unchanged": 0,
+      "h1Correct": 0,
+      "h2Correct": 7
+    }
+  ],
+  "strata": {
+    "hasZeroObservedHeroCount": [
+      {
+        "value": false,
+        "maps": 7,
+        "series": 6,
+        "sumDeltaLogLoss": 0.002064912879517544,
+        "deltaLogLoss": 0.000294987554216792,
+        "deltaBrier": 0.0003257290459116126,
+        "improved": 3,
+        "worsened": 4,
+        "unchanged": 0,
+        "h1Correct": 5,
+        "h2Correct": 5
+      },
+      {
+        "value": true,
+        "maps": 179,
+        "series": 86,
+        "sumDeltaLogLoss": -0.6979596279923208,
+        "deltaLogLoss": -0.003899215798839781,
+        "deltaBrier": -0.0017635907499507265,
+        "improved": 104,
+        "worsened": 75,
+        "unchanged": 0,
+        "h1Correct": 115,
+        "h2Correct": 119
+      }
+    ],
+    "hasUnknownHeroHistory": [
+      {
+        "value": false,
+        "maps": 184,
+        "series": 84,
+        "sumDeltaLogLoss": -0.7097219931349423,
+        "deltaLogLoss": -0.0038571847452986,
+        "deltaBrier": -0.001740647959117164,
+        "improved": 106,
+        "worsened": 78,
+        "unchanged": 0,
+        "h1Correct": 118,
+        "h2Correct": 122
+      },
+      {
+        "value": true,
+        "maps": 2,
+        "series": 2,
+        "sumDeltaLogLoss": 0.013827278022139122,
+        "deltaLogLoss": 0.006913639011069561,
+        "deltaBrier": 0.0034382917788797346,
+        "improved": 1,
+        "worsened": 1,
+        "unchanged": 0,
+        "h1Correct": 2,
+        "h2Correct": 2
+      }
+    ],
+    "zeroCountPlayers": [
+      {
+        "value": 0,
+        "maps": 7,
+        "series": 6,
+        "sumDeltaLogLoss": 0.002064912879517544,
+        "deltaLogLoss": 0.000294987554216792,
+        "deltaBrier": 0.0003257290459116126,
+        "improved": 3,
+        "worsened": 4,
+        "unchanged": 0,
+        "h1Correct": 5,
+        "h2Correct": 5
+      },
+      {
+        "value": 1,
+        "maps": 28,
+        "series": 23,
+        "sumDeltaLogLoss": 0.27908436576259527,
+        "deltaLogLoss": 0.009967298777235544,
+        "deltaBrier": 0.004514848396634697,
+        "improved": 13,
+        "worsened": 15,
+        "unchanged": 0,
+        "h1Correct": 18,
+        "h2Correct": 17
+      },
+      {
+        "value": 2,
+        "maps": 38,
+        "series": 29,
+        "sumDeltaLogLoss": 0.04497723892532385,
+        "deltaLogLoss": 0.001183611550666417,
+        "deltaBrier": 0.0008260440909801644,
+        "improved": 22,
+        "worsened": 16,
+        "unchanged": 0,
+        "h1Correct": 27,
+        "h2Correct": 28
+      },
+      {
+        "value": 3,
+        "maps": 37,
+        "series": 32,
+        "sumDeltaLogLoss": 0.07191178472049409,
+        "deltaLogLoss": 0.001943561749202543,
+        "deltaBrier": 0.001197324496184062,
+        "improved": 15,
+        "worsened": 22,
+        "unchanged": 0,
+        "h1Correct": 25,
+        "h2Correct": 25
+      },
+      {
+        "value": 4,
+        "maps": 34,
+        "series": 31,
+        "sumDeltaLogLoss": -0.4879143920621963,
+        "deltaLogLoss": -0.014350423295946949,
+        "deltaBrier": -0.006435890779337411,
+        "improved": 22,
+        "worsened": 12,
+        "unchanged": 0,
+        "h1Correct": 18,
+        "h2Correct": 19
+      },
+      {
+        "value": 5,
+        "maps": 19,
+        "series": 15,
+        "sumDeltaLogLoss": -0.1420559261987625,
+        "deltaLogLoss": -0.007476627694671711,
+        "deltaBrier": -0.0041318423934835246,
+        "improved": 14,
+        "worsened": 5,
+        "unchanged": 0,
+        "h1Correct": 11,
+        "h2Correct": 12
+      },
+      {
+        "value": 6,
+        "maps": 14,
+        "series": 13,
+        "sumDeltaLogLoss": -0.32536640751166257,
+        "deltaLogLoss": -0.02324045767940447,
+        "deltaBrier": -0.011203860312164245,
+        "improved": 11,
+        "worsened": 3,
+        "unchanged": 0,
+        "h1Correct": 8,
+        "h2Correct": 10
+      },
+      {
+        "value": 7,
+        "maps": 7,
+        "series": 7,
+        "sumDeltaLogLoss": -0.12973067060704907,
+        "deltaLogLoss": -0.018532952943864152,
+        "deltaBrier": -0.008490091323894536,
+        "improved": 5,
+        "worsened": 2,
+        "unchanged": 0,
+        "h1Correct": 6,
+        "h2Correct": 6
+      },
+      {
+        "value": 8,
+        "maps": 2,
+        "series": 2,
+        "sumDeltaLogLoss": -0.008865621021063586,
+        "deltaLogLoss": -0.004432810510531793,
+        "deltaBrier": -0.002089602775893998,
+        "improved": 2,
+        "worsened": 0,
+        "unchanged": 0,
+        "h1Correct": 2,
+        "h2Correct": 2
+      }
+    ],
+    "unknownHistoryPlayers": [
+      {
+        "value": 0,
+        "maps": 184,
+        "series": 84,
+        "sumDeltaLogLoss": -0.7097219931349423,
+        "deltaLogLoss": -0.0038571847452986,
+        "deltaBrier": -0.001740647959117164,
+        "improved": 106,
+        "worsened": 78,
+        "unchanged": 0,
+        "h1Correct": 118,
+        "h2Correct": 122
+      },
+      {
+        "value": 4,
+        "maps": 2,
+        "series": 2,
+        "sumDeltaLogLoss": 0.013827278022139122,
+        "deltaLogLoss": 0.006913639011069561,
+        "deltaBrier": 0.0034382917788797346,
+        "improved": 1,
+        "worsened": 1,
+        "unchanged": 0,
+        "h1Correct": 2,
+        "h2Correct": 2
+      }
+    ],
+    "leagueId": [
+      {
+        "value": "1",
+        "maps": 23,
+        "series": 10,
+        "sumDeltaLogLoss": -0.15892268895407108,
+        "deltaLogLoss": -0.006909682128437873,
+        "deltaBrier": -0.003823336977928579,
+        "improved": 12,
+        "worsened": 11,
+        "unchanged": 0,
+        "h1Correct": 13,
+        "h2Correct": 13
+      },
+      {
+        "value": "1093",
+        "maps": 7,
+        "series": 5,
+        "sumDeltaLogLoss": -0.011985083821211773,
+        "deltaLogLoss": -0.0017121548316016819,
+        "deltaBrier": -0.0011858725000619982,
+        "improved": 4,
+        "worsened": 3,
+        "unchanged": 0,
+        "h1Correct": 5,
+        "h2Correct": 5
+      },
+      {
+        "value": "1205",
+        "maps": 2,
+        "series": 1,
+        "sumDeltaLogLoss": -0.006154507850630209,
+        "deltaLogLoss": -0.0030772539253151043,
+        "deltaBrier": -0.0014779437838516318,
+        "improved": 1,
+        "worsened": 1,
+        "unchanged": 0,
+        "h1Correct": 1,
+        "h2Correct": 1
+      },
+      {
+        "value": "1973",
+        "maps": 111,
+        "series": 48,
+        "sumDeltaLogLoss": -0.4620560277755423,
+        "deltaLogLoss": -0.004162666916896777,
+        "deltaBrier": -0.0018962121896464272,
+        "improved": 66,
+        "worsened": 45,
+        "unchanged": 0,
+        "h1Correct": 68,
+        "h2Correct": 73
+      },
+      {
+        "value": "24",
+        "maps": 43,
+        "series": 22,
+        "sumDeltaLogLoss": -0.056776406711347926,
+        "deltaLogLoss": -0.001320381551426696,
+        "deltaBrier": -8.672889089652958e-05,
+        "improved": 24,
+        "worsened": 19,
+        "unchanged": 0,
+        "h1Correct": 33,
+        "h2Correct": 32
+      }
+    ],
+    "monthUTC": [
+      {
+        "value": "2026-09",
+        "maps": 116,
+        "series": 50,
+        "sumDeltaLogLoss": -0.33771248732433107,
+        "deltaLogLoss": -0.002911314545899406,
+        "deltaBrier": -0.0013441811289615245,
+        "improved": 67,
+        "worsened": 49,
+        "unchanged": 0,
+        "h1Correct": 72,
+        "h2Correct": 77
+      },
+      {
+        "value": "2026-10",
+        "maps": 54,
+        "series": 28,
+        "sumDeltaLogLoss": -0.4399723128023751,
+        "deltaLogLoss": -0.008147635422266205,
+        "deltaBrier": -0.0038640793903861686,
+        "improved": 32,
+        "worsened": 22,
+        "unchanged": 0,
+        "h1Correct": 33,
+        "h2Correct": 34
+      },
+      {
+        "value": "2026-11",
+        "maps": 16,
+        "series": 8,
+        "sumDeltaLogLoss": 0.08179008501390289,
+        "deltaLogLoss": 0.005111880313368931,
+        "deltaBrier": 0.0031989160700369498,
+        "improved": 8,
+        "worsened": 8,
+        "unchanged": 0,
+        "h1Correct": 15,
+        "h2Correct": 13
+      }
+    ],
+    "provider": [
+      {
+        "value": "opendota",
+        "maps": 186,
+        "series": 86,
+        "sumDeltaLogLoss": -0.6958947151128032,
+        "deltaLogLoss": -0.0037413694360903397,
+        "deltaBrier": -0.0016849604350526815,
+        "improved": 107,
+        "worsened": 79,
+        "unchanged": 0,
+        "h1Correct": 120,
+        "h2Correct": 124
+      }
+    ],
+    "providerPatchId": [
+      {
+        "value": 60,
+        "maps": 186,
+        "series": 86,
+        "sumDeltaLogLoss": -0.6958947151128032,
+        "deltaLogLoss": -0.0037413694360903397,
+        "deltaBrier": -0.0016849604350526815,
+        "improved": 107,
+        "worsened": 79,
+        "unchanged": 0,
+        "h1Correct": 120,
+        "h2Correct": 124
+      }
+    ],
+    "canonicalPatchId": [
+      {
+        "value": null,
+        "maps": 186,
+        "series": 86,
+        "sumDeltaLogLoss": -0.6958947151128032,
+        "deltaLogLoss": -0.0037413694360903397,
+        "deltaBrier": -0.0016849604350526815,
+        "improved": 107,
+        "worsened": 79,
+        "unchanged": 0,
+        "h1Correct": 120,
+        "h2Correct": 124
+      }
+    ]
+  },
+  "seriesImproved": 51,
+  "seriesWorsened": 35,
+  "checks": {
+    "targetedPython": {
+      "status": "passed",
+      "tests": 41
+    },
+    "targetedNode": {
+      "status": "passed",
+      "tests": 5
+    },
+    "independentOracle": {
+      "status": "passed",
+      "rowChecks": 1674,
+      "maps": 186,
+      "series": 86,
+      "strata": 9,
+      "classification": {
+        "both_correct": 117,
+        "both_wrong": 59,
+        "fixed": 7,
+        "broken": 3
+      },
+      "fullDenominator": 223,
+      "frozenEvaluationUnchanged": true
+    },
+    "mandatoryQA": {
+      "frozenOfflineInstall": "passed",
+      "typecheck": "passed",
+      "packageTests": {
+        "initial": "failed_two_20000ms_timeouts",
+        "affectedTests": [
+          "packages/db/tests/research-plan-cli.test.ts",
+          "packages/db/tests/research-execution-cli.test.ts"
+        ],
+        "isolatedRecheck": {
+          "status": "passed",
+          "tests": 3,
+          "maxWorkers": 1,
+          "timeoutsChanged": false
+        },
+        "retry": "failed_same_two_20000ms_timeouts",
+        "boundedConcurrencyRun": {
+          "status": "passed",
+          "command": "pnpm --recursive --if-present test --maxWorkers=1",
+          "timeoutsChanged": false,
+          "tests": 978
+        }
+      },
+      "build": "passed"
+    },
+    "offlineReplayTamperOverwrite": {
+      "status": "passed",
+      "checks": [
+        {
+          "mode": "verify",
+          "path": ".tools\\s304-hero-error-audit-r1.json",
+          "expectedExit": 0,
+          "actualExit": 0
+        },
+        {
+          "mode": "verify",
+          "path": ".tools/s304-hero-error-audit-tamper-r1.json",
+          "expectedExit": 1,
+          "actualExit": 1
+        },
+        {
+          "mode": "audit",
+          "path": ".tools\\s304-hero-error-audit-r1.json",
+          "expectedExit": 1,
+          "actualExit": 1
+        }
+      ],
+      "originalUnchanged": true,
+      "databaseUnavailable": true
+    },
+    "migrations": {
+      "status": "passed",
+      "count": 57,
+      "historicalChecksumsPreserved": true
+    },
+    "browserAndPgIntegration": "not_run_no_ui_api_sql_changes",
+    "serviceReadiness": {
+      "checkedAt": "2026-11-13T19:41:06.304Z",
+      "model": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      },
+      "apiHealth": 200,
+      "web": 200,
+      "privateEndpointWithoutSession": 401,
+      "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+    },
+    "testCodeSha256": "a69f427200c3e67c5f2f90013845a9d22e73262718895f903d413c9ba0297ae5",
+    "docsLinks": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "nextTask": {
+    "id": "S3-04/player-hero-independent-validation-plan",
+    "scope": "подготовить протокол независимой проверки фиксированных H1/H2 и ограниченного сбора новых данных до просмотра исходов; без обучения, ослабления критериев и активации",
+    "recommendedModel": "GPT-6 Astra",
+    "reasoning": "High"
+  }
+}

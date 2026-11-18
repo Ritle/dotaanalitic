@@ -1,0 +1,626 @@
+{
+  "task": "S3-04/history-local-readiness",
+  "date": "2026-11-13",
+  "status": "completed_audit_prerequisites_blocked",
+  "auditSha256": "42712027bfd3a8e5a7f407daee9a3d8b6ec021e2882a827a80c9f6f4bd9423a3",
+  "sourceHashes": {
+    "details": "4579fc7c44397e7c2a0152153434ead88837134e929c00d1aa54083c2820589a",
+    "capture": "2ab93b1412ce453c10e20ff5dd4dada892f6cd60fbd404b48e82078d7997a3b5",
+    "cache": "8a4fe669f1d7107068a38cf8e60443cacd504e283883b8506ca357fbd922ed0b",
+    "previous": "7feaaa08215c13f5f6ad061ff4a6520dc59604e07f07363bd40e59068ddf9526"
+  },
+  "counts": {
+    "maps": 6,
+    "accounts": 20,
+    "verifiedAccounts": 6,
+    "blockedAccounts": 14,
+    "localPrerequisitesReady": 0,
+    "missingTeamIds": [
+      "9791288",
+      "9791316",
+      "9791338",
+      "9791417"
+    ],
+    "missingLeagueIds": [
+      "18110"
+    ],
+    "seriesReviewGroups": 2
+  },
+  "blockedAccounts": [
+    {
+      "accountId": "5150808",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8314046640",
+        "8319940093",
+        "8320019689",
+        "8320888610",
+        "8321036163",
+        "8321155050"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "81991034",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8319940093",
+        "8320019689"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "106146290",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8314046640",
+        "8319940093",
+        "8320019689",
+        "8320888610",
+        "8321036163",
+        "8321155050"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "113995822",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8319940093",
+        "8320019689"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "115296681",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8319940093",
+        "8320019689"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "118325938",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8314046640"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "149889029",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8320888610",
+        "8321036163",
+        "8321155050"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "165671428",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8314046640",
+        "8319940093",
+        "8320019689",
+        "8320888610",
+        "8321036163",
+        "8321155050"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "170834508",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8314046640"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "190100004",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8319940093",
+        "8320019689"
+      ],
+      "previousCheck": {
+        "accountId": "190100004",
+        "status": "blocked",
+        "reasons": [
+          "NUMERIC_PROOF_MISSING"
+        ]
+      }
+    },
+    {
+      "accountId": "226683686",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8320888610",
+        "8321036163",
+        "8321155050"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "363871826",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8319940093",
+        "8320019689"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "766199892",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8320888610",
+        "8321036163",
+        "8321155050"
+      ],
+      "previousCheck": null
+    },
+    {
+      "accountId": "925799201",
+      "playerId": null,
+      "status": "blocked",
+      "reasons": [
+        "IDENTITY_UNKNOWN"
+      ],
+      "proofIds": [],
+      "knownBeforeHistoricalMap": "not_asserted",
+      "numericProofCandidates": [],
+      "profileIsNotAutomaticApproval": true,
+      "legacyRows": 0,
+      "storedReferenceProfiles": 0,
+      "mapIds": [
+        "8320888610",
+        "8321036163",
+        "8321155050"
+      ],
+      "previousCheck": null
+    }
+  ],
+  "maps": [
+    {
+      "matchId": "8314046640",
+      "localPrerequisitesReady": false,
+      "reasons": [
+        "CANONICAL_SERIES_UNRESOLVED",
+        "LOCAL_PRO_LEAGUE_UNRESOLVED",
+        "TEAM_REFERENCE_DIRE_UNRESOLVED",
+        "TEAM_REFERENCE_RADIANT_UNRESOLVED",
+        "TEN_VERIFIED_DISTINCT_PLAYERS_REQUIRED"
+      ],
+      "references": {
+        "radiant": {
+          "sourceId": "9791288",
+          "canonicalId": null
+        },
+        "dire": {
+          "sourceId": "9791417",
+          "canonicalId": null
+        }
+      },
+      "leagueId": "18110",
+      "sourceSeriesId": "980651",
+      "bestOf": 3,
+      "canonicalSeriesId": null,
+      "observedMapIdsForSourceSeries": [
+        "8314046640"
+      ],
+      "remoteMembershipCompleteness": "unknown",
+      "mapNumber": null,
+      "seriesWinner": null,
+      "trainingEligible": false,
+      "deployable": false
+    },
+    {
+      "matchId": "8319940093",
+      "localPrerequisitesReady": false,
+      "reasons": [
+        "CANONICAL_SERIES_UNRESOLVED",
+        "LOCAL_PRO_LEAGUE_UNRESOLVED",
+        "SERIES_GROUP_REVIEW_REQUIRED",
+        "TEAM_REFERENCE_DIRE_UNRESOLVED",
+        "TEAM_REFERENCE_RADIANT_UNRESOLVED",
+        "TEN_VERIFIED_DISTINCT_PLAYERS_REQUIRED"
+      ],
+      "references": {
+        "radiant": {
+          "sourceId": "9791417",
+          "canonicalId": null
+        },
+        "dire": {
+          "sourceId": "9791316",
+          "canonicalId": null
+        }
+      },
+      "leagueId": "18110",
+      "sourceSeriesId": "982345",
+      "bestOf": 3,
+      "canonicalSeriesId": null,
+      "observedMapIdsForSourceSeries": [
+        "8319940093"
+      ],
+      "remoteMembershipCompleteness": "unknown",
+      "mapNumber": null,
+      "seriesWinner": null,
+      "trainingEligible": false,
+      "deployable": false
+    },
+    {
+      "matchId": "8320019689",
+      "localPrerequisitesReady": false,
+      "reasons": [
+        "CANONICAL_SERIES_UNRESOLVED",
+        "LOCAL_PRO_LEAGUE_UNRESOLVED",
+        "SERIES_GROUP_REVIEW_REQUIRED",
+        "TEAM_REFERENCE_DIRE_UNRESOLVED",
+        "TEAM_REFERENCE_RADIANT_UNRESOLVED",
+        "TEN_VERIFIED_DISTINCT_PLAYERS_REQUIRED"
+      ],
+      "references": {
+        "radiant": {
+          "sourceId": "9791417",
+          "canonicalId": null
+        },
+        "dire": {
+          "sourceId": "9791316",
+          "canonicalId": null
+        }
+      },
+      "leagueId": "18110",
+      "sourceSeriesId": "982368",
+      "bestOf": 3,
+      "canonicalSeriesId": null,
+      "observedMapIdsForSourceSeries": [
+        "8320019689"
+      ],
+      "remoteMembershipCompleteness": "unknown",
+      "mapNumber": null,
+      "seriesWinner": null,
+      "trainingEligible": false,
+      "deployable": false
+    },
+    {
+      "matchId": "8320888610",
+      "localPrerequisitesReady": false,
+      "reasons": [
+        "CANONICAL_SERIES_UNRESOLVED",
+        "LOCAL_PRO_LEAGUE_UNRESOLVED",
+        "SERIES_GROUP_REVIEW_REQUIRED",
+        "TEAM_REFERENCE_DIRE_UNRESOLVED",
+        "TEAM_REFERENCE_RADIANT_UNRESOLVED",
+        "TEN_VERIFIED_DISTINCT_PLAYERS_REQUIRED"
+      ],
+      "references": {
+        "radiant": {
+          "sourceId": "9791338",
+          "canonicalId": null
+        },
+        "dire": {
+          "sourceId": "9791417",
+          "canonicalId": null
+        }
+      },
+      "leagueId": "18110",
+      "sourceSeriesId": "982601",
+      "bestOf": 3,
+      "canonicalSeriesId": null,
+      "observedMapIdsForSourceSeries": [
+        "8320888610"
+      ],
+      "remoteMembershipCompleteness": "unknown",
+      "mapNumber": null,
+      "seriesWinner": null,
+      "trainingEligible": false,
+      "deployable": false
+    },
+    {
+      "matchId": "8321036163",
+      "localPrerequisitesReady": false,
+      "reasons": [
+        "CANONICAL_SERIES_UNRESOLVED",
+        "LOCAL_PRO_LEAGUE_UNRESOLVED",
+        "SERIES_GROUP_REVIEW_REQUIRED",
+        "TEAM_REFERENCE_DIRE_UNRESOLVED",
+        "TEAM_REFERENCE_RADIANT_UNRESOLVED",
+        "TEN_VERIFIED_DISTINCT_PLAYERS_REQUIRED"
+      ],
+      "references": {
+        "radiant": {
+          "sourceId": "9791338",
+          "canonicalId": null
+        },
+        "dire": {
+          "sourceId": "9791417",
+          "canonicalId": null
+        }
+      },
+      "leagueId": "18110",
+      "sourceSeriesId": "982629",
+      "bestOf": 3,
+      "canonicalSeriesId": null,
+      "observedMapIdsForSourceSeries": [
+        "8321036163"
+      ],
+      "remoteMembershipCompleteness": "unknown",
+      "mapNumber": null,
+      "seriesWinner": null,
+      "trainingEligible": false,
+      "deployable": false
+    },
+    {
+      "matchId": "8321155050",
+      "localPrerequisitesReady": false,
+      "reasons": [
+        "CANONICAL_SERIES_UNRESOLVED",
+        "LOCAL_PRO_LEAGUE_UNRESOLVED",
+        "SERIES_GROUP_REVIEW_REQUIRED",
+        "TEAM_REFERENCE_DIRE_UNRESOLVED",
+        "TEAM_REFERENCE_RADIANT_UNRESOLVED",
+        "TEN_VERIFIED_DISTINCT_PLAYERS_REQUIRED"
+      ],
+      "references": {
+        "radiant": {
+          "sourceId": "9791338",
+          "canonicalId": null
+        },
+        "dire": {
+          "sourceId": "9791417",
+          "canonicalId": null
+        }
+      },
+      "leagueId": "18110",
+      "sourceSeriesId": "982651",
+      "bestOf": 3,
+      "canonicalSeriesId": null,
+      "observedMapIdsForSourceSeries": [
+        "8321155050"
+      ],
+      "remoteMembershipCompleteness": "unknown",
+      "mapNumber": null,
+      "seriesWinner": null,
+      "trainingEligible": false,
+      "deployable": false
+    }
+  ],
+  "groupingReviews": [
+    {
+      "mapIds": [
+        "8319940093",
+        "8320019689"
+      ],
+      "providerSeriesIds": [
+        "982345",
+        "982368"
+      ],
+      "reason": "SAME_DAY_OPPONENTS_DISTINCT_SOURCE_SERIES",
+      "automaticMergeAllowed": false
+    },
+    {
+      "mapIds": [
+        "8320888610",
+        "8321036163",
+        "8321155050"
+      ],
+      "providerSeriesIds": [
+        "982601",
+        "982629",
+        "982651"
+      ],
+      "reason": "SAME_DAY_OPPONENTS_DISTINCT_SOURCE_SERIES",
+      "automaticMergeAllowed": false
+    }
+  ],
+  "checks": {
+    "targetedNodeTests": 8,
+    "fullRegression": {
+      "installFrozenOffline": "PASS",
+      "typecheck": "PASS",
+      "testsPassed": 962,
+      "build": "PASS",
+      "sessionExitCode": 0
+    },
+    "cli": {
+      "status": "PASS",
+      "offlineReplay": true,
+      "overwriteRefused": true,
+      "inMemoryReportTamperingRefused": true,
+      "originalFilesUnchanged": true,
+      "blockedAccountParticipations": 42,
+      "seriesReviewGroups": 2,
+      "seriesReviewMaps": 5,
+      "sourceHashes": {
+        ".tools/s304-local-readiness.json": "42712027bfd3a8e5a7f407daee9a3d8b6ec021e2882a827a80c9f6f4bd9423a3",
+        ".tools/s304-local-readiness-capture.json": "2ab93b1412ce453c10e20ff5dd4dada892f6cd60fbd404b48e82078d7997a3b5",
+        ".tools/s304-local-cache.json": "8a4fe669f1d7107068a38cf8e60443cacd504e283883b8506ca357fbd922ed0b",
+        ".tools/s304-history-details-r1/report.json": "4579fc7c44397e7c2a0152153434ead88837134e929c00d1aa54083c2820589a"
+      }
+    },
+    "migrations": 54,
+    "docLinks": "PASS",
+    "gitDiffCheck": "PASS",
+    "continuationScopeBudget": "PASS",
+    "finalAuditAndDetailsReplayAfterBuild": "PASS"
+  },
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "importedMaps": 0,
+  "trainingPerformed": false,
+  "deployable": false,
+  "nextTask": "S3-04/history-details-continuation",
+  "nextScope": "Register a new bounded continuation for the 88 unattempted IDs; reuse 6 saved details and local 2 receipts; exclude failed ID 8322631374; new cap 92 with cumulative 100, per-map 2 across runs; preserve partial; no import/fit/activation.",
+  "recommendedModel": "GPT-6 Astra · High",
+  "preservation": {
+    "status": "done",
+    "checkedAt": "2026-11-13T00:28:46.990Z",
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 3,
+      "v1_runtime_snapshots": 3,
+      "owner_tier1_scopes": 1,
+      "scenarios": 3,
+      "leagues": 54
+    },
+    "queue": {
+      "count": 13,
+      "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+    },
+    "forecastId": "25290370-25ee-464a-9e24-4fa946f5abab",
+    "requestId": "17380251-5eba-49ac-8da3-4a78518c91b9",
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "probability": 0.5476897217211073,
+    "issuedAt": "2026-11-12T00:02:09.197563Z",
+    "scheduledAt": "2026-11-12T13:00:00.000Z",
+    "coverage": {
+      "nRaw": 2158,
+      "nEff": 2158,
+      "minimumPlayerMaps": 143,
+      "playersWithHistory": 10,
+      "playersMeetingMinimum": 10
+    },
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "comparisonToBefore": "counts_queue_snapshot_readiness_equal",
+    "frozenDatasetFitEvaluationSha256": "unchanged"
+  }
+}

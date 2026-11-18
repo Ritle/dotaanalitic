@@ -1,0 +1,22 @@
+{
+  "task": "S3-04/history-coverage-check",
+  "status": "proposal_not_executed",
+  "sourceImportManifestSha256": "5a18623c84775faacc11ee7694ef8a85d67d1426a39f0295fba24853c0de8bba",
+  "sourceImportReportSha256": "a368bd90f7739b166a0781a9cc8dad2a9d1dd46865078b2d292bf21fa63bac76",
+  "inputMaps": 28,
+  "scope": [
+    "quantify_added_strictly_earlier_verified_history_for_prior_coverage_gaps",
+    "separate_raw_data_presence_from_historical_availability",
+    "retain_original_R1_dataset_fit_evaluation",
+    "describe_remaining_deficits_and_R2_requirements"
+  ],
+  "prohibited": [
+    "provider_http",
+    "new_training",
+    "rescoring_old_holdout_as_independent_test",
+    "threshold_changes",
+    "activation"
+  ],
+  "historicalEvaluationStatus": "development_only_already_observed",
+  "modelRecommendation": "GPT-6 Astra / High"
+}

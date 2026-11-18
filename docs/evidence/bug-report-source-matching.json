@@ -1,0 +1,119 @@
+{
+  "task": "S1-16/BUG_REPORT/readable-labels/source-matching",
+  "date": "2026-11-11",
+  "scope": "Readable selected team/player/role and source descriptors in RoleProfiles, with explicit external numeric bindings preserved",
+  "design": {
+    "metadata": "Existing selected labels and role-profiles report only",
+    "additionalLabelHTTP": 0,
+    "automaticSourceRefresh": false,
+    "namesEstablishIdentity": false,
+    "localIdsInDetails": true,
+    "externalTeamTournamentIdsInDetails": true,
+    "externalPlayerIdsRetainedInOptions": true,
+    "externalTeamEventNamesInvented": false,
+    "bindingPayloadRevisionConfirmationAndIdempotencyUnchanged": true,
+    "roleAssignmentsUnchanged": true
+  },
+  "checks": {
+    "install": "PASS frozen/offline",
+    "typecheck": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 930,
+      "perWorkspace": [
+        {
+          "workspace": "packages/analytics",
+          "passed": 64
+        },
+        {
+          "workspace": "packages/contracts",
+          "passed": 34
+        },
+        {
+          "workspace": "packages/prediction",
+          "passed": 33
+        },
+        {
+          "workspace": "apps/web",
+          "passed": 72
+        },
+        {
+          "workspace": "packages/db",
+          "passed": 359
+        },
+        {
+          "workspace": "packages/ingestion",
+          "passed": 309
+        },
+        {
+          "workspace": "apps/worker",
+          "passed": 1
+        },
+        {
+          "workspace": "apps/api",
+          "passed": 58
+        }
+      ]
+    },
+    "build": "PASS",
+    "migrations": "PASS 52 ordered SQL files, historical checksums preserved",
+    "chromiumPostgres": {
+      "status": "PASS",
+      "unique": 20,
+      "files": [
+        "role-profiles.spec.ts",
+        "role-editor-priority.spec.ts",
+        "incomplete-opponents.spec.ts",
+        "role-suggestions.spec.ts",
+        "scenarios.spec.ts",
+        "upcoming-workflow.spec.ts"
+      ]
+    },
+    "red": "New matching-card test failed before implementation: expected5 cards, observed0",
+    "fixtureCorrection": "Initial targeted2-case run:1PASS/1FAIL because a skipped earlier case had warmed source options. Both new cases now explicitly refresh their synthetic source before assertions; complete5-case suite PASS. No production refresh, limit or timeout changed.",
+    "verified": [
+      "Same local nicknames remain two independent bigint IDs",
+      "Selected nickname is display metadata even for conflicted identity",
+      "Fallback requires existing verified numeric source link; stale/mismatched/ambiguous rejected",
+      "Blank and unavailable names remain distinct",
+      "Saved Panda ID absent from loaded roster remains selected and viewing does not rewrite binding",
+      "Explicit numeric Panda selections saved with expectedRevision and fresh confirmation",
+      "Showing names triggers no additional metadata request or provider refresh",
+      "Manual positions, hero, stand-in, immutable scenario history and late-response priority preserved",
+      "Full source key available in details; source status and fetched time retained",
+      "Desktop and360px screenshots inspected; no horizontal overflow"
+    ],
+    "notRerun": [
+      "Full standalone API/PostgreSQL integration suite",
+      "Full standalone Node fixture suite",
+      "Python",
+      "Docker/Linux",
+      "Live STRATZ/PandaScore profile validation"
+    ],
+    "buildWarnings": "Existing Vite chunk-size/annotation notices; build exit0",
+    "docLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "preservation": {
+    "tables": 85,
+    "changedTables": [],
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingProviderHTTP": 0,
+    "workingBusinessWrites": 0,
+    "dependenciesChanged": false,
+    "migrationsChanged": false,
+    "frozenPackagesChanged": false
+  },
+  "runtime": "Working PostgreSQL retained. Main API/Web initiallyOFF and not started; general workerOFF. Only temporary test API/Web/PostgreSQL used.",
+  "remaining": "Whole BUG_REPORT7 stays partial until final numeric-label audit; existing role headline still retains technical player ID.",
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/final-audit",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

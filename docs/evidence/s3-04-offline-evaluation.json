@@ -1,0 +1,185 @@
+{
+  "task": "S3-04/offline-evaluation",
+  "date": "2026-11-13",
+  "registeredAt": "2026-11-12T22:56:29.991Z",
+  "startedAt": "2026-11-12T22:56:53.485Z",
+  "sourceHashes": {
+    "fitManifest": "0ada189f2e2e4865f72983bac33810e6317bce234ad689d3484bd305dbd82816",
+    "fitArtifact": "70916658f4db7162039a7a3bed772457aa5f387d3f0cc0025cfea64590500951",
+    "fitResult": "7f3a36710fd9ffc39888f6dc812efda04915e8b55b9f65195e9cc7b6d291a63a",
+    "dataset": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd",
+    "inventory": "93292795acbf891cffbc79c1f429d5122786f5735c5c09ce5761f250b2bc3b4b",
+    "metadata": "86b9683c5e2fd4057d6fd2fd15b96250911a9a878a1ac5d673a828ef24a75d16",
+    "protocol": "7f88a919de2bbd2cf3e61b95476c0bb7c435dd4d8f191aff2365838c2ef9eeab"
+  },
+  "artifacts": {
+    "manifest.json": "cd75521a4dcd9a43e109c824b720890f630d4a693cfaa894309fa7e4ba442ef7",
+    "started.json": "2361c8868d4316cf0c75e54c13d7a2edca77036ea70a9d048de1d8ac2b00b837",
+    "input.json": "adab2147770f6846f977bb89b5462e19b7217791ab5685e70c393ef95396cc6e",
+    "report.json": "30f6d9696c07a4e1085236ca7b29af8a615f81aae8f9b37ce24cb35308f611e5",
+    "result.json": "6eb174e9724dcfcc6223ff431ede3c48ee3f3f67ee3306db8ab4b8b609a3c6e1"
+  },
+  "evaluation": {
+    "status": "completed_research_evaluation",
+    "manifestSha256": "cd75521a4dcd9a43e109c824b720890f630d4a693cfaa894309fa7e4ba442ef7",
+    "reportSha256": "30f6d9696c07a4e1085236ca7b29af8a615f81aae8f9b37ce24cb35308f611e5",
+    "counts": {
+      "plannedDenominator": 223,
+      "datasetPairedMaps": 175,
+      "pairedMaps": 175,
+      "pairedSeries": 80,
+      "baselineMaps": 175,
+      "baselineOnlyMaps": 0,
+      "coverage": 0.7847533632286996
+    },
+    "decision": {
+      "status": "insufficient",
+      "metricSignal": "negative",
+      "dataReasons": [
+        "DEVELOPMENT_TEST_COVERAGE_BELOW_0_80"
+      ],
+      "metricReasons": [
+        "NO_SIGNIFICANT_LOGLOSS_GAIN_OVER_M1",
+        "LOGLOSS_NOT_BETTER_THAN_M0",
+        "BRIER_WORSE_THAN_M0",
+        "BRIER_WORSE_THAN_M1",
+        "M2_ECE_ABOVE_0_10"
+      ]
+    },
+    "metrics": {
+      "M0": {
+        "n": 175,
+        "logLoss": 0.6324918393226884,
+        "brier": 0.2205182879914407,
+        "accuracy": 0.6571428571428571,
+        "ece": 0.09176001603794497
+      },
+      "M1_raw": {
+        "n": 175,
+        "logLoss": 0.6380834104267045,
+        "brier": 0.2230803555767767,
+        "accuracy": 0.6571428571428571,
+        "ece": 0.1021515803850342
+      },
+      "M1_cal": {
+        "n": 175,
+        "logLoss": 0.6317594154792588,
+        "brier": 0.22018529948665455,
+        "accuracy": 0.6571428571428571,
+        "ece": 0.09043844131327432
+      },
+      "M2_raw": {
+        "n": 175,
+        "logLoss": 0.6627684847484555,
+        "brier": 0.23491968360196186,
+        "accuracy": 0.6628571428571428,
+        "ece": 0.1231869717271661
+      },
+      "M2_cal": {
+        "n": 175,
+        "logLoss": 0.6408742732256698,
+        "brier": 0.2237532908748111,
+        "accuracy": 0.6628571428571428,
+        "ece": 0.11072634638463162
+      }
+    },
+    "bootstrap": {
+      "unit": "whole_series",
+      "replicates": 2000,
+      "seed": 42,
+      "rng": "numpy.PCG64",
+      "interval": "percentile_95_linear",
+      "series": 80,
+      "maps": 175,
+      "drawSha256": "d3fdc7d54c64decce28763ee5b9cc400ac4657431457eec870f2bf70b0f7bba5",
+      "deltas": {
+        "logLoss_M2_cal_minus_M1_cal": {
+          "mean": 0.009114857746410908,
+          "lower": -0.02182843577820209,
+          "upper": 0.042014131092595025
+        },
+        "logLoss_M2_cal_minus_M0": {
+          "mean": 0.008382433902981398,
+          "lower": -0.02264940852555067,
+          "upper": 0.04169218189747509
+        },
+        "brier_M2_cal_minus_M1_cal": {
+          "mean": 0.0035679913881564566,
+          "lower": -0.010400991317554665,
+          "upper": 0.01817951778298248
+        },
+        "brier_M2_cal_minus_M0": {
+          "mean": 0.0032350028833703537,
+          "lower": -0.01057509693015545,
+          "upper": 0.017905302005478137
+        }
+      }
+    },
+    "trainingPerformed": false,
+    "activationAllowed": false,
+    "deployable": false
+  },
+  "checks": {
+    "pythonTests": 42,
+    "targetedNodeTests": 27,
+    "cli": {
+      "status": "PASS",
+      "offlineReplay": true,
+      "repeatRefused": true,
+      "modelShaRefused": true,
+      "tamperedDecisionRefused": true,
+      "registrationBeforeScoring": true,
+      "originalReportSha256": "30f6d9696c07a4e1085236ca7b29af8a615f81aae8f9b37ce24cb35308f611e5"
+    },
+    "independentMetrics": {
+      "status": "PASS",
+      "independentSklearnMetrics": 5,
+      "plannedMaps": 223,
+      "pairedMaps": 175,
+      "series": 80,
+      "strataComplete": true,
+      "noTraining": true
+    },
+    "fullRegression": {
+      "installFrozenOffline": "PASS",
+      "typecheck": "PASS",
+      "tests": 962,
+      "build": "PASS"
+    },
+    "preservation": {
+      "status": "PASS",
+      "counts": {
+        "matches": 2232,
+        "prediction_runs": 3,
+        "v1_runtime_snapshots": 3,
+        "owner_tier1_scopes": 1,
+        "scenarios": 3,
+        "leagues": 54
+      },
+      "queue": {
+        "count": 13,
+        "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+      },
+      "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+      "readiness": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      }
+    },
+    "orderedMigrations": 54,
+    "documentationLinks": "PASS",
+    "diffWhitespace": "PASS",
+    "frozenEvaluationReplay": "PASS"
+  },
+  "providerHttpRequests": 0,
+  "workingBusinessWrites": 0,
+  "limitations": [
+    "Retrospective previously exposed development cohort, not a blind release holdout",
+    "175 of 223 maps; coverage below registered 0.80 threshold",
+    "Canonical patch unknown; provider patch is annotation only",
+    "No demonstrated hero improvement; no model activation"
+  ],
+  "nextTask": "S3-04/error-audit"
+}

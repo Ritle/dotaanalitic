@@ -1,0 +1,135 @@
+{
+  "task": "S3-07/persistent-provider-results",
+  "date": "2026-11-16",
+  "checks": [
+    {
+      "name": "install",
+      "exitCode": 0,
+      "log": ".tools/s307-persistent-install.log"
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "log": ".tools/s307-persistent-typecheck.log"
+    },
+    {
+      "name": "test",
+      "exitCode": 1,
+      "log": ".tools/s307-persistent-test.log"
+    },
+    {
+      "name": "timeout-test-isolated-retry",
+      "exitCode": 0,
+      "log": ".tools/s307-persistent-timeout-retry.log"
+    },
+    {
+      "name": "remaining-api-worker",
+      "exitCode": 0,
+      "log": ".tools/s307-persistent-remaining-tests.log"
+    },
+    {
+      "name": "final-build",
+      "exitCode": 0,
+      "log": ".tools/s307-persistent-build-final.log"
+    }
+  ],
+  "packageTests": 1067,
+  "integrationTests": 3,
+  "browserTests": 2,
+  "files": [
+    {
+      "path": "packages/db/migrations/071_journal_provider_results.sql",
+      "sha256": "3d73463320637b10e1079eba3c803f334da9d04940916def3c47fe3727a53cf0"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-result-service.ts",
+      "sha256": "9e84bfa74d457ca03e44b35ec7018a6dc8ea8687a520fa73d3a9b49fe57fcfa2"
+    },
+    {
+      "path": "apps/api/src/modules/scenarios/journal-result-http.ts",
+      "sha256": "71020ede6aba159482f340eba5c9cb95fb13f2e38e0d81c4a98f1ed2f9e099fa"
+    },
+    {
+      "path": "apps/web/src/journal.ts",
+      "sha256": "f276653e9782c13d1807785d04d5f00ac8e1b97a098580045bdc3042aef4ade6"
+    },
+    {
+      "path": "apps/web/src/components/ForecastJournalRow.vue",
+      "sha256": "c94055ca95590a463a051c847e4b7f969a3c1615f46ff443272d95761e3f0e6e"
+    },
+    {
+      "path": "apps/web/src/components/CurrentForecastJournal.vue",
+      "sha256": "6f608b175885f0d5485982d47ec74fab137ab09fe488dddebe098bd98f6cd647"
+    },
+    {
+      "path": "apps/api/tests/journal-result.integration.test.ts",
+      "sha256": "0d904a6406118fac45242df5a7268adef67e969c8e61ea05842946ebe611bab9"
+    },
+    {
+      "path": "apps/web/tests/e2e/journal-source-results.spec.ts",
+      "sha256": "360e41b135617ae3a1e77a8621760323ec85f3ebdb23401e533803e03bc58921"
+    }
+  ],
+  "live": {
+    "first": {
+      "provider": "pandascore",
+      "providerMatchId": "1793320",
+      "state": "finished",
+      "actualWinner": "B",
+      "correct": false,
+      "providerGameId": "741497",
+      "beganAt": "2026-11-12T13:04:37.000Z",
+      "endedAt": "2026-11-12T13:53:20.000Z",
+      "sourceFetchedAt": "2026-11-16T00:38:01.512Z",
+      "sourceSha256": "fa423305d4aa1a4ee337ec321d8869594dfd2c5ce0aa90c860ff620108024485",
+      "sourceUrl": "https://api.pandascore.co/matches/1793320",
+      "reason": "PROVIDER_FIRST_MAP_RESULT",
+      "canonicalOutcome": false
+    },
+    "readAfterNewService": {
+      "provider": "pandascore",
+      "providerMatchId": "1793320",
+      "state": "finished",
+      "actualWinner": "B",
+      "correct": false,
+      "providerGameId": "741497",
+      "beganAt": "2026-11-12T13:04:37.000Z",
+      "endedAt": "2026-11-12T13:53:20.000Z",
+      "sourceFetchedAt": "2026-11-16T00:38:01.512Z",
+      "sourceSha256": "fa423305d4aa1a4ee337ec321d8869594dfd2c5ce0aa90c860ff620108024485",
+      "sourceUrl": "https://api.pandascore.co/matches/1793320",
+      "reason": "PROVIDER_FIRST_MAP_RESULT",
+      "canonicalOutcome": false
+    },
+    "repeatProviderAttempts": 0,
+    "receiptCount": 1,
+    "predictionHashesUnchanged": true
+  },
+  "migration": {
+    "filename": "071_journal_provider_results.sql",
+    "checksum": "3d73463320637b10e1079eba3c803f334da9d04940916def3c47fe3727a53cf0",
+    "applied": true,
+    "scope": "independent additive receipt table only; pending062-070 untouched"
+  },
+  "modelRuntime": {
+    "activationIntegrity": true,
+    "currentMatchesActivation": true,
+    "runtime": {
+      "added": [],
+      "changed": [],
+      "missing": []
+    },
+    "admission": {
+      "added": [],
+      "changed": [],
+      "missing": []
+    }
+  },
+  "testNote": "Initial full run had one historical CLI60s timeout; isolated retry passed30s, skipped API/worker suites completed separately. All1067 distinct package tests passed across these runs.",
+  "limits": [
+    "Provider receipts are distinct from canonical outcomes and series forecasts.",
+    "Manual source correction is bounded by60s shared cooldown.",
+    "Provider failure retains previous receipt and its original source clock."
+  ],
+  "nextTask": "S3-09/series-corpus-and-protocol"
+}

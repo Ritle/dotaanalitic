@@ -1,0 +1,479 @@
+{
+  "task": "S3-04/player-hero-feature-audit",
+  "status": "completed_coverage_audit_not_model_validation",
+  "artifactPath": ".tools/s304-player-hero-audit-r1.json",
+  "artifactSha256": "0217c11e612deb3a356e1352ec24df798c5434c1ec3f79a562f782ee2f6a84ea",
+  "artifactBytes": 9635277,
+  "fingerprint": "ba25dd9bdb442deb564fc630112129fcb07036b81d6dc03eb35deb2020d8aa06",
+  "sourceHashes": {
+    "dataset": "0bbcf34030232ea6f067d5de61bf096eaef3efb8eae1ab6b4e11b153dfff6fe0",
+    "datasetEvidence": "ea6d1441bf48284d1a3d3ec5e792b18ffb1ed2d1f11242ab7eeac249744a792a",
+    "inventory": "93292795acbf891cffbc79c1f429d5122786f5735c5c09ce5761f250b2bc3b4b",
+    "capture": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2",
+    "source": "4ebad584fa29c3bd2c0a3a0ba9be665f701fdcf5d559992616ca9d831454de7b",
+    "importPlan": "7f03db0d51ffd63f404ee304b43dba8575341ce950942676cda9eb038da3616f",
+    "protocol": "7f88a919de2bbd2cf3e61b95476c0bb7c435dd4d8f191aff2365838c2ef9eeab"
+  },
+  "code": {
+    "tools/research/post-draft-player-hero-audit.mjs": "24817582387b89dab9c538c68f6a3a5688dc2add0d3a5e22c1233f1700563c33",
+    "tests/node/post-draft-player-hero-audit.test.mjs": "3bdc38a6ee6e9d19c7f4e21035500132cf6c48aef2db976a18395a792b299e51"
+  },
+  "policy": {
+    "version": "player-hero-coverage-v1",
+    "thresholds": [
+      1,
+      3,
+      5,
+      10
+    ],
+    "recentDays": 90,
+    "cutoff": "started_and_completed_strictly_before_target_start",
+    "scope": "same_verified_player_and_numeric_account_across_organizations",
+    "counts": "unweighted_local_pro_history_only",
+    "thresholdPurpose": "descriptive_not_model_gates",
+    "availability": "conditional_event_time_not_verified_as_of",
+    "role": "not_captured",
+    "patch": "provider_label_diagnostic_not_canonical_fallback"
+  },
+  "history": {
+    "verifiedProMaps": 2186,
+    "heroBoundMaps": 2180,
+    "excluded": [
+      {
+        "matchId": "8643189704",
+        "reason": "CANONICAL_HERO_IDENTITY_UNRESOLVED"
+      },
+      {
+        "matchId": "8643275129",
+        "reason": "CANONICAL_HERO_IDENTITY_UNRESOLVED"
+      },
+      {
+        "matchId": "8651442322",
+        "reason": "CANONICAL_HERO_IDENTITY_UNRESOLVED"
+      },
+      {
+        "matchId": "8652632561",
+        "reason": "CANONICAL_HERO_IDENTITY_UNRESOLVED"
+      },
+      {
+        "matchId": "9048684915",
+        "reason": "CANONICAL_HERO_IDENTITY_UNRESOLVED"
+      },
+      {
+        "matchId": "9048749977",
+        "reason": "CANONICAL_HERO_IDENTITY_UNRESOLVED"
+      }
+    ],
+    "providerPatchMaps": 2152,
+    "canonicalPatchMaps": 0
+  },
+  "partitions": {
+    "warmup": {
+      "plannedMaps": 6,
+      "assessedMaps": 0,
+      "assessedSeries": 0,
+      "playerTargetSlots": 0,
+      "localAllHistory": {
+        "n": 0,
+        "min": null,
+        "max": null,
+        "median": null,
+        "zero": 0,
+        "oneToTwo": 0,
+        "threeToFour": 0,
+        "fiveToNine": 0,
+        "tenPlus": 0
+      },
+      "recent90Days": {
+        "n": 0,
+        "min": null,
+        "max": null,
+        "median": null,
+        "zero": 0,
+        "oneToTwo": 0,
+        "threeToFour": 0,
+        "fiveToNine": 0,
+        "tenPlus": 0
+      },
+      "thresholds": [
+        {
+          "n": 1,
+          "slotsAtLeast": 0,
+          "allTenMaps": 0,
+          "allTenRecentMaps": 0
+        },
+        {
+          "n": 3,
+          "slotsAtLeast": 0,
+          "allTenMaps": 0,
+          "allTenRecentMaps": 0
+        },
+        {
+          "n": 5,
+          "slotsAtLeast": 0,
+          "allTenMaps": 0,
+          "allTenRecentMaps": 0
+        },
+        {
+          "n": 10,
+          "slotsAtLeast": 0,
+          "allTenMaps": 0,
+          "allTenRecentMaps": 0
+        }
+      ],
+      "providerPatchTargets": 0,
+      "canonicalPatchTargets": 0,
+      "sameProviderPatch": {
+        "n": 0,
+        "min": null,
+        "max": null,
+        "median": null,
+        "zero": 0,
+        "oneToTwo": 0,
+        "threeToFour": 0,
+        "fiveToNine": 0,
+        "tenPlus": 0
+      },
+      "slotsWithIncompleteHeroHistory": 0,
+      "sourceFetchedBeforeTargetContributions": 0
+    },
+    "train": {
+      "plannedMaps": 1252,
+      "assessedMaps": 881,
+      "assessedSeries": 421,
+      "playerTargetSlots": 8810,
+      "localAllHistory": {
+        "n": 8810,
+        "min": 0,
+        "max": 33,
+        "median": 3,
+        "zero": 1781,
+        "oneToTwo": 2578,
+        "threeToFour": 1597,
+        "fiveToNine": 1835,
+        "tenPlus": 1019
+      },
+      "recent90Days": {
+        "n": 8810,
+        "min": 0,
+        "max": 31,
+        "median": 2,
+        "zero": 2161,
+        "oneToTwo": 2720,
+        "threeToFour": 1592,
+        "fiveToNine": 1589,
+        "tenPlus": 748
+      },
+      "thresholds": [
+        {
+          "n": 1,
+          "slotsAtLeast": 7029,
+          "allTenMaps": 182,
+          "allTenRecentMaps": 131
+        },
+        {
+          "n": 3,
+          "slotsAtLeast": 4451,
+          "allTenMaps": 15,
+          "allTenRecentMaps": 9
+        },
+        {
+          "n": 5,
+          "slotsAtLeast": 2854,
+          "allTenMaps": 1,
+          "allTenRecentMaps": 0
+        },
+        {
+          "n": 10,
+          "slotsAtLeast": 1019,
+          "allTenMaps": 0,
+          "allTenRecentMaps": 0
+        }
+      ],
+      "providerPatchTargets": 881,
+      "canonicalPatchTargets": 0,
+      "sameProviderPatch": {
+        "n": 8810,
+        "min": 0,
+        "max": 27,
+        "median": 1,
+        "zero": 2922,
+        "oneToTwo": 2897,
+        "threeToFour": 1361,
+        "fiveToNine": 1206,
+        "tenPlus": 424
+      },
+      "slotsWithIncompleteHeroHistory": 492,
+      "sourceFetchedBeforeTargetContributions": 0
+    },
+    "validation": {
+      "plannedMaps": 398,
+      "assessedMaps": 306,
+      "assessedSeries": 170,
+      "playerTargetSlots": 3060,
+      "localAllHistory": {
+        "n": 3060,
+        "min": 0,
+        "max": 48,
+        "median": 5,
+        "zero": 373,
+        "oneToTwo": 639,
+        "threeToFour": 439,
+        "fiveToNine": 781,
+        "tenPlus": 828
+      },
+      "recent90Days": {
+        "n": 3060,
+        "min": 0,
+        "max": 33,
+        "median": 3,
+        "zero": 549,
+        "oneToTwo": 773,
+        "threeToFour": 509,
+        "fiveToNine": 702,
+        "tenPlus": 527
+      },
+      "thresholds": [
+        {
+          "n": 1,
+          "slotsAtLeast": 2687,
+          "allTenMaps": 118,
+          "allTenRecentMaps": 86
+        },
+        {
+          "n": 3,
+          "slotsAtLeast": 2048,
+          "allTenMaps": 17,
+          "allTenRecentMaps": 3
+        },
+        {
+          "n": 5,
+          "slotsAtLeast": 1609,
+          "allTenMaps": 1,
+          "allTenRecentMaps": 0
+        },
+        {
+          "n": 10,
+          "slotsAtLeast": 828,
+          "allTenMaps": 0,
+          "allTenRecentMaps": 0
+        }
+      ],
+      "providerPatchTargets": 306,
+      "canonicalPatchTargets": 0,
+      "sameProviderPatch": {
+        "n": 3060,
+        "min": 0,
+        "max": 30,
+        "median": 2,
+        "zero": 688,
+        "oneToTwo": 923,
+        "threeToFour": 555,
+        "fiveToNine": 629,
+        "tenPlus": 265
+      },
+      "slotsWithIncompleteHeroHistory": 290,
+      "sourceFetchedBeforeTargetContributions": 0
+    },
+    "calibration": {
+      "plannedMaps": 338,
+      "assessedMaps": 284,
+      "assessedSeries": 124,
+      "playerTargetSlots": 2840,
+      "localAllHistory": {
+        "n": 2840,
+        "min": 0,
+        "max": 53,
+        "median": 5,
+        "zero": 344,
+        "oneToTwo": 572,
+        "threeToFour": 443,
+        "fiveToNine": 668,
+        "tenPlus": 813
+      },
+      "recent90Days": {
+        "n": 2840,
+        "min": 0,
+        "max": 28,
+        "median": 2,
+        "zero": 645,
+        "oneToTwo": 869,
+        "threeToFour": 555,
+        "fiveToNine": 575,
+        "tenPlus": 196
+      },
+      "thresholds": [
+        {
+          "n": 1,
+          "slotsAtLeast": 2496,
+          "allTenMaps": 98,
+          "allTenRecentMaps": 42
+        },
+        {
+          "n": 3,
+          "slotsAtLeast": 1924,
+          "allTenMaps": 18,
+          "allTenRecentMaps": 1
+        },
+        {
+          "n": 5,
+          "slotsAtLeast": 1481,
+          "allTenMaps": 7,
+          "allTenRecentMaps": 0
+        },
+        {
+          "n": 10,
+          "slotsAtLeast": 813,
+          "allTenMaps": 1,
+          "allTenRecentMaps": 0
+        }
+      ],
+      "providerPatchTargets": 284,
+      "canonicalPatchTargets": 0,
+      "sameProviderPatch": {
+        "n": 2840,
+        "min": 0,
+        "max": 36,
+        "median": 3,
+        "zero": 540,
+        "oneToTwo": 795,
+        "threeToFour": 508,
+        "fiveToNine": 634,
+        "tenPlus": 363
+      },
+      "slotsWithIncompleteHeroHistory": 156,
+      "sourceFetchedBeforeTargetContributions": 0
+    },
+    "development_test": {
+      "plannedMaps": 223,
+      "assessedMaps": 186,
+      "assessedSeries": 86,
+      "playerTargetSlots": 1860,
+      "localAllHistory": {
+        "n": 1860,
+        "min": 0,
+        "max": 59,
+        "median": 3,
+        "zero": 314,
+        "oneToTwo": 516,
+        "threeToFour": 304,
+        "fiveToNine": 379,
+        "tenPlus": 347
+      },
+      "recent90Days": {
+        "n": 1860,
+        "min": 0,
+        "max": 23,
+        "median": 1,
+        "zero": 595,
+        "oneToTwo": 659,
+        "threeToFour": 307,
+        "fiveToNine": 232,
+        "tenPlus": 67
+      },
+      "thresholds": [
+        {
+          "n": 1,
+          "slotsAtLeast": 1546,
+          "allTenMaps": 42,
+          "allTenRecentMaps": 7
+        },
+        {
+          "n": 3,
+          "slotsAtLeast": 1030,
+          "allTenMaps": 4,
+          "allTenRecentMaps": 0
+        },
+        {
+          "n": 5,
+          "slotsAtLeast": 726,
+          "allTenMaps": 1,
+          "allTenRecentMaps": 0
+        },
+        {
+          "n": 10,
+          "slotsAtLeast": 347,
+          "allTenMaps": 0,
+          "allTenRecentMaps": 0
+        }
+      ],
+      "providerPatchTargets": 186,
+      "canonicalPatchTargets": 0,
+      "sameProviderPatch": {
+        "n": 1860,
+        "min": 0,
+        "max": 42,
+        "median": 2,
+        "zero": 450,
+        "oneToTwo": 558,
+        "threeToFour": 315,
+        "fiveToNine": 347,
+        "tenPlus": 190
+      },
+      "slotsWithIncompleteHeroHistory": 84,
+      "sourceFetchedBeforeTargetContributions": 29
+    }
+  },
+  "targetLedgerMaps": 2232,
+  "assessedMaps": 1657,
+  "playerTargetSlots": 16570,
+  "limitations": [
+    "LOCAL_HISTORY_NOT_EXHAUSTIVE",
+    "ZERO_LOCAL_COUNT_NOT_ZERO_EXPERIENCE",
+    "TARGET_HERO_RECONSTRUCTED",
+    "HISTORICAL_KNOWN_AT_NOT_ESTABLISHED",
+    "ROLE_NOT_CAPTURED",
+    "PROVIDER_PATCH_NOT_CANONICAL",
+    "NO_WEIGHTING_OR_HERO_TRANSFER_POLICY",
+    "NO_INDEPENDENT_TEST"
+  ],
+  "independentRecount": {
+    "status": "PASS",
+    "independentRawSourceComparisons": 115990,
+    "eligibleHistoryMaps": 2186,
+    "heroBoundMaps": 2180,
+    "targetMaps": 1657,
+    "source": "raw frozen capture/import members and R2 verified eligibility ledger",
+    "auditSha256": "0217c11e612deb3a356e1352ec24df798c5434c1ec3f79a562f782ee2f6a84ea"
+  },
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "nextTask": "S3-04/player-hero-feature-contract — закрепить один отдельный исследовательский признак опыта игрока на герое и обработку неполной истории, патчей и ролей; реализовать чистый расчёт с временными проверками, без обучения, scoring старого теста и изменения рабочего прогноза.",
+  "checks": {
+    "nodeTests": 11,
+    "replay": "PASS",
+    "generalChecks": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 978,
+    "build": "PASS",
+    "postBuildOfflineReplay": "PASS",
+    "tamperedCopyRejected": "PASS",
+    "overwriteRejected": "PASS",
+    "orderedMigrations": 57,
+    "historicalSqlChecksums": "PASS",
+    "docLinks": "PASS",
+    "whitespaceAndDiff": "PASS",
+    "browserIntegration": "not_run_no_UI_changes",
+    "postgresIntegration": "not_run_no_schema_or_query_changes"
+  },
+  "readiness": {
+    "checkedAt": "2026-11-13T17:42:27.770Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "buildWarnings": [
+    "existing_zod_annotations",
+    "existing_web_chunk_over_500kb"
+  ]
+}

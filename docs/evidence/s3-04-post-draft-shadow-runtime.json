@@ -1,0 +1,47 @@
+{
+  "task": "S3-04/post-draft-shadow-runtime",
+  "date": "2026-11-14",
+  "featurePolicy": "selected-ten-and-known-series-exclusion-v1",
+  "candidateSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+  "checks": {
+    "targeted": {"passed": 11, "initialFixtureFailures": 2},
+    "packageTests": {"passed": 1040, "failed": 0},
+    "legacyNodeTests": {"passed": 56, "failed": 0},
+    "frozenOfflineInstall": "pass_after_using_existing_store_outside_sandbox",
+    "typecheck": "pass",
+    "build": "pass",
+    "buildWarnings": ["existing_zod_annotations", "existing_web_chunk_over_500kb"],
+    "pythonTsParity": {"cases": 262, "numericComparisons": 1570, "nullChecks": 2, "maxError": 1.1102230246251565e-16},
+    "migrationChecksums": 60,
+    "shadowReplay": "pass",
+    "previousObservationExportReplay": "pass",
+    "preparedIndependentPlanReplay": "pass"
+  },
+  "localArtifact": {
+    "path": ".tools/s304-shadow-local-r1.json",
+    "sha256": "eee8543ca8dd5bd22ecee1157c1f9cdb4f844d93a9c67ef830f4eee8185b099f",
+    "captures": 0,
+    "observations": 0,
+    "links": 0,
+    "scoredCaptures": 0,
+    "livePositiveCoverageEstablished": false
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T16:28:23.969Z",
+    "modelStatus": "model_eligible",
+    "maps": 2260,
+    "predictions": 7,
+    "preservedPredictionHashes": 7,
+    "api": 200,
+    "web": 200,
+    "privateEndpoint": 401
+  },
+  "databaseWrites": 0,
+  "providerHttpRequests": 0,
+  "trainingPerformed": false,
+  "productionScoringPerformed": false,
+  "collectionAllowed": false,
+  "primaryEligible": false,
+  "deployable": false,
+  "nextTask": "S3-04/post-draft-validation-readiness"
+}

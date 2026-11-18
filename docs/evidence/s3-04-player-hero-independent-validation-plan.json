@@ -1,0 +1,193 @@
+{
+  "task": "S3-04/player-hero-independent-validation-plan",
+  "status": "prepared_not_registered",
+  "preparedAt": "2026-11-13T19:48:35.285Z",
+  "artifactPath": ".tools/s304-hero-independent-plan-r1.json",
+  "artifactSha256": "b9c12e9bb008294869b0487b7323b1c57ae7143ea37ba2132b733a3b9a84509d",
+  "fingerprint": "22cf720aae9bedd165ff14255bd2a77180e921846e85f3096d3ad73c9c719c48",
+  "candidate": {
+    "artifactSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+    "models": {
+      "H1": {
+        "featureOrder": [
+          "eloLogit"
+        ],
+        "coefficients": [
+          0.8180622966556597
+        ],
+        "temperature": 0.7933639640518718,
+        "intercept": 0
+      },
+      "H2": {
+        "featureOrder": [
+          "eloLogit",
+          "observedHeroPracticeLog90Delta"
+        ],
+        "coefficients": [
+          0.7708530813119323,
+          0.1357780175911949
+        ],
+        "temperature": 0.811023232354886,
+        "intercept": 0
+      }
+    },
+    "H0": "fixed_sigmoid_existing_elo_logit",
+    "coefficientSelectionPerformed": false,
+    "newFittingPerformed": false
+  },
+  "exposure": {
+    "maps": 2260,
+    "knownSeries": 1096,
+    "latestFrozenEvent": "2026-11-04T20:07:52.000Z",
+    "completeProjectInventory": false,
+    "independentMapsEstablished": 0
+  },
+  "unknownSeriesMaps": 26,
+  "registration": {
+    "registeredAt": null,
+    "from": null,
+    "until": null,
+    "assessmentAt": null,
+    "eventEditionScope": null,
+    "executableManifestSha256": null,
+    "collectorReadinessEvidenceSha256": null,
+    "globalExposureInventorySha256": null,
+    "collectionAllowed": false,
+    "durationDays": 28,
+    "outcomeGraceDays": 7,
+    "order": "freeze_all_executables_and_environment_then_register_before_target_series_start",
+    "amendment": "new_linked_version_before_affected_series_start;never_rewrite_first_result_or_extend_after_metrics"
+  },
+  "readiness": {
+    "registrationAllowed": false,
+    "collectionAllowed": false,
+    "blockers": [
+      "immutable_prospective_capture_adapter_with_asof_tests_and_ten_hero_account_binding",
+      "verified_provider_clock_semantics_and_map_series_linking_without_outcome_features",
+      "frozen_candidate_builder_inference_evaluator_environment_and_python_ts_parity",
+      "complete_global_exposure_inventory_and_canonical_series_alias_checks",
+      "explicit_future_Tier1_event_editions_dates_scope_evidence_and_full_pagination_policy",
+      "shared_quota_budget_cache_retry_and_recovery_tests",
+      "pre_registered_power_feasibility_note_without_claiming_50_maps_guarantee_power"
+    ],
+    "currentBuilderEnforcesKnownAt": false,
+    "sourceClockSemanticsVerified": false,
+    "numericalRecipeChangeAllowed": false
+  },
+  "inputs": {
+    "experimentPlan": {
+      "path": "docs/evidence/s3-04-player-hero-experiment-plan.json",
+      "sha256": "befbca5cc9d1310b8837f1e7a4f047e336ba8a1e386372dff95ce96af4d428df"
+    },
+    "fitArtifact": {
+      "path": ".tools/s304-hero-fit-r1/artifact.json",
+      "sha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b"
+    },
+    "fitManifest": {
+      "path": ".tools/s304-hero-fit-r1/manifest.json",
+      "sha256": "f5ad3fa4ac06ae66ef75f5db5af91fdbc651bc722433af360b310db5e99ffd52"
+    },
+    "evaluationManifest": {
+      "path": ".tools/s304-hero-eval-r1/manifest.json",
+      "sha256": "2721ac651c6261052a382bff4aab142d62b852611328d99b61c3b0a99b5fc28e"
+    },
+    "evaluationEvidence": {
+      "path": "docs/evidence/s3-04-player-hero-experiment-evaluation.json",
+      "sha256": "63b86ec5db17793ecf5ec6ba5bc87f5cce0ef52377a8ed99128affaeb49ef1e3"
+    },
+    "errorAudit": {
+      "path": ".tools/s304-hero-error-audit-r1.json",
+      "sha256": "0e7340318035d4cb3e7e753459d4b2a7bf7e34b1c592ec8d2cbbc9025aad9d70"
+    },
+    "errorAuditEvidence": {
+      "path": "docs/evidence/s3-04-player-hero-error-audit.json",
+      "sha256": "033de77c0442bfa7569423d643ba500c8b0a01e0cc9b8088d08f8a2c2b049175"
+    }
+  },
+  "code": {
+    "tools/research/player-hero-independent-policy.json": "70f121b2686e04ce74a822f8b5161d70311631701c33441a40a903eccb4cee3a",
+    "tools/research/player-hero-experiment-policy.json": "32785db3ae5c7e227940c44fa2be5bfd1a9be747ab9cf4479e4a39932be810c9",
+    "tools/research/player-hero-independent-plan.mjs": "50324da5e19a1b91293453da485cba88b63dd2f4a8eed2fda8b9b92c6122a9ee",
+    "tests/node/player-hero-independent-plan.test.mjs": "4fcae54f9499ac09a38dee8f62ad2e615e7ea191f0280f643ca5df6e1d451a33",
+    "tools/research/post-draft-dataset.mjs": "10a6ab790b5e2e44365a501e072ceb8a3934fa0a9efab377c673444ba2236b75"
+  },
+  "releaseGatePassed": false,
+  "deployable": false,
+  "checks": {
+    "targetedNode": {
+      "status": "passed",
+      "tests": 8
+    },
+    "cli": {
+      "status": "passed",
+      "checks": [
+        {
+          "mode": "verify",
+          "path": ".tools\\s304-hero-independent-plan-r1.json",
+          "exit": 0
+        },
+        {
+          "mode": "verify",
+          "path": ".tools/s304-hero-independent-plan-tamper.json",
+          "exit": 1
+        },
+        {
+          "mode": "prepare",
+          "path": ".tools\\s304-hero-independent-plan-r1.json",
+          "exit": 1
+        }
+      ],
+      "originalUnchanged": true,
+      "databaseUnavailable": true,
+      "rehashedTamper": "rejected_after_fingerprint_recomputed_with_actual_canonical_serializer"
+    },
+    "oracle": {
+      "status": "passed",
+      "metadataMaps": 2260,
+      "seriesKeys": 1096,
+      "unknownSeriesMaps": 26,
+      "exactModels": 2,
+      "exactPolicySections": 4,
+      "registered": false
+    },
+    "mandatoryQA": {
+      "frozenOfflineInstall": "passed",
+      "typecheck": "passed",
+      "packageTests": {
+        "status": "passed",
+        "tests": 978,
+        "command": "pnpm test --maxWorkers=1",
+        "timeoutsChanged": false,
+        "reason": "previous_task_default_parallel_cli_timeouts"
+      },
+      "build": "passed",
+      "migrations": {
+        "status": "passed",
+        "count": 57,
+        "historicalChecksumsPreserved": true
+      },
+      "browserAndPgIntegration": "not_run_no_ui_api_sql_changes"
+    },
+    "serviceReadiness": {
+      "checkedAt": "2026-11-13T19:59:29.567Z",
+      "model": {
+        "status": "model_eligible",
+        "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+        "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+        "teamAWinProbability": null
+      },
+      "apiHealth": 200,
+      "web": 200,
+      "privateEndpointWithoutSession": 401,
+      "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+    },
+    "docsLinks": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "nextTask": {
+    "id": "S3-04/player-hero-prospective-capture-contract",
+    "scope": "реализовать offline-контракт снимка до начала карты и проверку доступности истории/пиков по времени, с неизменяемыми данными и тестами поздних сведений; без HTTP-сбора, обучения и активации",
+    "model": "GPT-6 Astra",
+    "reasoning": "High"
+  }
+}

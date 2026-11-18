@@ -1,0 +1,67 @@
+{
+  "task": "S3-04/player-hero-observation-feature-adapter",
+  "date": "2026-11-14",
+  "scope": "Offline SQL060 history observation and pending-selection v2 to unchanged Elo/player-hero inputs",
+  "productionApiUiChanged": false,
+  "migrationsAdded": 0,
+  "providerRequests": 0,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "deployable": false,
+  "teamAWinProbability": null,
+  "checks": {
+    "install": {"status": "PASS", "command": "pnpm install --frozen-lockfile --offline", "log": ".tools/s304-observation-features-install.log", "note": "Existing local store; ignored dependency build-script warning unchanged"},
+    "typecheck": {"status": "PASS", "command": "pnpm typecheck", "log": ".tools/s304-observation-features-typecheck.log"},
+    "unit": {"status": "PASS", "tests": 14, "log": ".tools/s304-observation-features-unit-verified.log"},
+    "postgres": {"status": "PASS", "tests": 1, "log": ".tools/s304-observation-features-pg.log", "database": "isolated synthetic database created and removed by testDatabase", "assertion": "SQL058/059/060 collection preserves all original rows and predictions"},
+    "legacyCompile": {"status": "PASS", "log": ".tools/s304-observation-features-legacy-compile.log"},
+    "legacyPure": {"status": "PASS", "tests": 48, "log": ".tools/s304-observation-features-legacy-tests.log"},
+    "packageSuite": {"status": "PASS_WITH_ISOLATED_RETRY", "uniqueTests": 1029, "command": "pnpm --recursive --workspace-concurrency=1 --if-present test --maxWorkers=1", "log": ".tools/s304-observation-features-suite.log", "initialResult": "One existing research-execution CLI test timed out at 20s; 588 tests passed before recursive runner stopped at db", "isolatedRetry": {"status": "PASS", "tests": 2, "log": ".tools/s304-observation-features-timeout-retry.log", "note": "Without parallel compilation and without timeout changes; previously failing case took 10.4s"}, "remainingCommand": "pnpm --recursive --workspace-concurrency=1 --filter @dota/ingestion --filter @dota/api --filter @dota/worker --if-present test --maxWorkers=1", "remainingLog": ".tools/s304-observation-features-suite-remaining.log", "remainingResult": {"status": "PASS", "ingestion": 309, "api": 130, "worker": 1}},
+    "build": {"status": "PASS", "command": "pnpm build", "log": ".tools/s304-observation-features-build.log", "note": "Existing Zod annotation and web chunk-size warnings remain"},
+    "migrationChecksums": {"status": "PASS", "count": 60},
+    "replay": {"status": "PASS", "afterFinalBuild": true, "currentExportSha256": "65f9c6f604a03d814fdb40ae149e2b407820ee7e147bb09c6381113ed6c414f1", "previousNativeExportSha256": "f9bfc551fd114064a96f4a701131572fb85d5fe50ba7cdcdfd7d2a4b64f2986e"},
+    "preservation": {"status": "PASS", "checkedAt": "2026-11-14T14:55:34.584Z", "path": ".tools/s304-observation-features-preservation.json", "modelStatus": "model_eligible", "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b", "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790", "maps": 2260, "predictions": 7, "preservedPredictionHashes": 7, "api": 200, "web": 200, "privateEndpoint": 401, "serviceRestarted": false},
+    "docsAndDiff": {"status": "PASS", "commands": ["node scripts/check-doc-links.mjs", "git diff --check"]},
+    "browser": {"status": "NOT_RUN", "reason": "Offline tooling only; no production UI or HTTP changes"}
+  },
+  "testDevelopment": [
+    "Initial missing-module red test preceded implementation; first positive synthetic case then passed.",
+    "Additional identity-clock fixture initially violated existing known/event <= fetchedAt schema and was rejected before adapter. Fixture corrected to a valid exact-read boundary; final 14 tests passed without weakening the schema."
+  ],
+  "localExport": {
+    "path": ".tools/s304-observation-features-local-r1.json",
+    "sha256": "65f9c6f604a03d814fdb40ae149e2b407820ee7e147bb09c6381113ed6c414f1",
+    "captures": 0,
+    "observations": 0,
+    "links": 0,
+    "distinctActualMaps": 0,
+    "featureReadyCaptures": 0,
+    "distinctFeatureReadyMaps": 0,
+    "trainingExamples": 0,
+    "note": "Real read-only collector execution, not evidence of positive live feature coverage"
+  },
+  "syntheticCoverage": [
+    "Six earlier pro maps produce Elo and exact -log(7)/5 observed hero practice delta",
+    "Pending native target, legacy and orphan observations",
+    "Foreign owner, selection SHA mismatch, exact-cutoff observation persistence and duplicate links",
+    "Unverified outcome closes its known series across both histories",
+    "Native slots, reordered arrays, swapped owner A/B signs",
+    "Unknown heroes and genuinely empty history",
+    "Target outcome never affects features",
+    "Identity conflict and fetched/known/event clocks at read boundary",
+    "Late capture remains ineligible despite available diagnostic inputs",
+    "Two captures of one actual map counted once, zero training examples",
+    "Offline replay, exclusive writes, external SHA and rehashed-result tampering"
+  ],
+  "limitations": [
+    "No real SQL058/060 owner capture available; positive numeric cases are synthetic",
+    "Native target required for combined H1/H2 inputs; pending target never gets a fabricated ID",
+    "Actual gameplay start, provider schedule mapping and independent post-draft quality gate remain open",
+    "SQL060 compact projection excludes raw payloads and SQL004 field observations explicitly",
+    "Remote history and canonical series completeness unknown; no claim of skill from observed volume",
+    "Replay verifies content consistency, not cryptographic authenticity of database origin"
+  ],
+  "nextTask": "S3-04/player-hero-observation-readiness-ui",
+  "nextEssence": "Show saved history verification, map binding, coverage and understandable unavailable reasons in Draft Lab, without recollection or probabilities",
+  "recommendedModel": "GPT-6.1 Sol · High"
+}

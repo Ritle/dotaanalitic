@@ -1,0 +1,178 @@
+{
+  "task": "S3-04/history-details-continuation",
+  "date": "2026-11-13",
+  "status": "completed_remaining_88_one_prior_map_unavailable",
+  "result": {
+    "newMaps": 88,
+    "observedRemoteTotal": 94,
+    "unavailableRemoteTotal": 1,
+    "notAttemptedRemoteTotal": 0,
+    "localReviewed": 2,
+    "httpAttemptsTotal": 96,
+    "http200Total": 94,
+    "http500Total": 2,
+    "sourceAndFrozenIdentityCoverageConsistent": 33,
+    "unknownAccounts": 80
+  },
+  "runs": [
+    {
+      "directory": ".tools/s304-history-details-r1",
+      "manifestSha256": "aa30bdc597ac8d0e58b8ad91217151a8c11f3079213813f876cde4946b07feaa",
+      "reportSha256": "4579fc7c44397e7c2a0152153434ead88837134e929c00d1aa54083c2820589a"
+    },
+    {
+      "directory": ".tools/s304-history-continuation-r1",
+      "manifestSha256": "ab8902b4c6169ae793ee8b4c091c653c6ee5627b3b05d87db25401e7a1df498c",
+      "reportSha256": "2be7127eee348dfa80501774bcb90a867292b51c4e3a1a85f2c42bc573eeaa1f"
+    },
+    {
+      "directory": ".tools/s304-history-quota-resume-r1",
+      "manifestSha256": "8c180c00b63f3445061185063d80834b93075cfe5b06d46fc6a0c0a48bb9ddf8",
+      "reportSha256": "401b38e6b5abc01593e44c8e80f3fdc5d1a2316933f3aa5e59888cffb4c47608"
+    }
+  ],
+  "quotaRecovery": {
+    "blockedMapId": "9045134920",
+    "attemptsBeforeRefusal": 0,
+    "retryAfterMs": 59362,
+    "separateManifest": true,
+    "resumedMaps": 5,
+    "budgetReset": false
+  },
+  "reasonCountsAcross96ObservedIncluding2Local": {
+    "CANONICAL_IDENTITY_UNKNOWN": 56,
+    "SOURCE_SERIES_UNKNOWN": 16,
+    "TEAM_SIDES_UNKNOWN": 13
+  },
+  "priorityMapIds": [
+    "8938855404",
+    "8940891805",
+    "8941092540",
+    "8964837315",
+    "8970730748",
+    "8971007454",
+    "8971016820",
+    "8971115054",
+    "8976665322",
+    "8976751962",
+    "8976806033",
+    "8978147287",
+    "8978242189",
+    "8978292022",
+    "8982015595",
+    "8982107035",
+    "9030292632",
+    "9030351357",
+    "9030456472",
+    "9030565813",
+    "9031679372",
+    "9031923491",
+    "9032007166",
+    "9032112877",
+    "9032252060",
+    "9033153920",
+    "9033223673",
+    "9041213547",
+    "9041268553",
+    "9041588706",
+    "9041689216",
+    "9042812648",
+    "9042896918"
+  ],
+  "checks": {
+    "targetedNodeTests": 11,
+    "continuationCli": {
+      "status": "PASS",
+      "offlineReplay": true,
+      "repeatRefusedBeforeDbOrHttp": true,
+      "tamperedReportRefused": true,
+      "parentAndOriginalFilesUnchanged": true,
+      "newAttempts": 83,
+      "httpStatuses": {
+        "200": 83
+      },
+      "observedNew": 83,
+      "independentlyDiscoveryConsistent": 83,
+      "registrationBeforeRequests": true,
+      "aggregateBudget": 91,
+      "manifestSha256": "ab8902b4c6169ae793ee8b4c091c653c6ee5627b3b05d87db25401e7a1df498c",
+      "reportSha256": "2be7127eee348dfa80501774bcb90a867292b51c4e3a1a85f2c42bc573eeaa1f"
+    },
+    "quotaResumeCli": {
+      "status": "PASS",
+      "offlineReplay": true,
+      "repeatRefusedBeforeDbOrHttp": true,
+      "inMemoryReportTamperingRefused": true,
+      "allThreeRunsUnchanged": true,
+      "aggregateAttempts": 96,
+      "aggregateHttp200": 94,
+      "aggregateHttp500": 2,
+      "maximumAttemptsPerMap": 2,
+      "remainingNotAttempted": 0,
+      "newRecoveryMapsIndependentlyChecked": 5,
+      "manifestSha256": "8c180c00b63f3445061185063d80834b93075cfe5b06d46fc6a0c0a48bb9ddf8",
+      "reportSha256": "401b38e6b5abc01593e44c8e80f3fdc5d1a2316933f3aa5e59888cffb4c47608"
+    },
+    "fullRegression": {
+      "installFrozenOffline": "PASS",
+      "typecheck": "PASS",
+      "testsPassed": 962,
+      "build": "PASS",
+      "sessionExitCode": 0
+    },
+    "finalReplayAfterBuild": "PASS",
+    "migrationChecksums": 54,
+    "docsLinks": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "operations": {
+    "postgresWasStopped": true,
+    "startedExistingCluster": true,
+    "reinitialized": false,
+    "apiWebWorkerStarted": false,
+    "pgPid": 24032
+  },
+  "preservation": {
+    "status": "done",
+    "checkedAt": "2026-11-13T11:49:41.889Z",
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 3,
+      "v1_runtime_snapshots": 3,
+      "owner_tier1_scopes": 1,
+      "scenarios": 3,
+      "leagues": 54
+    },
+    "queue": {
+      "count": 13,
+      "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+    },
+    "forecastId": "25290370-25ee-464a-9e24-4fa946f5abab",
+    "requestId": "17380251-5eba-49ac-8da3-4a78518c91b9",
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "probability": 0.5476897217211073,
+    "issuedAt": "2026-11-12T00:02:09.197563Z",
+    "scheduledAt": "2026-11-12T13:00:00.000Z",
+    "coverage": {
+      "nRaw": 2158,
+      "nEff": 2158,
+      "minimumPlayerMaps": 143,
+      "playersWithHistory": 10,
+      "playersMeetingMinimum": 10
+    },
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "businessWrites": 0,
+  "operationalWrites": "provider_quotas_only",
+  "importedMaps": 0,
+  "trainingPerformed": false,
+  "deployable": false,
+  "nextTask": "S3-04/history-import-plan",
+  "nextScope": "Readonly prerequisite and whole-series audit of 33 priority maps; create reviewed import plan or explicit blockers; no HTTP/import/fit/activation.",
+  "recommendedModel": "GPT-6 Astra · High"
+}

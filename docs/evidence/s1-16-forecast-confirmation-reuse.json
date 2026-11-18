@@ -1,0 +1,76 @@
+{
+  "task": "S1-16/forecast-confirmation-reuse",
+  "status": "PASS",
+  "checkedAt": "2026-11-13T15:59:39.028369+00:00",
+  "policy": "interactive-optional-tier-v1",
+  "savedLineups": "exact latest owner template match; no repeated writes or confirmation on reopen",
+  "unknownTier": "nullable scope; no fabricated tier/league; visible warning; tier-specific accuracy not claimed",
+  "unchanged": [
+    "registered model artifact and inference",
+    "identity/history/temporal gates",
+    "immutable past predictions",
+    "archived scoped executors and CLI"
+  ],
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 978,
+    "packageTestRecovery": "one 20s CLI timeout in original run; 2 isolated CLI tests PASS plus remaining packages PASS",
+    "apiIntegrationTests": 24,
+    "uniqueBrowserTests": 23,
+    "build": "PASS",
+    "frozenHistoryImportOfflineVerify": "PASS"
+  },
+  "intermediateFailures": [
+    "old browser ID-list expectation updated to visible player links",
+    "old runtime spy updated for new executor",
+    "test spy this-type editing typo fixed before final run"
+  ],
+  "workingService": {
+    "checkedAt": "2026-11-13T15:58:51.418Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "files": {
+    "apps/api/src/modules/upcoming/unclassified-scheduled-runtime.ts": "87ed40f5acbd9c632f13590ee1b27031245f6c9ec71355e33b45793d615ae672",
+    "apps/api/src/modules/upcoming/quick-forecast.ts": "6b0e203507d10a54af25f1e82434f547687821294ab5480bc5d5c8ab0d2afd29",
+    "apps/api/src/modules/upcoming/quick-forecast-contract.ts": "bdae95f4fa11693193be1b84ae4088d4cee1e0e967d2c577bb3db5dc24a4aede",
+    "apps/api/src/modules/live/estimate-service.ts": "4ddfa35ff6765794c224ec48530f8072aef1f7fa8d3228d4941d929835ce1ae1",
+    "apps/api/src/modules/live/estimate-contract.ts": "f5742f324d10528f98f66eeafa58abe0fc7140a41e53d29a5c626ce0c70a1e3f",
+    "apps/api/src/app.ts": "dd50e56e82e9f5565494f94eafee649329e7382d46d2e74cb605eb06c2e47d2a",
+    "apps/web/src/components/UpcomingScenario.vue": "34704ed428ace973812cbe164c444788f80575faf6bb019ebcf3693a9b913b26",
+    "apps/web/src/components/OwnerLineupTemplate.vue": "3f078bae601cc2cbdb109ac8040c8a5663fad38b5f1c18915582fd3636331d41",
+    "apps/web/src/components/UpcomingForecast.vue": "f27f5434c384a22fc5b9c5d35f62b9ddc34ce334a426417910400dfe63e8e7c3",
+    "apps/web/src/components/LiveEstimate.vue": "d145eeee0d39cea3b94e081de78f31db0109e49697fd47bcba89a10d88290266",
+    "apps/web/src/components/ScheduledForecastPanel.vue": "c52d28db15d9fdb7726cd18e9ad0e33f9d26eafdee75c46ea33e8f3480d25923",
+    "apps/web/src/views/ScenarioPredictionView.vue": "0a3927179359a2ea35ec84118857fe1f9bb4ccfe028941bfe07b34bc35aa506a",
+    "apps/web/src/components/PredictionResult.vue": "6266a1c544feb996db801f0e7c714f11cfa17839a0d722a6cd02c1fcdc75bbc2",
+    "apps/web/src/predictions.ts": "fe1d82ffea266376134ca67bf46bcc818146fc350d87fb4d32ec7adf5d4ca36c",
+    ".tools/forecast-friction-install.log": "8b71c72441a21d864961c6b547142d1aeccb04ff1c2372f8e0996a186c0acc4b",
+    ".tools/forecast-friction-types.log": "08023bdb8f98bab3ba59854993b013b8e50350cc4c658198d54797d587685fb5",
+    ".tools/forecast-friction-tests.log": "3b224435a1b263f30b4e2dd841fea0ed1002568415cf163f5f0ab12cf608567a",
+    ".tools/forecast-friction-cli-retry.log": "8d5f9f870add84481352f971fc87b4464f00b1b4aef538aab2556e88a2791364",
+    ".tools/forecast-friction-tests-remaining.log": "a7a2d1fad4b95602fa42abfe40135824508dbe488d2be0ffbd49cfa9e0be621b",
+    ".tools/forecast-friction-integration.log": "0ae7f1fb4d42398e6df9a3b758b0b11c8a3e8f8f81c3ed3a0918f1170176f523",
+    ".tools/forecast-friction-replay.log": "01ed4d77ff1cc3a8ebecc3c2c4630518f82ccd6fc4621b4c02b33febfbd13be2",
+    ".tools/forecast-friction-direct-integration.log": "71850e52c3c697e8ea169d4467957b53ccd07c55cba249584b3faac859175265",
+    ".tools/forecast-friction-scheduled-integration-final.log": "aa13bb026f31fe920dbe27e1254bd47cba0bb9f37e634ecf2747dc4b5ff3521a",
+    ".tools/forecast-friction-scheduled-integration-corrected.log": "a371898cc27563a915eccc0c89791319dd1519b35347308bfbc9d35aef71f3f3",
+    ".tools/forecast-friction-browser.log": "efc866fcc8361132d8ee9983617255f3d36d46bd6449aa7a6220a56052dd7ec5",
+    ".tools/forecast-friction-direct-browser.log": "144e3c3eda1450a6e8266a881191e375e8683d914627e14312b7cbf4761a199e",
+    ".tools/forecast-friction-browser-final.log": "c94429d6fbd31a8d47c8df3e6cdabe16c1d98f8725513a6d50cde56db729c993",
+    ".tools/forecast-friction-types-final.log": "a41a07901fcd0ae01da7f4ec2a991f4b26f6b400226c70953b05515cb1312bf1",
+    ".tools/forecast-friction-build.log": "74b43be3d8a958240580462429942fa516f2715f1f3894dc6cbfa54f9f4b5efb",
+    ".tools/forecast-friction-readiness.json": "647a95355e7064b14be03934cc8080550f6e4c1541012b6de8980057da7e4960"
+  },
+  "nextTask": "S3-04/history-coverage-check",
+  "suggestedModel": "GPT-6 Astra · High"
+}

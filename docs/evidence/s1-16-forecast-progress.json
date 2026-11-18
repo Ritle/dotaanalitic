@@ -1,0 +1,70 @@
+{
+  "task": "S1-16/forecast-progress",
+  "checkedAt": "2026-11-12T21:30:08.511585+00:00",
+  "status": "PASS",
+  "checks": {
+    "install": "frozen offline PASS",
+    "typecheck": "PASS",
+    "unitCli": 962,
+    "build": "PASS",
+    "targetedApiPg": 6,
+    "targetedStoreUnit": 3,
+    "chromiumApiPg": 4,
+    "historicalMigrations": 54,
+    "docsLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-12T21:29:32.021Z",
+    "routeValidationStatus": 400,
+    "progressStatus": 200,
+    "anonymousStatus": 401,
+    "selectedMatchId": "1805035",
+    "viewports": [
+      1440,
+      360
+    ],
+    "jsErrors": 0,
+    "businessWrites": 0,
+    "blockedAutomaticRequests": [
+      "/api/v1/upcoming/refresh",
+      "/api/v1/upcoming/1805035/catalogue/prepare"
+    ]
+  },
+  "apiPid": 25860,
+  "preservation": {
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 3,
+      "v1_runtime_snapshots": 3,
+      "owner_tier1_scopes": 1,
+      "scenarios": 3,
+      "leagues": 54
+    },
+    "queue": {
+      "count": 13,
+      "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+    },
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698"
+  },
+  "modelStatus": "model_eligible",
+  "modelChanged": false,
+  "newMigrations": false,
+  "newDependencies": false,
+  "workerStarted": false,
+  "limitations": [
+    "Progress counts finished stages, not elapsed time or prediction confidence",
+    "Status is ephemeral: TTL15min, capacity500, reset on API restart",
+    "Analysis/inference/persistence are one unchanged runtime stage",
+    "Live smoke initially preceded server readiness: proxy500; health200 and repeat PASS",
+    "Full standalone PostgreSQL suite not run; targeted tests use disposable synthetic databases",
+    "Nonfatal Vite bundle-size warning"
+  ],
+  "screenshots": [
+    "test-results/forecast-progress-desktop.png",
+    "test-results/forecast-progress-mobile.png"
+  ],
+  "nextTask": "S3-04/readiness",
+  "suggestedModel": "GPT-6 Astra · High"
+}

@@ -1,0 +1,116 @@
+{
+  "task": "S3-05/1win-essence-iii-review",
+  "date": "2026-11-12",
+  "status": "review_complete_forecast_not_issued",
+  "conclusion": "Main event has external Tier1 classification. Absence from owner-reviewed catalogue was incorrectly treated as evidence of another domain. Standard V1 preparation is appropriate, subject to verified league/stage mapping and runtime gates.",
+  "sources": [
+    {
+      "url": "https://esports.gg/news/dota-2/1win-essence-iii-dota-2-teams-schedule-results-standings/",
+      "supports": [
+        "explicit Tier1 classification",
+        "main event teams and separate play-in"
+      ]
+    },
+    {
+      "url": "https://dota2.cyberdata.pro/en/tournaments/1win_essence_llI",
+      "supports": [
+        "indexed Tier1 classification and Nov12-18 dates"
+      ],
+      "limitation": "direct page403; index only"
+    },
+    {
+      "url": "https://cyberscore.live/en/news/18-teams-invited-to-1win-essence-3/",
+      "supports": [
+        "invited teams and link to organizer"
+      ],
+      "limitation": "conflicting October stage dates not used"
+    },
+    {
+      "url": "https://t.me/essence_1win/1217",
+      "limitation": "organizer post body not fully available in web tool"
+    }
+  ],
+  "local": {
+    "modelStatus": "model_eligible",
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "modelReportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "existingLeague": {
+      "localId": "1786",
+      "opendotaLeagueId": "20009",
+      "name": "1win Essence II"
+    },
+    "thirdSeasonLocalLeagueMissing": true,
+    "ownerScopes": 0,
+    "pandaCandidate": {
+      "matchId": "1793320",
+      "eventSeriesId": "11185",
+      "pandaLeagueId": "5528",
+      "tournamentId": "22399",
+      "scheduledAt": "2026-11-12T13:00:00.000Z",
+      "source": "cached, refresh required before issuance"
+    }
+  },
+  "inputs": {
+    "checkedAt": "2026-11-11T23:53:33.388Z",
+    "warmupFromAt": "2024-01-01T00:00:00.000Z",
+    "localMaps": 2232,
+    "eligibleHistoryMaps": 2158,
+    "status": "ready",
+    "reasons": [],
+    "playersMeetingMinimum": 10,
+    "minimumRequired": 5,
+    "minimumObserved": 143,
+    "maximumObserved": 233,
+    "lineup": "saved expected five each, future participation not freshly verified",
+    "runtimeIdentityResolverUsed": true,
+    "existingFeatureBuilderUsed": true,
+    "probability": null
+  },
+  "leagueEvidence": {
+    "providerCalls": 3,
+    "httpStatuses": {
+      "200": 3
+    },
+    "namedClient": "OpenDotaClient",
+    "leagueRows": [
+      {
+        "leagueId": "20177",
+        "name": "1win Essence III",
+        "tier": "professional",
+        "maps": 0
+      },
+      {
+        "leagueId": "20486",
+        "name": "1win Essence III",
+        "tier": "professional",
+        "maps": 55,
+        "firstMapId": "9079764155",
+        "lastMapId": "9086220626"
+      }
+    ],
+    "conclusion": "20486 active for November play-in; confirm main-event use explicitly. Name equality/professional tag alone are insufficient.",
+    "rawEvidenceDir": ".tools/essence-review-20261112"
+  },
+  "changes": {
+    "productionCode": 0,
+    "businessWrites": 0,
+    "forecastsIssued": 0,
+    "probabilityComputed": false,
+    "modelTraining": false,
+    "scopeRegistered": false,
+    "leagueCreated": false
+  },
+  "checks": {
+    "localDbRead": "PASS",
+    "featureReadiness": "PASS",
+    "opendotaSource": "PASS",
+    "markdownLinks": "PASS",
+    "diffCheck": "PASS",
+    "fullRegression": "not repeated: no production code changed"
+  },
+  "nextTask": {
+    "id": "S3-05/V1-retest/activation-owner-smoke/essence-main-event",
+    "scope": "Verify main-stage OpenDota mapping, local league and reviewed event window, fresh expected5+5 and schedule, map1 assignment/scenario, normal UI forecast. Preserve all model gates.",
+    "recommendedModel": "GPT-6 Astra · High"
+  }
+}

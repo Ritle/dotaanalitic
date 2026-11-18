@@ -1,0 +1,214 @@
+{
+  "task": "S3-04/conditional-real-registration-adapter",
+  "date": "2026-11-15",
+  "status": "implemented_internal_plan_store_only",
+  "files": [
+    {
+      "path": "tools/research/conditional-real-registration.mjs",
+      "sha256": "a6d0cc1ecfdd75f0645a6de430e821e1e5dc32f69b27524d438d91e30d0db440"
+    },
+    {
+      "path": "tools/research/conditional-real-registration-store.mjs",
+      "sha256": "da59156d8714a085c99079410e3e3c53aea21a145f2b81065ca55b72532002cd"
+    },
+    {
+      "path": "packages/db/migrations/063_conditional_real_registration.sql",
+      "sha256": "4fb31bf0f6753a90929d2808076e3cffa754f1e4fbdefe90d7b32051fd40d16d"
+    },
+    {
+      "path": "tests/fixtures/conditional-real-registration.mjs",
+      "sha256": "c267f59b21e5c54ab41e80238f4b0f1f2878455e131c623d532aafa77c93a8c0"
+    },
+    {
+      "path": "tests/node/conditional-real-registration.test.mjs",
+      "sha256": "3b3832de996c34c22034603ac22a75a17fe406f07954e78aadb52ef1a143737d"
+    },
+    {
+      "path": "packages/db/tests/conditional-real-registration.integration.test.ts",
+      "sha256": "1cdc83bb9239c6219c93264bdd295aaa9ab03a4a7e76673541971fd931bd92f8"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "tools/research/conditional-registration.mjs",
+      "sha256": "bfc6010d9cdb4dc8e6402a8a1c2310de63cd9fba4150b9952805bf4c956e73a4"
+    },
+    {
+      "path": "tools/research/conditional-registration-files.mjs",
+      "sha256": "d3598895ea0004a7e6c7d05edf3bcf447259229f47850c92f54464585f9f6950"
+    },
+    {
+      "path": "tests/fixtures/conditional-registration.mjs",
+      "sha256": "5b052bbc78e6e56ce87b8dbb2aec8220efc9b7356e7997f95ddc0e0a1569a3f9"
+    },
+    {
+      "path": "tests/node/conditional-registration.test.mjs",
+      "sha256": "e28e8027a06b7c088d4556cd3b6dabe750962a6508aa50aea63e5415594d1907"
+    },
+    {
+      "path": "tests/node/conditional-registration-files.test.mjs",
+      "sha256": "a68a80479cfa7fc7de494a98c62cb16b653eec1e9550dc356b4dd778e56e609a"
+    },
+    {
+      "path": "tests/node/conditional-registration-replay.test.mjs",
+      "sha256": "d95cb9fec6fd06525a28007944358a60a84cafd79e14015052f2c0f856515994"
+    },
+    {
+      "path": "packages/db/migrations/062_conditional_registration.sql",
+      "sha256": "9d592d9930b8e5cefa0f608f5aabd92a59bf2f5c8533403fda3b39bc1fe2740d"
+    },
+    {
+      "path": "tools/research/conditional-registration-storage.mjs",
+      "sha256": "cf7e7cfd27e5916fddcd384b197c1f191afc025c0e36e80460b6c6e944c67aa1"
+    },
+    {
+      "path": "packages/db/tests/conditional-registration-storage.integration.test.ts",
+      "sha256": "2a211b4e9a87c55a47c9325f48cf4bc17e9ce28edfc45c6a6f3e5fb5a8a87b38"
+    },
+    {
+      "path": "tools/research/conditional-registration-preflight.mjs",
+      "sha256": "6da09619aa93127d0503aa6a6bf530cf2afd8b0cce3a1f6e035f6defc0bb8d02"
+    },
+    {
+      "path": "tests/node/conditional-registration-preflight.test.mjs",
+      "sha256": "5f72358b02007e349beab5f6755ab899a3c1acf44a50b17bf61c50c1ffaf86b4"
+    },
+    {
+      "path": "tools/research/player-hero-independent-policy.json",
+      "sha256": "70f121b2686e04ce74a822f8b5161d70311631701c33441a40a903eccb4cee3a"
+    },
+    {
+      "path": "tools/research/player-hero-experiment-policy.json",
+      "sha256": "32785db3ae5c7e227940c44fa2be5bfd1a9be747ab9cf4479e4a39932be810c9"
+    },
+    {
+      "path": ".tools/s304-hero-fit-r1/artifact.json",
+      "sha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b"
+    },
+    {
+      "path": ".tools/s304-hero-independent-plan-r1.json",
+      "sha256": "b9c12e9bb008294869b0487b7323b1c57ae7143ea37ba2132b733a3b9a84509d"
+    },
+    {
+      "path": ".tools/s304-registration-proposal-inventory-r2.json",
+      "sha256": "ce645751ee76b88bf87854362ab1a87d6d21ebf7dc3fedb3b263d7919c0e7003"
+    },
+    {
+      "path": ".tools/s304-exposure-ledger-r2.json",
+      "sha256": "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7"
+    },
+    {
+      "path": ".tools/s304-series-reconciliation-r1.json",
+      "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+    },
+    {
+      "path": ".tools/s304-residual-disposition-r1.json",
+      "sha256": "3f07108c3af26b3b34051f6f3bfe5ff649e258da2d2bcff7e02e84a1bc16afff"
+    }
+  ],
+  "checks": {
+    "steps": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s304-real-registration-install.log",
+        "error": null
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s304-real-registration-typecheck.log",
+        "error": null
+      },
+      {
+        "name": "remaining-tests",
+        "exitCode": 0,
+        "log": ".tools/s304-real-registration-r2-remaining-tests.log",
+        "error": null
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s304-real-registration-r2-build.log",
+        "error": null
+      },
+      {
+        "name": "migrations",
+        "exitCode": 0,
+        "log": ".tools/s304-real-registration-r2-migrations.log",
+        "error": null
+      },
+      {
+        "name": "node",
+        "exitCode": 0,
+        "log": ".tools/s304-real-registration-r2-node.log",
+        "error": null
+      }
+    ],
+    "packageTests": 1053,
+    "workspaces": 8,
+    "nodeTests": 40,
+    "newNodeTests": 7,
+    "postgresTests": 37,
+    "newPostgresTests": 16,
+    "migrationFiles": 63,
+    "postgresLogs": [
+      ".tools/s304-real-registration-pg-r4.log",
+      ".tools/s304-real-registration-pg-r5.log"
+    ],
+    "earlierFailures": [
+      "synthetic_fixture_single_owner_conflict_corrected",
+      "SQL_JSONB_operator_precedence_corrected",
+      "concurrent_migration_edit_invalidated_V1_frozen_manifest_test_passed_on_stable_rerun",
+      "PG_invocation_used_default_5s_timeout_repeated_with_repository_30s_integration_setting"
+    ],
+    "docsLinks": "PASS",
+    "diffCheck": "PASS_default_repository_EOL_settings_and_new_file_whitespace",
+    "separateBrowserAndNumericalPythonSuites": "not_run_UI_and_numerical_code_unchanged"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T02:20:46.995Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerHttpRequests": 0,
+  "businessDatabaseWrites": 0,
+  "productionMigrationApplied": false,
+  "realRegistrationPerformed": false,
+  "collectionAllowed": false,
+  "realEvaluationAllowed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "trustBoundary": "owner_reviewed_retained_sources_not_remote_signature",
+  "limitations": [
+    "native_main_event_bindings_not_available_for_both_events",
+    "real_registered_collector_and_numerical_consumer_not_implemented",
+    "declared_existing_runtime_hashes_do_not_prove_future_consumer_ready",
+    "external_exposure_inventory_not_globally_complete",
+    "pending_registration_with_changed_inventory_remains_blocked_not_overwritten"
+  ],
+  "nextTask": "S3-04/conditional-registered-collector-contract",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedEffort": "High"
+}

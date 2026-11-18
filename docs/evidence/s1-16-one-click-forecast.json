@@ -1,0 +1,72 @@
+{
+  "task": "S1-16/one-click-forecast",
+  "status": "PASS",
+  "checkedAt": "2026-11-12T20:12:55.164Z",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "unitCliTests": 959,
+    "unitContinuation": "896 completed in root run; interrupted final API package rerun 63/63",
+    "build": "PASS",
+    "apiPgIntegration": 6,
+    "browserCases": 14,
+    "finalCompactBrowserRepeat": 3,
+    "temporalRegression": "RED then GREEN: recordedAt < effective cutoff < scheduledAt",
+    "migrationChecksums": 54,
+    "workingMigration054": "APPLIED; second run SKIP",
+    "docsLinks": "PASS",
+    "diff": "PASS"
+  },
+  "live": {
+    "status": "PASS",
+    "checkedAt": "2026-11-12T20:12:52.022Z",
+    "routeValidationStatus": 400,
+    "selectedMatchId": "1785745",
+    "viewports": [
+      1440,
+      360
+    ],
+    "jsErrors": 0,
+    "businessWrites": 0,
+    "blockedAutomaticRequests": [
+      "/api/v1/upcoming/refresh",
+      "/api/v1/upcoming/1785745/catalogue/prepare",
+      "/api/v1/lineup-role-profiles",
+      "/api/v1/lineup-role-profiles"
+    ]
+  },
+  "preservation": {
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 2,
+      "v1_runtime_snapshots": 2,
+      "owner_tier1_scopes": 1,
+      "scenarios": 2,
+      "leagues": 54
+    },
+    "queue": {
+      "count": 13,
+      "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+    },
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "services": {
+    "apiPid": 14232,
+    "webPid": 27376,
+    "generalWorker": "OFF"
+  },
+  "workingForecastCreated": false,
+  "limitations": [
+    "First map pre-match only; no post-draft inference",
+    "Unknown tournament requires one owner setup; exact IDs and period required",
+    "Unknown identities, missing history and runtime gates remain blocking"
+  ],
+  "nextProposedTask": "S3-04/readiness",
+  "recommendedModel": "GPT-6 Astra · High"
+}

@@ -1,0 +1,194 @@
+{
+  "task": "S3-04/player-hero-experiment-evaluation",
+  "status": "completed_research_evaluation",
+  "directory": ".tools/s304-hero-eval-r1",
+  "registeredAt": "2026-11-13T19:05:39.638Z",
+  "startedAt": "2026-11-13T19:06:08.638Z",
+  "artifacts": {
+    "manifest.json": "2721ac651c6261052a382bff4aab142d62b852611328d99b61c3b0a99b5fc28e",
+    "started.json": "6cdd10dd8ec489e2d8e853ee3efd1383d88241904f90044773e1d61a76c29ae0",
+    "input.json": "f66bfff41e86fbeb7b3cd3eb298b8a26e428008124ea04faad58a36f68e283cc",
+    "report.json": "b4d052346ea840c557029da0bc0cfd4a3f6bc17b6f19a32b6418778a1982adc3",
+    "result.json": "b97bf8d86633d7634d658775d5a03023d8f1c7d20609a5852e170e158cf3511f"
+  },
+  "counts": {
+    "plannedDenominator": 223,
+    "datasetPairedMaps": 186,
+    "pairedMaps": 186,
+    "pairedSeries": 86,
+    "baselineMaps": 186,
+    "baselineOnlyMaps": 0,
+    "unavailableMaps": 37,
+    "coverage": 0.8340807174887892
+  },
+  "decision": {
+    "status": "negative",
+    "metricSignal": "negative",
+    "dataReasons": [],
+    "metricReasons": [
+      "NO_SIGNIFICANT_LOGLOSS_GAIN_OVER_H1"
+    ]
+  },
+  "metrics": {
+    "H0": {
+      "n": 186,
+      "series": 86,
+      "logLoss": 0.6354276261283724,
+      "brier": 0.22191817541204334,
+      "accuracy": 0.6451612903225806,
+      "correct": 120,
+      "ece": 0.09093909163212166
+    },
+    "H1_raw": {
+      "n": 186,
+      "series": 86,
+      "logLoss": 0.6402593987465999,
+      "brier": 0.22414203898429697,
+      "accuracy": 0.6451612903225806,
+      "correct": 120,
+      "ece": 0.09899486547286014
+    },
+    "H1_cal": {
+      "n": 186,
+      "series": 86,
+      "logLoss": 0.6348335191616628,
+      "brier": 0.22164441651774727,
+      "accuracy": 0.6451612903225806,
+      "correct": 120,
+      "ece": 0.08961136956970983
+    },
+    "H2_raw": {
+      "n": 186,
+      "series": 86,
+      "logLoss": 0.6363330323694857,
+      "brier": 0.22231895357005177,
+      "accuracy": 0.6666666666666666,
+      "correct": 124,
+      "ece": 0.09886907732492164
+    },
+    "H2_cal": {
+      "n": 186,
+      "series": 86,
+      "logLoss": 0.6310921497255724,
+      "brier": 0.21995945608269454,
+      "accuracy": 0.6666666666666666,
+      "correct": 124,
+      "ece": 0.0852076448167765
+    }
+  },
+  "bootstrap": {
+    "unit": "whole_series",
+    "replicates": 2000,
+    "seed": 42,
+    "rng": "numpy.PCG64",
+    "interval": "percentile_95_linear",
+    "series": 86,
+    "maps": 186,
+    "drawSha256": "fcd2150da8bec20fcb6e10407b8f515ca5de387e0244912d02ed67bbb12e569e",
+    "deltas": {
+      "logLoss_H2_cal_minus_H1_cal": {
+        "mean": -0.0037413694360903397,
+        "lower": -0.009918934492183566,
+        "upper": 0.0020966246325202606
+      },
+      "logLoss_H2_cal_minus_H0": {
+        "mean": -0.004335476402800013,
+        "lower": -0.010506519450413287,
+        "upper": 0.001387861581091365
+      },
+      "brier_H2_cal_minus_H1_cal": {
+        "mean": -0.001684960435052681,
+        "lower": -0.0045328602996959275,
+        "upper": 0.001030369223044747
+      },
+      "brier_H2_cal_minus_H0": {
+        "mean": -0.0019587193293487386,
+        "lower": -0.004830378340582561,
+        "upper": 0.0007401565386256002
+      }
+    }
+  },
+  "missingness": {
+    "hasUnknownHeroHistory": [
+      {
+        "value": "false",
+        "maps": 184,
+        "series": 84
+      },
+      {
+        "value": "true",
+        "maps": 2,
+        "series": 2
+      }
+    ],
+    "hasZeroObservedHeroCount": [
+      {
+        "value": "false",
+        "maps": 7,
+        "series": 6
+      },
+      {
+        "value": "true",
+        "maps": 179,
+        "series": 86
+      }
+    ]
+  },
+  "oracle": {
+    "status": "PASS",
+    "predictionScalarChecks": 1860,
+    "metricAndBootstrapChecks": 32,
+    "maps": 186,
+    "series": 86,
+    "plannedDenominator": 223,
+    "strataChecked": 7,
+    "bootstrapDrawSha256": "fcd2150da8bec20fcb6e10407b8f515ca5de387e0244912d02ed67bbb12e569e",
+    "reportSha256": "b4d052346ea840c557029da0bc0cfd4a3f6bc17b6f19a32b6418778a1982adc3"
+  },
+  "checks": {
+    "pythonTests": 21,
+    "nodeTests": 5,
+    "offlineReplay": "PASS",
+    "generalChecks": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 978,
+    "build": "PASS",
+    "finalPostBuildOfflineReplay": "PASS",
+    "consistentCopyReplay": "PASS",
+    "forgedPositiveGateRejected": "PASS",
+    "overwriteRejected": "PASS",
+    "orderedMigrations": 57,
+    "historicalSqlChecksums": "PASS",
+    "docsLinksWhitespaceDiff": "PASS",
+    "browserIntegration": "not_run_no_UI_changes",
+    "postgresIntegration": "not_run_no_SQL_changes"
+  },
+  "trainingPerformed": false,
+  "calibrationFittingPerformed": false,
+  "independentTest": false,
+  "releaseGatePassed": false,
+  "deployable": false,
+  "nextTask": "S3-04/player-hero-error-audit — разобрать, на каких фиксированных картах признак практики помог или ухудшил прогноз относительно H1, проверить влияние нулевой и неполной истории и сформулировать следующий шаг; без изменения коэффициентов, порогов и активации.",
+  "readiness": {
+    "checkedAt": "2026-11-13T19:17:55.096Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "buildWarnings": [
+    "existing_zod_annotations",
+    "existing_web_chunk_over_500kb"
+  ],
+  "oracleScript": {
+    "path": ".tools/s304-hero-eval-oracle.py",
+    "sha256": "7cdee8bacb4183ea381cee809d508b103f0f955e398193d729dbedd55d95d637"
+  }
+}

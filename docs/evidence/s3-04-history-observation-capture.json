@@ -1,0 +1,132 @@
+{
+  "task": "S3-04/player-hero-history-observation-capture",
+  "date": "2026-11-14",
+  "status": "complete_capture_observations_postdraft_model_not_activated",
+  "files": [
+    "apps/api/src/modules/scenarios/draft-history-contract.ts",
+    "apps/api/src/modules/scenarios/draft-history-source.ts",
+    "apps/api/src/modules/scenarios/draft-history-repository.ts",
+    "apps/api/src/modules/scenarios/draft-capture-repository.ts",
+    "packages/db/migrations/060_owner_draft_history_observations.sql",
+    "apps/api/tests/draft-history-contract.test.ts",
+    "apps/api/tests/draft-history-observation.integration.test.ts"
+  ],
+  "fileSha256": {
+    "apps/api/src/modules/scenarios/draft-history-contract.ts": "6414cb70f3ef3e3fda786ec68eddda0a874b2523a15283288d7605935a706373",
+    "apps/api/src/modules/scenarios/draft-history-source.ts": "1340fce2a162d9b6cec9565ea430cd19ff611b1fe3d137a732a5e14e86cc533a",
+    "apps/api/src/modules/scenarios/draft-history-repository.ts": "6550346f3c238abd4f374a6c25c9059216739af454073e37694354e83f0a1e87",
+    "apps/api/src/modules/scenarios/draft-capture-repository.ts": "7116d9cc83f20dded64c3a589e166d453c0fa442d7fa998529c804cecf9acfd6",
+    "packages/db/migrations/060_owner_draft_history_observations.sql": "b8e970d6ea72e7b3e0822df81cfdb3d178f2a6cbd03ad93f8e4d377d72aeae0f",
+    "apps/api/tests/draft-history-contract.test.ts": "d02e846bc139dd280dcb09e46524e7ffdca74695ed212753c0cb5b1f3ce9cdba",
+    "apps/api/tests/draft-history-observation.integration.test.ts": "95011274da713819ac4086d4d3b20bcbd44f49e7cb6477811633ea088799f20b"
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": {
+      "status": "PASS",
+      "count": 1015,
+      "perPackage": [
+        64,
+        34,
+        99,
+        33,
+        359,
+        309,
+        116,
+        1
+      ],
+      "serial": true
+    },
+    "targeted": {
+      "status": "PASS",
+      "postgresApi": 22,
+      "pureContract": 4
+    },
+    "browser": {
+      "status": "PASS",
+      "count": 6
+    },
+    "legacyProspectiveTests": {
+      "status": "PASS",
+      "count": 48
+    },
+    "build": "PASS",
+    "oldResearchFrozenCompile": "PASS",
+    "priorNativeExportReplay": "PASS",
+    "migration060ApplyAndRetry": "PASS",
+    "migrationChecksums": {
+      "status": "PASS",
+      "count": 60
+    },
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "buildWarnings": "Existing Zod annotations and web chunk >500 kB; no new build failure."
+  },
+  "developmentEvidence": {
+    "initialRedTest": "Expected failure: SQL060 history tables absent before implementation.",
+    "rawPilot": "Rejected by existing 30 MiB limit; field observations ~79 MB, raw provider payloads ~24 MB.",
+    "firstCompactPilot": "Also rejected while all field observations were included; final version explicitly omits both raw payloads and field observations.",
+    "finalLocalPilot": {
+      "at": "2026-11-14T13:57:38.828375Z",
+      "maps": 2260,
+      "historySha256": "f2feb4ce875fa1d393c48596c3c66a67433cf52377af3638980694c252b495b9",
+      "historyBytes": 6618941,
+      "verified": 2243,
+      "unavailable": 17,
+      "reasons": {
+        "TEAM_SIDES_UNKNOWN": 17
+      },
+      "historyMs": 1050,
+      "verificationMs": 24280,
+      "schemaValidated": true,
+      "selectionForSchemaTestOnly": true,
+      "observationPersisted": false,
+      "workingDataWrites": 0,
+      "providerRequests": 0,
+      "deployable": false
+    },
+    "positivePersistence": "Synthetic isolated databases only; no fabricated owner capture was inserted into working DB."
+  },
+  "backup": {
+    "path": ".tools/s304-history-observation-backup/before-sql060.dump",
+    "sha256": "d14eb71fa7e417090fc25e523a3365096c56257c69f6fa208e7fdc3810d11b28",
+    "bytes": 37438882,
+    "pgRestoreList": "PASS",
+    "restorePerformed": false
+  },
+  "workingState": {
+    "checkedAt": "2026-11-14T14:11:29.642Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0"
+    },
+    "predictions": 7,
+    "preservedPredictionHashes": 7,
+    "captures": 0,
+    "preservedCaptureHashes": 0,
+    "migration060": "b8e970d6ea72e7b3e0822df81cfdb3d178f2a6cbd03ad93f8e4d377d72aeae0f",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerRequests": 0,
+  "workingPredictionOrCaptureWritesByTask": 0,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "limitations": [
+    "SQL058 raw history may remain unavailable due to its own limit; SQL060 is an independent compact source.",
+    "Old offline exporter does not yet consume SQL060; next task is an explicit versioned adapter.",
+    "Native ID association does not prove actual gameplay start, ordinal or schedule mapping.",
+    "A verified historical outcome is not complete feature eligibility or a trained model."
+  ],
+  "nextTask": "S3-04/player-hero-observation-feature-adapter — подключить SQL060 и pending-selection v2 к offline-подготовке признаков, сохранить причины недоступности и учёт одной фактической карты; без обхода pre-start и model gate. GPT-6 Astra · High."
+}

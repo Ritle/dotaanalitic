@@ -1,0 +1,126 @@
+{
+  "task": "S3-09/series-corpus-and-protocol/local-audit",
+  "status": "local_audit_and_prepared_policy_complete_full_corpus_open",
+  "snapshotAt": "2026-11-16T01:08:19.915Z",
+  "artifact": {
+    "path": ".tools/s309-corpus-r2.json",
+    "sha256": "ecf8fefa6b70eb513e00cec59d18c8c1e111f7b47c6fbe434e539253a2b73c9a"
+  },
+  "parentExposure": {
+    "path": ".tools/s304-series-reconciliation-r1.json",
+    "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+  },
+  "policy": {
+    "path": "tools/research/series-validation-policy.json",
+    "sha256": "2c3e6dbabac4301329c022af637050d3dff1ada81a662ce41dc4272d1a57edaa",
+    "status": "prepared_not_registered"
+  },
+  "summary": {
+    "series": 1112,
+    "maps": 2259,
+    "terminalObserved": 775,
+    "previouslyExposed": 1103,
+    "independentSeries": 0,
+    "datasetEligibleSeries": 0,
+    "byFormat": {
+      "1": {
+        "series": 158,
+        "maps": 158,
+        "terminalObserved": 158,
+        "previouslyExposed": 158
+      },
+      "2": {
+        "series": 225,
+        "maps": 437,
+        "terminalObserved": 0,
+        "previouslyExposed": 225
+      },
+      "3": {
+        "series": 693,
+        "maps": 1550,
+        "terminalObserved": 594,
+        "previouslyExposed": 684
+      },
+      "5": {
+        "series": 36,
+        "maps": 114,
+        "terminalObserved": 23,
+        "previouslyExposed": 36
+      }
+    },
+    "reasons": {
+      "NO_VALID_TERMINAL_SCORE": 112,
+      "UNSUPPORTED_FORMAT": 225
+    }
+  },
+  "ungroupedProMaps": 26,
+  "allAuditedTargetsNowExposed": true,
+  "newlyReviewedSeries": [
+    "1145436",
+    "1145878",
+    "1146131",
+    "1146150",
+    "1146195",
+    "1146609",
+    "1146650",
+    "1146725",
+    "1168207"
+  ],
+  "sourceBasis": "canonical_database_outcome_verifier_and_reviewed_series_preview",
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "scoringPerformed": false,
+  "activationPerformed": false,
+  "code": {
+    "tools/research/series-corpus-core.mjs": "4c1ef767fa4a4ed74b5916fa703647749d881b9e81c747c28caeb5443e116ffd",
+    "tools/research/series-corpus-export.mjs": "6f19d63abacc55d89f7cc965fa9a2723ca6e44e7a35ba54b001fab0e756849d4",
+    "tools/research/series-corpus-verify.mjs": "47e737b5ab2e28bb9a5dc4972a0903ddc22b361af8d491a415e437a11e9cde84",
+    "tools/research/series-validation-policy.json": "2c3e6dbabac4301329c022af637050d3dff1ada81a662ce41dc4272d1a57edaa",
+    "tests/node/series-corpus.test.mjs": "720a6108f7bb1ba3113ca607cf3711e67361d786f8e1bb811040a45e04a323bc"
+  },
+  "checks": {
+    "pureNode": 10,
+    "cliReplayCases": 3,
+    "packageTests": 1067,
+    "workspaces": 8,
+    "commands": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s309-corpus-install.log"
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s309-corpus-typecheck.log"
+      },
+      {
+        "name": "test",
+        "exitCode": 0,
+        "log": ".tools/s309-corpus-test.log"
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s309-corpus-build.log"
+      }
+    ],
+    "migrationChecks": 71,
+    "docLinks": "passed",
+    "gitDiffCheck": "passed",
+    "runtime": {
+      "activationIntegrity": true,
+      "currentMatchesActivation": true,
+      "runtime": {
+        "added": [],
+        "changed": [],
+        "missing": []
+      },
+      "admission": {
+        "added": [],
+        "changed": [],
+        "missing": []
+      }
+    }
+  }
+}

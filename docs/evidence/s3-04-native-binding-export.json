@@ -1,0 +1,136 @@
+{
+  "task": "S3-04/player-hero-native-binding-export",
+  "date": "2026-11-14",
+  "status": "complete_diagnostic_export_feature_evidence_missing_postdraft_not_activated",
+  "files": [
+    "tools/audits/draft-native-export-core.mjs",
+    "tools/audits/draft-native-export.mjs",
+    "tests/helpers/draft-native-export.ts",
+    "tests/helpers/native-export-runtime.ts",
+    "apps/api/tests/draft-native-export.test.ts",
+    "apps/api/tests/draft-native-export.integration.test.ts"
+  ],
+  "fileSha256": {
+    "tools/audits/draft-native-export-core.mjs": "1e3a9a21a34d303e442ab1bbee6508c2a301a9848313896cf4abc3b183f67016",
+    "tools/audits/draft-native-export.mjs": "f8075461e82eb5873e6bdd4d470b21083dd0bfd6776bea51a207318d4cf6a34a",
+    "tests/helpers/draft-native-export.ts": "aa58297a8f160b400251e5f54005042c8c5a828294145f7e418dc6ac45c48962",
+    "tests/helpers/native-export-runtime.ts": "1f5f622479b42e16e20853df05d80dd98740da9ecb31ecca1db10ac950d313b9",
+    "apps/api/tests/draft-native-export.test.ts": "fe8bc07dc13cc37f45126d4fc289ad29c77c1c39fde8b452e4a8cc92b2dffc52",
+    "apps/api/tests/draft-native-export.integration.test.ts": "1cd2041982a532ed74c4dfaadb129b7f6c4f4d13f18e64a17b18a311667b0b5e"
+  },
+  "checks": {
+    "installFrozenOffline": "PASS (outside sandbox, existing store)",
+    "typecheck": "PASS",
+    "packageTests": {
+      "status": "PASS",
+      "count": 1011,
+      "perPackage": [
+        64,
+        34,
+        99,
+        33,
+        359,
+        309,
+        112,
+        1
+      ],
+      "mode": "serial workspace / maxWorkers=1"
+    },
+    "newPureAndArtifactTests": {
+      "status": "PASS",
+      "count": 9
+    },
+    "isolatedPostgres": {
+      "status": "PASS",
+      "count": 1
+    },
+    "legacyProspectiveTests": {
+      "status": "PASS",
+      "count": 48
+    },
+    "build": "PASS",
+    "frozenResearchCompile": "PASS",
+    "offlineExternalShaReplay": "PASS (including after build)",
+    "historicalMigrations": {
+      "status": "PASS",
+      "count": 59
+    },
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "browser": "not rerun: no production UI changes"
+  },
+  "initialFailures": [
+    "Sandbox pnpm install refused modules removal without TTY; successful retry with existing user store outside sandbox.",
+    "First PG test read attempts[0].matchId instead of attempts[0].result.matchId; corrected assertion and final PG run passed.",
+    "Old checkpoint expected 6 prediction records; current inventory has 7. Latest record created 2026-11-14T11:56:11.047Z, status unavailable. Origin not attributed. Separate model/map/service checks passed; export performs no DML."
+  ],
+  "localArtifact": {
+    "path": ".tools/s304-native-export-local-r1.json",
+    "sha256": "f9bfc551fd114064a96f4a701131572fb85d5fe50ba7cdcdfd7d2a4b64f2986e",
+    "sourceSha256": "2e7fc0efc1747804adc64257b7402eb8ef493cab78152d94b1f8463559203dea",
+    "counts": {
+      "captures": 0,
+      "bindingAttempts": 0,
+      "verifiedBindings": 0,
+      "distinctActualMaps": 0,
+      "duplicateCaptures": 0,
+      "unboundCaptures": 0,
+      "featureReady": 0,
+      "trainingExamples": 0
+    },
+    "syntheticOnly": false,
+    "positiveRealCoverageVerified": false
+  },
+  "limitations": [
+    "SQL058 lacks dedicated pre-cutoff history/outcome observation records.",
+    "Existing feature builder is invoked only in missing_evidence_probe mode with empty trusted history; raw frozen history is retained separately.",
+    "Pending-target selection digest cannot be rewritten with a later native match ID.",
+    "Native map equality does not establish schedule mapping, ordinal, actual gameplay start, or prospective eligibility."
+  ],
+  "workingDatabaseWrites": 0,
+  "externalProviderRequests": 0,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "deployable": false,
+  "preservation": {
+    "checkedAt": "2026-11-14T12:20:38.696Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "captures": "0",
+      "predictions": "7",
+      "maps": "2260"
+    },
+    "previousCounts": {
+      "captures": "0",
+      "predictions": "6",
+      "maps": "2260"
+    },
+    "latestPredictions": [
+      {
+        "id": "fea05e92-f569-4181-a2d8-abd2add43982",
+        "stage": "pre_match",
+        "status": "unavailable",
+        "created_at": "2026-11-14T11:56:11.047Z",
+        "computed_at": "2026-11-14T11:56:47.624Z"
+      },
+      {
+        "id": "c27e656c-7fa2-4354-b369-566d2ba73e44",
+        "stage": "pre_match",
+        "status": "done",
+        "created_at": "2026-11-13T19:48:06.081Z",
+        "computed_at": "2026-11-13T19:48:58.525Z"
+      }
+    ],
+    "bindings": "0",
+    "migration059": "636b9587eb650edd520fb86a8ebd2aacb5710b484ebce40de7f967d933eb5281",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "nextTask": "S3-04/player-hero-history-observation-capture — сохранять доказательства проверки прошлых исходов и доступности истории до фиксации будущего драфта; версионировать контракт pending target и поздней native-привязки, сначала проверив порядок серверных часов. Старые снимки не переписывать и не датировать задним числом. GPT-6 Astra · High."
+}

@@ -1,0 +1,245 @@
+{
+  "task": "S3-04/post-draft-validation-readiness/exposure-ledger/series-projection-reconciliation",
+  "date": "2026-11-15",
+  "status": "24_series_queue_resolved_global_inventory_not_certified",
+  "artifact": {
+    "path": ".tools/s304-series-reconciliation-r1.json",
+    "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+  },
+  "parents": {
+    "original": {
+      "path": ".tools/s304-exposure-ledger-r2.json",
+      "sha256": "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7"
+    },
+    "archive": {
+      "path": ".tools/s304-archive-review-r3.json",
+      "sha256": "01e4b85f3658ba912ae28f3b150bfe039bdc44149e1f2861a86f31d44c6437cc"
+    },
+    "namespace": {
+      "path": ".tools/s304-namespace-report-r1.json",
+      "sha256": "be55c46227c122aaf004e9595c644d5e41ba5e774154f95621efe65ea94b41d9"
+    },
+    "coverage": {
+      "path": ".tools/s304-coverage-report-r1.json",
+      "sha256": "1ebee3f0061fde43abc0e74eef990b56c082aee3c03f7051282727482cceada7"
+    }
+  },
+  "sourceDetails": 30,
+  "sourceLeagueLastRows": 1,
+  "newBindings": 31,
+  "newSeries": 24,
+  "newMaps": 0,
+  "projectionPolicy": "Projection SHA and report/manifest/producer verified; original HTTP bodies not retained, no raw re-verification claim",
+  "baseline": {
+    "sources": 3348,
+    "maps": 5674,
+    "knownSeries": 1744,
+    "localAliases": 1096,
+    "unresolvedMaps": 1954,
+    "conflictingMaps": 0,
+    "unresolvedAliases": 0,
+    "conflictingAliases": 0
+  },
+  "ledger": {
+    "sources": 3379,
+    "maps": 5674,
+    "knownSeries": 1768,
+    "localAliases": 1096,
+    "unresolvedMaps": 1923,
+    "conflictingMaps": 0,
+    "unresolvedAliases": 0,
+    "conflictingAliases": 0
+  },
+  "expectedSeriesIds": [
+    "1054606",
+    "1084738",
+    "1084757",
+    "1135339",
+    "1145525",
+    "1145790",
+    "1145838",
+    "1145869",
+    "1146274",
+    "1146309",
+    "1152225",
+    "1153910",
+    "1154159",
+    "1154256",
+    "1154541",
+    "1154687",
+    "1167282",
+    "980651",
+    "982345",
+    "982368",
+    "982601",
+    "982629",
+    "982651",
+    "983008"
+  ],
+  "guards": {
+    "checkedAt": "2026-11-14T21:19:38.859Z",
+    "overwriteRejected": true,
+    "incorrectShaRejected": true,
+    "rehashedResultRejected": true,
+    "originalUnchanged": true,
+    "independentOracle": {
+      "maps": 5674,
+      "series": 1768,
+      "unknownSeriesMaps": 1923,
+      "bindings": 31,
+      "newSeries": 24
+    },
+    "referencesClearedFiles": 36,
+    "remainingFiles": [
+      {
+        "path": ".tools/catalogue-registry.json",
+        "references": 0,
+        "opaque": 2
+      },
+      {
+        "path": ".tools/label-audit-20261111/template-inventory.json",
+        "references": 0,
+        "opaque": 2
+      },
+      {
+        "path": ".tools/s1-07-active-version-source/api-list.json",
+        "references": 0,
+        "opaque": 19
+      },
+      {
+        "path": ".tools/s1-08-bo2-valve-league.json",
+        "references": 104,
+        "opaque": 0
+      },
+      {
+        "path": ".tools/s1-08-patch-inventory-reviewed.json",
+        "references": 0,
+        "opaque": 72
+      },
+      {
+        "path": ".tools/s1-12-current-capture.json",
+        "references": 0,
+        "opaque": 1
+      },
+      {
+        "path": ".tools/s1-12-registry.json",
+        "references": 0,
+        "opaque": 2
+      },
+      {
+        "path": ".tools/s1-21-current-capture.json",
+        "references": 0,
+        "opaque": 1
+      },
+      {
+        "path": ".tools/s3-01-e1-valve-league.json",
+        "references": 3,
+        "opaque": 0
+      },
+      {
+        "path": ".tools/s304-history-import-dry-run-r1/report.json",
+        "references": 0,
+        "opaque": 42
+      },
+      {
+        "path": ".tools/s304-prospective-feature-input-r1.json",
+        "references": 5,
+        "opaque": 0
+      },
+      {
+        "path": ".tools/s304-prospective-feature-parity-cases.json",
+        "references": 192,
+        "opaque": 0
+      },
+      {
+        "path": ".tools/tier1-participants-sources/registry-cache.json",
+        "references": 0,
+        "opaque": 1
+      },
+      {
+        "path": ".tools/v1-historical-import-20261106/registry.json",
+        "references": 0,
+        "opaque": 1
+      },
+      {
+        "path": ".tools/v1-retest-collection-20261106/store/outcomes/map-8654581479.1.json",
+        "references": 0,
+        "opaque": 1
+      },
+      {
+        "path": ".tools/valve-steam-news.json",
+        "references": 0,
+        "opaque": 16
+      },
+      {
+        "path": "docs/evidence/s1-07-active-version-api-list.json",
+        "references": 0,
+        "opaque": 19
+      },
+      {
+        "path": "docs/evidence/s3-04-player-hero-independent-validation-plan.json",
+        "references": 0,
+        "opaque": 1
+      },
+      {
+        "path": "docs/evidence/stratz-api-review-2026-11-02.json",
+        "references": 0,
+        "opaque": 156
+      }
+    ],
+    "note": "Reclassified prior unresolved references only; not a fresh full archive scan or global-completeness certificate"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T21:19:46.449Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "checks": {
+    "newNode": 7,
+    "combinedNode": 86,
+    "migrationChecksums": 61,
+    "newReplay": "PASS",
+    "parentNamespaceReplay": "PASS",
+    "independentOracle": "PASS",
+    "installFrozenOffline": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "packageTests": 1053,
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "separatePgBrowserPython": "Not run: runtime/schema/UI/model math unchanged",
+    "packagePipelineExitCode": 0
+  },
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "training": 0,
+  "activation": 0,
+  "queueComplete": true,
+  "completeGlobalInventory": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "nextTask": "S3-04/post-draft-validation-readiness/exposure-ledger/residual-scope-decision",
+  "nextModel": "GPT-6 Astra · High"
+}

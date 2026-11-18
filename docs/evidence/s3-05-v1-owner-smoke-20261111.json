@@ -1,0 +1,134 @@
+{
+  "task": "S3-05/V1-retest/activation-owner-smoke",
+  "date": "2026-11-11",
+  "status": "partial_waiting_supported_pair",
+  "firstRealForecastCompleted": false,
+  "operationalSmoke": {
+    "checkedAt": "2026-11-11T16:41:49.059Z",
+    "status": "PASS",
+    "scope": "Operational continuation; first real forecast remains pending",
+    "modelEligibleInUI": true,
+    "negativeUnassignedParticipants": true,
+    "confirmationAndTargetSaveDisabled": true,
+    "model360Fits": true,
+    "existingJournalReadOnly": true,
+    "journalText": "История отчётов\nВерсия 1 · 2 нояб. 2026 г., 23:00 UTC · N=0 · accuracy —",
+    "logoutRevokesTestSession": true,
+    "readinessAfterLogout": 401,
+    "pageErrors": 0,
+    "http5xx": 0,
+    "forecastPostRequests": 0,
+    "syntheticRouteMocks": false,
+    "realForecastCreated": false,
+    "reason": "NO_READY_TARGET_EVENT_PAIR_IN_CURRENT_PROVIDER_SCHEDULE"
+  },
+  "preservation": {
+    "status": "PASS",
+    "checkedAt": "2026-11-11T16:46:26.828Z",
+    "tables": 85,
+    "unchangedTables": 78,
+    "changedTables": [
+      "auth_login_budget",
+      "auth_sessions",
+      "pandascore_request_quota",
+      "upcoming_page_cache",
+      "upcoming_page_observations",
+      "upcoming_source_cache",
+      "upcoming_source_observations"
+    ],
+    "canonicalMaps": 2232,
+    "queueRows": 13,
+    "queueExact": true,
+    "protectedFiles": 9703,
+    "oldOwnerSessionsPreserved": true,
+    "oldProviderObservationsPreserved": true,
+    "oldForecastsScenariosTargetsReportsAndModelsPreserved": true,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "pandaObservedAttempts": 5,
+    "quotaCurrentRequestsUsed": 5,
+    "pages": 4,
+    "matches": 76,
+    "completePairRows": 28,
+    "blastRows": 0,
+    "workingForecastCreated": false,
+    "observations": [
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+        "source_fetched_at": "2026-11-11T16:35:24.688Z",
+        "source_payload_sha256": "93144518ab6f1b49a7d3830c0655ffa389da8fec60b4ccc55fabc99cbff423c8",
+        "attempts": 1,
+        "count": 20
+      },
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=2&per_page=20",
+        "source_fetched_at": "2026-11-11T16:36:28.133Z",
+        "source_payload_sha256": "02bdff4d0817b17d937f1ac3e41874b1c474be4e02c5d9f1eab214e308b645fe",
+        "attempts": 1,
+        "count": 20
+      },
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=3&per_page=20",
+        "source_fetched_at": "2026-11-11T16:36:47.530Z",
+        "source_payload_sha256": "61c77b28100539976188a3278dabda08150720687ed2593b3021b59f5c33b262",
+        "attempts": 1,
+        "count": 20
+      },
+      {
+        "source_endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=4&per_page=20",
+        "source_fetched_at": "2026-11-11T16:36:54.734Z",
+        "source_payload_sha256": "be3484ee3d9b5d02742e6aef9cfe728e85ca4eb81c001fe0336d13326dc643c9",
+        "attempts": 1,
+        "count": 16
+      },
+      {
+        "source_endpoint": "/tournaments/22391/rosters",
+        "source_fetched_at": "2026-11-11T16:39:48.160Z",
+        "source_payload_sha256": "651818fbac0f100a1e8104e65990bb182b0b562257bac1d0643082348995cb35",
+        "attempts": 1,
+        "count": 0
+      }
+    ]
+  },
+  "liveSchedule": {
+    "pageSizes": [
+      20,
+      20,
+      20,
+      16
+    ],
+    "receivedRecords": 76,
+    "twoParticipantRecords": 28,
+    "blastSlamIXRecords": 0,
+    "nextPageDisabled": true,
+    "localDateFilter": false,
+    "adapterDropsTBDRows": false,
+    "globalCalendarCompletenessClaimed": false
+  },
+  "officialCheck": {
+    "url": "https://blast.tv/dota/tournaments/blast-slam-ix",
+    "fromDate": "2026-11-20",
+    "untilDate": "2026-11-29",
+    "publishedTeams": 16,
+    "scope": "Read public text; no pairing observed there, not an assertion about all dynamic views or other sources"
+  },
+  "checks": {
+    "liveUI": "PASS login/model/schedule/pages/negative missing participants/journal/mobile/logout",
+    "migrations": 52,
+    "links": "PASS",
+    "codeOrSQLOrDependenciesChanged": false,
+    "fullInstallTypecheckTestBuildRerun": false,
+    "previousCodeVerification": "939 unit/CLI and32 synthetic Chromium/PG; not rerun in this operational slice",
+    "browserFallback": "CUA/node_repl Windows platform directory unavailable, HRESULT0x80070003; local installed Playwright used without mocks",
+    "apiAndWebHealth": 200,
+    "generalWorker": "OFF",
+    "workingForecastRequests": 0
+  },
+  "nextTask": "S3-05/V1-retest/activation-owner-smoke",
+  "nextCondition": "A concrete supported Tier1 pair; then verify ten identities/history, target/scope/scenario before issuance",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

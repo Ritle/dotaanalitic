@@ -1,0 +1,193 @@
+{
+  "task": "S3-04/history-import-plan",
+  "date": "2026-11-13",
+  "status": "completed_plan_requires_isolated_dry_run",
+  "counts": {
+    "selectedMaps": 33,
+    "accounts": 75,
+    "verifiedCurrentAccounts": 75,
+    "plannedMaps": 28,
+    "excludedMaps": 5,
+    "sourceSeries": 20,
+    "plannedSeries": 16,
+    "newSeries": 15,
+    "newTeams": 2
+  },
+  "excludedMaps": [
+    {
+      "matchId": "8940891805",
+      "reasons": [
+        "SERIES_GROUP_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "matchId": "8941092540",
+      "reasons": [
+        "SERIES_GROUP_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "matchId": "8970730748",
+      "reasons": [
+        "SERIES_GROUP_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "matchId": "8978147287",
+      "reasons": [
+        "SERIES_GROUP_REVIEW_REQUIRED"
+      ]
+    },
+    {
+      "matchId": "8978292022",
+      "reasons": [
+        "SERIES_GROUP_REVIEW_REQUIRED"
+      ]
+    }
+  ],
+  "reviewGroups": [
+    {
+      "key": "19944|9600141:9895247|2026-08-11",
+      "mapIds": [
+        "8940891805",
+        "8941015932",
+        "8941092540"
+      ],
+      "sourceSeriesIds": [
+        "1129613"
+      ],
+      "unlinkedMapIds": [
+        "8941015932"
+      ],
+      "reason": "POSSIBLE_UNLINKED_SIBLING",
+      "automaticMergeAllowed": false
+    },
+    {
+      "key": "19944|10207497:10212329|2026-08-28",
+      "mapIds": [
+        "8970730748",
+        "8970880309"
+      ],
+      "sourceSeriesIds": [
+        "1135003"
+      ],
+      "unlinkedMapIds": [
+        "8970880309"
+      ],
+      "reason": "POSSIBLE_UNLINKED_SIBLING",
+      "automaticMergeAllowed": false
+    },
+    {
+      "key": "19944|9600141:9948367|2026-09-01",
+      "mapIds": [
+        "8978147287",
+        "8978292022"
+      ],
+      "sourceSeriesIds": [
+        "1136859",
+        "1136896"
+      ],
+      "unlinkedMapIds": [],
+      "reason": "DISTINCT_SERIES_SAME_DAY_OPPONENTS",
+      "automaticMergeAllowed": false
+    }
+  ],
+  "planFingerprint": "2a39f94747ad38894593798ca800033ffce6204e346ea690c65ab451c78a88ff",
+  "sourceHashes": {
+    "proposal": "7c90bcafaf7538409afc00c5f9cd50f00037a19c81b9480902178d9760f4f78e",
+    "report": "401b38e6b5abc01593e44c8e80f3fdc5d1a2316933f3aa5e59888cffb4c47608",
+    "capture": "e1e734ea7def26194204581a1d22651b4746f27b29bc93e1c8ac47fe3d781696"
+  },
+  "code": [
+    {
+      "path": "tools/research/post-draft-history-import-plan.mjs",
+      "sha256": "bf07edc112e649f4285a7d42e42c84e22569820275cfe848ca6db2f3413aba95"
+    },
+    {
+      "path": "tests/node/post-draft-history-import-plan.test.mjs",
+      "sha256": "7e53d4a1e8bcb81405372d2a6980847a40c0984cdcccb7878d4a12f69e9cd1b0"
+    },
+    {
+      "path": ".tools/s304-import-plan-capture.mjs",
+      "sha256": "49717c0f6dce64d0c8d6bfade767d7fdda6a012fcbfbf7ac391aa1c12cb9b523"
+    },
+    {
+      "path": "packages/db/dist/identity.js",
+      "sha256": "b0c3ee9861250a622285532a21ee42376d7b56d6afa83a15e7c301f8c42d744b"
+    },
+    {
+      "path": "packages/db/dist/identity-repository.js",
+      "sha256": "57c1fd2997875570cc1090ba0dc0080c4766e3e3b4a2da10b971022ba6fce031"
+    },
+    {
+      "path": "packages/db/dist/series-provision.js",
+      "sha256": "f36fa8ac3e993f9ccb7515d545f7e370737e85a03163e53e67cf5156772d004d"
+    },
+    {
+      "path": "packages/ingestion/dist/importer.js",
+      "sha256": "547a04018d8bed75811235348474bd83a6e07e8c26d983f90da679aa98c48453"
+    }
+  ],
+  "files": [
+    {
+      "path": ".tools/s304-history-import-plan.json",
+      "sha256": "7f03db0d51ffd63f404ee304b43dba8575341ce950942676cda9eb038da3616f"
+    },
+    {
+      "path": ".tools/s304-import-plan-capture.json",
+      "sha256": "e1e734ea7def26194204581a1d22651b4746f27b29bc93e1c8ac47fe3d781696"
+    },
+    {
+      "path": ".tools/s304-import-plan-cli-qa.json",
+      "sha256": "7541db8ecddc3ebd12c03687e28b1f62a83d88d1c01a4c756a7f53a938873080"
+    },
+    {
+      "path": ".tools/s304-import-plan-before.json",
+      "sha256": "1bad71ee9137bce31e613451587e38d804249767cae53b1b4c9d4100a7feba37"
+    },
+    {
+      "path": ".tools/s304-import-plan-final.json",
+      "sha256": "4b0e1e264ed478a0cc97ba5d706c9d3ed9e5f3662d44075a8ddcfadff3dea915"
+    },
+    {
+      "path": ".tools/s304-import-plan-install.log",
+      "sha256": "6569e736f4f07bdc6eda3fc69614a07cb975d1359de4986dc3a311b1d883f526"
+    },
+    {
+      "path": ".tools/s304-import-plan-types.log",
+      "sha256": "0582be245cfe411511899221d93ae44a91d29bf045fb587f439980a1cdccb98b"
+    },
+    {
+      "path": ".tools/s304-import-plan-test.log",
+      "sha256": "ea0dfbde5f97b77031e3261464bf1557671d79016f267dcc49a0d0d49e1f0129"
+    },
+    {
+      "path": ".tools/s304-import-plan-build.log",
+      "sha256": "2596ca7020861331499b77593165203a81eda232e1f43c88eab9557302915693"
+    }
+  ],
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 962,
+    "targetedNodeTests": 8,
+    "build": "PASS",
+    "postBuildReplay": "PASS",
+    "offlineReplayOverwriteTamperAndRecount": "PASS",
+    "migrationChecksums": 54,
+    "workingDatabasePreservation": "PASS",
+    "frozenDatasetCaptureFitEvaluationPreservation": "PASS",
+    "browserAndPgIntegration": "not_run",
+    "buildWarnings": [
+      "existing Zod pure annotation comments",
+      "web chunk larger than 500 kB"
+    ]
+  },
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "importedMaps": 0,
+  "trainingPerformed": false,
+  "deployable": false,
+  "nextTask": "S3-04/history-import-dry-run",
+  "nextProposal": "docs/evidence/s3-04-history-import-dry-run-proposal.json"
+}

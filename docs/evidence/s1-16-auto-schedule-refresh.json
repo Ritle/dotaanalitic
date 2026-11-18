@@ -1,0 +1,139 @@
+{
+  "task": "S1-16/automatic-schedule-refresh",
+  "date": "2026-11-12",
+  "status": "implemented_owner_acceptance_pending",
+  "behavior": {
+    "enabledByDefault": true,
+    "scope": "current visible calendar page only",
+    "cacheTtlMs": 300000,
+    "localCheckMs": 30000,
+    "errorRetryFloorMs": 300000,
+    "retryAfterRespected": true,
+    "manualFreshCacheDoesNotDelayExpiry": true,
+    "pausedWhen": [
+      "selected match/editor",
+      "hidden document",
+      "offline",
+      "pending request",
+      "disabled toggle",
+      "non-owner session"
+    ],
+    "resume": "close selected match or return online/visible",
+    "foreignLease": "bounded read-only cache poll",
+    "lifetime": "open view only; disposed on unmount"
+  },
+  "files": [
+    "apps/web/src/views/UpcomingView.vue",
+    "apps/web/src/schedule-auto-refresh.ts",
+    "apps/web/tests/schedule-auto-refresh.test.ts",
+    "apps/web/tests/e2e/schedule-auto-refresh.spec.ts",
+    "apps/web/tests/e2e/upcoming.spec.ts",
+    "README.md",
+    "docs/API_CONTRACTS.md",
+    "docs/S1_16_AUTO_SCHEDULE_REFRESH.md",
+    "docs/IMPLEMENTATION_PLAN.md",
+    "docs/PROJECT_STATE.md",
+    "docs/PROGRESS.md"
+  ],
+  "checks": {
+    "redPolicy": "expected missing-module failure before implementation",
+    "install": {
+      "status": "PASS",
+      "command": "pnpm install --frozen-lockfile --offline"
+    },
+    "typecheck": {
+      "status": "PASS",
+      "command": "pnpm typecheck"
+    },
+    "unitCli": {
+      "status": "PASS",
+      "command": "pnpm test --maxWorkers=1 --no-file-parallelism",
+      "uniqueTests": 955,
+      "packageCounts": [
+        64,
+        34,
+        33,
+        92,
+        359,
+        309,
+        1,
+        63
+      ],
+      "targetedUnitRetries": 0
+    },
+    "build": {
+      "status": "PASS",
+      "command": "pnpm build",
+      "notes": "Existing Rollup annotation/bundle-size warnings remain."
+    },
+    "browser": {
+      "status": "PASS_AFTER_FIXTURE_CORRECTIONS",
+      "uniqueTests": 21,
+      "newCases": 3,
+      "coverage": [
+        "automatic cold load and source expiry",
+        "two owner browser contexts share one server download and loser reads winning cache",
+        "manual cached refresh cannot postpone real expiry",
+        "selection preserves unsaved input; close resumes",
+        "toggle, hidden/visible and page scope",
+        "failed source retains old rows with bounded retry",
+        "existing schedule filters/pagination/rosters/comparison/scenario flow"
+      ],
+      "initial": "19/21 passed; virtual clocks were installed after native timers, corrected to install before app; browser time and PostgreSQL expiry are controlled independently in fixture. Foreign-lease test advances read-poll interval.",
+      "final": "last cache-expiry/two-context case PASS after successful-cache attempt reset; no production timeouts/quotas/lease rules weakened",
+      "mobileWidth": 360,
+      "mobileOverflow": false,
+      "mobileVisuallyInspected": true,
+      "provider": "synthetic PandaScore in disposable PostgreSQL databases"
+    },
+    "migrations": {
+      "status": "PASS",
+      "count": 53
+    },
+    "diffCheck": {
+      "status": "PASS"
+    },
+    "docLinks": {
+      "status": "PASS",
+      "command": "node scripts/check-doc-links.mjs"
+    },
+    "localHealth": {
+      "status": "PASS",
+      "api": 200,
+      "web": 200,
+      "privateUpcomingWithoutSession": 401
+    }
+  },
+  "preservation": {
+    "tables": 86,
+    "changedTables": [],
+    "maps": 2232,
+    "exactQueueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "newMigrations": 0,
+    "newDependencies": 0,
+    "newApiRoutes": 0,
+    "apiRestarted": false,
+    "apiPid": 28108,
+    "webPid": 18408,
+    "generalWorker": "OFF",
+    "agentWorkingProviderHttp": 0,
+    "workingBusinessWrites": 0,
+    "beforeVsPreviousTaskClosure": "auth_sessions/auth_login_budget only; current task baseline and final are exact"
+  },
+  "limits": [
+    "No updates when browser/view is closed; no server calendar daemon.",
+    "An open match pauses automatic refresh. Closing clears its unsaved form; saved scenarios/templates persist.",
+    "Preference is in memory for this view, not a durable owner setting.",
+    "This is synthetic provider integration coverage, not a new live source audit or model validation."
+  ],
+  "nextTask": "S3-05/V1-retest/activation-owner-smoke on a ready supported Tier1 pair",
+  "suggestedModel": "GPT-6.1 Sol",
+  "reasoningEffort": "High"
+}

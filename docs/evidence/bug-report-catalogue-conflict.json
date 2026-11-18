@@ -1,0 +1,79 @@
+{
+  "task": "S1-16/BUG_REPORT/catalogue-conflict-recovery",
+  "date": "2026-11-11",
+  "scope": "Reproduced retry conflict fixed; original incident1791664 cause not established",
+  "changes": [
+    "Use current state linkToken instead of stale preparation token",
+    "Invalidate confirmation on revision/roster/token change",
+    "Require successful explicit reread and confirmation after409; retain manual five",
+    "Both reread buttons share recovery; failed read stays locked",
+    "Allowlisted Zod error codes and Russian local copy; scenario behaviour unchanged",
+    "No automatic write retry or concurrency-guard bypass"
+  ],
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "unitCli": {
+      "status": "PASS",
+      "count": 923,
+      "perWorkspace": [
+        64,
+        34,
+        33,
+        67,
+        359,
+        309,
+        1,
+        56
+      ],
+      "finalWebRepeatAfterDecoderIsolation": 67
+    },
+    "build": "PASS",
+    "apiPostgres": {
+      "status": "PASS",
+      "count": 28
+    },
+    "chromiumPostgres": {
+      "status": "PASS",
+      "unique": 13,
+      "files": [
+        "automatic-roster.spec.ts",
+        "catalogue-conflict.spec.ts",
+        "roster-catalogue.spec.ts"
+      ]
+    },
+    "red": {
+      "unit": "6 failed / 1 passed before message fix",
+      "confirmation": "Browser failed because stale confirmation remained checked",
+      "token": "After recovery UX fix but before token fix: reread succeeded yet final apply returned409"
+    },
+    "fixtureTransport": "One synthetic503 reread; all apply conflicts/successes use real Fastify/disposable PG",
+    "earlierCompatibilityAttempt": "6 passed,1 failed waiting for a search candidate,6 skipped; improved fixture response diagnostics and final stable-source rerun passed",
+    "notRerun": [
+      "full PostgreSQL suite",
+      "Node fixture suite",
+      "Python",
+      "Docker/Linux deployment"
+    ]
+  },
+  "preservation": {
+    "publicTables": 85,
+    "changedTables": [],
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "modelReadiness": "model_eligible",
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+    "productionProviderHTTP": 0,
+    "businessWrites": 0
+  },
+  "runtime": "PostgreSQL was stopped and recovered normally on start. Main API/Web were not running at task start and were not started; general worker OFF. Tests use temporary DB/API/Web.",
+  "incident": "Cached PlayTime vs TS1791664 scheduled2026-11-11T10:00Z already elapsed. Original409 body/request absent; no write replay into working match.",
+  "decoderIsolation": "Browser-only Zod module under packages/contracts/browser, outside pinned src/dist; direct frontend source import preserves public barrel/lockfile. Temporary shared-module and direct-dependency attempts were restored; frozen guard was not relaxed.",
+  "migrationChanges": false,
+  "dependenciesChanged": false,
+  "predictionChanges": false,
+  "nextTask": "S1-16/BUG_REPORT/readable-labels/context-filters/references",
+  "suggestedModel": "GPT-6.1 Sol · High"
+}

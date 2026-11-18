@@ -1,0 +1,127 @@
+{
+  "task": "S3-04/history-import-dry-run",
+  "date": "2026-11-13",
+  "status": "completed_isolated_import_passed",
+  "result": {
+    "mapsAdded": 28,
+    "playersAdded": 280,
+    "teamsAdded": 2,
+    "verifiedOutcomes": 30,
+    "series": 16,
+    "newSeries": 15,
+    "receipts": 83,
+    "sourceTablesPreserved": 100
+  },
+  "manifestSha256": "604ba65a43ef98affc0fd2c3ff236ceabdae991f75aa4433e66221dfdfafe2ff",
+  "reportSha256": "777c3edec1308d1d147e27b5a519a756cdcf3318bad826b943c85aa820ecc705",
+  "sealSha256": "803713b59445ed82f85de236187f50c083fc5bc0fa603f07c1ab13a5561fea2d",
+  "sourcePlanSha256": "7f03db0d51ffd63f404ee304b43dba8575341ce950942676cda9eb038da3616f",
+  "sourceHashes": {
+    "proposal": "1abf0e3a31fd5df728cadfdba91b9f8fe208a58fed49b133ce14fb9ca76d076b",
+    "plan": "7f03db0d51ffd63f404ee304b43dba8575341ce950942676cda9eb038da3616f",
+    "report": "401b38e6b5abc01593e44c8e80f3fdc5d1a2316933f3aa5e59888cffb4c47608",
+    "capture": "e1e734ea7def26194204581a1d22651b4746f27b29bc93e1c8ac47fe3d781696",
+    "selection": "7c90bcafaf7538409afc00c5f9cd50f00037a19c81b9480902178d9760f4f78e"
+  },
+  "frozenArtifacts": [
+    {
+      "path": ".tools/s304-dataset-final.json",
+      "sha256": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd"
+    },
+    {
+      "path": ".tools/s304-dataset-capture-final.json",
+      "sha256": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2"
+    },
+    {
+      "path": ".tools/s304-fit-r1/artifact.json",
+      "sha256": "70916658f4db7162039a7a3bed772457aa5f387d3f0cc0025cfea64590500951"
+    },
+    {
+      "path": ".tools/s304-eval-r1/report.json",
+      "sha256": "30f6d9696c07a4e1085236ca7b29af8a615f81aae8f9b37ce24cb35308f611e5"
+    }
+  ],
+  "sourceUnchanged": true,
+  "previousMapsUnchanged": true,
+  "repeatRowsUnchanged": true,
+  "isolatedDatabaseDropped": true,
+  "lineageStorage": "immutable_dry_run_report_sidecar",
+  "providerHttp": 0,
+  "workingBusinessWrites": 0,
+  "trainingPerformed": false,
+  "deployable": false,
+  "workingState": {
+    "maps": 2232,
+    "forecasts": 3,
+    "queue": {
+      "count": 13,
+      "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+    },
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "modelReadiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "checks": {
+    "targetedNodeTests": 7,
+    "isolatedPostgresIntegration": "PASS",
+    "offlineReplayOverwriteTamperRecount": "PASS",
+    "migrations": 54,
+    "frozenInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 962,
+    "build": "PASS",
+    "postBuildPlanAndDryRunReplay": "PASS",
+    "docLinks": "PASS",
+    "gitDiffCheck": "PASS",
+    "browserTests": "not_run",
+    "fullPostgresSuite": "not_run_custom_real_clone_integration_passed"
+  },
+  "nextTask": "S3-04/history-import-apply",
+  "nextProposal": "docs/evidence/s3-04-history-import-apply-proposal.json",
+  "files": [
+    {
+      "path": ".tools/s304-import-dry-run-node.log",
+      "sha256": "d851890ec68dde6e1706a2d91d16c15a186bd40c8eabcd0cb72cfbf553af2665"
+    },
+    {
+      "path": ".tools/s304-import-dry-run-cli-qa.json",
+      "sha256": "48d66789e8d5132f23b53f21a80c40d13b1ae0a1dcf6a3ba51ffb2a5c3589d6f"
+    },
+    {
+      "path": ".tools/s304-import-dry-run-install.log",
+      "sha256": "896b5039d8540cd988abbb59cdaa05af3c453202b7bb998c6f7e641d998e4fec"
+    },
+    {
+      "path": ".tools/s304-import-dry-run-types.log",
+      "sha256": "fcdd91d7487b3d8b5d20de38b1cfeee7c8b27aac95101f860c26a78d409676dc"
+    },
+    {
+      "path": ".tools/s304-import-dry-run-test.log",
+      "sha256": "e16bbe204cb59e9a315c6150f49c98f468558f2ed9367ae6602c63e9f942d6b9"
+    },
+    {
+      "path": ".tools/s304-import-dry-run-build.log",
+      "sha256": "29399d7fab97b8f082760e411c40649408fc4b91c02827dc09877c208d72c7a6"
+    },
+    {
+      "path": ".tools/s304-import-dry-run-preservation.json",
+      "sha256": "d69d2fa00170bec0972394f5c0b8abca5bcff6bdf1c99a5f52d44357e00dd655"
+    },
+    {
+      "path": ".tools/s304-import-dry-run-migrations.log",
+      "sha256": "e214a0e1a924f5266c01bf92e645a1ad4c3ca99fc0542e6bfe223886c255a96d"
+    },
+    {
+      "path": ".tools/s304-import-dry-run-doc-links.log",
+      "sha256": "2e5a71f29c853fd82aedc8d96c1727b4ada137d8f283decccf7bbe866e153822"
+    }
+  ],
+  "environmentNotes": [
+    "Initial sandbox pnpm install refused a different store without changes; retry using existing user store passed.",
+    "Build completed with existing Zod pure-annotation and web chunk-size warnings."
+  ]
+}

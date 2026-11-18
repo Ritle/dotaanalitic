@@ -1,0 +1,60 @@
+{
+  "task": "S3-04/player-hero-experiment-plan",
+  "status": "registered_development_experiment",
+  "protocolPath": "docs/evidence/s3-04-player-hero-experiment-plan.json",
+  "protocolSha256": "befbca5cc9d1310b8837f1e7a4f047e336ba8a1e386372dff95ce96af4d428df",
+  "fingerprint": "932abf739e485ab1d8c38348df57e49a986a01d9b212663201f341e356d50db6",
+  "registeredAt": "2026-11-13T18:02:09.102Z",
+  "targetMaps": 2232,
+  "exposedMaps": 2260,
+  "exposedKnownSeries": 1096,
+  "independentMapsEstablished": 0,
+  "checks": {
+    "targetedNodeTests": 7,
+    "offlineReplay": "PASS",
+    "overwriteRejected": "PASS",
+    "weakenedGateWithRecomputedHashRejected": "PASS",
+    "generalChecks": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 978,
+    "build": "PASS",
+    "finalPostBuildOfflineReplay": "PASS",
+    "independentLedgerRecount": "PASS",
+    "orderedMigrations": 57,
+    "historicalSqlChecksums": "PASS",
+    "docsLinksWhitespaceDiff": "PASS",
+    "browserIntegration": "not_run_no_UI_changes",
+    "postgresIntegration": "not_run_no_SQL_changes"
+  },
+  "nextTask": "S3-04/player-hero-experiment-dataset — собрать отдельную неизменяемую выборку по зарегистрированному протоколу: сохранить train/validation, рассчитать тем же builder признаки calibration/development, отделить проверенные исходы, проверить целые серии и полный знаменатель; без обучения и scoring.",
+  "fittingPerformed": false,
+  "scoringPerformed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "independentRecount": {
+    "status": "PASS",
+    "targetMaps": 2232,
+    "exposedMaps": 2260,
+    "normalizedKnownSeries": 1096,
+    "windowLedgersCompared": 5,
+    "protocolSha256": "befbca5cc9d1310b8837f1e7a4f047e336ba8a1e386372dff95ce96af4d428df"
+  },
+  "readiness": {
+    "checkedAt": "2026-11-13T18:10:24.850Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "buildWarnings": [
+    "existing_zod_annotations",
+    "existing_web_chunk_over_500kb"
+  ]
+}

@@ -1,0 +1,578 @@
+{
+  "task": "S3-04/conditional-collection-runtime",
+  "date": "2026-11-15",
+  "status": "bounded_local_runner_verified_remote_mode_unavailable",
+  "files": [
+    {
+      "path": "tools/research/conditional-collection-runtime.mjs",
+      "sha256": "08d3bf216e327525a133cad1803cca5f8b330afcfc100eac4781e693ec914d4d"
+    },
+    {
+      "path": "tools/research/run-conditional-collection.mjs",
+      "sha256": "af94b0deffd6cbd0878180b9af538ad3a1212211146d89620a6fd9db127da264"
+    },
+    {
+      "path": "packages/db/tests/conditional-collection-runtime.integration.test.ts",
+      "sha256": "93ac0506742ac06a470d06a0f148704b29d8ef70ca2695d3fcbf41397311a7f9"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "tools/research/conditional-collection-transport.mjs",
+      "sha256": "f8660cd051af2dfd475c7a32fdb3f4f0144c1c88125b949aaf9a72c5bd94145b"
+    },
+    {
+      "path": "packages/db/migrations/065_conditional_transport_receipts.sql",
+      "sha256": "c2c3ff942d5ed2939f53aa41e186ad00902359784aca0e5a8b7c8e9a1c85cf21"
+    },
+    {
+      "path": "packages/db/tests/conditional-collection-transport.integration.test.ts",
+      "sha256": "cffa9966103c22e4b9a7b6cb294de8bf57124dbe0842af355e0b1e5abfbeeacb"
+    },
+    {
+      "path": "packages/db/tests/conditional-collection-journal.integration.test.ts",
+      "sha256": "45ea5ac376b70cfe9bb48efaccd58e666ac17d0440eb95f98e4d8b9a49b8f1b7"
+    },
+    {
+      "path": "tools/research/conditional-registration.mjs",
+      "sha256": "bfc6010d9cdb4dc8e6402a8a1c2310de63cd9fba4150b9952805bf4c956e73a4"
+    },
+    {
+      "path": "tools/research/conditional-registration-files.mjs",
+      "sha256": "d3598895ea0004a7e6c7d05edf3bcf447259229f47850c92f54464585f9f6950"
+    },
+    {
+      "path": "tests/fixtures/conditional-registration.mjs",
+      "sha256": "5b052bbc78e6e56ce87b8dbb2aec8220efc9b7356e7997f95ddc0e0a1569a3f9"
+    },
+    {
+      "path": "tests/node/conditional-registration.test.mjs",
+      "sha256": "e28e8027a06b7c088d4556cd3b6dabe750962a6508aa50aea63e5415594d1907"
+    },
+    {
+      "path": "tests/node/conditional-registration-files.test.mjs",
+      "sha256": "a68a80479cfa7fc7de494a98c62cb16b653eec1e9550dc356b4dd778e56e609a"
+    },
+    {
+      "path": "tests/node/conditional-registration-replay.test.mjs",
+      "sha256": "d95cb9fec6fd06525a28007944358a60a84cafd79e14015052f2c0f856515994"
+    },
+    {
+      "path": "packages/db/migrations/062_conditional_registration.sql",
+      "sha256": "9d592d9930b8e5cefa0f608f5aabd92a59bf2f5c8533403fda3b39bc1fe2740d"
+    },
+    {
+      "path": "tools/research/conditional-registration-storage.mjs",
+      "sha256": "cf7e7cfd27e5916fddcd384b197c1f191afc025c0e36e80460b6c6e944c67aa1"
+    },
+    {
+      "path": "packages/db/tests/conditional-registration-storage.integration.test.ts",
+      "sha256": "2a211b4e9a87c55a47c9325f48cf4bc17e9ce28edfc45c6a6f3e5fb5a8a87b38"
+    },
+    {
+      "path": "tools/research/conditional-registration-preflight.mjs",
+      "sha256": "6da09619aa93127d0503aa6a6bf530cf2afd8b0cce3a1f6e035f6defc0bb8d02"
+    },
+    {
+      "path": "tests/node/conditional-registration-preflight.test.mjs",
+      "sha256": "5f72358b02007e349beab5f6755ab899a3c1acf44a50b17bf61c50c1ffaf86b4"
+    },
+    {
+      "path": "tools/research/conditional-real-registration.mjs",
+      "sha256": "a6d0cc1ecfdd75f0645a6de430e821e1e5dc32f69b27524d438d91e30d0db440"
+    },
+    {
+      "path": "tools/research/conditional-real-registration-store.mjs",
+      "sha256": "da59156d8714a085c99079410e3e3c53aea21a145f2b81065ca55b72532002cd"
+    },
+    {
+      "path": "packages/db/migrations/063_conditional_real_registration.sql",
+      "sha256": "4fb31bf0f6753a90929d2808076e3cffa754f1e4fbdefe90d7b32051fd40d16d"
+    },
+    {
+      "path": "tests/fixtures/conditional-real-registration.mjs",
+      "sha256": "c267f59b21e5c54ab41e80238f4b0f1f2878455e131c623d532aafa77c93a8c0"
+    },
+    {
+      "path": "tests/node/conditional-real-registration.test.mjs",
+      "sha256": "3b3832de996c34c22034603ac22a75a17fe406f07954e78aadb52ef1a143737d"
+    },
+    {
+      "path": "packages/db/tests/conditional-real-registration.integration.test.ts",
+      "sha256": "1cdc83bb9239c6219c93264bdd295aaa9ab03a4a7e76673541971fd931bd92f8"
+    },
+    {
+      "path": "tools/research/conditional-registered-collector.mjs",
+      "sha256": "6f6bbe91712ff8f415465b2283cfa89547675984e587a050fb901b98047aac02"
+    },
+    {
+      "path": "tools/research/conditional-registered-collector-store.mjs",
+      "sha256": "b58c767f6caa9867cd8f40874575b90228f1d9b61c5a518b6b2fba1d8906c78d"
+    },
+    {
+      "path": "tests/fixtures/conditional-registered-collector.mjs",
+      "sha256": "eac8fce036f052624231dd2afbf99ba7a9325347d8913c58948ce085cc417ec9"
+    },
+    {
+      "path": "tests/node/conditional-registered-collector.test.mjs",
+      "sha256": "c1a7504bbd33f45ba8dd6ba70f5798e8c47bb6ece6470bc64ea767f426882c75"
+    },
+    {
+      "path": "packages/db/tests/conditional-registered-collector.integration.test.ts",
+      "sha256": "47631f2565f3abecbeb1e8b9bdf0160d70537567bbda130af661b438e4ce9340"
+    },
+    {
+      "path": "tools/research/conditional-collection-journal.mjs",
+      "sha256": "2dd6d5c629b30868cc5afcfa8ee0aaf943e11bde67b55cc29408494fc7797bd6"
+    },
+    {
+      "path": "packages/db/migrations/064_conditional_collection_journal.sql",
+      "sha256": "08498c590bbdbb7c2a3e1b506723e71b1ddf85b146d65d840f162c924b4b7a0f"
+    },
+    {
+      "path": "tools/research/player-hero-independent-policy.json",
+      "sha256": "70f121b2686e04ce74a822f8b5161d70311631701c33441a40a903eccb4cee3a"
+    },
+    {
+      "path": "tools/research/player-hero-experiment-policy.json",
+      "sha256": "32785db3ae5c7e227940c44fa2be5bfd1a9be747ab9cf4479e4a39932be810c9"
+    },
+    {
+      "path": ".tools/s304-hero-fit-r1/artifact.json",
+      "sha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b"
+    },
+    {
+      "path": ".tools/s304-hero-independent-plan-r1.json",
+      "sha256": "b9c12e9bb008294869b0487b7323b1c57ae7143ea37ba2132b733a3b9a84509d"
+    },
+    {
+      "path": ".tools/s304-registration-proposal-inventory-r2.json",
+      "sha256": "ce645751ee76b88bf87854362ab1a87d6d21ebf7dc3fedb3b263d7919c0e7003"
+    },
+    {
+      "path": ".tools/s304-exposure-ledger-r2.json",
+      "sha256": "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7"
+    },
+    {
+      "path": ".tools/s304-series-reconciliation-r1.json",
+      "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+    },
+    {
+      "path": ".tools/s304-residual-disposition-r1.json",
+      "sha256": "3f07108c3af26b3b34051f6f3bfe5ff649e258da2d2bcff7e02e84a1bc16afff"
+    }
+  ],
+  "manifest": {
+    "requiredPaths": [
+      ".tools/s304-conditional-score-runtime/player-hero-inference.mjs",
+      ".tools/s304-future-runtime/conditional-future-holdout.mjs",
+      ".tools/s304-future-runtime/player-hero-feature.mjs",
+      "packages/analytics/dist/elo.js",
+      "packages/analytics/dist/forecast-metrics.js",
+      "packages/analytics/dist/hero-meta.js",
+      "packages/analytics/dist/hero-pairs.js",
+      "packages/analytics/dist/history-weight.js",
+      "packages/analytics/dist/index.js",
+      "packages/analytics/dist/model-inference.js",
+      "packages/analytics/dist/player-hero.js",
+      "packages/analytics/dist/ranked-context.js",
+      "packages/analytics/dist/ranked-practice.js",
+      "packages/analytics/dist/roster-report.js",
+      "packages/analytics/dist/roster.js",
+      "packages/analytics/dist/sample.js",
+      "packages/analytics/package.json",
+      "packages/contracts/dist/catalog.js",
+      "packages/contracts/dist/compare.js",
+      "packages/contracts/dist/corpus-audit.js",
+      "packages/contracts/dist/corpus-quality.js",
+      "packages/contracts/dist/dataset-audit.js",
+      "packages/contracts/dist/dataset-build.js",
+      "packages/contracts/dist/dataset.js",
+      "packages/contracts/dist/draft.js",
+      "packages/contracts/dist/evaluation-details.js",
+      "packages/contracts/dist/evaluation-discovery.js",
+      "packages/contracts/dist/game-context.js",
+      "packages/contracts/dist/hero-matchups.js",
+      "packages/contracts/dist/history-refresh.js",
+      "packages/contracts/dist/identity-provision.js",
+      "packages/contracts/dist/identity.js",
+      "packages/contracts/dist/index.js",
+      "packages/contracts/dist/managed-import.js",
+      "packages/contracts/dist/patch-diagnostics.js",
+      "packages/contracts/dist/patch-history.js",
+      "packages/contracts/dist/player-hero.js",
+      "packages/contracts/dist/player-history.js",
+      "packages/contracts/dist/pro-maps.js",
+      "packages/contracts/dist/prospective-patch.js",
+      "packages/contracts/dist/ranked-context.js",
+      "packages/contracts/dist/ranked-practice.js",
+      "packages/contracts/dist/readiness.js",
+      "packages/contracts/dist/research-elo.js",
+      "packages/contracts/dist/research-evidence.js",
+      "packages/contracts/dist/research-execution.js",
+      "packages/contracts/dist/research-journal.js",
+      "packages/contracts/dist/research-plan.js",
+      "packages/contracts/dist/role-profiles.js",
+      "packages/contracts/dist/role-suggestions.js",
+      "packages/contracts/dist/roster-catalogue.js",
+      "packages/contracts/dist/roster.js",
+      "packages/contracts/dist/sample.js",
+      "packages/contracts/dist/scenario-report.js",
+      "packages/contracts/dist/scenario.js",
+      "packages/contracts/dist/schedule-freshness.js",
+      "packages/contracts/dist/schedule-pages.js",
+      "packages/contracts/dist/series-provision.js",
+      "packages/contracts/dist/strength.js",
+      "packages/contracts/dist/temporal.js",
+      "packages/contracts/dist/tier1-scopes.js",
+      "packages/contracts/dist/upcoming-evidence.js",
+      "packages/contracts/dist/upcoming.js",
+      "packages/contracts/dist/v1-candidate.js",
+      "packages/contracts/dist/v1-data.js",
+      "packages/contracts/dist/v1-executable-freeze.js",
+      "packages/contracts/dist/v1-features.js",
+      "packages/contracts/dist/v1-forecast.js",
+      "packages/contracts/dist/v1-historical-collection.js",
+      "packages/contracts/dist/v1-historical-execution.js",
+      "packages/contracts/dist/v1-historical-import.js",
+      "packages/contracts/dist/v1-historical-protocol.js",
+      "packages/contracts/dist/v1-journal-v2.js",
+      "packages/contracts/dist/v1-journal-v3.js",
+      "packages/contracts/dist/v1-journal-view.js",
+      "packages/contracts/dist/v1-journal.js",
+      "packages/contracts/dist/v1-model-readiness.js",
+      "packages/contracts/dist/v1-prediction-view.js",
+      "packages/contracts/dist/v1-registry.js",
+      "packages/contracts/dist/v1-release-evaluation.js",
+      "packages/contracts/dist/v1-release-evidence.js",
+      "packages/contracts/dist/v1-release-plan.js",
+      "packages/contracts/dist/v1-release-revision.js",
+      "packages/contracts/dist/v1-retest-activation.js",
+      "packages/contracts/dist/v1-retest-collection.js",
+      "packages/contracts/dist/v1-retest-execution.js",
+      "packages/contracts/dist/v1-retest-import.js",
+      "packages/contracts/dist/v1-retest-protocol.js",
+      "packages/contracts/dist/v1-retest-registry.js",
+      "packages/contracts/dist/v1-runtime.js",
+      "packages/contracts/dist/v1-schedule-result.js",
+      "packages/contracts/dist/v1-schedule-target.js",
+      "packages/contracts/dist/v1-scheduled-lifecycle.js",
+      "packages/contracts/dist/v1-scheduled-result-view.js",
+      "packages/contracts/dist/v1-scheduled-view.js",
+      "packages/contracts/dist/v1-target-lifecycle.js",
+      "packages/contracts/package.json",
+      "packages/db/dist/catalog-repository.js",
+      "packages/db/dist/compare-report.js",
+      "packages/db/dist/compare-repository.js",
+      "packages/db/dist/context-repository.js",
+      "packages/db/dist/corpus-audit.js",
+      "packages/db/dist/corpus-quality.js",
+      "packages/db/dist/dataset-audit.js",
+      "packages/db/dist/dataset-builder.js",
+      "packages/db/dist/dataset-repository.js",
+      "packages/db/dist/dataset-splits.js",
+      "packages/db/dist/game-context-repository.js",
+      "packages/db/dist/game-context.js",
+      "packages/db/dist/hero-matchup-repository.js",
+      "packages/db/dist/hero-matchups.js",
+      "packages/db/dist/history-refresh.js",
+      "packages/db/dist/identity-provision.js",
+      "packages/db/dist/identity-repository.js",
+      "packages/db/dist/identity.js",
+      "packages/db/dist/index.js",
+      "packages/db/dist/outcome-verifier.js",
+      "packages/db/dist/patch-history.js",
+      "packages/db/dist/patch-meta-repository.js",
+      "packages/db/dist/patch-weight-evaluation.js",
+      "packages/db/dist/player-catalogue-repository.js",
+      "packages/db/dist/player-hero-report.js",
+      "packages/db/dist/player-hero-repository.js",
+      "packages/db/dist/player-history-repository.js",
+      "packages/db/dist/player-history-resume-repository.js",
+      "packages/db/dist/pro-map-reader.js",
+      "packages/db/dist/pro-map-repository.js",
+      "packages/db/dist/pro-maps.js",
+      "packages/db/dist/prospective-patch.js",
+      "packages/db/dist/ranked-context-repository.js",
+      "packages/db/dist/ranked-practice-repository.js",
+      "packages/db/dist/ranked-practice-summary.js",
+      "packages/db/dist/readiness-repository.js",
+      "packages/db/dist/readiness.js",
+      "packages/db/dist/reference-pool.js",
+      "packages/db/dist/research-elo-repository.js",
+      "packages/db/dist/research-elo.js",
+      "packages/db/dist/research-execution.js",
+      "packages/db/dist/research-journal.js",
+      "packages/db/dist/research-plan.js",
+      "packages/db/dist/role-profile-repository.js",
+      "packages/db/dist/role-profile-resolution.js",
+      "packages/db/dist/role-suggestion-repository.js",
+      "packages/db/dist/role-suggestions.js",
+      "packages/db/dist/roster-catalogue-repository.js",
+      "packages/db/dist/roster-report.js",
+      "packages/db/dist/roster-repository.js",
+      "packages/db/dist/scenario-draft.js",
+      "packages/db/dist/scenario-report-repository.js",
+      "packages/db/dist/scenario-repository.js",
+      "packages/db/dist/schedule-cache.js",
+      "packages/db/dist/schedule-freshness.js",
+      "packages/db/dist/schedule-page-binding.js",
+      "packages/db/dist/schedule-page-freshness.js",
+      "packages/db/dist/schedule-page-runtime.js",
+      "packages/db/dist/schedule-page-service.js",
+      "packages/db/dist/schedule-page-targets.js",
+      "packages/db/dist/schedule-pages.js",
+      "packages/db/dist/series-provision.js",
+      "packages/db/dist/strength-report.js",
+      "packages/db/dist/strength-repository.js",
+      "packages/db/dist/temporal.js",
+      "packages/db/dist/tier1-scopes.js",
+      "packages/db/dist/upcoming-evidence.js",
+      "packages/db/dist/v1-candidate.js",
+      "packages/db/dist/v1-data-repository.js",
+      "packages/db/dist/v1-data.js",
+      "packages/db/dist/v1-executable-freeze.js",
+      "packages/db/dist/v1-fact-pages.js",
+      "packages/db/dist/v1-features.js",
+      "packages/db/dist/v1-forecast-outcomes.js",
+      "packages/db/dist/v1-journal-reader.js",
+      "packages/db/dist/v1-journal-repository.js",
+      "packages/db/dist/v1-journal-v2.js",
+      "packages/db/dist/v1-journal-v3.js",
+      "packages/db/dist/v1-journal.js",
+      "packages/db/dist/v1-model-runtime.js",
+      "packages/db/dist/v1-prediction-reader.js",
+      "packages/db/dist/v1-registry-repository.js",
+      "packages/db/dist/v1-registry.js",
+      "packages/db/dist/v1-release-inventory.js",
+      "packages/db/dist/v1-release-journal.js",
+      "packages/db/dist/v1-release-plan.js",
+      "packages/db/dist/v1-retest-activation-repository.js",
+      "packages/db/dist/v1-retest-registry-repository.js",
+      "packages/db/dist/v1-retest-registry-verifier.js",
+      "packages/db/dist/v1-retest-runtime-code.js",
+      "packages/db/dist/v1-runtime-code.js",
+      "packages/db/dist/v1-runtime-repository.js",
+      "packages/db/dist/v1-runtime.js",
+      "packages/db/dist/v1-schedule-result.js",
+      "packages/db/dist/v1-schedule-target.js",
+      "packages/db/dist/v1-scheduled-lifecycle.js",
+      "packages/db/dist/v1-scheduled-result-service.js",
+      "packages/db/dist/v1-scheduled-runtime.js",
+      "packages/db/dist/v1-target-lifecycle.js",
+      "packages/db/migrations/063_conditional_real_registration.sql",
+      "packages/db/migrations/064_conditional_collection_journal.sql",
+      "packages/db/migrations/065_conditional_transport_receipts.sql",
+      "packages/db/package.json",
+      "packages/ingestion/dist/evaluation-details.js",
+      "packages/ingestion/dist/evaluation-discovery.js",
+      "packages/ingestion/dist/history-enrichment.js",
+      "packages/ingestion/dist/history-queue.js",
+      "packages/ingestion/dist/history-resume-projection.js",
+      "packages/ingestion/dist/history-resume.js",
+      "packages/ingestion/dist/importer.js",
+      "packages/ingestion/dist/index.js",
+      "packages/ingestion/dist/opendota/client.js",
+      "packages/ingestion/dist/opendota/current-accounts.js",
+      "packages/ingestion/dist/opendota/current-catalogue.js",
+      "packages/ingestion/dist/opendota/current-history.js",
+      "packages/ingestion/dist/opendota/current-profile.js",
+      "packages/ingestion/dist/opendota/player-history.js",
+      "packages/ingestion/dist/opendota/player-search.js",
+      "packages/ingestion/dist/opendota/registry-evidence.js",
+      "packages/ingestion/dist/opendota/schemas.js",
+      "packages/ingestion/dist/opendota/team-directory.js",
+      "packages/ingestion/dist/pandascore/audit.js",
+      "packages/ingestion/dist/pandascore/client.js",
+      "packages/ingestion/dist/pandascore/schemas.js",
+      "packages/ingestion/dist/player-discovery.js",
+      "packages/ingestion/dist/player-history-queue.js",
+      "packages/ingestion/dist/player-history.js",
+      "packages/ingestion/dist/quality.js",
+      "packages/ingestion/dist/quota.js",
+      "packages/ingestion/dist/ranked-context-client.js",
+      "packages/ingestion/dist/ranked-practice-client.js",
+      "packages/ingestion/dist/research-evidence.js",
+      "packages/ingestion/dist/role-profile-client.js",
+      "packages/ingestion/dist/roster-catalogue.js",
+      "packages/ingestion/dist/runtime.js",
+      "packages/ingestion/dist/v1-release-evaluation.js",
+      "packages/ingestion/dist/v1-release-evidence.js",
+      "packages/ingestion/dist/valve/archive-client.js",
+      "packages/ingestion/dist/valve/archive-evidence.js",
+      "packages/ingestion/dist/valve/league-lineup-evidence.js",
+      "packages/ingestion/dist/valve/patch-audit.js",
+      "packages/ingestion/dist/valve/patch-client.js",
+      "packages/ingestion/dist/valve/patch-diagnostics.js",
+      "packages/ingestion/dist/valve/registration-evidence.js",
+      "packages/ingestion/dist/valve/steam-event.js",
+      "packages/ingestion/dist/valve/steam-profile-evidence.js",
+      "packages/ingestion/dist/valve/team-account-evidence.js",
+      "packages/ingestion/dist/valve/tournament-evidence.js",
+      "packages/ingestion/package.json",
+      "packages/ingestion/src/opendota/client.ts",
+      "packages/ingestion/src/quota.ts",
+      "packages/prediction/dist/index.js",
+      "packages/prediction/dist/v1-candidate.js",
+      "packages/prediction/dist/v1-features.js",
+      "packages/prediction/dist/v1-integrity.js",
+      "packages/prediction/dist/v1-quality-policy.js",
+      "packages/prediction/dist/v1-quality.js",
+      "packages/prediction/package.json",
+      "pnpm-lock.yaml",
+      "tools/research/conditional-collection-journal.mjs",
+      "tools/research/conditional-collection-runtime.mjs",
+      "tools/research/conditional-collection-transport.mjs",
+      "tools/research/conditional-enrollment-files.mjs",
+      "tools/research/conditional-enrollment.mjs",
+      "tools/research/conditional-evaluation-files.mjs",
+      "tools/research/conditional-evaluation.mjs",
+      "tools/research/conditional-evaluator.mjs",
+      "tools/research/conditional-future-holdout.mts",
+      "tools/research/conditional-future-source-binding.mjs",
+      "tools/research/conditional-future-source-files.mjs",
+      "tools/research/conditional-real-registration-store.mjs",
+      "tools/research/conditional-real-registration.mjs",
+      "tools/research/conditional-registered-collector-store.mjs",
+      "tools/research/conditional-registered-collector.mjs",
+      "tools/research/conditional-registration-storage.mjs",
+      "tools/research/conditional-registration.mjs",
+      "tools/research/conditional_future_evaluate.py",
+      "tools/research/player-hero-experiment-plan.mjs",
+      "tools/research/player-hero-feature.mts",
+      "tools/research/player-hero-fit.mjs",
+      "tools/research/player-hero-inference.mts",
+      "tools/research/player_hero_evaluate.py",
+      "tools/research/player_hero_fit.py",
+      "tools/research/post-draft-dataset.mjs",
+      "tools/research/post_draft_evaluate.py",
+      "tools/research/post_draft_fit.py",
+      "tools/research/post_draft_independent_evaluate.py",
+      "tools/research/run-conditional-collection.mjs"
+    ],
+    "requiredFiles": 285,
+    "basis": "declared_code_workspace_JS_package_exports_lockfile_and_pinned_environment",
+    "thirdPartyInstalledFileContentsIndividuallyAttested": false,
+    "realTournamentBindingFreshnessChecked": false
+  },
+  "checks": {
+    "steps": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-runtime-install.log",
+        "error": null
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-runtime-typecheck.log",
+        "error": null
+      },
+      {
+        "name": "test",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-runtime-test.log",
+        "error": null
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-runtime-build.log",
+        "error": null
+      },
+      {
+        "name": "migrations",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-runtime-migrations.log",
+        "error": null
+      },
+      {
+        "name": "node",
+        "exitCode": 0,
+        "log": ".tools/s304-collection-runtime-node.log",
+        "error": null
+      }
+    ],
+    "packageTests": 1053,
+    "workspaces": 8,
+    "nodeTests": 52,
+    "newPostgresHttpCliTests": 18,
+    "pgRuns": [
+      {
+        "log": ".tools/s304-collection-runtime-pg-r2.log",
+        "passed": 16
+      },
+      {
+        "log": ".tools/s304-collection-runtime-pg-boundaries.log",
+        "passed": 2,
+        "otherTestsSkippedByExplicitNameFilter": 16
+      },
+      {
+        "log": ".tools/s304-collection-runtime-pg-cli.log",
+        "passed": 1,
+        "repeatedCliAfterSyntheticCredentialFixtureChange": true
+      }
+    ],
+    "migrationFiles": 65,
+    "newMigrations": 0,
+    "docsLinks": "PASS",
+    "diffCheck": "PASS_including_new_source_whitespace",
+    "initialFailure": "existing_registration_Path_schema_rejected_root_package_workspace_and_scripts_paths_CLI_moved_to_allowed_research_directory_contract_unchanged",
+    "previousPostgresSuites": "not_repeated_unchanged_sources_verified_new_runtime_suite_exercises_transport_journal_and_registration",
+    "browserAndNumericalPythonSuites": "not_run_UI_and_model_code_unchanged_Python_environment_verified_by_runtime"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T14:33:43.172Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "shadowruns": "0"
+    },
+    "predictions": 10,
+    "preservedPredictionHashes": 7,
+    "migrations": 61,
+    "preservedMigrations": 60,
+    "productionWrites": 0,
+    "webAndApi": {
+      "webStatus": 200,
+      "proxiedHealthStatus": 200,
+      "privateScenariosWithoutSession": 401,
+      "servicesRestarted": false
+    }
+  },
+  "realProviderCallsByThisTask": 0,
+  "businessDatabaseWritesByThisTask": 0,
+  "productionMigrationApplied": false,
+  "realRegistrationPerformed": false,
+  "remoteCollectionAllowed": false,
+  "collectionAllowed": false,
+  "realEvaluationAllowed": false,
+  "activationAllowed": false,
+  "deployable": false,
+  "limits": {
+    "defaultRequestsPerRun": 5,
+    "maxRequestsPerRun": 20,
+    "maxRunDispatchBudgetMs": 60000,
+    "journalReplayBytes": 67108864,
+    "worstCaseResponseReserveBytes": 6356992
+  },
+  "limitations": [
+    "local_synthetic_mode_only_CLI_requires_disposable_local_database",
+    "no_automatic_unknown_outcome_recovery",
+    "quota_observation_failure_remains_a_durable_stop",
+    "closed_scan_is_not_verified_denominator",
+    "code_environment_checked_at_start_not_remote_signature",
+    "run_dispatch_deadline_does_not_guarantee_SQL_or_OS_termination",
+    "raw_body_and_archive_capacity_not_yet_validated_for_real_target_tournaments"
+  ],
+  "nextTask": "S3-04/conditional-collection-live-preflight",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedEffort": "High"
+}

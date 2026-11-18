@@ -1,0 +1,363 @@
+{
+  "task": "S3-04/conditional-collection-blob-archive",
+  "date": "2026-11-15",
+  "status": "archive_component_verified_transport_not_connected",
+  "files": [
+    {
+      "path": "tools/research/conditional-blob-archive.mjs",
+      "sha256": "c50f854bb6971f1fbe680f213f0cd18f9895fb299a75cda16af1e3dcd3eb9fec"
+    },
+    {
+      "path": "packages/db/migrations/067_conditional_blob_archive.sql",
+      "sha256": "9ddcce29207851b0d6748fea5616f9c07b2c1adb2b43a39ac8c2f817ef33c1b1"
+    },
+    {
+      "path": "tests/node/conditional-blob-archive.test.mjs",
+      "sha256": "18338859b79ec72f78d5da1ff7676d55da1ace7b825c811564d9e8af0b98249a"
+    },
+    {
+      "path": "packages/db/tests/conditional-blob-archive.integration.test.ts",
+      "sha256": "92e13009930dc4951953321d2c7ac9d55b39dc1fdd3720f909d773501ab9b861"
+    },
+    {
+      "path": "packages/db/tests/conditional-registration-v2.integration.test.ts",
+      "sha256": "45dbe819ca8d2c64b054009ed9059ff04ae4b205f72558cc1c7753429e0677e9"
+    },
+    {
+      "path": "packages/db/tests/conditional-real-registration.integration.test.ts",
+      "sha256": "48bfe5430a171483bbc8c653b6816d7b320fb976fb6c9dbdd7e4f47b75fd6fa6"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "tools/research/conditional-real-registration-v2.mjs",
+      "sha256": "9ebc6f29413ea633f6a4971281e92889016e3880c8515b3f55085a847243c4fb"
+    },
+    {
+      "path": "tools/research/conditional-real-registration-v2-store.mjs",
+      "sha256": "ac667b928d9979d0b9e594a4c30b2477073db6edc0dc545102a5c34ad2314d85"
+    },
+    {
+      "path": "packages/db/migrations/066_conditional_registration_v2.sql",
+      "sha256": "33565e655c1235551237933ebfd4abc6093e38061cddabb1603cb37cc77f4bd4"
+    },
+    {
+      "path": "tests/fixtures/conditional-registration-v2.mjs",
+      "sha256": "e446e14f29c2a3f9b417c5e31f894f139d2ea9701a37c39d4947f53a6840ec35"
+    },
+    {
+      "path": "tests/node/conditional-registration-v2.test.mjs",
+      "sha256": "01d49d6ea864f845c8ddab86e582bdfbf232baaaf556e986217d760a7f72b842"
+    },
+    {
+      "path": "tools/research/conditional-collection-runtime.mjs",
+      "sha256": "08d3bf216e327525a133cad1803cca5f8b330afcfc100eac4781e693ec914d4d"
+    },
+    {
+      "path": "tools/research/run-conditional-collection.mjs",
+      "sha256": "af94b0deffd6cbd0878180b9af538ad3a1212211146d89620a6fd9db127da264"
+    },
+    {
+      "path": "packages/db/tests/conditional-collection-runtime.integration.test.ts",
+      "sha256": "93ac0506742ac06a470d06a0f148704b29d8ef70ca2695d3fcbf41397311a7f9"
+    },
+    {
+      "path": "tools/research/conditional-collection-transport.mjs",
+      "sha256": "f8660cd051af2dfd475c7a32fdb3f4f0144c1c88125b949aaf9a72c5bd94145b"
+    },
+    {
+      "path": "packages/db/migrations/065_conditional_transport_receipts.sql",
+      "sha256": "c2c3ff942d5ed2939f53aa41e186ad00902359784aca0e5a8b7c8e9a1c85cf21"
+    },
+    {
+      "path": "packages/db/tests/conditional-collection-transport.integration.test.ts",
+      "sha256": "cffa9966103c22e4b9a7b6cb294de8bf57124dbe0842af355e0b1e5abfbeeacb"
+    },
+    {
+      "path": "packages/db/tests/conditional-collection-journal.integration.test.ts",
+      "sha256": "45ea5ac376b70cfe9bb48efaccd58e666ac17d0440eb95f98e4d8b9a49b8f1b7"
+    },
+    {
+      "path": "tools/research/conditional-registration.mjs",
+      "sha256": "bfc6010d9cdb4dc8e6402a8a1c2310de63cd9fba4150b9952805bf4c956e73a4"
+    },
+    {
+      "path": "tools/research/conditional-registration-files.mjs",
+      "sha256": "d3598895ea0004a7e6c7d05edf3bcf447259229f47850c92f54464585f9f6950"
+    },
+    {
+      "path": "tests/fixtures/conditional-registration.mjs",
+      "sha256": "5b052bbc78e6e56ce87b8dbb2aec8220efc9b7356e7997f95ddc0e0a1569a3f9"
+    },
+    {
+      "path": "tests/node/conditional-registration.test.mjs",
+      "sha256": "e28e8027a06b7c088d4556cd3b6dabe750962a6508aa50aea63e5415594d1907"
+    },
+    {
+      "path": "tests/node/conditional-registration-files.test.mjs",
+      "sha256": "a68a80479cfa7fc7de494a98c62cb16b653eec1e9550dc356b4dd778e56e609a"
+    },
+    {
+      "path": "tests/node/conditional-registration-replay.test.mjs",
+      "sha256": "d95cb9fec6fd06525a28007944358a60a84cafd79e14015052f2c0f856515994"
+    },
+    {
+      "path": "packages/db/migrations/062_conditional_registration.sql",
+      "sha256": "9d592d9930b8e5cefa0f608f5aabd92a59bf2f5c8533403fda3b39bc1fe2740d"
+    },
+    {
+      "path": "tools/research/conditional-registration-storage.mjs",
+      "sha256": "cf7e7cfd27e5916fddcd384b197c1f191afc025c0e36e80460b6c6e944c67aa1"
+    },
+    {
+      "path": "packages/db/tests/conditional-registration-storage.integration.test.ts",
+      "sha256": "2a211b4e9a87c55a47c9325f48cf4bc17e9ce28edfc45c6a6f3e5fb5a8a87b38"
+    },
+    {
+      "path": "tools/research/conditional-registration-preflight.mjs",
+      "sha256": "6da09619aa93127d0503aa6a6bf530cf2afd8b0cce3a1f6e035f6defc0bb8d02"
+    },
+    {
+      "path": "tests/node/conditional-registration-preflight.test.mjs",
+      "sha256": "5f72358b02007e349beab5f6755ab899a3c1acf44a50b17bf61c50c1ffaf86b4"
+    },
+    {
+      "path": "tools/research/conditional-real-registration.mjs",
+      "sha256": "a6d0cc1ecfdd75f0645a6de430e821e1e5dc32f69b27524d438d91e30d0db440"
+    },
+    {
+      "path": "tools/research/conditional-real-registration-store.mjs",
+      "sha256": "da59156d8714a085c99079410e3e3c53aea21a145f2b81065ca55b72532002cd"
+    },
+    {
+      "path": "packages/db/migrations/063_conditional_real_registration.sql",
+      "sha256": "4fb31bf0f6753a90929d2808076e3cffa754f1e4fbdefe90d7b32051fd40d16d"
+    },
+    {
+      "path": "tests/fixtures/conditional-real-registration.mjs",
+      "sha256": "c267f59b21e5c54ab41e80238f4b0f1f2878455e131c623d532aafa77c93a8c0"
+    },
+    {
+      "path": "tests/node/conditional-real-registration.test.mjs",
+      "sha256": "3b3832de996c34c22034603ac22a75a17fe406f07954e78aadb52ef1a143737d"
+    },
+    {
+      "path": "tools/research/conditional-registered-collector.mjs",
+      "sha256": "6f6bbe91712ff8f415465b2283cfa89547675984e587a050fb901b98047aac02"
+    },
+    {
+      "path": "tools/research/conditional-registered-collector-store.mjs",
+      "sha256": "b58c767f6caa9867cd8f40874575b90228f1d9b61c5a518b6b2fba1d8906c78d"
+    },
+    {
+      "path": "tests/fixtures/conditional-registered-collector.mjs",
+      "sha256": "eac8fce036f052624231dd2afbf99ba7a9325347d8913c58948ce085cc417ec9"
+    },
+    {
+      "path": "tests/node/conditional-registered-collector.test.mjs",
+      "sha256": "c1a7504bbd33f45ba8dd6ba70f5798e8c47bb6ece6470bc64ea767f426882c75"
+    },
+    {
+      "path": "packages/db/tests/conditional-registered-collector.integration.test.ts",
+      "sha256": "47631f2565f3abecbeb1e8b9bdf0160d70537567bbda130af661b438e4ce9340"
+    },
+    {
+      "path": "tools/research/conditional-collection-journal.mjs",
+      "sha256": "2dd6d5c629b30868cc5afcfa8ee0aaf943e11bde67b55cc29408494fc7797bd6"
+    },
+    {
+      "path": "packages/db/migrations/064_conditional_collection_journal.sql",
+      "sha256": "08498c590bbdbb7c2a3e1b506723e71b1ddf85b146d65d840f162c924b4b7a0f"
+    },
+    {
+      "path": "tools/research/player-hero-independent-policy.json",
+      "sha256": "70f121b2686e04ce74a822f8b5161d70311631701c33441a40a903eccb4cee3a"
+    },
+    {
+      "path": "tools/research/player-hero-experiment-policy.json",
+      "sha256": "32785db3ae5c7e227940c44fa2be5bfd1a9be747ab9cf4479e4a39932be810c9"
+    },
+    {
+      "path": ".tools/s304-hero-fit-r1/artifact.json",
+      "sha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b"
+    },
+    {
+      "path": ".tools/s304-hero-independent-plan-r1.json",
+      "sha256": "b9c12e9bb008294869b0487b7323b1c57ae7143ea37ba2132b733a3b9a84509d"
+    },
+    {
+      "path": ".tools/s304-registration-proposal-inventory-r2.json",
+      "sha256": "ce645751ee76b88bf87854362ab1a87d6d21ebf7dc3fedb3b263d7919c0e7003"
+    },
+    {
+      "path": ".tools/s304-exposure-ledger-r2.json",
+      "sha256": "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7"
+    },
+    {
+      "path": ".tools/s304-series-reconciliation-r1.json",
+      "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3"
+    },
+    {
+      "path": ".tools/s304-residual-disposition-r1.json",
+      "sha256": "3f07108c3af26b3b34051f6f3bfe5ff649e258da2d2bcff7e02e84a1bc16afff"
+    },
+    {
+      "path": "tools/research/conditional-tournament-binding-v2.mjs",
+      "sha256": "f17e555ab47f26cdf7c64691dd93b3753c06781816ccd510a355179a7ffc5920"
+    },
+    {
+      "path": "tools/research/inspect-tournament-bindings-v2.mjs",
+      "sha256": "71bc3cb47f55bac7687444b6439cdc5567276e059cbb6ac55dcff5987d0ea7a1"
+    },
+    {
+      "path": "tests/node/conditional-tournament-binding-v2.test.mjs",
+      "sha256": "1fa15865c12f3760e35166e658228a9a24a4cc209da9a0ac1b77f532658eb0fa"
+    }
+  ],
+  "checks": {
+    "steps": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s304-blob-archive-install.log",
+        "error": null
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s304-blob-archive-typecheck.log",
+        "error": null
+      },
+      {
+        "name": "test",
+        "exitCode": 0,
+        "log": ".tools/s304-blob-archive-test.log",
+        "error": null
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s304-blob-archive-build.log",
+        "error": null
+      },
+      {
+        "name": "migrations",
+        "exitCode": 0,
+        "log": ".tools/s304-blob-archive-migrations.log",
+        "error": null
+      },
+      {
+        "name": "node",
+        "exitCode": 0,
+        "log": ".tools/s304-blob-archive-node.log",
+        "error": null
+      }
+    ],
+    "packageTests": 1053,
+    "workspaces": 8,
+    "nodeTests": 92,
+    "newPgTests": 16,
+    "legacyRegistrationPgTests": 38,
+    "migrations": 67,
+    "logs": [
+      ".tools/s304-blob-archive-pg-r1.log",
+      ".tools/s304-blob-archive-legacy-registration.log",
+      ".tools/s304-blob-archive-node-final.log"
+    ]
+  },
+  "fixture": {
+    "syntheticOnly": true,
+    "rawBytes": 75497472,
+    "uniqueBodies": 12,
+    "compactJournalBytesUpperBound": 16384,
+    "physicalDiskBenchmark": false,
+    "liveCoverage": false
+  },
+  "limits": {
+    "singleBodyBytes": 8388608,
+    "totalUniqueBodyBytesPerDatabase": 536870912,
+    "metadataBytes": 16384,
+    "entryBytes": 4096,
+    "maximumReceipts": 1000
+  },
+  "guarantees": [
+    "immutable_body_receipt_transaction",
+    "deferred_orphan_rejection",
+    "global_capacity_lock_read_committed",
+    "exact_retry_deduplication",
+    "append_parent_cas",
+    "pending_receipt_recovery_without_http",
+    "bounded_repeatable_read_replay",
+    "owner_and_sha_validation"
+  ],
+  "compatibility": {
+    "priorRuntimeFiles": 289,
+    "currentRuntimeFiles": 291,
+    "changedPriorTests": [
+      "packages/db/tests/conditional-registration-v2.integration.test.ts",
+      "packages/db/tests/conditional-real-registration.integration.test.ts"
+    ],
+    "testChange": "disposable-database cleanup includes dependent archive tables",
+    "oldInlineRuntimeUnchanged": true,
+    "v2LegacyJournalStillClosed": true,
+    "workingMigrationApplied": false
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T17:33:27.708Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2285",
+      "captures": "0",
+      "shadowruns": "0"
+    },
+    "predictions": 10,
+    "preservedPredictionHashes": 7,
+    "migrations": 61,
+    "preservedMigrations": 60,
+    "productionWritesByTask": 0,
+    "earlierMaps": "2260",
+    "observedGrowth": 25,
+    "growthEvidence": {
+      "provider": "opendota",
+      "createdFrom": "2026-11-15T17:19:48.211Z",
+      "createdThrough": "2026-11-15T17:19:50.551Z",
+      "playerHistoryRun": {
+        "createdAt": "2026-11-15T17:19:07.709Z",
+        "finishedAt": "2026-11-15T17:20:57.184Z",
+        "status": "completed"
+      },
+      "relation": "concurrent_service_history_activity_before_archive_tests_not_performed_by_this_task"
+    },
+    "webAndApi": {
+      "web": 200,
+      "health": 200,
+      "privateWithoutSession": 401
+    }
+  },
+  "newHistoryExposure": {
+    "newMaps": 25,
+    "alreadyInFrozenBase": 12,
+    "outsideFrozenBase": 13,
+    "action": "refresh additive exposure snapshot before any real registration; keep frozen base unchanged"
+  },
+  "initialFailures": [
+    {
+      "check": "new Node tests before implementation",
+      "result": "module missing; expected red test"
+    },
+    {
+      "check": "old production map-count equality",
+      "result": "2260 versus 2285; read-only evidence ties 25 new maps to a completed concurrent player-history run before archive tests; model and forecast hashes unchanged"
+    }
+  ],
+  "realRegistrationPerformed": false,
+  "providerRequestsByTask": 0,
+  "productionWritesByTask": 0,
+  "modelActivationPerformed": false,
+  "next": "S3-04/conditional-collection-v2-journal"
+}

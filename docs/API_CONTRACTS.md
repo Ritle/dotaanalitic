@@ -1,28 +1,77 @@
 # API контракт MVP — `/api/v1`
 
+## S3-04 — сохранение исследовательского расчёта драфта (2026-11-14)
+
+Owner-only `POST /scenarios/:id/draft-captures` после commit capture автоматически
+сохраняет private shadow result и отдельный post-commit receipt. Старый ответ capture
+не меняется. Ошибка после commit восстанавливается идемпотентным повтором.
+
+`GET /scenarios/:id/draft-captures/:revision/shadow-summary` — read-only;
+`POST /scenarios/:id/draft-captures/:revision/shadow-retry` — строго `{}`, session/owner/CSRF.
+Параметры: scenario UUID, положительная revision; неверный ввод400,
+без сессии401, чужой/отсутствующий сценарий404; прежняя owner mutation policy сохранена.
+Summary: `{captureId,status,recordedAt,observedCommittedAt,sha256,reasons,primaryEligible:false,teamAWinProbability:null}`.
+Status: `missing|awaiting_receipt|computed_shadow_only|unavailable`; отсутствующие часы/SHA nullable.
+Scores/artifact/history не выдаются; provider HTTP и обучение не выполняются.
+Retry завершает ту же immutable запись, без пересчёта существующего результата.
+Receipt доказывает завершённый commit результата, но не pre-gameplay пригодность.
+[Хранение, тесты и ограничения](S3_04_DURABLE_SHADOW_PERSISTENCE.md).
+
+## S1-16 — прогресс подготовки прогноза (2026-11-13)
+
+`GET /api/v1/upcoming/:id/forecast-progress/:requestId` — приватный read-only статус
+активного/недавнего запроса `POST /upcoming/:id/forecast`. `id` — decimal string,
+`requestId` — UUID, query пустой. Без сессии401; неверные параметры400.
+Ответ `{progress:null}` для неизвестной/истёкшей попытки либо
+`{progress:{stage,state,reused,updatedAt}}`. Stage: `request|schedule|lineups|map|analysis|complete`;
+state: `running|complete|failed`; reused:boolean; updatedAt:UTC ISO.
+Изоляция по owner/match/request, `Cache-Control:no-store`, прежний лимит120/min.
+Хранилище в памяти: максимум500 записей, TTL15мин, очищается при рестарте API.
+GET не вызывает провайдера и не пишет в БД. Статус не содержит входов/вероятностей.
+UI опрашивает последовательно раз в секунду во время POST, отменяет опрос при
+ответе/ошибке/уходе. Полоса показывает завершённые этапы, не время или точность.
+Durable попытка/результат остаются в прежнем SQL054/runtime.
+[Семантика и проверки](S1_16_FORECAST_PROGRESS.md).
+
 ## S1-16 — имена контекстных фильтров (2026-11-11)
 
-Приватный read-only `GET /api/v1/context-catalog` принимает `kind=patches|leagues`
+Приватный read-only `GET /api/v1/context-catalog` принимает `kind=patches|leagues|heroes|players|teams`
 и либо `query` (до80 символов, literal substring)/`offset` (0..10000), либо
 точный локальный bigint `id` как строку. ID нельзя смешивать с непустым query
 или ненулевым offset; неизвестные поля/неверный kind/ID дают400, без сессии401.
+Для `kind=teams|patches|heroes` добавлен необязательный точный batch `ids=<CSV>`:1–20
+элементов, до400 знаков. Не смешивается с `id`, непустым query, ненулевым offset
+или неподдерживаемым kind (leagues/players). Пустой/oversized/unsafe batch даёт400. Дубли удаляются после
+валидации; неизвестные IDs пропускаются. Пакет возвращает0..20 строк и
+`hasMore:false`; старые запросы и форма ответа сохранены. Только
+параметризованный SELECT по локальным ключам выбранного kind.
+[Команды](S1_16_READABLE_HISTORY_STRENGTH.md), [аналитика](S1_16_READABLE_ANALYTIC_BREAKDOWNS.md).
+
 Ответ `{kind,source:'local_catalogue',readAt:<UTC ISO>,items:[{id,name}],hasMore}`:
 до20 результатов поиска либо0..1 точной записи. Пустые имена не заполняются;
 missing ID даёт пустой items. Это local IDs, не provider IDs и не release proofs.
-Никаких sync/write/provider вызовов. [UI, cache и ограничения](S1_16_NAMED_CONTEXT_FILTERS.md).
+Никаких sync/write/provider вызовов. Для соперника используется локальная организация,
+для игрока — canonical player ID, не Steam account ID. Поиск команд включает тег,
+героев — internal name; Unicode case folding и literal substring сохраняют `%_`.
+[Патчи/турниры](S1_16_NAMED_CONTEXT_FILTERS.md), [ссылочные фильтры](S1_16_NAMED_REFERENCE_FILTERS.md).
 
 ## S1-16 — текущие подписи сохранённых сценариев (2026-11-11)
 
 `GET /api/v1/catalog-labels?teams=<CSV>&players=<CSV>` — приватное read-only
 чтение локальных названий: до2 team ID и20 player ID, каждая строка —
 положительный PostgreSQL bigint. Пустой/отсутствующий параметр — пустой список.
+Необязательный `heroes=<CSV>` добавляет до50 локальных hero ID (10 пиков/40 банов).
 Сверхлимитный ввод, неизвестные поля и некорректные ID дают400; без сессии401.
 Дубли допустимы на входе в пределах лимита и удаляются в ответе. Missing ID
 не возвращаются, пустое имя сохраняется пустым. Ответ:
 `{source:'local_catalogue',readAt:<UTC ISO>,teams:[{id,name}],players:[{id,name}]}`.
+При явно переданном heroes ответ также содержит `heroes:[{id,name}]` до50 строк;
+без этого параметра старый JSON shape остаётся неизменным.
 readAt — время чтения текущих подписей, не historical known_at.
 Endpoint не изменяет identities/снимки, не обращается к провайдерам и не
 подтверждает участие. [UI, кэш и границы](S1_16_READABLE_HISTORY_REPORTS.md).
+[Названия героев в истории](S1_16_SCENARIO_HISTORY_HERO_LABELS.md) используют
+тот же batch; metadata не заменяет сохранённую оценку hero eligibility.
 
 Тот же неизменный контракт используется для [исторического сравнения](S1_16_READABLE_HISTORICAL_COMPARISON.md):
 до10 игроков раскрытой H2H-карты либо до2 соперников видимой страницы.
@@ -297,3 +346,99 @@ Owner GET `/api/v1/{teams|players}/:id/roster-context` reads a shared validated 
 Owner GET `/api/v1/team-directory` accepts catalog filters plus `activityView=current|archived|all`, default `current`; each item adds `activityStatus`. Unknown remains visible, only explicitly inactive is archived; filtering precedes pagination. Legacy GET `/api/v1/teams` remains inclusive.
 
 Owner GET `/api/v1/teams/:id/activity` returns nullable current record, latest 20 immutable history records, hasMore and computedAt. Owner/CSRF POST takes strict `{requestId, expectedRevision, status, basis, sourceUrl, note, checkedAt, effectiveAt}`. Source basis requires HTTPS URL without credentials; owner basis requires null URL. Effective time <= checked time <= server recorded time. Exact retry returns original record; changed retry, cross-team request reuse or stale revision409; invalid clocks/body400; unknown team404. No query fields. No provider HTTP, roster inference or ML-feature change. [Contract and usage](S1_16_TEAM_ACTIVITY.md).
+
+
+## Owner lineup templates — S2-01/owner-lineup-templates
+
+Дополнение SQL053, существующий AuthResponse wire shape сохранён.
+
+- `GET /api/v1/auth/access`: authenticated, `{role: 'owner'|'user', canManageLineups: boolean}`; роль читается из БД при каждой аутентификации. Не является endpoint изменения прав.
+- `GET /api/v1/teams/:id/lineup-template`: authenticated, общий для читателей шаблон команды; `{teamId,current,history,hasMore}`. `current:null` при отсутствии шаблона, история до20 редакций. Неизвестная команда404.
+- `POST /api/v1/teams/:id/lineup-template`: только active owner + Origin/CSRF; `{requestId: UUID, expectedRevision: integer>=0, confirmedByOwner:true, lineup:[{playerId: bigint-string, rolePos:1..5}]}`. Ровно5 разных локальных игроков и5 разных ролей, strict payload; дополнительные claims роли/автора не принимаются.
+- Ответ POST200: `{teamId,revision,lineup,confirmedBy:{id,login},confirmedAt:UTC ISO}`. Автор/время серверные. RequestId replay возвращает прежний результат, другое тело с тем же ключом или stale revision409. Некорректные данные400; запись от user403 OWNER_REQUIRED; неаутентифицированный запрос401.
+- Запись immutable/append-only, общая revision на canonical teamId; actor row lock защищает от гонки смены роли. GET не выдаёт шаблон за официальный текущий ростер. Применение — exact-five + same teamId и сохранение порядка текущих карточек/stand-in.
+
+Account role user зарезервирована для будущего расширения; общий auth guard по
+умолчанию запрещает её mutating HTTP-запросы кроме logout. Single-account
+constraint и owner-only CLI provisioning сохранены. Это не реализация
+multi-account onboarding или полного набора user-разрешений.
+[Порядок работы и ограничения](S2_01_OWNER_LINEUP_TEMPLATES.md).
+
+
+## Автоматическая история сравнения — 12 ноября
+
+`POST /api/v1/players/comparison-history` — owner/CSRF/Origin, strict body
+`{lineupA: [five canonical IDs], lineupB: [five other canonical IDs], cutoffAt?: UTC ISO}`.
+Все десять ID различны. Даты из будущего и неизвестные поля:400; нет сессии:401;
+write от user или без CSRF:403. Rate limit:20 POST/min.
+
+`GET /api/v1/players/comparison-history?lineupA=ID,ID,ID,ID,ID&lineupB=ID,ID,ID,ID,ID`
+с необязательным `cutoffAt` — аутентифицированный опрос,120/min. Не создаёт задания
+и не повышает их приоритет. Владелец может восстановить обработчик уже выбранных
+автоматических заданий; user этого не делает.
+
+Ответ200: `policyVersion: comparison-history-v1`, `checkedAt`, `minimumMaps:5`,
+`options:{windowDays:365,maxMaps:25}`, две `groups` с `slot`, отсортированными `playerIds`,
+nullable `coverage:[{playerId,nRaw}]`, `state`, `message` и nullable `history` прежнего
+`PlayerHistoryResponseSchema`. В `history.options` — фактические параметры переиспользованного
+задания; `retryAt` обозначает паузу, а не разрешение автоматического retry.
+Состояния: `covered | queued | running | completed | partial | error | unavailable | historical`.
+Ошибки подготовки одной стороны не отменяют другую и локальный отчёт. `historical`
+не создаёт очередь/провайдерные вызовы. Покрытие не является model eligibility.
+[Инструкция и политика](S2_01_AUTO_COMPARISON_HISTORY.md).
+
+
+## Клиентское автообновление расписания — 12 ноября
+
+HTTP-контракты прежние: owner/CSRF `POST /upcoming/refresh?page=N` и read-only
+`GET /upcoming?page=N`. Клиент проверяет current-page expiry локально раз в30с,
+обновляет по server expiry, после ошибки выдерживает минимум5мин и учитывает retryAt.
+Скрытая/offline вкладка и открытая встреча останавливают автоматические запросы.
+При чужом активном lease выполняется только ограниченное чтение кэша. Серверные
+lease/quota/expiry/Retry-After остаются независимыми и авторитетными.
+[Политика UI](S1_16_AUTO_SCHEDULE_REFRESH.md). Новых server endpoints/schema нет.
+
+
+## S1-16: автоматическая подготовка прогноза встречи
+
+`POST /api/v1/upcoming/:id/forecast` — session + CSRF, максимум 6 запросов/мин. Контракт: `apps/api/src/modules/upcoming/quick-forecast-contract.ts`. Вход: requestId UUID, providerTeamAId/BId и teamAId/BId (decimal strings), lineupA/B, optional tournament {leagueId, scope}. Ответ: targetId, scenarioId, forecast (существующий V1ScheduledPredictionView). Кнопка включает обновление только устаревшего источника, создание назначения/сценария и прежний прогноз real_map/map1. Повтор UUID восстанавливает ту же подготовку и результат; новые параметры с прежним UUID дают 409 REQUEST_CONFLICT.
+
+409 TOURNAMENT_REQUIRED показывает однократную настройку (leagueId в ошибке, если уже известен); LINEUPS_CHANGED/TEAM_MAPPING_REQUIRED/PARTICIPANTS_CHANGED требуют перепроверки выбора, SCHEDULE_UNAVAILABLE/PREPARATION_CHANGED — актуальной встречи/новой попытки. Неоднозначность не превращается в случайный выбор. 403 OWNER_REQUIRED для нового tournament setup обычным пользователем. 401/CSRF/origin guards общие; 429 CALCULATION_BUSY допускает повтор того же UUID. Миграция054 обеспечивает атомарную запись сценария и immutable preparation. [Описание](S1_16_ONE_CLICK_FORECAST.md).
+
+
+## S1-16: Live — текущие серии
+
+`GET /api/v1/live` читает только кэш (session required). `POST /api/v1/live/refresh` принимает пустое тело/query, требует owner + CSRF + trusted Origin; source refresh только после истечения TTL/Retry-After и получения lease. Пользователь получает 403 при записи. Zod-контракт: `apps/api/src/modules/live/contract.ts`.
+
+Ответ: snapshot nullable, configured, refreshing, computedAt, expiresAt, retryAt, status ready/stale/unavailable, reason. Snapshot содержит нормализованные UpcomingMatch-поля плюс nullable beganAt и nullable seriesScore из двух `{providerTeamId,wins}` в порядке opponents; source с exact endpoint/adapter/SHA/fetchedAt и unknown knownAt. UI показывает только running. Неоднозначный счёт — null, не 0:0. Max20 и предупреждение о неполноте. Migration055, TTL60с, lease90с, shared persistent PandaScore quota, bounded retry. Ошибка сохраняет старый snapshot и cooldown≥60с. Новые карты/исходы/прогнозы не создаются. [Описание](S1_16_LIVE_MATCHES.md).
+
+
+## S1-16: условная Live-оценка пятёрок
+
+POST `/api/v1/live/:id/estimates`: session owner + CSRF/origin,6/min. Вход: UUID requestId, acknowledgedConditional:true, providerTeamAId/BId, локальные teamAId/BId, две пятёрки, optional tournament{leagueId,scope}. Только свежий running-кэш, десять разных локальных игроков, проверенное Tier1-событие. GET того же пути читает последние20 оценок текущего аккаунта без provider HTTP.
+
+Выход: purpose live_lineup_comparison, done/unavailable, nullable probability/reasons, frozen scenario (start/map/side/score null), модель, coverage, player samples, cutoff/source/created clocks и SHA. Полная история/код/наблюдение хранятся приватно в immutable table056; реальные prediction/outcome tables не меняются. Повтор UUID идемпотентен;409 REQUEST_CONFLICT/PARTICIPANTS_CHANGED/LIVE_SOURCE_STALE/TOURNAMENT_REQUIRED/VALIDATION_ERROR;429 CALCULATION_BUSY допускает повтор той же попытки. Контракты: apps/api/src/modules/live/estimate-contract.ts. [Семантика](S1_16_LIVE_LINEUP_ESTIMATE.md).
+
+
+### S3-04: owner draft capture
+
+`POST /api/v1/scenarios/:id/draft-captures` — owner+CSRF, body `{expectedRevision: integer, scheduleTargetRequestId?: UUID|null}`. `GET /api/v1/scenarios/:id/draft-captures/:revision` — owner-only. Сохраняются JSON/SHA и точный recordedAt; повтор ревизии возвращает тот же снимок, другая ссылка или первый capture устаревшей ревизии409, неполнота — persisted unavailable, отсутствующая/чужая запись404. Вероятностей нет. [Схемы и ограничения](S3_04_PLAYER_HERO_OWNER_CAPTURE.md).
+
+
+### S3-04: native Dota map binding для сохранённого драфта
+
+Owner-only `GET /api/v1/scenarios/:id/draft-captures/:revision/native-binding` возвращает `{binding, latestAttempt}` (nullable). Owner+CSRF+Origin `POST` принимает строго `{requestId: UUID, matchId: decimal string}` и сохраняет отдельный результат сверки локальной завершённой pro-карты:200 `verified|unavailable`, причины, source receipt/revision/SHA, side mapping и точные часы. Нет/чужой снимок404; malformed400; UUID с другим кандидатом или попытка заменить уже verified карту409. Повтор того же UUID идемпотентен, включая unavailable; для проверки обновившихся данных нужен новый UUID. Shared global auth/rate limit сохраняется.
+
+SQL059: append-only evidence2MiB, одна verified-связь на capture, ограниченные serialization/unique retries. Снимок/история/прогнозы не изменяются. `scheduleMappingVerified`, `mapOrdinalVerified`, `prestartVerified`, `primaryEligible`, `deployable` всегда false. Числовое совпадение ID других провайдеров не принимается; исход не становится признаком или дополнительной обучающей строкой. Контракт изолирован в `apps/api/src/modules/scenarios/draft-native-contract.ts`. [Использование и ограничения](S3_04_NATIVE_DRAFT_BINDING.md).
+
+### S3-07: текущая сверка результата первой карты
+
+Защищённый GET `/api/v1/forecast-journal/results/:requestId`, без query-параметров. Только собственный сохранённый real_map PandaScore-расчёт; 400 malformed, 404 absent/foreign/unsupported, 503 integrity/internal failure. 200 содержит providerMatchId/providerGameId, state, actualWinner A/B|null, correct boolean|null, beganAt/endedAt, sourceFetchedAt/SHA/URL, reason и canonicalOutcome:false. Сбой провайдера — state:unavailable с безопасным кодом. Чтение не создаёт исход/отчёт, но использует общую квоту провайдера. Кэш100 встреч/5мин, ошибки60с, объединение одновременных обращений. Контракт: apps/api/src/modules/scenarios/journal-result-contract.ts. [Семантика и живой аудит](S3_07_RESULT_AVAILABILITY_TABLE.md).
+
+### S3-09: готовность прогноза всей встречи
+
+Защищённый GET `/api/v1/upcoming/:id/series-forecast/readiness` без query. Read-only сохранённое расписание; targetUnit:series, providerMatchId, bestOf (nullable, без default3), scheduledAt/checkedAt/sourceFetchedAt/sourceSha256, reasons. В foundation status:unavailable, teamAWinProbability/teamBWinProbability/modelVersion:null. Форматы1/3/5 отделены от BO2 и unknown; map activation не даёт series допуска. Нет внешних вызовов, создания карты/прогноза или записи результатов. 400 malformed/query;401 без сессии;503 внутренний сбой. [Контракт и ограничения](S3_09_SERIES_FORECAST_FOUNDATION.md).
+
+### S3-07: сохранённый результат и явная сверка
+
+GET результата читает SQL071-квитанцию: terminal без автоматического срока истечения, pending5мин. POST `/api/v1/forecast-journal/results/:requestId/refresh` принимает пустой JSON, требует session/Origin/CSRF; max6/min, общий cooldown встречи60с,404 чужая/неизвестная запись,400 malformed,503 failure. Успех имеет прежний JournalResultSchema; исправление добавляет квитанцию. Source clock остаётся временем получения исходных данных; при ошибке доступен прежний результат. [Детали](S3_07_PERSISTENT_PROVIDER_RESULTS.md).

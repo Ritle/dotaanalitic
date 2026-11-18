@@ -1,0 +1,113 @@
+{
+  "task": "S3-07/forecast-verdict-ui",
+  "date": "2026-11-16",
+  "status": "verified",
+  "files": [
+    {
+      "path": "apps/web/src/App.vue",
+      "sha256": "30389844edf3cb0ac2733f851e8e3cdf7a9b28035c4d118062544cd72510d398"
+    },
+    {
+      "path": "apps/web/src/forecast-verdict.ts",
+      "sha256": "e4b63764e064456051c6dca4b7a49aee8c32ede8f2762ba05cd4c5a666c4efb6"
+    },
+    {
+      "path": "apps/web/src/components/ForecastVerdict.vue",
+      "sha256": "a854da33604d68a56133280fb448a8b5bac01e73d9251509a2bb45ac9068ec98"
+    },
+    {
+      "path": "apps/web/src/views/ForecastJournalView.vue",
+      "sha256": "74431cfcc943873d12d36270eea243a14f1d8bf914552434609f5384fdc8ebb9"
+    },
+    {
+      "path": "apps/web/src/components/ScheduledResultPanel.vue",
+      "sha256": "09410fe4200f90c40625249b86068e51c62decd986f97ecd915ad758401bfd6e"
+    },
+    {
+      "path": "apps/web/tests/forecast-verdict.test.ts",
+      "sha256": "6dada957681da4b79a82e3b7564fd5f0c6488e010372edaa62dc6aa35ffbd897"
+    },
+    {
+      "path": "apps/web/tests/e2e/forecast-verdict.spec.ts",
+      "sha256": "ebbd1324ebe3296b1cc1aa94e2630e5f1f006d87de74c0e91740b52206ef527f"
+    },
+    {
+      "path": "apps/web/tests/e2e/journal.spec.ts",
+      "sha256": "243238d1e9ecad62c7d23bb4064b9121b15bca3bbb3e6be7079258905f9c2161"
+    }
+  ],
+  "checks": [
+    {
+      "name": "install",
+      "exitCode": 0,
+      "log": ".tools/s307-verdict-install.log"
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0,
+      "log": ".tools/s307-verdict-typecheck.log"
+    },
+    {
+      "name": "test",
+      "exitCode": 0,
+      "log": ".tools/s307-verdict-test.log"
+    },
+    {
+      "name": "build",
+      "exitCode": 0,
+      "log": ".tools/s307-verdict-build.log"
+    }
+  ],
+  "tests": {
+    "packageTests": 1056,
+    "workspaces": 8,
+    "newPureCases": 3,
+    "initialTargetedCases": 6,
+    "browserCases": 9,
+    "newBrowserCases": 1
+  },
+  "images": [
+    {
+      "path": ".tools/s307-verdict-desktop.png",
+      "sha256": "0d8517d5d43aa856b1747260ef5bc281a5f3bd8fdcc7136a7b149cdab0bf2fd6"
+    },
+    {
+      "path": ".tools/s307-verdict-mobile.png",
+      "sha256": "a805aceed8d770d87832130fe2ea4603ca63fafdc9718199e65de67d0cbc2a90"
+    }
+  ],
+  "browser": {
+    "desktopWidth": 1280,
+    "mobileWidth": 360,
+    "visualReview": true,
+    "syntheticOnly": true,
+    "productionWrites": 0,
+    "newFixtureRequests": {
+      "automaticWrites": 0,
+      "localLabelReadsForRepeatedPair": 1
+    },
+    "legacyFixtures": "Owned temporary PostgreSQL databases"
+  },
+  "guarantees": [
+    "text_and_color_verdict",
+    "raw_probability_not_rounded_for_favourite",
+    "unknown_or_cancelled_is_not_wrong",
+    "unverified_winner_not_displayed_as_fact",
+    "equal_probability_not_scored_as_accuracy",
+    "superseded_separate_from_primary_counts",
+    "stale_or_inconsistent_evidence_requires_review",
+    "latest_saved_report_read_only",
+    "current_catalogue_names_not_identity_evidence"
+  ],
+  "compatibility": {
+    "modelOrEligibilityChanges": false,
+    "apiOrSchemaChanges": false,
+    "workingMigrationsApplied": false,
+    "frozenCoreFilesVerified": 301
+  },
+  "initialIssues": [
+    "First Playwright command used absent root CLI; rerun with installed apps/web CLI.",
+    "Initial browser assertion included decorative aria-hidden icons in accessible heading name; assertion corrected to visible accessible text. Final run passed."
+  ],
+  "next": "S3-04/conditional-collection-v2-remote-adapter"
+}

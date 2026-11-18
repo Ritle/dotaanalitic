@@ -1,0 +1,309 @@
+{
+  "task": "S3-04/history-details",
+  "date": "2026-11-13",
+  "status": "partial_collection_source_http_500",
+  "registeredAt": "2026-11-13T00:10:41.278Z",
+  "startedAt": "2026-11-13T00:10:53.871Z",
+  "manifestSha256": "aa30bdc597ac8d0e58b8ad91217151a8c11f3079213813f876cde4946b07feaa",
+  "reportSha256": "4579fc7c44397e7c2a0152153434ead88837134e929c00d1aa54083c2820589a",
+  "sourceHashes": {
+    "proposal": "7fda2d708f5998d041d4b8b44e594838fcdb624bc72562b87ee8412d340b960b",
+    "discovery": "e3782947f338d7a8afa91eb477f7ea959f372278c1bed95b9ec67df0a7bac53d",
+    "discoveryManifest": "a46a34701935d309039f04bbc737399601bbd3a3f01a09d45eeb0bd10029e3ba",
+    "capture": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2",
+    "cache": "87b3c9c4c079f32bf33959e75d54d3e8e24b1e9c138758179b9c32f466d5c2aa"
+  },
+  "budget": {
+    "maxRemoteMapIds": 95,
+    "maxDetailHttpAttemptsIncludingRetries": 100,
+    "maxAttemptsPerMap": 2,
+    "extraDiscoveryRequests": 0,
+    "profileRequests": 0,
+    "catalogueRequests": 0,
+    "businessWrites": 0
+  },
+  "result": {
+    "counts": {
+      "plannedRemote": 95,
+      "observedRemote": 6,
+      "localReviewed": 2,
+      "sourceConsistent": 8,
+      "sourceAndCoverageConsistent": 0
+    },
+    "reasonCounts": {
+      "CANONICAL_IDENTITY_UNKNOWN": 6,
+      "SOURCE_SERIES_UNKNOWN": 2,
+      "TEAM_SIDES_UNKNOWN": 2
+    },
+    "httpAttempts": 8,
+    "http200": 6,
+    "http500": 2,
+    "failedMatchId": "8322631374",
+    "notAttemptedMaps": 88,
+    "remainingGlobalAttemptBudget": 92,
+    "uniqueUnknownAccounts": [
+      "5150808",
+      "81991034",
+      "106146290",
+      "113995822",
+      "115296681",
+      "118325938",
+      "149889029",
+      "165671428",
+      "170834508",
+      "190100004",
+      "226683686",
+      "363871826",
+      "766199892",
+      "925799201"
+    ],
+    "cacheHitsRemote": 0,
+    "cachedLocalReviews": 2
+  },
+  "receipts": [
+    {
+      "matchId": "8314046640",
+      "basis": "validated_http_projected",
+      "projectionSha256": "d8c4f080c08f8bf95e4f520ea29c8739d089e134bd788afe7a158892f72053bb",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/8314046640",
+        "fetchedAt": "2026-11-13T00:10:55.632Z",
+        "knownAt": null,
+        "payloadSha256": "6be7eb74b2269a575992b64a2a3a981de0de66f043ae0e89e99d5a5b7a86710c",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 59,
+          "day": 2999,
+          "month": null
+        }
+      },
+      "coverageReasons": [
+        "CANONICAL_IDENTITY_UNKNOWN"
+      ]
+    },
+    {
+      "matchId": "8319940093",
+      "basis": "validated_http_projected",
+      "projectionSha256": "4fafcfcf5f953887bdb882f5cd4e2bd4a0a3bedf8dd755d4241e20be46b53d45",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/8319940093",
+        "fetchedAt": "2026-11-13T00:10:56.683Z",
+        "knownAt": null,
+        "payloadSha256": "5436082fd04d0968e025e82f217aff6033e9fcce59d8cc8ef49dac9c1421db89",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 58,
+          "day": 2998,
+          "month": null
+        }
+      },
+      "coverageReasons": [
+        "CANONICAL_IDENTITY_UNKNOWN"
+      ]
+    },
+    {
+      "matchId": "8320019689",
+      "basis": "validated_http_projected",
+      "projectionSha256": "b046890de100a40516cd74b869f9a469ad0453d80818d108cabbb3c91e48010b",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/8320019689",
+        "fetchedAt": "2026-11-13T00:10:57.836Z",
+        "knownAt": null,
+        "payloadSha256": "6cf3bb53a01f4c3378db4578cdff7e6b1bc336d1fd1fc029bbd6e4d8afe6f75f",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 57,
+          "day": 2997,
+          "month": null
+        }
+      },
+      "coverageReasons": [
+        "CANONICAL_IDENTITY_UNKNOWN"
+      ]
+    },
+    {
+      "matchId": "8320888610",
+      "basis": "validated_http_projected",
+      "projectionSha256": "479f2101c7c1432cf22b831832c09d84188b455aaf6e876af5ae7b3cd23d838b",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/8320888610",
+        "fetchedAt": "2026-11-13T00:10:59.345Z",
+        "knownAt": null,
+        "payloadSha256": "3024490ebd5b61bfa2a3f065ab98d64660e7fa3ae6a763566f4e27c7578439cb",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 56,
+          "day": 2996,
+          "month": null
+        }
+      },
+      "coverageReasons": [
+        "CANONICAL_IDENTITY_UNKNOWN"
+      ]
+    },
+    {
+      "matchId": "8321036163",
+      "basis": "validated_http_projected",
+      "projectionSha256": "81c286817bf08492dcd92c350d6557f953d42b51c520c684bb1eb5535ee0764f",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/8321036163",
+        "fetchedAt": "2026-11-13T00:11:00.468Z",
+        "knownAt": null,
+        "payloadSha256": "f69517bae8db912e6e6289123b5d571aadf1dd2a5b8dad9eda885d268d318bea",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 55,
+          "day": 2995,
+          "month": null
+        }
+      },
+      "coverageReasons": [
+        "CANONICAL_IDENTITY_UNKNOWN"
+      ]
+    },
+    {
+      "matchId": "8321155050",
+      "basis": "validated_http_projected",
+      "projectionSha256": "17160c47b6ae5fa6a642440ceed4323e5829a93affed01e577602bc06201c05a",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/8321155050",
+        "fetchedAt": "2026-11-13T00:11:01.923Z",
+        "knownAt": null,
+        "payloadSha256": "679fd16fbacf395efde10ea4751a70a80d7aa191c6b70924db9e414ebc22c485",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 59,
+          "day": 2994,
+          "month": null
+        }
+      },
+      "coverageReasons": [
+        "CANONICAL_IDENTITY_UNKNOWN"
+      ]
+    },
+    {
+      "matchId": "9036406856",
+      "basis": "normalized_local_receipt",
+      "projectionSha256": "7f85fb21c7a20815b133063147dce3547d71efed8bb9c89920012272a98f7c05",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/9036406856",
+        "fetchedAt": "2026-11-04T21:03:59.834Z",
+        "knownAt": null,
+        "payloadSha256": "5d0ae4ac2fcb16525b8faf0991293a19acd2931a1a6eae24ee5e2992305a115c",
+        "attempts": 0
+      },
+      "coverageReasons": [
+        "SOURCE_SERIES_UNKNOWN",
+        "TEAM_SIDES_UNKNOWN"
+      ]
+    },
+    {
+      "matchId": "9040197051",
+      "basis": "normalized_local_receipt",
+      "projectionSha256": "27cffe731c63f37191df6b788e3ca5326a47633aea2f10d4cca9ed3dc0768aba",
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/9040197051",
+        "fetchedAt": "2026-11-04T21:03:51.815Z",
+        "knownAt": null,
+        "payloadSha256": "c7211e30279dfdfb2de5942dbba0e32817789d9bc86619d5f5fad068ad526671",
+        "attempts": 0
+      },
+      "coverageReasons": [
+        "SOURCE_SERIES_UNKNOWN",
+        "TEAM_SIDES_UNKNOWN"
+      ]
+    }
+  ],
+  "checks": {
+    "targetedNodeTests": 10,
+    "cli": {
+      "status": "PASS",
+      "offlineReplay": true,
+      "repeatRefusedBeforeDbOrHttp": true,
+      "originalFilesUnchanged": true,
+      "tamperedReportRefused": true,
+      "registrationBeforeRequests": true,
+      "independentDetailMaps": 6,
+      "httpAttempts": 8,
+      "http200": 6,
+      "http500": 2,
+      "uniqueUnknownAccountsInNewMaps": 14,
+      "manifestSha256": "aa30bdc597ac8d0e58b8ad91217151a8c11f3079213813f876cde4946b07feaa",
+      "reportSha256": "4579fc7c44397e7c2a0152153434ead88837134e929c00d1aa54083c2820589a"
+    },
+    "fullRegression": {
+      "installFrozenOffline": "PASS",
+      "typecheck": "PASS",
+      "testsPassed": 962,
+      "build": "PASS",
+      "sessionExitCode": 0
+    },
+    "migrationChecksums": 54,
+    "docsLinks": "PASS",
+    "gitDiffCheck": "PASS",
+    "finalOfflineReplayAfterBuild": "PASS"
+  },
+  "constraints": {
+    "importedMaps": 0,
+    "businessWrites": 0,
+    "operationalWrites": "provider_quotas_only",
+    "trainingPerformed": false,
+    "deployable": false
+  },
+  "nextTask": "S3-04/history-local-readiness",
+  "nextScope": "Readonly local evidence audit for 14 accounts and source/canonical series of 6 saved maps; prepare explicit import eligibility or missing-proof list. No provider HTTP, guessed identities, import, fitting or activation. Keep 88 unattempted IDs and failed map separate; any future collection needs a new registered continuation and aggregate budget accounting.",
+  "recommendedModel": "GPT-6 Astra · High",
+  "preservation": {
+    "status": "done",
+    "checkedAt": "2026-11-13T00:14:07.072Z",
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 3,
+      "v1_runtime_snapshots": 3,
+      "owner_tier1_scopes": 1,
+      "scenarios": 3,
+      "leagues": 54
+    },
+    "queue": {
+      "count": 13,
+      "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+    },
+    "forecastId": "25290370-25ee-464a-9e24-4fa946f5abab",
+    "requestId": "17380251-5eba-49ac-8da3-4a78518c91b9",
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "probability": 0.5476897217211073,
+    "issuedAt": "2026-11-12T00:02:09.197563Z",
+    "scheduledAt": "2026-11-12T13:00:00.000Z",
+    "coverage": {
+      "nRaw": 2158,
+      "nEff": 2158,
+      "minimumPlayerMaps": 143,
+      "playersWithHistory": 10,
+      "playersMeetingMinimum": 10
+    },
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "comparisonToBefore": "counts_queue_snapshot_readiness_equal",
+    "frozenDatasetFitEvaluationSha256": "unchanged"
+  }
+}

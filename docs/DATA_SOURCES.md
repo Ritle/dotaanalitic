@@ -242,3 +242,11 @@ Production quotas/leases/retries есть, но счётчики хранят la
 [Captured source/state/getter checks](evidence/s1-09-yangon-momo-roster-review.json). [Public UI code](https://www.cybersport.ru/_nuxt/b4afe3b.js) partitions teamPlayers by truthiness of attributes.till, not by a fresh inference from matches. MOMO has closed intervals2026-08-27→09-12 and2026-10-15→10-16; the [team page](https://www.cybersport.ru/teams/dota-2/yangon-galacticos) therefore puts him under former. No open MOMO interval in captured state. Who/how the backend updates those intervals is unknown; do not assert manual newsroom curation or automatic match-derived departure without evidence.
 
 Our existing Panda22247 roster has6 players including MOMO and LuN; an expected tournament registration is a different assertion from a website membership interval. Keep intervals/source clocks, current expected choice and actual pro-map five separate. No automatic exclusion or nickname/cross-provider ID join. Cybersport player10011884, Panda52777 and Steam identities are distinct namespaces. Source conflict is reviewable metadata, not a verified transfer fact or an Elo penalty.
+
+## Проверка временной границы post-draft — 14 ноября 2026
+
+Ограниченный [аудит часов](S3_04_GAMEPLAY_BOUNDARY_EVIDENCE.md):3 GET OpenDota +1 GraphQL STRATZ, все200, без retries; канонические данные не менялись. На3/3 ранее проверенных pro-картах есть установки вардов при отрицательном игровом времени, pre_game_duration90 и pause records; draft_timings пусты. Совпадение start/duration и равенство end−start−duration0 не удостоверяют UTC первой возможности управлять героями. Verified gameplay start/draft end0; никакая фиксированная поправка90 секунд не назначена. Collector, source/code SHA и offline replay сохранены; условие временной пригодности для строгого prospective cohort не выполнено; V1 не меняется.
+
+## PandaScore: результат первой карты — 16 ноября 2026
+
+[Аудит журнала](S3_07_RESULT_AVAILABILITY_TABLE.md):9 GET /matches/{id}, все успешны;7 finished с явным games.position=1/winner.id/временами,2 not_started с nullable winner.id. Winner серии не используется. Это текущая сверка источника, не канонический OpenDota outcome или training label. Общая квота/таймаут/Retry-After, кэш5мин и dedupe включены. Нет гарантии заполнения полей для каждой будущей встречи; неизвестное остаётся неизвестным.

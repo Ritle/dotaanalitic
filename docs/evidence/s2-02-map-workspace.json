@@ -1,0 +1,51 @@
+{
+  "task": "S2-02/map-workspace",
+  "status": "PASS",
+  "checkedAt": "2026-11-12T00:41:13.519939+00:00",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "unitCliTests": 959,
+    "build": "PASS",
+    "browserUniqueCases": 16,
+    "finalBrowserRepeat": 8,
+    "sqlMigrations": 53,
+    "docsLinks": "PASS",
+    "diffCheck": "PASS"
+  },
+  "liveReadOnly": {
+    "status": "PASS",
+    "checkedAt": "2026-11-12T00:30:52.820Z",
+    "scenarioId": "4c1203eb-4e20-4eaf-9545-ac5f0a49cf9a",
+    "revision": 2,
+    "templateReads": 2,
+    "businessWrites": 0,
+    "jsErrors": [],
+    "mobileOverflow": false
+  },
+  "preservation": {
+    "snapshotSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "queue": {
+      "count": 13,
+      "hash": "e2b676bbfe45b3a0a6c422993e880b46"
+    },
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 2,
+      "v1_runtime_snapshots": 2,
+      "owner_tier1_scopes": 1,
+      "scenarios": 2,
+      "leagues": 54
+    },
+    "registryStatus": "model_eligible"
+  },
+  "limitations": [
+    "Pre-match map 1 only; post-draft model not implemented",
+    "Standalone scenarios without scheduleTarget retain the separate scenario prediction path"
+  ],
+  "initialTestFixes": [
+    "Isolate per-case HTTP budget",
+    "Match template API paths instead of Vite module URLs",
+    "Select the chosen league status independently of loading status"
+  ]
+}

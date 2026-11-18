@@ -1,0 +1,155 @@
+{
+  "task": "S3-04/conditional-future-enrollment-verifier",
+  "date": "2026-11-15",
+  "status": "offline_verifier_implemented_real_future_inventory_pending",
+  "files": [
+    {
+      "path": "tools/research/conditional-enrollment.mjs",
+      "sha256": "68ae99a777b14ed8c58c5eee803de223cd9c53322dbe3aac98d97c31db6de8e2"
+    },
+    {
+      "path": "tools/research/conditional-enrollment-files.mjs",
+      "sha256": "7e21138182f3c6b1050369032ea2c7e6f5b865994f1a611ed8ebe6181e4c9614"
+    },
+    {
+      "path": "tests/fixtures/conditional-enrollment.mjs",
+      "sha256": "80bc05c361d0242de5891a74d8bb868deb0501ad3a8ff7b89a36a8f348250e14"
+    },
+    {
+      "path": "tests/node/conditional-enrollment.test.mjs",
+      "sha256": "fd822ec4907e2b7dddbea56e66719dd329c24634c0fa21e6f6f0c2b5b1e8d863"
+    },
+    {
+      "path": "tests/node/conditional-enrollment-files.test.mjs",
+      "sha256": "b1b7024b93a6522627f1de059320af6692f0a8fdefc131097692b0c7bfdd7cb9"
+    }
+  ],
+  "artifacts": {
+    "local": {
+      "directory": ".tools/s304-enrollment-local-r1",
+      "manifestSha256": "eb5359f19702ff8cbf1b3b9c1c605b7c0b666c8f286853bbad6132dc77bcb87d",
+      "sources": {
+        "input": {
+          "path": ".tools\\s304-enrollment-local-input-r1.json",
+          "sha256": "541a8dae47f35be574ed03eca454e31ee60ca2620b6dd2e29fa2aedeb509743c"
+        },
+        "archive": {
+          "path": ".tools\\s304-source-binding-local-archive-r2.json",
+          "sha256": "06bb0adcd6b999d7a976c9ea769a80a513a462130a611f6dd892cce17e2fc6fc"
+        }
+      },
+      "artifacts": {
+        "enrollment.json": "54586e6c946639a83d88d68e584f2ae1fc7641ae8724550e4604b0c3661e4f8c"
+      },
+      "syntheticOnly": false,
+      "status": "insufficient",
+      "knownPossibleMaps": 2,
+      "verifiedProDenominator": 2,
+      "denominatorComplete": false,
+      "eligibleMaps": 0,
+      "eligibleCoverage": null,
+      "reasons": [
+        "EVENT_REGISTER_MISSING",
+        "LEAGUE_RESPONSE_MISSING",
+        "UNREGISTERED_OBSERVED_MAP"
+      ]
+    },
+    "synthetic": {
+      "directory": ".tools/s304-enrollment-synthetic-r1",
+      "manifestSha256": "e9ecf9b4132d836c472497c5d941f6df62245e9d12746d74831133881a9b8924",
+      "sources": {
+        "input": {
+          "path": ".tools\\s304-enrollment-synthetic-input-r1.json",
+          "sha256": "764c160ca73a76b904f27b6af2b7e0d8d0e05d1bcc7dd85585f1daf5afb8f548"
+        },
+        "archive": {
+          "path": ".tools\\s304-enrollment-synthetic-archive-r1.json",
+          "sha256": "477bbcd1b422a13a97c6237b028764cb98fe487fec81da4a32ff882095dfdafa"
+        }
+      },
+      "artifacts": {
+        "enrollment.json": "063d7fdc92b36227b2c2aaddbbfcd971631abc38362a9b7ec7445e461ae1e3e7"
+      },
+      "syntheticOnly": true,
+      "status": "reviewed_inventory_consistent",
+      "knownPossibleMaps": 2,
+      "verifiedProDenominator": 2,
+      "denominatorComplete": true,
+      "eligibleMaps": 2,
+      "eligibleCoverage": 1,
+      "reasons": []
+    }
+  },
+  "checks": {
+    "nodeTests": 79,
+    "newNodeTests": 25,
+    "nodeLogs": [
+      ".tools/s304-enrollment-node-r3.log",
+      ".tools/s304-enrollment-previous-node.log"
+    ],
+    "immutableReplay": "PASS",
+    "previousSourceAdapterStrictPlanReplay": "PASS",
+    "frozenPolicySourceHashes": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "migrations": 61,
+    "packageRegression": {
+      "status": "PASS",
+      "tests": 1053,
+      "workspaces": 8,
+      "log": ".tools/s304-enrollment-suite.log"
+    },
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "separatePgBrowserPythonSuites": "not_run_no_production_UI_DB_math_change"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-14T23:04:16.411Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerRequests": 0,
+  "businessWrites": 0,
+  "modelScoringPerformed": false,
+  "trainingPerformed": false,
+  "registrationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "providerCompletenessIndependentlyProven": false,
+  "limitations": [
+    "reviewed_local_register_is_an_explicit_trust_boundary_not_provider_signature",
+    "mutually_incomplete_register_and_pages_need_external_evidence_to_disprove",
+    "real_native_future_main_event_binding_still_pending",
+    "prepared_ids_are_not_validated_features",
+    "two_real_maps_are_already_exposed_negative_diagnostic_not_independent_test"
+  ],
+  "executionNotes": [
+    "Initial missing module test failed before implementation.",
+    "Failing cases reproduced failed-feed misclassification and contradictory series completion; both corrected.",
+    "Retained early pages warn instead of requiring unnecessary refetch; premature completion review fails.",
+    "Read-only localhost preservation first failed with sandbox EACCES; permitted escalation succeeded with no business writes."
+  ],
+  "nextTask": "S3-04/conditional-future-evaluation-bundle"
+}

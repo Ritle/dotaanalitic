@@ -1,0 +1,108 @@
+{
+  "task": "S3-04/R2-protocol-plan",
+  "status": "PASS",
+  "protocolPath": "docs/evidence/s3-04-r2-protocol.json",
+  "protocolSha256": "b0a7b34dd5d4caf88217e8d5a14310328f8368b52b94cd01727691ab50625efe",
+  "fingerprint": "27a876cd66744bd8617b270a76073d7650e1ee2e3a9ba50e7fc57e437446e592",
+  "plannedAt": "2026-11-13T16:51:41.190Z",
+  "exposure": {
+    "basis": "previously_exposed_retrospective_development",
+    "allCurrentMapsExposed": true,
+    "currentMaps": 2260,
+    "earliestEvent": "2021-06-23T08:00:33.000Z",
+    "latestEvent": "2026-11-04T20:07:52.000Z",
+    "mapsOnOrAfterOriginalDevelopmentEnd": 0,
+    "independentMapsEstablished": 0,
+    "individualOutcomesUsedByPlanner": false,
+    "priorAggregateEvaluationKnown": true
+  },
+  "partitions": [
+    {
+      "name": "warmup",
+      "from": "2024-01-01T00:00:00.000Z",
+      "until": "2025-01-01T00:00:00.000Z",
+      "originalTargetDenominator": 6,
+      "addedHistoryMaps": 0
+    },
+    {
+      "name": "train",
+      "from": "2025-01-01T00:00:00.000Z",
+      "until": "2026-05-01T00:00:00.000Z",
+      "originalTargetDenominator": 1252,
+      "addedHistoryMaps": 0
+    },
+    {
+      "name": "validation",
+      "from": "2026-05-01T00:00:00.000Z",
+      "until": "2026-07-01T00:00:00.000Z",
+      "originalTargetDenominator": 398,
+      "addedHistoryMaps": 0
+    },
+    {
+      "name": "calibration",
+      "from": "2026-07-01T00:00:00.000Z",
+      "until": "2026-09-01T00:00:00.000Z",
+      "originalTargetDenominator": 338,
+      "addedHistoryMaps": 8
+    },
+    {
+      "name": "development_test",
+      "from": "2026-09-01T00:00:00.000Z",
+      "until": "2026-11-05T00:00:00.000Z",
+      "originalTargetDenominator": 223,
+      "addedHistoryMaps": 20
+    }
+  ],
+  "checks": {
+    "targetedNodeTests": 7,
+    "labelFreeReadOnlyMetadataRows": 2260,
+    "offlineReplay": "PASS",
+    "overwriteRefused": "PASS",
+    "tamperRefused": "PASS",
+    "fullRegression": {
+      "passed": 978,
+      "failed": 0,
+      "firstRun": true
+    },
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "migrationChecksums": 57,
+    "documentationLinks": "PASS",
+    "build": "PASS",
+    "finalOfflineReplayAfterBuild": "PASS",
+    "buildWarnings": [
+      "existing_zod_annotation_warnings",
+      "existing_web_chunk_over_500kb"
+    ]
+  },
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "activationAllowed": false,
+  "nextTask": "S3-04/R2-frozen-dataset",
+  "runtimeReadiness": {
+    "checkedAt": "2026-11-13T16:56:19.527Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "validationLogs": {
+    "s304-r2-plan-targeted.log": "344370fb75bb68facfd1d4fac3480a0a281b20f83bb3350fec86988f6e74ac8a",
+    "s304-r2-plan-install.log": "d5fac4e90611ad6f2dc815ea5b490be4906fc897a8ca8a6664cbe9076d26b927",
+    "s304-r2-plan-typecheck.log": "26a6b4d650d8781991922560c5a4a346a3d6867c736d127019bb662bcbd20d14",
+    "s304-r2-plan-tests.log": "2c9d6a60241b2371d67a2a7fa315f5cf9bb22d82be607ab1c1e2913abcb821b2",
+    "s304-r2-plan-build.log": "8b4305b6981169784842febf40adc3b0eea22f7473572fca938b0d7992396efa",
+    "s304-r2-plan-final-verify.log": "60e951c113bef16663ee5478773f4df9c437e5d68119e06661ac28950f477031",
+    "s304-r2-plan-overwrite.log": "90ea26a8048d02d9478c60401abbb19fb8df4ad0cf735358947f55974a1cd295",
+    "s304-r2-plan-tamper.log": "a24e97594d59e8fe20ed611065b469d69e67d0bcd2f3ec51923d56f94048cea2",
+    "s304-r2-plan-migrations.log": "15d40448b0a5c66d67677453551ea81dcae53f4607b9634b27971fb73aef0627"
+  }
+}

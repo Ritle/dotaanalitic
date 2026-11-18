@@ -1,0 +1,133 @@
+{
+  "task": "S2-01/role-review-order",
+  "date": "2026-11-12",
+  "status": "implemented_owner_acceptance_pending",
+  "uiOrder": [
+    "Carry",
+    "Mid",
+    "Offlane",
+    "SemiSupport",
+    "Hard Support"
+  ],
+  "behavior": {
+    "preparedReview": "sort selected players by their assigned role; extra candidates/unknown roles last",
+    "savedReview": "role order with original player/card keys",
+    "suggestions": "known assigned/suggested roles ordered; ambiguous/unknown not filled",
+    "manualEditor": "original player fields remain stable",
+    "wireRoles": "numeric rolePos 1..5 unchanged",
+    "newApiCalls": 0,
+    "newAssignmentsFromSorting": 0
+  },
+  "files": [
+    "apps/web/src/role-display.ts",
+    "apps/web/src/role-suggestions.ts",
+    "apps/web/src/components/UpcomingScenario.vue",
+    "apps/web/src/components/RoleProfiles.vue",
+    "apps/web/src/components/RoleSuggestions.vue",
+    "apps/web/tests/role-display.test.ts",
+    "apps/web/tests/e2e/unified-lineup.spec.ts",
+    "README.md",
+    "docs/S2_01_ROLE_REVIEW_ORDER.md",
+    "docs/IMPLEMENTATION_PLAN.md",
+    "docs/PROJECT_STATE.md",
+    "docs/PROGRESS.md"
+  ],
+  "checks": {
+    "red": "new display test failed on missing helper before implementation",
+    "targetedUnit": {
+      "status": "PASS",
+      "tests": 12
+    },
+    "install": {
+      "status": "PASS",
+      "command": "pnpm install --frozen-lockfile --offline"
+    },
+    "typecheck": {
+      "status": "PASS",
+      "command": "pnpm typecheck"
+    },
+    "unitCli": {
+      "status": "PASS",
+      "command": "pnpm test --maxWorkers=1 --no-file-parallelism",
+      "uniqueTests": 956,
+      "packageCounts": [
+        64,
+        34,
+        33,
+        93,
+        359,
+        309,
+        1,
+        63
+      ],
+      "retries": 0
+    },
+    "build": {
+      "status": "PASS",
+      "command": "pnpm build",
+      "notes": "Existing Rollup annotation/bundle warnings remain."
+    },
+    "browser": {
+      "status": "PASS",
+      "uniqueTests": 29,
+      "retries": 0,
+      "database": "disposable PostgreSQL",
+      "providers": "synthetic only",
+      "coverage": [
+        "exact labels and 1..5 visual order before/after binding",
+        "same selected player retains changed role after row movement",
+        "manual confirmation reset and immutable scenario assignments",
+        "stand-in and hero follow the player",
+        "owner template reuse, late response and 409",
+        "user role cannot edit or automatically write",
+        "source conflicts/unknowns remain explicit",
+        "comparison regression"
+      ],
+      "mobileWidth": 360,
+      "mobileOverflow": false,
+      "mobileVisuallyInspected": true
+    },
+    "migrations": {
+      "status": "PASS",
+      "count": 53
+    },
+    "diffCheck": {
+      "status": "PASS"
+    },
+    "docsLinks": {
+      "status": "PASS",
+      "command": "node scripts/check-doc-links.mjs"
+    },
+    "localHealth": {
+      "status": "PASS",
+      "api": 200,
+      "web": 200,
+      "unauthenticatedUpcoming": 401
+    }
+  },
+  "workingState": {
+    "tables": 86,
+    "changedTables": [],
+    "maps": 2232,
+    "exactQueueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiPid": 28108,
+    "webPid": 18408,
+    "apiRestarted": false,
+    "generalWorker": "OFF",
+    "agentWorkingProviderHttp": 0,
+    "businessWrites": 0,
+    "newMigrations": 0,
+    "newDependencies": 0,
+    "sharedKernelChanged": false
+  },
+  "nextTask": "S3-06/non-tier1-diagnostic-preflight: current 5+5 and eligible earlier history for a separately marked Elo diagnostic; production Tier1 gate unchanged",
+  "suggestedModel": "GPT-6 Astra",
+  "reasoningEffort": "High"
+}

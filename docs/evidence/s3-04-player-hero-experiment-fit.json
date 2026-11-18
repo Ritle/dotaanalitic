@@ -1,0 +1,143 @@
+{
+  "task": "S3-04/player-hero-experiment-fit",
+  "status": "completed_research_only",
+  "directory": ".tools/s304-hero-fit-r1",
+  "registeredAt": "2026-11-13T18:46:31.620Z",
+  "startedAt": "2026-11-13T18:47:23.865Z",
+  "artifacts": {
+    "manifest.json": "f5ad3fa4ac06ae66ef75f5db5af91fdbc651bc722433af360b310db5e99ffd52",
+    "fit-input.json": "47cf362d888a0adf58c9e88739eb1252f59f27db927e9e32451e97185ff4e800",
+    "started.json": "56d493efaddee40e116adf78e509ec7308f92d6cf77495db77471c80d4b9c1f0",
+    "selected.json": "6107a81756f9a5562c880f2414bf6a0e28507bffc62035312b22478ec543ca11",
+    "artifact.json": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+    "result.json": "7f00ec15d7e736aef805ada33d6a874d74ce56395d3ca830d287ba808654e633"
+  },
+  "counts": {
+    "train": 881,
+    "validation": 306,
+    "calibration": 284
+  },
+  "models": {
+    "H1": {
+      "status": "fitted",
+      "selectedC": 1,
+      "coefficients": [
+        0.8180622966556597
+      ],
+      "calibration": {
+        "status": "fitted",
+        "temperature": 0.7933639640518718,
+        "reason": null,
+        "calibrationLogLoss": 0.6337369125536233,
+        "bounds": [
+          0.25,
+          4
+        ]
+      }
+    },
+    "H2": {
+      "status": "fitted",
+      "selectedC": 1,
+      "coefficients": [
+        0.7708530813119323,
+        0.1357780175911949
+      ],
+      "calibration": {
+        "status": "fitted",
+        "temperature": 0.811023232354886,
+        "reason": null,
+        "calibrationLogLoss": 0.6349410820405572,
+        "bounds": [
+          0.25,
+          4
+        ]
+      }
+    }
+  },
+  "parity": {
+    "status": "PASS",
+    "maxAbsoluteError": 1.1102230246251565e-16,
+    "tolerance": 1e-07,
+    "comparisons": 1570,
+    "vectorsPerModel": {
+      "H0": 262,
+      "H1": 262,
+      "H2": 262
+    },
+    "cases": [
+      "calibrator_unavailable",
+      "extreme_logits",
+      "missing_history_annotations",
+      "ordinary",
+      "swapped_A_B",
+      "zero_practice"
+    ]
+  },
+  "oracle": {
+    "status": "PASS",
+    "verifiedFitRows": 1471,
+    "lateRowsConsumed": 0,
+    "models": {
+      "H1": {
+        "trainStationaryGradientMax": 2.2252006227213572e-11,
+        "validationLogLoss": 0.652525760932482,
+        "calibrationLogLoss": 0.6337369125536233,
+        "temperatureDerivative": -3.620979822711965e-09,
+        "selectedC": 1
+      },
+      "H2": {
+        "trainStationaryGradientMax": 4.855811835523943e-11,
+        "validationLogLoss": 0.6560737279441531,
+        "calibrationLogLoss": 0.6349410820405572,
+        "temperatureDerivative": -5.277555250405836e-09,
+        "selectedC": 1
+      }
+    },
+    "artifactSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b"
+  },
+  "checks": {
+    "pythonTests": 19,
+    "nodeTests": 5,
+    "deterministicRefitReplay": "PASS",
+    "offlineVerifyWithUnreachableDatabase": "PASS",
+    "generalChecks": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 978,
+    "build": "PASS",
+    "finalPostBuildDeterministicRefitReplay": "PASS",
+    "consistentCopyReplay": "PASS",
+    "coefficientAndGoldenTamperRejected": "PASS",
+    "overwriteRejected": "PASS",
+    "orderedMigrations": 57,
+    "historicalSqlChecksums": "PASS",
+    "docsLinksWhitespaceDiff": "PASS",
+    "browserIntegration": "not_run_no_UI_changes",
+    "postgresIntegration": "not_run_no_SQL_changes"
+  },
+  "developmentTestConsumed": false,
+  "qualityGate": "not_evaluated",
+  "deployable": false,
+  "nextTask": "S3-04/player-hero-experiment-evaluation — закрепить evaluator и выполнить offline-сравнение H0/H1/H2 на позднем development-блоке: общий набор карт, log loss/Brier/ECE, парный bootstrap целых серий и срезы пропусков; без активации.",
+  "readiness": {
+    "checkedAt": "2026-11-13T18:56:31.548Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "buildWarnings": [
+    "existing_zod_annotations",
+    "existing_web_chunk_over_500kb"
+  ],
+  "oracleScript": {
+    "path": ".tools/s304-hero-fit-oracle.py",
+    "sha256": "32cbaa8fe43c80e520516b2019c60757a4e9a346626fbbc77e232fd57667f08a"
+  }
+}

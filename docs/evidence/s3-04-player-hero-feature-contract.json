@@ -1,0 +1,162 @@
+{
+  "task": "S3-04/player-hero-feature-contract",
+  "status": "implemented_research_feature_not_model",
+  "registeredAt": "2026-11-13T17:49:01.338Z",
+  "startedAt": "2026-11-13T17:49:14.439Z",
+  "runDirectory": ".tools/s304-hero-contract-r1",
+  "artifacts": {
+    "manifest.json": "2e39139c0f7daf1f029246a1804ebb56c281b92a603bf2b8a9faf80a31b5fd54",
+    "started.json": "3eb1c8166a59f2c9c886d31d80a98d423bc68e90423b1f976bfb1622c20f12b6",
+    "runtime.mjs": "937c43efc29997b6f979f961ac5fb2f577966a1ec6a0233c5683277cd2cea20b",
+    "features.json": "1192c3aed6ff47012a391d5733bfb3d79841e3c838132a0cb0526752f010b46d"
+  },
+  "featureBytes": 6686423,
+  "fingerprint": "4bd405502c4488e3886694186130bd78a892030a6f41bfce860c8e65903e9b29",
+  "sourceHashes": {
+    "audit": "0217c11e612deb3a356e1352ec24df798c5434c1ec3f79a562f782ee2f6a84ea",
+    "evidence": "3baaf6d9b0bb0a9ad50e04d82c564bc56daaa4731555df7a4406df2956c2caf5",
+    "dataset": "0bbcf34030232ea6f067d5de61bf096eaef3efb8eae1ab6b4e11b153dfff6fe0",
+    "source": "4ebad584fa29c3bd2c0a3a0ba9be665f701fdcf5d559992616ca9d831454de7b",
+    "capture": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2",
+    "importPlan": "7f03db0d51ffd63f404ee304b43dba8575341ce950942676cda9eb038da3616f",
+    "inventory": "93292795acbf891cffbc79c1f429d5122786f5735c5c09ce5761f250b2bc3b4b"
+  },
+  "code": {
+    "tools/research/player-hero-feature.mts": "0b91225fae18a638385162f62447a939d47ed84b1fc549fc4951000d4e3d1496",
+    "tools/research/player-hero-feature-contract.mjs": "9a724e0549c994e7fa223e564238e00b4157f2e766dd64df7ed1e27925d6c35e",
+    "tests/node/player-hero-feature.test.mjs": "e73b775a96dd36cb24f0e2b7ba826a3caf55b91e72724a4192a4d46f0e187699",
+    "node_modules/typescript/lib/typescript.js": "3ae902c92cc44dace175c0e69e13a4b0899f6983c6121d76b9ab8dd5795e7675",
+    "node_modules/typescript/lib/_tsc.js": "e8f349eabd48486bdb2bf9dc1a00c89d58297270c54b745838879e2859194419",
+    "package.json": "6a8defbb365fe3d5a50757e187461ec5b61d985123bc0c0cfb12dc8cf5d48355",
+    "pnpm-lock.yaml": "0297a50b1d23f5550d66fa0d305d332869316316fbd3c1014e4570d411be089d"
+  },
+  "policy": {
+    "version": "player-hero-observed-practice-90d-v1",
+    "featureOrder": [
+      "observedHeroPracticeLog90Delta"
+    ],
+    "days": 90,
+    "window": "started_at_in_[cutoff-90days,cutoff);completed_at<cutoff",
+    "transform": "natural_log1p_count",
+    "aggregate": "mean_of_five_A_minus_mean_of_five_B",
+    "count": "one_verified_pro_map_per_same_player_account_hero",
+    "patch": "all_patches_observed_volume_only_no_transfer_or_performance_claim",
+    "role": "all_roles_no_inference",
+    "availability": "conditional_event_time_assumed",
+    "missing": "observed_zero_is_not_absence_of_experience;unknown_hero_maps_reported_separately",
+    "fitting": false,
+    "probabilities": false,
+    "deployable": false
+  },
+  "summary": {
+    "train": {
+      "targetRows": 1252,
+      "computed": 881,
+      "unavailable": 0,
+      "notRequested": 0,
+      "originallyIneligible": 371
+    },
+    "validation": {
+      "targetRows": 398,
+      "computed": 306,
+      "unavailable": 0,
+      "notRequested": 0,
+      "originallyIneligible": 92
+    },
+    "calibration": {
+      "targetRows": 338,
+      "computed": 0,
+      "unavailable": 0,
+      "notRequested": 338,
+      "originallyIneligible": 0
+    },
+    "development_test": {
+      "targetRows": 223,
+      "computed": 0,
+      "unavailable": 0,
+      "notRequested": 223,
+      "originallyIneligible": 0
+    },
+    "warmup": {
+      "targetRows": 6,
+      "computed": 0,
+      "unavailable": 0,
+      "notRequested": 6,
+      "originallyIneligible": 0
+    },
+    "outside_window": {
+      "targetRows": 15,
+      "computed": 0,
+      "unavailable": 0,
+      "notRequested": 15,
+      "originallyIneligible": 0
+    }
+  },
+  "computedMaps": 1187,
+  "playerTargetSlots": 11870,
+  "zeroObservedCountSlots": 2710,
+  "incompleteHeroHistorySlots": 382,
+  "warningsByMap": {
+    "LOCAL_HISTORY_NOT_EXHAUSTIVE": 1187,
+    "ZERO_COUNT_NOT_ZERO_EXPERIENCE": 1187,
+    "ROLE_NOT_CONDITIONED": 1187,
+    "PATCH_TRANSFER_NOT_VALIDATED": 1187,
+    "CONDITIONAL_EVENT_TIME_ASSUMED": 1187,
+    "TARGET_HERO_RECONSTRUCTED": 1187,
+    "LINEUP_SELECTED_AT_OR_AFTER_CUTOFF": 1187,
+    "TARGET_CANONICAL_PATCH_UNKNOWN": 1187,
+    "NO_OBSERVED_HERO_PRACTICE": 970,
+    "HISTORY_AVAILABILITY_NOT_ESTABLISHED": 1186,
+    "HERO_HISTORY_INCOMPLETE": 88
+  },
+  "independentOracle": {
+    "status": "PASS",
+    "scalarAndMeanComparisons": 3561,
+    "countAndExactIdComparisons": 23740,
+    "maps": 1187,
+    "maxAbsoluteError": 8.881784197001252e-16,
+    "protectedPartitionsNotComputed": true,
+    "featuresSha256": "1192c3aed6ff47012a391d5733bfb3d79841e3c838132a0cb0526752f010b46d"
+  },
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "deployable": false,
+  "nextTask": "S3-04/player-hero-experiment-plan — зарегистрировать сравнение базовой модели с одним новым признаком: правила обучения и калибровки, обработку пропусков, критерии качества и границы независимой проверки; прежние R1/R2 оставить development, без подбора по старому тесту и активации.",
+  "checks": {
+    "strictTypeScript": "PASS",
+    "nodeTests": 10,
+    "replay": "PASS",
+    "overwriteRejected": "PASS",
+    "generalChecks": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "packageTypecheck": "PASS",
+    "packageTests": 978,
+    "build": "PASS",
+    "finalPostBuildOfflineReplay": "PASS",
+    "controlCopyReplay": "PASS",
+    "changedScalarWithRecomputedFingerprintRejected": "PASS",
+    "originalShaPreserved": "PASS",
+    "orderedMigrations": 57,
+    "historicalSqlChecksums": "PASS",
+    "docLinksAndWhitespaceAndDiff": "PASS",
+    "browserIntegration": "not_run_no_UI_changes",
+    "postgresIntegration": "not_run_no_SQL_changes"
+  },
+  "readiness": {
+    "checkedAt": "2026-11-13T17:56:01.769Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "buildWarnings": [
+    "existing_zod_annotations",
+    "existing_web_chunk_over_500kb"
+  ]
+}

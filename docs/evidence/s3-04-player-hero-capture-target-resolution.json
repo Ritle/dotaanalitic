@@ -1,0 +1,70 @@
+{
+  "task": "S3-04/player-hero-capture-target-resolution/offline",
+  "date": "2026-11-14",
+  "status": "offline_implemented_source_pilot_pending",
+  "sourceSha256": {
+    "apps/api/src/modules/scenarios/draft-target-resolution.ts": "661338844a0d8366738a3f91eed0f2a5709acc5b5a709ae37d71ad42a32f1a16",
+    "apps/api/src/modules/scenarios/draft-target-source.ts": "996e34780e0b5f9e7b10139f622233de57c3f18ea2d3973284de6c6596f81cbd",
+    "tools/audits/draft-target-resolution.mjs": "3914ca32ce3846a65882042e1d65ea2e3e5806ee719baefb4d72eae0c60851d8",
+    "apps/api/tests/draft-target-resolution.test.ts": "4408308d2e8ac438e1be2a8103a4c7375f52ca44f45e5dd62b1338e92e7fc8f5",
+    "apps/api/tests/draft-target-source.integration.test.ts": "406cc79dfc146ae6443f81179734b5ebde40ae33c774fe78c55d8395e9fe702d",
+    "apps/api/tests/draft-target-audit.test.ts": "135ca3dc5c977448ac523adf57d52beec39436c032936a61e2a4699d88338880",
+    "tests/helpers/draft-target.ts": "0f3e17f78b4115838e0c77e8164419089060948ec1b286cabefcd5ab0924542d"
+  },
+  "checks": {
+    "frozenInstall": "passed_offline_existing_store",
+    "typecheck": "passed",
+    "build": "passed",
+    "packageTests": 993,
+    "newPureTests": 10,
+    "artifactTests": 1,
+    "postgresTests": 1,
+    "orderedMigrations": 58,
+    "historicalSqlChecksums": "passed",
+    "initialFailures": [
+      "PG initial dataRevision zero was incorrectly rejected; fixed nonnegative revision schema and PG rerun passed",
+      "CLI extra parenthesis caught by direct CLI/artifact test; fixed, node --check/capture/replay/artifact test passed"
+    ],
+    "browserTests": "not_repeated_no_UI_change",
+    "documentationLinks": "passed",
+    "gitDiffWhitespace": "passed",
+    "newFilesWhitespace": "passed"
+  },
+  "localAudit": {
+    "path": ".tools/s304-target-resolution-local-r1.json",
+    "sha256": "5b4b88e3b3a23b3c76caf7d3b980186b5d61aff559e5877b7b2948da603b6db8",
+    "inspectedAt": "2026-11-13T23:16:31.795864Z",
+    "captures": 0,
+    "matched": 0,
+    "prestartVerified": 0
+  },
+  "initialInventory": {
+    "captures": 0,
+    "proMaps": 2260,
+    "canonicalMapNumbers": 0
+  },
+  "service": {
+    "checkedAt": "2026-11-13T23:16:57.929Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "api": 200,
+    "web": 200,
+    "privateEndpoint": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61",
+    "migration058": "a6dfe58d1be8b5cf81d9a319a6cecd907674e3a4f7c204c10ce5825344b41c21",
+    "realCaptureRows": "0"
+  },
+  "providerHttpCalls": 0,
+  "productionDatabaseWrites": 0,
+  "newMigrations": 0,
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "activationChanges": 0,
+  "prestartVerified": false,
+  "deployable": false,
+  "nextTask": "S3-04/player-hero-capture-target-resolution/source-pilot"
+}

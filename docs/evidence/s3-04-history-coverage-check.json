@@ -1,0 +1,220 @@
+{
+  "format": "post-draft-history-coverage-v1",
+  "basis": "conditional_event_time_assumed_count_only",
+  "minimumPriorMaps": 5,
+  "counts": {
+    "importedMaps": 28,
+    "targetMaps": 39,
+    "playerTargetSlots": 390,
+    "deficientSlotsBefore": 98,
+    "deficientSlotsAfter": 60,
+    "summedDeficitBefore": 272,
+    "summedDeficitAfter": 183,
+    "targetsMeetingMinimumAfter": 15,
+    "targetsStillDeficient": 24,
+    "originalDeficientAccounts": 34,
+    "accountsStillDeficient": 20,
+    "improvedPlayerTargetSlots": 242,
+    "provenHistoricalAvailableAddedLinks": 0
+  },
+  "originalCohort": {
+    "denominator": 223,
+    "paired": 175,
+    "excluded": 48
+  },
+  "fixedCohortCoverageOnly": {
+    "upperBoundPaired": 186,
+    "recoveredIds": [
+      "9031755269",
+      "9031849890",
+      "9036525071",
+      "9042812804",
+      "9042886394",
+      "9043084117",
+      "9043219852",
+      "9043490716",
+      "9043640925",
+      "9047488648",
+      "9047583318"
+    ],
+    "coverage": 0.8340807174887892,
+    "requiresNewDatasetAndAllEligibilityChecks": true,
+    "independentTest": false
+  },
+  "inputs": {
+    "proposal": "7e62d608ae88f1560b15d4065edfafd9a3b381a91e1f18b3f38c26914251ab29",
+    "baseline": "40cf8e60752f0b7fd7dd304d1b4a1ebd04e85b2be2ff894d57daf89e2fc2d1d2",
+    "dataset": "b623f6a4854afaa85dcb939d57a9df42d9b75a807a3f14104b8cfcbfd9602ddd",
+    "gaps": "95a79ce4b3ba7a134455c466c50ee6c0caba83772e934487691c9e3b84991cde",
+    "plan": "7f03db0d51ffd63f404ee304b43dba8575341ce950942676cda9eb038da3616f",
+    "manifest": "5a18623c84775faacc11ee7694ef8a85d67d1426a39f0295fba24853c0de8bba",
+    "importReport": "a368bd90f7739b166a0781a9cc8dad2a9d1dd46865078b2d292bf21fa63bac76",
+    "currentSource": "4ebad584fa29c3bd2c0a3a0ba9be665f701fdcf5d559992616ca9d831454de7b"
+  },
+  "sourceCounts": {
+    "baselineMaps": 2232,
+    "currentMaps": 2260,
+    "baselineEligibleHistory": 2158,
+    "currentEligibleHistory": 2186
+  },
+  "auditCodeSha256": "f49c2b5562f7f538a5dce47d22a3cade1cc9e0737eee4e01e51bfee9721acfcb",
+  "historicalAvailability": "observation_clocks_preserved; event_time_is_not_known_at; target_lineups_remain_reconstructed",
+  "targetProbabilitiesComputed": false,
+  "trainingPerformed": false,
+  "modelActivation": false,
+  "deployable": false,
+  "providerHttp": 0,
+  "businessWrites": 0,
+  "task": "S3-04/history-coverage-check",
+  "auditReportSha256": "355497abc510afe83b659867c934d5f5979e8b9a4fa1176d3e47c5c2d9acb4d2",
+  "status": "PASS",
+  "nextTask": "S3-04/R2-protocol-plan",
+  "remainingAccounts": [
+    {
+      "accountId": "24045849",
+      "deficientTargets": 2,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "28229163",
+      "deficientTargets": 5,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "36162063",
+      "deficientTargets": 5,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "80560677",
+      "deficientTargets": 2,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "91535476",
+      "deficientTargets": 5,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "162798290",
+      "deficientTargets": 5,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "187123736",
+      "deficientTargets": 1,
+      "maxMissing": 1
+    },
+    {
+      "accountId": "193564777",
+      "deficientTargets": 5,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "194555122",
+      "deficientTargets": 2,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "196481318",
+      "deficientTargets": 3,
+      "maxMissing": 3
+    },
+    {
+      "accountId": "214853734",
+      "deficientTargets": 2,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "293769213",
+      "deficientTargets": 5,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "333700720",
+      "deficientTargets": 3,
+      "maxMissing": 3
+    },
+    {
+      "accountId": "402285018",
+      "deficientTargets": 3,
+      "maxMissing": 3
+    },
+    {
+      "accountId": "482364904",
+      "deficientTargets": 2,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "860145568",
+      "deficientTargets": 1,
+      "maxMissing": 1
+    },
+    {
+      "accountId": "876690044",
+      "deficientTargets": 1,
+      "maxMissing": 1
+    },
+    {
+      "accountId": "880173582",
+      "deficientTargets": 3,
+      "maxMissing": 5
+    },
+    {
+      "accountId": "1114792376",
+      "deficientTargets": 3,
+      "maxMissing": 3
+    },
+    {
+      "accountId": "1256269806",
+      "deficientTargets": 2,
+      "maxMissing": 5
+    }
+  ],
+  "runtimeReadiness": {
+    "checkedAt": "2026-11-13T16:36:38.031Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "checks": {
+    "targetedNodeTests": {
+      "passed": 7,
+      "failed": 0
+    },
+    "offlineReplayWithoutDatabase": "PASS",
+    "refuseOverwrite": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "orderedMigrationChecksums": 57,
+    "documentationLinks": "PASS",
+    "fullTests": {
+      "passed": 978,
+      "failed": 0,
+      "firstRun": true
+    },
+    "build": "PASS",
+    "buildWarnings": [
+      "existing_zod_pure_annotations",
+      "existing_web_chunk_over_500kb"
+    ],
+    "finalOfflineReplayAfterBuild": "PASS",
+    "targetedDiffCheck": "PASS"
+  },
+  "validationLogs": {
+    "s304-coverage-tests.log": "8dbd5d7475f34e38e546acd2b11ce6ccc7d1150370e681e76ecbe575c34deb77",
+    "s304-coverage-install.log": "d5fac4e90611ad6f2dc815ea5b490be4906fc897a8ca8a6664cbe9076d26b927",
+    "s304-coverage-typecheck.log": "fcdd91d7487b3d8b5d20de38b1cfeee7c8b27aac95101f860c26a78d409676dc",
+    "s304-coverage-full-tests.log": "4f920fbdb10b4fa962cc37f69d8c9289c1569071d643b655025d5d1364e9b30e",
+    "s304-coverage-build.log": "c268dfe18980e1238fd3a5fe12b549011421a1faa60e272288101a55f12222ee",
+    "s304-coverage-final-verify.log": "542caee2f05f02d1ff737d61aca31700e54d6b9ac2076996b4ac6c0deaa06f28",
+    "s304-coverage-overwrite.log": "94287bf78091904d3328843cf1907256f54d46b0f10336ec04090cf9047bb258"
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "task": "S2-01/BUG_REPORT/unified-confirmation",
+  "date": "2026-11-11",
+  "status": "complete",
+  "ownerAcceptance": "not yet performed",
+  "scope": [
+    "UpcomingScenario.vue",
+    "ExpectedRosterCatalogue.vue",
+    "RoleSuggestions.vue",
+    "lineup-review.ts"
+  ],
+  "design": {
+    "mainAction": "Подтвердить пятёрки и роли",
+    "visibleRolesBeforeIdentitySave": true,
+    "twoCompleteSidesRequired": true,
+    "roleBinding": "Exact provider-player + Steam32 pair, then canonical player ID; response ordering ignored",
+    "roleMeaning": "Expected roles of the current scenario, not permanent team or historical facts",
+    "initialUnknownRoleSlots": "Editable draft positions, explicitly labelled; never source-established role facts",
+    "manualRolePriority": "Late hints and account clarification within the same five preserve manual choices",
+    "persistence": "Durable existing numeric identity bindings; roles frozen by existing scenario snapshot save; page confirmation transient",
+    "identityWrites": "Existing endpoint, sequential per prepared side; two for new sides, none for role-only reconfirmation",
+    "crossTeamAtomicTransaction": false,
+    "partialFailure": "No global confirmation; retain saved side and role choices; reread after409 and retry unresolved side",
+    "existingSourceRevisionLinkTokenIdempotencyGuardsPreserved": true,
+    "backendSharedPackagesMigrationsDependenciesChanged": false
+  },
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "fullTypecheck": "PASS",
+    "fullRootTests": "PASS",
+    "unitCLI": 943,
+    "fullBuild": "PASS",
+    "uniqueChromiumPostgres": 41,
+    "browserRuns": [
+      "Original RED: role controls absent before canonical save",
+      "Initial new flow:1 PASS/1 test status mismatch, corrected existing create status201",
+      "Compatibility:31/36 PASS;5 failures in durable-save wait, incomplete manual confirmation, obsolete label assertion, search-only confirmation, initial-cache wait",
+      "Focused follow-up:10/11 PASS; partial empty confirmation remained enabled and was fixed with a complete-side guard",
+      "Final guard/manual/source paths:10/10 PASS",
+      "Account clarification RED: reviewed role4 reset to1",
+      "Final full new-flow file:5/5 PASS, including account clarification fix"
+    ],
+    "edgeCases": [
+      "bigint-safe identities",
+      "reordered canonical response",
+      "wrong team/account or unverified binding",
+      "duplicate accounts/player IDs/provider IDs/roles",
+      "missing/incomplete choices",
+      "busy controls prevent repeated confirmation",
+      "second-side409 with retained roles and only unresolved-side retry",
+      "manual role reconfirmation without identity writes",
+      "saved scenario snapshot keeps reviewed roles",
+      "late hints preserve manual role edits",
+      "account clarification preserves reviewed roles",
+      "schedule event/page/participant reset",
+      "ambiguous identities and manual account corrections",
+      "source cache failure and comparison/history/filter compatibility"
+    ],
+    "visualQA": "360px prepared and confirmed lineups inspected; role controls readable; no page overflow",
+    "migrationFiles": 52,
+    "migrationChecksums": "PASS",
+    "docsAndDiff": "PASS",
+    "serviceHealth": {
+      "api": "200 /health",
+      "web": "200"
+    },
+    "notRun": [
+      "Full standalone API/PostgreSQL suite",
+      "Full standalone Node fixture suite",
+      "Python",
+      "Docker/Linux",
+      "Live roster/provider accuracy validation",
+      "Working forecast creation"
+    ]
+  },
+  "preservation": {
+    "tables": 85,
+    "changedTables": [],
+    "maps": 2232,
+    "queueRows": 13,
+    "protectedFiles": 9703,
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "workingBusinessWrites": 0,
+    "workingProviderHTTP": 0,
+    "mainAPIWeb": "remain ON",
+    "generalWorker": "OFF"
+  },
+  "nextTask": "S3-05/V1-retest/activation-owner-smoke",
+  "nextTaskCondition": "A ready supported Tier1 pair; no live schedule polling in this UI task",
+  "suggestedModel": "GPT-6.1 Sol · High",
+  "modelDocumentation": "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
+}

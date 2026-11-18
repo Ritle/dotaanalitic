@@ -1,0 +1,118 @@
+{
+    "task":  "S3-04/post-draft-validation-readiness/durable-shadow-persistence",
+    "date":  "2026-11-14",
+    "featurePolicy":  "selected-ten-and-known-series-exclusion-v1",
+    "candidateSha256":  "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+    "implementationSha256":  "d911724bf71c9c4e15032143e0ab14e7ef47e9ce9a98ac8e45dbaf6ca5e666a2",
+    "checks":  {
+                   "frozenOfflineInstall":  "pass_existing_store",
+                   "typecheck":  "pass",
+                   "build":  "pass",
+                   "initialCorrections":  [
+                                              "resolved_missing_direct_prediction_dependency_using_existing_built_boundary_without_lockfile_change",
+                                              "added_component_abort_controller_after_typecheck"
+                                          ],
+                   "packageTests":  {
+                                        "passed":  1045,
+                                        "failed":  0
+                                    },
+                   "newUnitTests":  {
+                                        "passed":  5
+                                    },
+                   "postgres":  {
+                                    "passed":  23,
+                                    "newTests":  6,
+                                    "isolatedDatabase":  true
+                                },
+                   "browser":  {
+                                   "passed":  6,
+                                   "project":  "chromium",
+                                   "viewport360":  true,
+                                   "visualInspection":  "pass",
+                                   "screenshot":  "apps/web/test-results/draft-shadow-mobile.png"
+                               },
+                   "pythonTsParity":  {
+                                          "cases":  262,
+                                          "numericComparisons":  1570,
+                                          "nullChecks":  2,
+                                          "maxError":  1.1102230246251565E-16
+                                      },
+                   "migrationChecksums":  61,
+                   "oldShadowReplay":  "pass",
+                   "preparedIndependentPlanReplay":  "pass",
+                   "buildWarnings":  [
+                                         "existing_zod_annotations",
+                                         "existing_web_chunk_over_500kb"
+                                     ],
+                   "documentationLinks":  "pass",
+                   "diffWhitespace":  "pass"
+               },
+    "backup":  {
+                   "privatePath":  ".tools/s304-shadow-persist-backup/database.dump",
+                   "bytes":  37449543,
+                   "sha256":  "05cde680dc9672117575e2780ed0ac9b4b9134f819d97e36b63b76c1098483ac",
+                   "pgRestoreList":  "pass",
+                   "fullRestorePerformed":  false
+               },
+    "migration":  {
+                      "filename":  "061_owner_draft_shadow_results.sql",
+                      "sha256":  "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+                      "apply":  "pass",
+                      "repeat":  "skip",
+                      "previous60Preserved":  true
+                  },
+    "preservation":  {
+                         "checkedAt":  "2026-11-14T17:21:40.176Z",
+                         "model":  {
+                                       "status":  "model_eligible",
+                                       "modelId":  "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+                                       "reportSha256":  "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+                                       "teamAWinProbability":  null
+                                   },
+                         "counts":  {
+                                        "maps":  "2260",
+                                        "captures":  "0",
+                                        "observations":  "0",
+                                        "links":  "0",
+                                        "bindings":  "0",
+                                        "shadowruns":  "0",
+                                        "shadowreceipts":  "0"
+                                    },
+                         "predictions":  7,
+                         "preservedPredictionHashes":  7,
+                         "preservedMigrations":  60,
+                         "migrations":  61,
+                         "migration061":  "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+                         "api":  200,
+                         "web":  200,
+                         "privateStatus":  401
+                     },
+    "receipts":  {
+                     "distinctTopLevelTransactions":  true,
+                     "savepointBypassRejected":  true,
+                     "commitTimeExact":  false,
+                     "gameplayStartEstablished":  false
+                 },
+    "livePositiveCoverageEstablished":  false,
+    "productionScoringPerformed":  false,
+    "providerHttpRequests":  0,
+    "trainingPerformed":  false,
+    "modelActivationPerformed":  false,
+    "registrationAllowed":  false,
+    "collectionAllowed":  false,
+    "primaryEligible":  false,
+    "deployable":  false,
+    "logs":  [
+                 ".tools/s304-shadow-persist-install.log",
+                 ".tools/s304-shadow-persist-typecheck-final.log",
+                 ".tools/s304-shadow-persist-build.log",
+                 ".tools/s304-shadow-persist-unit.log",
+                 ".tools/s304-shadow-persist-pg.log",
+                 ".tools/s304-shadow-persist-browser.log",
+                 ".tools/s304-shadow-persist-suite.log",
+                 ".tools/s304-shadow-persist-replay.log"
+             ],
+    "nextTask":  "S3-04/post-draft-validation-readiness/committed-shadow-export",
+    "suggestedModel":  "GPT-6 Astra",
+    "reasoningEffort":  "High"
+}

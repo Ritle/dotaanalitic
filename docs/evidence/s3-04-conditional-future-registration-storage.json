@@ -1,0 +1,124 @@
+{
+  "task": "S3-04/conditional-future-registration-storage",
+  "date": "2026-11-15",
+  "status": "synthetic_postgres_storage_complete_real_source_adapter_pending",
+  "files": [
+    {
+      "path": "packages/db/migrations/062_conditional_registration.sql",
+      "sha256": "9d592d9930b8e5cefa0f608f5aabd92a59bf2f5c8533403fda3b39bc1fe2740d"
+    },
+    {
+      "path": "tools/research/conditional-registration-storage.mjs",
+      "sha256": "cf7e7cfd27e5916fddcd384b197c1f191afc025c0e36e80460b6c6e944c67aa1"
+    },
+    {
+      "path": "packages/db/tests/conditional-registration-storage.integration.test.ts",
+      "sha256": "2a211b4e9a87c55a47c9325f48cf4bc17e9ce28edfc45c6a6f3e5fb5a8a87b38"
+    }
+  ],
+  "checks": {
+    "steps": [
+      {
+        "name": "install",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-storage-install.log",
+        "error": null
+      },
+      {
+        "name": "typecheck",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-storage-typecheck.log",
+        "error": null
+      },
+      {
+        "name": "test",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-storage-test.log",
+        "error": null
+      },
+      {
+        "name": "build",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-storage-build.log",
+        "error": null
+      },
+      {
+        "name": "migrations",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-storage-migrations.log",
+        "error": null
+      },
+      {
+        "name": "node",
+        "exitCode": 0,
+        "log": ".tools/s304-registration-storage-node.log",
+        "error": null
+      }
+    ],
+    "newPostgresTests": 21,
+    "existingJournalPostgresTests": 9,
+    "postgresLogs": [
+      ".tools/s304-registration-storage-pg-final.log",
+      ".tools/s304-registration-storage-pg-r3.log"
+    ],
+    "packageTests": 1053,
+    "workspaces": 8,
+    "nodeTests": 28,
+    "migrationFiles": 62,
+    "oldMigrationHashesPreserved": true,
+    "oldContractCodeAndPolicySourcesUnchanged": true,
+    "registrationParentReplay": "PASS",
+    "docsLinks": "PASS",
+    "diffCheck": "PASS",
+    "separateBrowserPythonSuites": "not_run_UI_and_numerical_code_unchanged",
+    "newFileWhitespace": "PASS"
+  },
+  "preservation": {
+    "checkedAt": "2026-11-15T01:37:15.538Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "counts": {
+      "maps": "2260",
+      "captures": "0",
+      "observations": "0",
+      "links": "0",
+      "bindings": "0",
+      "shadowruns": "0",
+      "shadowreceipts": "0"
+    },
+    "predictions": 8,
+    "preservedPredictionHashes": 7,
+    "preservedMigrations": 60,
+    "migrations": 61,
+    "migration061": "65e08e3ede9c9e7931682f0ac4e19983fd30e52ea84a7dd10533352e732470fb",
+    "api": 200,
+    "web": 200,
+    "privateStatus": 401
+  },
+  "providerRequests": 0,
+  "workingDatabaseWrites": 0,
+  "realRegistration": false,
+  "realEvaluationAllowed": false,
+  "collectionAllowed": false,
+  "deployable": false,
+  "limitations": [
+    "SQL062_applied_only_to_disposable_test_databases",
+    "syntheticOnly_false_rejected_in_adapter_and_SQL",
+    "report_binding_is_not_numerical_or_source_truth_verification",
+    "privileged_database_admin_can_disable_triggers",
+    "real_native_main_event_ids_source_readiness_and_consumer_adapter_pending"
+  ],
+  "executionNotes": [
+    "Initial PG run: ambiguous PL/pgSQL alias, fixed before final passing run.",
+    "Elapsed-window fixtures are seeded only in checked disposable databases; no production clock override.",
+    "Receipt rejected for a real transaction committed after window start.",
+    "Corrections require exact parent and new report/manifest; first insufficient/negative retained."
+  ],
+  "nextTask": "S3-04/conditional-future-registration-preflight",
+  "recommendedModel": "GPT-6 Astra",
+  "recommendedEffort": "High"
+}

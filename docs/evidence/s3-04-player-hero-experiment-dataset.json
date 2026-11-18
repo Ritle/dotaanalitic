@@ -1,0 +1,196 @@
+{
+  "task": "S3-04/player-hero-experiment-dataset",
+  "status": "frozen_development_dataset",
+  "registeredAt": "2026-11-13T18:26:39.656Z",
+  "startedAt": "2026-11-13T18:26:48.256Z",
+  "directory": ".tools/s304-hero-dataset-r1",
+  "fingerprint": "b922a96181d355f0807a6be75621fb6833a306286899ec7658f73eff71ff7b20",
+  "artifacts": {
+    "manifest.json": "ccedcf2d8a1cd15e636e69caca47e46fcf349692605179e8ba1d214414636529",
+    "started.json": "648767031780b5ca45cd9d4e0a7d1ffa54cf8ec12dc5a62617b0263d648598b9",
+    "dataset.json": "51d07fc0531a07f004a41598f195efd31b1222a25b663f1a8f78af74f8a8856a",
+    "features.json": "cf90f79e27efda760848e2bfa47f5a081cc0c5c9c282b24e9bc58dd53832e934",
+    "labels.json": "2a373fad2379142364dd66838852e8e0803989ea3b65454eebbb5517b2bc5b63"
+  },
+  "protocolFingerprint": "932abf739e485ab1d8c38348df57e49a986a01d9b212663201f341e356d50db6",
+  "partitions": {
+    "warmup": {
+      "plannedDenominator": 6,
+      "originalPairedMaps": 0,
+      "pairedMaps": 0,
+      "pairedSeries": 0,
+      "pairedCoverage": 0,
+      "baselineOnlyMaps": 0,
+      "unavailableMaps": 6,
+      "labels": {
+        "teamAWins": 0,
+        "teamBWins": 0
+      }
+    },
+    "train": {
+      "plannedDenominator": 1252,
+      "originalPairedMaps": 881,
+      "pairedMaps": 881,
+      "pairedSeries": 421,
+      "pairedCoverage": 0.7036741214057508,
+      "baselineOnlyMaps": 0,
+      "unavailableMaps": 371,
+      "labels": {
+        "teamAWins": 501,
+        "teamBWins": 380
+      }
+    },
+    "validation": {
+      "plannedDenominator": 398,
+      "originalPairedMaps": 306,
+      "pairedMaps": 306,
+      "pairedSeries": 170,
+      "pairedCoverage": 0.7688442211055276,
+      "baselineOnlyMaps": 0,
+      "unavailableMaps": 92,
+      "labels": {
+        "teamAWins": 170,
+        "teamBWins": 136
+      }
+    },
+    "calibration": {
+      "plannedDenominator": 338,
+      "originalPairedMaps": 284,
+      "pairedMaps": 284,
+      "pairedSeries": 124,
+      "pairedCoverage": 0.8402366863905325,
+      "baselineOnlyMaps": 0,
+      "unavailableMaps": 54,
+      "labels": {
+        "teamAWins": 160,
+        "teamBWins": 124
+      }
+    },
+    "development_test": {
+      "plannedDenominator": 223,
+      "originalPairedMaps": 186,
+      "pairedMaps": 186,
+      "pairedSeries": 86,
+      "pairedCoverage": 0.8340807174887892,
+      "baselineOnlyMaps": 0,
+      "unavailableMaps": 37,
+      "labels": {
+        "teamAWins": 119,
+        "teamBWins": 67
+      }
+    }
+  },
+  "targetLedger": {
+    "count": 2232,
+    "historyOnlyMaps": 28,
+    "outsideWindows": 15
+  },
+  "verifiedLabels": 1698,
+  "earlyParity": {
+    "train": {
+      "targetRows": 1252,
+      "computed": 881,
+      "rowsSha256": "086dea0a2b3b2e3a25c3c0580a18408da4cd9de6d1004748017916f97489d818",
+      "status": "exact"
+    },
+    "validation": {
+      "targetRows": 398,
+      "computed": 306,
+      "rowsSha256": "e351199caadd96efef7d3c9bfb2df33925501b6fa941f97b9248cc48a0d78ff0",
+      "status": "exact"
+    }
+  },
+  "missingness": {
+    "train": {
+      "computedMaps": 881,
+      "playerTargetSlots": 8810,
+      "zeroObservedSlots": 2161,
+      "unknownHeroHistorySlots": 382,
+      "mapsWithZeroObservedSlots": 750,
+      "mapsWithUnknownHeroHistory": 88
+    },
+    "validation": {
+      "computedMaps": 306,
+      "playerTargetSlots": 3060,
+      "zeroObservedSlots": 549,
+      "unknownHeroHistorySlots": 0,
+      "mapsWithZeroObservedSlots": 220,
+      "mapsWithUnknownHeroHistory": 0
+    },
+    "calibration": {
+      "computedMaps": 284,
+      "playerTargetSlots": 2840,
+      "zeroObservedSlots": 645,
+      "unknownHeroHistorySlots": 0,
+      "mapsWithZeroObservedSlots": 242,
+      "mapsWithUnknownHeroHistory": 0
+    },
+    "development_test": {
+      "computedMaps": 186,
+      "playerTargetSlots": 1860,
+      "zeroObservedSlots": 595,
+      "unknownHeroHistorySlots": 8,
+      "mapsWithZeroObservedSlots": 179,
+      "mapsWithUnknownHeroHistory": 2
+    }
+  },
+  "oracle": {
+    "status": "PASS",
+    "targetMaps": 2232,
+    "verifiedHistoryMaps": 2186,
+    "historyMapsWithoutCanonicalHeroes": 6,
+    "computedMaps": 1657,
+    "playerCountIdScalarChecks": 99420,
+    "sideMeanFeatureChecks": 4971,
+    "maxAbsoluteError": 6.661338147750939e-16,
+    "verifiedLabels": 1698,
+    "earlyParity": "exact",
+    "knownSeriesBoundaries": "PASS",
+    "datasetSha256": "51d07fc0531a07f004a41598f195efd31b1222a25b663f1a8f78af74f8a8856a"
+  },
+  "checks": {
+    "targetedNodeTests": 9,
+    "offlineReplay": "PASS",
+    "generalChecks": "PASS",
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "packageTests": 978,
+    "build": "PASS",
+    "finalPostBuildOfflineReplay": "PASS",
+    "consistentCopyReplay": "PASS",
+    "rehashedFeatureTamperRejected": "PASS",
+    "overwriteRejected": "PASS",
+    "independentRawSourceRecount": "PASS",
+    "orderedMigrations": 57,
+    "historicalSqlChecksums": "PASS",
+    "docsLinksWhitespaceDiff": "PASS",
+    "browserIntegration": "not_run_no_UI_changes",
+    "postgresIntegration": "not_run_no_SQL_changes"
+  },
+  "trainingPerformed": false,
+  "scoringPerformed": false,
+  "deployable": false,
+  "nextTask": "S3-04/player-hero-experiment-fit — реализовать offline H1/H2 по зарегистрированной процедуре: train-only fit, выбор C на validation, отдельная temperature calibration, неизменяемые артефакты и Python–TS parity; без оценки development_test и активации.",
+  "readiness": {
+    "checkedAt": "2026-11-13T18:39:31.175Z",
+    "model": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    },
+    "apiHealth": 200,
+    "web": 200,
+    "privateEndpointWithoutSession": 401,
+    "orchestrationSha256": "573ed604999bce9ffa950e0fb176732794761b4ea5f4c5617970b5fd98424d61"
+  },
+  "copyHarnessNote": "Initial copy-control attempt invalidated by changing the test copy before replay finished; repeated serially: clean copy PASS, then rehashed tamper rejected. Original artifacts never changed.",
+  "buildWarnings": [
+    "existing_zod_annotations",
+    "existing_web_chunk_over_500kb"
+  ],
+  "oracleScript": {
+    "path": ".tools/s304-hero-dataset-oracle.py",
+    "sha256": "b429f3599d67a89d3b3df94203d2a7f5f3e7af72c40bd6d94adbcbf98eddbd5b"
+  }
+}

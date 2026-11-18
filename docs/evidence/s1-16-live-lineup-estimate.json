@@ -1,0 +1,78 @@
+{
+  "task": "S1-16/live-lineup-estimate",
+  "status": "PASS",
+  "ownerChoice": "Conditional five-player strength comparison, no current-map state",
+  "checks": {
+    "frozenOfflineInstall": "PASS",
+    "typecheck": "PASS",
+    "generalTests": 978,
+    "targetedTests": 9,
+    "targetedPostgresTests": 7,
+    "browserTests": 3,
+    "build": "PASS",
+    "sqlFiles": 56,
+    "docLinks": "PASS",
+    "diffCheck": "PASS",
+    "frozenImportPlanAndDryRun": "PASS"
+  },
+  "realUi": {
+    "checkedAt": "2026-11-13T14:34:57.751Z",
+    "providerMatchId": "1793318",
+    "requestId": "b29fe67c-ff33-46e4-ad73-3658a931ba52",
+    "status": "done",
+    "purpose": "live_lineup_comparison",
+    "teamAWinProbability": 0.8064495055639521,
+    "cutoffAt": "2026-11-13T14:32:49.678Z",
+    "createdAt": "2026-11-13T14:33:30.868Z",
+    "sourceFetchedAt": "2026-11-13T14:32:45.738Z",
+    "snapshotSha256": "5c8af2444e13906d7b8dbbcdd57532547f875e4f0661ac17ef11bcda8af16542",
+    "coverage": {
+      "nRaw": 2158,
+      "nEff": 2158,
+      "minimumPlayerMaps": 25,
+      "playersWithHistory": 10,
+      "playersMeetingMinimum": 10
+    },
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "jsErrors": [],
+    "mobileOverflow": false,
+    "interpretation": "Neutral-map lineup comparison only, not current-map/series probability",
+    "recordsCreated": 1,
+    "smokeNote": "First script response wait timed out at30s; server committed, subsequent read reopened same single record."
+  },
+  "preservation": {
+    "counts": {
+      "matches": 2232,
+      "prediction_runs": 3,
+      "v1_runtime_snapshots": 3,
+      "owner_tier1_scopes": 1,
+      "scenarios": 3,
+      "leagues": 54
+    },
+    "queue": {
+      "count": 3,
+      "hash": "f52fadc151a75bae5bd2559e096fd4e5"
+    },
+    "forecastSha256": "45fe93ae8819cb820da6801a89806f1fac5ac070c9cec1d90e1d85bf2356d698",
+    "readiness": {
+      "status": "model_eligible",
+      "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+      "reportSha256": "8227233077617c91335cc2b53c634cbaebe69bd180a0665d4c336809af3ee790",
+      "teamAWinProbability": null
+    }
+  },
+  "files": {
+    ".tools/live-estimate-install.log": "bc28054962d9f8baadd0480a931cfbf765dcad63a833f239000dcc330c0aff2a",
+    ".tools/live-estimate-typecheck.log": "34e3f944eb2801f9512a7d4cf5abbcf69da6b1902f5b7b458708995445a92cff",
+    ".tools/live-estimate-all-tests.log": "aede99ac53882b73adc3b1299fbb2f94cfc8a5a1521e186646c523fefd5d3377",
+    ".tools/live-estimate-build.log": "73b316ffee2f2f26bdd89912a814b7d6af9ed928d26e3ad8ab4edf2edf4c96e6",
+    ".tools/live-estimate-tests.log": "583ae13410fc444423bd1c5474bf2f04304f85c91c98a00676211b30ae7ec198",
+    ".tools/live-estimate-e2e.log": "093502693a9dc27b1889cb7b2dccdc2080b2099491667fd3ecd1e22b4a42dae8",
+    ".tools/live-estimate-real-result.json": "6a9570bd8a79110d2af49dad98769509c72e225007e640a2cb7d7e3e4a65bbc4",
+    ".tools/live-estimate-real-result.png": "6294562c10550fb5f0c4163547a1c003a81571a0b13d0a66f8f56e4bb8c1d5df",
+    ".tools/live-estimate-real-mobile.png": "c06efcd5023118c6ecd63d905e6de81ba169296353f3964403f238e063d854c3",
+    "packages/db/migrations/056_live_lineup_estimates.sql": "ebf4ebdcedf9f0462ca4e93a21f3ecca2863e3c2f9ad8616c913412a28b63c21"
+  },
+  "nextTask": "S3-04/history-import-apply",
+  "suggestedModel": "GPT-6 Astra · High"
+}
