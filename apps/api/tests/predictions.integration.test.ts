@@ -33,7 +33,7 @@ test('requires owner/session/CSRF/origin for all routes and rejects forged field
 test('creates an unavailable snapshot, returns exact retry/read after edits, and exposes only a bounded projection', async () => {
   const request = body(), response = await post(request); expect(response.statusCode).toBe(200); expect(response.headers['cache-control']).toBe('no-store');
   const saved = V1PredictionViewSchema.parse(response.json()); expect(saved.status).toBe('unavailable'); expect(saved.teamAWinProbability).toBeNull();
-  expect(saved.reasons).toContain('NO_ACTIVE_MODEL'); expect(saved.model.id).toBeNull();
+  expect(saved.reasons).toContain('NO_ACTIVE_MODEL'); expect(saved.reasons).not.toContain('TIER1_SCOPE_NOT_REVIEWED'); expect(saved.warnings).toContain('TOURNAMENT_TIER_UNVERIFIED'); expect(saved.model.id).toBeNull();
   expect(response.body).not.toMatch(/source_payload|candidateText|barrels|code\/|sourceAccountId/);
   expect((await post(request)).json()).toEqual(saved);
   expect((await get(path() + '/' + request.requestId)).json()).toEqual(saved);

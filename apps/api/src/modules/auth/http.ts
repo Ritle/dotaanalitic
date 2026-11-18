@@ -36,6 +36,9 @@ export async function registerAuth(app: FastifyInstance, config: AppConfig, serv
       request.ownerSession = await service.authenticate(request.cookies[sessionName]);
       if (!request.ownerSession) throw new AuthError('UNAUTHORIZED');
     }
+    if(request.ownerSession?.role!=='owner'&&!login&&!['GET','HEAD','OPTIONS'].includes(request.method)&&path!=='/api/v1/auth/logout'){
+      return reply.code(403).send({error:{code:'OWNER_REQUIRED',message:'Изменять данные может только владелец.',requestId:request.id}});
+    }
     if (!['GET', 'HEAD'].includes(request.method)) {
       // Covers login CSRF too; no anonymous CSRF bootstrap endpoint is needed.
       if (request.headers.origin !== config.WEB_ORIGIN || request.headers['sec-fetch-site'] === 'cross-site') {
@@ -66,6 +69,7 @@ export async function registerAuth(app: FastifyInstance, config: AppConfig, serv
     return AuthResponseSchema.parse({ owner: session.owner, expiresAt: session.expiresAt,
       csrfToken: reply.generateCsrf({ userInfo: session.tokenHash }) });
   });
+  app.get('/api/v1/auth/access',async request=>({role:request.ownerSession!.role,canManageLineups:request.ownerSession!.role==='owner'}));
   app.post('/api/v1/auth/logout', async (request, reply) => {
     await service.logout(request.ownerSession!);
     reply.clearCookie(sessionName, cookieOptions).clearCookie(csrfName, cookieOptions);

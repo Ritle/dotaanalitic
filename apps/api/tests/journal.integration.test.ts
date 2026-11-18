@@ -2,6 +2,8 @@ import {randomBytes,randomUUID} from 'node:crypto';
 import {beforeEach,afterEach,expect,test,vi} from 'vitest';
 import type {FastifyInstance} from 'fastify';
 import {V1JournalViewSchema,V1JournalHistorySchema} from '@dota/contracts';
+import {V1JournalFeedSchema} from '../../../packages/contracts/dist/journal/feed.js';
+import {readV1JournalFeed} from '../../../packages/db/dist/journal/feed.js';
 import {ScenarioRepository,V1RuntimeRepository,V1JournalRepository,V1JournalService,sql} from '@dota/db';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 import {seedPredictionScenario} from '../../../tests/helpers/predictions.js';
@@ -13,6 +15,36 @@ const base='/api/v1/forecast-journal',body=()=>({requestId:randomUUID(),filters:
 const headers=()=>({cookie,origin:'http://localhost:5173','x-csrf-token':csrf});
 const post=(payload:unknown=body())=>app.inject({method:'POST',url:base,headers:headers(),payload});
 const get=(url=base)=>app.inject({url,headers:{cookie}});
+test('current journal immediately reads saved attempts without a report or writes and isolates owners',async()=>{
+  const path=base+'/current';
+  expect((await app.inject({url:path})).statusCode).toBe(401);
+  expect(V1JournalFeedSchema.parse((await get(path)).json()).items).toEqual([]);
+  const old=V1JournalViewSchema.parse((await post()).json());
+  const request={requestId:randomUUID(),scenarioId,expectedRevision:1,purpose:'what_if_single_map',targetScope:null};
+  const runtime=new V1RuntimeRepository(database.db),prediction=await runtime.create(owner,request);
+  await runtime.create(owner,request);
+  const response=await get(path);expect(response.statusCode).toBe(200);expect(response.headers['cache-control']).toBe('no-store');
+  const feed=V1JournalFeedSchema.parse(response.json());expect(feed.items).toHaveLength(1);
+  expect(feed.items[0]).toMatchObject({predictionId:prediction.id,probability:null,status:'unavailable',actualWinner:null});
+  expect(response.body).not.toMatch(/ownerId|barrels|password|snapshot_text|sourceEvidence/);
+  expect((await get(base+'/'+old.requestId)).json()).toEqual(old);
+  const foreign={id:randomUUID()};
+  expect((await readV1JournalFeed(database.db,foreign.id)).items).toHaveLength(0);
+  expect(V1JournalFeedSchema.parse((await get(path)).json()).items).toHaveLength(1);
+  expect((await sql`SELECT 1 FROM v1_journal_reports`.execute(database.db)).rows).toHaveLength(1);
+  expect((await sql`SELECT 1 FROM v1_forecast_outcome_revisions`.execute(database.db)).rows).toHaveLength(0);
+  for(const query of ['?ownerId='+foreign.id,'?id='+randomUUID(),'?createdAt=bad&id='+randomUUID()])expect((await get(path+query)).statusCode).toBe(400);
+});
+test('current journal cursor stays stable when a newer calculation arrives',async()=>{
+  const runtime=new V1RuntimeRepository(database.db),request={scenarioId,expectedRevision:1,purpose:'what_if_single_map',targetScope:null};
+  for(let i=0;i<51;i++)await runtime.create(owner,{...request,requestId:randomUUID()});
+  const first=V1JournalFeedSchema.parse((await get(base+'/current')).json());expect(first.items).toHaveLength(50);expect(first.nextCursor).not.toBeNull();
+  await runtime.create(owner,{...request,requestId:randomUUID()});
+  const second=V1JournalFeedSchema.parse((await get(base+'/current?'+new URLSearchParams(first.nextCursor!).toString())).json());
+  expect(second.items).toHaveLength(1);expect(second.nextCursor).toBeNull();
+  expect(new Set([...first.items,...second.items].map(r=>r.predictionId)).size).toBe(51);
+  expect((await sql`SELECT 1 FROM v1_journal_reports`.execute(database.db)).rows).toHaveLength(0);
+},60000);
 beforeEach(async()=>{
   database=await testDatabase();const input=await seedPredictionScenario(database.db),password=randomBytes(24).toString('base64url');
   owner=(await new AuthService(database.db).provision('synthetic-journal-owner',password)).id;

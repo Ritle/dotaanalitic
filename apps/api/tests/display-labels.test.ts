@@ -16,3 +16,12 @@ test('display response permits blank names but never claims historical identity 
  expect(DisplayLabelsSchema.parse(response)).toEqual(response);
  expect(DisplayLabelsSchema.safeParse({...response,knownAt:response.readAt}).success).toBe(false);
 });
+
+test('optional hero labels cover bounded picks and bans while retaining the legacy response shape',()=>{
+ const heroes=Array.from({length:50},(_,i)=>String(i+1));
+ expect(DisplayLabelsQuerySchema.parse({heroes:heroes.join(',')})).toEqual({teams:[],players:[],heroes});
+ for(const value of [Array(51).fill('1').join(','),'0','1,','9223372036854775808'])expect(DisplayLabelsQuerySchema.safeParse({heroes:value}).success).toBe(false);
+ const response={source:'local_catalogue',readAt:'2026-11-11T00:00:00.000Z',teams:[],players:[]};
+ expect(DisplayLabelsSchema.parse(response)).toEqual(response);
+ expect(DisplayLabelsSchema.parse({...response,heroes:[{id:'1',name:''}]}).heroes).toEqual([{id:'1',name:''}]);
+});

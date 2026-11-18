@@ -13,6 +13,7 @@ import { OpenDotaClient, IngestionService } from '../../ingestion/src/index.js';
 import {V1JournalRepository} from '../src/v1-journal-repository.js';
 import {buildV1JournalV3} from '../src/v1-journal-v3.js';
 import {V1TargetLifecycleRepository} from '../src/v1-target-lifecycle.js';
+import {readV1JournalFeed} from '../src/journal/feed.js';
 let database: Awaited<ReturnType<typeof testDatabase>>, owner:string, prediction:Awaited<ReturnType<V1RuntimeRepository['create']>>;
 let repo:V1ForecastOutcomeRepository, requestId:string, payload:Record<string,unknown>, seriesId:string;
 let recalculation:Awaited<ReturnType<V1RuntimeRepository['create']>>,emptyReport:Awaited<ReturnType<V1JournalRepository['create']>>;
@@ -68,6 +69,13 @@ beforeAll(async()=>{
 },60000);
 afterAll(async()=>{vi.restoreAllMocks();await database?.close();},30000);
 
+it('lists issued probabilities immediately as awaiting result without creating a report',async()=>{
+  const feed=await readV1JournalFeed(database.db,owner);
+  expect(feed.items).toHaveLength(2);
+  expect(feed.items.find(r=>r.predictionId===prediction.id)).toMatchObject({probability:.61,status:'pending_verification',actualWinner:null});
+  expect(feed.items.find(r=>r.predictionId===recalculation.id)).toMatchObject({probability:.1,status:'pending_verification',actualWinner:null});
+  expect((await sql`SELECT 1 FROM v1_journal_reports`.execute(database.db)).rows).toHaveLength(1);
+});
 it('keeps an unproved map number unlinked and never assumes first observed map is map1',async()=>{
   const result=await refresh(); expect(result.result.status).toBe('unlinked');
   expect(result.result.reasons).toContain('TARGET_MAP_NUMBER_UNVERIFIED'); expect(result.result.outcome).toBeNull();
@@ -81,6 +89,7 @@ it('links verified pro outcome with original probability; missing roster remains
   await sql`UPDATE match_players SET player_id=NULL WHERE match_id=${matchId}`.execute(database.db);
   const r=await refresh(); expect(r.result).toMatchObject({status:'linked',prospectiveEligible:true,rosterStatus:'unknown',teamASide:'radiant',outcome:{teamAWon:true}});
   expect((await new V1RuntimeRepository(database.db).get(owner,requestId))?.sha256).toBe(prediction.sha256);
+  expect((await readV1JournalFeed(database.db,owner)).items.find(r=>r.predictionId===prediction.id)).toMatchObject({status:'eligible',actualWinner:'A',sourceChangedSinceRefresh:false});
 });
 it('retains mismatched lineups in eligible end-to-end forecasts and recognizes matching sets',async()=>{
   await sql`UPDATE match_players SET player_id=CASE WHEN side='radiant' THEN player_slot+101 ELSE player_slot-22 END WHERE match_id=${matchId}`.execute(database.db);
@@ -113,7 +122,9 @@ it('creates a correction revision from new provider proof, preserving prior labe
   await sql`UPDATE matches SET radiant_win=false,data_revision=data_revision+1 WHERE id=${matchId}`.execute(database.db);
   await sql`UPDATE match_players SET player_id=NULL WHERE match_id=${matchId}`.execute(database.db);
   await ingest();
+  expect((await readV1JournalFeed(database.db,owner)).items.find(r=>r.predictionId===prediction.id)).toMatchObject({sourceChangedSinceRefresh:true});
   const r=await refresh(); expect(r.revision).toBe(old.length+1); expect(r.result.outcome?.teamAWon).toBe(false);
+  expect((await readV1JournalFeed(database.db,owner)).items.find(r=>r.predictionId===prediction.id)).toMatchObject({status:'eligible',actualWinner:'B',sourceChangedSinceRefresh:false});
   const history=await repo.history(owner,requestId); expect(history.slice(0,old.length)).toEqual(old);
   expect((await new V1RuntimeRepository(database.db).get(owner,requestId))?.sha256).toBe(prediction.sha256);
 });
@@ -215,5 +226,7 @@ it('manual cancellation cannot hide a losing verified map, even after a later so
   await sql`UPDATE matches SET duration_seconds=2,data_revision=data_revision+1 WHERE id=${matchId}`.execute(database.db);
   const b=await journal.create(owner,{requestId:randomUUID(),filters:{}});
   expect(b.report.summary.counts.cancelled).toBe(0);expect(b.report.summary.counts.unlinked).toBeGreaterThan(0);
+  const feed=(await readV1JournalFeed(database.db,owner)).items.find(r=>r.predictionId===prediction.id)!;
+  expect(feed.status).not.toBe('cancelled');expect(feed.sourceChangedSinceRefresh).toBe(true);
   expect(await journal.get(owner,a.report.request.requestId)).toEqual(a);
 });

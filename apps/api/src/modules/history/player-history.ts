@@ -1,14 +1,33 @@
 import type {FastifyInstance} from 'fastify';
 import {z} from 'zod';
-import {PlayerHistoryRepository,PlayerHistoryResumeError,historyResumeScope,playerHistoryKey,playerHistoryRun,type Db} from '@dota/db';
+import {PlayerHistoryRepository,PlayerHistoryResumeError,historyResumeScope,playerHistoryKey,playerHistoryRun,sql,type Db} from '@dota/db';
 import {SelectedPlayerHistoryRequestSchema,PlayerHistoryResumeRequestSchema,PlayerHistoryResponseSchema,PlayerHistoryOptionsSchema,type PlayerHistoryOptions} from '@dota/contracts';
-import {createPlayerHistoryQueue,enqueuePlayerHistory,enqueuePlayerHistoryResume,PLAYER_HISTORY_QUEUE,PlayerHistoryOptionsConflict} from '@dota/ingestion';
+import {createPlayerHistoryQueue,enqueuePlayerHistory,enqueuePlayerHistoryResume,PLAYER_HISTORY_QUEUE,PlayerHistoryOptionsConflict,executePlayerHistory,livePlayerHistoryProvider,type PlayerHistoryProvider} from '@dota/ingestion';
+export const AUTOMATIC_HISTORY_PRIORITY=100;
 export class PlayerHistoryService{
  private readonly repo:PlayerHistoryRepository;
  private queue:ReturnType<typeof createPlayerHistoryQueue>|undefined;
- constructor(db:Db,private readonly connection:string){this.repo=new PlayerHistoryRepository(db);}
+ private automaticWorker:Promise<string>|undefined;
+ constructor(private readonly db:Db,private readonly connection:string,private readonly automaticProvider?:(signal:AbortSignal)=>PlayerHistoryProvider){this.repo=new PlayerHistoryRepository(db);}
  private boss(){return this.queue??=createPlayerHistoryQueue(this.connection).catch(e=>{this.queue=undefined;throw e;});}
  async close(){await (await this.queue)?.stop({graceful:true,timeout:10000});}
+ async processSelected(owner:string,runId:string,promote:boolean){
+  const row=await this.repo.get(runId);if(!row||row.owner_user_id!==owner||!['queued','running'].includes(row.status))return;
+  const actor=(await sql<{ok:boolean}>`SELECT (is_active AND account_role='owner') ok FROM app_users WHERE id=${owner}::uuid`.execute(this.db)).rows[0];if(!actor?.ok)return;
+  const boss=await this.boss(),job=await boss.getJobById(PLAYER_HISTORY_QUEUE,runId);if(!job)return;
+  let selected=job.priority===AUTOMATIC_HISTORY_PRIORITY;
+  if(promote&&['created','retry'].includes(job.state)){const updated=await boss.update(PLAYER_HISTORY_QUEUE,undefined,{id:runId,priority:AUTOMATIC_HISTORY_PRIORITY});selected=selected||updated.updated===1;}
+  if(!selected)return;
+  this.automaticWorker??=boss.work<unknown>(PLAYER_HISTORY_QUEUE,{batchSize:1,pollingIntervalSeconds:1,minPriority:AUTOMATIC_HISTORY_PRIORITY,maxPriority:AUTOMATIC_HISTORY_PRIORITY},async jobs=>{
+   const item=jobs[0]!,input=z.object({runId:z.uuid()}).strict().parse(item.data);if(input.runId!==item.id)throw Error('automatic_history_job_mismatch');
+   const current=await this.repo.get(input.runId);if(!current)return;
+   const allowed=(await sql<{ok:boolean}>`SELECT (is_active AND account_role='owner') ok FROM app_users WHERE id=${current.owner_user_id}::uuid`.execute(this.db)).rows[0];
+   if(!allowed?.ok){await this.repo.abandoned(input.runId);return;}
+   const provider=this.automaticProvider?.(item.signal)??livePlayerHistoryProvider(this.db,process.env,item.signal);
+   await executePlayerHistory(this.db,input.runId,item.retryCount+1,provider,item.signal);
+  }).catch(e=>{this.automaticWorker=undefined;throw e;});
+  await this.automaticWorker;
+ }
  async resume(owner:string,runId:string){
   const row=await this.repo.get(runId);if(!row||row.owner_user_id!==owner)throw new PlayerHistoryResumeError('resume_source_unavailable');
   await enqueuePlayerHistoryResume(await this.boss(),this.repo.db,owner,runId);

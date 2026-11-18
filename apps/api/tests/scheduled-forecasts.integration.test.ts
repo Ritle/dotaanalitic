@@ -1,8 +1,9 @@
+import {UnclassifiedScheduledRuntimeRepository} from '../src/modules/upcoming/unclassified-scheduled-runtime.js';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {beforeEach,afterEach,expect,test,vi} from 'vitest';
 import type {FastifyInstance} from 'fastify';
 import {V1ScheduledPredictionViewSchema,V1PredictionHistorySchema} from '@dota/contracts';
-import {ScenarioRepository,V1ScheduleTargetRepository,V1PredictionService,PageScheduledRuntimeRepository,sql} from '@dota/db';
+import {ScenarioRepository,V1ScheduleTargetRepository,V1PredictionService,sql} from '@dota/db';
 import {testDatabase} from '../../../tests/helpers/postgres.js';
 import {seedPredictionScenario} from '../../../tests/helpers/predictions.js';
 import {publishTargetSchedule,syntheticTargetMatch} from '../../../tests/helpers/schedule-target.js';
@@ -39,7 +40,7 @@ test('protects owner/session/CSRF/origin and rejects control of purpose, model a
 test('saves a bounded real-map projection and exact retry after scenario and schedule changes',async()=>{
   const r=body(),response=await post(r);expect(response.statusCode).toBe(200);expect(response.headers['cache-control']).toBe('no-store');
   const saved=V1ScheduledPredictionViewSchema.parse(response.json());expect(saved).toMatchObject({purpose:'real_map',status:'unavailable',teamAWinProbability:null,target:{providerMatchId:match.providerMatchId}});
-  expect(saved.reasons).toContain('NO_ACTIVE_MODEL');expect(response.body).not.toMatch(/source_payload|barrels|code\/|sourceAccountId|ownerId/);
+  expect(saved.reasons).toContain('NO_ACTIVE_MODEL');expect(saved.reasons).not.toContain('TIER1_SCOPE_NOT_REVIEWED');expect(saved.warnings).toContain('TOURNAMENT_TIER_UNVERIFIED');expect(response.body).not.toMatch(/source_payload|barrels|code\/|sourceAccountId|ownerId/);
   const scenarios=new ScenarioRepository(database.db),s=await scenarios.get(owner,id);
   await scenarios.save(owner,{...s.input,title:'Synthetic edited after calculation'},{id,expectedRevision:1});await publishTargetSchedule(database.db,[{...match,status:'running'}]);
   expect((await post(r)).json()).toEqual(saved);expect((await get(path()+'/'+r.requestId)).json()).toEqual(saved);
@@ -78,9 +79,9 @@ test('pages immutable history, validates read boundaries and hides other targets
   await expect(service.scheduledHistory(randomUUID(),target.record.request.requestId,0)).rejects.toThrow('NOT_FOUND');
 },30000);
 test('shares bounded calculation admission with the existing what-if endpoint',async()=>{
-  const original=PageScheduledRuntimeRepository.prototype.create;let release!:()=>void,entered!:()=>void;
+  const original=UnclassifiedScheduledRuntimeRepository.prototype.create;let release!:()=>void,entered!:()=>void;
   const inside=new Promise<void>(r=>{entered=r;}),wait=new Promise<void>(r=>{release=r;});
-  vi.spyOn(PageScheduledRuntimeRepository.prototype,'create').mockImplementation(async function(this:PageScheduledRuntimeRepository,...args){entered();await wait;return original.apply(this,args);});
+  vi.spyOn(UnclassifiedScheduledRuntimeRepository.prototype,'create').mockImplementation(async function(this:UnclassifiedScheduledRuntimeRepository,...args){entered();await wait;return original.apply(this,args);});
   const pending=post();await inside;
   try{
     const blocked=await Promise.race([app.inject({method:'POST',url:`/api/v1/scenarios/${id}/predictions`,headers:headers(),payload:{requestId:randomUUID(),expectedRevision:1,purpose:'what_if_single_map',targetScope:null}}),

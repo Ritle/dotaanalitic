@@ -14,7 +14,7 @@ export function syntheticPlayerHistory(options:{onCall?:(name:string)=>void;gate
  }});
  return {discover:async(accounts,_cutoff,_options,page)=>{options.onCall?.('discover');await options.gate;
   const ids=Array.from({length:options.maps??2},(_,i)=>String(99000000+(options.maps??2)-i));
-  const rows=options.mode==='empty'?[]:accounts.flatMap(account=>ids.filter(id=>!page?.cursors[account]||BigInt(id)<BigInt(page.cursors[account]!.matchId)).slice(0,page?.limit??10).map(id=>({...summary(id),account_id:account,tier:'professional',player_slot:Number(account)-1001}))),data={rows,err:null},rawBody=JSON.stringify(data);
+  const rows=options.mode==='empty'?[]:accounts.filter(account=>Number(account)>=1001&&Number(account)<=1010).flatMap(account=>ids.filter(id=>!page?.cursors[account]||BigInt(id)<BigInt(page.cursors[account]!.matchId)).slice(0,page?.limit??10).map(id=>({...summary(id),account_id:account,tier:'professional',player_slot:Number(account)<1006?Number(account)-1001:128+Number(account)-1006}))),data={rows,err:null},rawBody=JSON.stringify(data);
   return {data,rawBody,source:{provider:'opendota',endpoint:'/explorer',adapterVersion:'synthetic-player-history-test',fetchedAt:new Date().toISOString(),knownAt:null,payloadSha256:createHash('sha256').update(rawBody).digest('hex'),attempts:1,rateLimitRemaining:{minute:null,day:null,month:null}}};},
   ...(options.enrichment?{getProPlayers:()=>client.getProPlayers()}:{}),getHeroes:()=>client.getHeroes(),getLeagues:()=>client.getLeagues(),getMatchSource:id=>client.getMatchSource(id)};
 }

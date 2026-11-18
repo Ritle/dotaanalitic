@@ -1,4 +1,5 @@
 import {ScheduleCacheRepository,SchedulePageRepository,PandaScoreQuotaRepository,type Db} from '@dota/db';
+import type {LiveScheduleService} from '../live/service.js';
 import {PandaScoreClient,PandaScoreError,type PandaScoreBudget} from '@dota/ingestion';
 import {ScheduleCacheDataSchema,RostersCacheDataSchema,UpcomingScheduleResponseSchema,UpcomingRostersResponseSchema,
   SchedulePageNumberSchema,SchedulePageCacheDataSchema,SchedulePageResponseSchema,schedulePageEndpoint,
@@ -17,7 +18,7 @@ export class DurablePandaScoreBudget implements PandaScoreBudget{
 }
 export class UpcomingService{
   private readonly cache:ScheduleCacheRepository;private readonly quota:PandaScoreQuotaRepository;private readonly pages:SchedulePageRepository;
-  constructor(db:Db,private readonly token?:string,private readonly fetcher?:(url:URL,init:RequestInit)=>Promise<Response>){
+  constructor(db:Db,private readonly token?:string,private readonly fetcher?:(url:URL,init:RequestInit)=>Promise<Response>,private readonly live?:Pick<LiveScheduleService,'read'>){
     this.cache=new ScheduleCacheRepository(db);this.quota=new PandaScoreQuotaRepository(db);this.pages=new SchedulePageRepository(db);
   }
   schedule(refresh=false,page=1):Promise<SchedulePageResponse>{
@@ -32,6 +33,8 @@ export class UpcomingService{
   private async cachedSchedules(){
     const first=await this.schedule(),rows=await this.pages.cached();
     const pages=[...(first.snapshot?[first.snapshot]:[]),...rows.flatMap(r=>{const data=this.validPage(r.payload,r.page,r.now);return data?[data]:[];})];
+    // Roster lookup only: Live never enters the upcoming cache or schedule-target admission.
+    const live=await this.live?.read(false);if(live?.status==='ready'&&live.snapshot)pages.push(live.snapshot);
     return pages.sort((a,b)=>b.source.fetchedAt.localeCompare(a.source.fetchedAt));
   }
   async findMatch(id:string){return (await this.cachedSchedules()).flatMap(p=>p.data).find(m=>m.providerMatchId===id);}

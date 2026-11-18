@@ -14,7 +14,7 @@ export class RosterCatalogueService{
  /** Shared cached registry refresh for descriptive cards; no match or identity writes. */
  async refreshRegistry(){return this.source('registry');}
  private async context(matchId:string){const match=await this.upcoming.findMatch(matchId);
-  if(!match||match.opponents.length!==2||match.status!=='not_started'||match.scheduledAt!==null&&match.scheduledAt<=new Date().toISOString())throw new RosterCatalogueError('invalid');
+  if(!match||match.opponents.length!==2||!['not_started','running'].includes(match.status)||match.status==='not_started'&&match.scheduledAt!==null&&match.scheduledAt<=new Date().toISOString())throw new RosterCatalogueError('invalid');
   const rosters=await this.upcoming.tournament(match.tournament.providerTournamentId);return {match,rosters};
  }
  async state(owner:string,matchId:string){const {match,rosters}=await this.context(matchId);
