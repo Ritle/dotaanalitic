@@ -1,3 +1,8 @@
+* text=auto eol=lf
+
+# Existing executable freezes pin this manifest with CRLF bytes.
+packages/contracts/package.json text eol=crlf
+
 packages/db/migrations/*.sql text eol=lf
 docs/evidence/*.json text eol=lf
 reports/s1-07-valve-source-*.json text eol=lf

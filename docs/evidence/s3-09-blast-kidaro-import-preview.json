@@ -1,0 +1,246 @@
+{
+  "status": "completed",
+  "checkedAt": "2026-11-19T20:46:59.256Z",
+  "imported": [
+    {
+      "matchId": "9084351361",
+      "status": "accepted"
+    },
+    {
+      "matchId": "9084474528",
+      "status": "accepted"
+    },
+    {
+      "matchId": "9084572091",
+      "status": "accepted"
+    },
+    {
+      "matchId": "9086164367",
+      "status": "accepted"
+    },
+    {
+      "matchId": "9086220626",
+      "status": "accepted"
+    }
+  ],
+  "sourceSeriesCreated": 2,
+  "eligible": [
+    {
+      "matchId": "9084351361",
+      "selected": true,
+      "seriesKey": "opendota:1166783",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9084474528",
+      "selected": true,
+      "seriesKey": "opendota:1166783",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9084572091",
+      "selected": true,
+      "seriesKey": "opendota:1166783",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9086164367",
+      "selected": true,
+      "seriesKey": "opendota:1167282",
+      "dataEligible": true,
+      "reasons": []
+    },
+    {
+      "matchId": "9086220626",
+      "selected": true,
+      "seriesKey": "opendota:1167282",
+      "dataEligible": true,
+      "reasons": []
+    }
+  ],
+  "eligibleKidaroHistoryMaps": 7,
+  "eligibleNewKidaroMaps": 5,
+  "sourceHistoryMaps": 2216,
+  "historyFingerprint": "36ce9d2f622e1c13e911c16fc260d98ebc3b13dea94bdb2457c62bdeb85ca7a2",
+  "duplicateReplayCount": 5,
+  "workingCurrentMapsBefore": 2285,
+  "format": "s3-09-kidaro-isolated-import-preview-v1",
+  "selectedMapIds": [
+    "9084351361",
+    "9084474528",
+    "9084572091",
+    "9086164367",
+    "9086220626"
+  ],
+  "candidateAudit": {
+    "path": "docs/evidence/s3-09-blast-kidaro-history-candidates.json",
+    "sha256": "ddac2a93da63d1980903e3fa525c17c8d58c097f8150bdd17b9f4f2ccba2ac6b"
+  },
+  "capturedDetailsSha256": "ad2621b1cf55f52f7fa1793eae012a991743d3221e2571bcd5944d206e1b8844",
+  "discoverySource": {
+    "fetchedAt": "2026-11-19T20:44:00.263Z",
+    "payloadSha256": "065ba5a79f7491cfcee8b0b7d5e067574ef220299a0076b666e53490f4203834",
+    "returned": 5
+  },
+  "openDotaDetails": [
+    {
+      "matchId": "9086220626",
+      "sourceEligible": true,
+      "sourceReasons": [],
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/9086220626",
+        "fetchedAt": "2026-11-19T20:44:03.946Z",
+        "knownAt": null,
+        "payloadSha256": "137cb5e0ac4659755bbb7495d11033f89183542f89a0c9b51c48ab93ceb35d6e",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 57,
+          "day": 2977,
+          "month": null
+        }
+      },
+      "providerSeriesId": "1167282",
+      "providerSeriesType": 1,
+      "accountsObserved": 10,
+      "confirmedAccounts": 10,
+      "canonicalSeriesCandidates": 0,
+      "localLeagueKnown": true
+    },
+    {
+      "matchId": "9086164367",
+      "sourceEligible": true,
+      "sourceReasons": [],
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/9086164367",
+        "fetchedAt": "2026-11-19T20:44:06.279Z",
+        "knownAt": null,
+        "payloadSha256": "4bf29ae4ecde730601011508e569ce85a5d2228215e60da6c57e347ffdffb979",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 56,
+          "day": 2976,
+          "month": null
+        }
+      },
+      "providerSeriesId": "1167282",
+      "providerSeriesType": 1,
+      "accountsObserved": 10,
+      "confirmedAccounts": 10,
+      "canonicalSeriesCandidates": 0,
+      "localLeagueKnown": true
+    },
+    {
+      "matchId": "9084572091",
+      "sourceEligible": true,
+      "sourceReasons": [],
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/9084572091",
+        "fetchedAt": "2026-11-19T20:44:06.808Z",
+        "knownAt": null,
+        "payloadSha256": "6731b2ed56e8002bcbae3e79b7a9545b860fe0ba76cd963109891faf9deceb2f",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 55,
+          "day": 2975,
+          "month": null
+        }
+      },
+      "providerSeriesId": "1166783",
+      "providerSeriesType": 1,
+      "accountsObserved": 10,
+      "confirmedAccounts": 10,
+      "canonicalSeriesCandidates": 0,
+      "localLeagueKnown": true
+    },
+    {
+      "matchId": "9084474528",
+      "sourceEligible": true,
+      "sourceReasons": [],
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/9084474528",
+        "fetchedAt": "2026-11-19T20:44:07.944Z",
+        "knownAt": null,
+        "payloadSha256": "6ede617046983427a61f05a178268e926f7ca1979bb1595266385978a3b17ff1",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 54,
+          "day": 2974,
+          "month": null
+        }
+      },
+      "providerSeriesId": "1166783",
+      "providerSeriesType": 1,
+      "accountsObserved": 10,
+      "confirmedAccounts": 10,
+      "canonicalSeriesCandidates": 0,
+      "localLeagueKnown": true
+    },
+    {
+      "matchId": "9084351361",
+      "sourceEligible": true,
+      "sourceReasons": [],
+      "source": {
+        "provider": "opendota",
+        "adapterVersion": "opendota-provider-v2",
+        "endpoint": "/matches/9084351361",
+        "fetchedAt": "2026-11-19T20:44:10.179Z",
+        "knownAt": null,
+        "payloadSha256": "b05ce67360f3db5697a1750ef1b1fcf9bc1bdf85b627d0e4204197e5336bea0a",
+        "attempts": 1,
+        "rateLimitRemaining": {
+          "minute": 53,
+          "day": 2973,
+          "month": null
+        }
+      },
+      "providerSeriesId": "1166783",
+      "providerSeriesType": 1,
+      "accountsObserved": 10,
+      "confirmedAccounts": 10,
+      "canonicalSeriesCandidates": 0,
+      "localLeagueKnown": true
+    }
+  ],
+  "valveMembership": {
+    "provider": "valve",
+    "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=20486&delay_seconds=0",
+    "fetchedAt": "2026-11-19T20:45:04.982Z",
+    "payloadSha256": "d7b662d311c39ed094e52cc7a1286fe1375b0eb025d333635c0edd3327a3a502",
+    "series": [
+      {
+        "seriesId": "1166783",
+        "bestOf": 3,
+        "mapIds": [
+          "9084351361",
+          "9084474528",
+          "9084572091"
+        ],
+        "completeMapListCaptured": true
+      },
+      {
+        "seriesId": "1167282",
+        "bestOf": 3,
+        "mapIds": [
+          "9086164367",
+          "9086220626"
+        ],
+        "completeMapListCaptured": true
+      }
+    ]
+  },
+  "isolatedDatabaseDropped": true,
+  "workingDatabaseWrites": 0,
+  "forecastScoresComputed": 0,
+  "registrationAllowed": false
+}

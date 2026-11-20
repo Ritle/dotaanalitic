@@ -1,0 +1,195 @@
+{
+  "task": "S3-04",
+  "basis": "archived_final_picks_reentered_at_current_clock_isolated_copy",
+  "mapId": "9084351361",
+  "teams": [
+    "PlayTime",
+    "Xipto"
+  ],
+  "event": "1win Essence III",
+  "startedAt": "2026-11-10T13:49:11.000Z",
+  "storedSources": [
+    {
+      "path": ".tools/s304-kidaro-prior-details.json",
+      "sha256": "3f23d502ea8b6d108b8845cfcd7004734ba4615ed19dc98d4eb0279cc80a5092"
+    },
+    {
+      "path": ".tools/s304-kidaro-prior-series.json",
+      "sha256": "056cd0d8ff34ed63c4fcfffb46136155ff0bb4194c70cc2933774b5bb17d262c"
+    }
+  ],
+  "discovery": {
+    "fetchedAt": "2026-11-19T22:51:13.241Z",
+    "payloadSha256": "7eb34ea2a35eac94e72ffa6360fd707eae6619d69c69977120d3589d97c02f66",
+    "returned": 5
+  },
+  "sourceDetails": [
+    {
+      "matchId": "9082081542",
+      "endpoint": "/matches/9082081542",
+      "payloadSha256": "0da1a7f7b5dbff4c86253086ae588abe805569d67be0ee198843716148935064",
+      "fetchedAt": "2026-11-19T22:51:13.937Z",
+      "knownAt": null,
+      "sourceEligible": true,
+      "providerSeriesId": "1166017"
+    },
+    {
+      "matchId": "9081944953",
+      "endpoint": "/matches/9081944953",
+      "payloadSha256": "0eba7e51153094841c5b8899f4bc0a83d74980b1d94b9661e63b7ca0d999cdbb",
+      "fetchedAt": "2026-11-19T22:51:15.278Z",
+      "knownAt": null,
+      "sourceEligible": true,
+      "providerSeriesId": "1166017"
+    },
+    {
+      "matchId": "9080891303",
+      "endpoint": "/matches/9080891303",
+      "payloadSha256": "8e62042852f98cdac6ac82765e414f803ee133f375714def68d7a3082fc8d214",
+      "fetchedAt": "2026-11-19T22:51:16.797Z",
+      "knownAt": null,
+      "sourceEligible": true,
+      "providerSeriesId": null
+    },
+    {
+      "matchId": "9080827908",
+      "endpoint": "/matches/9080827908",
+      "payloadSha256": "fa75ef0c46b325c04e84eafe6d894b0ff335c0035bf5eef0cb54e67eac708f5c",
+      "fetchedAt": "2026-11-19T22:51:20.799Z",
+      "knownAt": null,
+      "sourceEligible": true,
+      "providerSeriesId": "1165646"
+    },
+    {
+      "matchId": "9080751906",
+      "endpoint": "/matches/9080751906",
+      "payloadSha256": "736883c41467d170f34322611a840e6faf2d6c60a927f2826e0f40d27e40cd54",
+      "fetchedAt": "2026-11-19T22:51:26.269Z",
+      "knownAt": null,
+      "sourceEligible": true,
+      "providerSeriesId": "1165646"
+    }
+  ],
+  "membership": {
+    "provider": "valve",
+    "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=20486&delay_seconds=0",
+    "fetchedAt": "2026-11-19T22:52:42.915Z",
+    "payloadSha256": "d7b662d311c39ed094e52cc7a1286fe1375b0eb025d333635c0edd3327a3a502",
+    "series": [
+      {
+        "seriesId": "1166017",
+        "bestOf": 3,
+        "mapIds": [
+          "9081944953",
+          "9082081542"
+        ],
+        "completeMapListCaptured": true,
+        "missingNativeIds": [],
+        "ready": true
+      },
+      {
+        "seriesId": "1165646",
+        "bestOf": 3,
+        "mapIds": [
+          "9080751906",
+          "9080827908",
+          "9080891303"
+        ],
+        "completeMapListCaptured": true,
+        "missingNativeIds": [
+          "9080891303"
+        ],
+        "ready": false
+      }
+    ]
+  },
+  "minimumEloMaps": 5,
+  "trials": [
+    {
+      "source": {
+        "path": ".tools/s304-manual-replay-result.json",
+        "sha256": "6ddf48423b9ce5aa44313240f877931c8190f5999e082ee9cf63eefdb8051663"
+      },
+      "cutoff": "2026-11-19T22:48:45.681189Z",
+      "importedInCopy": [],
+      "compactMaps": 2290,
+      "verifiedOutcomes": 2273,
+      "captureReasons": [
+        "DRAFT_MAP_REFERENCE_MISSING",
+        "DRAFT_CAPTURE_HISTORY_LIMIT",
+        "LOCAL_HISTORY_UNAVAILABLE",
+        "PLAYER_PRO_HISTORY_MISSING"
+      ],
+      "featureStatus": "unavailable",
+      "featureReasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "eloCoverage": {
+        "nRaw": 2220,
+        "nEff": 2220,
+        "minimumPlayerMaps": 4,
+        "playersWithHistory": 10,
+        "playersMeetingMinimum": 9,
+        "excludedMaps": 70
+      },
+      "heroPracticeStatus": "computed_research_only",
+      "earlierKidaroMapsByCompletionTime": 2,
+      "archiveSeriesMapsExcluded": 3,
+      "shadowReasons": [
+        "INSUFFICIENT_PLAYER_HISTORY",
+        "SHADOW_CANDIDATE_UNAVAILABLE"
+      ],
+      "committed": true,
+      "duplicateReplayStable": true,
+      "teamAWinProbability": null
+    },
+    {
+      "source": {
+        "path": ".tools/s304-manual-replay-enriched.json",
+        "sha256": "31c9ffd43a0b0962dcc8c26621db524bf756f2c9aa7b9e25a2e17cac8ea5ac71"
+      },
+      "cutoff": "2026-11-19T22:53:39.098513Z",
+      "importedInCopy": [
+        "9081944953",
+        "9082081542"
+      ],
+      "compactMaps": 2292,
+      "verifiedOutcomes": 2275,
+      "captureReasons": [
+        "DRAFT_MAP_REFERENCE_MISSING",
+        "DRAFT_CAPTURE_HISTORY_LIMIT",
+        "LOCAL_HISTORY_UNAVAILABLE"
+      ],
+      "featureStatus": "ready_offline_features",
+      "featureReasons": [],
+      "eloCoverage": {
+        "nRaw": 2222,
+        "nEff": 2222,
+        "minimumPlayerMaps": 6,
+        "playersWithHistory": 10,
+        "playersMeetingMinimum": 10,
+        "excludedMaps": 70
+      },
+      "heroPracticeStatus": "computed_research_only",
+      "earlierKidaroMapsByCompletionTime": 4,
+      "archiveSeriesMapsExcluded": 3,
+      "shadowReasons": [
+        "SHADOW_CANDIDATE_UNAVAILABLE"
+      ],
+      "committed": true,
+      "duplicateReplayStable": true,
+      "teamAWinProbability": null
+    }
+  ],
+  "workingCounts": {
+    "maps": 2290,
+    "scenarios": 12,
+    "captures": 0,
+    "shadows": 0,
+    "predictions": 12
+  },
+  "historicalLabelEvaluated": false,
+  "historicalAvailabilityEstablished": false,
+  "probabilityPublished": false,
+  "workingMapsImported": 0
+}

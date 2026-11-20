@@ -1,0 +1,48 @@
+{
+  "format": "wallachia-prior-map-discovery-v1",
+  "receipts": [
+    {
+      "path": ".tools/s309-wallachia-prior-0.json",
+      "sha256": "7e6c1f4c0817cb15006e8e379544522f4356dceb0a7b59f6f9a00f92cafa243a",
+      "fetchedAt": "2026-11-20T01:41:50.071Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-20.json",
+      "sha256": "a37bc2fa2ac6eba8f851682ef3e3731fea2ceff065fdbe9d3848e79442f22835",
+      "fetchedAt": "2026-11-20T01:41:58.976Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-40.json",
+      "sha256": "b8ebd93637d81f0b44ce8933cb4ae52c906ce31b3c16a32dbb799e04c1d1ff5c",
+      "fetchedAt": "2026-11-20T01:42:06.203Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-60.json",
+      "sha256": "7dbf3571779acbac35010dd88eb18b1cf510b150ca5bbf26884c2ffe2da7170c",
+      "fetchedAt": "2026-11-20T01:42:12.327Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-80.json",
+      "sha256": "4b91163b691f47edbe5376386e438c5dec4cd45775826f76faf3b920f2f911cc",
+      "fetchedAt": "2026-11-20T01:42:20.379Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-100.json",
+      "sha256": "0c68dcb97586ef379d563c790eb5bc1c5779569fc4b4a3dcc75e070ca3457a02",
+      "fetchedAt": "2026-11-20T01:42:26.036Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-120.json",
+      "sha256": "b9967843659c7142bed7b6e92d4892d0b6ae2a26496153ec5ce40209348e5dc5",
+      "fetchedAt": "2026-11-20T01:42:29.719Z"
+    }
+  ],
+  "uniqueAccounts": 122,
+  "accountsWithFive": 121,
+  "uniqueEarlierMapIds": 204,
+  "matchedSeries": 115,
+  "seriesWithFiveCandidatesPerAccount": 114,
+  "verifiedForElo": false,
+  "registered": false,
+  "scoredSeries": 0
+}

@@ -1,0 +1,173 @@
+{
+  "format": "wallachia-account-gaps-v1",
+  "endpoint": "/proPlayers",
+  "fetchedAt": "2026-11-20T02:16:28.479Z",
+  "payloadSha256": "7142c99e593c59d6c105d351d5e794ee8172730b0ec465c8b84879731bbf9698",
+  "gaps": [
+    {
+      "account": "103910993",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "1088839120",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 1,
+      "steamIdMatches": true,
+      "alias": "Abyss"
+    },
+    {
+      "account": "114619230",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "1149215088",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "124286163",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 1,
+      "steamIdMatches": true,
+      "alias": "Mary_y"
+    },
+    {
+      "account": "134276083",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "167291622",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "194979527",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 1,
+      "steamIdMatches": true,
+      "alias": "shigetsu"
+    },
+    {
+      "account": "196041577",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "197547532",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 1,
+      "steamIdMatches": true,
+      "alias": "Astral"
+    },
+    {
+      "account": "197849259",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 1,
+      "steamIdMatches": true,
+      "alias": "Mercy"
+    },
+    {
+      "account": "200573858",
+      "target": true,
+      "affectedTargets": [
+        "955802"
+      ],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "218062615",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "250547284",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 1,
+      "steamIdMatches": true,
+      "alias": "Ulu"
+    },
+    {
+      "account": "392006194",
+      "target": true,
+      "affectedTargets": [
+        "955802",
+        "956060",
+        "956489",
+        "956687"
+      ],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "401902808",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "439345730",
+      "target": true,
+      "affectedTargets": [
+        "955802",
+        "956060",
+        "956489",
+        "956687"
+      ],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    },
+    {
+      "account": "59463394",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 1,
+      "steamIdMatches": true,
+      "alias": "Leostyle^^!"
+    },
+    {
+      "account": "880868638",
+      "target": false,
+      "affectedTargets": [],
+      "registryRows": 0,
+      "steamIdMatches": false,
+      "alias": null
+    }
+  ],
+  "changedIdentities": 0
+}

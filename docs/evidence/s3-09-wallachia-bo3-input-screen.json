@@ -1,0 +1,1079 @@
+{
+  "format": "wallachia-bo3-input-screen-v1",
+  "inventoryAsOf": "2026-11-20T01:38:15.637Z",
+  "sources": [
+    {
+      "path": "docs/evidence/s3-09-bo3-scope-metadata.csv",
+      "sha256": "6d8a7e9691e36770fe4f0b137434d3c6d8707ab5243ac82fa3bf18e36ebf8b1f"
+    },
+    {
+      "path": ".tools/s304-dl30-exposure-ids-r2.json",
+      "sha256": "d59ce0535a1a522b7ba517d62bd85a6fa7059b6d6a465359892718ba7c46b8d7"
+    },
+    {
+      "path": "docs/evidence/s3-09-series-exposure-review-r3.json",
+      "sha256": "86cee1b6ad83ab110f7f0bd4f3f4b898ff92057303601e4b5a424219d52a7b18"
+    },
+    {
+      "path": ".tools/s309-wallachia-local-inventory-r1.json",
+      "sha256": "6959b6e2bac60e3ec471b87ed65c36b1bba1e1d61bb445d4aa88d5d3fe0a6de8"
+    },
+    {
+      "path": ".tools/s309-wallachia-valve-17891.json",
+      "sha256": "fd114f91d250dc783ecac84246d66b95d07f3f93b9f26e191a590640f8fb1f35"
+    },
+    {
+      "path": ".tools/s309-wallachia-opendota-17891.json",
+      "sha256": "fab12d80e88e6a81a1715a3a839e534678b4d05c19f6f4a64f61ec8e4f3b310a"
+    },
+    {
+      "path": ".tools/s309-wallachia-valve-18058.json",
+      "sha256": "dbc6e76ee9a1e4ea839ced8f25f7c4311434296b958d43d3d954d1393dfc365f"
+    },
+    {
+      "path": ".tools/s309-wallachia-opendota-18058.json",
+      "sha256": "2ec1e703d6e9a81a1bd2ddb66bfde288d3cb8dc7ba25e0a1c7e4344c30a7f393"
+    },
+    {
+      "path": ".tools/s309-wallachia-valve-18358.json",
+      "sha256": "4ad9b51b42fbeaf1f89035b4385d1f9a06206452ffed4a65cd617d4419cca282"
+    },
+    {
+      "path": ".tools/s309-wallachia-opendota-18358.json",
+      "sha256": "67b08c9a5b2b8b91c219aecea7124d3d808633fdee60a5b23facf35e90c5930f"
+    }
+  ],
+  "editions": [
+    {
+      "edition": "17891",
+      "openDotaBO3": 47,
+      "valveBO3": 47,
+      "union": 47,
+      "exposed": 7,
+      "matchedUnexposed": 37,
+      "tenObserved": 37,
+      "localHistoryReady": 7,
+      "rows": [
+        {
+          "seriesId": "955788",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8205206446",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "955790",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8205211360",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "955802",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8205340482",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "955804",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8205361261",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "955820",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8205465591",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "955841",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8205590613",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "955857",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8205685679",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "955888",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8205825844",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956060",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8206721926",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956061",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8206726486",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "956092",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8206894484",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956134",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8207070503",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956169",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8207227338",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956212",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8207408904",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956250",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8207545681",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956306",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8207663027",
+          "minEarlierMaps": 17
+        },
+        {
+          "seriesId": "956462",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8208151112",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956463",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8208151727",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956472",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8208259205",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "956475",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8208265637",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956487",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8208396000",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "956489",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8208407309",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956504",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8208615303",
+          "minEarlierMaps": 33
+        },
+        {
+          "seriesId": "956520",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8208709408",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956686",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8209410527",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956687",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8209412397",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956694",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8209503483",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956701",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8209590208",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956715",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8209637479",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "956737",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8209813804",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956962",
+          "overlap": false,
+          "issues": [
+            "MAP_LIST_DIFFERS"
+          ],
+          "observedFirstMap": "8210666453",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "956976",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8210774204",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "957002",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8210928862",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "957248",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8211943918",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "957260",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8212044680",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "957304",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8212307618",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "957323",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8212525165",
+          "minEarlierMaps": 17
+        },
+        {
+          "seriesId": "957590",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8213219488",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "957606",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8213402539",
+          "minEarlierMaps": 17
+        },
+        {
+          "seriesId": "957659",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8213673199",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "957770",
+          "overlap": false,
+          "issues": [
+            "MAP_COUNT_REQUIRES_REVIEW"
+          ],
+          "observedFirstMap": "8214023491",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "957814",
+          "overlap": false,
+          "issues": [
+            "MAP_COUNT_REQUIRES_REVIEW"
+          ],
+          "observedFirstMap": "8214151207",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "957937",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8214634008",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "957980",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8214815404",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "958030",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8215072930",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "958089",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8215366177",
+          "minEarlierMaps": 39
+        },
+        {
+          "seriesId": "958284",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8216274527",
+          "minEarlierMaps": 14
+        }
+      ]
+    },
+    {
+      "edition": "18058",
+      "openDotaBO3": 46,
+      "valveBO3": 46,
+      "union": 46,
+      "exposed": 6,
+      "matchedUnexposed": 39,
+      "tenObserved": 39,
+      "localHistoryReady": 4,
+      "rows": [
+        {
+          "seriesId": "968836",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8260392197",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "968837",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8260393036",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "968909",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8260595904",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "968919",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8260617860",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "968989",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8260793281",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "969006",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8260851339",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969060",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8260992196",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969082",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8261097962",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969246",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8261832176",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969247",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8261832223",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969267",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8261950535",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969288",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8261983795",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969315",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8262139890",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969323",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8262173274",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969365",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8262355859",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "969383",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8262435050",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "969592",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8263188088",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969593",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8263188126",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969607",
+          "overlap": false,
+          "issues": [
+            "MAP_LIST_DIFFERS",
+            "MAP_COUNT_REQUIRES_REVIEW"
+          ],
+          "observedFirstMap": "8263271273",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969608",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8263271927",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "969616",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8263438413",
+          "minEarlierMaps": 14
+        },
+        {
+          "seriesId": "969621",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8263478361",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969641",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8263615031",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969646",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8263670960",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969792",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8264388384",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969793",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8264388448",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969815",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8264482418",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969816",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8264492499",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "969829",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8264593441",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "969851",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8264710589",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970113",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8265556672",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970122",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8265651162",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970138",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8265765707",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970355",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8266713450",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970376",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8266865035",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970410",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8266997760",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970445",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8267177847",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970675",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8267884608",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970689",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8268001532",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970725",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8268215993",
+          "minEarlierMaps": 33
+        },
+        {
+          "seriesId": "970766",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8268439526",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "970954",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8269185150",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "971009",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8269317305",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "971121",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8269575719",
+          "minEarlierMaps": 33
+        },
+        {
+          "seriesId": "971213",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8269883556",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "971400",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8270636459",
+          "minEarlierMaps": 0
+        }
+      ]
+    },
+    {
+      "edition": "18358",
+      "openDotaBO3": 46,
+      "valveBO3": 47,
+      "union": 47,
+      "exposed": 7,
+      "matchedUnexposed": 39,
+      "tenObserved": 39,
+      "localHistoryReady": 2,
+      "rows": [
+        {
+          "seriesId": "987267",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8343373163",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987268",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8343373252",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987279",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8343485696",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987281",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8343509938",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987320",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8343705315",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987323",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8343717060",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987391",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8344009421",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987399",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8344053978",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987578",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8344851788",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987579",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8344851804",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987609",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8344986665",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987620",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8345002924",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987648",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8345140225",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987678",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8345242715",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987708",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8345443681",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987711",
+          "overlap": false,
+          "issues": [
+            "MAP_LIST_DIFFERS",
+            "MAP_COUNT_REQUIRES_REVIEW"
+          ],
+          "observedFirstMap": null,
+          "minEarlierMaps": null
+        },
+        {
+          "seriesId": "987722",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8345496865",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987931",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8346288771",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "987932",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8346288794",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987941",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8346376080",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987942",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8346379709",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987956",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8346490774",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987957",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8346502952",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987993",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8346674422",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "987996",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8346681807",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988164",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8347555793",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988165",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8347555803",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988169",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8347641930",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988173",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8347662424",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988193",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8347800900",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988228",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8347930251",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988399",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8348814462",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988413",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8348987197",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "988439",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8349178884",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988592",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8350065447",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988606",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8350256686",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988675",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8350525703",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988712",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8350783354",
+          "minEarlierMaps": 32
+        },
+        {
+          "seriesId": "988891",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8351333765",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988902",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8351434122",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "988911",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8351581412",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "988960",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8351766645",
+          "minEarlierMaps": 32
+        },
+        {
+          "seriesId": "989140",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8352677382",
+          "minEarlierMaps": 1
+        },
+        {
+          "seriesId": "989150",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8352813519",
+          "minEarlierMaps": 0
+        },
+        {
+          "seriesId": "989168",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8352960592",
+          "minEarlierMaps": 17
+        },
+        {
+          "seriesId": "989245",
+          "overlap": true,
+          "issues": [],
+          "observedFirstMap": "8353157647",
+          "minEarlierMaps": 32
+        },
+        {
+          "seriesId": "989471",
+          "overlap": false,
+          "issues": [],
+          "observedFirstMap": "8354175878",
+          "minEarlierMaps": 0
+        }
+      ]
+    }
+  ],
+  "globalExposureComplete": false,
+  "scoredSeries": 0,
+  "registered": false
+}

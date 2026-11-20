@@ -25,3 +25,9 @@ __pycache__/
 
 # Local provider coverage reports
 reports/
+
+# Private database restore archives copied from another computer.
+/restore-*.7z
+/current-*.rar
+/DraftLab-H2-recovered/
+/DraftLab-H2-transfer.zip

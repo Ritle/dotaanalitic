@@ -1,0 +1,499 @@
+{
+  "format": "s3-09-blast-ix-input-readiness-v1",
+  "asOf": "2026-11-19T20:34:03.955Z",
+  "organizerSchedule": "https://blast.tv/dota/tournaments/blast-slam-ix/series",
+  "sources": {
+    "scopedSchedule": {
+      "editionId": "11187",
+      "leagueId": "5319",
+      "stageIds": [
+        "22404",
+        "22405",
+        "22406",
+        "22407",
+        "22470",
+        "22471",
+        "22472"
+      ],
+      "organizerPlannedBo3": 33,
+      "fetchedAt": "2026-11-19T20:33:02.770Z",
+      "url": "https://api.pandascore.co/series/11187/matches/upcoming?sort=scheduled_at%2Cid&per_page=100",
+      "httpStatus": 200,
+      "total": 34,
+      "payloadSha256": "262ff86277ed1c465241a2896da684f4f628acc1617e5c8c49f48435db1c7d39",
+      "scopeBeforeReview": true
+    },
+    "genericPage": {
+      "source": {
+        "endpoint": "/dota2/matches/upcoming?sort=scheduled_at,id&page=1&per_page=20",
+        "fetchedAt": "2026-11-19T20:33:48.424Z",
+        "payloadSha256": "80348bcf1076d9b47f7bcb78eaaa07ffd65622e54fe46b48458e37b8fe42d425"
+      },
+      "totalMatches": 20,
+      "editionMatchIds": [
+        "1816442",
+        "1816452",
+        "1816443",
+        "1816453",
+        "1816457",
+        "1816458",
+        "1816467",
+        "1816468",
+        "1816444",
+        "1816454"
+      ]
+    },
+    "rosterStages": [
+      {
+        "stageId": "22404",
+        "source": {
+          "endpoint": "/tournaments/22404/rosters",
+          "fetchedAt": "2026-11-19T20:33:51.886Z",
+          "payloadSha256": "f3d632e2af573e90281854c290c6e700464dec24b81b20f7ac37feb7cbabf569"
+        },
+        "teamCount": 4
+      },
+      {
+        "stageId": "22405",
+        "source": {
+          "endpoint": "/tournaments/22405/rosters",
+          "fetchedAt": "2026-11-19T20:33:55.965Z",
+          "payloadSha256": "42fba512676e44e4dc2a9ad142456651f935d63cb190a25f70a3e1335626044f"
+        },
+        "teamCount": 4
+      },
+      {
+        "stageId": "22406",
+        "source": {
+          "endpoint": "/tournaments/22406/rosters",
+          "fetchedAt": "2026-11-19T20:33:59.893Z",
+          "payloadSha256": "a34d6515b846fec267ca655867c8bcc3d447d61ea6e416146954b09ebac8427a"
+        },
+        "teamCount": 4
+      },
+      {
+        "stageId": "22407",
+        "source": {
+          "endpoint": "/tournaments/22407/rosters",
+          "fetchedAt": "2026-11-19T20:34:03.955Z",
+          "payloadSha256": "60b37d399f84e4b413466a9168b6b0fceff3d82b7017e989421b7db6ce7e9b27"
+        },
+        "teamCount": 4
+      }
+    ]
+  },
+  "summary": {
+    "announcedBo3": 33,
+    "providerListedBo3": 33,
+    "providerListedBo5": 1,
+    "bo3WithBothOpponents": 8,
+    "bo3WithoutBothOpponents": 25,
+    "bo3OnFreshGenericFirstPage": 8,
+    "bo3WithStoredSchedule": 4,
+    "bo3WithPublishedTournamentFives": 8,
+    "bo3WithTenDistinctVerifiedAccountLinksForPublishedFives": 3,
+    "bo3WithTenDistinctVerifiedAccountLinksForStoredFives": 1,
+    "bo3WithTenLinkedPlayersAndMinimumHistory": 2
+  },
+  "rows": [
+    {
+      "matchId": "1816442",
+      "stageId": "22404",
+      "scheduledAt": "2026-11-20T11:00:00Z",
+      "teamIds": [
+        "137073",
+        "137885"
+      ],
+      "appearingOnFreshGenericFirstPage": true,
+      "storedSchedule": {
+        "snapshotSha256": "a00c4ed3621cde6249dd86eeb8caa017e0ab8c4682af6add9c176f498512f081",
+        "recordedAt": "2026-11-19T02:15:25.941Z"
+      },
+      "storedRoster": {
+        "snapshotSha256": "5403a8f4ab4915dc748a3247c4c4d41b1253f7a4e4b53c5b918be68bf719055e",
+        "recordedAt": "2026-11-19T02:08:19.690Z",
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          5,
+          5
+        ],
+        "uniqueAccounts": 10,
+        "uniqueLocalPlayers": 10,
+        "mappedPlayersWithMinimumHistory": 9,
+        "minEarlierEligibleMapsAmongLinkedPlayers": 2,
+        "tenConfirmed": true
+      },
+      "publishedRoster": {
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          5,
+          5
+        ],
+        "uniqueAccounts": 10,
+        "uniqueLocalPlayers": 10,
+        "mappedPlayersWithMinimumHistory": 9,
+        "minEarlierEligibleMapsAmongLinkedPlayers": 2,
+        "tenConfirmed": true
+      }
+    },
+    {
+      "matchId": "1816452",
+      "stageId": "22405",
+      "scheduledAt": "2026-11-20T11:00:00Z",
+      "teamIds": [
+        "1669",
+        "136650"
+      ],
+      "appearingOnFreshGenericFirstPage": true,
+      "storedSchedule": {
+        "snapshotSha256": "a00c4ed3621cde6249dd86eeb8caa017e0ab8c4682af6add9c176f498512f081",
+        "recordedAt": "2026-11-19T02:15:25.941Z"
+      },
+      "storedRoster": null,
+      "publishedRoster": {
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          5,
+          0
+        ],
+        "uniqueAccounts": 5,
+        "uniqueLocalPlayers": 5,
+        "mappedPlayersWithMinimumHistory": 5,
+        "minEarlierEligibleMapsAmongLinkedPlayers": 41,
+        "tenConfirmed": false
+      }
+    },
+    {
+      "matchId": "1816443",
+      "stageId": "22404",
+      "scheduledAt": "2026-11-20T14:00:00Z",
+      "teamIds": [
+        "1699",
+        "1654"
+      ],
+      "appearingOnFreshGenericFirstPage": true,
+      "storedSchedule": {
+        "snapshotSha256": "a00c4ed3621cde6249dd86eeb8caa017e0ab8c4682af6add9c176f498512f081",
+        "recordedAt": "2026-11-19T02:15:25.941Z"
+      },
+      "storedRoster": {
+        "snapshotSha256": "5403a8f4ab4915dc748a3247c4c4d41b1253f7a4e4b53c5b918be68bf719055e",
+        "recordedAt": "2026-11-19T02:08:19.690Z",
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          0,
+          0
+        ],
+        "uniqueAccounts": 0,
+        "uniqueLocalPlayers": 0,
+        "mappedPlayersWithMinimumHistory": 0,
+        "minEarlierEligibleMapsAmongLinkedPlayers": null,
+        "tenConfirmed": false
+      },
+      "publishedRoster": {
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          0,
+          0
+        ],
+        "uniqueAccounts": 0,
+        "uniqueLocalPlayers": 0,
+        "mappedPlayersWithMinimumHistory": 0,
+        "minEarlierEligibleMapsAmongLinkedPlayers": null,
+        "tenConfirmed": false
+      }
+    },
+    {
+      "matchId": "1816453",
+      "stageId": "22405",
+      "scheduledAt": "2026-11-20T14:00:00Z",
+      "teamIds": [
+        "137588",
+        "128329"
+      ],
+      "appearingOnFreshGenericFirstPage": true,
+      "storedSchedule": {
+        "snapshotSha256": "a00c4ed3621cde6249dd86eeb8caa017e0ab8c4682af6add9c176f498512f081",
+        "recordedAt": "2026-11-19T02:15:25.941Z"
+      },
+      "storedRoster": null,
+      "publishedRoster": {
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          5,
+          0
+        ],
+        "uniqueAccounts": 5,
+        "uniqueLocalPlayers": 5,
+        "mappedPlayersWithMinimumHistory": 5,
+        "minEarlierEligibleMapsAmongLinkedPlayers": 143,
+        "tenConfirmed": false
+      }
+    },
+    {
+      "matchId": "1816457",
+      "stageId": "22406",
+      "scheduledAt": "2026-11-20T17:00:00Z",
+      "teamIds": [
+        "135712",
+        "139340"
+      ],
+      "appearingOnFreshGenericFirstPage": true,
+      "storedSchedule": null,
+      "storedRoster": null,
+      "publishedRoster": {
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          5,
+          5
+        ],
+        "uniqueAccounts": 10,
+        "uniqueLocalPlayers": 10,
+        "mappedPlayersWithMinimumHistory": 10,
+        "minEarlierEligibleMapsAmongLinkedPlayers": 5,
+        "tenConfirmed": true
+      }
+    },
+    {
+      "matchId": "1816458",
+      "stageId": "22406",
+      "scheduledAt": "2026-11-20T17:00:00Z",
+      "teamIds": [
+        "1647",
+        "139547"
+      ],
+      "appearingOnFreshGenericFirstPage": true,
+      "storedSchedule": null,
+      "storedRoster": null,
+      "publishedRoster": {
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          5,
+          5
+        ],
+        "uniqueAccounts": 10,
+        "uniqueLocalPlayers": 10,
+        "mappedPlayersWithMinimumHistory": 10,
+        "minEarlierEligibleMapsAmongLinkedPlayers": 17,
+        "tenConfirmed": true
+      }
+    },
+    {
+      "matchId": "1816467",
+      "stageId": "22407",
+      "scheduledAt": "2026-11-21T11:00:00Z",
+      "teamIds": [
+        "133882",
+        "139432"
+      ],
+      "appearingOnFreshGenericFirstPage": true,
+      "storedSchedule": null,
+      "storedRoster": null,
+      "publishedRoster": {
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          5,
+          2
+        ],
+        "uniqueAccounts": 7,
+        "uniqueLocalPlayers": 7,
+        "mappedPlayersWithMinimumHistory": 7,
+        "minEarlierEligibleMapsAmongLinkedPlayers": 111,
+        "tenConfirmed": false
+      }
+    },
+    {
+      "matchId": "1816468",
+      "stageId": "22407",
+      "scheduledAt": "2026-11-21T11:00:00Z",
+      "teamIds": [
+        "1657",
+        "134536"
+      ],
+      "appearingOnFreshGenericFirstPage": true,
+      "storedSchedule": null,
+      "storedRoster": null,
+      "publishedRoster": {
+        "size": [
+          5,
+          5
+        ],
+        "mappedCounts": [
+          5,
+          4
+        ],
+        "uniqueAccounts": 9,
+        "uniqueLocalPlayers": 9,
+        "mappedPlayersWithMinimumHistory": 9,
+        "minEarlierEligibleMapsAmongLinkedPlayers": 91,
+        "tenConfirmed": false
+      }
+    }
+  ],
+  "bo3PendingOpponentAssignments": [
+    {
+      "matchId": "1816444",
+      "stageId": "22404",
+      "scheduledAt": "2026-11-21T14:00:00Z"
+    },
+    {
+      "matchId": "1816454",
+      "stageId": "22405",
+      "scheduledAt": "2026-11-21T14:00:00Z"
+    },
+    {
+      "matchId": "1816445",
+      "stageId": "22404",
+      "scheduledAt": "2026-11-21T17:00:00Z"
+    },
+    {
+      "matchId": "1816455",
+      "stageId": "22405",
+      "scheduledAt": "2026-11-21T17:00:00Z"
+    },
+    {
+      "matchId": "1816459",
+      "stageId": "22406",
+      "scheduledAt": "2026-11-22T14:00:00Z"
+    },
+    {
+      "matchId": "1816460",
+      "stageId": "22406",
+      "scheduledAt": "2026-11-22T14:00:00Z"
+    },
+    {
+      "matchId": "1816469",
+      "stageId": "22407",
+      "scheduledAt": "2026-11-22T17:00:00Z"
+    },
+    {
+      "matchId": "1816470",
+      "stageId": "22407",
+      "scheduledAt": "2026-11-22T17:00:00Z"
+    },
+    {
+      "matchId": "1816446",
+      "stageId": "22404",
+      "scheduledAt": "2026-11-23T14:00:00Z"
+    },
+    {
+      "matchId": "1816456",
+      "stageId": "22405",
+      "scheduledAt": "2026-11-23T14:00:00Z"
+    },
+    {
+      "matchId": "1816461",
+      "stageId": "22406",
+      "scheduledAt": "2026-11-23T17:00:00Z"
+    },
+    {
+      "matchId": "1816471",
+      "stageId": "22407",
+      "scheduledAt": "2026-11-23T17:00:00Z"
+    },
+    {
+      "matchId": "1816477",
+      "stageId": "22470",
+      "scheduledAt": "2026-11-24T14:00:00Z"
+    },
+    {
+      "matchId": "1816478",
+      "stageId": "22470",
+      "scheduledAt": "2026-11-24T14:00:00Z"
+    },
+    {
+      "matchId": "1816479",
+      "stageId": "22471",
+      "scheduledAt": "2026-11-24T17:00:00Z"
+    },
+    {
+      "matchId": "1816480",
+      "stageId": "22471",
+      "scheduledAt": "2026-11-24T17:00:00Z"
+    },
+    {
+      "matchId": "1816493",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-26T10:00:00Z"
+    },
+    {
+      "matchId": "1816494",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-26T13:30:00Z"
+    },
+    {
+      "matchId": "1816495",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-26T17:00:00Z"
+    },
+    {
+      "matchId": "1816496",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-27T10:00:00Z"
+    },
+    {
+      "matchId": "1816498",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-27T13:30:00Z"
+    },
+    {
+      "matchId": "1816499",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-27T17:00:00Z"
+    },
+    {
+      "matchId": "1816497",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-28T11:30:00Z"
+    },
+    {
+      "matchId": "1816500",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-28T15:00:00Z"
+    },
+    {
+      "matchId": "1816501",
+      "stageId": "22472",
+      "scheduledAt": "2026-11-29T10:00:00Z"
+    }
+  ],
+  "historyDiagnostic": {
+    "sourceSha256": "d2a33e4d0a51aacf8de25617675331012c61d7ee3ea9d98cae61fec1f84df9c4",
+    "sourceFingerprint": "efd9b9e548b216dc33b0294743818c6547141a18f80633293c71f306548b9eb0",
+    "snapshotAt": "2026-11-19T20:35:56.048Z",
+    "warmupFromAt": "2024-01-01T00:00:00.000Z",
+    "cutoffAt": "2026-11-19T20:34:03.955Z",
+    "eligibleEarlierMaps": 2211,
+    "minimumMapsPerPlayer": 5
+  },
+  "measurement": "scheduled_positions_and_tournament_rosters_at_observation",
+  "registrationAllowed": false,
+  "collectionAllowed": false
+}

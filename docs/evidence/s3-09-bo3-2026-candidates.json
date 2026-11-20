@@ -1,0 +1,1163 @@
+{
+  "format": "s3-09-bo3-2026-candidate-audit-v1",
+  "method": "outcome_free_metadata_and_conservative_exclusion",
+  "scope": "selected_2026_main_event_windows",
+  "exposureComplete": false,
+  "registrationAllowed": false,
+  "sources": [
+    {
+      "path": ".tools/s309-opendota-2026-catalog.json",
+      "sha256": "c8cb529094c7438eed152c583361c0b3f2266e5d710cee8e595d6192dc5fcc15"
+    },
+    {
+      "path": ".tools/s309-opendota-series-2026-raw.json",
+      "sha256": "0c4563326a225cb06b2fa083e1af6b8b9c5274c270302f40e966a30b66ae3717"
+    },
+    {
+      "path": ".tools/s309-opendota-series-2026-additional.json",
+      "sha256": "7ec49545f3544429e17a6db227f466c64869c2bf77f1db4b5dd782fb8ed76564"
+    },
+    {
+      "path": ".tools/s309-1win-alias-metadata.json",
+      "sha256": "719ee06593b99261a3ea9aaf77989cbef59ee4af3256abe76dd59f2238696f47"
+    },
+    {
+      "path": "docs/evidence/s3-09-series-exposure-review.json",
+      "sha256": "72262febb7df73a866690dd2e483cf14772ff4af62f4536a710b4da0d3b4b4c2"
+    }
+  ],
+  "providerSources": {
+    "catalogue": {
+      "fetchedAt": "2026-11-19T02:33:09.193Z",
+      "sourceBodySha256": "b05f50a65422948ce091d216b33828b012562142fd67d43fb9766351e5c5068a"
+    },
+    "mapMetadata": [
+      {
+        "query": "SELECT leagueid, match_id::text, series_id::text, series_type, start_time FROM matches WHERE leagueid IN (19099,19269,19422,19435,19543,19656,19696) AND start_time >= 1767225600 AND start_time < 1795046400 ORDER BY leagueid,match_id LIMIT 1001",
+        "fetchedAt": "2026-11-19T02:34:03.028Z",
+        "sourceBodySha256": "021e027b162ee80149547af103583e126ee5a0e9cf168286392981d9b7205133",
+        "rowCount": 952
+      },
+      {
+        "query": "SELECT leagueid, match_id::text, series_id::text, series_type, start_time FROM matches WHERE leagueid IN (19101,19102,19719,19785,20009,20177,20279,20486) AND start_time >= 1767225600 AND start_time < 1795046400 ORDER BY leagueid,match_id LIMIT 1001",
+        "fetchedAt": "2026-11-19T02:34:03.220Z",
+        "sourceBodySha256": "4b0b0a52329372f6f185b7045128c1c1cd7e69037936d953419c4d14b7ecadc8",
+        "rowCount": 787
+      },
+      {
+        "query": "SELECT leagueid, match_id::text, series_id::text, series_type, start_time FROM matches WHERE leagueid IN (19239,19355,20053,20395) AND start_time >= 1767225600 AND start_time < 1795046400 ORDER BY leagueid,match_id LIMIT 1001",
+        "fetchedAt": "2026-11-19T02:35:29.964Z",
+        "sourceBodySha256": "970d3c417040a02eab62450b86e0a532c7b0e6f3673b68a7a26decf96d39d98b",
+        "rowCount": 180
+      }
+    ],
+    "crossProviderMetadataSha256": "31f3972452445d254cc1afbe0e49b44f9967c88ac30861e3dc19986cb4e9b7b8"
+  },
+  "ignoredDuplicateNames": [
+    "20177",
+    "20053"
+  ],
+  "pandaAliases": [
+    {
+      "pandaScoreMatchId": "1793319",
+      "openDotaSeriesId": "1168207",
+      "openDotaFirstMapId": "9089662134",
+      "differenceSeconds": 30,
+      "confidence": "same_pair_close_clocks"
+    },
+    {
+      "pandaScoreMatchId": "1793320",
+      "openDotaSeriesId": "1167468",
+      "openDotaFirstMapId": "9086875606",
+      "differenceSeconds": 27,
+      "confidence": "same_pair_close_clocks"
+    },
+    {
+      "pandaScoreMatchId": "1793321",
+      "openDotaSeriesId": "1167741",
+      "openDotaFirstMapId": "9088001992",
+      "differenceSeconds": 35,
+      "confidence": "same_pair_close_clocks"
+    },
+    {
+      "pandaScoreMatchId": "1793322",
+      "openDotaSeriesId": "1168517",
+      "openDotaFirstMapId": "9090414768",
+      "differenceSeconds": 366,
+      "confidence": "same_pair_clock_disagreement"
+    },
+    {
+      "pandaScoreMatchId": "1793327",
+      "openDotaSeriesId": "1167943",
+      "openDotaFirstMapId": "9088831675",
+      "differenceSeconds": 24,
+      "confidence": "same_pair_close_clocks"
+    },
+    {
+      "pandaScoreMatchId": "1793337",
+      "openDotaSeriesId": "1168831",
+      "openDotaFirstMapId": "9091523157",
+      "differenceSeconds": 28,
+      "confidence": "same_pair_close_clocks"
+    },
+    {
+      "pandaScoreMatchId": "1793341",
+      "openDotaSeriesId": "1169259",
+      "openDotaFirstMapId": "9092843858",
+      "differenceSeconds": 37,
+      "confidence": "same_pair_close_clocks"
+    },
+    {
+      "pandaScoreMatchId": "1793342",
+      "openDotaSeriesId": "1169198",
+      "openDotaFirstMapId": "9092574111",
+      "differenceSeconds": 18,
+      "confidence": "same_pair_close_clocks"
+    },
+    {
+      "pandaScoreMatchId": "1806970",
+      "openDotaSeriesId": "1167834",
+      "openDotaFirstMapId": "9088481002",
+      "differenceSeconds": 24,
+      "confidence": "same_pair_close_clocks"
+    }
+  ],
+  "tier1": {
+    "editions": 13,
+    "observedBo3": 402,
+    "remainingWithoutKnownOverlap": 77,
+    "shortOf100AtBest": 23,
+    "shortOfPlanningTarget125": 48
+  },
+  "editions": [
+    {
+      "leagueId": "19099",
+      "name": "BLAST SLAM VI",
+      "from": "2026-02-03",
+      "until": "2026-02-16",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 0,
+      "observedBo3": 6,
+      "excludedByOpenDotaOrValveId": 6,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "19269",
+      "name": "DreamLeague Season 28",
+      "from": "2026-02-16",
+      "until": "2026-03-02",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 2,
+      "observedBo3": 33,
+      "excludedByOpenDotaOrValveId": 33,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "19435",
+      "name": "PGL Wallachia 2026 Season 7",
+      "from": "2026-03-07",
+      "until": "2026-03-16",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 0,
+      "observedBo3": 46,
+      "excludedByOpenDotaOrValveId": 46,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "19422",
+      "name": "ESL One Birmingham 2026",
+      "from": "2026-03-22",
+      "until": "2026-03-30",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 2,
+      "observedBo3": 9,
+      "excludedByOpenDotaOrValveId": 9,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "19543",
+      "name": "PGL Wallachia 2026 Season 8",
+      "from": "2026-04-18",
+      "until": "2026-04-27",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 0,
+      "observedBo3": 46,
+      "excludedByOpenDotaOrValveId": 46,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "19656",
+      "name": "1win Essence I",
+      "from": "2026-05-02",
+      "until": "2026-05-12",
+      "scope": "development_only_tier_2",
+      "unknownSeriesMaps": 0,
+      "observedBo3": 35,
+      "excludedByOpenDotaOrValveId": 0,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 35,
+      "candidates": [
+        {
+          "seriesId": "1093315",
+          "mapIds": [
+            "8794701587",
+            "8794796825"
+          ]
+        },
+        {
+          "seriesId": "1093375",
+          "mapIds": [
+            "8794891693",
+            "8794984507"
+          ]
+        },
+        {
+          "seriesId": "1093461",
+          "mapIds": [
+            "8795149036",
+            "8795235991",
+            "8795313607"
+          ]
+        },
+        {
+          "seriesId": "1093554",
+          "mapIds": [
+            "8795422881",
+            "8795506924"
+          ]
+        },
+        {
+          "seriesId": "1093748",
+          "mapIds": [
+            "8796125946",
+            "8796216709"
+          ]
+        },
+        {
+          "seriesId": "1093791",
+          "mapIds": [
+            "8796325317",
+            "8796401622"
+          ]
+        },
+        {
+          "seriesId": "1093869",
+          "mapIds": [
+            "8796584138",
+            "8796687562"
+          ]
+        },
+        {
+          "seriesId": "1093960",
+          "mapIds": [
+            "8796840419",
+            "8796923918",
+            "8797005855"
+          ]
+        },
+        {
+          "seriesId": "1094174",
+          "mapIds": [
+            "8797481944",
+            "8797561031",
+            "8797608386"
+          ]
+        },
+        {
+          "seriesId": "1094213",
+          "mapIds": [
+            "8797699775",
+            "8797782323"
+          ]
+        },
+        {
+          "seriesId": "1094240",
+          "mapIds": [
+            "8797876187",
+            "8797998540",
+            "8798074361"
+          ]
+        },
+        {
+          "seriesId": "1094303",
+          "mapIds": [
+            "8798159246",
+            "8798213956"
+          ]
+        },
+        {
+          "seriesId": "1094456",
+          "mapIds": [
+            "8798715738",
+            "8798776092",
+            "8798846842"
+          ]
+        },
+        {
+          "seriesId": "1094498",
+          "mapIds": [
+            "8798920027",
+            "8799021240",
+            "8799120637"
+          ]
+        },
+        {
+          "seriesId": "1094537",
+          "mapIds": [
+            "8799205642",
+            "8799274239"
+          ]
+        },
+        {
+          "seriesId": "1094584",
+          "mapIds": [
+            "8799367313",
+            "8799432002",
+            "8799499238"
+          ]
+        },
+        {
+          "seriesId": "1094690",
+          "mapIds": [
+            "8799897822",
+            "8799969151"
+          ]
+        },
+        {
+          "seriesId": "1094714",
+          "mapIds": [
+            "8800058803",
+            "8800189865",
+            "8800286142"
+          ]
+        },
+        {
+          "seriesId": "1094803",
+          "mapIds": [
+            "8800392534",
+            "8800459074",
+            "8800536923"
+          ]
+        },
+        {
+          "seriesId": "1094855",
+          "mapIds": [
+            "8800603973",
+            "8800661907"
+          ]
+        },
+        {
+          "seriesId": "1094959",
+          "mapIds": [
+            "8801213023",
+            "8801351171",
+            "8801450881"
+          ]
+        },
+        {
+          "seriesId": "1095048",
+          "mapIds": [
+            "8801558188",
+            "8801689041",
+            "8801752449"
+          ]
+        },
+        {
+          "seriesId": "1095265",
+          "mapIds": [
+            "8802328626",
+            "8802399753"
+          ]
+        },
+        {
+          "seriesId": "1095280",
+          "mapIds": [
+            "8802500436",
+            "8802615564"
+          ]
+        },
+        {
+          "seriesId": "1095366",
+          "mapIds": [
+            "8802755227",
+            "8802892505",
+            "8802982182"
+          ]
+        },
+        {
+          "seriesId": "1095456",
+          "mapIds": [
+            "8803088532",
+            "8803167635"
+          ]
+        },
+        {
+          "seriesId": "1095618",
+          "mapIds": [
+            "8803706352",
+            "8803798979"
+          ]
+        },
+        {
+          "seriesId": "1095657",
+          "mapIds": [
+            "8803905362",
+            "8803998030"
+          ]
+        },
+        {
+          "seriesId": "1095736",
+          "mapIds": [
+            "8804166678",
+            "8804334361"
+          ]
+        },
+        {
+          "seriesId": "1095808",
+          "mapIds": [
+            "8804425449",
+            "8804529019",
+            "8804593771"
+          ]
+        },
+        {
+          "seriesId": "1096012",
+          "mapIds": [
+            "8805197594",
+            "8805293764"
+          ]
+        },
+        {
+          "seriesId": "1096048",
+          "mapIds": [
+            "8805414368",
+            "8805569200",
+            "8805663571"
+          ]
+        },
+        {
+          "seriesId": "1096171",
+          "mapIds": [
+            "8805773858",
+            "8805862156"
+          ]
+        },
+        {
+          "seriesId": "1096217",
+          "mapIds": [
+            "8805965139",
+            "8806065028"
+          ]
+        },
+        {
+          "seriesId": "1096377",
+          "mapIds": [
+            "8806717649",
+            "8806857145"
+          ]
+        }
+      ]
+    },
+    {
+      "leagueId": "19696",
+      "name": "DreamLeague Season 29",
+      "from": "2026-05-13",
+      "until": "2026-05-25",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 2,
+      "observedBo3": 73,
+      "excludedByOpenDotaOrValveId": 73,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "19101",
+      "name": "BLAST SLAM VII",
+      "from": "2026-05-26",
+      "until": "2026-06-08",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 0,
+      "observedBo3": 15,
+      "excludedByOpenDotaOrValveId": 15,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "19785",
+      "name": "Esports World Cup 2026",
+      "from": "2026-07-07",
+      "until": "2026-07-20",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 3,
+      "observedBo3": 14,
+      "excludedByOpenDotaOrValveId": 14,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "20009",
+      "name": "1win Essence II",
+      "from": "2026-07-30",
+      "until": "2026-08-06",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 0,
+      "observedBo3": 9,
+      "excludedByOpenDotaOrValveId": 0,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 9,
+      "candidates": [
+        {
+          "seriesId": "1127050",
+          "mapIds": [
+            "8927177084",
+            "8927232410"
+          ]
+        },
+        {
+          "seriesId": "1127063",
+          "mapIds": [
+            "8927374543",
+            "8927466440"
+          ]
+        },
+        {
+          "seriesId": "1127136",
+          "mapIds": [
+            "8927668869",
+            "8927786392"
+          ]
+        },
+        {
+          "seriesId": "1127197",
+          "mapIds": [
+            "8927998383",
+            "8928118730",
+            "8928216556"
+          ]
+        },
+        {
+          "seriesId": "1127333",
+          "mapIds": [
+            "8928712123",
+            "8928813748",
+            "8928916055"
+          ]
+        },
+        {
+          "seriesId": "1127383",
+          "mapIds": [
+            "8929037896",
+            "8929156216"
+          ]
+        },
+        {
+          "seriesId": "1127423",
+          "mapIds": [
+            "8929260132",
+            "8929364604"
+          ]
+        },
+        {
+          "seriesId": "1127604",
+          "mapIds": [
+            "8930248124",
+            "8930324653",
+            "8930387649"
+          ]
+        },
+        {
+          "seriesId": "1127656",
+          "mapIds": [
+            "8930545836",
+            "8930664368"
+          ]
+        }
+      ]
+    },
+    {
+      "leagueId": "19719",
+      "name": "The International 2026",
+      "from": "2026-08-13",
+      "until": "2026-08-24",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 1,
+      "observedBo3": 57,
+      "excludedByOpenDotaOrValveId": 57,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "20279",
+      "name": "PGL Wallachia 2026 Season 9",
+      "from": "2026-09-19",
+      "until": "2026-09-28",
+      "scope": "tier_to_review",
+      "unknownSeriesMaps": 1,
+      "observedBo3": 47,
+      "excludedByOpenDotaOrValveId": 47,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 0,
+      "candidates": []
+    },
+    {
+      "leagueId": "19102",
+      "name": "BLAST SLAM VIII",
+      "from": "2026-09-29",
+      "until": "2026-10-12",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 2,
+      "observedBo3": 33,
+      "excludedByOpenDotaOrValveId": 0,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 33,
+      "candidates": [
+        {
+          "seriesId": "1148357",
+          "mapIds": [
+            "9021397264",
+            "9021485923"
+          ]
+        },
+        {
+          "seriesId": "1148358",
+          "mapIds": [
+            "9021397355",
+            "9021470896",
+            "9021556632"
+          ]
+        },
+        {
+          "seriesId": "1148376",
+          "mapIds": [
+            "9021540875",
+            "9021632842",
+            "9021799787"
+          ]
+        },
+        {
+          "seriesId": "1148402",
+          "mapIds": [
+            "9021648212",
+            "9021762797",
+            "9021866654"
+          ]
+        },
+        {
+          "seriesId": "1148484",
+          "mapIds": [
+            "9021972530",
+            "9022076452",
+            "9022165217"
+          ]
+        },
+        {
+          "seriesId": "1148468",
+          "mapIds": [
+            "9022024252"
+          ]
+        },
+        {
+          "seriesId": "1148711",
+          "mapIds": [
+            "9022767300",
+            "9022834804",
+            "9022908356"
+          ]
+        },
+        {
+          "seriesId": "1148712",
+          "mapIds": [
+            "9022768633",
+            "9022828432"
+          ]
+        },
+        {
+          "seriesId": "1148733",
+          "mapIds": [
+            "9022904766",
+            "9023007039"
+          ]
+        },
+        {
+          "seriesId": "1148765",
+          "mapIds": [
+            "9023089203",
+            "9023195630",
+            "9023297641"
+          ]
+        },
+        {
+          "seriesId": "1148768",
+          "mapIds": [
+            "9023104480",
+            "9023210947"
+          ]
+        },
+        {
+          "seriesId": "1148800",
+          "mapIds": [
+            "9023339084",
+            "9023462170"
+          ]
+        },
+        {
+          "seriesId": "1149062",
+          "mapIds": [
+            "9024383111",
+            "9024523091"
+          ]
+        },
+        {
+          "seriesId": "1149063",
+          "mapIds": [
+            "9024384432",
+            "9024489311"
+          ]
+        },
+        {
+          "seriesId": "1149095",
+          "mapIds": [
+            "9024608829",
+            "9024732472",
+            "9024842732"
+          ]
+        },
+        {
+          "seriesId": "1149096",
+          "mapIds": [
+            "9024614565",
+            "9024712164"
+          ]
+        },
+        {
+          "seriesId": "1149402",
+          "mapIds": [
+            "9025821355",
+            "9025923903"
+          ]
+        },
+        {
+          "seriesId": "1149403",
+          "mapIds": [
+            "9025822624",
+            "9025934049",
+            "9026055036"
+          ]
+        },
+        {
+          "seriesId": "1149469",
+          "mapIds": [
+            "9026171638",
+            "9026301227",
+            "9026425519"
+          ]
+        },
+        {
+          "seriesId": "1149441",
+          "mapIds": [
+            "9026176585"
+          ]
+        },
+        {
+          "seriesId": "1149921",
+          "mapIds": [
+            "9027403764",
+            "9027486175"
+          ]
+        },
+        {
+          "seriesId": "1149922",
+          "mapIds": [
+            "9027405118",
+            "9027558607",
+            "9027674421"
+          ]
+        },
+        {
+          "seriesId": "1149997",
+          "mapIds": [
+            "9027629915",
+            "9027757267",
+            "9027848100"
+          ]
+        },
+        {
+          "seriesId": "1150064",
+          "mapIds": [
+            "9027799260",
+            "9027913516",
+            "9028005974"
+          ]
+        },
+        {
+          "seriesId": "1151825",
+          "mapIds": [
+            "9034607477",
+            "9034674416",
+            "9034768910"
+          ]
+        },
+        {
+          "seriesId": "1151863",
+          "mapIds": [
+            "9034882975",
+            "9035078952"
+          ]
+        },
+        {
+          "seriesId": "1151920",
+          "mapIds": [
+            "9035256154",
+            "9035403076",
+            "9035531454"
+          ]
+        },
+        {
+          "seriesId": "1152176",
+          "mapIds": [
+            "9036107952",
+            "9036234584",
+            "9036328833"
+          ]
+        },
+        {
+          "seriesId": "1152230",
+          "mapIds": [
+            "9036486504",
+            "9036629814",
+            "9036774670"
+          ]
+        },
+        {
+          "seriesId": "1152344",
+          "mapIds": [
+            "9036960102",
+            "9037061385"
+          ]
+        },
+        {
+          "seriesId": "1152652",
+          "mapIds": [
+            "9037858327",
+            "9037980041"
+          ]
+        },
+        {
+          "seriesId": "1152788",
+          "mapIds": [
+            "9038120227",
+            "9038344101"
+          ]
+        },
+        {
+          "seriesId": "1153213",
+          "mapIds": [
+            "9039619076",
+            "9039730583",
+            "9039847755"
+          ]
+        }
+      ]
+    },
+    {
+      "leagueId": "20395",
+      "name": "PARI UNIVERSE by FISSURE",
+      "from": "2026-10-22",
+      "until": "2026-11-02",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 0,
+      "observedBo3": 36,
+      "excludedByOpenDotaOrValveId": 16,
+      "additionalCrossProviderExclusions": 0,
+      "remainingWithoutKnownOverlap": 20,
+      "candidates": [
+        {
+          "seriesId": "1157860",
+          "mapIds": [
+            "9056353535",
+            "9056429802"
+          ]
+        },
+        {
+          "seriesId": "1157917",
+          "mapIds": [
+            "9056618744",
+            "9056794318"
+          ]
+        },
+        {
+          "seriesId": "1157965",
+          "mapIds": [
+            "9056907498",
+            "9057055798"
+          ]
+        },
+        {
+          "seriesId": "1158181",
+          "mapIds": [
+            "9057627136",
+            "9057681759"
+          ]
+        },
+        {
+          "seriesId": "1158345",
+          "mapIds": [
+            "9058339315",
+            "9058456262"
+          ]
+        },
+        {
+          "seriesId": "1158753",
+          "mapIds": [
+            "9059391986",
+            "9059530192"
+          ]
+        },
+        {
+          "seriesId": "1159090",
+          "mapIds": [
+            "9060004236",
+            "9060102490",
+            "9060239199"
+          ]
+        },
+        {
+          "seriesId": "1159398",
+          "mapIds": [
+            "9060951574",
+            "9061057026",
+            "9061129248"
+          ]
+        },
+        {
+          "seriesId": "1159531",
+          "mapIds": [
+            "9061299814",
+            "9061429763"
+          ]
+        },
+        {
+          "seriesId": "1159640",
+          "mapIds": [
+            "9061551205",
+            "9061650142"
+          ]
+        },
+        {
+          "seriesId": "1160053",
+          "mapIds": [
+            "9062824489",
+            "9062920598",
+            "9063026856"
+          ]
+        },
+        {
+          "seriesId": "1160125",
+          "mapIds": [
+            "9063131170",
+            "9063230342",
+            "9063353533"
+          ]
+        },
+        {
+          "seriesId": "1160441",
+          "mapIds": [
+            "9064215798"
+          ]
+        },
+        {
+          "seriesId": "1160851",
+          "mapIds": [
+            "9065380598",
+            "9065451128",
+            "9065511384"
+          ]
+        },
+        {
+          "seriesId": "1160918",
+          "mapIds": [
+            "9065653541",
+            "9065794389",
+            "9065883621"
+          ]
+        },
+        {
+          "seriesId": "1161013",
+          "mapIds": [
+            "9065986613",
+            "9066084051",
+            "9066180509"
+          ]
+        },
+        {
+          "seriesId": "1161293",
+          "mapIds": [
+            "9066750920",
+            "9066833957"
+          ]
+        },
+        {
+          "seriesId": "1161319",
+          "mapIds": [
+            "9066926114",
+            "9067019772"
+          ]
+        },
+        {
+          "seriesId": "1161737",
+          "mapIds": [
+            "9068183471",
+            "9068257334",
+            "9068332041"
+          ]
+        },
+        {
+          "seriesId": "1161826",
+          "mapIds": [
+            "9068455299",
+            "9068605888"
+          ]
+        }
+      ]
+    },
+    {
+      "leagueId": "20486",
+      "name": "1win Essence III",
+      "from": "2026-11-12",
+      "until": "2026-11-19",
+      "scope": "tier_1_candidate",
+      "unknownSeriesMaps": 1,
+      "observedBo3": 25,
+      "excludedByOpenDotaOrValveId": 2,
+      "additionalCrossProviderExclusions": 8,
+      "remainingWithoutKnownOverlap": 15,
+      "candidates": [
+        {
+          "seriesId": "1167587",
+          "mapIds": [
+            "9087374444",
+            "9087439951"
+          ]
+        },
+        {
+          "seriesId": "1167786",
+          "mapIds": [
+            "9088267544",
+            "9088362009"
+          ]
+        },
+        {
+          "seriesId": "1168095",
+          "mapIds": [
+            "9089448051",
+            "9089567599"
+          ]
+        },
+        {
+          "seriesId": "1168375",
+          "mapIds": [
+            "9090050956",
+            "9090171021",
+            "9090295298"
+          ]
+        },
+        {
+          "seriesId": "1168570",
+          "mapIds": [
+            "9090576268",
+            "9090631460",
+            "9090701002"
+          ]
+        },
+        {
+          "seriesId": "1168701",
+          "mapIds": [
+            "9091135592",
+            "9091291242",
+            "9091386510"
+          ]
+        },
+        {
+          "seriesId": "1168923",
+          "mapIds": [
+            "9091792655",
+            "9091993665"
+          ]
+        },
+        {
+          "seriesId": "1169056",
+          "mapIds": [
+            "9092063120",
+            "9092124714"
+          ]
+        },
+        {
+          "seriesId": "1169311",
+          "mapIds": [
+            "9093175023",
+            "9093259247"
+          ]
+        },
+        {
+          "seriesId": "1169378",
+          "mapIds": [
+            "9093340128",
+            "9093401586",
+            "9093458287"
+          ]
+        },
+        {
+          "seriesId": "1169494",
+          "mapIds": [
+            "9093871938",
+            "9093927215"
+          ]
+        },
+        {
+          "seriesId": "1169538",
+          "mapIds": [
+            "9094055565",
+            "9094149032",
+            "9094241558"
+          ]
+        },
+        {
+          "seriesId": "1169618",
+          "mapIds": [
+            "9094375739",
+            "9094461999"
+          ]
+        },
+        {
+          "seriesId": "1169685",
+          "mapIds": [
+            "9094562824",
+            "9094639003"
+          ]
+        },
+        {
+          "seriesId": "1169880",
+          "mapIds": [
+            "9095253294",
+            "9095316326",
+            "9095408575"
+          ]
+        }
+      ]
+    }
+  ]
+}

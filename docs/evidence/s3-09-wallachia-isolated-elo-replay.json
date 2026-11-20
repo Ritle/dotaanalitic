@@ -1,0 +1,5410 @@
+{
+  "format": "wallachia-isolated-elo-replay-v1",
+  "inventory": {
+    "path": ".tools/s309-wallachia-replayed-inventory.json",
+    "sha256": "1c73dd0e1a76306872262157206602dd11e1bad8dc9d37829b0ffd146ce14c81"
+  },
+  "summary": [
+    {
+      "edition": "17891",
+      "pandaScoreEdition": "9121",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [
+        {
+          "seriesId": "957770",
+          "mapIds": [
+            "8214023491"
+          ],
+          "sameDayNodes": [
+            "957814"
+          ]
+        }
+      ],
+      "before": {
+        "compared": 37,
+        "ready": 7
+      },
+      "after": {
+        "compared": 37,
+        "ready": 21
+      }
+    },
+    {
+      "edition": "18058",
+      "pandaScoreEdition": "9264",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [],
+      "before": {
+        "compared": 39,
+        "ready": 4
+      },
+      "after": {
+        "compared": 39,
+        "ready": 32
+      }
+    },
+    {
+      "edition": "18358",
+      "pandaScoreEdition": "9362",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [
+        {
+          "seriesId": "987711",
+          "mapIds": [
+            "8345450484"
+          ],
+          "sameDayNodes": [
+            "987722"
+          ]
+        }
+      ],
+      "before": {
+        "compared": 38,
+        "ready": 2
+      },
+      "after": {
+        "compared": 38,
+        "ready": 27
+      }
+    }
+  ],
+  "import": {
+    "requested": 127,
+    "accepted": 127,
+    "eligible": 126,
+    "unboundMaps": 32,
+    "excluded": [
+      {
+        "matchId": "8319903870",
+        "reasons": [
+          "OUTCOME_TEAM_SIDES_UNKNOWN",
+          "ROSTER_RECEIPT_MISMATCH",
+          "SERIES_SOURCE_UNVERIFIED",
+          "SERIES_UNKNOWN"
+        ]
+      }
+    ],
+    "before": {
+      "maps": 2292,
+      "series": 1115,
+      "receipts": 7122,
+      "artifacts": 1,
+      "predictions": 12
+    },
+    "after": {
+      "maps": 2419,
+      "series": 1172,
+      "receipts": 7502,
+      "artifacts": 1,
+      "predictions": 12
+    },
+    "createdSeries": 57
+  },
+  "baseline": [
+    {
+      "seriesId": "955788",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "392169957",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        },
+        {
+          "account": "276449590",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "8f374f4d7fa6fddb6892ee385c787b78c302ab0df6d4d023a5b290ebf2271198"
+    },
+    {
+      "seriesId": "955790",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        },
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "155332459",
+          "maps": 0
+        },
+        {
+          "account": "425588742",
+          "maps": 1
+        },
+        {
+          "account": "177953305",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "b3a62dd7a80e1bb5d9fa2b3d6a48689178a36b4541786b272400e401029709e9"
+    },
+    {
+      "seriesId": "955802",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "200573858",
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "955804",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        },
+        {
+          "account": "90423751",
+          "maps": 0
+        },
+        {
+          "account": "154974246",
+          "maps": 0
+        },
+        {
+          "account": "160119017",
+          "maps": 0
+        },
+        {
+          "account": "191362875",
+          "maps": 0
+        },
+        {
+          "account": "81475303",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "87ab036cf6820fe868684e4744943de8c7a069ba27c562a5383c03eeac9ec157"
+    },
+    {
+      "seriesId": "955820",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "07d8426b682ae0318f6b56e6fd432e2f65875c0650327489150c4c909b3853e3"
+    },
+    {
+      "seriesId": "955841",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "bf5d5f014b52fa4be03399a7dc52b3f6d1dfeb7f97ff3fa27c47b1d201b23bb5"
+    },
+    {
+      "seriesId": "955857",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 14,
+      "shortHistory": [],
+      "featureSha256": "ffd4fb4d59ee70de9dc4396a6b6fe822e6ac95bc715c6ffd8b7478aef835d0e5"
+    },
+    {
+      "seriesId": "956060",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956061",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "80a1dd363756aa1b8a9ad3c674cbf9d348bb76a8041647e4538ae2fea7fbcbf8"
+    },
+    {
+      "seriesId": "956092",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "392169957",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        },
+        {
+          "account": "276449590",
+          "maps": 0
+        },
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "51f4bf8ea7755e4337aa3136202e696b7cddc840b1510f2c168e0c2ab3be5a04"
+    },
+    {
+      "seriesId": "956134",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "97a1d7cdd5a893e82a349029949de123c000b779ff71728506fbe2cca0ba6ec6"
+    },
+    {
+      "seriesId": "956169",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "155332459",
+          "maps": 0
+        },
+        {
+          "account": "425588742",
+          "maps": 1
+        },
+        {
+          "account": "177953305",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "dce542cf46be8e15996a1c205d6bc20807d05341b392aef194981f239c224dda"
+    },
+    {
+      "seriesId": "956212",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "9de47a48621c81abbba19231318b20a20b501464801caa33e5395ef3bdaedf24"
+    },
+    {
+      "seriesId": "956250",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "94786276",
+          "maps": 0
+        },
+        {
+          "account": "88271237",
+          "maps": 0
+        },
+        {
+          "account": "375507918",
+          "maps": 1
+        },
+        {
+          "account": "919735867",
+          "maps": 0
+        },
+        {
+          "account": "94296097",
+          "maps": 0
+        },
+        {
+          "account": "90423751",
+          "maps": 0
+        },
+        {
+          "account": "154974246",
+          "maps": 0
+        },
+        {
+          "account": "160119017",
+          "maps": 0
+        },
+        {
+          "account": "191362875",
+          "maps": 0
+        },
+        {
+          "account": "81475303",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "083f2c1a2a32f40a2d26305cf8bbce1af337e672593271dc6a32643859da9d95"
+    },
+    {
+      "seriesId": "956462",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "c0c9caaf09513c74685282116330b0733007d0b1dfdf0ee752c898d1a2f8f57b"
+    },
+    {
+      "seriesId": "956463",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        },
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "93a7ccd23230052618effa1511718be615639de4ded85efa463d4de2bbf7f8ad"
+    },
+    {
+      "seriesId": "956472",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 14,
+      "shortHistory": [],
+      "featureSha256": "03b5ebabfc3babbecfb4a773dddd0caf45366939a657e60b61b5c570a8284eac"
+    },
+    {
+      "seriesId": "956475",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        },
+        {
+          "account": "90423751",
+          "maps": 0
+        },
+        {
+          "account": "154974246",
+          "maps": 0
+        },
+        {
+          "account": "160119017",
+          "maps": 0
+        },
+        {
+          "account": "191362875",
+          "maps": 0
+        },
+        {
+          "account": "81475303",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "9fa46b40b0c87c55a6a76b2a538b5f367f1fc340b51ef86fcdb50e0c028664aa"
+    },
+    {
+      "seriesId": "956489",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "956504",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 33,
+      "shortHistory": [],
+      "featureSha256": "c2055639202953487a820a617267f6b92e02d6469511af9cb182d087cfe250b6"
+    },
+    {
+      "seriesId": "956520",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "392169957",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        },
+        {
+          "account": "276449590",
+          "maps": 0
+        },
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "155332459",
+          "maps": 0
+        },
+        {
+          "account": "425588742",
+          "maps": 1
+        },
+        {
+          "account": "177953305",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "68c3b648439986de0d0116dc85c5016bf4543727c84ef458091290d34467be57"
+    },
+    {
+      "seriesId": "956686",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "6ed5faaeef07f832b4e5228fbf837d559a29e40fdd810d71c84ac65185c468c5"
+    },
+    {
+      "seriesId": "956687",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956694",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "921fc47b29b7b30965c700566066b55d5de1b5d7a07fd1df0e4fa4f88f7938fe"
+    },
+    {
+      "seriesId": "956701",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 0
+        },
+        {
+          "account": "154974246",
+          "maps": 0
+        },
+        {
+          "account": "160119017",
+          "maps": 0
+        },
+        {
+          "account": "191362875",
+          "maps": 0
+        },
+        {
+          "account": "81475303",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "420f17929088ba885b7327199b4da59700afb1368b1a933c65673bc49bb66b4c"
+    },
+    {
+      "seriesId": "956715",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "d6578d89ccee615d591e0b19743d7a54788529311be60da0d9d0196ecef6d9d1"
+    },
+    {
+      "seriesId": "956737",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "392169957",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        },
+        {
+          "account": "276449590",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "991f7cda212b83721dc16e23a8dfff03610c83137b0ec1b81d8245cf0b4ad385"
+    },
+    {
+      "seriesId": "956976",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 14,
+      "shortHistory": [],
+      "featureSha256": "91616eb7a89fccbaa32792ed9556147fbef0125e9d0bacfae86b898591ad8f6e"
+    },
+    {
+      "seriesId": "957002",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "392169957",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        },
+        {
+          "account": "276449590",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "7f0c1627c7966ef704af8a5825c42daf454f09b0483c09b17ae69187d627f41f"
+    },
+    {
+      "seriesId": "957248",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        },
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "9c09119f18c3cd0686a51e8cb1dbe374e8f03116f0629ac98722dbbe9e78dd8c"
+    },
+    {
+      "seriesId": "957260",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "59eb4cfdb5dea0c8b2acf0bdf8671212678be73f2be49fd423f5ad517200784e"
+    },
+    {
+      "seriesId": "957323",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "shortHistory": [],
+      "featureSha256": "d579f232de20a345992c972cc9a80d9a1a3a71e25207b1c7bb8cf54f90bd9ee5"
+    },
+    {
+      "seriesId": "957590",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "51684173e79a562df35eb536e6ee682a96bb907197ca07503c5aefd7c319bdfa"
+    },
+    {
+      "seriesId": "957659",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "a25010c9e26cd886f82b1dda1605a93297349fb2f1131c2cff747add124c7610"
+    },
+    {
+      "seriesId": "957980",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "96340e85e3d2b2dc591550485800f2d7048eb0c9588710afb5d5496fc6c26232"
+    },
+    {
+      "seriesId": "958030",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 14,
+      "shortHistory": [],
+      "featureSha256": "b9b73f5cf2a203d949cf2c4888e02ce994c465e424ba640d41367f9a6d4ed572"
+    },
+    {
+      "seriesId": "958284",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 14,
+      "shortHistory": [],
+      "featureSha256": "7c4181c1ed3b38496750ca7b8950248177154aaeab245efd5c90d737aa900943"
+    },
+    {
+      "seriesId": "968836",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        },
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 1
+        },
+        {
+          "account": "177953305",
+          "maps": 0
+        },
+        {
+          "account": "248180032",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "4f309a0e570f3de60cbbe36667d96e3db8adf9ba8ed1eaa1280e00d5ec23cb66"
+    },
+    {
+      "seriesId": "968837",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111030315",
+          "maps": 0
+        },
+        {
+          "account": "130991304",
+          "maps": 0
+        },
+        {
+          "account": "185590374",
+          "maps": 0
+        },
+        {
+          "account": "835864135",
+          "maps": 0
+        },
+        {
+          "account": "957204049",
+          "maps": 0
+        },
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "ac1231a38a2a733fdfbc1e7d18dc9fec4c3e6159226392b1ecd9dbea5991dfdb"
+    },
+    {
+      "seriesId": "968909",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "703ffd28f07af4458386e9bec1dd93e2bb86cf822fff75d7d9698dcae1c683c0"
+    },
+    {
+      "seriesId": "968919",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "94155156",
+          "maps": 0
+        },
+        {
+          "account": "106755427",
+          "maps": 0
+        },
+        {
+          "account": "115464954",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "7d4d0fb30967b917c1d0ef6da75b5036a4930d49708acb1bed1e818760b5431d"
+    },
+    {
+      "seriesId": "969006",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "ea0f2d68f7ffe8d8f3f165e3ca3e33aa46d6b7c100a7c9a459bc35e4ee185fcc"
+    },
+    {
+      "seriesId": "969060",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "68f62bff9e746db28b1575d1384936051457c500ba315f99802f21cf2db31e23"
+    },
+    {
+      "seriesId": "969082",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "355168766",
+          "maps": 0
+        },
+        {
+          "account": "184950344",
+          "maps": 0
+        },
+        {
+          "account": "301750126",
+          "maps": 0
+        },
+        {
+          "account": "126842529",
+          "maps": 0
+        },
+        {
+          "account": "152859296",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "e5d71c62f7f346d4e3d9ac5115c91e613ea959c7831122a09f9291e9a3dc419f"
+    },
+    {
+      "seriesId": "969246",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 1
+        },
+        {
+          "account": "177953305",
+          "maps": 0
+        },
+        {
+          "account": "248180032",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "6d390f4c27950254e72e99111239a49bd88cd5e498205d85d293f135ce6da583"
+    },
+    {
+      "seriesId": "969247",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111030315",
+          "maps": 0
+        },
+        {
+          "account": "130991304",
+          "maps": 0
+        },
+        {
+          "account": "185590374",
+          "maps": 0
+        },
+        {
+          "account": "835864135",
+          "maps": 0
+        },
+        {
+          "account": "957204049",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "8699e8f6944ba16766938347d771bf056d6adc8d29b510b2f0b963817edf4ad0"
+    },
+    {
+      "seriesId": "969267",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "94155156",
+          "maps": 0
+        },
+        {
+          "account": "106755427",
+          "maps": 0
+        },
+        {
+          "account": "115464954",
+          "maps": 0
+        },
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "6d19acd73d6521693cdc1749d936ea29f501c72763ac2fb53c2bd56827078910"
+    },
+    {
+      "seriesId": "969315",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        },
+        {
+          "account": "127617979",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "398389e192bb3e3fa7a48d95796d320cb6a0a3c5acb692269c8057ace2ec4539"
+    },
+    {
+      "seriesId": "969323",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        },
+        {
+          "account": "355168766",
+          "maps": 0
+        },
+        {
+          "account": "184950344",
+          "maps": 0
+        },
+        {
+          "account": "301750126",
+          "maps": 0
+        },
+        {
+          "account": "126842529",
+          "maps": 0
+        },
+        {
+          "account": "152859296",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "f6e63cb34547f3355b9d72b7d6d51471c2826c54dc38836da6e4415dbc8ed977"
+    },
+    {
+      "seriesId": "969365",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 14,
+      "shortHistory": [],
+      "featureSha256": "00e3ff9fb408440e5b7c2c3f87261ddc786b66d5c4595c9665292be0598f721e"
+    },
+    {
+      "seriesId": "969383",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 14,
+      "shortHistory": [],
+      "featureSha256": "379b1415750b7ea5fae6cbd8a7c246667012413ba0beb3fa707bdb75606522a7"
+    },
+    {
+      "seriesId": "969592",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 1
+        },
+        {
+          "account": "177953305",
+          "maps": 0
+        },
+        {
+          "account": "248180032",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "a66060bc1820ce3bef6e5f5dafcb90ede78d4874deec5d30cbb9ccb05d023d57"
+    },
+    {
+      "seriesId": "969593",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "eedb606346d0d92677d531a9c4fee83dd50cafe0a069e3e91c240595ac77fd4b"
+    },
+    {
+      "seriesId": "969608",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "ecbe643498bb18acccf544c61ccfdb55729bfa91242752d364732b92b1b1d841"
+    },
+    {
+      "seriesId": "969616",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 14,
+      "shortHistory": [],
+      "featureSha256": "3c79fbda9e5deb466ef9e12867c6f7570e2982641bc8514818170a175095fb18"
+    },
+    {
+      "seriesId": "969621",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111030315",
+          "maps": 0
+        },
+        {
+          "account": "130991304",
+          "maps": 0
+        },
+        {
+          "account": "185590374",
+          "maps": 0
+        },
+        {
+          "account": "835864135",
+          "maps": 0
+        },
+        {
+          "account": "957204049",
+          "maps": 0
+        },
+        {
+          "account": "355168766",
+          "maps": 0
+        },
+        {
+          "account": "184950344",
+          "maps": 0
+        },
+        {
+          "account": "301750126",
+          "maps": 0
+        },
+        {
+          "account": "126842529",
+          "maps": 0
+        },
+        {
+          "account": "152859296",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "8a8e202adc1e5370744f5d06843d1479dbf77bce5b3296f4b2906657cf681064"
+    },
+    {
+      "seriesId": "969646",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "94155156",
+          "maps": 0
+        },
+        {
+          "account": "106755427",
+          "maps": 0
+        },
+        {
+          "account": "115464954",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "8b03cff3008f41e9c4ca41b3831c462feae58a7c8c60ace482a5c1e0733a17d8"
+    },
+    {
+      "seriesId": "969792",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        },
+        {
+          "account": "111030315",
+          "maps": 0
+        },
+        {
+          "account": "130991304",
+          "maps": 0
+        },
+        {
+          "account": "185590374",
+          "maps": 0
+        },
+        {
+          "account": "835864135",
+          "maps": 0
+        },
+        {
+          "account": "957204049",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "2b214c271530b77a92e42747144c820b6b1d4cf67b1c56395f55eb27db93bc92"
+    },
+    {
+      "seriesId": "969793",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "c8ee77328234b3d6f1fdf465d9775b777273a91c67a1b4ac07a984e8bcf948e3"
+    },
+    {
+      "seriesId": "969815",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "847a310e8447b457cc653ad23a711f31e52613d2323ef8d2de697e4fd5ad7dd6"
+    },
+    {
+      "seriesId": "969816",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "f8a8057f9f37acba5b70dc415095087fcc91a3afc942fc4bc3e1fa9ead08329b"
+    },
+    {
+      "seriesId": "969829",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 1
+        },
+        {
+          "account": "177953305",
+          "maps": 0
+        },
+        {
+          "account": "248180032",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "6cafc5c03d6efed00b82c7c4d9ef0f631ba9355f3db9a4551c37605daab56cd1"
+    },
+    {
+      "seriesId": "969851",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "7cc90aeb2435c33ce91aa084848608ab46aa052c936aa0bff70715b36ece38a9"
+    },
+    {
+      "seriesId": "970113",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "39acc72dbf45d2ab3d21cbfc6d9fe0a43f1568c706f5346981c671c2900ed896"
+    },
+    {
+      "seriesId": "970122",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111030315",
+          "maps": 0
+        },
+        {
+          "account": "130991304",
+          "maps": 0
+        },
+        {
+          "account": "185590374",
+          "maps": 0
+        },
+        {
+          "account": "835864135",
+          "maps": 0
+        },
+        {
+          "account": "957204049",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "004e8c3097c3accbd162974d24577fd2bf16ddda8733b601322079fe194b5a4c"
+    },
+    {
+      "seriesId": "970138",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "725afde5b731fdbcafbee2ad038365ad4dc1d3c396df69808df7d8d8db5f008b"
+    },
+    {
+      "seriesId": "970355",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        },
+        {
+          "account": "116585378",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "264b9b3730d771d1842321afd50780859d357b0422582ae1b710669c20fef568"
+    },
+    {
+      "seriesId": "970410",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "0cee6495f79ceeac6883928ab86d6bb2a4cccff05cf61f60f7f4f755ff37b789"
+    },
+    {
+      "seriesId": "970445",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "0487582b5593d20c4741c71bf4e16a0e1b4668f437dfd906dba1b1c911c1853c"
+    },
+    {
+      "seriesId": "970675",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        },
+        {
+          "account": "116585378",
+          "maps": 0
+        },
+        {
+          "account": "111030315",
+          "maps": 0
+        },
+        {
+          "account": "130991304",
+          "maps": 0
+        },
+        {
+          "account": "185590374",
+          "maps": 0
+        },
+        {
+          "account": "835864135",
+          "maps": 0
+        },
+        {
+          "account": "957204049",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "782fc71677b10edb5e2cd1b015f1150c96492836611dbf7dd2f2c6109fa48b6a"
+    },
+    {
+      "seriesId": "970689",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "759f67bece02e49a60f2846d5190f4075b106d1eef2e8f9be42b4ac07abc06c3"
+    },
+    {
+      "seriesId": "970766",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "c3103d19bd50b897ea7f33efbfb3699da4d109861037b610124940fd77021334"
+    },
+    {
+      "seriesId": "971009",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        },
+        {
+          "account": "127617979",
+          "maps": 0
+        },
+        {
+          "account": "116585378",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "33f11dc6a90e1c17fceff51d2398ea899d86e3a1449c2f1992c855f2e117744c"
+    },
+    {
+      "seriesId": "971121",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 33,
+      "shortHistory": [],
+      "featureSha256": "9af6f52b2630d8ce564eac9eecb9c588e427022fbc057288eaa575bffe17a05c"
+    },
+    {
+      "seriesId": "971213",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        },
+        {
+          "account": "127617979",
+          "maps": 0
+        },
+        {
+          "account": "116585378",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "fd56d11073ecb9b47fdfbe0060c3b0ae4537ba55b47fcb69433d86fd8765b143"
+    },
+    {
+      "seriesId": "971400",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "81b49363b9752047e7c1c981db0c701c17e70698f89791bf30f0b2d928197e87"
+    },
+    {
+      "seriesId": "987267",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        },
+        {
+          "account": "161839895",
+          "maps": 0
+        },
+        {
+          "account": "122817493",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "fbc6033a865df8e4ec58710295e2c5bac7e256ef95e3f175d9aea71f14797f62"
+    },
+    {
+      "seriesId": "987268",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "94155156",
+          "maps": 0
+        },
+        {
+          "account": "106755427",
+          "maps": 0
+        },
+        {
+          "account": "115464954",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "0acfcdf59c1075e76a4f78dece7def14c14a810fee3e05742b9d7b9ad47553a5"
+    },
+    {
+      "seriesId": "987279",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        },
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "a4ec7ea5f2b547b4d68fba657d53d435881a35ea4ae799e206f352ff94960997"
+    },
+    {
+      "seriesId": "987281",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "374875067",
+          "maps": 0
+        },
+        {
+          "account": "919735867",
+          "maps": 0
+        },
+        {
+          "account": "104334048",
+          "maps": 0
+        },
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "d05d5786050f991a7dd98ff508c104d26e4d19ccb207e1809866367fa8ea3d2a"
+    },
+    {
+      "seriesId": "987320",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "34398afe26dfcd6bf294d7611bbf744a727ae74821fedc1e0ba26ff30adfded5"
+    },
+    {
+      "seriesId": "987323",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "87278757",
+          "maps": 0
+        },
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "1171243748",
+          "maps": 0
+        },
+        {
+          "account": "248180032",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "051255e37fd0570263f64fd639f5d731532ce69ec54530c617cbb6191cc700ff"
+    },
+    {
+      "seriesId": "987391",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "346412363",
+          "maps": 0
+        },
+        {
+          "account": "115651292",
+          "maps": 0
+        },
+        {
+          "account": "167976729",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        },
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "b12730425aecd22bcfcf5fc740ba6c746cfc5f98d29d80ebed47143cb62f7476"
+    },
+    {
+      "seriesId": "987578",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        },
+        {
+          "account": "94155156",
+          "maps": 0
+        },
+        {
+          "account": "106755427",
+          "maps": 0
+        },
+        {
+          "account": "115464954",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "ffe0982201e95f8c6191608ec12e828c040d2cfeb8ae2824a0c36c1e03454c11"
+    },
+    {
+      "seriesId": "987579",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "d8d2f2745fd84b6b84574308bb3d77800a1cec58bb9c0d23d545972354c00a41"
+    },
+    {
+      "seriesId": "987609",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 0
+        },
+        {
+          "account": "346412363",
+          "maps": 0
+        },
+        {
+          "account": "115651292",
+          "maps": 0
+        },
+        {
+          "account": "167976729",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "cc3bb6206df53e3c6250e7f432245a13f781b73eea92a5f628d933b536f09aa2"
+    },
+    {
+      "seriesId": "987620",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "161839895",
+          "maps": 0
+        },
+        {
+          "account": "122817493",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "74f945612b8bd96b54b304e9d8a619daad95f46be41aa4aae1928dfb7f523f75"
+    },
+    {
+      "seriesId": "987648",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 0
+        },
+        {
+          "account": "154974246",
+          "maps": 0
+        },
+        {
+          "account": "160119017",
+          "maps": 0
+        },
+        {
+          "account": "191362875",
+          "maps": 0
+        },
+        {
+          "account": "81475303",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "a0d3aa6992ae3df72e1331eb8155ff7243e0e8484ab43cfbac4b541ea3d42fdd"
+    },
+    {
+      "seriesId": "987678",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        },
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "409f506e701d4673e16030955f8f34406be5a369925df06ab858b9c29f82fb5e"
+    },
+    {
+      "seriesId": "987722",
+      "edition": "18358",
+      "membershipHeld": true,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "374875067",
+          "maps": 0
+        },
+        {
+          "account": "919735867",
+          "maps": 0
+        },
+        {
+          "account": "104334048",
+          "maps": 0
+        },
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "d1be414936940d11deea950684b9fd78351c37e13f8c9824ee37b9a068402d24"
+    },
+    {
+      "seriesId": "987931",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "5093affaec4fc9e62fc094bcdb2892fe0942a46c7a5ba6deac05b28edcd41dc3"
+    },
+    {
+      "seriesId": "987932",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 0
+        },
+        {
+          "account": "154974246",
+          "maps": 0
+        },
+        {
+          "account": "160119017",
+          "maps": 0
+        },
+        {
+          "account": "191362875",
+          "maps": 0
+        },
+        {
+          "account": "81475303",
+          "maps": 0
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "84789da76ad822cd8a54bc712c33ed8808e042854c180a166282d37f00c57af0"
+    },
+    {
+      "seriesId": "987941",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 0
+        },
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "374875067",
+          "maps": 0
+        },
+        {
+          "account": "919735867",
+          "maps": 0
+        },
+        {
+          "account": "104334048",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "9ea2a9101afd0453bdf6fe47b9261ea734e7d902d0786de1896dc82c9c86e6c2"
+    },
+    {
+      "seriesId": "987942",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        },
+        {
+          "account": "87278757",
+          "maps": 0
+        },
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "1171243748",
+          "maps": 0
+        },
+        {
+          "account": "248180032",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "25edd24b1993ae01f9d1dcdcc9d80cef2b6de79650161a396f37f146734a6096"
+    },
+    {
+      "seriesId": "987956",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "94155156",
+          "maps": 0
+        },
+        {
+          "account": "106755427",
+          "maps": 0
+        },
+        {
+          "account": "115464954",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "350b8bb746e7df8f8c396c371b2107e873a7818c0777032ed156eb7424b0c351"
+    },
+    {
+      "seriesId": "987957",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "74fd28d184b5c2a9dad5f97ef0fad76e0f7f0b85c2d2772a6dc09cd322daf077"
+    },
+    {
+      "seriesId": "987996",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        },
+        {
+          "account": "161839895",
+          "maps": 0
+        },
+        {
+          "account": "122817493",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "6c349905affdbedc1a54f699fe083915ae0a58eec306943bd65d028f6da2a402"
+    },
+    {
+      "seriesId": "988164",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        },
+        {
+          "account": "127617979",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "f64ba238f9448134321337760ca96c4330c6ea1328e3ee2d136fd7d967a7b417"
+    },
+    {
+      "seriesId": "988165",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "164962869",
+          "maps": 0
+        },
+        {
+          "account": "374875067",
+          "maps": 0
+        },
+        {
+          "account": "919735867",
+          "maps": 0
+        },
+        {
+          "account": "104334048",
+          "maps": 0
+        },
+        {
+          "account": "90423751",
+          "maps": 0
+        },
+        {
+          "account": "154974246",
+          "maps": 0
+        },
+        {
+          "account": "160119017",
+          "maps": 0
+        },
+        {
+          "account": "191362875",
+          "maps": 0
+        },
+        {
+          "account": "81475303",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "9e9571dffbdb71fde8a69ef9a2c430bbf3b0bfcefe3781d55400eed4974ea194"
+    },
+    {
+      "seriesId": "988169",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "101356886",
+          "maps": 0
+        },
+        {
+          "account": "140297552",
+          "maps": 0
+        },
+        {
+          "account": "152168157",
+          "maps": 0
+        },
+        {
+          "account": "206642367",
+          "maps": 0
+        },
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "3cff90ee291f6a0020cf1a94e56573d680b3d6aeca7378d1fe6ed18a62c1af0e"
+    },
+    {
+      "seriesId": "988173",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 0
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "560202657111d00b431042af81e40d70b40b064cb766d56edcf58110578881fa"
+    },
+    {
+      "seriesId": "988193",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "87278757",
+          "maps": 0
+        },
+        {
+          "account": "138177198",
+          "maps": 1
+        },
+        {
+          "account": "1171243748",
+          "maps": 0
+        },
+        {
+          "account": "248180032",
+          "maps": 0
+        },
+        {
+          "account": "399920568",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "78b57c7aec6ae449188ccf1d9d1bc050b1dd8608354c1ba3207ded01e24f5092"
+    },
+    {
+      "seriesId": "988228",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "346412363",
+          "maps": 0
+        },
+        {
+          "account": "115651292",
+          "maps": 0
+        },
+        {
+          "account": "167976729",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "c73bd1bd213add6581ede5b0a46a9aadf282ec2be50504bd68f2010a3c1028f5"
+    },
+    {
+      "seriesId": "988399",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        },
+        {
+          "account": "90423751",
+          "maps": 0
+        },
+        {
+          "account": "154974246",
+          "maps": 0
+        },
+        {
+          "account": "160119017",
+          "maps": 0
+        },
+        {
+          "account": "191362875",
+          "maps": 0
+        },
+        {
+          "account": "81475303",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "e0987d5cd4362e8979d3fe92fe4183b398e5a68e6aa87c54a788b7f2a84f5ec3"
+    },
+    {
+      "seriesId": "988413",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "47a12e815ad74b8950ad36f3c0eff54d69a23bf5f49bbf792a8e81e1395f31f9"
+    },
+    {
+      "seriesId": "988439",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 0
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "f83f0b14e6077509304c64cbddf9a48a38760cb4d889b81fecd518229ae79ef7"
+    },
+    {
+      "seriesId": "988592",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "127617979",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "70783b8ec53d2d5db38633b699fe440ca94309f9285f9ecd5c3c27bf27c673a3"
+    },
+    {
+      "seriesId": "988606",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "346412363",
+          "maps": 0
+        },
+        {
+          "account": "115651292",
+          "maps": 0
+        },
+        {
+          "account": "167976729",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        },
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "916a2010526a4507e4ab9723972ad15976f56546928cc93cde49764cf0dd4074"
+    },
+    {
+      "seriesId": "988675",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "256156323",
+          "maps": 0
+        },
+        {
+          "account": "431770905",
+          "maps": 0
+        },
+        {
+          "account": "858106446",
+          "maps": 0
+        },
+        {
+          "account": "124801257",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "395a1bc7c76aef5bc129125546626a213e92424efbdcd6f567ec5fe2855a628d"
+    },
+    {
+      "seriesId": "988891",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "346412363",
+          "maps": 0
+        },
+        {
+          "account": "115651292",
+          "maps": 0
+        },
+        {
+          "account": "167976729",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        },
+        {
+          "account": "127617979",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "308c31f1e404b4f0e1ab5111e8e0869ff01731236b6f0449a22c0b34fda533ed"
+    },
+    {
+      "seriesId": "988911",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "129958758",
+          "maps": 1
+        },
+        {
+          "account": "157475523",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "282550761e2537e10a83672dd8fe777b82fc2b6c6ef441f15a907eb3ace194d8"
+    },
+    {
+      "seriesId": "988960",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 32,
+      "shortHistory": [],
+      "featureSha256": "8e21f68c6c3d53bd8cb7bf69ed247f4acc5217e4f081263394e4a67e3e909c58"
+    },
+    {
+      "seriesId": "989150",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "346412363",
+          "maps": 0
+        },
+        {
+          "account": "115651292",
+          "maps": 0
+        },
+        {
+          "account": "167976729",
+          "maps": 0
+        },
+        {
+          "account": "320219866",
+          "maps": 0
+        },
+        {
+          "account": "190826739",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "5776dbc70b71d0ec714fad1dbce290504df2f2b4eeb8ebdb29f00067a55f046b"
+    },
+    {
+      "seriesId": "989168",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "shortHistory": [],
+      "featureSha256": "4de6613b6ee08fa8e8ca1cb5b51661caa4df7d350b0aebfeba75ab41b81d7c87"
+    },
+    {
+      "seriesId": "989471",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "346412363",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "13f2e3f652a5006bc3d4dd82d5db96f013d47b710f64e48885cad861b2aa87ba"
+    }
+  ],
+  "replay": [
+    {
+      "seriesId": "955788",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "900267442b1bdb2fb235bee54ecc471fbcd93e506b2c5b60c957caa358509aaf"
+    },
+    {
+      "seriesId": "955790",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 2
+        },
+        {
+          "account": "155332459",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 3
+        },
+        {
+          "account": "177953305",
+          "maps": 1
+        },
+        {
+          "account": "399920568",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "3c888b36a8a0de85365cb978765cc949b125419b0568f261dc4a71071efb6e86"
+    },
+    {
+      "seriesId": "955802",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "200573858",
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "955804",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "8a83a24874b684c361c3f887db69294b1c8a5e18dbd25765adaf27ab57051fc2"
+    },
+    {
+      "seriesId": "955820",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "01834fbb9716dfa9fdc49e2f3f30154b7c7825ca59dae30e35946e08a76a8be4"
+    },
+    {
+      "seriesId": "955841",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "22646f6d2f2b3d39775343663ba52a6b79c9eb86a5136e825c8fbf5b6de59133"
+    },
+    {
+      "seriesId": "955857",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "shortHistory": [],
+      "featureSha256": "598600e9ac9f57f6c517440248d8d173b90b08e2b1b1fbb8b0e5e7f829d7c0f4"
+    },
+    {
+      "seriesId": "956060",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956061",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "shortHistory": [],
+      "featureSha256": "18d910072a34b4654ca437bceb18ac715f0d48c3e362c673fe76476b794e46a6"
+    },
+    {
+      "seriesId": "956092",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "e70b0eb9beb7105dbdf0b9322d0f25f9cabd77b1f7d23f93093d2c8c405be8cd"
+    },
+    {
+      "seriesId": "956134",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "fb3d93bf1572b92cdd9ad6397a95f484d69069aa668e7966c9562e3979fbd464"
+    },
+    {
+      "seriesId": "956169",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 2
+        },
+        {
+          "account": "155332459",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 3
+        },
+        {
+          "account": "177953305",
+          "maps": 1
+        },
+        {
+          "account": "399920568",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "a84e49b9faf9fc7f4201fb10e4c635efd10086f9ed19d42eeaaa497af3378a17"
+    },
+    {
+      "seriesId": "956212",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "baf877b97d14e514148f4eeba63ff68c33f260008150a108fb640c5a9861f9f5"
+    },
+    {
+      "seriesId": "956250",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "37e69508ec164ec6efa3915e69e4b3d88994cead7af9b552b19a129605a7ddf1"
+    },
+    {
+      "seriesId": "956462",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "551da370c7cfdcc2ec8e96cbfcc138142ebd68ceb5d979a1ab9dc8073e9316b9"
+    },
+    {
+      "seriesId": "956463",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "967adb0c6e83a5ecfb71533f98ad09373d4af2ea95af5479b331f30cd1a39e58"
+    },
+    {
+      "seriesId": "956472",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "shortHistory": [],
+      "featureSha256": "2e34b5a452cb14a192fded09d2b160203869f94e23f109177202a67923a533be"
+    },
+    {
+      "seriesId": "956475",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        },
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "7d034524429e0730163945fb534c62b9c56eeb8ddf468ffc74d6b7831b10d613"
+    },
+    {
+      "seriesId": "956489",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "956504",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 35,
+      "shortHistory": [],
+      "featureSha256": "e2599019d8b30795173d1cd50b43d4e301466daa00ae5e105f70e7c6f10ac9fb"
+    },
+    {
+      "seriesId": "956520",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 2
+        },
+        {
+          "account": "155332459",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 3
+        },
+        {
+          "account": "177953305",
+          "maps": 1
+        },
+        {
+          "account": "399920568",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "7ce1dfed375f76952f72d8f159f19377368ff692d7aa75deb99175b5bcc1fcf9"
+    },
+    {
+      "seriesId": "956686",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "8165b2f7caefe5952ba187b3875bcc8153c7b0feab374422cf60f38fcdc77320"
+    },
+    {
+      "seriesId": "956687",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956694",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "6726c2a5c2f5e72904a12dc75d9620c873259c4d04ace4b53b2bbc46c46b3bc5"
+    },
+    {
+      "seriesId": "956701",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "d6146f45477168ddf3410efc7ff9506611fdd987c38c17542b75d9d1d24060cf"
+    },
+    {
+      "seriesId": "956715",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "shortHistory": [],
+      "featureSha256": "ba0d195c0c874c2567a51bd1b2277643d7294c6a9713672c6d060b5aaedae36b"
+    },
+    {
+      "seriesId": "956737",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "d630adc28649b9cbc50cc422fe487f7b45dc74cb22fa91af099a5fe7ee28a1c7"
+    },
+    {
+      "seriesId": "956976",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "shortHistory": [],
+      "featureSha256": "5f43a836545a835a2944e5ddd727e95ecfab20fe0a4aff0c486f7503e22ed8d6"
+    },
+    {
+      "seriesId": "957002",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "250f5ff3bb76d9b017b45377a54f7da25c636f1752f00a0e8643c1c26eb09958"
+    },
+    {
+      "seriesId": "957248",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "fd0da3b83c214403cc082a2eab4fcbb6ef13d1977a21d5121a7bbd2a33cd2120"
+    },
+    {
+      "seriesId": "957260",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "019b90cdcdadb70f93be58442e2efe46f5496e7f08b14b3d0fb0f445a7d7cdcd"
+    },
+    {
+      "seriesId": "957323",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "shortHistory": [],
+      "featureSha256": "711a06dadc41f683f29357c146b5892aea4ed8b9ae54d0cc4849336e0bffc966"
+    },
+    {
+      "seriesId": "957590",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "1dce0f1439ef95fb3afdbd9742ce5c5a91d59faccbce6fefad7faeda0b51de5f"
+    },
+    {
+      "seriesId": "957659",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "shortHistory": [],
+      "featureSha256": "232f539d6c8c4c1d041b720e1970a69dc151a2a38c351748b451fc7791eaaead"
+    },
+    {
+      "seriesId": "957980",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "07a8392fbcdd8e05c27473c738106e72dccbc9cf477f73de7301274ff1abc99d"
+    },
+    {
+      "seriesId": "958030",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "shortHistory": [],
+      "featureSha256": "759fd1feb5d8cce91c523e02ca3c62cc12191833c99d42e823e62c172c977d09"
+    },
+    {
+      "seriesId": "958284",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "shortHistory": [],
+      "featureSha256": "1951f1753162620798065dcf55522b5f6d8cd2397203662f93adc5f309b8f112"
+    },
+    {
+      "seriesId": "968836",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "d1fc98854f52ba618bd8378876671bc5dbad89a1237dfbad62d704afd6f06f0d"
+    },
+    {
+      "seriesId": "968837",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "7d3642b4a50050d8c2253ee8b329a302f6f47da29741a5a3b9e6e08983d62486"
+    },
+    {
+      "seriesId": "968909",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "28728f080ed5c781fc0e8ca336418225692596ccdcd17c4d4d54a70940615ca4"
+    },
+    {
+      "seriesId": "968919",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "shortHistory": [],
+      "featureSha256": "d606219be3027ecc4f5a188e54152ee7dfb9b127bab1c7a59814cc795e6a8a85"
+    },
+    {
+      "seriesId": "969006",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "f09ba69a3925846166d3878f4c33eee245a1435e893d6d3c4ec1fea514cb2189"
+    },
+    {
+      "seriesId": "969060",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "shortHistory": [],
+      "featureSha256": "2476bb70d3a98b9ba134bf24a288adc0c5c7cbdbbbcf06b74a26ba43d741238a"
+    },
+    {
+      "seriesId": "969082",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "61917a8b794bbf67c7f36734f591ceee7da82f40dcdf17ba44c02079ecdd6bf5"
+    },
+    {
+      "seriesId": "969246",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "fca23d19d58f79bd73b8151aaae8a0b39f8dbdcdf1a27a04b7495ab9316b3d7f"
+    },
+    {
+      "seriesId": "969247",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 10,
+      "shortHistory": [],
+      "featureSha256": "e70f01b49eef1f6ab868fa47beb1eab036c77f0efd4b118575183456da0e5961"
+    },
+    {
+      "seriesId": "969267",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "5d914b514ca300b2e03b5d15633cf907e9cc36e0b1ed68edaa5952f5ee9f1176"
+    },
+    {
+      "seriesId": "969315",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "41b9a7c80bd5044bee9ab97195684fd0a5615b7adf6339404d762cf80334fb75"
+    },
+    {
+      "seriesId": "969323",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "527dab8d77df2fde8efd2b8c7e7f7d4a94cce801c02264e29fd2679262760b28"
+    },
+    {
+      "seriesId": "969365",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "shortHistory": [],
+      "featureSha256": "bcb7a89fa0927691d6c3be56c23b0a9467f1ab6577dcebb2182892eceef1e874"
+    },
+    {
+      "seriesId": "969383",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "shortHistory": [],
+      "featureSha256": "cbbd36587c0cd89a6a22553d0751f30d0ffd0cb054f8f3c9249cd491a0f8e2a9"
+    },
+    {
+      "seriesId": "969592",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "95a163234c33660a4a5dfcc94d98429977ad5d167197bcf8bba6a0502aa70ce0"
+    },
+    {
+      "seriesId": "969593",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "771d3e80a14db7c96e15a4842aa021efd6f1580038c4b176a59e7882e87d9793"
+    },
+    {
+      "seriesId": "969608",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "shortHistory": [],
+      "featureSha256": "230915ebfca347fa265a982587ee42ef869152c53b82c556e6380910cc30865a"
+    },
+    {
+      "seriesId": "969616",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "shortHistory": [],
+      "featureSha256": "ef3f5990cad180de52b542386c3290fbe58843c62c462b0d0c89382bec5c068e"
+    },
+    {
+      "seriesId": "969621",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "a01b780c3f8dbaafb2d35293a845a547b310006fb5104329694995fa38d651ba"
+    },
+    {
+      "seriesId": "969646",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "shortHistory": [],
+      "featureSha256": "7a1440511778b505155fb1289a6bd3d6599cf73e11405f69a60380161186ffbe"
+    },
+    {
+      "seriesId": "969792",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "0e81ebd7518c0acc320683e7863679e86f82c55fbd83cb803161c5ac856266f4"
+    },
+    {
+      "seriesId": "969793",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "fe17929dedef9bdb14a6b2844e543c346fa1e3646b2005aeb97a2d964d981ffc"
+    },
+    {
+      "seriesId": "969815",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "shortHistory": [],
+      "featureSha256": "5b81ac205b5a6fa5adbf20b15c2875efae2d125a1bdaba2b35718330b5b654a6"
+    },
+    {
+      "seriesId": "969816",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "shortHistory": [],
+      "featureSha256": "ba3570197c9506eaf01788eec83925d011f53cfac3be08a7de7afa516e1c5c54"
+    },
+    {
+      "seriesId": "969829",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "f10eaf838070c412311b27d6539f97be4aa3d1fd2c4dd5f10f9555c450a4b83e"
+    },
+    {
+      "seriesId": "969851",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "544df03787206a6ea501351a4665d5692ac8b32f1d7430baaad15f56abbc0151"
+    },
+    {
+      "seriesId": "970113",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "4710bdb0b5ead6b3fdbc51fa3f966c88a07f04f4f5462da1876866199f7fbc19"
+    },
+    {
+      "seriesId": "970122",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 10,
+      "shortHistory": [],
+      "featureSha256": "ff837b7497675fc543e7c05b0925ad9ff92539a256f70a337b6ffa0d1ed89d85"
+    },
+    {
+      "seriesId": "970138",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "4b718fd276a71cf03aeb0b87aee46e475eb7fc25b3ad114fdc16b0e9b0fb3f57"
+    },
+    {
+      "seriesId": "970355",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "6c55fafa647b6770ba9f95b9dc0337e0db2a7b21d51f7b9068f072ed37b87106"
+    },
+    {
+      "seriesId": "970410",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "3ac924e17c6af31daf2e6e1365ba7264adc55cad31e503f169c9549cebfa20dd"
+    },
+    {
+      "seriesId": "970445",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "bde131c1fd4cfa57193982e507904e74afb45029e165bbac4b70c44e31429b58"
+    },
+    {
+      "seriesId": "970675",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "2cd56a85867557c975d3bad55cbdcc05157f284d774dd922a65c1ce9a33b9ee1"
+    },
+    {
+      "seriesId": "970689",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "38fe6e20f2806ca4ff1f9d5ef2de5c88f4ccb52c46f558d2f265a3bbe39e95bb"
+    },
+    {
+      "seriesId": "970766",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "95ad2f5c6de46d7722d199b245421a18eb35e67a5f7a8f649213893175cdac8a"
+    },
+    {
+      "seriesId": "971009",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "d498c33ccb9f5c43017776ed1952da1bc1e65ed911b9448e7247f0e2f7572343"
+    },
+    {
+      "seriesId": "971121",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "shortHistory": [],
+      "featureSha256": "88afae76b2cf2cb4d533c79bcfc56ea755d3cead7a23b61c814bf87b9669ca6d"
+    },
+    {
+      "seriesId": "971213",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "68f428af583d2f5449b29c8979dd1a99e8e2c1c1782e40ab6da88ea1ead52bb3"
+    },
+    {
+      "seriesId": "971400",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "shortHistory": [],
+      "featureSha256": "838ce53bcf5ad304fa029227e01df95e02857b21436da06af8936c2d5fd8efe0"
+    },
+    {
+      "seriesId": "987267",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "26deba87342345c38636c8461d8647cb3b046904d47a6fd51d5e14d90e5811e2"
+    },
+    {
+      "seriesId": "987268",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "shortHistory": [],
+      "featureSha256": "90b0dfa625fc6f993350f950dd62f0c07185aa76b7f977b67ed5f367a384d051"
+    },
+    {
+      "seriesId": "987279",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "shortHistory": [],
+      "featureSha256": "b958beeb11bd0d154d488527b818fc274407c79578b465403d63475112907dc9"
+    },
+    {
+      "seriesId": "987281",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "2fc54118339246f8c90bfee62fcbca1c8540129d3179556b1765c30ffbb3cac2"
+    },
+    {
+      "seriesId": "987320",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 3,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 3
+        }
+      ],
+      "featureSha256": "9275fcdb5721a12b63f392777bb1fff8286d63f1df2ff0c3812cbeb716e6ca71"
+    },
+    {
+      "seriesId": "987323",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "1d8f280f40385ca05edc4c92fd9ded16e59f798c9d1ad36e681577ce578da651"
+    },
+    {
+      "seriesId": "987391",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "e619fb40ec9a771cf37f8233ad7595df6c7a3985d5fa3a854f23c85ec8f3be1f"
+    },
+    {
+      "seriesId": "987578",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "shortHistory": [],
+      "featureSha256": "397f0aa7878b4292b92704744679683956a93d4d3b7804ca9edc19b520e8ad5c"
+    },
+    {
+      "seriesId": "987579",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "12229c665860f34f3b22780eb8f434622cf396e4da6253b19eadc4e3625a8e43"
+    },
+    {
+      "seriesId": "987609",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 3,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 3
+        }
+      ],
+      "featureSha256": "c8d5ef8668c67c54a80456429b286569ae035ce59d3ea0e864e9c30bb4b96a63"
+    },
+    {
+      "seriesId": "987620",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "84195fcc866b7520ad8a555098b23e93b76f4a33475408a0cce14f4d00bb395e"
+    },
+    {
+      "seriesId": "987648",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "7495f48d113e070dd4245b589f442dae17b0b94a563100910613352b3ce60484"
+    },
+    {
+      "seriesId": "987678",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "5043ea84a504121839491ab184cc329a48c6adf1deacec80b9fbc49eb2762dc6"
+    },
+    {
+      "seriesId": "987722",
+      "edition": "18358",
+      "membershipHeld": true,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "494a1553fd2ac60354adffecaa83ad2a2a96d1e44c246d229c664a1b0cee1f23"
+    },
+    {
+      "seriesId": "987931",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "shortHistory": [],
+      "featureSha256": "84eb1403008a55e0c56f69e72c1c4cd881cc12e8002d2e07c82102fb4be332a1"
+    },
+    {
+      "seriesId": "987932",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "b5bbd8e5b7b8aba5e52f4c3f405ef36f15cd53986526fd81220909afd7193445"
+    },
+    {
+      "seriesId": "987941",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 3,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 3
+        }
+      ],
+      "featureSha256": "8094d28c459ebfc7842d797cd24d42b5aa21832accba8e275278f88e077e2228"
+    },
+    {
+      "seriesId": "987942",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "9d161b5380b8e2da7257db23eba0ef7c036ba0e65795fecfb1da8ab5a9b803eb"
+    },
+    {
+      "seriesId": "987956",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "shortHistory": [],
+      "featureSha256": "ecd31bd048aaca95abb9ee9488ffd6a28033e2c01de81b3e80a1299cf6a3e879"
+    },
+    {
+      "seriesId": "987957",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "adab697f6a386e108789feb0a4702245bbcb97e41bd2b050c9138d1a35929f9a"
+    },
+    {
+      "seriesId": "987996",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "69685d787d47b0b23eaf5a087b9c186cfc84209a06e4765163fa563515189c49"
+    },
+    {
+      "seriesId": "988164",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "12889c1582d3f30e104deed3b6924e2160d3d50df6c4ec9ca1fb813b644617ae"
+    },
+    {
+      "seriesId": "988165",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "d9c3e3783193b2b5fbd2bab8408d19a9f91317f98d596d62e93e5fa8c76e87b8"
+    },
+    {
+      "seriesId": "988169",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "shortHistory": [],
+      "featureSha256": "d3168d7d210c8611abfff2c8634a449d55fdfdc1d6f5ede92b5dd0b70def98d2"
+    },
+    {
+      "seriesId": "988173",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 3
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "b2716c117efad6c5223e4b1f955e0675c9b39c18fd5da5bf5601c5f4857b1321"
+    },
+    {
+      "seriesId": "988193",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "434ab2c42c30c8c547a5fe1e4123fe589048d6e80f530b44e503888d2727f31d"
+    },
+    {
+      "seriesId": "988228",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "e9840c563e58cd34001b4211b81b17927a6983881929b7b15b46c0196f89072f"
+    },
+    {
+      "seriesId": "988399",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "3a4fdd46c19301141144a045bbe361c1c39a47e5c4735335a93dfb4ccf3c2074"
+    },
+    {
+      "seriesId": "988413",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "shortHistory": [],
+      "featureSha256": "f48622a0f6ddce427b4bfe3c9823f2f44821f987af91effbee395268b38a8456"
+    },
+    {
+      "seriesId": "988439",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "d1c1ab5a60fc12456134e90f7f2d5629d94eb96e73613131e0abe1f575438a5f"
+    },
+    {
+      "seriesId": "988592",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "shortHistory": [],
+      "featureSha256": "9bd4723bca1ba096b270b75ef2e5c56f9a54e985279256b3299d2e8e7afdeb78"
+    },
+    {
+      "seriesId": "988606",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "bde38ddc678ce05f39d728a56c71abfa020240ce63e87fd1689c844e78b367cb"
+    },
+    {
+      "seriesId": "988675",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "shortHistory": [],
+      "featureSha256": "edef902d324260111f694374269cc89a6e7fd76f2a8835d6c0a424c3f92864a6"
+    },
+    {
+      "seriesId": "988891",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "26935bfaf95b3e7cdaf69c4d237803a170b86eb8352540b6791457f29cc82b39"
+    },
+    {
+      "seriesId": "988911",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "shortHistory": [],
+      "featureSha256": "3b1a8068dbe424c6c86a9c6e1f47ef62b3edc2002c7f1cf51fb367b2a562bd3d"
+    },
+    {
+      "seriesId": "988960",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "shortHistory": [],
+      "featureSha256": "d3b89afdb41e53e9ba49a95f483ee08105c201f8cb9130ed309f8ba74680730f"
+    },
+    {
+      "seriesId": "989150",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "533e5e320721a27190e29abf05110dd4e75f2151785fa7113cdb7b21621859bb"
+    },
+    {
+      "seriesId": "989168",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "shortHistory": [],
+      "featureSha256": "e3dd6be06fe98f55a8feba895a90f4e8970bb10457e168130c79516f0fb40976"
+    },
+    {
+      "seriesId": "989471",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "shortHistory": [],
+      "featureSha256": "2c74d9866cf3102e790a0b07579e5a5b88e05733836ef1fcb2e64c4384d746ba"
+    }
+  ],
+  "registered": false,
+  "targetSeriesScored": 0
+}

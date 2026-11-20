@@ -1,0 +1,48 @@
+{
+  "format": "wallachia-prior-lineup-check-v1",
+  "receipts": [
+    {
+      "path": ".tools/s309-wallachia-prior-lineups-0.json",
+      "sha256": "a93003a944c37f4096906aacc996ad4bf508baf11bf84eede1ccbd510da4130f",
+      "fetchedAt": "2026-11-20T01:45:12.734Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-lineups-65.json",
+      "sha256": "68c40b24acc01c6d3a507f6cb57bef86624395a1c56511d2c9e53b60da578ef3",
+      "fetchedAt": "2026-11-20T01:45:15.951Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-lineups-130.json",
+      "sha256": "f4aa17bb8e1a94a0f4c1daed6f2d38c04d99dd117e3c9925c44f1fde87acb67e",
+      "fetchedAt": "2026-11-20T01:45:19.177Z"
+    },
+    {
+      "path": ".tools/s309-wallachia-prior-lineups-195.json",
+      "sha256": "cc0a014136e56e990c2eaf11589e4a01dcd77222df27ca988fb5a228d9214a7c",
+      "fetchedAt": "2026-11-20T01:45:22.454Z"
+    }
+  ],
+  "uniqueEarlierMaps": 204,
+  "structurallyComplete": 204,
+  "rejected": [],
+  "editions": [
+    {
+      "edition": "17891",
+      "matched": 37,
+      "earlierLineupsFoundForAllTen": 36
+    },
+    {
+      "edition": "18058",
+      "matched": 39,
+      "earlierLineupsFoundForAllTen": 39
+    },
+    {
+      "edition": "18358",
+      "matched": 39,
+      "earlierLineupsFoundForAllTen": 39
+    }
+  ],
+  "canonicalEloHistoryBuilt": false,
+  "registered": false,
+  "scoredSeries": 0
+}

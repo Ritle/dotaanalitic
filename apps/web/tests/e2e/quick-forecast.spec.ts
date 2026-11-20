@@ -54,7 +54,7 @@ const role=(page:Page,slot:string,index=1)=>card(page,slot).getByRole('combobox'
 
 async function prepare(page:Page,mapping=true,openMap=true){
  await chooseFive(page);await confirm(page).click();await expect(confirm(page)).toHaveAttribute('aria-pressed','true');
- await expect(page.getByRole('region',{name:'Прогноз всей встречи',exact:true})).toContainText('Модель победителя встречи ещё не прошла проверку');
+ await expect(page.getByRole('region',{name:'Прогноз всей встречи',exact:true})).toContainText('Модель победителя встречи ещё не прошла независимую проверку');
  if(openMap)await page.getByText('Отдельный прогноз первой карты',{exact:true}).click();
  await sql`INSERT INTO leagues(id,opendota_league_id,name) VALUES(77,777,'Synthetic Quick Event')`.execute(database.db);
  const scope={provider:'opendota' as const,leagueId:'777',eventName:'Synthetic Quick Event',fromAt:new Date(Date.now()-86400000).toISOString(),until:new Date(Date.now()+3*86400000).toISOString(),tier:1 as const,stage:'main_event' as const,sourceUrl:'https://example.test/synthetic-quick',rationale:'Synthetic owner-reviewed event for automatic forecast tests'};
@@ -68,10 +68,16 @@ async function prepare(page:Page,mapping=true,openMap=true){
 const quick=(page:Page)=>page.getByRole('region',{name:'Прогноз выбранной встречи',exact:true});
 const getForecast=(page:Page)=>quick(page).getByRole('button',{name:'Получить прогноз первой карты',exact:true});
 test('whole-meeting mode is explicit and cannot silently create a first-map forecast',async({page})=>{
+ await page.route('**/upcoming/70001/series-forecast/readiness',async route=>{
+  const response=await route.fetch(),data=await response.json();
+  await route.fulfill({response,json:{...data,reasons:['SCHEDULE_SOURCE_STALE',...data.reasons]}});
+ });
  await prepare(page,true,false);
  const series=page.getByRole('region',{name:'Прогноз всей встречи',exact:true});
  await expect(series.getByRole('heading',{name:'Победитель встречи · BO3',exact:true})).toBeVisible();
- await expect(series).toContainText('Вероятность пока недоступна');await expect(getForecast(page)).toBeHidden();
+ await expect(series.getByRole('status')).toContainText('Прогноз серии пока недоступен.');
+ await expect(series.getByText('Расписание устарело. Обновите список встреч.')).toBeVisible();
+ await expect(getForecast(page)).toBeHidden();
  expect((await sql`SELECT 1 FROM prediction_runs`.execute(database.db)).rows).toHaveLength(0);
  expect((await sql`SELECT 1 FROM upcoming_forecast_preparations`.execute(database.db)).rows).toHaveLength(0);
  await quick(page).screenshot({path:'.tools/s309-series-desktop.png'});

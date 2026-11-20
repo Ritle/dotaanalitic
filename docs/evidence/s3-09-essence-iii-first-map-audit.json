@@ -1,0 +1,832 @@
+{
+  "format": "s3-09-essence-iii-first-map-audit-v1",
+  "parentAudit": {
+    "path": "docs/evidence/s3-09-bo3-2026-membership-and-rosters.json",
+    "sha256": "41f941d433d6f4ce19e455c23ef077d9050dffdff88ceae7b45fd2ddb8ea2082"
+  },
+  "sourceProjectionSha256": "bd70b8ba3f1a1bbaf361a638d1b9335fb4097d43ff4008b7bf3cebcad167c3db",
+  "sources": {
+    "openDota": {
+      "url": "https://api.opendota.com/api/explorer?sql=SELECT+m.match_id%3A%3Atext%2C+m.series_id%3A%3Atext%2C+m.start_time%2C+m.radiant_team_id%3A%3Atext%2C+m.dire_team_id%3A%3Atext%2C+COALESCE%28NULLIF%28m.radiant_team_name%2C%27%27%29%2Cr.name%29+AS+radiant%2C+COALESCE%28NULLIF%28m.dire_team_name%2C%27%27%29%2Cd.name%29+AS+dire%2C+p.player_slot%2C+p.account_id%3A%3Atext+FROM+matches+m+LEFT+JOIN+teams+r+ON+r.team_id%3Dm.radiant_team_id+LEFT+JOIN+teams+d+ON+d.team_id%3Dm.dire_team_id+LEFT+JOIN+player_matches+p+ON+p.match_id%3Dm.match_id+AND+m.match_id+IN+%289087374444%2C9089448051%2C9090050956%2C9090576268%2C9091792655%2C9092063120%2C9093340128%2C9094055565%2C9094375739%29+WHERE+m.leagueid%3D20486+AND+m.match_id+IN+%289087374444%2C9087439951%2C9089448051%2C9089560343%2C9089567599%2C9090050956%2C9090171021%2C9090295298%2C9090576268%2C9090631460%2C9090701002%2C9091792655%2C9091993665%2C9092063120%2C9092124714%2C9093340128%2C9093401586%2C9093458287%2C9094055565%2C9094149032%2C9094241558%2C9094375739%2C9094461999%29+ORDER+BY+m.start_time%2Cm.match_id%2Cp.player_slot+LIMIT+110",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:09:11.141Z",
+      "payloadSha256": "5c7fd003d4bde46400b368b38ed0e1fa0ae21bbe3b857a62aa0bd54f2c11abeb"
+    },
+    "pandaScorePast": {
+      "url": "https://api.pandascore.co/dota2/matches/past?filter%5Bid%5D=1793328%2C1793323%2C1793324%2C1793326%2C1793336%2C1793335%2C1793339%2C1793343%2C1793340&filter%5Bserie_id%5D=11185&per_page=25",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:09:11.226Z",
+      "payloadSha256": "1af6ce4462319608eec36d0cda2fa33e4eed0106ded038402c9495b29fcdd077"
+    },
+    "pandaScoreDetailedGamesProbe": {
+      "url": "https://api.pandascore.co/dota2/matches/1793328/games",
+      "httpStatus": 403,
+      "fetchedAt": "2026-11-19T20:09:15.619Z"
+    },
+    "valveNode": {
+      "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=20486&delay_seconds=0",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:12:20.766Z",
+      "payloadSha256": "d7b662d311c39ed094e52cc7a1286fe1375b0eb025d333635c0edd3327a3a502",
+      "projection": {
+        "leagueId": "20486",
+        "nodes": [
+          {
+            "nodeId": "32",
+            "matchIds": [
+              "9089448051",
+              "9089560343",
+              "9089567599"
+            ],
+            "matchFlags": [
+              {}
+            ]
+          }
+        ]
+      }
+    },
+    "openDotaAdditionalMap": {
+      "url": "https://api.opendota.com/api/matches/9089560343",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:12:20.349Z",
+      "payloadSha256": "b95754324eaff5968b6a8c0d89f885b8d96fba5cea28d31ab1d7d4872290a9b3",
+      "projection": {
+        "hasNativeMatch": true,
+        "startTime": 1794653164,
+        "leagueId": 20486,
+        "recordedPlayerCount": 10
+      }
+    },
+    "teamTournamentAnnouncement": {
+      "url": "https://t.me/onewin_dota/674?embed=1",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:12:20.052Z",
+      "payloadSha256": "3f8b156ce0a5d93641006377f5dccaa9b7e3fe7d3c0be565bf606de7ae0209f5",
+      "projection": {
+        "postMatches": true,
+        "publishedAt": "2026-10-30T14:01:46+00:00",
+        "hasText": true,
+        "mentionsEdition": true,
+        "mentionsReplacement": true,
+        "mentionsStariyBog": true,
+        "mentionsFroglings": false
+      }
+    },
+    "teamFixtureAnnouncement": {
+      "url": "https://t.me/onewin_dota/741?embed=1",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:12:20.055Z",
+      "payloadSha256": "cf61191366002e5936da5728792a64b1ce559c2f64926b37dcfeb10f3963f5ca",
+      "projection": {
+        "postMatches": true,
+        "publishedAt": "2026-11-14T16:01:01+00:00",
+        "hasText": true,
+        "mentionsEdition": false,
+        "mentionsReplacement": false,
+        "mentionsStariyBog": false,
+        "mentionsFroglings": true
+      }
+    }
+  },
+  "summary": {
+    "seriesChecked": 9,
+    "seriesWithSameGameCountAcrossSources": 8,
+    "seriesWithDirectNativeId": 0,
+    "seriesWithCompleteActualFirstMap": 9,
+    "seriesWithExactEarlyRosterOnBothSides": 7,
+    "seriesWithExactRosterOnBothSidesUsingCurrentIdentityLinks": 9,
+    "sidesWithExactEarlyRoster": 16,
+    "sidesWithExactRosterUsingCurrentIdentityLinks": 18,
+    "strictLineupsVerified": 0,
+    "independentlyRegistered": 0
+  },
+  "rows": [
+    {
+      "openDotaSeriesId": "1167587",
+      "pandaScoreMatchId": "1793328",
+      "firstMapId": "9087374444",
+      "firstMapOpenDotaAt": "2026-11-12T19:01:09.000Z",
+      "conservativeObservedStart": "2026-11-12T19:01:09.000Z",
+      "valveIndexedMapCount": 2,
+      "openDotaMapCount": 2,
+      "pandaScoreGameCount": 2,
+      "missingFromOpenDotaExplorerMapIds": [],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9087374444",
+          "startAt": "2026-11-12T19:01:09.000Z"
+        },
+        {
+          "mapId": "9087439951",
+          "startAt": "2026-11-12T19:52:03.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741521",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-12T19:02:15Z",
+          "openDotaChronologicalMapId": "9087374444",
+          "differenceSeconds": 66
+        },
+        {
+          "pandaScoreGameId": "741522",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-12T19:53:24Z",
+          "openDotaChronologicalMapId": "9087439951",
+          "differenceSeconds": 81
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "Team Spirit",
+          "pandaScoreTeamId": "1669",
+          "openDotaTeamId": "7119388",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-11T23:44:26.158Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "1w Team",
+          "pandaScoreTeamId": "134536",
+          "openDotaTeamId": "10182357",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-11T23:44:21.690Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    },
+    {
+      "openDotaSeriesId": "1168095",
+      "pandaScoreMatchId": "1793323",
+      "firstMapId": "9089448051",
+      "firstMapOpenDotaAt": "2026-11-14T09:02:02.000Z",
+      "conservativeObservedStart": "2026-11-14T09:02:02.000Z",
+      "valveIndexedMapCount": 3,
+      "openDotaMapCount": 2,
+      "pandaScoreGameCount": 2,
+      "missingFromOpenDotaExplorerMapIds": [
+        "9089560343"
+      ],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9089448051",
+          "startAt": "2026-11-14T09:02:02.000Z"
+        },
+        {
+          "mapId": "9089567599",
+          "startAt": "2026-11-14T10:50:49.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741506",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-14T09:02:32Z",
+          "openDotaChronologicalMapId": "9089448051",
+          "differenceSeconds": 30
+        },
+        {
+          "pandaScoreGameId": "741507",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-14T10:46:34Z",
+          "openDotaChronologicalMapId": "9089567599",
+          "differenceSeconds": -255
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "LEGION",
+          "pandaScoreTeamId": "139340",
+          "openDotaTeamId": "10291652",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 0,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 0,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": null,
+          "exactMatchOfEarlyRoster": false,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "LGD Gaming",
+          "pandaScoreTeamId": "1657",
+          "openDotaTeamId": "15",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-13T15:15:54.005Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    },
+    {
+      "openDotaSeriesId": "1168375",
+      "pandaScoreMatchId": "1793324",
+      "firstMapId": "9090050956",
+      "firstMapOpenDotaAt": "2026-11-14T16:02:16.000Z",
+      "conservativeObservedStart": "2026-11-14T16:00:57.000Z",
+      "valveIndexedMapCount": 3,
+      "openDotaMapCount": 3,
+      "pandaScoreGameCount": 3,
+      "missingFromOpenDotaExplorerMapIds": [],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9090050956",
+          "startAt": "2026-11-14T16:02:16.000Z"
+        },
+        {
+          "mapId": "9090171021",
+          "startAt": "2026-11-14T17:18:43.000Z"
+        },
+        {
+          "mapId": "9090295298",
+          "startAt": "2026-11-14T18:52:58.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741509",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-14T16:00:57Z",
+          "openDotaChronologicalMapId": "9090050956",
+          "differenceSeconds": -79
+        },
+        {
+          "pandaScoreGameId": "741510",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-14T17:20:21Z",
+          "openDotaChronologicalMapId": "9090171021",
+          "differenceSeconds": 98
+        },
+        {
+          "pandaScoreGameId": "741511",
+          "pandaScorePosition": 3,
+          "beginAt": "2026-11-14T18:54:31Z",
+          "openDotaChronologicalMapId": "9090295298",
+          "differenceSeconds": 93
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "LEGION",
+          "pandaScoreTeamId": "139340",
+          "openDotaTeamId": "10291652",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 0,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 0,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": null,
+          "exactMatchOfEarlyRoster": false,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "Team Liquid",
+          "pandaScoreTeamId": "1647",
+          "openDotaTeamId": "2163",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-13T15:13:03.353Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    },
+    {
+      "openDotaSeriesId": "1168570",
+      "pandaScoreMatchId": "1793326",
+      "firstMapId": "9090576268",
+      "firstMapOpenDotaAt": "2026-11-14T22:17:12.000Z",
+      "conservativeObservedStart": "2026-11-14T22:17:12.000Z",
+      "valveIndexedMapCount": 3,
+      "openDotaMapCount": 3,
+      "pandaScoreGameCount": 3,
+      "missingFromOpenDotaExplorerMapIds": [],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9090576268",
+          "startAt": "2026-11-14T22:17:12.000Z"
+        },
+        {
+          "mapId": "9090631460",
+          "startAt": "2026-11-14T23:18:17.000Z"
+        },
+        {
+          "mapId": "9090701002",
+          "startAt": "2026-11-15T01:00:03.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741515",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-14T22:17:48Z",
+          "openDotaChronologicalMapId": "9090576268",
+          "differenceSeconds": 36
+        },
+        {
+          "pandaScoreGameId": "741516",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-14T23:19:54Z",
+          "openDotaChronologicalMapId": "9090631460",
+          "differenceSeconds": 97
+        },
+        {
+          "pandaScoreGameId": "741517",
+          "pandaScorePosition": 3,
+          "beginAt": "2026-11-15T01:00:40Z",
+          "openDotaChronologicalMapId": "9090701002",
+          "differenceSeconds": 37
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "Froglings",
+          "pandaScoreTeamId": "139517",
+          "openDotaTeamId": "10331884",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-13T15:07:01.986Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "1w Team",
+          "pandaScoreTeamId": "134536",
+          "openDotaTeamId": "10182357",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-11T23:44:21.690Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    },
+    {
+      "openDotaSeriesId": "1168923",
+      "pandaScoreMatchId": "1793336",
+      "firstMapId": "9091792655",
+      "firstMapOpenDotaAt": "2026-11-15T17:10:03.000Z",
+      "conservativeObservedStart": "2026-11-15T17:10:03.000Z",
+      "valveIndexedMapCount": 2,
+      "openDotaMapCount": 2,
+      "pandaScoreGameCount": 2,
+      "missingFromOpenDotaExplorerMapIds": [],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9091792655",
+          "startAt": "2026-11-15T17:10:03.000Z"
+        },
+        {
+          "mapId": "9091993665",
+          "startAt": "2026-11-15T19:28:06.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741530",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-15T17:11:16Z",
+          "openDotaChronologicalMapId": "9091792655",
+          "differenceSeconds": 73
+        },
+        {
+          "pandaScoreGameId": "741531",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-15T19:28:41Z",
+          "openDotaChronologicalMapId": "9091993665",
+          "differenceSeconds": 35
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "DO KONCA",
+          "pandaScoreTeamId": "139547",
+          "openDotaTeamId": "10331139",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-14T11:56:05.068Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "Aurora",
+          "pandaScoreTeamId": "133882",
+          "openDotaTeamId": "9467224",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-11T23:13:26.524Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    },
+    {
+      "openDotaSeriesId": "1169056",
+      "pandaScoreMatchId": "1793335",
+      "firstMapId": "9092063120",
+      "firstMapOpenDotaAt": "2026-11-15T20:27:18.000Z",
+      "conservativeObservedStart": "2026-11-15T20:27:18.000Z",
+      "valveIndexedMapCount": 2,
+      "openDotaMapCount": 2,
+      "pandaScoreGameCount": 2,
+      "missingFromOpenDotaExplorerMapIds": [],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9092063120",
+          "startAt": "2026-11-15T20:27:18.000Z"
+        },
+        {
+          "mapId": "9092124714",
+          "startAt": "2026-11-15T21:29:20.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741527",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-15T20:27:48Z",
+          "openDotaChronologicalMapId": "9092063120",
+          "differenceSeconds": 30
+        },
+        {
+          "pandaScoreGameId": "741528",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-15T21:30:17Z",
+          "openDotaChronologicalMapId": "9092124714",
+          "differenceSeconds": 57
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "LGD Gaming",
+          "pandaScoreTeamId": "1657",
+          "openDotaTeamId": "15",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-13T15:15:54.005Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "Team Spirit",
+          "pandaScoreTeamId": "1669",
+          "openDotaTeamId": "7119388",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-11T23:44:26.158Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    },
+    {
+      "openDotaSeriesId": "1169378",
+      "pandaScoreMatchId": "1793339",
+      "firstMapId": "9093340128",
+      "firstMapOpenDotaAt": "2026-11-16T20:10:34.000Z",
+      "conservativeObservedStart": "2026-11-16T20:10:34.000Z",
+      "valveIndexedMapCount": 3,
+      "openDotaMapCount": 3,
+      "pandaScoreGameCount": 3,
+      "missingFromOpenDotaExplorerMapIds": [],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9093340128",
+          "startAt": "2026-11-16T20:10:34.000Z"
+        },
+        {
+          "mapId": "9093401586",
+          "startAt": "2026-11-16T21:10:35.000Z"
+        },
+        {
+          "mapId": "9093458287",
+          "startAt": "2026-11-16T22:25:42.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741539",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-16T20:13:55Z",
+          "openDotaChronologicalMapId": "9093340128",
+          "differenceSeconds": 201
+        },
+        {
+          "pandaScoreGameId": "741540",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-16T21:15:08Z",
+          "openDotaChronologicalMapId": "9093401586",
+          "differenceSeconds": 273
+        },
+        {
+          "pandaScoreGameId": "741541",
+          "pandaScorePosition": 3,
+          "beginAt": "2026-11-16T22:26:27Z",
+          "openDotaChronologicalMapId": "9093458287",
+          "differenceSeconds": 45
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "LEGION",
+          "pandaScoreTeamId": "139340",
+          "openDotaTeamId": "10291652",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-15T14:15:52.396Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "Aurora",
+          "pandaScoreTeamId": "133882",
+          "openDotaTeamId": "9467224",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-11T23:13:26.524Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    },
+    {
+      "openDotaSeriesId": "1169538",
+      "pandaScoreMatchId": "1793343",
+      "firstMapId": "9094055565",
+      "firstMapOpenDotaAt": "2026-11-17T13:02:17.000Z",
+      "conservativeObservedStart": "2026-11-17T13:02:17.000Z",
+      "valveIndexedMapCount": 3,
+      "openDotaMapCount": 3,
+      "pandaScoreGameCount": 3,
+      "missingFromOpenDotaExplorerMapIds": [],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9094055565",
+          "startAt": "2026-11-17T13:02:17.000Z"
+        },
+        {
+          "mapId": "9094149032",
+          "startAt": "2026-11-17T14:04:09.000Z"
+        },
+        {
+          "mapId": "9094241558",
+          "startAt": "2026-11-17T15:05:12.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741551",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-17T13:02:54Z",
+          "openDotaChronologicalMapId": "9094055565",
+          "differenceSeconds": 37
+        },
+        {
+          "pandaScoreGameId": "741552",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-17T14:04:47Z",
+          "openDotaChronologicalMapId": "9094149032",
+          "differenceSeconds": 38
+        },
+        {
+          "pandaScoreGameId": "741553",
+          "pandaScorePosition": 3,
+          "beginAt": "2026-11-17T15:07:47Z",
+          "openDotaChronologicalMapId": "9094241558",
+          "differenceSeconds": 155
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "LGD Gaming",
+          "pandaScoreTeamId": "1657",
+          "openDotaTeamId": "15",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-13T15:15:54.005Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "LEGION",
+          "pandaScoreTeamId": "139340",
+          "openDotaTeamId": "10291652",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-15T14:15:52.396Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    },
+    {
+      "openDotaSeriesId": "1169618",
+      "pandaScoreMatchId": "1793340",
+      "firstMapId": "9094375739",
+      "firstMapOpenDotaAt": "2026-11-17T16:37:13.000Z",
+      "conservativeObservedStart": "2026-11-17T16:35:57.000Z",
+      "valveIndexedMapCount": 2,
+      "openDotaMapCount": 2,
+      "pandaScoreGameCount": 2,
+      "missingFromOpenDotaExplorerMapIds": [],
+      "openDotaStartByMap": [
+        {
+          "mapId": "9094375739",
+          "startAt": "2026-11-17T16:37:13.000Z"
+        },
+        {
+          "mapId": "9094461999",
+          "startAt": "2026-11-17T17:44:25.000Z"
+        }
+      ],
+      "countAgreement": true,
+      "crossProviderNativeIdPresent": false,
+      "ordinalComparison": [
+        {
+          "pandaScoreGameId": "741542",
+          "pandaScorePosition": 1,
+          "beginAt": "2026-11-17T16:35:57Z",
+          "openDotaChronologicalMapId": "9094375739",
+          "differenceSeconds": -76
+        },
+        {
+          "pandaScoreGameId": "741543",
+          "pandaScorePosition": 2,
+          "beginAt": "2026-11-17T17:47:02Z",
+          "openDotaChronologicalMapId": "9094461999",
+          "differenceSeconds": 157
+        }
+      ],
+      "sides": [
+        {
+          "side": "radiant",
+          "teamName": "Team Spirit",
+          "pandaScoreTeamId": "1669",
+          "openDotaTeamId": "7119388",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-11T23:44:26.158Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        },
+        {
+          "side": "dire",
+          "teamName": "Aurora",
+          "pandaScoreTeamId": "133882",
+          "openDotaTeamId": "9467224",
+          "rosterPlayers": 5,
+          "actualPlayers": 5,
+          "mappedBeforeObservedStart": 5,
+          "mappedInRestoredDatabase": 5,
+          "matchingBeforeObservedStart": 5,
+          "matchingInRestoredDatabase": 5,
+          "latestIdentityLinkRecordedAt": "2026-11-11T23:13:26.524Z",
+          "exactMatchOfEarlyRoster": true,
+          "exactMatchOfRosterWithCurrentIdentities": true
+        }
+      ]
+    }
+  ],
+  "extraMapReview": {
+    "seriesId": "1168095",
+    "extraNativeMapId": "9089560343",
+    "extraNativeStartAt": "2026-11-14T10:46:04.000Z",
+    "pandaScoreGameTwoStartAt": "2026-11-14T10:46:34.000Z",
+    "laterNativeMapId": "9089567599",
+    "laterNativeStartAt": "2026-11-14T10:50:49.000Z",
+    "extraNativeVsPandaScoreGameTwoSeconds": 30,
+    "status": "official_scoring_map_identity_unresolved"
+  },
+  "teamAnnouncementReview": {
+    "team": "1w Team",
+    "announcedReplacement": "Stariy Bog for bzm",
+    "basis": "team_post_for_edition",
+    "fixtureWithTeamPost": "1168570",
+    "bothStartingFivesConfirmed": false
+  },
+  "evaluationScope": {
+    "leagueId": "20486",
+    "treatment": "development_only",
+    "reason": "edition_outcomes_visible_in_public_index_during_roster_and_membership_review",
+    "reviewedResultsPage": "https://dotesports.com/dota-2/news/1win-essence-iii-schedule-results",
+    "removedFromFrozenAuditShortlist": [
+      "1167587",
+      "1167786",
+      "1168095",
+      "1168375",
+      "1168570",
+      "1168701",
+      "1168923",
+      "1169056",
+      "1169311",
+      "1169378",
+      "1169494",
+      "1169538",
+      "1169618",
+      "1169685",
+      "1169880"
+    ],
+    "remainingUnverifiedCandidatesAtMost": 62
+  },
+  "registrationAllowed": false
+}

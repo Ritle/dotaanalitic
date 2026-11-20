@@ -1,0 +1,237 @@
+{
+  "task": "S3-04",
+  "database": "dota_analytics_current",
+  "prior": {
+    "path": "docs/evidence/s3-04-playtime-xipto-draft-replay.json",
+    "sha256": "48c9878081520ff8fda645fe67d7010229972136c0f548876ed66ddeaee1a59f"
+  },
+  "importedAt": "2026-11-19T22:59:57.495Z",
+  "importId": "48827a0c-7b35-471f-9fb0-7182b947cc96",
+  "importManifestSha256": "4f831b55cc6c26a0dc5e00db2b9c99934b9dc173fc9acd0ce14d4c4a1b870ffe",
+  "completionSha256": "df2410e723475c58366869801730c0616e67022cc7a3aeaf5bce92aedd4a73da",
+  "backup": {
+    "path": ".tools/s304-kidaro-working-r1/before.dump",
+    "sha256": "7325b083eb0790c7bce02d2c3ce68989d0054b1ba89672fc2ceb6e5bba6150d4",
+    "bytes": 58057335,
+    "tableListChecked": true,
+    "restoreCheck": {
+      "backupSha256": "7325b083eb0790c7bce02d2c3ce68989d0054b1ba89672fc2ceb6e5bba6150d4",
+      "restoredMaps": 2290,
+      "verifiedTableFingerprints": [
+        "matches",
+        "match_players",
+        "series",
+        "prediction_runs",
+        "v1_model_artifacts",
+        "prediction_model_versions",
+        "v1_runtime_snapshots",
+        "owner_draft_shadow_runs",
+        "owner_draft_captures",
+        "scenarios"
+      ]
+    }
+  },
+  "verifiedMaps": [
+    {
+      "id": "9081944953",
+      "series": "1166017",
+      "pro": true,
+      "status": "verified",
+      "accounts": 10,
+      "kidaro": 1
+    },
+    {
+      "id": "9082081542",
+      "series": "1166017",
+      "pro": true,
+      "status": "verified",
+      "accounts": 10,
+      "kidaro": 1
+    }
+  ],
+  "receipts": [
+    {
+      "id": "9081944953",
+      "sha256": "0eba7e51153094841c5b8899f4bc0a83d74980b1d94b9661e63b7ca0d999cdbb",
+      "fetched_at": "2026-11-19T22:51:15.278Z",
+      "known_at": null
+    },
+    {
+      "id": "9082081542",
+      "sha256": "0da1a7f7b5dbff4c86253086ae588abe805569d67be0ee198843716148935064",
+      "fetched_at": "2026-11-19T22:51:13.937Z",
+      "known_at": null
+    }
+  ],
+  "duplicateMapReplays": 2,
+  "secondExecution": "already_applied",
+  "existingMapsAndForecastsStable": true,
+  "counts": {
+    "matches": {
+      "before": 2290,
+      "after": 2292
+    },
+    "match_players": {
+      "before": 22900,
+      "after": 22920
+    },
+    "series": {
+      "before": 1114,
+      "after": 1115
+    },
+    "prediction_runs": {
+      "before": 12,
+      "after": 12
+    },
+    "v1_model_artifacts": {
+      "before": 1,
+      "after": 1
+    },
+    "prediction_model_versions": {
+      "before": 2,
+      "after": 2
+    },
+    "v1_runtime_snapshots": {
+      "before": 12,
+      "after": 12
+    },
+    "owner_draft_shadow_runs": {
+      "before": 0,
+      "after": 0
+    },
+    "owner_draft_captures": {
+      "before": 0,
+      "after": 0
+    },
+    "scenarios": {
+      "before": 12,
+      "after": 12
+    }
+  },
+  "draftLabReplay": {
+    "sourceSha256": "eeb3f55b5a67db1aafbcde72ed7cfce9210607d7db61e2bee5a43aeca889e9aa",
+    "basis": "archived_final_picks_reentered_at_current_clock_isolated_copy",
+    "mapId": "9084351361",
+    "event": "1win Essence III",
+    "teams": [
+      "PlayTime",
+      "Xipto"
+    ],
+    "importedInCopy": [],
+    "actualStart": "2026-11-10T13:49:11.000Z",
+    "snapshotCutoff": "2026-11-19T23:01:15.004277Z",
+    "seriesMaps": 3,
+    "accounts": 10,
+    "distinctHeroes": 10,
+    "captureReasons": [
+      "DRAFT_MAP_REFERENCE_MISSING",
+      "DRAFT_CAPTURE_HISTORY_LIMIT",
+      "LOCAL_HISTORY_UNAVAILABLE"
+    ],
+    "compactHistory": "captured",
+    "compactMaps": 2292,
+    "verifiedOutcomes": 2275,
+    "featureStatus": "ready_offline_features",
+    "featureReasons": [],
+    "coverage": {
+      "nRaw": 2222,
+      "nEff": 2222,
+      "minimumPlayerMaps": 6,
+      "playersWithHistory": 10,
+      "playersMeetingMinimum": 10,
+      "excludedMaps": 70
+    },
+    "practiceStatus": "computed_research_only",
+    "excludedSeriesMaps": 3,
+    "priorCounts": [
+      {
+        "accountId": "9403474",
+        "heroId": 88,
+        "team": "A",
+        "priorMaps": 120,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "140297552",
+        "heroId": 90,
+        "team": "A",
+        "priorMaps": 64,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "164962869",
+        "heroId": 109,
+        "team": "A",
+        "priorMaps": 59,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "50580004",
+        "heroId": 69,
+        "team": "A",
+        "priorMaps": 30,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "104334048",
+        "heroId": 30,
+        "team": "A",
+        "priorMaps": 4,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "375507918",
+        "heroId": 1,
+        "team": "B",
+        "priorMaps": 38,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "181716137",
+        "heroId": 7,
+        "team": "B",
+        "priorMaps": 66,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "156328257",
+        "heroId": 77,
+        "team": "B",
+        "priorMaps": 80,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "193815691",
+        "heroId": 105,
+        "team": "B",
+        "priorMaps": 33,
+        "prior90DayHeroMaps": 0
+      },
+      {
+        "accountId": "101259972",
+        "heroId": 121,
+        "team": "B",
+        "priorMaps": 37,
+        "prior90DayHeroMaps": 0
+      }
+    ],
+    "priorBasis": "event time subset of maps admitted by current Elo snapshot; historical receipt availability not implied",
+    "shadowReasons": [
+      "SHADOW_CANDIDATE_UNAVAILABLE"
+    ],
+    "committed": true,
+    "duplicateReplayStable": true,
+    "workingCounts": {
+      "maps": 2292,
+      "scenarios": 12,
+      "captures": 0,
+      "shadows": 0,
+      "predictions": 12
+    },
+    "teamAWinProbability": null,
+    "primaryEligible": false
+  },
+  "historicalPrestartAvailabilityVerified": false,
+  "artifactPresent": false,
+  "artifactExpectedSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b"
+}

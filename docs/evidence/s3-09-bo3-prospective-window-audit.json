@@ -1,0 +1,296 @@
+{
+  "format": "s3-09-bo3-prospective-window-audit-v1",
+  "capturedAt": "2026-11-19T20:19:39.040Z",
+  "policy": {
+    "path": "tools/research/series-validation-policy.json",
+    "sha256": "2c3e6dbabac4301329c022af637050d3dff1ada81a662ce41dc4272d1a57edaa"
+  },
+  "recordedThresholds": {
+    "minimumEligible": 100,
+    "minimumCoverage": 0.8,
+    "minimumEditions": 2,
+    "planningTarget": 125
+  },
+  "providerCatalogues": {
+    "pandaScore": [
+      {
+        "label": "all_dota_2_series_starting_jan_may_2027",
+        "url": "https://api.pandascore.co/dota2/series?range%5Bbegin_at%5D=2027-01-01T00%3A00%3A00Z%2C2027-05-31T23%3A59%3A59Z&sort=begin_at%2Cid&page=1&per_page=100",
+        "httpStatus": 200,
+        "fetchedAt": "2026-11-19T20:18:36.986Z",
+        "availableTotal": "0",
+        "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "rowCount": 0
+      },
+      {
+        "label": "dreamleague_seasons_31_32",
+        "url": "https://api.pandascore.co/leagues/4125/series?filter%5Bseason%5D=31%2C32&sort=-id&page=1&per_page=100",
+        "httpStatus": 200,
+        "fetchedAt": "2026-11-19T20:18:41.385Z",
+        "availableTotal": "0",
+        "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "rowCount": 0
+      }
+    ],
+    "openDota": {
+      "fetchedAt": "2026-11-19T20:19:39.040Z",
+      "sourceBodySha256": "0dd35c5666b14098f3dd89f72db15479f5842c12049c160e62124be7dff72783",
+      "totalRows": 10414,
+      "pattern": "2027|dream\\s*league\\D*(?:30|31|32)\\b|wallachia\\D*(?:10|11|X|XI)\\b|esl\\s*one.*munich|clavision|dota.?pit.*master",
+      "matches": [
+        {
+          "id": "20151",
+          "name": "Phoenix Dota 2027"
+        },
+        {
+          "id": "16901",
+          "name": "Clavision DOTA League S1 : Snow-Ruyi"
+        },
+        {
+          "id": "20329",
+          "name": "WINTER CUP 2027 SEASON 3"
+        },
+        {
+          "id": "18430",
+          "name": "2027职业联赛"
+        },
+        {
+          "id": "18359",
+          "name": "Clavision DOTA2 Masters 2025: Snow-Ruyi"
+        },
+        {
+          "id": "20359",
+          "name": "DreamLeague Season 30 Qualifiers"
+        },
+        {
+          "id": "20275",
+          "name": "Ultras Dota Pro League  2026-2027"
+        },
+        {
+          "id": "20276",
+          "name": "European Pro League  2026-2027 Season"
+        },
+        {
+          "id": "20277",
+          "name": "EPL World Series: Southeast Asia 2026-2027 Season "
+        },
+        {
+          "id": "20278",
+          "name": "EPL Championship 2026-2027"
+        },
+        {
+          "id": "20310",
+          "name": "NEVA Season 2027"
+        }
+      ],
+      "reviewedExactMainEditionMatches": []
+    }
+  },
+  "decemberWindow": {
+    "plan": {
+      "path": "tools/research/series-bo3-registration-plan.json",
+      "sha256": "f5bff3a8bc4e1336920d67d7014498753a54b1289fb04a4b1eb0bde8e2176109"
+    },
+    "review": {
+      "asOf": "2026-11-19T20:19:39.040Z",
+      "reviewBefore": "2026-11-19T23:00:00.000Z",
+      "scopeReady": false,
+      "plannedBo3": {
+        "total": 105,
+        "fromVerifiedEditions": 33,
+        "minimumEligible": 100,
+        "minimumCoverage": 0.8,
+        "minimumEditions": 2
+      },
+      "registrationIssues": [
+        "EDITION_SCOPE_UNCONFIRMED",
+        "EXPOSURE_INVENTORY_INCOMPLETE"
+      ],
+      "collectionAllowed": false,
+      "editions": [
+        {
+          "name": "BLAST SLAM IX",
+          "editionId": "11187",
+          "issues": []
+        },
+        {
+          "name": "DreamLeague Season 30",
+          "editionId": null,
+          "issues": [
+            "MAIN_EDITION_ID_UNCONFIRMED"
+          ]
+        }
+      ]
+    },
+    "planning": {
+      "plannedBo3": 105,
+      "coverageNeededFor100": 0.9523809523809523,
+      "shortOfPlanningTarget": 20
+    },
+    "issueAtRegistrationDeadline": "SCOPE_WINDOW_STARTED"
+  },
+  "springWindow": {
+    "plan": {
+      "path": "tools/research/series-bo3-later-plan.json",
+      "sha256": "0cf48c0f1e791d03696da62ca87a9d8a91a62cea8971b80c75993f7fe48e4533"
+    },
+    "review": {
+      "asOf": "2026-11-19T20:19:39.040Z",
+      "reviewBefore": "2027-03-01T00:00:00.000Z",
+      "scopeReady": false,
+      "plannedBo3": {
+        "total": 9,
+        "fromVerifiedEditions": 0,
+        "minimumEligible": 100,
+        "minimumCoverage": 0.8,
+        "minimumEditions": 2
+      },
+      "registrationIssues": [
+        "EDITION_SCOPE_UNCONFIRMED",
+        "PLANNED_BO3_UNKNOWN",
+        "PLANNED_BO3_BELOW_MINIMUM",
+        "EXPOSURE_INVENTORY_INCOMPLETE"
+      ],
+      "collectionAllowed": false,
+      "editions": [
+        {
+          "name": "PGL Dota 2 Event 1 2027",
+          "editionId": null,
+          "issues": [
+            "MAIN_EDITION_ID_UNCONFIRMED"
+          ]
+        },
+        {
+          "name": "ESL One Munich 2027",
+          "editionId": null,
+          "issues": [
+            "MAIN_EDITION_ID_UNCONFIRMED"
+          ]
+        },
+        {
+          "name": "DreamLeague Season 32",
+          "editionId": null,
+          "issues": [
+            "MAIN_EDITION_ID_UNCONFIRMED"
+          ]
+        },
+        {
+          "name": "PGL Dota 2 Event 2 2027",
+          "editionId": null,
+          "issues": [
+            "MAIN_EDITION_ID_UNCONFIRMED"
+          ]
+        }
+      ]
+    },
+    "organizerCalendars": [
+      {
+        "name": "PGL Dota 2 Event 1",
+        "dates": {
+          "from": "2027-03-02",
+          "through": "2027-03-14"
+        },
+        "source": "https://www.pglesports.com/events/",
+        "plannedBo3": null
+      },
+      {
+        "name": "ESL One Munich",
+        "dates": {
+          "from": "2027-04-04",
+          "through": "2027-04-11"
+        },
+        "source": "https://www.esl-one.com/munich/",
+        "plannedBo3": 9,
+        "basis": {
+          "upperBracketBo3": 3,
+          "lowerBracketBo3": 6,
+          "groupStageBestOf": 2,
+          "grandFinalBestOf": 5
+        }
+      },
+      {
+        "name": "DreamLeague Season 32",
+        "dates": {
+          "from": "2027-04-26",
+          "through": "2027-05-09"
+        },
+        "source": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+        "plannedBo3": null
+      },
+      {
+        "name": "PGL Dota 2 Event 2",
+        "dates": {
+          "from": "2027-05-11",
+          "through": "2027-05-23"
+        },
+        "source": "https://www.pglesports.com/events/",
+        "plannedBo3": null
+      }
+    ],
+    "hypotheticalPlanning": {
+      "plannedBo3": 101,
+      "coverageNeededFor100": 0.9900990099009901,
+      "shortOfPlanningTarget": 24,
+      "condition": "both PGL editions use past Wallachia format of 33 Swiss and 13 playoff BO3 each",
+      "formatReference": "https://www.pglesports.com/dota2/wallachia-s7-2026/"
+    }
+  },
+  "otherCalendarCandidates": [
+    {
+      "name": "FISSURE January 2027",
+      "dates": {
+        "from": "2027-01-09",
+        "through": "2027-01-17"
+      },
+      "source": "https://fissure.pro/news/announcing-our-dota-2-tournament-dates-for-2027",
+      "plannedBo3": null
+    },
+    {
+      "name": "DreamLeague Season 31",
+      "dates": {
+        "from": "2027-01-20",
+        "through": "2027-01-31"
+      },
+      "source": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+      "plannedBo3": null,
+      "basis": {
+        "teams": 16,
+        "groupStages": 1,
+        "playoffs": "double_elimination"
+      }
+    },
+    {
+      "name": "FISSURE February 2027",
+      "dates": {
+        "from": "2027-02-05",
+        "through": "2027-02-14"
+      },
+      "source": "https://fissure.pro/news/announcing-our-dota-2-tournament-dates-for-2027",
+      "plannedBo3": null
+    },
+    {
+      "name": "Clavision x Dota PIT",
+      "dates": {
+        "from": "2027-03-20",
+        "through": "2027-03-28"
+      },
+      "source": "https://www.ithome.com/1/002/686.htm",
+      "sourceType": "media_report_of_organizer_announcement",
+      "plannedBo3": null
+    },
+    {
+      "name": "FISSURE April 2027",
+      "dates": {
+        "from": "2027-04-16",
+        "through": "2027-04-25"
+      },
+      "source": "https://fissure.pro/news/announcing-our-dota-2-tournament-dates-for-2027",
+      "plannedBo3": null
+    }
+  ],
+  "decision": {
+    "registration": "pending_real_edition_evidence_and_complete_exposure_inventory",
+    "collectionAllowed": false,
+    "activationAllowed": false
+  }
+}

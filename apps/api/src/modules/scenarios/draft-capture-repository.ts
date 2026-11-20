@@ -85,7 +85,8 @@ export class DraftCaptureRepository{
       }
       if(history.status==='unavailable')reasons.push('LOCAL_HISTORY_UNAVAILABLE');
       const historyAccounts=new Set(history.players.map(p=>p.source_account_id));
-      if(players.some(p=>p.accountId!==null&&!historyAccounts.has(p.accountId)))reasons.push('PLAYER_PRO_HISTORY_MISSING');
+      if(!reasons.includes('DRAFT_CAPTURE_HISTORY_LIMIT')&&players.some(p=>p.accountId!==null&&!historyAccounts.has(p.accountId)))
+        reasons.push('PLAYER_PRO_HISTORY_MISSING');
       const snapshot=DraftCaptureSnapshotSchema.parse({format:'owner-draft-capture-v1',scenarioId,revision,scheduleTargetRequestId,
         scenarioHash:row.input_hash,scenarioRecordedAt:row.recorded_at,scenario:input,decisionCutoffAt:cutoff,
         players,identityEvidence:evidence,target,history,status:reasons.length?'unavailable':'captured',reasons,

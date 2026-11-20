@@ -1,0 +1,14 @@
+{
+  "format": "synthetic-edition-inventory-v1",
+  "leagueId": "72",
+  "editionId": "880",
+  "complete": true,
+  "matches": [
+    {"matchId":"8801","stageId":"71","bestOf":3,"status":"played"},
+    {"matchId":"8802","stageId":"71","bestOf":3,"status":"played"},
+    {"matchId":"8803","stageId":"71","bestOf":3,"status":"played"},
+    {"matchId":"8804","stageId":"73","bestOf":3,"status":"played"},
+    {"matchId":"8805","stageId":"73","bestOf":5,"status":"played"},
+    {"matchId":"8806","stageId":"73","bestOf":3,"status":"cancelled"}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "task": "pandascore-token-verification",
+  "checkedAt": "2026-11-19T00:07:55.535Z",
+  "tokenConfigured": true,
+  "apiRestarted": true,
+  "providerRequestStatus": 401,
+  "providerError": "source_unauthorized",
+  "directRequestOutsideSandbox": true,
+  "durableProviderQuotaUsed": true,
+  "scheduleStatus": "stale",
+  "scheduleReason": "source_unavailable",
+  "cachedMatches": 20,
+  "cachedFetchedAt": "2026-11-17T13:02:06.376Z",
+  "newScheduleFetched": false,
+  "modelStatus": "model_eligible",
+  "tokenIncludedInReport": false,
+  "nextStep": "Replace the configured value with a valid PandaScore API token."
+}

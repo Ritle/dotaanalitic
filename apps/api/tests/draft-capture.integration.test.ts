@@ -153,6 +153,7 @@ test('history ceiling persists an explicit refusal without publishing a truncate
     SELECT n,'2020-01-01'::timestamptz,'2020-01-01'::timestamptz,true FROM generate_series(100000,105000) n`.execute(database.db);
   const s=await save(),r=await post(s.id);expect(r.statusCode).toBe(200);
   expect(r.json().snapshot.status).toBe('unavailable');expect(r.json().snapshot.reasons).toContain('DRAFT_CAPTURE_HISTORY_LIMIT');
+  expect(r.json().snapshot.reasons).not.toContain('PLAYER_PRO_HISTORY_MISSING');
   expect(r.json().snapshot.history.maps).toEqual([]);expect(r.json().snapshot.history.status).toBe('unavailable');
   const summary=await app.inject({method:'GET',url:`/api/v1/scenarios/${s.id}/draft-captures/1/history-summary`,headers:{cookie}});
   expect(summary.json()).toMatchObject({status:'unavailable',maps:null,verifiedMaps:null,excludedMaps:null,reasons:['DRAFT_CAPTURE_HISTORY_LIMIT']});

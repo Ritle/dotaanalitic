@@ -1,0 +1,18 @@
+{
+  "format": "wallachia-elo-repeated-import-v1",
+  "inventories": [
+    {
+      "path": ".tools/s309-wallachia-replayed-inventory.json",
+      "sha256": "1c73dd0e1a76306872262157206602dd11e1bad8dc9d37829b0ffd146ce14c81"
+    },
+    {
+      "path": ".tools/s309-wallachia-replayed-inventory-r2.json",
+      "sha256": "50ea8972a2f0cc08b475b354d46329f96211cdcb5ba2500372309787e17ff66e"
+    }
+  ],
+  "eligiblePriorMaps": 126,
+  "checkedSeries": 114,
+  "readySeries": 80,
+  "identicalInputsSha256": "194816f94f628a91c6bb95b6529a2de3c915cc63a46f63b42202ec1d0492ab32",
+  "targetSeriesScored": 0
+}

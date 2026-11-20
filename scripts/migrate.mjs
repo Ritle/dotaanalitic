@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import crypto from 'node:crypto';
 import pg from 'pg';
+import { isHistoricalCrlfChecksum } from './lib/historical-migration-checksum.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, '..');
@@ -22,8 +23,10 @@ try {
     const checksum = crypto.createHash('sha256').update(sql).digest('hex');
     const { rows } = await client.query('SELECT checksum FROM schema_migrations WHERE filename = $1', [filename]);
     if (rows.length > 0) {
-      if (rows[0].checksum !== checksum) throw new Error(`Migration changed after apply: ${filename}`);
-      console.log(`SKIP ${filename}`);
+      const historicalCrlf = rows[0].checksum !== checksum &&
+        isHistoricalCrlfChecksum(filename, sql, rows[0].checksum);
+      if (rows[0].checksum !== checksum && !historicalCrlf) throw new Error(`Migration changed after apply: ${filename}`);
+      console.log(`SKIP ${filename}${historicalCrlf ? ' (verified historical CRLF; ledger preserved)' : ''}`);
       continue;
     }
     // Run schema statements and ledger insert in ONE transaction, even if a

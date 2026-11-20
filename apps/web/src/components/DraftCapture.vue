@@ -28,7 +28,9 @@ async function read(signal:AbortSignal){
 const query=useQuery({queryKey:key,queryFn:({signal})=>read(signal),staleTime:q=>q.state.data?Infinity:0,retry:false,refetchOnWindowFocus:false});
 const saved=computed(()=>query.data.value);
 const rawHistoryCodes=new Set(['DRAFT_CAPTURE_HISTORY_LIMIT','LOCAL_HISTORY_UNAVAILABLE']);
-const messages=computed(()=>[...new Set(saved.value?.snapshot.reasons.filter(code=>!rawHistoryCodes.has(code)).map(captureReason)??[])]);
+const historyLimitReached=computed(()=>saved.value?.snapshot.reasons.includes('DRAFT_CAPTURE_HISTORY_LIMIT')??false);
+const messages=computed(()=>[...new Set(saved.value?.snapshot.reasons.filter(code=>!rawHistoryCodes.has(code)
+  &&!(historyLimitReached.value&&code==='PLAYER_PRO_HISTORY_MISSING')).map(captureReason)??[])]);
 const rawHistoryMessages=computed(()=>[...new Set(saved.value?.snapshot.reasons.filter(code=>rawHistoryCodes.has(code)).map(captureReason)??[])]);
 async function capture(checkExisting=true){
   if(busy.value||props.dirty||disposed)return;
@@ -72,7 +74,8 @@ async function retry(){
       <details><summary>Данные снимка</summary>
         <p v-for="message in rawHistoryMessages" :key="message" class="hint">Исходный подробный снимок: {{message}} Отдельная проверка истории показана ниже.</p>
         <p>Записано: {{dateLabel(saved.recordedAt)}}. История до {{dateLabel(saved.snapshot.decisionCutoffAt)}}.</p>
-        <p>Аккаунты: {{saved.snapshot.players.filter(p=>p.accountId!==null).length}} / 10. Локальных pro-карт: {{saved.snapshot.history.maps.length}}.</p>
+        <p>Аккаунты: {{saved.snapshot.players.filter(p=>p.accountId!==null).length}} / 10.
+          <span v-if="!historyLimitReached">Локальных pro-карт: {{saved.snapshot.history.maps.length}}.</span></p>
         <p class="hint">Полнота истории и фактическое начало карты ещё не проверены. Это фиксация данных, не прогноз.</p>
       </details>
       <DraftHistorySummary :key="saved.id" :scenario-id="scenario.id" :revision="scenario.revision" :capture-id="saved.id" />

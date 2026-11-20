@@ -1,0 +1,2657 @@
+{
+  "format": "wallachia-isolated-elo-replay-v1",
+  "inventory": {
+    "path": ".tools/s309-wallachia-replayed-inventory-profiles.json",
+    "sha256": "a48a89f8c05f8edaee7ff3183dc688d8a0c9054ef1437de4658c1d69079bfab1"
+  },
+  "baselineInventory": {
+    "path": ".tools/s309-wallachia-replayed-inventory-extended.json",
+    "sha256": "ddb879969076a31fde8ec350f1e685196ea15c049ee20e4243787ef0a9517a4f"
+  },
+  "scope": "profiles",
+  "summary": [
+    {
+      "edition": "17891",
+      "pandaScoreEdition": "9121",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [
+        {
+          "seriesId": "957770",
+          "mapIds": [
+            "8214023491"
+          ],
+          "sameDayNodes": [
+            "957814"
+          ]
+        }
+      ],
+      "before": {
+        "compared": 37,
+        "ready": 33
+      },
+      "after": {
+        "compared": 37,
+        "ready": 36
+      }
+    },
+    {
+      "edition": "18058",
+      "pandaScoreEdition": "9264",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [],
+      "before": {
+        "compared": 39,
+        "ready": 39
+      },
+      "after": {
+        "compared": 39,
+        "ready": 39
+      }
+    },
+    {
+      "edition": "18358",
+      "pandaScoreEdition": "9362",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [
+        {
+          "seriesId": "987711",
+          "mapIds": [
+            "8345450484"
+          ],
+          "sameDayNodes": [
+            "987722"
+          ]
+        }
+      ],
+      "before": {
+        "compared": 38,
+        "ready": 38
+      },
+      "after": {
+        "compared": 38,
+        "ready": 38
+      }
+    }
+  ],
+  "import": {
+    "requested": 160,
+    "accepted": 160,
+    "eligible": 159,
+    "unboundMaps": 22,
+    "excluded": [
+      {
+        "matchId": "8319903870",
+        "reasons": [
+          "OUTCOME_TEAM_SIDES_UNKNOWN",
+          "ROSTER_RECEIPT_MISMATCH",
+          "SERIES_SOURCE_UNVERIFIED",
+          "SERIES_UNKNOWN"
+        ]
+      }
+    ],
+    "before": {
+      "maps": 2292,
+      "series": 1115,
+      "receipts": 7122,
+      "artifacts": 1,
+      "predictions": 12
+    },
+    "after": {
+      "maps": 2452,
+      "series": 1189,
+      "receipts": 7601,
+      "artifacts": 1,
+      "predictions": 12
+    },
+    "createdSeries": 74
+  },
+  "baseline": [
+    {
+      "seriesId": "955788",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "bf7b19a125114c0df7c248cb84744d1d16ecf72241c389ac2352e3edff0256a6",
+      "shortHistory": [],
+      "featureSha256": "2be46e2ab27f841e837213989d9ad9a41dc4ac8e11f92ef74ac6fa7d31e256d5"
+    },
+    {
+      "seriesId": "955790",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "6e2164fe69bdf77eeca10284ade3018451a8831b99e412acd4192dfa5597c26c",
+      "shortHistory": [],
+      "featureSha256": "e51eb780071bd8a50d9dc46c8b7ac68d1945fe141d02639618067ac7fec378ca"
+    },
+    {
+      "seriesId": "955802",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "200573858",
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "955804",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "97897340623b52dc3b2e01ed01f8e49e87a7ea327b63176d913aa3d3dd389f97",
+      "shortHistory": [],
+      "featureSha256": "d7af119561598b93338ab3d35f82aa9d0f8051d262cccb44dd543f817ba6f83c"
+    },
+    {
+      "seriesId": "955820",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "81c6bf2ad2b726a25b53751c63569a3405c40a4f2daaaaf33ee2cc02e990652d",
+      "shortHistory": [],
+      "featureSha256": "5b59c608fdf9252228278e6a69a662cb0bd465044045874899b591d4ca399f41"
+    },
+    {
+      "seriesId": "955841",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "53313399d781577453f8fd7bcdfe27fe73eebba22e64f5b3a3be0c820acf3fbd",
+      "shortHistory": [],
+      "featureSha256": "bf0c06d3b8976c92d02fadbd1759f492844de606f25cfe2a6db88e9ca28f855a"
+    },
+    {
+      "seriesId": "955857",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "7fb8120e192806bacd95f66d61b776b36e1988f0a22848b775de0debf9d282bd",
+      "shortHistory": [],
+      "featureSha256": "16d2dc28e88276c10153312532fccb2a78cd25982990b371d4b026c6df556874"
+    },
+    {
+      "seriesId": "956060",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956061",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "5352a16f519d637e87ce284dc80f1c17577b8f56dee77c0a224ab37b9b49476f",
+      "shortHistory": [],
+      "featureSha256": "c31e002b2e72b84a7cc94bc488b72d5517b7e41decb4c38e79b9aaba46966602"
+    },
+    {
+      "seriesId": "956092",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "00a2debf25d67cf1d99f13c345686c7c64980cba6c95e8bb9fc320c4377c68f9",
+      "shortHistory": [],
+      "featureSha256": "ad3e90ec896e43a6dfc97245900351bec1e948edf04cf2ebf957910454ed6a3e"
+    },
+    {
+      "seriesId": "956134",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6ef7026ce821ca1da6ce85dca6ea8aa219f3294f7335c387872d54e54d02d9fa",
+      "shortHistory": [],
+      "featureSha256": "7e2b7a47981d2b573323e632c604986b299eea8c35ebee943f756bac292374f7"
+    },
+    {
+      "seriesId": "956169",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "ee7179cbd96c9c807964ce982b08465b6d557e799b89e1137ae927cfd6679dcb",
+      "shortHistory": [],
+      "featureSha256": "31ef93e8a17a4bf20506a0202b81b7681d5faca727a5183214a162d9fadc46d7"
+    },
+    {
+      "seriesId": "956212",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "910ab0542b52060522fbfbd7ef552bc061eb3b90a80ff808c8526b749da40360",
+      "shortHistory": [],
+      "featureSha256": "f3d5bca392978ff45dc0d2ff85c62997e15da9e64f3e0c432873d52b0078eb6f"
+    },
+    {
+      "seriesId": "956250",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "fbea3e9c912a89f2af933099cfe37eff1a02f4cebdd9c51e82be0332094d1059",
+      "shortHistory": [],
+      "featureSha256": "0b380d5e4753a917005fadd9afc0c1a6b8fd5d8040cb3e906d4ffb24b8dfa001"
+    },
+    {
+      "seriesId": "956462",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "256096ac3398217223dadead80220365ef65259274ffc831e48b1b367cc70902",
+      "shortHistory": [],
+      "featureSha256": "84cacd86e9631c65012534344bcdc8b23d7c85028c7e5279124678ccebbaaa39"
+    },
+    {
+      "seriesId": "956463",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "863510ca8ec9d0cd5d7495ac1bd86d7023bdb50c0e2b6098e130ffa3f74dc7b9",
+      "shortHistory": [],
+      "featureSha256": "12399431fbc77f78a8f1cf0f8ba1f474a676e1df48883ba0774c26b20fcdcf6e"
+    },
+    {
+      "seriesId": "956472",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "45b1f6c89b2917353d22808c728f0d11a96ef4a487bc6b2204aba41c2fbcc545",
+      "shortHistory": [],
+      "featureSha256": "3d201cd1d80c84303110a88293114aa9b8c77b59279783cb0d7e7fb954c9d257"
+    },
+    {
+      "seriesId": "956475",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "6bcc733a68808498a4564a1c452cb130d22d3a33108c18fe06a6f1a7d0bd1c5f",
+      "shortHistory": [],
+      "featureSha256": "b8430d85002f2ccd94ac523f4a1d5ccddd28c3e076946ca23dd0e3b137f6992e"
+    },
+    {
+      "seriesId": "956489",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "956504",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 35,
+      "eloDigest": "4000c7af4a0660549f3736d3a07c1589de448608e92a2a1eea81276db2a75fbf",
+      "shortHistory": [],
+      "featureSha256": "fb1887c9836b1dc559b423a56c6f4c60734e04ffe6d698c56fdbb7aa1edb9fed"
+    },
+    {
+      "seriesId": "956520",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "50c80787da0cbb042de87804c93ef558c0f363e4706a392b76be844daedec839",
+      "shortHistory": [],
+      "featureSha256": "824035392282fd18ea998fb9b533c1e6ba565ab636dbfa32dfca502393786cd2"
+    },
+    {
+      "seriesId": "956686",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2347d218d36f1050b2798afccff2647e5648ecd68406337dddb18c9525dc9cf7",
+      "shortHistory": [],
+      "featureSha256": "2860ef5447303129c78731af24b1196256763f9ef0a379a2739268b8bececfea"
+    },
+    {
+      "seriesId": "956687",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956694",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "83a7707f1f509990fbfe9799be010e0c637ec3aaee0af9297967b8d94d891359",
+      "shortHistory": [],
+      "featureSha256": "a491fc82f022483931715998b80920a3b767b22414b3dc10a9f83415dee44ba8"
+    },
+    {
+      "seriesId": "956701",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "ee6d611e8e23b8c252c125ef3bd04654e546f01848643e5f7df5e27fbefb17fe",
+      "shortHistory": [],
+      "featureSha256": "454801b15f6c868fce41425e666a98e033a8d275ab82bfa62d9742b176ec12a6"
+    },
+    {
+      "seriesId": "956715",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "cd59063b32fb07c2f6e46bc508e3a56dadb3316fb49503a4ef4e03d7bd81884f",
+      "shortHistory": [],
+      "featureSha256": "29b2c435f5221ab86f80453667746c9afcbf76e50d33f9d4e2f53415ffe0b078"
+    },
+    {
+      "seriesId": "956737",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "afa89c70aa1c78a4909d0becdfcc8a91691ef8008199cbd4e5ef3626959d9766",
+      "shortHistory": [],
+      "featureSha256": "a85254b2f6d76833f00306f01862ebca55f8f3e2ca832097d290c80bb6c8dda2"
+    },
+    {
+      "seriesId": "956976",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "8ca34411958bf48d2c500e86bbc510db518a59fb09a3d674fc6a78a2d6c18e66",
+      "shortHistory": [],
+      "featureSha256": "7a645b30fd6fbfd78811b0240e8176fac6f7d2f3672037a2e8fef5ca783533ed"
+    },
+    {
+      "seriesId": "957002",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "f95b17d314f283676ecaf90b562e6d4221bee90849f7a8a693e82cc3faa90ab2",
+      "shortHistory": [],
+      "featureSha256": "6fb57d19d9b5955902bb478f2925abcb13f732c1d8d99d4bba2aa852673e8dcb"
+    },
+    {
+      "seriesId": "957248",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "96abf2441c083065fcbcb3c7f2456168a6669aab5d905ca29ac0fbf497f310e9",
+      "shortHistory": [],
+      "featureSha256": "e0bf437658f23964fb6430be89c30a93f257e2167053ffd7e209f92ee561717c"
+    },
+    {
+      "seriesId": "957260",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6ef7026ce821ca1da6ce85dca6ea8aa219f3294f7335c387872d54e54d02d9fa",
+      "shortHistory": [],
+      "featureSha256": "a88cd052aaf345c5e4845746d3a7b2d05dbae5bbf417c69d8ee8ca2952908abc"
+    },
+    {
+      "seriesId": "957323",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "d1257c34b5f1c75453e5b368c7d075dd19c1a6dd7119c4373a2354b81d409982",
+      "shortHistory": [],
+      "featureSha256": "52a4f67169b2bb054d3e1caf9ffe13b5af7e9f2d6a1404e2291b9381cc5c158d"
+    },
+    {
+      "seriesId": "957590",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "55d627b2384af79f76b321156284c6d9ad28de45e0847fa6979f956836555176",
+      "shortHistory": [],
+      "featureSha256": "1c30e0847a964f9a684d22531ba153f2f3213762c3a53d881c9cf706acf0d93d"
+    },
+    {
+      "seriesId": "957659",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "a283481e49e3520a0c951f61e4409f659f53660e44da0d5ed46585dc15ae18ef",
+      "shortHistory": [],
+      "featureSha256": "f5053ecc24243d5179d4e4357ca942462f2c714875db7be32c0ef70ac6891269"
+    },
+    {
+      "seriesId": "957980",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "5d57dce4e8f67bf4a65c1d17dbc7df3d19998b980a2e3390fea2f1dd241ac361",
+      "shortHistory": [],
+      "featureSha256": "ff19b86763bae36c06519b54e98a9ccf6cf3c908e7fd89e9a5696a020b1ecae6"
+    },
+    {
+      "seriesId": "958030",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "644a522db5307bed8d524b03c74da8fcb6e66d16e5a844fcab3f4206098a7c93",
+      "shortHistory": [],
+      "featureSha256": "35193a83fff8737fcc82da149a19d464716f2473cbf2453c6677bd876dce767a"
+    },
+    {
+      "seriesId": "958284",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "fb76277c3ab31e25635daea21b0819b40ba8c3705ade6f7847164296f2799a80",
+      "shortHistory": [],
+      "featureSha256": "c641d1d26d15ecf46464d116b2aff847904b3c1125b099470fe1f1e83358fec9"
+    },
+    {
+      "seriesId": "968836",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "a9a3892d42ec901e79af5a1c39081d3b21d63b490984f144e670c84ac566165e",
+      "shortHistory": [],
+      "featureSha256": "da970a01f567687508770c6d5c27abb5cbf4b9d96372b7409d8909472a9ca66d"
+    },
+    {
+      "seriesId": "968837",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "dbde420bad0d9886e389982139e5da3705c2e56189e521b4b3df274df2d6c3be",
+      "shortHistory": [],
+      "featureSha256": "8cd36326d9fe434c96df3731296cdec45e6f9180583b9fc2a971bd1797788683"
+    },
+    {
+      "seriesId": "968909",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "a188e9f5d44b74715a1affe8ee6c72955a971908aae01dd6f37c03b6b66be69b",
+      "shortHistory": [],
+      "featureSha256": "f78f044fdf2881c09211a4b874beee81b99f9d8bc8142ede1d512661fcac1a99"
+    },
+    {
+      "seriesId": "968919",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "2cd7c79d64911f66dcebd97de1560317e93adfbe251313df8011839f375f33e9",
+      "shortHistory": [],
+      "featureSha256": "b2a95747cc23421d2c3c1e9f74ec8d697a4ac3f51b05c39e938ab23a13b5af68"
+    },
+    {
+      "seriesId": "969006",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "52f29a128b235155458854b552bd1c009149375b0aa42eb6b63272b2f340aa00",
+      "shortHistory": [],
+      "featureSha256": "20016ea87577328f2766657cb51d0a22eebb2827490d7af599ff107328cac1d7"
+    },
+    {
+      "seriesId": "969060",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "3f976c03cd9f46346092bd2db3f42ae01bd20f4e048f74a5ce168508e14d6aff",
+      "shortHistory": [],
+      "featureSha256": "89ee6d588c4911c1873f0c10b032380e2f2c6cf54fe90a86f5a300946f4741ab"
+    },
+    {
+      "seriesId": "969082",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "f47049dd8bdb4e6ab15268da8a81592bc6bb8eae853831ca611dac20428a26a9",
+      "shortHistory": [],
+      "featureSha256": "56a7cc9f1c8922cecbb32bb6a3049f4895eb05ddd30f8678016c3d32deba6363"
+    },
+    {
+      "seriesId": "969246",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "e7acfb5ef54f290c5fe15dff3e7764b1a3c3846d1ec99f7a564d232d1e1d0fe8",
+      "shortHistory": [],
+      "featureSha256": "32d6b58cab576ad3a3efc3adb6db61f8f6519b552d446ac8930ecc539c36bd78"
+    },
+    {
+      "seriesId": "969247",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 11,
+      "eloDigest": "cac4ea8c21582749fb69acccfae4423804fcec314ff698bd4d75f6715cd7b65d",
+      "shortHistory": [],
+      "featureSha256": "b13f35f4969ad0dbf4cc81800a07c2791ec302f79193b22a516b11e06e8b4af7"
+    },
+    {
+      "seriesId": "969267",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2861c0861aade76b4d9d083089e790dda47fe963da1826b013ba3b0fb711f9b8",
+      "shortHistory": [],
+      "featureSha256": "6d6d84e419d7e1497ef8729b5dd7341fb74989baf537b73eb7e8d258d0ac64a9"
+    },
+    {
+      "seriesId": "969315",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "18a34633f32ae910315c275a390afc5f33d4fe61eb685e5e3973dbbd902ad4d1",
+      "shortHistory": [],
+      "featureSha256": "73e3c4f80614379f1b4a272cd7d44ee091283e97aca52370b8a15024a62387b6"
+    },
+    {
+      "seriesId": "969323",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3162a79654dc9e7f40322d01680f643a587858766d583417fed2bccfcdbfb22d",
+      "shortHistory": [],
+      "featureSha256": "4366f83d3f201163b9ad04af6326da0c89619b83325a627415da2d49352f7bb6"
+    },
+    {
+      "seriesId": "969365",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "eloDigest": "0cac3b86ef4e4c979e7546e77409a6158e74c563594f3ffde1a1689877a1d00b",
+      "shortHistory": [],
+      "featureSha256": "cad7496d6d1327f4a9c47c9229a65afb7539b80425fec5042d7309e9504c689e"
+    },
+    {
+      "seriesId": "969383",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "464b34a1e24c47f0a5a9eb421580ff920c01877d3940e9b3bb6d17b7a1119ce6",
+      "shortHistory": [],
+      "featureSha256": "f857b53b097cee520d76ef190e07c90404d6ac4cc22afa5c74ba9647b66774db"
+    },
+    {
+      "seriesId": "969592",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "01a2a7445c10f9d3d151f3036dad844c0c654860277e34904fe5ae9db65223ea",
+      "shortHistory": [],
+      "featureSha256": "ea308d0a5e76cf51913e5b2a0e0d898797f8e8d83bb322d931a65f5c3bed1c91"
+    },
+    {
+      "seriesId": "969593",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "12584cd38628df5472ab3e07d082607c9bbba5ba7c954cfdfc87e638391ac30f",
+      "shortHistory": [],
+      "featureSha256": "f4b1771b5432a486ac93ae821b031d7d791f030d395422ada4a8acdcc02346c1"
+    },
+    {
+      "seriesId": "969608",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "f6bc4729c4421e9aa42747b7bb1cad3faf6b95c9e2e789a846e7f806fab50b37",
+      "shortHistory": [],
+      "featureSha256": "8d3809e1af8902aed9dfea2cb890b1ebee1c61badd0045ac2b44fc96b6e28a7e"
+    },
+    {
+      "seriesId": "969616",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "1b5034d2cce2ed729677e448c0e1da357fb078e8b96498fe7f9237a852a148cf",
+      "shortHistory": [],
+      "featureSha256": "835c72cbe76d53112fc8b68379e59a3e50ce6d416654c4c164e41a8923cda4a3"
+    },
+    {
+      "seriesId": "969621",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "b0a412783e5d6292db180a16eaa276697d06dc2a872541aa660d2665423f27cf",
+      "shortHistory": [],
+      "featureSha256": "63a7978249ee8a0a42bc0f040c10328a1d5a280c2f53502a753a3d4084a9b270"
+    },
+    {
+      "seriesId": "969646",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "28e50c755daffdc141befa749870b09838055a88e65a7cfdbcc2793f85552313",
+      "shortHistory": [],
+      "featureSha256": "56444d46723e2e269fa3a0609d144062dc3d2c117cf94f81f01a8ba7ad01df5c"
+    },
+    {
+      "seriesId": "969792",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "93b18c535d76d067cb174e0f5d3abc1750c87d68afd5caa735fbc1ff9cc5a2d1",
+      "shortHistory": [],
+      "featureSha256": "1dc85a882a53158650b7d1eaa1f9333870d54ec3476348ad8c57d2323cdb88fa"
+    },
+    {
+      "seriesId": "969793",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "7c5a29568d630b62b11a3b84ebad2873cea757fed8134870cd0e1348535ad038",
+      "shortHistory": [],
+      "featureSha256": "7dda68f531aef17abe7eccb96469a17f0f85346c1a78923b0b5784f9eea2c858"
+    },
+    {
+      "seriesId": "969815",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "1875a49e4fb52173b9f46d4875f4bafd46bd3ccd7865a0f6eb5a1e665e76d434",
+      "shortHistory": [],
+      "featureSha256": "f1e6e648c524be76835a91737e98421fe1a6df0c3e81c01661ba5a139418f8dd"
+    },
+    {
+      "seriesId": "969816",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "6e34cd28a2861414959bd2390fca8ad979a6a3dfa376abd9b0648a138fe71a5d",
+      "shortHistory": [],
+      "featureSha256": "2642660264ea0be9102f2b46e7eccbaf20da970b3c9f267c73fe0b094c0f602f"
+    },
+    {
+      "seriesId": "969829",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3d4e3a9c5d228b8b72c8c4e3b19af03fd1dc72c8c74127722c8267ad2a096c9d",
+      "shortHistory": [],
+      "featureSha256": "9b5670c265b7a5700d6327ce75e30d092d7fe42dd0566a9c64c4c53f4ff0f1a8"
+    },
+    {
+      "seriesId": "969851",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "aef5b8386f85d71a7d44113efa8e0f49f49ed4fead2acf12f84b4f1361dd50c6",
+      "shortHistory": [],
+      "featureSha256": "7905027084103547b8b806ff4b81879dc61793bd80b0c3c727d2458063013185"
+    },
+    {
+      "seriesId": "970113",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "bae8b0fb3d1f9a522d41e31d0490f7cb85aa7e834d02c18e0c3a169c33d026b5",
+      "shortHistory": [],
+      "featureSha256": "dd5f30fdd44ea1937563366f136c40f9ef09f8ad2e8ac2f27f74ee1b8a34c5a3"
+    },
+    {
+      "seriesId": "970122",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 11,
+      "eloDigest": "e10d547123525c9c1273950f8e6c232f3a3675f8703b4d0f59cc731e20eb782c",
+      "shortHistory": [],
+      "featureSha256": "f2220a68cf2cbf524002564d95577b79bb089f340597cfd3ef1ac18d80b1d898"
+    },
+    {
+      "seriesId": "970138",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "13eb77dc8a6a3b128623cd9e90a44c50f5a2dc61d07c3515cf6b3b5d8bb0aeeb",
+      "shortHistory": [],
+      "featureSha256": "162d3b784c3a03a8435dcbc3e5522ce9c6e6fc64c963bb9278208df32b17203a"
+    },
+    {
+      "seriesId": "970355",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "64d2cc262d492b7b43f6d65c5a773c23624330d3cdad2b99f4118e7b926a9d1c",
+      "shortHistory": [],
+      "featureSha256": "feac6d7f046f21d1f0b05c8867e989176d6d5e4a80681b7fe019d214409a497b"
+    },
+    {
+      "seriesId": "970410",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2af377093dfc7c123dcf844bc7de6ddc53de777665e48831e4dc585a4f4cac65",
+      "shortHistory": [],
+      "featureSha256": "fc0550c0768b66d27c0377423e1a05b7d8ffc6cf2e87f33f2ca2c523cc9c2281"
+    },
+    {
+      "seriesId": "970445",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "e2cb935a0fc7be56e2a77dcac2acf2933388fcabb614bb9f53c85226d47c47d5",
+      "shortHistory": [],
+      "featureSha256": "8a56af40772dcf8c870c329ff38bd4a7764b8d8691ca1039dcfebf5660903ffa"
+    },
+    {
+      "seriesId": "970675",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "c7c29bca51b7383fa4de43d5e8e2a6837da6203c7a9d12939ca64fbd1cc72e05",
+      "shortHistory": [],
+      "featureSha256": "f9228118214d5c64b174afa741983598cd3477c9e3c8d39d6dc1cfdca1e0d00d"
+    },
+    {
+      "seriesId": "970689",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "a188e9f5d44b74715a1affe8ee6c72955a971908aae01dd6f37c03b6b66be69b",
+      "shortHistory": [],
+      "featureSha256": "dd1cd4ee37e774acf2eca5b65276cd6ce8ae2479b4066a5a4340d20a109d62c9"
+    },
+    {
+      "seriesId": "970766",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "4248dec9c93d1eb92e370967bd2851712546094245e44ca5da662fe7806c34c7",
+      "shortHistory": [],
+      "featureSha256": "aa46f72848c9f52c4bbc52c6f2e7e2749db443ae47f45f0f35d3971a136d9ec7"
+    },
+    {
+      "seriesId": "971009",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6d132d2244b3637d6503f919a906b4fea7bffb6c1bfebb0c64cc2ce009214862",
+      "shortHistory": [],
+      "featureSha256": "689cd497d4fac9dccacb4894e8f7a2db4d590438da2ae0e5fe5370233aa77e93"
+    },
+    {
+      "seriesId": "971121",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "eloDigest": "0b69c070fb0f25de3c42d8220c580e49e1b842347d35389891f41975ea7269ca",
+      "shortHistory": [],
+      "featureSha256": "22b2b022ea063e366f2e63f65d40e540aee4a04c72e1ee0f7811b4a4fa5191c8"
+    },
+    {
+      "seriesId": "971213",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "fc71022069071b0738133038fcd26f3ecc83059de48e66a950189f39729f4849",
+      "shortHistory": [],
+      "featureSha256": "8c0fb37c599f9e920c52ed6d8eac99968db451dcce9c58182cb21aee416bd707"
+    },
+    {
+      "seriesId": "971400",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "7fb06d4dc2a6f4572438ea9525455679ac962f5d812784e3a2b39a1237cd27fa",
+      "shortHistory": [],
+      "featureSha256": "1f3fa504b2d10ca8effd7bbbd853bc6344bc0e2d92298b4c4c45035883556487"
+    },
+    {
+      "seriesId": "987267",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "e39e0ebd1a62090c9ba00fb3169331808cb451f874328f77fa5f1f22e725da51",
+      "shortHistory": [],
+      "featureSha256": "f43c39646fe980cf1930061faea3535c094220566e6750f30a09e1dfab1b03c5"
+    },
+    {
+      "seriesId": "987268",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "57940ccf38dadb27ecdeedeb72f5a634914d9562745b642b4ca796c67847df68",
+      "shortHistory": [],
+      "featureSha256": "4263433f9dc54577c8beb0f08809137b45f35e0ee1cfad1e1efb42f77632f881"
+    },
+    {
+      "seriesId": "987279",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "e2f73ac5fe74f6eb4267ed62e1293e971237a3f4a74d9664c9136e890a8d2c6a",
+      "shortHistory": [],
+      "featureSha256": "55d89ddca3c08eac23add0eada42518fdd41dc3a525b02323e9f59796f428cae"
+    },
+    {
+      "seriesId": "987281",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "f4dcf4034ed235d5a82923713eb3a9419603a527435b1e933589bc50f403cceb",
+      "shortHistory": [],
+      "featureSha256": "d79c06a4b9a8d6ca041b26559962a3d750ec14c6ec0430e0c9d61f2b7594d203"
+    },
+    {
+      "seriesId": "987320",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 10,
+      "eloDigest": "054f06ca2a53017441b9ca1928481223db15ffc8835539b871791f2e44f5d519",
+      "shortHistory": [],
+      "featureSha256": "b66021ede82939b09cdb6a46d16c6aa806d754864aa83b361a30016155bf2dc6"
+    },
+    {
+      "seriesId": "987323",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "a20f231920b1cf289fd3628b4d6ea1ecce59643b14d6df5502e575d2a2e8b062",
+      "shortHistory": [],
+      "featureSha256": "ab6890ae3918c1de33a448b3b3bf8cec0a43e53ba648577931a2de9e96a04915"
+    },
+    {
+      "seriesId": "987391",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "fafb3ab89a0c356afe835005bdfb4a181283e3e980a58cb7dab8d6b8933e0cf8",
+      "shortHistory": [],
+      "featureSha256": "3413c5d518b3361dc8de863164c0eaaee28ec2c46efcf98d38f702d29f16b3d6"
+    },
+    {
+      "seriesId": "987578",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "368cdb05e1b65e3fc5beca18a4a0c1f4df89363f4fca2758e57d75da1dae05d2",
+      "shortHistory": [],
+      "featureSha256": "8d71e0bfc551e5087b88c5bd5b0fee67309ce9e1b12dfb49f7df431a019a8a47"
+    },
+    {
+      "seriesId": "987579",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "40ba67e694aebdfdc14c65aec45cd3fcad9b9f74aea84b2cb02d808c6154d3b8",
+      "shortHistory": [],
+      "featureSha256": "9d418885cde1d2a40ed3128162deb5d93c470478b79310e2696c2ac72a4a3c0f"
+    },
+    {
+      "seriesId": "987609",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "2dd7ca9663b58e26851eadbfac0b0b528691b66d39b8f7010c057cc4067f8286",
+      "shortHistory": [],
+      "featureSha256": "0b82d4623078b729fce184c799240c90de454f33bd7b14c1a1951b8cc02fa43e"
+    },
+    {
+      "seriesId": "987620",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "280c3993bf4b5ee8e382164deb72fc8c31a87aaf169f8e6d4325b1e7e510b782",
+      "shortHistory": [],
+      "featureSha256": "9ca52faa1627e838a514f2c5af699e8b50f408066655c9a335a12080e1986972"
+    },
+    {
+      "seriesId": "987648",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "e96363717ec129e5f15324f75981162cd484ff54e62293fcb5ea1032c8048b73",
+      "shortHistory": [],
+      "featureSha256": "e1d806e932381e3bd7db65a21154292dcb888b8b80254f88dca04f777f198b6d"
+    },
+    {
+      "seriesId": "987678",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "78a3717479c86d9adadef99f608f1759dd8250b85cd9da000bfafe0ac4838a10",
+      "shortHistory": [],
+      "featureSha256": "6dea7690a90ddb8d2ce285bca784ac3bb6e55e46da48c303a928e6b0d5931e16"
+    },
+    {
+      "seriesId": "987722",
+      "edition": "18358",
+      "membershipHeld": true,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "5bad486cc81e5a19d04cea4980794ddc58556552649c8a7af10ecb308d61e718",
+      "shortHistory": [],
+      "featureSha256": "0c2ecddaddf5c7840511da3c0d000cf5d1ca22bc5588ad39ee54e0f6ee99c0bf"
+    },
+    {
+      "seriesId": "987931",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "0108efdf6a3f010bfb8689fb948bfbbf87e6e5e67bc15ec1b1ba9f219b185581",
+      "shortHistory": [],
+      "featureSha256": "9ece617d8bcb61b56f009f9a69ccb420512a59d457afe19c288f54cad72f8c55"
+    },
+    {
+      "seriesId": "987932",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "af497696e7d74b0c0e24be311adb95a7ae990f54c8f3a9fb1ac2afe421642ac0",
+      "shortHistory": [],
+      "featureSha256": "e752f0f6aaeeb604af357c91581236062d2005b50624864233bdfb74df1467d7"
+    },
+    {
+      "seriesId": "987941",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "d610283f6bd45a4786ec7da703844137ae423c0bd2bf86da937f1ab0246731ab",
+      "shortHistory": [],
+      "featureSha256": "cf5a1b64461ae60784f31222c80f12b58a63085dfd122f8487981f0125eb424e"
+    },
+    {
+      "seriesId": "987942",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "e8affeb62ab7e036d9134a8b6e6b1fbca3af9488625586b38641b1c5bc9cc1fd",
+      "shortHistory": [],
+      "featureSha256": "605e97e50393b8c3b82f81e19e30fc7ea861e004d2fe65c4cee5f1d82c1865d2"
+    },
+    {
+      "seriesId": "987956",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "28e50c755daffdc141befa749870b09838055a88e65a7cfdbcc2793f85552313",
+      "shortHistory": [],
+      "featureSha256": "8996a6fdec3f16bf87030f77b10876cad41c73298c66f6778265cfb40e126820"
+    },
+    {
+      "seriesId": "987957",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "7e626998137bdf140f3f829e6c37cfa72b51c4bac0e5b4bd7801b8d08ffe4e6f",
+      "shortHistory": [],
+      "featureSha256": "01578a5c375b66ee00a34ca9fc09e5d59053385a49253ca46b9df61e47b527f0"
+    },
+    {
+      "seriesId": "987996",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "7656e78353a367fde72652916bca20e834a5448672cb4783d8b06cc4321b04a7",
+      "shortHistory": [],
+      "featureSha256": "4e99525dfe610f5daa52732801b40c9f796c921648d075e6078f55335860af99"
+    },
+    {
+      "seriesId": "988164",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "18a34633f32ae910315c275a390afc5f33d4fe61eb685e5e3973dbbd902ad4d1",
+      "shortHistory": [],
+      "featureSha256": "22baaa42bdf0649b916d17566886c0d760b53702f057c4da3bb5dc524a37a56b"
+    },
+    {
+      "seriesId": "988165",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "93381746176d158e7072c745e76685322b8bdb099f3a8317ab1d7c6c68708f89",
+      "shortHistory": [],
+      "featureSha256": "b913931c499dbe54c96b5cbd744c983c2ef521bc4ab350d03446c5899be21341"
+    },
+    {
+      "seriesId": "988169",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "338513030a1e6cc2f3c495c634c59d721d73fc28d4d9f47e7b889a1b4327eef3",
+      "shortHistory": [],
+      "featureSha256": "71bef96e6b69bca3579382419b252221aa3795d158138f9fd2954430917d8d95"
+    },
+    {
+      "seriesId": "988173",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "fd6df40df0d7922af2f32205e067f0cca6d8a3205dfb1372135773aba201f299",
+      "shortHistory": [],
+      "featureSha256": "5bd7d48978ca2c5cae4127955da01a0a89601cbf87e6a2a8b227658c1e977083"
+    },
+    {
+      "seriesId": "988193",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "645a669c0696ec8aac61b026f7c92ef66bf0769e9b707e228bd1564c2b5c2d41",
+      "shortHistory": [],
+      "featureSha256": "a2d84e9c1c6177e4d0e7e08627d06b4987a9193897f6db7fad20cc50cf6be04f"
+    },
+    {
+      "seriesId": "988228",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3158861541a295bb4b1a00e673e25401c295460e13805231d76d64c16b66e5ef",
+      "shortHistory": [],
+      "featureSha256": "99c8bbe2ad4792df8bc56b68c73487bd90ffb455c887c033e10847b43504fe0c"
+    },
+    {
+      "seriesId": "988399",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "d623016099cb1b84e9849b9313cfd45e85cb8e005a366323fabc917bf0f6347a",
+      "shortHistory": [],
+      "featureSha256": "98af1ea4ef0ea1a264dde4da51f79c31df87912ff947828653ba495d8e8e1017"
+    },
+    {
+      "seriesId": "988413",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "a459df9b11b3fd4d3c2ee7441f36606d4adbd0107e474934b28401b3ea07e1ba",
+      "shortHistory": [],
+      "featureSha256": "2a32275862d0279f5f45bce1d81ce30e153a0dc5dd755c7fd2b837ba7f91b6b4"
+    },
+    {
+      "seriesId": "988439",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "884b700963f1970d52d56f6e55b7c5291669555370849653d43eeb281d331fbf",
+      "shortHistory": [],
+      "featureSha256": "643f2fa4582fdd4fb1e111172df55275161a9be041b38361adad1a11accfd5da"
+    },
+    {
+      "seriesId": "988592",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "aae142b954a8c67d5d1a81d05cc410b5349371c14a3b9566023d5028bc1302bc",
+      "shortHistory": [],
+      "featureSha256": "f58f01d5ec36c29787345f5b003961a6a09ae831c7f8ba6b34539550b695ad2c"
+    },
+    {
+      "seriesId": "988606",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3f9014e1944d0f88b9b02eda934600eecca914ea228ae1f317ff78d2685eb446",
+      "shortHistory": [],
+      "featureSha256": "3e36473f7f9e63c8441650feec0206394645cf11546c823b7531ea289ee82c0c"
+    },
+    {
+      "seriesId": "988675",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "74b5d05170ac61102bf0fd62da55c6e47f0bdf71b831d6c04126feb4e79f666d",
+      "shortHistory": [],
+      "featureSha256": "5cb27750811ff66318967ff13f8efcdbec2642da76908e45814ab39754ef719f"
+    },
+    {
+      "seriesId": "988891",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "22d71f8994677b8993fafe0d12589cedf628a738e4ecfd33f0a8c9c36839549b",
+      "shortHistory": [],
+      "featureSha256": "fe31839bfaf8dd34d0005c0b4886dd66004a47102c9249c67b254201d3630452"
+    },
+    {
+      "seriesId": "988911",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "5a07f6ded76f9f32976569cf55f15334e62fce0661c521beeb8481dd85b782c8",
+      "shortHistory": [],
+      "featureSha256": "a1c5ae8d51e708db6ca75d2345ba2ffdabfc19c391623f99dddbe96043c49786"
+    },
+    {
+      "seriesId": "988960",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "eloDigest": "689d0176f4eee609167ebb133a225e1ecfc199928ab79c6a1a2f55ab5fe3412d",
+      "shortHistory": [],
+      "featureSha256": "45b984ed447c258ca97ffdc4c4b7cdb50bf82f75c68a221d60478e75af0c57ab"
+    },
+    {
+      "seriesId": "989150",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3158861541a295bb4b1a00e673e25401c295460e13805231d76d64c16b66e5ef",
+      "shortHistory": [],
+      "featureSha256": "bdca38b70f00c605fc61fb4a8af49df6d02ec517c175153d699348e4bb7d5d5c"
+    },
+    {
+      "seriesId": "989168",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "eloDigest": "044a6da0eb29c606a407e7b6f9f189f4dd22cfa726bd5b2b14adf877c32cb7c8",
+      "shortHistory": [],
+      "featureSha256": "ec5ba4fd357fe176005c61232b81490ad6848add818101bf75dbd0b5c429ad04"
+    },
+    {
+      "seriesId": "989471",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "16ad2146d5c7fc3ee93d86293e5d5ce989fb816bd5b5beb04223d69dd69ccd66",
+      "shortHistory": [],
+      "featureSha256": "2ce8e48c5cb4fbb1e2f059ee74ffa780dd8f7a00ce825bd5f88be1072bbd14c0"
+    }
+  ],
+  "replay": [
+    {
+      "seriesId": "955788",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "bf7b19a125114c0df7c248cb84744d1d16ecf72241c389ac2352e3edff0256a6",
+      "shortHistory": [],
+      "featureSha256": "52fa0d444db610b187547e0563410a2e70cfcef99d4ee460e07985121d6fd7ce"
+    },
+    {
+      "seriesId": "955790",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "6e2164fe69bdf77eeca10284ade3018451a8831b99e412acd4192dfa5597c26c",
+      "shortHistory": [],
+      "featureSha256": "45f5dfcbb265c570f8892e72b4c7d5bfbcf4892e5e92a48787c20f0c02a6c50b"
+    },
+    {
+      "seriesId": "955802",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "200573858"
+      ]
+    },
+    {
+      "seriesId": "955804",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "97897340623b52dc3b2e01ed01f8e49e87a7ea327b63176d913aa3d3dd389f97",
+      "shortHistory": [],
+      "featureSha256": "5cbbf3f185ecea583b2213afbf9826d0a4eb8387b1d6b9caf3e332c57b28d759"
+    },
+    {
+      "seriesId": "955820",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "81c6bf2ad2b726a25b53751c63569a3405c40a4f2daaaaf33ee2cc02e990652d",
+      "shortHistory": [],
+      "featureSha256": "03bc0593a3e66bcc1bc917494403e2f5c3b3a0de2b76c565ee1b06d91f833540"
+    },
+    {
+      "seriesId": "955841",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "53313399d781577453f8fd7bcdfe27fe73eebba22e64f5b3a3be0c820acf3fbd",
+      "shortHistory": [],
+      "featureSha256": "7aa65f3c168d226989805df16bc8b04e72a90962cef4139aab44f04df9a4b41e"
+    },
+    {
+      "seriesId": "955857",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "7fb8120e192806bacd95f66d61b776b36e1988f0a22848b775de0debf9d282bd",
+      "shortHistory": [],
+      "featureSha256": "80ab4eab8fc0bfd62181dd89a1bf9864e17827d43ad317c4461b75ea2c2b694e"
+    },
+    {
+      "seriesId": "956060",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "d117ee3ee40388b21afdddf483ed818ba38576f9867bac20f8dc08de0752d778",
+      "shortHistory": [],
+      "featureSha256": "996236ddbc6aed4fc4c8cd9069195b3430b94532cb616282aabe9148a5fbec3e"
+    },
+    {
+      "seriesId": "956061",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "5352a16f519d637e87ce284dc80f1c17577b8f56dee77c0a224ab37b9b49476f",
+      "shortHistory": [],
+      "featureSha256": "4a944a907c3d5eae9eabd65f1527cef4c71e308fb75a970b2906bdae56a2ba60"
+    },
+    {
+      "seriesId": "956092",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "00a2debf25d67cf1d99f13c345686c7c64980cba6c95e8bb9fc320c4377c68f9",
+      "shortHistory": [],
+      "featureSha256": "f52b4bdf61afbd430709cc65af52ca0fc43faf6afee00940cb2d75d92707a78e"
+    },
+    {
+      "seriesId": "956134",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6ef7026ce821ca1da6ce85dca6ea8aa219f3294f7335c387872d54e54d02d9fa",
+      "shortHistory": [],
+      "featureSha256": "385cc3999e00cfe4b0d233aaa2fd1c83299cb94d84fdf54026c428bed687f934"
+    },
+    {
+      "seriesId": "956169",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "ee7179cbd96c9c807964ce982b08465b6d557e799b89e1137ae927cfd6679dcb",
+      "shortHistory": [],
+      "featureSha256": "a85679648156ddbbed891853c32be2a51782d0b6236268582255072d89a03a5a"
+    },
+    {
+      "seriesId": "956212",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "910ab0542b52060522fbfbd7ef552bc061eb3b90a80ff808c8526b749da40360",
+      "shortHistory": [],
+      "featureSha256": "fe4790cdea3bf5bffd31538638f71ec457cee9242f0812bd6b0ba97c313c8de3"
+    },
+    {
+      "seriesId": "956250",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "fbea3e9c912a89f2af933099cfe37eff1a02f4cebdd9c51e82be0332094d1059",
+      "shortHistory": [],
+      "featureSha256": "8d7aaae9414a0051bdd17c58c0dae0af3c503c9dde7462abfe1eb987d1907019"
+    },
+    {
+      "seriesId": "956462",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "256096ac3398217223dadead80220365ef65259274ffc831e48b1b367cc70902",
+      "shortHistory": [],
+      "featureSha256": "ed0889cfde7bd330d4e3cf36bfa3f9082aa8e4efe5f2c85a345df7b7ce08d3ce"
+    },
+    {
+      "seriesId": "956463",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "863510ca8ec9d0cd5d7495ac1bd86d7023bdb50c0e2b6098e130ffa3f74dc7b9",
+      "shortHistory": [],
+      "featureSha256": "2476464ea8c5c8573761f01c0938cefa33aa68b1f2bb131ae6e87d7f54f2b263"
+    },
+    {
+      "seriesId": "956472",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "45b1f6c89b2917353d22808c728f0d11a96ef4a487bc6b2204aba41c2fbcc545",
+      "shortHistory": [],
+      "featureSha256": "b2025c64080ff6ae76b2b9a1d308c4595d218d0538bc6a6033ed63ed15964127"
+    },
+    {
+      "seriesId": "956475",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "6bcc733a68808498a4564a1c452cb130d22d3a33108c18fe06a6f1a7d0bd1c5f",
+      "shortHistory": [],
+      "featureSha256": "82124def6348d837db8f779f3a21f1e46db5800c8f05e03955cb370e13797e2c"
+    },
+    {
+      "seriesId": "956489",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "e6ebdaeea3a04da95c77afabcf89b5f01312768ef84ca0bf271bf0527b6053a2",
+      "shortHistory": [],
+      "featureSha256": "1374a7f3455b8d117b70f4f91183b8f33c75567f7bfc91d6ee20176b6806a1d8"
+    },
+    {
+      "seriesId": "956504",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 35,
+      "eloDigest": "4000c7af4a0660549f3736d3a07c1589de448608e92a2a1eea81276db2a75fbf",
+      "shortHistory": [],
+      "featureSha256": "209c394ed9ed776924a9f3de3a149f0a99d683f9b1d8fa8c0a4cfce3e30b4244"
+    },
+    {
+      "seriesId": "956520",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "50c80787da0cbb042de87804c93ef558c0f363e4706a392b76be844daedec839",
+      "shortHistory": [],
+      "featureSha256": "e5f6280020a2ab47b67d84fb04c110d09a235c1de4748176e1345d3535c54f6b"
+    },
+    {
+      "seriesId": "956686",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2347d218d36f1050b2798afccff2647e5648ecd68406337dddb18c9525dc9cf7",
+      "shortHistory": [],
+      "featureSha256": "0068c4e7a482593cc91bef8787d1da148f21b24c0417ccb87ee0b14640c73550"
+    },
+    {
+      "seriesId": "956687",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "150e964cacd98117be648a808a951f72c215f0409c04e33600cce7e4ffd6e85a",
+      "shortHistory": [],
+      "featureSha256": "701ccb112da93360ab7881e03066f6ddd334804c0ecced61ae7ef4d48165d097"
+    },
+    {
+      "seriesId": "956694",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "83a7707f1f509990fbfe9799be010e0c637ec3aaee0af9297967b8d94d891359",
+      "shortHistory": [],
+      "featureSha256": "d720c4cd8666031028c75ecee1330d17c5f8f339154c2587156b673c5b701c5e"
+    },
+    {
+      "seriesId": "956701",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "ee6d611e8e23b8c252c125ef3bd04654e546f01848643e5f7df5e27fbefb17fe",
+      "shortHistory": [],
+      "featureSha256": "ed07592d5dc579ff00e4a4060547f2e5255e1ce8377ad8a1a10e5b8aad31284d"
+    },
+    {
+      "seriesId": "956715",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "cd59063b32fb07c2f6e46bc508e3a56dadb3316fb49503a4ef4e03d7bd81884f",
+      "shortHistory": [],
+      "featureSha256": "7edc2c51bafdbfd252782b8e7e78eab7c85e0a7b71e7c21c7a7b300e4681f966"
+    },
+    {
+      "seriesId": "956737",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "afa89c70aa1c78a4909d0becdfcc8a91691ef8008199cbd4e5ef3626959d9766",
+      "shortHistory": [],
+      "featureSha256": "a148fbf37e33c840555c6a3fdc9aa072997fb61c50b6f8a84886124cdc8cd802"
+    },
+    {
+      "seriesId": "956976",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "8ca34411958bf48d2c500e86bbc510db518a59fb09a3d674fc6a78a2d6c18e66",
+      "shortHistory": [],
+      "featureSha256": "1b0906e6d6c11fcb3578e5c166d743daf096457e81fa09ef32435e0a2cdd941e"
+    },
+    {
+      "seriesId": "957002",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "f95b17d314f283676ecaf90b562e6d4221bee90849f7a8a693e82cc3faa90ab2",
+      "shortHistory": [],
+      "featureSha256": "36c733d7d2610b3ab5cc8102ccd1e260a0d454c636be7baa76a0dad39100b4b1"
+    },
+    {
+      "seriesId": "957248",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "96abf2441c083065fcbcb3c7f2456168a6669aab5d905ca29ac0fbf497f310e9",
+      "shortHistory": [],
+      "featureSha256": "0fea7c6a2f901dd6fbcce8506d9f2e557dc11d178b5c806e20998b579b285822"
+    },
+    {
+      "seriesId": "957260",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6ef7026ce821ca1da6ce85dca6ea8aa219f3294f7335c387872d54e54d02d9fa",
+      "shortHistory": [],
+      "featureSha256": "71b7aeb17397925066d8d934758f3e30280d5e758a0c0bc353efca47ddd88e01"
+    },
+    {
+      "seriesId": "957323",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "d1257c34b5f1c75453e5b368c7d075dd19c1a6dd7119c4373a2354b81d409982",
+      "shortHistory": [],
+      "featureSha256": "517124a12f1ffe4d15701e130a4da85117eac9bf5e04cbfa0f196f4b8b17d051"
+    },
+    {
+      "seriesId": "957590",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "55d627b2384af79f76b321156284c6d9ad28de45e0847fa6979f956836555176",
+      "shortHistory": [],
+      "featureSha256": "04a7d8ab83ed2ead50a272eaaef1ad20452ff5e4b97c67f8484826682a28cc4c"
+    },
+    {
+      "seriesId": "957659",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "a283481e49e3520a0c951f61e4409f659f53660e44da0d5ed46585dc15ae18ef",
+      "shortHistory": [],
+      "featureSha256": "bf63c8a8fbf56ea2fafb2df7a19d2d5c857e87ce083d1c7d7efbde2f12bd8af0"
+    },
+    {
+      "seriesId": "957980",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "5d57dce4e8f67bf4a65c1d17dbc7df3d19998b980a2e3390fea2f1dd241ac361",
+      "shortHistory": [],
+      "featureSha256": "194e005354a04c0fbc5d4d8d4d1dabcdbe7c6781acdc7dbe5b6fdfce450b4024"
+    },
+    {
+      "seriesId": "958030",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "644a522db5307bed8d524b03c74da8fcb6e66d16e5a844fcab3f4206098a7c93",
+      "shortHistory": [],
+      "featureSha256": "d43e7a3e7642eac29ff9b627c4cc2b12cf76fe6c91c003618e639ec15cb15d82"
+    },
+    {
+      "seriesId": "958284",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "fb76277c3ab31e25635daea21b0819b40ba8c3705ade6f7847164296f2799a80",
+      "shortHistory": [],
+      "featureSha256": "ceeb3346644ab90d5270a7dfb5357fdfab4922fb319aa38479c496b1496b6890"
+    },
+    {
+      "seriesId": "968836",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "d8992e874d76a7ea39f048966d6fb3d15be80a7d568a2817222ecb2007230c5d",
+      "shortHistory": [],
+      "featureSha256": "3684491f99704656efdeb991ff7b2a3b09b00c6ffbb40925cbd339663967a365"
+    },
+    {
+      "seriesId": "968837",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "dbde420bad0d9886e389982139e5da3705c2e56189e521b4b3df274df2d6c3be",
+      "shortHistory": [],
+      "featureSha256": "191ad2bdc6f61757a46fbaa94dfa01ac8f583d3105413bf745ce3da2ee4cfc37"
+    },
+    {
+      "seriesId": "968909",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "a188e9f5d44b74715a1affe8ee6c72955a971908aae01dd6f37c03b6b66be69b",
+      "shortHistory": [],
+      "featureSha256": "c7bc04fe98d3cc9a38209aca13a00b04ad85e599cb7e3400f2fcaeb61662b954"
+    },
+    {
+      "seriesId": "968919",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "2cd7c79d64911f66dcebd97de1560317e93adfbe251313df8011839f375f33e9",
+      "shortHistory": [],
+      "featureSha256": "6576935dd99af3110df0e7874e431d47a20a0b0d4964eb07220fab3cd145818f"
+    },
+    {
+      "seriesId": "969006",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "52f29a128b235155458854b552bd1c009149375b0aa42eb6b63272b2f340aa00",
+      "shortHistory": [],
+      "featureSha256": "81dced42aa27880d199b79f7921bc5bc1bd6be4ea536a7d04ff20cc6d1b4c7cd"
+    },
+    {
+      "seriesId": "969060",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "3f976c03cd9f46346092bd2db3f42ae01bd20f4e048f74a5ce168508e14d6aff",
+      "shortHistory": [],
+      "featureSha256": "2229ed9a80e8bc3c8a24573654c04dbe718f6fc63528f906eab9c3a884a183d3"
+    },
+    {
+      "seriesId": "969082",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "f47049dd8bdb4e6ab15268da8a81592bc6bb8eae853831ca611dac20428a26a9",
+      "shortHistory": [],
+      "featureSha256": "e4cbf69ce3b8f48e059452b3febb34489a543d6d6cdd80a20669a215908e9bab"
+    },
+    {
+      "seriesId": "969246",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "63ebceffb0a3aecf4437a777d0196a6b9304f01f501c2edf3b0b51cf416bb17a",
+      "shortHistory": [],
+      "featureSha256": "7132ac3f426d6b5617ef0ed2fe3d2bd41caef1a10ca34fd8e75e6c0fab78936f"
+    },
+    {
+      "seriesId": "969247",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 11,
+      "eloDigest": "cac4ea8c21582749fb69acccfae4423804fcec314ff698bd4d75f6715cd7b65d",
+      "shortHistory": [],
+      "featureSha256": "ca11fc79b346758813db6d8f9e08c716b14fc11de367caef61855f80dda6ed92"
+    },
+    {
+      "seriesId": "969267",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2861c0861aade76b4d9d083089e790dda47fe963da1826b013ba3b0fb711f9b8",
+      "shortHistory": [],
+      "featureSha256": "74875e93d5cd20516b1a2c8dd37a160bd8b780332702663beedfb3f9d603ce38"
+    },
+    {
+      "seriesId": "969315",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "18a34633f32ae910315c275a390afc5f33d4fe61eb685e5e3973dbbd902ad4d1",
+      "shortHistory": [],
+      "featureSha256": "bafad416f68f3ed59748bc02405affb6317149585789f3fd36727a5ace6465c8"
+    },
+    {
+      "seriesId": "969323",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "837dae77f0325a25eea99f35e5181430c769d55c77cdd0809339dde7bc875a04",
+      "shortHistory": [],
+      "featureSha256": "286f230dcc578f7f3eaa5d0a6020a52e5acade922b67baf92d8b3f505dd56299"
+    },
+    {
+      "seriesId": "969365",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "eloDigest": "0cac3b86ef4e4c979e7546e77409a6158e74c563594f3ffde1a1689877a1d00b",
+      "shortHistory": [],
+      "featureSha256": "a71b5bb944d2185b3b8b6100d42535bbf9420b2ad69c10f59ee90e436173db13"
+    },
+    {
+      "seriesId": "969383",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "464b34a1e24c47f0a5a9eb421580ff920c01877d3940e9b3bb6d17b7a1119ce6",
+      "shortHistory": [],
+      "featureSha256": "d93616b15aa1aece36dd5e93ee5d307a6139bcccc76d50f6d51f08ec3914fd94"
+    },
+    {
+      "seriesId": "969592",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "ae19444d4a404351357550df04fcdebbb461ce6d76212963d3a8a61b2ba9b4aa",
+      "shortHistory": [],
+      "featureSha256": "e30724692d083b60a83c3254363a55e1fe75ed1ea11da4b3e944e033b1feea83"
+    },
+    {
+      "seriesId": "969593",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "12584cd38628df5472ab3e07d082607c9bbba5ba7c954cfdfc87e638391ac30f",
+      "shortHistory": [],
+      "featureSha256": "05654f80dc065b8f703072f7b2de965b0314480bc951e1f059f867b5f724a34d"
+    },
+    {
+      "seriesId": "969608",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "fbd2f9c310b6e799e2d5a7cdae3f97b4582c2a37a4d25675ff216806c3a4562b",
+      "shortHistory": [],
+      "featureSha256": "c94cbc6430a05993de8773d1db03df0366f991678dd98523f95634482917cdb7"
+    },
+    {
+      "seriesId": "969616",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "1b5034d2cce2ed729677e448c0e1da357fb078e8b96498fe7f9237a852a148cf",
+      "shortHistory": [],
+      "featureSha256": "2b2a821d3a920ffba1606ab8864a36fd0467498f75b90862578e6c941cf21470"
+    },
+    {
+      "seriesId": "969621",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "b0a412783e5d6292db180a16eaa276697d06dc2a872541aa660d2665423f27cf",
+      "shortHistory": [],
+      "featureSha256": "bed1e707a4001be9aac0516924d5499d7c1c009cc79bccc0b88cc50232d4d030"
+    },
+    {
+      "seriesId": "969646",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "28e50c755daffdc141befa749870b09838055a88e65a7cfdbcc2793f85552313",
+      "shortHistory": [],
+      "featureSha256": "1bdbb9f819c7272cbdd693d6aa9c23b580bde7313afea363b846507bff341594"
+    },
+    {
+      "seriesId": "969792",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "93b18c535d76d067cb174e0f5d3abc1750c87d68afd5caa735fbc1ff9cc5a2d1",
+      "shortHistory": [],
+      "featureSha256": "1cee35230ac61f270c03caf1b4ba70b02783dce361f173ee8f31ba8c4e52832d"
+    },
+    {
+      "seriesId": "969793",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "7c5a29568d630b62b11a3b84ebad2873cea757fed8134870cd0e1348535ad038",
+      "shortHistory": [],
+      "featureSha256": "a9495ab3204139e0d5d80e33068f8e2de60e97013cdafa74ce5df3ced79fcaf8"
+    },
+    {
+      "seriesId": "969815",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "1875a49e4fb52173b9f46d4875f4bafd46bd3ccd7865a0f6eb5a1e665e76d434",
+      "shortHistory": [],
+      "featureSha256": "08e575d73444ea58ea2342775a481892f4bb49eed6651e95b3a93f077161af7d"
+    },
+    {
+      "seriesId": "969816",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "9568108e51528fde6cee3ae17e5bcb4c51e407a5401e0462511656581b816ba0",
+      "shortHistory": [],
+      "featureSha256": "e23fd288c8806c6292f5a4740a69061649e12721a5f3817e3543f2c677dd4357"
+    },
+    {
+      "seriesId": "969829",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "510be73c062d27b1e0f508bce65f958bb77591c22293ef01d9fbe3aeed281601",
+      "shortHistory": [],
+      "featureSha256": "19eca728c9356855970880ba8d3e594665d5c71e37586ec5df8e47d937dbfbf8"
+    },
+    {
+      "seriesId": "969851",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "aef5b8386f85d71a7d44113efa8e0f49f49ed4fead2acf12f84b4f1361dd50c6",
+      "shortHistory": [],
+      "featureSha256": "d731869a59027b7c4626ed6734c914396952d526cd9e71fa41e2d900cb85f36f"
+    },
+    {
+      "seriesId": "970113",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "a44eae84d216178e887ff003d4f5a41e4e04bba1c97a4ca50694b63321eaf19a",
+      "shortHistory": [],
+      "featureSha256": "d0b9ebd2e2371d3e19b32e85fd5c7931038eea444d4a62ab45a30d025d41b876"
+    },
+    {
+      "seriesId": "970122",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 11,
+      "eloDigest": "e10d547123525c9c1273950f8e6c232f3a3675f8703b4d0f59cc731e20eb782c",
+      "shortHistory": [],
+      "featureSha256": "e740e50228a91b2b65f3c3b1c6079a916a6833e99b3f036633089f3236b9ffeb"
+    },
+    {
+      "seriesId": "970138",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "13eb77dc8a6a3b128623cd9e90a44c50f5a2dc61d07c3515cf6b3b5d8bb0aeeb",
+      "shortHistory": [],
+      "featureSha256": "71a2373ba21740ea0b95f4be93e5c38e7a8a0e35a1e938ad7acb261b227a6034"
+    },
+    {
+      "seriesId": "970355",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "64d2cc262d492b7b43f6d65c5a773c23624330d3cdad2b99f4118e7b926a9d1c",
+      "shortHistory": [],
+      "featureSha256": "e4cbd02b0d544f3bedc8503413d2907cd38f19b1dabe0d7869d59a0a4fa5358e"
+    },
+    {
+      "seriesId": "970410",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2af377093dfc7c123dcf844bc7de6ddc53de777665e48831e4dc585a4f4cac65",
+      "shortHistory": [],
+      "featureSha256": "70420b667efd4c759412ff86c78f0783857469fb4adcc35c16d94a9f8eebe1f5"
+    },
+    {
+      "seriesId": "970445",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "e2cb935a0fc7be56e2a77dcac2acf2933388fcabb614bb9f53c85226d47c47d5",
+      "shortHistory": [],
+      "featureSha256": "3306aceb8890c9a3082e964f83262aee7bad59425ca5dcd8c8bcc31ceadb59b9"
+    },
+    {
+      "seriesId": "970675",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "c7c29bca51b7383fa4de43d5e8e2a6837da6203c7a9d12939ca64fbd1cc72e05",
+      "shortHistory": [],
+      "featureSha256": "ce4e50bac3278f2bbf9231d5a26f5a32075d423f34a1f2178011f802bda7936f"
+    },
+    {
+      "seriesId": "970689",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "a188e9f5d44b74715a1affe8ee6c72955a971908aae01dd6f37c03b6b66be69b",
+      "shortHistory": [],
+      "featureSha256": "4cbbfe80b8def5667160258ba26842c57e2cefac779798ec761c5058f3999a65"
+    },
+    {
+      "seriesId": "970766",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "4248dec9c93d1eb92e370967bd2851712546094245e44ca5da662fe7806c34c7",
+      "shortHistory": [],
+      "featureSha256": "d9f9c98b154e7220f435c602007b88e3c4dd5ddc6866f9f37a1504bd32a2a85a"
+    },
+    {
+      "seriesId": "971009",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6d132d2244b3637d6503f919a906b4fea7bffb6c1bfebb0c64cc2ce009214862",
+      "shortHistory": [],
+      "featureSha256": "22222d2a3644f5cc325f217c62ebc3e9fd726fb3ea7b7966f2a8ea2b861e7a9e"
+    },
+    {
+      "seriesId": "971121",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "eloDigest": "0b69c070fb0f25de3c42d8220c580e49e1b842347d35389891f41975ea7269ca",
+      "shortHistory": [],
+      "featureSha256": "04a1698a936609a6ce7fdc177c61b43c03c8e0b4c39411f662a9d0c493fe6ffd"
+    },
+    {
+      "seriesId": "971213",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "fc71022069071b0738133038fcd26f3ecc83059de48e66a950189f39729f4849",
+      "shortHistory": [],
+      "featureSha256": "0ddd0711c62be9d3a6c6dbff2b3c9198fb16cc3e54e03def2bf6377557e1df58"
+    },
+    {
+      "seriesId": "971400",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "7fb06d4dc2a6f4572438ea9525455679ac962f5d812784e3a2b39a1237cd27fa",
+      "shortHistory": [],
+      "featureSha256": "5408dcf7e99a6932f9d4472450c746138f1b72e292ccebf4896b0c1189c8d24c"
+    },
+    {
+      "seriesId": "987267",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "a1fdec01657c2f11629945e6345f3f95b20e7627e7cf0cb74629493f17c104b6",
+      "shortHistory": [],
+      "featureSha256": "50f1a31c7347b497396511bd416b99c0b510df63de897ff491f39b181fd6bbad"
+    },
+    {
+      "seriesId": "987268",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "57940ccf38dadb27ecdeedeb72f5a634914d9562745b642b4ca796c67847df68",
+      "shortHistory": [],
+      "featureSha256": "cefa858022cd5821102156ff6c932a7623d9776497fa5fc3ead060bbec2f02cc"
+    },
+    {
+      "seriesId": "987279",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "ca75a3b758008c5c5e781f2f9f5140f81aea9ab204b8cbf60a9a5c70e5f476d7",
+      "shortHistory": [],
+      "featureSha256": "47b5c4922a1a420d66247a906a54aeeae64101423f9773ab969636647eddf280"
+    },
+    {
+      "seriesId": "987281",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "592c9603d8fe0e641d18c61aaae0f9ae053aa8644c371469ef5fc4e97aebc402",
+      "shortHistory": [],
+      "featureSha256": "8abce8cb9b68175aa77eaf6ddf3af2a1eb84e200fb88147ab2aaa678ce3cde7f"
+    },
+    {
+      "seriesId": "987320",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 10,
+      "eloDigest": "054f06ca2a53017441b9ca1928481223db15ffc8835539b871791f2e44f5d519",
+      "shortHistory": [],
+      "featureSha256": "11d104d60e1a065601ded47ee2764fce370d55bafd93b50a1dcc9d66662e6553"
+    },
+    {
+      "seriesId": "987323",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3f516b81d6c9a0b29e5a97f35b0de2a34217dd42270480908b9aa0faced0d9af",
+      "shortHistory": [],
+      "featureSha256": "f8fee11378637356af18e87a3199c7a6244c2c434787d127a688000c23d952d2"
+    },
+    {
+      "seriesId": "987391",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "64ac397efb2be92cc43084a5d603e539662d6a87b0b44e09d08cac7ee21678d3",
+      "shortHistory": [],
+      "featureSha256": "7e0d2a5a64ef4557ef34b216ae705fc251b276b9227b53d9795a3ddd94c01364"
+    },
+    {
+      "seriesId": "987578",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "368cdb05e1b65e3fc5beca18a4a0c1f4df89363f4fca2758e57d75da1dae05d2",
+      "shortHistory": [],
+      "featureSha256": "fe1b2b394ea0b8f4bf849696ba2ff2eff183ec8b8bf5622a1f4fff8205756588"
+    },
+    {
+      "seriesId": "987579",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "40ba67e694aebdfdc14c65aec45cd3fcad9b9f74aea84b2cb02d808c6154d3b8",
+      "shortHistory": [],
+      "featureSha256": "028dfe9e482aab3d1b2302a0a1cac51a1863b5684410e97382f85b419c5306d0"
+    },
+    {
+      "seriesId": "987609",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3fb6e1b03a03093d630c8008ba64b31e03c45dd9c50534033d960113c006de4f",
+      "shortHistory": [],
+      "featureSha256": "19671fcff610f9262612410092fae1e48988726c439db91bbb99f1a7a55cd17a"
+    },
+    {
+      "seriesId": "987620",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "79a1a1e5667c88ef978956d3d45ad5246b6245251ee2d4efd6757349621d13a6",
+      "shortHistory": [],
+      "featureSha256": "944e5d0e9eb579ba845fa8acb7f3bf765a10cbd9b0767987921d37159aa0f673"
+    },
+    {
+      "seriesId": "987648",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "e96363717ec129e5f15324f75981162cd484ff54e62293fcb5ea1032c8048b73",
+      "shortHistory": [],
+      "featureSha256": "7c46a0f5b0e2f5c92cb7e4763a9f22533abf49566481d054486ff96c5dfeca6b"
+    },
+    {
+      "seriesId": "987678",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "02d024a7549a8701db0ed874e0c4acdc525e7c79396e9bdcc22655528f73370e",
+      "shortHistory": [],
+      "featureSha256": "8719d6475a91f8d51daf87e0dd0e007f31af013ec779df7a6ab34246d2e89eb3"
+    },
+    {
+      "seriesId": "987722",
+      "edition": "18358",
+      "membershipHeld": true,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "272a9d30061c45238f2fe587f8746a1db75ae8e8a2a0160ec363a614d19006e5",
+      "shortHistory": [],
+      "featureSha256": "01344e0900121730815108add8f1d4d0a028e8789c1c300f7e483dd946b9a7f7"
+    },
+    {
+      "seriesId": "987931",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "6a3c1466c0081c6c75cc66adf7d53da317a41af41c60a4d82a3468058f034195",
+      "shortHistory": [],
+      "featureSha256": "46f2175c0e93804b227e9d575af2888dfba83aba2ba6504e9cd8e8f3f87c7c25"
+    },
+    {
+      "seriesId": "987932",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "af497696e7d74b0c0e24be311adb95a7ae990f54c8f3a9fb1ac2afe421642ac0",
+      "shortHistory": [],
+      "featureSha256": "103dc33c084a303af4026465311ce0242c9ebe7b64c7f31f8d11c51710b641bc"
+    },
+    {
+      "seriesId": "987941",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "00afaab8ee1b9a50537f8286dafe060aaf8937e4867dd55e94fec1fac7c3cb1c",
+      "shortHistory": [],
+      "featureSha256": "0a3e083b2709328e2ec4f63f7bdc396cc24cca044edd95240b51dc12c799210c"
+    },
+    {
+      "seriesId": "987942",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "95e29783e477060f12f95c96797b744853d7c5e32b702680ca3a5acb44d42351",
+      "shortHistory": [],
+      "featureSha256": "f05bac953b0c7ae801042b3f0b504a83cd259dab46bd4f003a1afe5f54ba35a7"
+    },
+    {
+      "seriesId": "987956",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "28e50c755daffdc141befa749870b09838055a88e65a7cfdbcc2793f85552313",
+      "shortHistory": [],
+      "featureSha256": "310e8c583a1ead77a837970f087c94dff9526c59f04113f77b4dac359b9a4f7b"
+    },
+    {
+      "seriesId": "987957",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "7e626998137bdf140f3f829e6c37cfa72b51c4bac0e5b4bd7801b8d08ffe4e6f",
+      "shortHistory": [],
+      "featureSha256": "6fa2d31376885ea0351824e675221c4afc777b6f3072269d33b0a8c493a7a49b"
+    },
+    {
+      "seriesId": "987996",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "c51330aecae2101d6b806c7c35f01a8924d184d9a8cb877bb281ae99de47e9fd",
+      "shortHistory": [],
+      "featureSha256": "fc3494908ceadebc4715c7a3d13344abaf9e667e6282c60fe6a9297830769202"
+    },
+    {
+      "seriesId": "988164",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "18a34633f32ae910315c275a390afc5f33d4fe61eb685e5e3973dbbd902ad4d1",
+      "shortHistory": [],
+      "featureSha256": "141e96533f6da5a7f40b90dff2325fa3cd85589319f75fa90118f31bd019be6a"
+    },
+    {
+      "seriesId": "988165",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "5306b277f3c69be1e52acc8daf36d99c0de2ef72eb029788a93a3fae1504f46c",
+      "shortHistory": [],
+      "featureSha256": "bfdd363701acd03a79496e80ffa8f10a33f38cfa36ec3f36f2356b8642db2000"
+    },
+    {
+      "seriesId": "988169",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "35bb880f589055211a70cb217aaf25226d085af9e304ac07e7eca9d57b694ea1",
+      "shortHistory": [],
+      "featureSha256": "7cc742e9e2812b574a5b9d56bb2f35dfc4c9bf17a0f86eb4cd9548124c105297"
+    },
+    {
+      "seriesId": "988173",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "fd6df40df0d7922af2f32205e067f0cca6d8a3205dfb1372135773aba201f299",
+      "shortHistory": [],
+      "featureSha256": "454d62a8dbd73370f0820cb4e8382bcc02f8de577a3eea0d69415eb5c55e951c"
+    },
+    {
+      "seriesId": "988193",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "ba88960dd68bfa2a84b51febae4b0000082960257e2f07ecb430370cbf071ada",
+      "shortHistory": [],
+      "featureSha256": "e668f3e4217a134ca61a81010566e831917eeff02e134663b8449deee97a3a85"
+    },
+    {
+      "seriesId": "988228",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3bbf239b3aea7878acf77203456458be9d842af6f72834047e935e62bd645244",
+      "shortHistory": [],
+      "featureSha256": "e0b9a321aa15010d8d8fc09db7d0d85d5a5f313da27d02494212f08e5210dd28"
+    },
+    {
+      "seriesId": "988399",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "d623016099cb1b84e9849b9313cfd45e85cb8e005a366323fabc917bf0f6347a",
+      "shortHistory": [],
+      "featureSha256": "a94bf7f70a63db26287080ceb5cca8afe37986d28bb29ed2ec8c5dcf92026193"
+    },
+    {
+      "seriesId": "988413",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "238edc1af13fdd1fc454a8855f24dcc9755a2f1ef9e42e522691438afca0e009",
+      "shortHistory": [],
+      "featureSha256": "8d2d6c7a6dce5e620373a39d04c189ba616f83dcb606fde23187a9bdbd0445d5"
+    },
+    {
+      "seriesId": "988439",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "884b700963f1970d52d56f6e55b7c5291669555370849653d43eeb281d331fbf",
+      "shortHistory": [],
+      "featureSha256": "e13fb16dc2e2033586f29e1b48631334309d12ea1b86c01c1210856e81d4acec"
+    },
+    {
+      "seriesId": "988592",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "aae142b954a8c67d5d1a81d05cc410b5349371c14a3b9566023d5028bc1302bc",
+      "shortHistory": [],
+      "featureSha256": "cafdf178c82d94d18a63dd3604437db1151ed552d3449b2665ada01dfa8e5e96"
+    },
+    {
+      "seriesId": "988606",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "154dc24d914543192e1459c04268f8114b75bf8ef4fb86434536459fc38096d8",
+      "shortHistory": [],
+      "featureSha256": "e36932b8f92ef821ef6940764eafd1e808f48d7fe53ef56deb76bfabb13331f4"
+    },
+    {
+      "seriesId": "988675",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "74b5d05170ac61102bf0fd62da55c6e47f0bdf71b831d6c04126feb4e79f666d",
+      "shortHistory": [],
+      "featureSha256": "a1febab8a5093fc9f14e3e6a07d35279c357c452a3a947175863db1ff1b7baee"
+    },
+    {
+      "seriesId": "988891",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "d9121fbed31b5065946026b26066fc53b2726e3fa78687359b098b917dd1c432",
+      "shortHistory": [],
+      "featureSha256": "f88da6e92d06c98a2782d684b82ecaaec2874e29cace92ab1906ec5d0f63856c"
+    },
+    {
+      "seriesId": "988911",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "2ab9aba5fef2d16d2a9b70cb27532ac5fb3bd7c9987aa2fa2dce2a88447e908d",
+      "shortHistory": [],
+      "featureSha256": "5897972bfa176ce165eddb810962b9f896d3d99900f31e339787cc73a84da36f"
+    },
+    {
+      "seriesId": "988960",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "eloDigest": "689d0176f4eee609167ebb133a225e1ecfc199928ab79c6a1a2f55ab5fe3412d",
+      "shortHistory": [],
+      "featureSha256": "2196ee1f8b371ab30a781ab9196a8391adfbf5b6430f9065517b42f07c5fc1d7"
+    },
+    {
+      "seriesId": "989150",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3bbf239b3aea7878acf77203456458be9d842af6f72834047e935e62bd645244",
+      "shortHistory": [],
+      "featureSha256": "1664ef44d4d3e385ddd21f5e85f7d3c435976a550ffc7d2295c4f36db8d64a2c"
+    },
+    {
+      "seriesId": "989168",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "eloDigest": "044a6da0eb29c606a407e7b6f9f189f4dd22cfa726bd5b2b14adf877c32cb7c8",
+      "shortHistory": [],
+      "featureSha256": "0e5ab368e445d08046786a0c880a4977c9f42dd9a458243b45c607c62cdab1b7"
+    },
+    {
+      "seriesId": "989471",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "7f16901f82537742343a38b3feb6b38576d660644c0fe09724889baec37a2f29",
+      "shortHistory": [],
+      "featureSha256": "6b15853801d0e492e7fca102fe24908a945ef992ebd8383aa76ad0c789203fa6"
+    }
+  ],
+  "registered": false,
+  "targetSeriesScored": 0
+}

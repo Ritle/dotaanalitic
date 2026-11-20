@@ -1,0 +1,122 @@
+{
+  "format": "s3-09-blast-kidaro-working-import-audit-v1",
+  "completedImportSha256": "63f26ff3f7e63c535221afd59f404a0d5b53eda267d43b4ec4b7fac9de7daa02",
+  "workingImport": {
+    "format": "s3-09-kidaro-working-history-result-v1",
+    "status": "completed",
+    "asOf": "2026-11-19T20:52:34.143Z",
+    "manifestId": "94f1ade3-e325-440b-8856-28e507412659",
+    "manifestSha256": "c48a5b2ece89a79ef0c5df3b15abe61a8dedffd04fdd1361b2f329af1f673a4a",
+    "preview": {
+      "path": "docs/evidence/s3-09-blast-kidaro-import-preview.json",
+      "sha256": "661e387bde6611e48e8d64653182fe0470eeac9f4eca466cb86880371348b6fb"
+    },
+    "backup": {
+      "sha256": "2b96fa65ab19ea2df43cc1845b7d9df6e838e7794fe4fc780d6597f29f3ef713",
+      "bytes": 57870477,
+      "tableListChecked": true
+    },
+    "mapIds": [
+      "9084351361",
+      "9084474528",
+      "9084572091",
+      "9086164367",
+      "9086220626"
+    ],
+    "seriesIds": [
+      "1166783",
+      "1167282"
+    ],
+    "mapAssessments": [
+      {
+        "matchId": "9084351361",
+        "selected": true,
+        "seriesKey": "opendota:1166783",
+        "dataEligible": true,
+        "reasons": []
+      },
+      {
+        "matchId": "9084474528",
+        "selected": true,
+        "seriesKey": "opendota:1166783",
+        "dataEligible": true,
+        "reasons": []
+      },
+      {
+        "matchId": "9084572091",
+        "selected": true,
+        "seriesKey": "opendota:1166783",
+        "dataEligible": true,
+        "reasons": []
+      },
+      {
+        "matchId": "9086164367",
+        "selected": true,
+        "seriesKey": "opendota:1167282",
+        "dataEligible": true,
+        "reasons": []
+      },
+      {
+        "matchId": "9086220626",
+        "selected": true,
+        "seriesKey": "opendota:1167282",
+        "dataEligible": true,
+        "reasons": []
+      }
+    ],
+    "mapsAdded": 5,
+    "playersAdded": 50,
+    "seriesAdded": 2,
+    "createdThisExecution": 2,
+    "initialDuplicateCount": 0,
+    "duplicateReplayCount": 5,
+    "priorMapsAndForecastsUnchanged": true,
+    "eligibilityHistoryMaps": 2216,
+    "historyFingerprint": "722bc6dda26a9bcd4b8f7514ca4545f7306d3ea82c7b78822ca639753d82b02c",
+    "inputReadiness": {
+      "providerMatchId": "1816442",
+      "scheduledAt": "2026-11-20T11:00:00Z",
+      "rosterSourceFetchedAt": "2026-11-19T20:33:51.886Z",
+      "verifiedAccounts": 10,
+      "withFiveEarlierProMaps": 10,
+      "minEarlierMaps": 7,
+      "kidaroEarlierMaps": 7,
+      "minimumMapsPerPlayer": 5
+    },
+    "seriesService": {
+      "status": "unavailable",
+      "reasons": [
+        "SCHEDULE_SOURCE_STALE",
+        "SERIES_MODEL_NOT_VALIDATED"
+      ]
+    },
+    "providerHttp": 0,
+    "modelActivations": 0,
+    "forecastScoresComputed": 0
+  },
+  "postImportReadiness": {
+    "scheduleRefreshed": true,
+    "bo3": {
+      "targetUnit": "series",
+      "provider": "pandascore",
+      "providerMatchId": "1816442",
+      "bestOf": 3,
+      "scheduledAt": "2026-11-20T11:00:00.000Z",
+      "checkedAt": "2026-11-19T20:54:12.080726Z",
+      "sourceFetchedAt": "2026-11-19T20:53:19.092Z",
+      "sourceSha256": "8ea089a4aaf465c40e86cbd9c4381587ea235ca906e80e93f59fc92d93b984c6",
+      "status": "unavailable",
+      "teamAWinProbability": null,
+      "teamBWinProbability": null,
+      "modelVersion": null,
+      "reasons": [
+        "SERIES_MODEL_NOT_VALIDATED"
+      ]
+    },
+    "roster": {
+      "sourceFetchedAt": "2026-11-19T20:54:00.634Z",
+      "payloadSha256": "f3d632e2af573e90281854c290c6e700464dec24b81b20f7ac37feb7cbabf569",
+      "sameTenPlayersAsHistoryAudit": true
+    }
+  }
+}

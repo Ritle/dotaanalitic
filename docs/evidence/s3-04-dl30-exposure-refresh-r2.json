@@ -1,0 +1,141 @@
+{
+  "format": "h2-exposure-exclusions-refresh-v1",
+  "task": "S3-04",
+  "capturedAt": "2026-11-20T00:06:58.779Z",
+  "parent": {
+    "path": ".tools/s304-series-reconciliation-r1.json",
+    "bytes": 18453772,
+    "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3",
+    "projectionSha256": "556378e083780d2ef388996a17c09a04bde2f61481d07c6640a9e832e0417b04",
+    "maps": 5674,
+    "openDotaSeries": 1768,
+    "mapsWithoutKnownSeries": 1923
+  },
+  "crosscheck": {
+    "path": ".tools/s304-dl30-crosscheck-after-restore-r1.json",
+    "sha256": "4a31eb14d9aadf9e6081f6bbc7ba84641c9a253acd24e89472b9b87438c79f33",
+    "database": {
+      "maps": 2292,
+      "openDotaSeries": 1115,
+      "pandaScoreSeries": 9,
+      "projectionSha256": "b8941cd47a2749d1b57911208bc4c6f99b598f65655d49955de57be6afe5798d"
+    },
+    "previous": {
+      "path": "docs/evidence/s3-09-series-exposure-review-r3.json",
+      "sha256": "86cee1b6ad83ab110f7f0bd4f3f4b898ff92057303601e4b5a424219d52a7b18",
+      "allIdsRetained": true
+    },
+    "sources": [
+      {
+        "path": "docs/evidence/s3-04-series-projection-reconciliation.json",
+        "sha256": "f0d8704b83f9ef639569fdd553f5bd7d68b4e4508646cf0cfb454833f3b76621"
+      },
+      {
+        "path": "docs/evidence/s3-09-series-development-evaluation.json",
+        "sha256": "59794592350a3ab77d40bbc67e6560ba537d61306226b9ec2df84b0a58816018"
+      },
+      {
+        "path": "docs/evidence/s3-09-series-foundation.json",
+        "sha256": "b9d981ea04f42aff65832c5d8d3446b7349e3ffaa279611dc9e1840bb3b68aaa"
+      },
+      {
+        "path": "docs/evidence/s3-09-bo3-scope-metadata.csv",
+        "sha256": "6d8a7e9691e36770fe4f0b137434d3c6d8707ab5243ac82fa3bf18e36ebf8b1f"
+      },
+      {
+        "path": "docs/evidence/s3-09-essence-iii-first-map-audit.json",
+        "sha256": "eae48c4f34f1d3abc4c16456116c9316b9ffb9e255cde1fd7c8a92f35207128f"
+      },
+      {
+        "path": "docs/evidence/s3-09-series-exposure-review-r2.json",
+        "sha256": "35e6b362a957485552696b869d49f95f1db114e7aa8df05533b14bf2f7427ef6"
+      },
+      {
+        "path": "docs/evidence/s3-01-league-discovery.json",
+        "sha256": "ff2fcda0080602e0f0691032083d750c05e52c06386e40fba282acacf544af87"
+      }
+    ]
+  },
+  "added": {
+    "mapIds": [
+      "9011086940",
+      "9012838188",
+      "9012935030",
+      "9013108339",
+      "9013821098",
+      "9013890236",
+      "9014083049",
+      "9015636625",
+      "9015752629",
+      "9015919750",
+      "9081944953",
+      "9082081542",
+      "9084351361",
+      "9084474528",
+      "9084572091",
+      "9089662134",
+      "9089764053",
+      "9089886596"
+    ],
+    "canonicalSeriesKeys": [
+      "[\"opendota\",\"1145436\"]",
+      "[\"opendota\",\"1145878\"]",
+      "[\"opendota\",\"1146131\"]",
+      "[\"opendota\",\"1146150\"]",
+      "[\"opendota\",\"1146195\"]",
+      "[\"opendota\",\"1146609\"]",
+      "[\"opendota\",\"1146650\"]",
+      "[\"opendota\",\"1146725\"]",
+      "[\"opendota\",\"1166017\"]",
+      "[\"opendota\",\"1166783\"]",
+      "[\"opendota\",\"1167538\"]",
+      "[\"opendota\",\"1167587\"]",
+      "[\"opendota\",\"1167786\"]",
+      "[\"opendota\",\"1168095\"]",
+      "[\"opendota\",\"1168207\"]",
+      "[\"opendota\",\"1168375\"]",
+      "[\"opendota\",\"1168570\"]",
+      "[\"opendota\",\"1168701\"]",
+      "[\"opendota\",\"1168923\"]",
+      "[\"opendota\",\"1169056\"]",
+      "[\"opendota\",\"1169311\"]",
+      "[\"opendota\",\"1169378\"]",
+      "[\"opendota\",\"1169494\"]",
+      "[\"opendota\",\"1169538\"]",
+      "[\"opendota\",\"1169618\"]",
+      "[\"opendota\",\"1169685\"]",
+      "[\"opendota\",\"1169880\"]"
+    ]
+  },
+  "snapshot": {
+    "path": ".tools/s304-dl30-exposure-ids-r2.json",
+    "sha256": "d59ce0535a1a522b7ba517d62bd85a6fa7059b6d6a465359892718ba7c46b8d7",
+    "maps": 5692,
+    "openDotaSeries": 1795,
+    "encoding": "compact UTF-8 JSON, no BOM or trailing newline, arrays sorted lexicographically"
+  },
+  "separatePandaScoreSeriesKeys": [
+    "[\"pandascore\",\"1793319\"]",
+    "[\"pandascore\",\"1793320\"]",
+    "[\"pandascore\",\"1793321\"]",
+    "[\"pandascore\",\"1793322\"]",
+    "[\"pandascore\",\"1793323\"]",
+    "[\"pandascore\",\"1793324\"]",
+    "[\"pandascore\",\"1793326\"]",
+    "[\"pandascore\",\"1793327\"]",
+    "[\"pandascore\",\"1793328\"]",
+    "[\"pandascore\",\"1793335\"]",
+    "[\"pandascore\",\"1793336\"]",
+    "[\"pandascore\",\"1793337\"]",
+    "[\"pandascore\",\"1793339\"]",
+    "[\"pandascore\",\"1793340\"]",
+    "[\"pandascore\",\"1793341\"]",
+    "[\"pandascore\",\"1793342\"]",
+    "[\"pandascore\",\"1793343\"]",
+    "[\"pandascore\",\"1806970\"]"
+  ],
+  "completeGlobalInventory": false,
+  "targetMembershipCompared": false,
+  "independenceEstablished": false,
+  "registrationPerformed": false
+}

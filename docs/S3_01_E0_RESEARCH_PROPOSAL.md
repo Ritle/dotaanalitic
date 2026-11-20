@@ -37,7 +37,7 @@
 
 ## Основание уже полученного выбора владельца
 
-[AGENTS.md §5.1](../../AGENTS.md) требует «select the current unchecked task only»; текущая S1-07 не закрыта. §10 разрешает другой порядок: «If user explicitly chooses another ticket, follow their choice». Предложенный E0 переводит работу в S3-01 и явно меняет исследовательские допущения относительно имеющегося strict cohort, поэтому не выводится автоматически из исправления source mapping.
+[AGENTS.md §5.1](../AGENTS.md) требует «select the current unchecked task only»; текущая S1-07 не закрыта. §10 разрешает другой порядок: «If user explicitly chooses another ticket, follow their choice». Предложенный E0 переводит работу в S3-01 и явно меняет исследовательские допущения относительно имеющегося strict cohort, поэтому не выводится автоматически из исправления source mapping.
 
 Рекомендуемый выбор — **выполнить E0 в указанном scope**, сохранив S1-07 и все production prediction gates открытыми. Альтернатива — остаться в strict режиме; source branch не возобновляется без конкретного нового первичного evidence. Выбор E0 не разрешает упрощённую production модель.
 

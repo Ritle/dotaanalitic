@@ -51,22 +51,31 @@ const current=useQuery({queryKey:computed(()=>['scenario',id.value]),enabled:com
 const originTargetId=computed(()=>typeof route.query.scheduleTarget==='string'?route.query.scheduleTarget:'');
 const originTarget=useQuery({queryKey:computed(()=>['schedule-target',originTargetId.value]),enabled:computed(()=>isNew.value&&!!originTargetId.value),
   queryFn:({signal})=>readCatalog(`schedule-targets/${encodeURIComponent(originTargetId.value)}`,V1ScheduleTargetSavedSchema,signal)});
-// Saved scheduled scenarios keep their frozen five; templates are read only for a new target.
 const mapMode=computed(()=>!!originTargetId.value||(!isNew.value&&!!saved.value?.input.scheduledAt));
 const initializedTarget=ref(''),importedTarget=ref(''),importedConfirmedAt=ref<number|null>(null);
+const manualTemplateChoice=computed(()=>isNew.value&&!originTargetId.value&&!!form.teamAId&&!!form.teamBId&&
+  !draft.value.assignments.length&&!manualRoles.A&&!manualRoles.B&&
+  [form.lineupA,form.lineupB].every(rows=>rows.every((p,i)=>!p.playerId&&!p.isStandin&&p.rolePos===i+1)));
 const templateQuery=(slot:'A'|'B')=>useQuery({
  queryKey:computed(()=>['owner-lineup-template',slot==='A'?form.teamAId:form.teamBId]),
- enabled:computed(()=>isNew.value&&!!originTargetId.value&&importedTarget.value!==originTargetId.value&&!!(slot==='A'?form.teamAId:form.teamBId)),
+ enabled:computed(()=>manualTemplateChoice.value||(isNew.value&&!!originTargetId.value&&importedTarget.value!==originTargetId.value&&!!(slot==='A'?form.teamAId:form.teamBId))),
  staleTime:0,
- queryFn:({signal})=>readCatalog(`teams/${slot==='A'?form.teamAId:form.teamBId}/lineup-template`,LineupTemplateReportSchema,signal)
+ queryFn:({signal,queryKey})=>readCatalog(`teams/${queryKey[1]}/lineup-template`,LineupTemplateReportSchema,signal)
 });
 const templateA=templateQuery('A'),templateB=templateQuery('B');
 const mapReady=computed(()=>!mapMode.value||(!isNew.value?!!saved.value:importedTarget.value===originTargetId.value&&!!importedTarget.value&&importedConfirmedAt.value!==null&&importedConfirmedAt.value<=Date.parse(form.cutoffAt)));
 const templateBusy=computed(()=>templateA.isFetching.value||templateB.isFetching.value);
 const templateError=computed(()=>templateA.error.value?.message??templateB.error.value?.message);
+const selectedTemplates=computed(()=>confirmedMapLineups(form.teamAId,form.teamBId,form.cutoffAt,templateA.data.value,templateB.data.value));
+function fillManualLineups(){
+ const lines=selectedTemplates.value;
+ if(!manualTemplateChoice.value||!lines||templateBusy.value||templateError.value)return;
+ manualRoles.A=true;manualRoles.B=true;
+ Object.assign(form,lines);
+}
 watch([()=>templateA.data.value,()=>templateB.data.value,()=>form.teamAId,()=>form.teamBId,originTargetId,templateBusy,()=>form.cutoffAt],()=>{
  if(!isNew.value||!originTargetId.value||importedTarget.value===originTargetId.value||templateBusy.value||templateError.value)return;
- const lines=confirmedMapLineups(form.teamAId,form.teamBId,form.cutoffAt,templateA.data.value,templateB.data.value);
+ const lines=selectedTemplates.value;
  if(!lines)return;
  const wasDirty=dirty.value;Object.assign(form,lines);importedConfirmedAt.value=Math.max(Date.parse(templateA.data.value!.current!.confirmedAt),Date.parse(templateB.data.value!.current!.confirmedAt));importedTarget.value=originTargetId.value;dirty.value=wasDirty;
 });
@@ -181,6 +190,15 @@ async function save(){
             <label>Плановое начало UTC · неизвестно, если пусто<input v-model="scheduled" :readonly="mapMode" type="datetime-local" step="0.001" /></label>
           </div>
           <template v-if="!mapMode"><p class="hint">Найдите команды и игроков по названию или нику и выберите запись из списка. Выберите роль в списке у игрока: если она занята, назначения ролей поменяются у двух игроков. Карточки остаются на месте; герой и отметка замены сохраняются за игроком. После правки подтвердите состав заново.</p>
+          <template v-if="manualTemplateChoice">
+            <p v-if="templateBusy" role="status">Загрузка подтверждённых пятёрок…</p>
+            <p v-else-if="templateError" role="alert">{{templateError}} <button type="button" @click="templateA.refetch();templateB.refetch()">Повторить загрузку пятёрок</button></p>
+            <div v-else-if="selectedTemplates">
+              <p class="hint">Подтверждено владельцем: A — {{dateLabel(templateA.data.value?.current?.confirmedAt??null)}}, B — {{dateLabel(templateB.data.value?.current?.confirmedAt??null)}}.</p>
+              <button type="button" @click="fillManualLineups">Подставить подтверждённые пятёрки</button>
+            </div>
+            <p v-else class="hint">Для этих команд на выбранный срез нет двух подтверждённых пятёрок с десятью разными игроками. Можно выбрать игроков вручную.</p>
+          </template>
           <div class="scenario-grid">
             <fieldset v-for="slot in (['A','B'] as const)" :key="slot"><legend>Выбранный состав {{slot}}</legend>
               <div v-for="(p,index) in (slot==='A'?form.lineupA:form.lineupB)" :key="index" class="scenario-player" :data-player-card="`${slot}:${index+1}`">

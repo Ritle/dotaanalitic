@@ -1,0 +1,102 @@
+{
+    "format":  "pandascore-edition-metadata-audit-v1",
+    "results":  [
+                    {
+                        "path":  "/leagues/4125/series",
+                        "query":  {
+                                      "filter[season]":  "30,31"
+                                  },
+                        "pages":  [
+                                      {
+                                          "page":  1,
+                                          "fetchedAt":  "2026-11-19T01:17:31.456Z",
+                                          "total":  12,
+                                          "count":  12,
+                                          "sha256":  "09c4227533d50794a745f927e39124f1167fe31d1f2e2fb22b20a14448673c44"
+                                      }
+                                  ],
+                        "complete":  true,
+                        "relevantEditionIds":  [
+                                                   "11107",
+                                                   "11105",
+                                                   "11099",
+                                                   "11098",
+                                                   "11097",
+                                                   "11096",
+                                                   "11094",
+                                                   "11091",
+                                                   "11089",
+                                                   "11088",
+                                                   "11087",
+                                                   "11084"
+                                               ]
+                    },
+                    {
+                        "path":  "/leagues/4125/series",
+                        "query":  {
+                                      "sort":  "-id"
+                                  },
+                        "pages":  [
+                                      {
+                                          "page":  1,
+                                          "fetchedAt":  "2026-11-19T01:17:35.225Z",
+                                          "total":  221,
+                                          "count":  100,
+                                          "sha256":  "a65e2dc95002908e4ee2f3c90eb15f648c8ce1534adbeb6a52bbcc627087c662"
+                                      },
+                                      {
+                                          "page":  2,
+                                          "fetchedAt":  "2026-11-19T01:17:39.194Z",
+                                          "total":  221,
+                                          "count":  100,
+                                          "sha256":  "65d5d47b28822af81bb333009717d78ef9c2c1e48a8226329d2cae4f89c7335d"
+                                      },
+                                      {
+                                          "page":  3,
+                                          "fetchedAt":  "2026-11-19T01:17:43.180Z",
+                                          "total":  221,
+                                          "count":  21,
+                                          "sha256":  "9bdc33aaca891574121229da287be5efc0a7c6214380aa7e0af1228497c4ea83"
+                                      }
+                                  ],
+                        "complete":  true,
+                        "relevantEditionIds":  [
+                                                   "11107",
+                                                   "11105",
+                                                   "11103",
+                                                   "11102",
+                                                   "11099",
+                                                   "11098",
+                                                   "11097",
+                                                   "11096",
+                                                   "11094",
+                                                   "11091",
+                                                   "11089",
+                                                   "11088",
+                                                   "11087",
+                                                   "11085",
+                                                   "11084"
+                                               ]
+                    },
+                    {
+                        "path":  "/dota2/series",
+                        "query":  {
+                                      "range[begin_at]":  "2026-12-01T00:00:00Z,2027-02-01T00:00:00Z",
+                                      "sort":  "begin_at,id"
+                                  },
+                        "pages":  [
+                                      {
+                                          "page":  1,
+                                          "fetchedAt":  "2026-11-19T01:17:47.204Z",
+                                          "total":  0,
+                                          "count":  0,
+                                          "sha256":  "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+                                      }
+                                  ],
+                        "complete":  true,
+                        "relevantEditionIds":  [
+
+                                               ]
+                    }
+                ]
+}

@@ -1,0 +1,134 @@
+{
+  "format": "s3-04-conditional-window-planning-review-v1",
+  "proposal": "tools/research/player-hero-dl30-window-proposal.json",
+  "db": {
+    "proposalSha256": "9f38b8f0af80b905e6fe6d04f0249e320f82dd5fbbd2065141e8288ceb569045",
+    "parentSha256": "77fa352544f4938e8b1cd69a2772894cff6b34df4b954e97677d36ea10ce388f",
+    "checkedAt": "2026-11-19T23:53:26.023Z",
+    "candidateSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+    "expectedCandidateSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+    "developmentPlanSha256": "befbca5cc9d1310b8837f1e7a4f047e336ba8a1e386372dff95ce96af4d428df",
+    "developmentMapIds": 2260,
+    "developmentSeriesIds": 1096,
+    "developmentSeriesIdsFound": 1096,
+    "localMaps": 2292,
+    "latestLocalStart": "2026-11-14T14:30:16.000Z",
+    "developmentIdsFound": 2260,
+    "latestDevelopmentStart": "2026-11-04T20:07:52.000Z",
+    "localStartsInWindow": 0,
+    "developmentStartsInWindow": 0,
+    "requiredLedgerPath": ".tools/s304-series-reconciliation-r1.json",
+    "requiredLedgerSha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3",
+    "observedLedgerSha256": null,
+    "fullLedgerHashMatches": false,
+    "targetMembershipCompared": false,
+    "independenceEstablished": false,
+    "registrationPerformed": false
+  },
+  "metadata": {
+    "openDota": {
+      "endpoint": "/leagues",
+      "fetchedAt": "2026-11-19T23:51:30.364Z",
+      "payloadSha256": "5e0adea8797b0abb1d5b9fe908559ed4c9085b39cfc1ceff1c845718de998116",
+      "total": 10414,
+      "matches": [
+        {
+          "id": "20359",
+          "name": "DreamLeague Season 30 Qualifiers"
+        }
+      ]
+    },
+    "pandaScore": [
+      {
+        "url": "https://api.pandascore.co/leagues/4125/series?filter%5Bseason%5D=30%2C31&per_page=100",
+        "fetchedAt": "2026-11-19T20:57:50.234Z",
+        "payloadSha256": "301b4719340f38c8d5ba7318bb2dad7c21fde4b1ff90f414f0bb5270a96ea6a7",
+        "rowsScanned": 12,
+        "matchedQualificationIds": [
+          "11107",
+          "11105",
+          "11099",
+          "11098",
+          "11097",
+          "11096",
+          "11094",
+          "11091",
+          "11089",
+          "11088",
+          "11087",
+          "11084"
+        ],
+        "confirmedMainEditionIds": []
+      },
+      {
+        "url": "https://api.pandascore.co/leagues/4125/series?sort=-id&per_page=100",
+        "fetchedAt": "2026-11-19T20:57:54.938Z",
+        "payloadSha256": "3ccec6f4ec30745c869c74cc7e0ab95e7546b90055e9a9296e7dd1ac38d26e08",
+        "rowsScanned": 100,
+        "matchedQualificationIds": [
+          "11107",
+          "11105",
+          "11099",
+          "11098",
+          "11097",
+          "11096",
+          "11094",
+          "11091",
+          "11089",
+          "11088",
+          "11087",
+          "11084"
+        ],
+        "confirmedMainEditionIds": []
+      }
+    ]
+  },
+  "scheduleEvidence": {
+    "organizerCalendar": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+    "rulebook": {
+      "url": "https://drive.google.com/file/d/1xTw9urVnsnVqePg_F46M6drprR8vK_Sz/view",
+      "sha256": "e7b6263127e6aaf0ba516e8954ca2879e908d72b3601177246b4094a5a2a9ea5",
+      "version": "5.0",
+      "sections": [
+        "7.2.4",
+        "7.2.4.3",
+        "8.3"
+      ]
+    },
+    "capacityReport": {
+      "path": "docs/evidence/s3-09-bo3-winter-capacity-audit.json",
+      "sha256": "b53959ee6d695f8f59848f8857d5a0ff87437f227e00ab8924aa6c958996888a"
+    }
+  },
+  "planningCapacity": {
+    "stage": "regular_swiss_only",
+    "teams": 24,
+    "bo3PerTeam": 6,
+    "plannedSeries": 72,
+    "possiblePlayedMapsIfAllCompleted": [
+      144,
+      216
+    ],
+    "coverageFloorAtEndpoints": [
+      116,
+      173
+    ],
+    "actualDenominator": null
+  },
+  "historicalLedgerSummary": {
+    "source": "docs/evidence/s3-04-series-projection-reconciliation.json",
+    "sha256": "f0d8704b83f9ef639569fdd553f5bd7d68b4e4508646cf0cfb454833f3b76621",
+    "maps": 5674,
+    "knownSeries": 1768,
+    "mapsWithoutSeries": 1923
+  },
+  "registrationReady": false,
+  "blockingIssues": [
+    "MAIN_EDITION_BINDING_UNVERIFIED",
+    "PINNED_EXPOSURE_LEDGER_MISSING",
+    "FRESH_EXPOSURE_REVISION_REQUIRED",
+    "NEW_WINDOW_REGISTRATION_CODE_AND_OWNER_REVIEW_REQUIRED"
+  ],
+  "outcomesRead": false,
+  "scoringPerformed": false
+}

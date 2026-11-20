@@ -1,0 +1,17 @@
+{
+  "commits": 126,
+  "format": "wallachia-git-exposure-screen-v1",
+  "gitBlobs": {
+    "text": 3406
+  },
+  "gitHead": "525110947ad71771229ca7a43369e77154ec01ac",
+  "globalInventoryComplete": false,
+  "hits": [],
+  "scoredSeries": 0,
+  "search": {
+    "maps": 276,
+    "pandaScoreMeetings": 138,
+    "unexposedCandidateSeriesChecked": 114
+  },
+  "transferSha256": "eafc12ec5bffd1759267cd50ef4e3c3e3c3d25b7cb5d89dbbd761f4bc0a8949c"
+}

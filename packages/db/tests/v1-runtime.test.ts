@@ -65,7 +65,7 @@ it('rejects the archived reader freeze and requires exact current code, barrel b
     actual.code.find(c => c.path === path)?.sha256)).toEqual(['packages/db/dist/v1-data-repository.js','packages/db/dist/v1-fact-pages.js',
     'packages/prediction/dist/v1-candidate.js']);
   // In-memory test fixture only: no new model freeze or release approval is created.
-  const freeze = { ...archived, code: actual.code };
+  const freeze = { ...archived, code: actual.code, runtime: actual.runtime };
   expect(compatibleV1Runtime(freeze, actual)).toBe(true);
   const altered = structuredClone(actual); altered.code.find(c => c.path.endsWith('prediction/dist/v1-features.js'))!.sha256 = '0'.repeat(64);
   expect(compatibleV1Runtime(freeze, altered)).toBe(false);

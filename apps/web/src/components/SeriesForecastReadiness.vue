@@ -8,8 +8,9 @@ const props=defineProps<{match:UpcomingMatch}>();
 const readiness=useQuery({queryKey:computed(()=>['series-forecast-readiness',props.match.providerMatchId]),retry:false,staleTime:60000,
  queryFn:({signal})=>readCatalog(`upcoming/${props.match.providerMatchId}/series-forecast/readiness`,SeriesForecastReadinessSchema,signal)});
 const format=computed(()=>readiness.data.value?.bestOf??props.match.seriesBestOf);
-const reason=(code:string)=>({SERIES_MODEL_NOT_VALIDATED:'Модель победителя встречи ещё не прошла проверку на целых сериях. Вероятность пока недоступна.',
- SERIES_FORMAT_UNKNOWN:'Формат встречи пока неизвестен.',SERIES_FORMAT_UNSUPPORTED:'Этот формат пока не поддерживается. Для BO2 нужно отдельно учитывать ничью.',
+const modelAwaitingValidation=computed(()=>readiness.data.value?.reasons.includes('SERIES_MODEL_NOT_VALIDATED'));
+const scheduleReasons=computed(()=>readiness.data.value?.reasons.filter(code=>code!=='SERIES_MODEL_NOT_VALIDATED')??[]);
+const reason=(code:string)=>({SERIES_FORMAT_UNKNOWN:'Формат встречи пока неизвестен.',SERIES_FORMAT_UNSUPPORTED:'Этот формат пока не поддерживается. Для BO2 нужно отдельно учитывать ничью.',
  SERIES_SCHEDULE_UNAVAILABLE:'Обновите расписание: сведения о встрече ещё не сохранены.',SCHEDULE_SOURCE_STALE:'Расписание устарело. Обновите список встреч.',
  SCHEDULE_NOT_UPCOMING:'Встреча уже не находится в предстоящих.',SCHEDULE_START_UNKNOWN:'Время начала встречи неизвестно.',
  SCHEDULE_ALREADY_STARTED:'Встреча уже началась. Новый предматчевый прогноз недоступен.',SCHEDULE_OPPONENTS_INCOMPLETE:'В расписании ещё не определены две команды.'
@@ -20,7 +21,9 @@ const reason=(code:string)=>({SERIES_MODEL_NOT_VALIDATED:'Модель побе�
  <p>По пятёркам, до начала встречи. Результат относится ко всей серии. Драфт анализируется отдельно для каждой карты.</p>
  <p v-if="readiness.isPending.value" role="status">Проверяем готовность прогноза…</p>
  <p v-if="readiness.error.value" role="alert">Не удалось проверить готовность прогноза встречи. <button @click="readiness.refetch()">Повторить проверку</button></p>
- <template v-if="readiness.data.value"><p v-for="code in readiness.data.value.reasons" :key="code" class="hint">{{reason(code)}}</p>
+ <template v-if="readiness.data.value">
+  <p v-if="modelAwaitingValidation" role="status"><strong>Прогноз серии пока недоступен.</strong> Модель победителя встречи ещё не прошла независимую проверку на целых сериях.</p>
+  <p v-for="code in scheduleReasons" :key="code" class="hint">{{reason(code)}}</p>
   <small v-if="readiness.data.value.sourceFetchedAt">Расписание получено: {{dateLabel(readiness.data.value.sourceFetchedAt)}}</small>
  </template>
 </section></template>

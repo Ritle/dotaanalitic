@@ -1,0 +1,156 @@
+{
+  "format": "s3-09-dreamleague-stage-catalogue-audit-v1",
+  "winterPlan": {
+    "path": "tools/research/series-bo3-esl-winter-plan.json",
+    "sha256": "81b63dcd949e668e102ddd55cd03f0d8cba5ee121dd773647cd6723634171552"
+  },
+  "control": {
+    "editionId": "11187",
+    "expectedStageIds": [
+      "22404",
+      "22405",
+      "22406",
+      "22407",
+      "22470",
+      "22471",
+      "22472"
+    ],
+    "missingControlStageIds": [],
+    "status": 200,
+    "url": "https://api.pandascore.co/leagues/5319/tournaments?page=1&per_page=100&range%5Bbegin_at%5D=2026-11-19T23%3A00%3A00Z%2C2026-11-30T00%3A00%3A00Z",
+    "requestedAt": "2026-11-19T21:53:16.322Z",
+    "fetchedAt": "2026-11-19T21:53:17.123Z",
+    "pagination": {
+      "page": 1,
+      "perPage": 100,
+      "total": 7,
+      "hasNextPage": false
+    },
+    "payloadSha256": "b4e2d52ce20e6e5accd26ac5bcc7b93b12f346ed5be654e00f5a5d671c03a101",
+    "rows": [
+      {
+        "stageId": "22472",
+        "editionId": "11187",
+        "name": "Playoffs",
+        "seriesName": "Season 9 2026",
+        "season": "9",
+        "beginAt": "2026-11-26T10:00:00Z",
+        "endAt": "2026-11-29T19:00:00Z"
+      },
+      {
+        "stageId": "22471",
+        "editionId": "11187",
+        "name": "Last Chance Qualifier",
+        "seriesName": "Season 9 2026",
+        "season": "9",
+        "beginAt": "2026-11-24T17:00:00Z",
+        "endAt": "2026-11-24T20:00:00Z"
+      },
+      {
+        "stageId": "22470",
+        "editionId": "11187",
+        "name": "Seeding Matches",
+        "seriesName": "Season 9 2026",
+        "season": "9",
+        "beginAt": "2026-11-24T14:00:00Z",
+        "endAt": "2026-11-24T17:00:00Z"
+      },
+      {
+        "stageId": "22407",
+        "editionId": "11187",
+        "name": "Group D",
+        "seriesName": "Season 9 2026",
+        "season": "9",
+        "beginAt": "2026-11-21T11:00:00Z",
+        "endAt": "2026-11-23T20:00:00Z"
+      },
+      {
+        "stageId": "22406",
+        "editionId": "11187",
+        "name": "Group C",
+        "seriesName": "Season 9 2026",
+        "season": "9",
+        "beginAt": "2026-11-20T17:00:00Z",
+        "endAt": "2026-11-23T20:00:00Z"
+      },
+      {
+        "stageId": "22405",
+        "editionId": "11187",
+        "name": "Group B",
+        "seriesName": "Season 9 2026",
+        "season": "9",
+        "beginAt": "2026-11-20T11:00:00Z",
+        "endAt": "2026-11-23T17:00:00Z"
+      },
+      {
+        "stageId": "22404",
+        "editionId": "11187",
+        "name": "Group A",
+        "seriesName": "Season 9 2026",
+        "season": "9",
+        "beginAt": "2026-11-20T11:00:00Z",
+        "endAt": "2026-11-23T17:00:00Z"
+      }
+    ]
+  },
+  "dreamLeague": {
+    "leagueId": "4125",
+    "season30": {
+      "status": 200,
+      "url": "https://api.pandascore.co/leagues/4125/tournaments?page=1&per_page=100&range%5Bbegin_at%5D=2026-12-01T00%3A00%3A00Z%2C2026-12-15T00%3A00%3A00Z",
+      "requestedAt": "2026-11-19T21:53:21.126Z",
+      "fetchedAt": "2026-11-19T21:53:21.407Z",
+      "pagination": {
+        "page": 1,
+        "perPage": 100,
+        "total": 0,
+        "hasNextPage": false
+      },
+      "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "rows": []
+    },
+    "season31": {
+      "status": 200,
+      "url": "https://api.pandascore.co/leagues/4125/tournaments?page=1&per_page=100&range%5Bbegin_at%5D=2027-01-19T00%3A00%3A00Z%2C2027-02-02T00%3A00%3A00Z",
+      "requestedAt": "2026-11-19T21:53:25.410Z",
+      "fetchedAt": "2026-11-19T21:53:26.014Z",
+      "pagination": {
+        "page": 1,
+        "perPage": 100,
+        "total": 0,
+        "hasNextPage": false
+      },
+      "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "rows": []
+    }
+  },
+  "organizer": {
+    "calendar": "https://pro.eslgaming.com/tour/dota2/season26-27/",
+    "linkedSeasonPages": [
+      {
+        "season": 30,
+        "linkedPageSeason": 27,
+        "url": "https://pro.eslgaming.com/dreamleague/season27/"
+      },
+      {
+        "season": 31,
+        "linkedPageSeason": 28,
+        "url": "https://pro.eslgaming.com/dreamleague/season28/"
+      }
+    ],
+    "rulebook": {
+      "url": "https://drive.google.com/file/d/1xTw9urVnsnVqePg_F46M6drprR8vK_Sz/view",
+      "sha256": "e7b6263127e6aaf0ba516e8954ca2879e908d72b3601177246b4094a5a2a9ea5",
+      "season31": {
+        "section": "8.3",
+        "groupFormat": "round_robin",
+        "playoffFormat": "double_elimination",
+        "groups": null,
+        "groupSizes": null,
+        "groupBestOf": null
+      }
+    }
+  },
+  "registrationAllowed": false,
+  "outcomeCollectionAllowed": false
+}

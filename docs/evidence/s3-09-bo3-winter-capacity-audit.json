@@ -1,0 +1,306 @@
+{
+  "format": "s3-09-bo3-winter-capacity-audit-v1",
+  "asOf": "2026-11-19T20:57:54.938Z",
+  "policy": {
+    "path": "tools/research/series-validation-policy.json",
+    "sha256": "2c3e6dbabac4301329c022af637050d3dff1ada81a662ce41dc4272d1a57edaa"
+  },
+  "pandaScoreCatalogue": [
+    {
+      "url": "https://api.pandascore.co/leagues/4125/series?filter%5Bseason%5D=30%2C31&per_page=100",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:57:50.234Z",
+      "payloadSha256": "301b4719340f38c8d5ba7318bb2dad7c21fde4b1ff90f414f0bb5270a96ea6a7",
+      "rowsScanned": 12,
+      "matchedQualificationIds": [
+        "11107",
+        "11105",
+        "11099",
+        "11098",
+        "11097",
+        "11096",
+        "11094",
+        "11091",
+        "11089",
+        "11088",
+        "11087",
+        "11084"
+      ],
+      "confirmedMainEditionIds": []
+    },
+    {
+      "url": "https://api.pandascore.co/leagues/4125/series?sort=-id&per_page=100",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:57:54.938Z",
+      "payloadSha256": "3ccec6f4ec30745c869c74cc7e0ab95e7546b90055e9a9296e7dd1ac38d26e08",
+      "rowsScanned": 100,
+      "matchedQualificationIds": [
+        "11107",
+        "11105",
+        "11099",
+        "11098",
+        "11097",
+        "11096",
+        "11094",
+        "11091",
+        "11089",
+        "11088",
+        "11087",
+        "11084"
+      ],
+      "confirmedMainEditionIds": []
+    }
+  ],
+  "organizer": {
+    "calendar": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+    "rulebook": {
+      "url": "https://drive.google.com/file/d/1xTw9urVnsnVqePg_F46M6drprR8vK_Sz/view",
+      "sha256": "e7b6263127e6aaf0ba516e8954ca2879e908d72b3601177246b4094a5a2a9ea5",
+      "version": "5.0",
+      "sections": [
+        "7.2.4",
+        "7.2.4.3",
+        "8.3"
+      ]
+    },
+    "season30": {
+      "teamCount": 24,
+      "swissBo3PerTeam": 6,
+      "swissBo3": 72,
+      "playoffTeams": 8,
+      "playoffBracket": "double_elimination",
+      "swissTiebreakBo3ByTeamsWithAtLeastFourWins": {
+        "7": 3,
+        "8": 0,
+        "9": 1,
+        "10": 2
+      },
+      "verifiedPlayoffBo3": null
+    },
+    "season31": {
+      "teamCount": 16,
+      "groupStage": "round_robin",
+      "playoffBracket": "double_elimination",
+      "verifiedGroupBo3": null,
+      "verifiedPlayoffBo3": null
+    }
+  },
+  "novemberDecember": {
+    "plan": {
+      "path": "tools/research/series-bo3-registration-plan.json",
+      "sha256": "f5bff3a8bc4e1336920d67d7014498753a54b1289fb04a4b1eb0bde8e2176109"
+    },
+    "actualPlanReview": {
+      "asOf": "2026-11-19T20:57:54.938Z",
+      "reviewBefore": "2026-11-19T23:00:00.000Z",
+      "scopeReady": false,
+      "plannedBo3": {
+        "total": 105,
+        "fromVerifiedEditions": 33,
+        "minimumEligible": 100,
+        "minimumCoverage": 0.8,
+        "minimumEditions": 2
+      },
+      "capacity": {
+        "minimumEligibleAtPlannedVolume": 100,
+        "minimumCoverageAtPlannedVolume": 0.9523809523809523,
+        "maximumUnavailableAtPlannedVolume": 5,
+        "planningTargetAtMinimumCoverage": 125,
+        "extraPlannedToTarget": 20
+      },
+      "registrationIssues": [
+        "EDITION_SCOPE_UNCONFIRMED",
+        "EXPOSURE_INVENTORY_INCOMPLETE"
+      ],
+      "collectionAllowed": false
+    },
+    "scenarios": [
+      {
+        "upper": 8,
+        "lower": 0,
+        "playoffBo3": 13,
+        "tieBo3": 0,
+        "source": "https://liquipedia.net/dota2/DreamLeague/30",
+        "registrationEvidence": false,
+        "name": "november_december_hypothetical",
+        "totalPlannedBo3": 118,
+        "capacity": {
+          "minimumEligibleAtPlannedVolume": 100,
+          "minimumCoverageAtPlannedVolume": 0.847457627118644,
+          "maximumUnavailableAtPlannedVolume": 18,
+          "planningTargetAtMinimumCoverage": 125,
+          "extraPlannedToTarget": 7
+        }
+      },
+      {
+        "upper": 8,
+        "lower": 0,
+        "playoffBo3": 13,
+        "tieBo3": 1,
+        "source": "https://liquipedia.net/dota2/DreamLeague/30",
+        "registrationEvidence": false,
+        "name": "november_december_hypothetical",
+        "totalPlannedBo3": 119,
+        "capacity": {
+          "minimumEligibleAtPlannedVolume": 100,
+          "minimumCoverageAtPlannedVolume": 0.8403361344537815,
+          "maximumUnavailableAtPlannedVolume": 19,
+          "planningTargetAtMinimumCoverage": 125,
+          "extraPlannedToTarget": 6
+        }
+      },
+      {
+        "upper": 8,
+        "lower": 0,
+        "playoffBo3": 13,
+        "tieBo3": 2,
+        "source": "https://liquipedia.net/dota2/DreamLeague/30",
+        "registrationEvidence": false,
+        "name": "november_december_hypothetical",
+        "totalPlannedBo3": 120,
+        "capacity": {
+          "minimumEligibleAtPlannedVolume": 100,
+          "minimumCoverageAtPlannedVolume": 0.8333333333333334,
+          "maximumUnavailableAtPlannedVolume": 20,
+          "planningTargetAtMinimumCoverage": 125,
+          "extraPlannedToTarget": 5
+        }
+      },
+      {
+        "upper": 8,
+        "lower": 0,
+        "playoffBo3": 13,
+        "tieBo3": 3,
+        "source": "https://liquipedia.net/dota2/DreamLeague/30",
+        "registrationEvidence": false,
+        "name": "november_december_hypothetical",
+        "totalPlannedBo3": 121,
+        "capacity": {
+          "minimumEligibleAtPlannedVolume": 100,
+          "minimumCoverageAtPlannedVolume": 0.8264462809917356,
+          "maximumUnavailableAtPlannedVolume": 21,
+          "planningTargetAtMinimumCoverage": 125,
+          "extraPlannedToTarget": 4
+        }
+      },
+      {
+        "upper": 4,
+        "lower": 4,
+        "playoffBo3": 9,
+        "tieBo3": 0,
+        "source": "https://www.esl-one.com/munich/",
+        "registrationEvidence": false,
+        "name": "november_december_hypothetical",
+        "totalPlannedBo3": 114,
+        "capacity": {
+          "minimumEligibleAtPlannedVolume": 100,
+          "minimumCoverageAtPlannedVolume": 0.8771929824561403,
+          "maximumUnavailableAtPlannedVolume": 14,
+          "planningTargetAtMinimumCoverage": 125,
+          "extraPlannedToTarget": 11
+        }
+      },
+      {
+        "upper": 4,
+        "lower": 4,
+        "playoffBo3": 9,
+        "tieBo3": 1,
+        "source": "https://www.esl-one.com/munich/",
+        "registrationEvidence": false,
+        "name": "november_december_hypothetical",
+        "totalPlannedBo3": 115,
+        "capacity": {
+          "minimumEligibleAtPlannedVolume": 100,
+          "minimumCoverageAtPlannedVolume": 0.8695652173913043,
+          "maximumUnavailableAtPlannedVolume": 15,
+          "planningTargetAtMinimumCoverage": 125,
+          "extraPlannedToTarget": 10
+        }
+      },
+      {
+        "upper": 4,
+        "lower": 4,
+        "playoffBo3": 9,
+        "tieBo3": 2,
+        "source": "https://www.esl-one.com/munich/",
+        "registrationEvidence": false,
+        "name": "november_december_hypothetical",
+        "totalPlannedBo3": 116,
+        "capacity": {
+          "minimumEligibleAtPlannedVolume": 100,
+          "minimumCoverageAtPlannedVolume": 0.8620689655172413,
+          "maximumUnavailableAtPlannedVolume": 16,
+          "planningTargetAtMinimumCoverage": 125,
+          "extraPlannedToTarget": 9
+        }
+      },
+      {
+        "upper": 4,
+        "lower": 4,
+        "playoffBo3": 9,
+        "tieBo3": 3,
+        "source": "https://www.esl-one.com/munich/",
+        "registrationEvidence": false,
+        "name": "november_december_hypothetical",
+        "totalPlannedBo3": 117,
+        "capacity": {
+          "minimumEligibleAtPlannedVolume": 100,
+          "minimumCoverageAtPlannedVolume": 0.8547008547008547,
+          "maximumUnavailableAtPlannedVolume": 17,
+          "planningTargetAtMinimumCoverage": 125,
+          "extraPlannedToTarget": 8
+        }
+      }
+    ]
+  },
+  "winter": {
+    "plan": {
+      "path": "tools/research/series-bo3-esl-winter-plan.json",
+      "sha256": "81b63dcd949e668e102ddd55cd03f0d8cba5ee121dd773647cd6723634171552"
+    },
+    "actualPlanReview": {
+      "asOf": "2026-11-19T20:57:54.938Z",
+      "reviewBefore": "2026-12-01T00:00:00.000Z",
+      "scopeReady": false,
+      "plannedBo3": {
+        "total": 72,
+        "fromVerifiedEditions": 0,
+        "minimumEligible": 100,
+        "minimumCoverage": 0.8,
+        "minimumEditions": 2
+      },
+      "capacity": {
+        "minimumEligibleAtPlannedVolume": 100,
+        "minimumCoverageAtPlannedVolume": null,
+        "maximumUnavailableAtPlannedVolume": null,
+        "planningTargetAtMinimumCoverage": 125,
+        "extraPlannedToTarget": 53
+      },
+      "registrationIssues": [
+        "EDITION_SCOPE_UNCONFIRMED",
+        "PLANNED_BO3_UNKNOWN",
+        "PLANNED_BO3_BELOW_MINIMUM",
+        "EXPOSURE_INVENTORY_INCOMPLETE"
+      ],
+      "collectionAllowed": false
+    },
+    "knownBaseBo3": 72,
+    "additionalBo3NeededAtFullCoverage": 28,
+    "additionalBo3ToPlanningTarget": 53,
+    "scenario": {
+      "registrationEvidence": false,
+      "source": "https://liquipedia.net/dota2/DreamLeague/31",
+      "season31GroupBo3": 56,
+      "name": "december_january_groups_only_hypothetical",
+      "totalPlannedBo3": 128,
+      "capacity": {
+        "minimumEligibleAtPlannedVolume": 103,
+        "minimumCoverageAtPlannedVolume": 0.8046875,
+        "maximumUnavailableAtPlannedVolume": 25,
+        "planningTargetAtMinimumCoverage": 125,
+        "extraPlannedToTarget": 0
+      }
+    }
+  },
+  "registrationAllowed": false
+}

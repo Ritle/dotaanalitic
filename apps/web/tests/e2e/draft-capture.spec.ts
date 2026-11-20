@@ -68,6 +68,13 @@ test('full save captures once with appointment; partial stays uncaptured and rel
   await expect(panel(page)).toContainText('Снимок сохранён с ограничениями.');expect(posts).toEqual([{expectedRevision:3,scheduleTargetRequestId:target}]);
   const shadow=page.getByRole('region',{name:'Исследовательский расчёт драфта',exact:true});
   await expect(shadow).toContainText('Попытка расчёта сохранена.');await expect(shadow).toContainText('Запись результата подтверждена');
+  const summary=await page.request.get(`/api/v1/scenarios/${id}/draft-captures/3/shadow-summary`);
+  expect(summary.ok()).toBe(true);
+  const result=await summary.json();
+  expect(result.teamAWinProbability).toBeNull();
+  expect(result.reasons.length).toBeGreaterThan(0);
+  if(result.reasons.includes('SHADOW_CANDIDATE_UNAVAILABLE'))await expect(shadow).toContainText('недоступна проверенная копия модели H2');
+  await expect(shadow.getByRole('listitem').first()).toBeVisible();
   await expect(panel(page)).toContainText('Нет проверенной ссылки');
   const before=await sql<{id:string;snapshot_sha256:string}>`SELECT id,snapshot_sha256 FROM owner_draft_captures WHERE scenario_id=${id}::uuid`.execute(database.db);expect(before.rows).toHaveLength(1);
   await page.goto(`/scenarios/${id}/draft`);await expect(panel(page)).toContainText('Снимок сохранён с ограничениями.');expect(posts).toHaveLength(1);
@@ -75,6 +82,45 @@ test('full save captures once with appointment; partial stays uncaptured and rel
   await page.setViewportSize({width:360,height:800});await panel(page).getByText('Данные снимка',{exact:true}).click();
   await expect(panel(page)).toContainText('не прогноз');expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await panel(page).screenshot({path:'test-results/draft-capture-mobile.png'});
+});
+
+test('a legacy capture that exceeded the history limit does not report zero maps or missing player history',async({page})=>{
+  const id=await open(page);
+  await fill(page);await save(page);
+  await expect(panel(page)).toContainText('Снимок сохранён');
+  await page.route(`**/scenarios/${id}/draft-captures/2`,async route=>{
+    const response=await route.fetch();
+    expect(response.ok()).toBe(true);
+    const saved=await response.json();
+    saved.snapshot.reasons=['DRAFT_CAPTURE_HISTORY_LIMIT','LOCAL_HISTORY_UNAVAILABLE','PLAYER_PRO_HISTORY_MISSING'];
+    saved.snapshot.history.status='unavailable';
+    saved.snapshot.history.maps=[];
+    await route.fulfill({response,json:saved});
+  });
+  await page.reload();
+  await panel(page).getByText('Данные снимка',{exact:true}).click();
+  await expect(panel(page)).toContainText('Объём истории превышает лимит снимка');
+  await expect(panel(page)).not.toContainText('нет профессиональных карт в локальной истории');
+  await expect(panel(page)).not.toContainText('Локальных pro-карт: 0');
+});
+
+test('a saved model warning is distinct from insufficient player history',async({page})=>{
+  const id=await open(page);
+  const shadow=page.getByRole('region',{name:'Исследовательский расчёт драфта',exact:true});
+  const modelWarning=shadow.getByText(/недоступна проверенная копия модели H2/);
+  const historyWarning=shadow.getByText(/минимум 5 завершённых профессиональных карт/);
+  let reasons=['SHADOW_CANDIDATE_UNAVAILABLE'];
+  await page.route(`**/scenarios/${id}/draft-captures/*/shadow-summary`,async route=>{
+    const response=await route.fetch();
+    expect(response.ok()).toBe(true);
+    await route.fulfill({response,json:{...await response.json(),status:'unavailable',reasons}});
+  });
+  await fill(page);await save(page);
+  await expect(modelWarning).toBeVisible();await expect(historyWarning).toHaveCount(0);
+  reasons=['INSUFFICIENT_PLAYER_HISTORY','SHADOW_CANDIDATE_UNAVAILABLE'];
+  await page.reload();await expect(modelWarning).toBeVisible();await expect(historyWarning).toBeVisible();
+  reasons=['INSUFFICIENT_PLAYER_HISTORY'];
+  await page.reload();await expect(historyWarning).toBeVisible();await expect(modelWarning).toHaveCount(0);
 });
 
 test('unfinished shadow persistence resumes without a new scenario or duplicate result and respects dirty edits',async({page})=>{
@@ -90,8 +136,15 @@ test('unfinished shadow persistence resumes without a new scenario or duplicate 
   await page.getByRole('combobox',{name:'A: герой роли 1',exact:true}).selectOption('11');await expect(button).toBeDisabled();
   await page.reload();await button.click();await expect(shadow).toContainText('Попытка расчёта сохранена.');
   await expect(shadow).toContainText('Запись результата подтверждена');
+  const {DraftShadowRepository}=await import('../../../api/src/modules/scenarios/draft-shadow-repository.js');
+  const receiptAt=(await new DraftShadowRepository(database.db).summary(ownerId,s.id,1)).observedCommittedAt;
+  if(!receiptAt)throw Error('Expected a committed draft receipt');
+  const timestamp=shadow.locator('time');
+  await expect(timestamp).toHaveAttribute('datetime',receiptAt);
+  await expect(timestamp).toHaveText(receiptAt.replace('T',' ').replace('Z',' UTC'));
   const rows=(await sql`SELECT result_sha256 FROM owner_draft_shadow_runs WHERE capture_id=${c.id}::uuid`.execute(database.db)).rows;
   expect(rows).toHaveLength(1);await page.reload();await expect(shadow).toContainText('Попытка расчёта сохранена.');
+  await expect(timestamp).toHaveAttribute('datetime',receiptAt);
   expect((await sql`SELECT result_sha256 FROM owner_draft_shadow_runs WHERE capture_id=${c.id}::uuid`.execute(database.db)).rows).toEqual(rows);
   await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await shadow.screenshot({path:'test-results/draft-shadow-mobile.png'});

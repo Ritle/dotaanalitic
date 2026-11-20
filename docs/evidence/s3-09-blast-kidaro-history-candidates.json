@@ -1,0 +1,333 @@
+{
+  "format": "s3-09-kidaro-history-candidate-probe-v1",
+  "matchId": "1816442",
+  "nickname": "Kidaro",
+  "source": {
+    "provider": "opendota",
+    "endpoint": "/api/explorer",
+    "payloadSha256": "3056684f37f181a2d5cd2598bc95f9da8a5ab1a7af71f26adb99aff31f2850da",
+    "fetchedAt": "2026-11-19T20:38:32.158Z",
+    "criteria": "same locally verified numeric account; map candidates starting in 2026 before input audit; provider league tier professional or premium",
+    "limit": 51,
+    "possiblyTruncated": true
+  },
+  "eligibleLocalMaps": 2,
+  "providerCandidateCount": 51,
+  "candidatesAbsentFromEligibleHistory": [
+    {
+      "matchId": "9094544970",
+      "leagueId": "20511",
+      "startedAt": "2026-11-17T18:43:21.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9094406087",
+      "leagueId": "20511",
+      "startedAt": "2026-11-17T16:59:25.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9093255096",
+      "leagueId": "20511",
+      "startedAt": "2026-11-16T18:54:15.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9093145184",
+      "leagueId": "20511",
+      "startedAt": "2026-11-16T17:35:16.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9090331679",
+      "leagueId": "20511",
+      "startedAt": "2026-11-14T18:59:47.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9090241603",
+      "leagueId": "20511",
+      "startedAt": "2026-11-14T18:01:50.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9088069727",
+      "leagueId": "20511",
+      "startedAt": "2026-11-13T11:13:55.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9087999035",
+      "leagueId": "20511",
+      "startedAt": "2026-11-13T09:59:05.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9086220626",
+      "leagueId": "20486",
+      "startedAt": "2026-11-11T21:03:19.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9086164367",
+      "leagueId": "20486",
+      "startedAt": "2026-11-11T20:07:54.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9085534249",
+      "leagueId": "20511",
+      "startedAt": "2026-11-11T12:28:09.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9085458195",
+      "leagueId": "20511",
+      "startedAt": "2026-11-11T11:17:40.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9085387634",
+      "leagueId": "20511",
+      "startedAt": "2026-11-11T10:04:26.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9084572091",
+      "leagueId": "20486",
+      "startedAt": "2026-11-10T16:21:28.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9084474528",
+      "leagueId": "20486",
+      "startedAt": "2026-11-10T15:11:41.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9084351361",
+      "leagueId": "20486",
+      "startedAt": "2026-11-10T13:49:11.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9084179538",
+      "leagueId": "20511",
+      "startedAt": "2026-11-10T11:17:47.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9084114739",
+      "leagueId": "20511",
+      "startedAt": "2026-11-10T10:03:23.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9083287007",
+      "leagueId": "20511",
+      "startedAt": "2026-11-09T16:12:48.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9083185712",
+      "leagueId": "20511",
+      "startedAt": "2026-11-09T14:52:33.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9083065167",
+      "leagueId": "20511",
+      "startedAt": "2026-11-09T13:41:49.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9082972678",
+      "leagueId": "20511",
+      "startedAt": "2026-11-09T12:22:11.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9082908959",
+      "leagueId": "20511",
+      "startedAt": "2026-11-09T11:16:12.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9082838627",
+      "leagueId": "20511",
+      "startedAt": "2026-11-09T10:03:01.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9082081542",
+      "leagueId": "20486",
+      "startedAt": "2026-11-08T17:25:12.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9081944953",
+      "leagueId": "20486",
+      "startedAt": "2026-11-08T16:04:42.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9081541155",
+      "leagueId": "20511",
+      "startedAt": "2026-11-08T11:57:42.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9081382613",
+      "leagueId": "20511",
+      "startedAt": "2026-11-08T10:03:21.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9080891303",
+      "leagueId": "20486",
+      "startedAt": "2026-11-07T23:41:30.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9080827908",
+      "leagueId": "20486",
+      "startedAt": "2026-11-07T22:27:12.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9080751906",
+      "leagueId": "20486",
+      "startedAt": "2026-11-07T21:13:11.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9080292903",
+      "leagueId": "20511",
+      "startedAt": "2026-11-07T16:10:11.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9080179173",
+      "leagueId": "20511",
+      "startedAt": "2026-11-07T14:54:39.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9079985383",
+      "leagueId": "20511",
+      "startedAt": "2026-11-07T13:03:08.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9060239199",
+      "leagueId": "20395",
+      "startedAt": "2026-10-24T19:43:12.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9060102490",
+      "leagueId": "20395",
+      "startedAt": "2026-10-24T18:19:05.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9060004236",
+      "leagueId": "20395",
+      "startedAt": "2026-10-24T17:11:48.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9058456262",
+      "leagueId": "20395",
+      "startedAt": "2026-10-23T18:28:03.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9058339315",
+      "leagueId": "20395",
+      "startedAt": "2026-10-23T17:29:02.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9056429802",
+      "leagueId": "20395",
+      "startedAt": "2026-10-22T12:10:12.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9056353535",
+      "leagueId": "20395",
+      "startedAt": "2026-10-22T11:00:08.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9049414927",
+      "leagueId": "20359",
+      "startedAt": "2026-10-17T15:40:42.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9049278561",
+      "leagueId": "20359",
+      "startedAt": "2026-10-17T14:29:35.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9048094693",
+      "leagueId": "20359",
+      "startedAt": "2026-10-16T19:18:38.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9047976467",
+      "leagueId": "20359",
+      "startedAt": "2026-10-16T18:06:14.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9046654198",
+      "leagueId": "20359",
+      "startedAt": "2026-10-15T19:17:07.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9046548181",
+      "leagueId": "20359",
+      "startedAt": "2026-10-15T18:07:41.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9045919163",
+      "leagueId": "20359",
+      "startedAt": "2026-10-15T11:06:14.000Z",
+      "providerTier": "professional"
+    },
+    {
+      "matchId": "9045856713",
+      "leagueId": "20359",
+      "startedAt": "2026-10-15T10:02:59.000Z",
+      "providerTier": "professional"
+    }
+  ],
+  "canonicalImports": 0,
+  "inputAudit": {
+    "path": "docs/evidence/s3-09-blast-ix-input-readiness.json",
+    "sha256": "67fec66eb17c23e7cc0ddb133f8defb0c88b16b64d646c7b07688f9486e0c819"
+  },
+  "reviewFirst": {
+    "leagueId": "20486",
+    "mapIds": [
+      "9086220626",
+      "9086164367",
+      "9084572091",
+      "9084474528",
+      "9084351361",
+      "9082081542",
+      "9081944953",
+      "9080891303",
+      "9080827908",
+      "9080751906"
+    ],
+    "evidence": "1win Essence III is already outside independent series evaluation"
+  }
+}

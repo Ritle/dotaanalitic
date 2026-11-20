@@ -1,0 +1,59 @@
+[
+  {
+    "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueData/v001?league_id=17891&delay_seconds=0",
+    "httpStatus": 200,
+    "fetchedAt": "2026-11-20T02:17:44.007Z",
+    "payloadSha256": "f2381cedd621ff789758575adbe8d6244aa5d13df134e0c0ed9574bdb4e6f9da",
+    "responseKeys": [
+      "info",
+      "prize_pool",
+      "admins",
+      "streams",
+      "node_groups",
+      "series_infos",
+      "registered_players"
+    ],
+    "sampleFields": null,
+    "records": 0,
+    "rows": []
+  },
+  {
+    "url": "https://www.dota2.com/webapi/IDOTA2Fantasy/GetProPlayerInfo/v001",
+    "httpStatus": 200,
+    "fetchedAt": "2026-11-20T02:17:44.364Z",
+    "payloadSha256": "ea23f380f151cacdbee951cebd2950d4543b360a2f24d3d0979225a1b908a073",
+    "responseKeys": [
+      "player_infos"
+    ],
+    "sampleFields": [
+      "account_id",
+      "name",
+      "country_code",
+      "fantasy_role",
+      "team_id",
+      "team_name",
+      "team_tag",
+      "sponsor",
+      "real_name",
+      "total_earnings",
+      "team_url_logo",
+      "audit_entries",
+      "team_abbreviation",
+      "pro_registration",
+      "has_played_in_international"
+    ],
+    "records": 4244,
+    "rows": [
+      {
+        "account": "194979527",
+        "name": "shigetsu",
+        "team": "0"
+      },
+      {
+        "account": "1088839120",
+        "name": "Abyss",
+        "team": "10170830"
+      }
+    ]
+  }
+]

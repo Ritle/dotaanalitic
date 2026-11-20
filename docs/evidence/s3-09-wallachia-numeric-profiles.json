@@ -1,0 +1,57 @@
+{
+  "format": "wallachia-numeric-profiles-v1",
+  "maps": [
+    "8182281496",
+    "8182414353",
+    "8182526425",
+    "8194462322",
+    "8194587590"
+  ],
+  "profiles": [
+    {
+      "id": "114619230",
+      "endpoint": "/players/114619230",
+      "fetchedAt": "2026-11-20T02:29:12.284Z",
+      "payloadSha256": "ee411fcbbdc83ea3ad4817becb3f11635c79edbd616cad980c22bc10a07814b8",
+      "captureSha256": "a01e6278dffbe8f4d1e93abb71be335efee67d82f9c4f29e3b7e27d71e07f92e",
+      "verified": true,
+      "reason": null
+    },
+    {
+      "id": "200573858",
+      "endpoint": "/players/200573858",
+      "fetchedAt": "2026-11-20T02:29:13.395Z",
+      "payloadSha256": "10988c8a375faabaf5f9ea8f12a63b9de463f9420698d02f6b1fd1e81c40d0f5",
+      "captureSha256": "6655ac84b91673e63f61b16f906261384abbec927991a697b689ff8063f50cc0",
+      "verified": true,
+      "reason": null
+    },
+    {
+      "id": "392006194",
+      "endpoint": "/players/392006194",
+      "fetchedAt": "2026-11-20T02:29:14.727Z",
+      "payloadSha256": "79f2b04cee7b890b937dff1daa0e1c308bb7a71c72ab8c06c8fc1f23a1721d37",
+      "captureSha256": "8f517dbf09def5624371bb4e5593efc3ca0e6e1a1aa6bb82fade61bd82a4123a",
+      "verified": true,
+      "reason": null
+    },
+    {
+      "id": "401902808",
+      "endpoint": "/players/401902808",
+      "fetchedAt": "2026-11-20T02:29:16.175Z",
+      "payloadSha256": "36c9b476f878587299ae943470105b1850ad6d01de8b8ae6949d8a2b94fecb2e",
+      "captureSha256": "98412df19af0d4e26d88832953d2f565fb48babad2938b0dffc008d30a7c3114",
+      "verified": true,
+      "reason": null
+    },
+    {
+      "id": "439345730",
+      "endpoint": "/players/439345730",
+      "fetchedAt": "2026-11-20T02:29:17.491Z",
+      "payloadSha256": "6ffe1779208609964209c969e96525282704deb0cff30764a3ca32c9e64ca592",
+      "captureSha256": "429085331180d42bd7cde25a15a25d29049e3a2dd20db72e1e7be1896cb741de",
+      "verified": true,
+      "reason": null
+    }
+  ]
+}

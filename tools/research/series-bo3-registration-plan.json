@@ -1,0 +1,37 @@
+{
+  "format": "bo3-prospective-scope-plan-v1",
+  "exposure": {
+    "inventory": {
+      "path": "docs/evidence/s3-09-series-exposure-review.json",
+      "sha256": "72262febb7df73a866690dd2e483cf14772ff4af62f4536a710b4da0d3b4b4c2"
+    },
+    "historicalWallachia": {
+      "path": "docs/evidence/s3-09-bo3-scope-metadata.csv",
+      "sha256": "6d8a7e9691e36770fe4f0b137434d3c6d8707ab5243ac82fa3bf18e36ebf8b1f"
+    }
+  },
+  "editions": [
+    {
+      "name": "BLAST SLAM IX",
+      "organizerSource": "https://blast.tv/dota/tournaments/blast-slam-ix/series",
+      "windowStart": "2026-11-19T23:00:00Z",
+      "windowEnd": "2026-11-30T00:00:00Z",
+      "plannedBo3": 33,
+      "binding": {
+        "leagueId": "5319",
+        "editionId": "11187",
+        "stageIds": ["22404", "22405", "22406", "22407", "22470", "22471", "22472"],
+        "catalogPath": "docs/evidence/s3-09-bo3-reserve-catalog.json",
+        "catalogSha256": "d4a36441621816ff7a15ce7b6d2b9fa310f30318b5041b9413c07852982c3000"
+      }
+    },
+    {
+      "name": "DreamLeague Season 30",
+      "organizerSource": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+      "windowStart": "2026-12-01T00:00:00Z",
+      "windowEnd": "2026-12-15T00:00:00Z",
+      "plannedBo3": 72,
+      "binding": null
+    }
+  ]
+}

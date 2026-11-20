@@ -1,0 +1,43 @@
+{
+  "format": "bo3-prospective-scope-plan-v1",
+  "exposure": {
+    "inventory": {
+      "path": "docs/evidence/s3-09-series-exposure-review-r2.json",
+      "sha256": "35e6b362a957485552696b869d49f95f1db114e7aa8df05533b14bf2f7427ef6"
+    }
+  },
+  "editions": [
+    {
+      "name": "PGL Dota 2 Event 1 2027",
+      "organizerSource": "https://press.pglesports.com/397149-pgl-commits-to-the-future-of-dota-2-updated-calendar-and-event-plans-through-2028",
+      "windowStart": "2027-03-01T00:00:00Z",
+      "windowEnd": "2027-03-16T00:00:00Z",
+      "plannedBo3": null,
+      "binding": null
+    },
+    {
+      "name": "ESL One Munich 2027",
+      "organizerSource": "https://www.esl-one.com/munich/",
+      "windowStart": "2027-04-03T00:00:00Z",
+      "windowEnd": "2027-04-13T00:00:00Z",
+      "plannedBo3": 9,
+      "binding": null
+    },
+    {
+      "name": "DreamLeague Season 32",
+      "organizerSource": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+      "windowStart": "2027-04-25T00:00:00Z",
+      "windowEnd": "2027-05-11T00:00:00Z",
+      "plannedBo3": null,
+      "binding": null
+    },
+    {
+      "name": "PGL Dota 2 Event 2 2027",
+      "organizerSource": "https://press.pglesports.com/397149-pgl-commits-to-the-future-of-dota-2-updated-calendar-and-event-plans-through-2028",
+      "windowStart": "2027-05-10T00:00:00Z",
+      "windowEnd": "2027-05-25T00:00:00Z",
+      "plannedBo3": null,
+      "binding": null
+    }
+  ]
+}

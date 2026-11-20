@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "task": "switch-to-restored-current-database",
+  "completedAt": "2026-11-18T23:47:32.737Z",
+  "database": "dota_analytics_current",
+  "originalDatabasePreserved": true,
+  "inspectedDatabasePreserved": true,
+  "previousDatabaseBackupSha256": "51009752f98d106d1070a572b7dbb3cef995dbec83290ec847df29f1b9305e1c",
+  "historicalLedgerEntriesPreserved": 62,
+  "newlyAppliedMigrations": 9,
+  "replaySkippedMigrations": 71,
+  "preservedTableFingerprints": 109,
+  "maps": 2285,
+  "players": 573,
+  "teams": 213,
+  "forecasts": 12,
+  "journalReports": 2,
+  "authenticatedApiVerified": true,
+  "verificationSessionDeleted": true,
+  "ownerPasswordPreserved": true,
+  "ownerLogin": "test-owner",
+  "modelReadiness": {
+    "status": "unavailable",
+    "reason": "ACTIVE_MODEL_EVIDENCE_INVALID",
+    "modelId": "35aa1dd3-e00c-4dcf-95fa-fbd3b74dba3b",
+    "teamAWinProbability": null
+  },
+  "registeredNode": "v22.15.0",
+  "currentNode": "v24.17.0",
+  "modelActivationChanged": false,
+  "modelQualityGateChanged": false,
+  "tests": {
+    "historicalChecksumNodeTests": 2,
+    "postgresIntegrationTests": 5,
+    "migrationFilesVerified": 71,
+    "webHealthAndProtectedRoutes": "passed"
+  }
+}

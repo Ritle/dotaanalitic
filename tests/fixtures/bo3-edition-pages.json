@@ -1,0 +1,19 @@
+{
+  "format": "synthetic-edition-pages-v1",
+  "scope": {"leagueId":"72","editionId":"880","stageIds":["71","73"]},
+  "pageSize": 2,
+  "pages": [
+    {"number":1,"total":6,"snapshot":"fixture-v1","matches":[
+      {"id":"8801","league_id":"72","serie_id":"880","tournament_id":"71","number_of_games":3,"status":"played"},
+      {"id":"8802","league_id":"72","serie_id":"880","tournament_id":"71","number_of_games":3,"status":"played"}
+    ]},
+    {"number":2,"total":6,"snapshot":"fixture-v1","matches":[
+      {"id":"8803","league_id":"72","serie_id":"880","tournament_id":"71","number_of_games":3,"status":"played"},
+      {"id":"8804","league_id":"72","serie_id":"880","tournament_id":"73","number_of_games":3,"status":"played"}
+    ]},
+    {"number":3,"total":6,"snapshot":"fixture-v1","matches":[
+      {"id":"8805","league_id":"72","serie_id":"880","tournament_id":"73","number_of_games":5,"status":"played"},
+      {"id":"8806","league_id":"72","serie_id":"880","tournament_id":"73","number_of_games":3,"status":"cancelled"}
+    ]}
+  ]
+}

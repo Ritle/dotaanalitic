@@ -1,0 +1,798 @@
+{
+  "format": "s3-09-upcoming-schedule-metadata-audit-v1",
+  "blast": {
+    "name": "BLAST SLAM IX",
+    "plan": {
+      "path": "tools/research/series-bo3-registration-plan.json",
+      "sha256": "f5bff3a8bc4e1336920d67d7014498753a54b1289fb04a4b1eb0bde8e2176109"
+    },
+    "binding": {
+      "leagueId": "5319",
+      "editionId": "11187",
+      "stageIds": [
+        "22404",
+        "22405",
+        "22406",
+        "22407",
+        "22470",
+        "22471",
+        "22472"
+      ],
+      "catalogPath": "docs/evidence/s3-09-bo3-reserve-catalog.json",
+      "catalogSha256": "d4a36441621816ff7a15ce7b6d2b9fa310f30318b5041b9413c07852982c3000"
+    },
+    "windowStart": "2026-11-19T23:00:00Z",
+    "windowEnd": "2026-11-30T00:00:00Z",
+    "organizerPlannedBo3": 33,
+    "passes": [
+      {
+        "url": "https://api.pandascore.co/series/11187/matches/upcoming?sort=scheduled_at%2Cid&page=1&per_page=100",
+        "requestedAt": "2026-11-19T21:07:21.528Z",
+        "fetchedAt": "2026-11-19T21:07:22.352Z",
+        "httpStatus": 200,
+        "pagination": {
+          "page": 1,
+          "perPage": 100,
+          "total": 34,
+          "hasNextPage": false
+        },
+        "payloadSha256": "d64e6e98cc68004b0ac0a61e8699741e259edea07f6fe31964d8626b61c6b84a",
+        "beforeWindow": true,
+        "normalizedSha256": "0ee42464830eac1e4988e718c71d9bdf007deb82c22cafcb9939fda2ac2a7777",
+        "rows": [
+          {
+            "matchId": "1816442",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T11:00:00.000Z",
+            "teamIds": [
+              "137073",
+              "137885"
+            ]
+          },
+          {
+            "matchId": "1816443",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T14:00:00.000Z",
+            "teamIds": [
+              "1654",
+              "1699"
+            ]
+          },
+          {
+            "matchId": "1816444",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816445",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816446",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-23T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816452",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T11:00:00.000Z",
+            "teamIds": [
+              "136650",
+              "1669"
+            ]
+          },
+          {
+            "matchId": "1816453",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T14:00:00.000Z",
+            "teamIds": [
+              "128329",
+              "137588"
+            ]
+          },
+          {
+            "matchId": "1816454",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816455",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816456",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-23T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816457",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T17:00:00.000Z",
+            "teamIds": [
+              "135712",
+              "139340"
+            ]
+          },
+          {
+            "matchId": "1816458",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T17:00:00.000Z",
+            "teamIds": [
+              "139547",
+              "1647"
+            ]
+          },
+          {
+            "matchId": "1816459",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-22T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816460",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-22T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816461",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-23T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816467",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T11:00:00.000Z",
+            "teamIds": [
+              "133882",
+              "139432"
+            ]
+          },
+          {
+            "matchId": "1816468",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T11:00:00.000Z",
+            "teamIds": [
+              "134536",
+              "1657"
+            ]
+          },
+          {
+            "matchId": "1816469",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-22T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816470",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-22T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816471",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-23T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816477",
+            "editionId": "11187",
+            "stageId": "22470",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-24T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816478",
+            "editionId": "11187",
+            "stageId": "22470",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-24T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816479",
+            "editionId": "11187",
+            "stageId": "22471",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-24T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816480",
+            "editionId": "11187",
+            "stageId": "22471",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-24T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816493",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-26T10:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816494",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-26T13:30:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816495",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-26T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816496",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-27T10:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816497",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-28T11:30:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816498",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-27T13:30:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816499",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-27T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816500",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-28T15:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816501",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-29T10:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816502",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 5,
+            "status": "not_started",
+            "scheduledAt": "2026-11-29T14:00:00.000Z",
+            "teamIds": []
+          }
+        ]
+      },
+      {
+        "url": "https://api.pandascore.co/series/11187/matches/upcoming?sort=scheduled_at%2Cid&page=1&per_page=100",
+        "requestedAt": "2026-11-19T21:07:26.362Z",
+        "fetchedAt": "2026-11-19T21:07:26.820Z",
+        "httpStatus": 200,
+        "pagination": {
+          "page": 1,
+          "perPage": 100,
+          "total": 34,
+          "hasNextPage": false
+        },
+        "payloadSha256": "bf43e9f4e4697bc14294bfdc434d077231f9a63185bff5e593f9615530413ec5",
+        "beforeWindow": true,
+        "normalizedSha256": "0ee42464830eac1e4988e718c71d9bdf007deb82c22cafcb9939fda2ac2a7777",
+        "rows": [
+          {
+            "matchId": "1816442",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T11:00:00.000Z",
+            "teamIds": [
+              "137073",
+              "137885"
+            ]
+          },
+          {
+            "matchId": "1816443",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T14:00:00.000Z",
+            "teamIds": [
+              "1654",
+              "1699"
+            ]
+          },
+          {
+            "matchId": "1816444",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816445",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816446",
+            "editionId": "11187",
+            "stageId": "22404",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-23T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816452",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T11:00:00.000Z",
+            "teamIds": [
+              "136650",
+              "1669"
+            ]
+          },
+          {
+            "matchId": "1816453",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T14:00:00.000Z",
+            "teamIds": [
+              "128329",
+              "137588"
+            ]
+          },
+          {
+            "matchId": "1816454",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816455",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816456",
+            "editionId": "11187",
+            "stageId": "22405",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-23T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816457",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T17:00:00.000Z",
+            "teamIds": [
+              "135712",
+              "139340"
+            ]
+          },
+          {
+            "matchId": "1816458",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-20T17:00:00.000Z",
+            "teamIds": [
+              "139547",
+              "1647"
+            ]
+          },
+          {
+            "matchId": "1816459",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-22T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816460",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-22T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816461",
+            "editionId": "11187",
+            "stageId": "22406",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-23T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816467",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T11:00:00.000Z",
+            "teamIds": [
+              "133882",
+              "139432"
+            ]
+          },
+          {
+            "matchId": "1816468",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-21T11:00:00.000Z",
+            "teamIds": [
+              "134536",
+              "1657"
+            ]
+          },
+          {
+            "matchId": "1816469",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-22T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816470",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-22T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816471",
+            "editionId": "11187",
+            "stageId": "22407",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-23T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816477",
+            "editionId": "11187",
+            "stageId": "22470",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-24T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816478",
+            "editionId": "11187",
+            "stageId": "22470",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-24T14:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816479",
+            "editionId": "11187",
+            "stageId": "22471",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-24T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816480",
+            "editionId": "11187",
+            "stageId": "22471",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-24T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816493",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-26T10:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816494",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-26T13:30:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816495",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-26T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816496",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-27T10:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816497",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-28T11:30:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816498",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-27T13:30:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816499",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-27T17:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816500",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-28T15:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816501",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 3,
+            "status": "not_started",
+            "scheduledAt": "2026-11-29T10:00:00.000Z",
+            "teamIds": []
+          },
+          {
+            "matchId": "1816502",
+            "editionId": "11187",
+            "stageId": "22472",
+            "bestOf": 5,
+            "status": "not_started",
+            "scheduledAt": "2026-11-29T14:00:00.000Z",
+            "teamIds": []
+          }
+        ]
+      }
+    ],
+    "comparison": {
+      "added": [],
+      "removed": [],
+      "changed": [],
+      "sameMetadata": true
+    },
+    "byStage": [
+      {
+        "stageId": "22404",
+        "total": 5,
+        "bo3": 5,
+        "bo3WithBothTeams": 2
+      },
+      {
+        "stageId": "22405",
+        "total": 5,
+        "bo3": 5,
+        "bo3WithBothTeams": 2
+      },
+      {
+        "stageId": "22406",
+        "total": 5,
+        "bo3": 5,
+        "bo3WithBothTeams": 2
+      },
+      {
+        "stageId": "22407",
+        "total": 5,
+        "bo3": 5,
+        "bo3WithBothTeams": 2
+      },
+      {
+        "stageId": "22470",
+        "total": 2,
+        "bo3": 2,
+        "bo3WithBothTeams": 0
+      },
+      {
+        "stageId": "22471",
+        "total": 2,
+        "bo3": 2,
+        "bo3WithBothTeams": 0
+      },
+      {
+        "stageId": "22472",
+        "total": 10,
+        "bo3": 9,
+        "bo3WithBothTeams": 0
+      }
+    ]
+  },
+  "dreamLeague": {
+    "plan": {
+      "path": "tools/research/series-bo3-esl-winter-plan.json",
+      "sha256": "81b63dcd949e668e102ddd55cd03f0d8cba5ee121dd773647cd6723634171552"
+    },
+    "leagueId": "4125",
+    "url": "https://api.pandascore.co/leagues/4125/matches/upcoming?sort=scheduled_at%2Cid&page=1&per_page=100&range%5Bscheduled_at%5D=2026-12-01T00%3A00%3A00Z%2C2027-02-02T00%3A00%3A00Z",
+    "requestedAt": "2026-11-19T21:07:30.824Z",
+    "fetchedAt": "2026-11-19T21:07:31.055Z",
+    "httpStatus": 200,
+    "pagination": {
+      "page": 1,
+      "perPage": 100,
+      "total": 0,
+      "hasNextPage": false
+    },
+    "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "rows": []
+  },
+  "providerSnapshotGuaranteed": false,
+  "playedBo3": null,
+  "observedCoverage": null,
+  "registrationAllowed": false,
+  "outcomeCollectionAllowed": false
+}

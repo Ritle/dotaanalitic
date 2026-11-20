@@ -1,0 +1,599 @@
+{
+  "format": "s3-09-upcoming-stage-membership-audit-v1",
+  "editionId": "11187",
+  "leagueId": "5319",
+  "windowStart": "2026-11-19T23:00:00Z",
+  "organizerSources": {
+    "plan": "https://blast.tv/dota/tournaments/blast-slam-ix/series"
+  },
+  "edition": {
+    "url": "https://api.pandascore.co/series/11187/matches/upcoming?page=1&per_page=100&sort=scheduled_at%2Cid",
+    "requestedAt": "2026-11-19T21:45:04.066Z",
+    "fetchedAt": "2026-11-19T21:45:06.481Z",
+    "attemptStatuses": [
+      200
+    ],
+    "payloadSha256": "329b46e2afd6aabc56f79dbc1a0a7647066ee51f2a7a78214a938634053e069d",
+    "page": 1,
+    "perPage": 100,
+    "total": 34,
+    "normalizedSha256": "0ee42464830eac1e4988e718c71d9bdf007deb82c22cafcb9939fda2ac2a7777",
+    "rows": [
+      {
+        "matchId": "1816442",
+        "editionId": "11187",
+        "stageId": "22404",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-20T11:00:00.000Z",
+        "teamIds": [
+          "137073",
+          "137885"
+        ]
+      },
+      {
+        "matchId": "1816443",
+        "editionId": "11187",
+        "stageId": "22404",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-20T14:00:00.000Z",
+        "teamIds": [
+          "1654",
+          "1699"
+        ]
+      },
+      {
+        "matchId": "1816444",
+        "editionId": "11187",
+        "stageId": "22404",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-21T14:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816445",
+        "editionId": "11187",
+        "stageId": "22404",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-21T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816446",
+        "editionId": "11187",
+        "stageId": "22404",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-23T14:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816452",
+        "editionId": "11187",
+        "stageId": "22405",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-20T11:00:00.000Z",
+        "teamIds": [
+          "136650",
+          "1669"
+        ]
+      },
+      {
+        "matchId": "1816453",
+        "editionId": "11187",
+        "stageId": "22405",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-20T14:00:00.000Z",
+        "teamIds": [
+          "128329",
+          "137588"
+        ]
+      },
+      {
+        "matchId": "1816454",
+        "editionId": "11187",
+        "stageId": "22405",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-21T14:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816455",
+        "editionId": "11187",
+        "stageId": "22405",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-21T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816456",
+        "editionId": "11187",
+        "stageId": "22405",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-23T14:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816457",
+        "editionId": "11187",
+        "stageId": "22406",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-20T17:00:00.000Z",
+        "teamIds": [
+          "135712",
+          "139340"
+        ]
+      },
+      {
+        "matchId": "1816458",
+        "editionId": "11187",
+        "stageId": "22406",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-20T17:00:00.000Z",
+        "teamIds": [
+          "139547",
+          "1647"
+        ]
+      },
+      {
+        "matchId": "1816459",
+        "editionId": "11187",
+        "stageId": "22406",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-22T14:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816460",
+        "editionId": "11187",
+        "stageId": "22406",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-22T14:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816461",
+        "editionId": "11187",
+        "stageId": "22406",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-23T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816467",
+        "editionId": "11187",
+        "stageId": "22407",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-21T11:00:00.000Z",
+        "teamIds": [
+          "133882",
+          "139432"
+        ]
+      },
+      {
+        "matchId": "1816468",
+        "editionId": "11187",
+        "stageId": "22407",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-21T11:00:00.000Z",
+        "teamIds": [
+          "134536",
+          "1657"
+        ]
+      },
+      {
+        "matchId": "1816469",
+        "editionId": "11187",
+        "stageId": "22407",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-22T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816470",
+        "editionId": "11187",
+        "stageId": "22407",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-22T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816471",
+        "editionId": "11187",
+        "stageId": "22407",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-23T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816477",
+        "editionId": "11187",
+        "stageId": "22470",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-24T14:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816478",
+        "editionId": "11187",
+        "stageId": "22470",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-24T14:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816479",
+        "editionId": "11187",
+        "stageId": "22471",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-24T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816480",
+        "editionId": "11187",
+        "stageId": "22471",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-24T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816493",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-26T10:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816494",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-26T13:30:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816495",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-26T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816496",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-27T10:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816497",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-28T11:30:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816498",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-27T13:30:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816499",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-27T17:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816500",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-28T15:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816501",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 3,
+        "status": "not_started",
+        "scheduledAt": "2026-11-29T10:00:00.000Z",
+        "teamIds": []
+      },
+      {
+        "matchId": "1816502",
+        "editionId": "11187",
+        "stageId": "22472",
+        "bestOf": 5,
+        "status": "not_started",
+        "scheduledAt": "2026-11-29T14:00:00.000Z",
+        "teamIds": []
+      }
+    ]
+  },
+  "stageChecks": [
+    {
+      "stageId": "22404",
+      "name": "Group A",
+      "organizer": null,
+      "formatCounts": {
+        "3": 5
+      },
+      "sourceMatchesOrganizer": null,
+      "url": "https://api.pandascore.co/tournaments/22404/matches?page=1&per_page=100&sort=scheduled_at%2Cid&filter%5Bstatus%5D=not_started",
+      "requestedAt": "2026-11-19T21:45:10.485Z",
+      "fetchedAt": "2026-11-19T21:45:10.645Z",
+      "attemptStatuses": [
+        200
+      ],
+      "payloadSha256": "50c2adec249777e0f8204391caf6963d632d4f8d64f68fa4e5556ea7fdfcfde6",
+      "page": 1,
+      "perPage": 100,
+      "total": 5,
+      "normalizedSha256": "1b956bad751466ea03ac825850e6f8bc0fb289508554162ddf39bf5805e39d0e",
+      "matchIds": [
+        "1816442",
+        "1816443",
+        "1816444",
+        "1816445",
+        "1816446"
+      ],
+      "comparedToEdition": {
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "identical": true
+      }
+    },
+    {
+      "stageId": "22405",
+      "name": "Group B",
+      "organizer": null,
+      "formatCounts": {
+        "3": 5
+      },
+      "sourceMatchesOrganizer": null,
+      "url": "https://api.pandascore.co/tournaments/22405/matches?page=1&per_page=100&sort=scheduled_at%2Cid&filter%5Bstatus%5D=not_started",
+      "requestedAt": "2026-11-19T21:45:14.648Z",
+      "fetchedAt": "2026-11-19T21:45:14.910Z",
+      "attemptStatuses": [
+        200
+      ],
+      "payloadSha256": "524ba9d23e74b1773a5c48b863062669f1f528d301842de618d4fef5b0295321",
+      "page": 1,
+      "perPage": 100,
+      "total": 5,
+      "normalizedSha256": "d6ee49d782c16556d6592f20d20edef2a91d6f4753276594124034e91bdb94a4",
+      "matchIds": [
+        "1816452",
+        "1816453",
+        "1816454",
+        "1816455",
+        "1816456"
+      ],
+      "comparedToEdition": {
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "identical": true
+      }
+    },
+    {
+      "stageId": "22406",
+      "name": "Group C",
+      "organizer": null,
+      "formatCounts": {
+        "3": 5
+      },
+      "sourceMatchesOrganizer": null,
+      "url": "https://api.pandascore.co/tournaments/22406/matches?page=1&per_page=100&sort=scheduled_at%2Cid&filter%5Bstatus%5D=not_started",
+      "requestedAt": "2026-11-19T21:45:18.915Z",
+      "fetchedAt": "2026-11-19T21:45:19.233Z",
+      "attemptStatuses": [
+        200
+      ],
+      "payloadSha256": "0a6e30aa8593874b235e7d990c8aea2f40f877218db2e69f7cde88367e551acd",
+      "page": 1,
+      "perPage": 100,
+      "total": 5,
+      "normalizedSha256": "3f01bbee1cda70a84e51211b2f80c955ebd6b19fcc6d0308aacd4f182e30f683",
+      "matchIds": [
+        "1816457",
+        "1816458",
+        "1816459",
+        "1816460",
+        "1816461"
+      ],
+      "comparedToEdition": {
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "identical": true
+      }
+    },
+    {
+      "stageId": "22407",
+      "name": "Group D",
+      "organizer": null,
+      "formatCounts": {
+        "3": 5
+      },
+      "sourceMatchesOrganizer": null,
+      "url": "https://api.pandascore.co/tournaments/22407/matches?page=1&per_page=100&sort=scheduled_at%2Cid&filter%5Bstatus%5D=not_started",
+      "requestedAt": "2026-11-19T21:45:23.250Z",
+      "fetchedAt": "2026-11-19T21:45:23.513Z",
+      "attemptStatuses": [
+        200
+      ],
+      "payloadSha256": "442b8b97f3c9c542c984b94fb009cfb17400b4f794cbd1ca5dfc8a19b674fa13",
+      "page": 1,
+      "perPage": 100,
+      "total": 5,
+      "normalizedSha256": "6a3ed36c383bc2050c29c84d138071d32e84f15d17338e90949286a1dac35285",
+      "matchIds": [
+        "1816467",
+        "1816468",
+        "1816469",
+        "1816470",
+        "1816471"
+      ],
+      "comparedToEdition": {
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "identical": true
+      }
+    },
+    {
+      "stageId": "22470",
+      "name": "Seeding Matches",
+      "organizer": null,
+      "formatCounts": {
+        "3": 2
+      },
+      "sourceMatchesOrganizer": null,
+      "url": "https://api.pandascore.co/tournaments/22470/matches?page=1&per_page=100&sort=scheduled_at%2Cid&filter%5Bstatus%5D=not_started",
+      "requestedAt": "2026-11-19T21:45:27.515Z",
+      "fetchedAt": "2026-11-19T21:45:28.816Z",
+      "attemptStatuses": [
+        200
+      ],
+      "payloadSha256": "d563771f0be2b3e30f16ce367fb24dd665d0a472ea2a0e708cffd188fb93559d",
+      "page": 1,
+      "perPage": 100,
+      "total": 2,
+      "normalizedSha256": "04e7a72598891573f5615e6dcfee5c8afbe1f4a4228483d5f147026b31944d4b",
+      "matchIds": [
+        "1816477",
+        "1816478"
+      ],
+      "comparedToEdition": {
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "identical": true
+      }
+    },
+    {
+      "stageId": "22471",
+      "name": "Last Chance Qualifier",
+      "organizer": null,
+      "formatCounts": {
+        "3": 2
+      },
+      "sourceMatchesOrganizer": null,
+      "url": "https://api.pandascore.co/tournaments/22471/matches?page=1&per_page=100&sort=scheduled_at%2Cid&filter%5Bstatus%5D=not_started",
+      "requestedAt": "2026-11-19T21:45:32.818Z",
+      "fetchedAt": "2026-11-19T21:45:33.116Z",
+      "attemptStatuses": [
+        200
+      ],
+      "payloadSha256": "188c6434e3f12df85ffe3199bf90ce6d18b4bcfde4d3fd589ff7449965333810",
+      "page": 1,
+      "perPage": 100,
+      "total": 2,
+      "normalizedSha256": "64414598fbca964bd4207cfd1f8789a06b5d05c094cf4d7968bd3c2e60018f85",
+      "matchIds": [
+        "1816479",
+        "1816480"
+      ],
+      "comparedToEdition": {
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "identical": true
+      }
+    },
+    {
+      "stageId": "22472",
+      "name": "Playoffs",
+      "organizer": null,
+      "formatCounts": {
+        "3": 9,
+        "5": 1
+      },
+      "sourceMatchesOrganizer": null,
+      "url": "https://api.pandascore.co/tournaments/22472/matches?page=1&per_page=100&sort=scheduled_at%2Cid&filter%5Bstatus%5D=not_started",
+      "requestedAt": "2026-11-19T21:45:37.116Z",
+      "fetchedAt": "2026-11-19T21:45:37.622Z",
+      "attemptStatuses": [
+        200
+      ],
+      "payloadSha256": "72f8853ceb72a06eda661959fcb3766c8d422e18f78c8be75e66b24020f81912",
+      "page": 1,
+      "perPage": 100,
+      "total": 10,
+      "normalizedSha256": "8afaacc7e3ae96c3274e9d1eaf7dcd23e4106ec427f2c079bd8d17ebe846052c",
+      "matchIds": [
+        "1816493",
+        "1816494",
+        "1816495",
+        "1816496",
+        "1816497",
+        "1816498",
+        "1816499",
+        "1816500",
+        "1816501",
+        "1816502"
+      ],
+      "comparedToEdition": {
+        "missing": [],
+        "extra": [],
+        "changed": [],
+        "identical": true
+      }
+    }
+  ],
+  "comparedToUnionOfStages": {
+    "missing": [],
+    "extra": [],
+    "changed": [],
+    "identical": true
+  },
+  "beforeRegistrationWindow": true,
+  "providerSnapshotGuaranteed": false,
+  "playedBo3": null,
+  "observedCoverage": null,
+  "registrationAllowed": false,
+  "outcomeCollectionAllowed": false
+}

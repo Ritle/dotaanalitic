@@ -1,5 +1,31 @@
 # S0-00 — проверка bootstrap, 2026-10-30
 
+## Новый локальный checkout — 19 ноября 2026
+
+**Текущее подключение после переноса:** приложение использует `dota_analytics_current` из проверенного `current-20261118T233000Z.rar`. Доступны2285карт,573игрока,213команд,12сохранённых прогнозов и2отчёта. Логин `test-owner`, пароль со старого ПК сохранён. Прежние `.env` и dump начальной базы — `.tools/database-switch`; начальная БД и import-копия также сохранены. [Проверки переключения](evidence/current-database-switch.json). Все71миграция установлены, исторические CRLF-хеши053/054 распознаются корневым мигратором без правок SQL/ledger.
+
+**Модель запущена:** `.tools/start.cmd` использует отдельные `.tools/node22` и `.tools/restored-runtime`. Node22.15.0,323зарегистрированных файла и полный runtime SHA точно совпали с сохранённым допуском; действующий API возвращает model_eligible. [Проверки runtime и полного HTTP-расчёта](evidence/restored-model-runtime.json). Изолированный smoke создал новый условный расчёт по восстановленной истории, проверил сохранение/read/idempotence и удалил тестовую БД; рабочий журнал сохранил12записей. Пароли проверяются нативным Argon2 на Node22, настоящий пароль не сбрасывался. Запуск из PowerShell: `.\.tools\start.cmd`.
+
+**PandaScore работает:** повторная проверка текущего token получила HTTP200. После перезапуска API authenticated refresh загрузил20встреч, status=ready,reason=null,fetchedAt19ноября03:11МСК. Модель model_eligible. [Успешная проверка подключения](evidence/pandascore-token-retry.json). Предыдущий401 сохранён в [историческом отчёте](evidence/pandascore-token-verification.json) и больше не относится к текущей настройке.
+
+Фронтенд работает из текущих исходников, API — из точной восстановленной compiled-копии. Корневые `pnpm dev`/prediction CLI на системном Node24 не используют этот сохранённый runtime; для работающего локального приложения используйте launcher. Изменения backend/scoring требуют отдельного рассмотренного обновления runtime и gates; они не копируются туда автоматически. Проверка через восстановленный CLI: `.tools/node22/node.exe --env-file=.env .tools/restored-runtime/scripts/retest-model.mjs readiness`. Live-обновление расписания требует собственного `PANDASCORE_API_TOKEN` в корневой `.env`; из дампа ключ не переносится. Последующее описание первоначального bootstrap относится к начальной пустой базе, до переноса.
+
+Репозиторий `https://github.com/Ritle/dotaanalitic.git` клонирован в `C:\Users\Kristina\Desktop\ritle_project` с исходного коммита `5251109`. Установлены зависимости из неизменённого lockfile: Node 24.17.0, локальный pnpm 10.19.0, PostgreSQL 16.15. EDB ZIP проверен по SHA-256, указанному ниже. Docker не установлен; используется отдельный native cluster `.tools/pgdata`, SCRAM, `127.0.0.1:5432`, timezone UTC, новая БД `dota_analytics`.
+
+Созданы игнорируемые `.env`, локальные Corepack shims/cache, файлы паролей и launcher. Владелец `owner` создан штатным CLI со случайным паролем через stdin; данные входа находятся в `.tools/owner-credentials.txt`. Секреты не выводятся в журнал и не добавляются в Git. Для повторного запуска из PowerShell:
+
+```powershell
+.\.tools\start.cmd
+```
+
+Приложение доступно на `http://localhost:5173`, API — `http://127.0.0.1:3000`. В отдельном терминале для команд pnpm можно открыть `cmd /k .tools\activate.cmd`; после этого доступны команды из README. Локальные helper-файлы создавались при этой настройке и не переносятся через Git: при новом clone повторите установку из README и инструкции native PostgreSQL ниже.
+
+Проверены frozen install, typecheck, build, все 1067 пакетных тестов, 71 migration checksum, применение всех миграций и повтор с 71 SKIP, четыре PostgreSQL bootstrap-теста, 11 интеграционных тестов авторизации, strict preflight с подключением к БД (0 failures; Docker WARN), ссылки документации, HTTP smoke и полный login/me/logout с отзывом сессии. Логи текущей проверки находятся в `.tools`.
+
+Для воспроизводимости байтов `.gitattributes` закрепляет LF для текстовых файлов; manifest `packages/contracts/package.json` сохраняет CRLF, так как эти байты закреплены прежними executable freezes. Исправлена сломанная ссылка на AGENTS и тестовая фикстура совместимости runtime: положительный пример теперь использует текущие runtime-метаданные вместе с текущим кодом. Архивные freezes, production-проверка совместимости и отказ при несовпадении runtime не менялись.
+
+База новая: прежняя история матчей, секреты источников и артефакты активных моделей не восстанавливались из Git. Для расписания нужно добавить собственный `PANDASCORE_API_TOKEN` в `.env`; для старых данных понадобится отдельная резервная копия. Следующая продуктовая задача остаётся **S3-09/series-independent-scope**; этот bootstrap её не выполняет. Контейнерные, полные PostgreSQL, browser и Python/ML suites в этом checkout не запускались.
+
 S0-00 выполнен для локальной разработки на Windows: реальный frozen install, чистая PostgreSQL 16, API/Web, миграции, тесты и сборка. Проверялся Git checkout `dotaanalitic` внутри внешнего стартового комплекта; ветка `main`, origin `https://github.com/Ritle/dotaanalitic.git`, исходное дерево чистое. Изменения не отправлялись на сервер.
 
 ## Исправления

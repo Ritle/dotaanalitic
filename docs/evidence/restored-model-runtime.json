@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "task": "restore-registered-model-runtime",
+  "completedAt": "2026-11-19T00:02:59.743Z",
+  "node": "v22.15.0",
+  "registeredNodeBinarySha256": "77bdff912b1c569b3e693fe126f619337c3e9d73dafbc4d0bf1d4f1f6a145761",
+  "registeredRuntimeSha256": "f52cf5fd2aa51ce21aa9e4c11d3f2cf018b81274b7e205f4a91f3c6030e82a7b",
+  "registeredFilesMatched": 323,
+  "exactRuntimeRestored": true,
+  "dependencyInstall": "frozen_offline_204_packages",
+  "runtimeDirectory": ".tools/restored-runtime",
+  "launcher": ".tools/start.cmd",
+  "database": "dota_analytics_current",
+  "ownerLogin": "test-owner",
+  "ownerPasswordPreserved": true,
+  "systemNodeChanged": false,
+  "activationChanged": false,
+  "qualityGateChanged": false,
+  "liveApiModelReadiness": {
+    "status": "model_eligible",
+    "reason": null
+  },
+  "authenticatedRoutesPassed": [
+    {
+      "route": "/api/v1/teams?query=Team%20Spirit",
+      "status": 200
+    },
+    {
+      "route": "/api/v1/players",
+      "status": 200
+    },
+    {
+      "route": "/api/v1/scenarios",
+      "status": 200
+    },
+    {
+      "route": "/api/v1/forecast-journal",
+      "status": 200
+    },
+    {
+      "route": "/api/v1/forecast-journal/current",
+      "status": 200
+    },
+    {
+      "route": "/api/v1/models/readiness",
+      "status": 200
+    }
+  ],
+  "nativeAuthentication": {
+    "verifiedAt": "2026-11-19T00:00:34.011Z",
+    "node": "v22.15.0",
+    "nativeArgon2HashAndVerifyPassed": true,
+    "incorrectPasswordRejected": true,
+    "restoredPasswordHashReadable": true,
+    "restoredPasswordChanged": false
+  },
+  "predictionSmoke": {
+    "verifiedAt": "2026-11-19T00:01:53.735Z",
+    "scope": "isolated_synthetic_future_scenario_using_restored_real_lineup_history",
+    "fullHttpAuthScenarioPredictionFlow": true,
+    "calculationStatus": "done",
+    "modelEligible": true,
+    "finiteProbabilityProduced": true,
+    "savedReadVerified": true,
+    "idempotentRetryVerified": true,
+    "unsupportedScopeRejected": true,
+    "workingForecasts": 12,
+    "workingForecastsUnchanged": true,
+    "realScheduledForecastIssued": false,
+    "modelQualityEvaluation": "not_performed",
+    "disposableDatabaseDropped": true
+  },
+  "pandascoreTokenConfigured": false,
+  "limitations": [
+    "Live schedule refresh requires the owner PandaScore token; it was not included in the database backup.",
+    "The API runs from the exact restored runtime copy; backend source changes need a separate reviewed runtime update."
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "format": "pandascore-edition-metadata-audit-v1",
+  "results": [
+    {
+      "path": "/dota2/series/upcoming",
+      "query": {
+        "sort": "begin_at,id"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "fetchedAt": "2026-11-19T01:20:45.717Z",
+          "total": 1,
+          "count": 1,
+          "sha256": "55ad919670de1829d1dd7b98cdf694c2d6540376f69ad51fb21470c0a076f735"
+        }
+      ],
+      "rows": [
+        {
+          "id": "11187",
+          "leagueId": "5319",
+          "season": "9",
+          "name": "Season 9 2026",
+          "slug": "dota-2-blast-slam-9-2026",
+          "from": "2026-11-19T23:00:00Z",
+          "until": "2026-11-29T19:00:00Z",
+          "stages": [
+            {
+              "id": "22404",
+              "name": "Group A",
+              "from": "2026-11-20T11:00:00Z",
+              "until": "2026-11-23T17:00:00Z"
+            },
+            {
+              "id": "22405",
+              "name": "Group B",
+              "from": "2026-11-20T11:00:00Z",
+              "until": "2026-11-23T17:00:00Z"
+            },
+            {
+              "id": "22406",
+              "name": "Group C",
+              "from": "2026-11-20T17:00:00Z",
+              "until": "2026-11-23T20:00:00Z"
+            },
+            {
+              "id": "22407",
+              "name": "Group D",
+              "from": "2026-11-21T11:00:00Z",
+              "until": "2026-11-23T20:00:00Z"
+            },
+            {
+              "id": "22470",
+              "name": "Seeding Matches",
+              "from": "2026-11-24T14:00:00Z",
+              "until": "2026-11-24T17:00:00Z"
+            },
+            {
+              "id": "22471",
+              "name": "Last Chance Qualifier",
+              "from": "2026-11-24T17:00:00Z",
+              "until": "2026-11-24T20:00:00Z"
+            },
+            {
+              "id": "22472",
+              "name": "Playoffs",
+              "from": "2026-11-26T10:00:00Z",
+              "until": "2026-11-29T19:00:00Z"
+            }
+          ]
+        }
+      ],
+      "complete": true
+    },
+    {
+      "path": "/dota2/series",
+      "query": {
+        "search[slug]": "blast-slam",
+        "sort": "-id"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "fetchedAt": "2026-11-19T01:20:49.596Z",
+          "total": 40,
+          "count": 40,
+          "sha256": "4ce83b9fe74c4a0c3eca94b0f62a63a140a07fc4c9ac4806df6763621155b066"
+        }
+      ],
+      "rows": [
+        {
+          "id": "11187",
+          "leagueId": "5319",
+          "season": "9",
+          "name": "Season 9 2026",
+          "slug": "dota-2-blast-slam-9-2026",
+          "from": "2026-11-19T23:00:00Z",
+          "until": "2026-11-29T19:00:00Z",
+          "stages": [
+            {
+              "id": "22404",
+              "name": "Group A",
+              "from": "2026-11-20T11:00:00Z",
+              "until": "2026-11-23T17:00:00Z"
+            },
+            {
+              "id": "22405",
+              "name": "Group B",
+              "from": "2026-11-20T11:00:00Z",
+              "until": "2026-11-23T17:00:00Z"
+            },
+            {
+              "id": "22406",
+              "name": "Group C",
+              "from": "2026-11-20T17:00:00Z",
+              "until": "2026-11-23T20:00:00Z"
+            },
+            {
+              "id": "22407",
+              "name": "Group D",
+              "from": "2026-11-21T11:00:00Z",
+              "until": "2026-11-23T20:00:00Z"
+            },
+            {
+              "id": "22470",
+              "name": "Seeding Matches",
+              "from": "2026-11-24T14:00:00Z",
+              "until": "2026-11-24T17:00:00Z"
+            },
+            {
+              "id": "22471",
+              "name": "Last Chance Qualifier",
+              "from": "2026-11-24T17:00:00Z",
+              "until": "2026-11-24T20:00:00Z"
+            },
+            {
+              "id": "22472",
+              "name": "Playoffs",
+              "from": "2026-11-26T10:00:00Z",
+              "until": "2026-11-29T19:00:00Z"
+            }
+          ]
+        }
+      ],
+      "complete": true
+    },
+    {
+      "path": "/dota2/series",
+      "query": {
+        "search[slug]": "wallachia",
+        "sort": "-id"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "fetchedAt": "2026-11-19T01:20:53.582Z",
+          "total": 91,
+          "count": 91,
+          "sha256": "7e089444ec18fb46480512fd5e227e49102137542d17ad3fd17b532632de1a23"
+        }
+      ],
+      "rows": [],
+      "complete": true
+    },
+    {
+      "path": "/dota2/series",
+      "query": {
+        "search[slug]": "fissure",
+        "sort": "-id"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "fetchedAt": "2026-11-19T01:20:57.569Z",
+          "total": 51,
+          "count": 51,
+          "sha256": "98ec21649377eb14f06f5eebf837170c6b48039429443380a286f529f15b7c86"
+        }
+      ],
+      "rows": [],
+      "complete": true
+    },
+    {
+      "path": "/dota2/series",
+      "query": {
+        "search[slug]": "esl-one",
+        "sort": "-id"
+      },
+      "pages": [
+        {
+          "page": 1,
+          "fetchedAt": "2026-11-19T01:21:01.670Z",
+          "total": 216,
+          "count": 100,
+          "sha256": "cfa548daf039bdfd5f99b1a3a3d05e8c99eb6208714fa032be7c728880676e04"
+        },
+        {
+          "page": 2,
+          "fetchedAt": "2026-11-19T01:21:05.868Z",
+          "total": 216,
+          "count": 100,
+          "sha256": "e991caa81a7112c9017385a3fb91f4d8e375657dbe54e051355f1f39b38c1877"
+        },
+        {
+          "page": 3,
+          "fetchedAt": "2026-11-19T01:21:09.663Z",
+          "total": 216,
+          "count": 16,
+          "sha256": "660283ed921cf4fda9327b1401c0685ba7e7394b6af3889f6ba048891fd4b5fe"
+        }
+      ],
+      "rows": [],
+      "complete": true
+    }
+  ]
+}

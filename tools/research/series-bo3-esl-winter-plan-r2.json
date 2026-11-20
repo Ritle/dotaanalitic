@@ -1,0 +1,27 @@
+{
+  "format": "bo3-prospective-scope-plan-v1",
+  "exposure": {
+    "inventory": {
+      "path": "docs/evidence/s3-09-series-exposure-review-r3.json",
+      "sha256": "86cee1b6ad83ab110f7f0bd4f3f4b898ff92057303601e4b5a424219d52a7b18"
+    }
+  },
+  "editions": [
+    {
+      "name": "DreamLeague Season 30",
+      "organizerSource": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+      "windowStart": "2026-12-01T00:00:00Z",
+      "windowEnd": "2026-12-15T00:00:00Z",
+      "plannedBo3": 72,
+      "binding": null
+    },
+    {
+      "name": "DreamLeague Season 31",
+      "organizerSource": "https://pro.eslgaming.com/tour/dota2/season26-27/",
+      "windowStart": "2027-01-19T00:00:00Z",
+      "windowEnd": "2027-02-02T00:00:00Z",
+      "plannedBo3": null,
+      "binding": null
+    }
+  ]
+}

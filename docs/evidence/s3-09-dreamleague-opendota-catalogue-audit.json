@@ -1,0 +1,15 @@
+{
+  "format": "s3-09-dreamleague-opendota-catalogue-audit-v1",
+  "source": "https://api.opendota.com/api/leagues",
+  "fetchedAt": "2026-11-19T21:55:59.781Z",
+  "payloadSha256": "8864089f7f0283447cb428348629ae17b6a41186822afc2ba6f4b70968677f7f",
+  "totalRows": 10414,
+  "matches": [
+    {
+      "leagueId": "20359",
+      "name": "DreamLeague Season 30 Qualifiers"
+    }
+  ],
+  "registrationAllowed": false,
+  "outcomeCollectionAllowed": false
+}

@@ -1,0 +1,99 @@
+{
+  "format": "h2-historical-window-screen-v1",
+  "afterExclusive": "2026-11-04T20:07:52.000Z",
+  "untilExclusive": "2026-11-20T00:00:00.000Z",
+  "source": {
+    "provider": "opendota",
+    "query": "SELECT m.match_id::text AS map, m.series_id::text AS series, m.leagueid::text AS league,\n  m.start_time, l.name, l.tier FROM matches m LEFT JOIN leagues l ON l.leagueid=m.leagueid\n  WHERE m.leagueid>0 AND m.start_time>1793822872 AND m.start_time<1795132800\n  ORDER BY m.start_time,m.match_id LIMIT 10001",
+    "fetchedAt": "2026-11-20T00:40:36.493Z",
+    "payloadSha256": "e33c789b470a4e911e2ffd69c438d4085266d4a25549c3821748ae922d45b6b1",
+    "path": ".tools/s304-historical-window-metadata-r1.json",
+    "fileSha256": "40ff6a809c93d3d31d94734ccbc301f59e0f45b56d8daaa6a1d592b02c692e9a"
+  },
+  "exclusionsSha256": "d59ce0535a1a522b7ba517d62bd85a6fa7059b6d6a465359892718ba7c46b8d7",
+  "maps": 342,
+  "leagues": [
+    {
+      "id": "16251",
+      "name": "Party To Play league",
+      "providerTier": "professional",
+      "firstObserved": "2026-11-06T18:06:23.000Z",
+      "lastObserved": "2026-11-14T15:59:33.000Z",
+      "maps": 4,
+      "mapsWithoutSeries": 0,
+      "knownOverlappingSeries": 0,
+      "mapsInKnownOverlappingSeries": 0,
+      "seriesWithoutKnownOverlap": 4,
+      "mapsInSeriesWithoutKnownOverlap": 4
+    },
+    {
+      "id": "18631",
+      "name": "护鼠宝",
+      "providerTier": "professional",
+      "firstObserved": "2026-11-05T12:11:34.000Z",
+      "lastObserved": "2026-11-19T14:57:05.000Z",
+      "maps": 38,
+      "mapsWithoutSeries": 38,
+      "knownOverlappingSeries": 0,
+      "mapsInKnownOverlappingSeries": 0,
+      "seriesWithoutKnownOverlap": 0,
+      "mapsInSeriesWithoutKnownOverlap": 0
+    },
+    {
+      "id": "19066",
+      "name": "肛宝联赛-老婆杯",
+      "providerTier": "professional",
+      "firstObserved": "2026-11-17T13:09:10.000Z",
+      "lastObserved": "2026-11-17T14:36:47.000Z",
+      "maps": 2,
+      "mapsWithoutSeries": 2,
+      "knownOverlappingSeries": 0,
+      "mapsInKnownOverlappingSeries": 0,
+      "seriesWithoutKnownOverlap": 0,
+      "mapsInSeriesWithoutKnownOverlap": 0
+    },
+    {
+      "id": "19944",
+      "name": "EPL Masters 2026 ",
+      "providerTier": "professional",
+      "firstObserved": "2026-11-05T14:02:36.000Z",
+      "lastObserved": "2026-11-05T22:06:39.000Z",
+      "maps": 7,
+      "mapsWithoutSeries": 0,
+      "knownOverlappingSeries": 0,
+      "mapsInKnownOverlappingSeries": 0,
+      "seriesWithoutKnownOverlap": 2,
+      "mapsInSeriesWithoutKnownOverlap": 7
+    },
+    {
+      "id": "20486",
+      "name": "1win Essence III",
+      "providerTier": "professional",
+      "firstObserved": "2026-11-07T10:05:57.000Z",
+      "lastObserved": "2026-11-18T18:31:04.000Z",
+      "maps": 120,
+      "mapsWithoutSeries": 2,
+      "knownOverlappingSeries": 23,
+      "mapsInKnownOverlappingSeries": 56,
+      "seriesWithoutKnownOverlap": 23,
+      "mapsInSeriesWithoutKnownOverlap": 62
+    },
+    {
+      "id": "20511",
+      "name": "DreamLeague Division 2 Series 5",
+      "providerTier": "professional",
+      "firstObserved": "2026-11-07T09:59:10.000Z",
+      "lastObserved": "2026-11-19T20:13:22.000Z",
+      "maps": 171,
+      "mapsWithoutSeries": 3,
+      "knownOverlappingSeries": 6,
+      "mapsInKnownOverlappingSeries": 10,
+      "seriesWithoutKnownOverlap": 70,
+      "mapsInSeriesWithoutKnownOverlap": 158
+    }
+  ],
+  "labelsRequested": false,
+  "completeEditionMembershipVerified": false,
+  "independenceEstablished": false,
+  "scoringPerformed": false
+}

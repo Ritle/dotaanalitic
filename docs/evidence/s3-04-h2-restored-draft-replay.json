@@ -1,0 +1,77 @@
+{
+  "task": "S3-04",
+  "archive": "DraftLab-H2-transfer.zip",
+  "archiveSha256": "eafc12ec5bffd1759267cd50ef4e3c3e3c3d25b7cb5d89dbbd761f4bc0a8949c",
+  "member": "DraftLab-H2-recovered/artifact.json",
+  "candidateBytes": 107386,
+  "candidateSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+  "trainingReport": "s3-04-player-hero-experiment-fit.json",
+  "loaders": {
+    "currentSourceBuild": true,
+    "restoredApiBuild": true
+  },
+  "parity": {
+    "status": "PASS",
+    "maxAbsoluteError": 1.1102230246251565e-16,
+    "tolerance": 1e-07,
+    "comparisons": 1570,
+    "vectorsPerModel": {
+      "H0": 262,
+      "H1": 262,
+      "H2": 262
+    },
+    "cases": [
+      "calibrator_unavailable",
+      "extreme_logits",
+      "missing_history_annotations",
+      "ordinary",
+      "swapped_A_B",
+      "zero_practice"
+    ]
+  },
+  "replay": {
+    "basis": "archived_final_picks_reentered_at_current_clock_isolated_copy",
+    "mapId": "9084351361",
+    "event": "1win Essence III",
+    "teams": [
+      "PlayTime",
+      "Xipto"
+    ],
+    "actualStart": "2026-11-10T13:49:11.000Z",
+    "snapshotCutoff": "2026-11-19T23:32:09.011609Z",
+    "seriesMaps": 3,
+    "excludedSeriesMaps": 3,
+    "accounts": 10,
+    "distinctHeroes": 10,
+    "coverage": {
+      "nRaw": 2222,
+      "nEff": 2222,
+      "minimumPlayerMaps": 6,
+      "playersWithHistory": 10,
+      "playersMeetingMinimum": 10,
+      "excludedMaps": 70
+    },
+    "featureStatus": "ready_offline_features",
+    "practiceStatus": "computed_research_only",
+    "shadowStatus": "computed_shadow_only",
+    "shadowReasons": [],
+    "researchScoresVerified": true,
+    "shadowResultSha256": "b948b557cf93531ed18e0c2c348fbff5c1489eb3dbd72940ef8049dda88002aa",
+    "shadowReceiptAt": "2026-11-19T23:32:11.999778Z",
+    "committed": true,
+    "duplicateReplayStable": true,
+    "teamAWinProbability": null,
+    "primaryEligible": false,
+    "trainingPerformed": false,
+    "deployable": false,
+    "workingCounts": {
+      "maps": 2292,
+      "scenarios": 12,
+      "captures": 0,
+      "shadows": 0,
+      "predictions": 12
+    }
+  },
+  "historicalPrestartAvailabilityEstablished": false,
+  "localReplayReportSha256": "1e3148fef2f87c419e9d7413381ebc000af373d70eb4b4829c56355105c2b420"
+}

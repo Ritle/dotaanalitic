@@ -20,6 +20,30 @@ function migrate() {
   env: { ...process.env, DATABASE_URL: connectionString }, encoding: 'utf8', timeout: 30000, stdio: 'pipe'
  });
 }
+
+test('historical CRLF migration checksums stay unchanged and unknown checksums fail closed', async () => {
+ const client = new pg.Client({connectionString});
+ await client.connect();
+ const filenames = ['053_owner_lineup_templates.sql', '054_upcoming_forecast_preparations.sql'];
+ const originals = (await client.query('SELECT filename,checksum FROM schema_migrations WHERE filename=ANY($1::text[])', [filenames])).rows;
+ try {
+  for (const {filename} of originals) {
+   const sql = await readFile(new URL('../../packages/db/migrations/' + filename, import.meta.url), 'utf8');
+   const checksum = createHash('sha256').update(sql.replaceAll('\n', '\r\n')).digest('hex');
+   await client.query('UPDATE schema_migrations SET checksum=$1 WHERE filename=$2', [checksum,filename]);
+  }
+  const historical = (await client.query('SELECT filename,checksum FROM schema_migrations WHERE filename=ANY($1::text[]) ORDER BY filename', [filenames])).rows;
+  const replay = migrate();
+  assert.equal((replay.match(/verified historical CRLF; ledger preserved/g) ?? []).length, 2);
+  assert.ok(!replay.includes('APPLIED'));
+  assert.deepEqual((await client.query('SELECT filename,checksum FROM schema_migrations WHERE filename=ANY($1::text[]) ORDER BY filename', [filenames])).rows, historical);
+  await client.query('UPDATE schema_migrations SET checksum=$1 WHERE filename=$2', ['0'.repeat(64),filenames[0]]);
+  assert.throws(() => migrate(), /Migration changed after apply/);
+ } finally {
+  for (const {filename,checksum} of originals) await client.query('UPDATE schema_migrations SET checksum=$1 WHERE filename=$2', [checksum,filename]);
+  await client.end();
+ }
+});
 before(async () => {
  await admin.connect();
  await admin.query(`CREATE DATABASE "${testName}"`);

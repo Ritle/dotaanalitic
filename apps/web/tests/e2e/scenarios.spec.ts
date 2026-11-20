@@ -1,6 +1,6 @@
-import {pickScenario,scenarioPicker} from './helpers/scenario-picker';
+import {clearScenario,pickScenario,scenarioPicker} from './helpers/scenario-picker';
 import {test,expect} from '@playwright/test';
-import {randomBytes} from 'node:crypto';
+import {randomBytes,randomUUID} from 'node:crypto';
 import type {FastifyInstance} from 'fastify';
 import {testDatabase} from '../../../../tests/helpers/postgres';
 import {seedStrength} from '../../../../tests/helpers/strength';
@@ -8,6 +8,7 @@ import {scenarioInput} from '../../../../tests/helpers/scenario';
 import {buildApp} from '../../../api/src/app';
 import {readConfig} from '../../../api/src/config';
 import {AuthService} from '../../../api/src/modules/auth/service';
+import {LineupTemplateRepository} from '../../../api/src/modules/catalog/lineup-templates-repository';
 import {sql,ScenarioRepository} from '../../../../packages/db/src/index';
 let database:Awaited<ReturnType<typeof testDatabase>>,api:FastifyInstance,password:string,ownerId:string;
 test.beforeAll(async()=>{
@@ -79,4 +80,47 @@ test('history reads bounded labels lazily, reuses baseline IDs and preserves imm
   await old.screenshot({path:'test-results/scenario-history-desktop.png'});
   await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await old.screenshot({path:'test-results/scenario-history-mobile.png'});
+});
+
+test('prepare an unscheduled map from two owner-confirmed fives and save a manual edit',async({page})=>{
+  const q=scenarioInput(),templates=new LineupTemplateRepository(database.db);
+  for(const [team,rows] of [[q.teamAId,q.lineupA],[q.teamBId,q.lineupB]] as const){
+    await templates.save(ownerId,team,{expectedRevision:0,requestId:randomUUID(),
+      confirmedByOwner:true,lineup:rows.map(p=>({playerId:p.playerId!,rolePos:p.rolePos}))});
+  }
+  await page.goto('/login');
+  await page.getByLabel('Логин').fill('synthetic-scenario-browser');
+  await page.getByLabel('Пароль').fill(password);
+  await page.getByRole('button',{name:'Войти',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Справочники',exact:true})).toBeVisible();
+  await page.goto('/scenarios/new');
+  await page.getByLabel('Название',{exact:true}).fill('Синтетический драфт без расписания');
+  await pickScenario(page,'Команда A: поиск по названию',q.teamAId,'Aurora');
+  await pickScenario(page,'Команда B: поиск по названию',q.teamBId,'Aurora');
+  const fill=page.getByRole('button',{name:'Подставить подтверждённые пятёрки',exact:true});
+  const cutoff=page.getByLabel('Срез данных UTC',{exact:true});
+  const current=await cutoff.inputValue();
+  await cutoff.fill('2024-01-03T00:00');
+  await expect(page.getByText('Можно выбрать игроков вручную.',{exact:false})).toBeVisible();
+  await expect(fill).toHaveCount(0);
+  await cutoff.fill(current);
+  await expect(fill).toBeVisible();
+  await expect(scenarioPicker(page,'A: игрок 1').getByRole('searchbox')).toBeVisible();
+  await pickScenario(page,'A: игрок 1',q.lineupA[1]!.playerId!);
+  await expect(fill).toHaveCount(0);
+  await clearScenario(page,'A: игрок 1');
+  await fill.click();
+  await expect(fill).toHaveCount(0);
+  const confirm=page.getByLabel('Подтверждаю выбранные 5+5, роли и необязательные ожидаемые составы',{exact:true});
+  await expect(confirm).not.toBeChecked();
+  await page.getByLabel('A: замена игрока 1',{exact:true}).check();
+  await confirm.check();
+  await page.getByRole('button',{name:'Сохранить сценарий',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Сценарий · редакция 1',exact:true})).toBeVisible();
+  const id=new URL(page.url()).pathname.split('/').at(-1);
+  const saved=await (await page.request.get('/api/v1/scenarios/'+id)).json();
+  expect(saved.input.scheduledAt).toBeNull();
+  for(const side of ['lineupA','lineupB'] as const)expect(saved.input[side].map((p:{playerId:string;rolePos:number})=>[p.playerId,p.rolePos]))
+    .toEqual(q[side].map(p=>[p.playerId,p.rolePos]));
+  expect(saved.input.lineupA[0].isStandin).toBe(true);
 });

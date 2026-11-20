@@ -1,0 +1,41 @@
+{
+  "format": "player-hero-future-window-proposal-v1",
+  "status": "proposed_not_registered",
+  "parent": {
+    "path": "tools/research/player-hero-conditional-future-policy.json",
+    "sha256": "77fa352544f4938e8b1cd69a2772894cff6b34df4b954e97677d36ea10ce388f",
+    "inheritExactly": ["cohort", "independence", "features", "candidate", "evaluation", "budget", "registrationPrerequisites", "release"]
+  },
+  "scope": {
+    "events": [
+      {
+        "name": "DreamLeague Season 30",
+        "stage": "main_event",
+        "organizer": "ESL",
+        "calendar": "https://pro.eslgaming.com/tour/2026/09/introducing-dotas-ept-season-26-27/",
+        "fromDate": "2026-12-02",
+        "throughDate": "2026-12-13",
+        "confirmedOpenDotaLeagueId": null,
+        "confirmedPandaScoreMainEditionId": null,
+        "excludedOpenDotaQualifierIds": ["20359"]
+      }
+    ],
+    "decisionDeadline": "2026-11-30T18:00:00.000Z",
+    "fromInclusive": "2026-12-01T00:00:00.000Z",
+    "untilExclusive": "2026-12-29T00:00:00.000Z",
+    "assessmentAt": "2027-01-05T00:00:00.000Z"
+  },
+  "separatelyConsidered": [
+    {
+      "name": "DreamLeague Season 31",
+      "fromDate": "2027-01-20",
+      "throughDate": "2027-01-31",
+      "calendar": "https://pro.eslgaming.com/tour/dota2/season26-27/",
+      "included": false
+    }
+  ],
+  "registeredAt": null,
+  "collectionAllowed": false,
+  "evaluationAllowed": false,
+  "activationAllowed": false
+}

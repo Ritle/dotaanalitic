@@ -23,10 +23,10 @@ beforeAll(async()=>{
 beforeEach(async()=>{
  expect(new URL(database.url).pathname).toMatch(/^\/codex_ingest_[a-f0-9]{12}$/);
  await database.db.transaction().execute(async tx=>{
-  const tables=['conditional_v2_transport_receipts','conditional_collection_v2_events','conditional_collection_v2_journals','conditional_blob_entries','conditional_blob_receipts','conditional_raw_blobs','conditional_blob_archives',
+  const tables=['conditional_collection_v2_sweeps','conditional_v2_transport_receipts','conditional_collection_v2_events','conditional_collection_v2_journals','conditional_blob_entries','conditional_blob_receipts','conditional_raw_blobs','conditional_blob_archives',
    'conditional_transport_receipts','conditional_collection_events','conditional_collection_journals','conditional_real_registration_receipts','conditional_real_registrations'];
   for(const t of tables)await sql`ALTER TABLE ${sql.id(t)} DISABLE TRIGGER USER`.execute(tx);
-  await sql`TRUNCATE conditional_v2_transport_receipts,conditional_collection_v2_events,conditional_collection_v2_journals,conditional_blob_entries,conditional_blob_receipts,conditional_raw_blobs,conditional_blob_archives,
+  await sql`TRUNCATE conditional_collection_v2_sweeps,conditional_v2_transport_receipts,conditional_collection_v2_events,conditional_collection_v2_journals,conditional_blob_entries,conditional_blob_receipts,conditional_raw_blobs,conditional_blob_archives,
    conditional_transport_receipts,conditional_collection_events,conditional_collection_journals,conditional_real_registration_receipts,conditional_real_registrations`.execute(tx);
   for(const t of tables)await sql`ALTER TABLE ${sql.id(t)} ENABLE TRIGGER USER`.execute(tx);
   await sql`DELETE FROM matches WHERE id=9999999999999`.execute(tx);

@@ -1,0 +1,46 @@
+{
+  "basis": "archived_final_picks_reentered_at_current_clock_isolated_copy",
+  "scheduledFieldBasis": "historical_start_for_isolated_scheduled_editor_rehearsal_only",
+  "mapId": "9084351361",
+  "teams": [
+    "PlayTime",
+    "Xipto"
+  ],
+  "actualStart": "2026-11-10T13:49:11.000Z",
+  "browser": "Edge",
+  "uiSave": true,
+  "captureHttpStatus": 200,
+  "revision": 2,
+  "verifiedPlayerHeroPairs": 10,
+  "uiReload": true,
+  "receiptVisibleOnReload": true,
+  "snapshotCutoff": "2026-11-19T23:45:46.644488Z",
+  "shadowReceiptAt": "2026-11-19T23:45:49.435712Z",
+  "shadowResultSha256": "54206e87c2be8c0f473b7e826066725c7498c5a8cd8531796f54c3c1c1f1f005",
+  "candidateSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+  "shadowStatus": "computed_shadow_only",
+  "committed": true,
+  "duplicateReplayStable": true,
+  "excludedSeriesMaps": 3,
+  "coverage": {
+    "nRaw": 2222,
+    "nEff": 2222,
+    "minimumPlayerMaps": 6,
+    "playersWithHistory": 10,
+    "playersMeetingMinimum": 10,
+    "excludedMaps": 70
+  },
+  "workingCounts": {
+    "maps": 2292,
+    "scenarios": 12,
+    "captures": 0,
+    "shadows": 0,
+    "predictions": 12
+  },
+  "teamAWinProbability": null,
+  "primaryEligible": false,
+  "task": "S3-04",
+  "receiptTextUtc": "2026-11-19 23:45:49.435712 UTC",
+  "receiptComparedWithDatabase": true,
+  "fullReplaySha256": "20b3a3a2e16f5a3a1ba154ad5fa0003a73eb574e7ac929577e80b297c32f4d71"
+}

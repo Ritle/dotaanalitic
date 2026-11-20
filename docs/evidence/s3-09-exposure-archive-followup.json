@@ -1,0 +1,98 @@
+{
+  "format": "s3-09-exposure-archive-followup-v1",
+  "asOf": "2026-11-19T20:25:57.100Z",
+  "backupProjections": [
+    {
+      "archive": "restore-b126108d7cb7de3094f5e001.7z",
+      "containerSha256": "a88b68c67281ddca05e512d1490628ed856a572c33e408bdd2e61205adb1bd16",
+      "dumpSha256": "d1455044ad1d49fdb89d6cb2d6430e3eb456623059e02ab0953c868f173cd033",
+      "members": 4,
+      "classification": "synthetic_integration_test_backup",
+      "tables": {
+        "matches": 1,
+        "series": 1,
+        "provider_ingest_receipts": 2,
+        "training_dataset_maps": 0
+      },
+      "mapIds": 1,
+      "seriesKeys": 1
+    },
+    {
+      "archive": "current-20261118T233000Z.rar",
+      "containerSha256": "bbdfb022921415409a07cf758e3443f8958c08f361817d5910cb8de7b9a555c7",
+      "dumpSha256": "6403c3a93354e248d844f0a9fe15732f47be9d2d8c40ede5d2ebd9afccd98668",
+      "members": 3,
+      "classification": "working_professional_match_database",
+      "tables": {
+        "matches": 2285,
+        "series": 1112,
+        "provider_ingest_receipts": 7101,
+        "journal_provider_result_receipts": 13,
+        "training_dataset_maps": 0
+      },
+      "mapIds": 2285,
+      "seriesKeys": 1121,
+      "mapIdsAbsentFromFrozen2026Exposure": 0,
+      "seriesKeysAbsentFromFrozen2026Exposure": 0
+    }
+  ],
+  "gitObjects": {
+    "checkedUnreachableBlobs": 95,
+    "comparedArtifactSha256": [
+      "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3",
+      "7727f5671c3ff78dd44ff068fe44fc99fc012198178b7392268c6c535354fca7",
+      "01e4b85f3658ba912ae28f3b150bfe039bdc44149e1f2861a86f31d44c6437cc",
+      "be55c46227c122aaf004e9595c644d5e41ba5e774154f95621efe65ea94b41d9",
+      "1ebee3f0061fde43abc0e74eef990b56c082aee3c03f7051282727482cceada7"
+    ],
+    "matches": []
+  },
+  "cataloguePages": [
+    {
+      "label": "all_dota_2_series_starting_jan_may_2027",
+      "url": "https://api.pandascore.co/dota2/series?range%5Bbegin_at%5D=2027-01-01T00%3A00%3A00Z%2C2027-05-31T23%3A59%3A59Z&sort=begin_at%2Cid&page=1&per_page=100",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:27:02.161Z",
+      "availableTotal": "0",
+      "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "rowCount": 0
+    },
+    {
+      "label": "dreamleague_seasons_31_32",
+      "url": "https://api.pandascore.co/leagues/4125/series?filter%5Bseason%5D=31%2C32&sort=-id&page=1&per_page=100",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-19T20:27:06.852Z",
+      "availableTotal": "0",
+      "payloadSha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "rowCount": 0
+    }
+  ],
+  "exposure": {
+    "path": "docs/evidence/s3-09-series-exposure-review-r2.json",
+    "sha256": "35e6b362a957485552696b869d49f95f1db114e7aa8df05533b14bf2f7427ef6"
+  },
+  "springPlan": {
+    "path": "tools/research/series-bo3-later-plan-r2.json",
+    "sha256": "607c4fc7a3d6bb23a95d24b9a3be0d4cacc5683f48417aed3393b40f0e805476",
+    "parent": {
+      "path": "tools/research/series-bo3-later-plan.json",
+      "sha256": "0cf48c0f1e791d03696da62ca87a9d8a91a62cea8971b80c75993f7fe48e4533"
+    },
+    "asOf": "2026-11-19T20:27:06.852Z",
+    "registrationIssues": [
+      "EDITION_SCOPE_UNCONFIRMED",
+      "PLANNED_BO3_UNKNOWN",
+      "PLANNED_BO3_BELOW_MINIMUM",
+      "EXPOSURE_INVENTORY_INCOMPLETE"
+    ],
+    "plannedBo3": {
+      "total": 9,
+      "fromVerifiedEditions": 0,
+      "minimumEligible": 100,
+      "minimumCoverage": 0.8,
+      "minimumEditions": 2
+    },
+    "seriesKeys": 1169,
+    "registrationAllowed": false
+  }
+}

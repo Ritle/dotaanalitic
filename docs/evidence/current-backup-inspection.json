@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "task": "current-backup-inspection",
+  "inspectedAt": "2026-11-18T23:38:37.990Z",
+  "backupCreatedAtUtc": "2026-11-18T23:30:12.7798711Z",
+  "archiveSha256": "6403c3a93354e248d844f0a9fe15732f47be9d2d8c40ede5d2ebd9afccd98668",
+  "archiveBytes": 57718576,
+  "restorePassed": true,
+  "inventoriedRelations": 111,
+  "matchingMigrationChecksums": 60,
+  "migrationMismatches": [
+    {
+      "filename": "053_owner_lineup_templates.sql",
+      "ledgerSha256": "c0ea830053e810e60ff3dc41119081a253f43fb2880f877d03bb50b147598c21",
+      "currentSha256": "1fd0068044746b20ad96bf749a07ce1b524628c1d26c964ca69ea3c0598275f6",
+      "reason": "exact_same_SQL_with_CRLF_in_old_ledger_and_LF_in_checkout"
+    },
+    {
+      "filename": "054_upcoming_forecast_preparations.sql",
+      "ledgerSha256": "fe41c2576bec37b6671de8c865a0e52cc44e69cea4f7a2859bccf2e37a7087bf",
+      "currentSha256": "a71ee5ee446108ea0375ec36f66ac02785dd88d340ecc37fd54a3c8fb34f6396",
+      "reason": "exact_same_SQL_with_CRLF_in_old_ledger_and_LF_in_checkout"
+    }
+  ],
+  "missingMigrations": [
+    "062_conditional_registration.sql",
+    "063_conditional_real_registration.sql",
+    "064_conditional_collection_journal.sql",
+    "065_conditional_transport_receipts.sql",
+    "066_conditional_registration_v2.sql",
+    "067_conditional_blob_archive.sql",
+    "068_conditional_collection_v2_journal.sql",
+    "069_conditional_collection_v2_transport.sql",
+    "070_conditional_collection_v2_sweeps.sql"
+  ],
+  "counts": {
+    "app_users": 1,
+    "leagues": 55,
+    "match_players": 22850,
+    "match_source_snapshots": 2379,
+    "matches": 2285,
+    "players": 573,
+    "prediction_model_versions": 2,
+    "provider_reference_snapshots": 17,
+    "scenario_input_snapshots": 16,
+    "scenarios": 12,
+    "series": 1112,
+    "teams": 213,
+    "v1_journal_reports": 2,
+    "v1_model_artifacts": 1,
+    "v1_runtime_snapshots": 12
+  },
+  "matchSummary": {
+    "total": 2285,
+    "positivelyclassifiedpro": 2285,
+    "syntheticsourcerows": 0,
+    "earlieststartedat": "2021-06-23T08:00:33.000Z",
+    "lateststartedat": "2026-11-14T14:30:16.000Z"
+  },
+  "catalogue": {
+    "teams": [
+      "Team Spirit",
+      "Team Liquid",
+      "Team Yandex",
+      "GamerLegion",
+      "PARIVISION",
+      "CyberHero",
+      "Zero Tenacity",
+      "Yellow Submarine",
+      "OG",
+      "Dawn Bulls"
+    ],
+    "nonSyntheticPlayers": 573,
+    "syntheticOwners": 0
+  },
+  "models": [
+    {
+      "stage": "pre_match",
+      "algorithm": "fixed_player_mean_elo",
+      "isActive": false
+    },
+    {
+      "stage": "pre_match",
+      "algorithm": "fixed_player_mean_elo",
+      "isActive": true
+    }
+  ],
+  "replayedForecasts": 12,
+  "replayedJournalReports": 2,
+  "sessionsRevoked": 58,
+  "nonSessionTablesUnchangedAfterChecks": true,
+  "originalTableFingerprintManifestAvailable": false,
+  "separateModelBundlesIncluded": false,
+  "environmentChanged": false,
+  "applicationConnectedToBackup": false,
+  "classification": "working_professional_match_database",
+  "containerArchive": "current-20261118T233000Z.rar",
+  "containerSha256": "bbdfb022921415409a07cf758e3443f8958c08f361817d5910cb8de7b9a555c7"
+}

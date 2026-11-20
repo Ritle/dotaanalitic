@@ -1,0 +1,3321 @@
+{
+  "format": "wallachia-isolated-elo-replay-v1",
+  "inventory": {
+    "path": ".tools/s309-wallachia-replayed-inventory-extended.json",
+    "sha256": "ddb879969076a31fde8ec350f1e685196ea15c049ee20e4243787ef0a9517a4f"
+  },
+  "baselineInventory": {
+    "path": ".tools/s309-wallachia-replayed-inventory.json",
+    "sha256": "1c73dd0e1a76306872262157206602dd11e1bad8dc9d37829b0ffd146ce14c81"
+  },
+  "scope": "extended",
+  "summary": [
+    {
+      "edition": "17891",
+      "pandaScoreEdition": "9121",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [
+        {
+          "seriesId": "957770",
+          "mapIds": [
+            "8214023491"
+          ],
+          "sameDayNodes": [
+            "957814"
+          ]
+        }
+      ],
+      "before": {
+        "compared": 37,
+        "ready": 21
+      },
+      "after": {
+        "compared": 37,
+        "ready": 33
+      }
+    },
+    {
+      "edition": "18058",
+      "pandaScoreEdition": "9264",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [],
+      "before": {
+        "compared": 39,
+        "ready": 32
+      },
+      "after": {
+        "compared": 39,
+        "ready": 39
+      }
+    },
+    {
+      "edition": "18358",
+      "pandaScoreEdition": "9362",
+      "valveNodes": 46,
+      "pandaScoreFinished": 46,
+      "orphans": [
+        {
+          "seriesId": "987711",
+          "mapIds": [
+            "8345450484"
+          ],
+          "sameDayNodes": [
+            "987722"
+          ]
+        }
+      ],
+      "before": {
+        "compared": 38,
+        "ready": 27
+      },
+      "after": {
+        "compared": 38,
+        "ready": 38
+      }
+    }
+  ],
+  "import": {
+    "requested": 155,
+    "accepted": 155,
+    "eligible": 154,
+    "unboundMaps": 32,
+    "excluded": [
+      {
+        "matchId": "8319903870",
+        "reasons": [
+          "OUTCOME_TEAM_SIDES_UNKNOWN",
+          "ROSTER_RECEIPT_MISMATCH",
+          "SERIES_SOURCE_UNVERIFIED",
+          "SERIES_UNKNOWN"
+        ]
+      }
+    ],
+    "before": {
+      "maps": 2292,
+      "series": 1115,
+      "receipts": 7122,
+      "artifacts": 1,
+      "predictions": 12
+    },
+    "after": {
+      "maps": 2447,
+      "series": 1186,
+      "receipts": 7586,
+      "artifacts": 1,
+      "predictions": 12
+    },
+    "createdSeries": 71
+  },
+  "baseline": [
+    {
+      "seriesId": "955788",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "40a3493a575354da7f88337f7a0936031430f31eb1e9489a90f769a783d6b3b6",
+      "shortHistory": [],
+      "featureSha256": "900267442b1bdb2fb235bee54ecc471fbcd93e506b2c5b60c957caa358509aaf"
+    },
+    {
+      "seriesId": "955790",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 2
+        },
+        {
+          "account": "155332459",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 3
+        },
+        {
+          "account": "177953305",
+          "maps": 1
+        },
+        {
+          "account": "399920568",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "3c888b36a8a0de85365cb978765cc949b125419b0568f261dc4a71071efb6e86"
+    },
+    {
+      "seriesId": "955802",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "200573858",
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "955804",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "8a83a24874b684c361c3f887db69294b1c8a5e18dbd25765adaf27ab57051fc2"
+    },
+    {
+      "seriesId": "955820",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "01834fbb9716dfa9fdc49e2f3f30154b7c7825ca59dae30e35946e08a76a8be4"
+    },
+    {
+      "seriesId": "955841",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "7dbc7edc2c31be2ae9dc0738bd22f72f773e2c4cb18bbfc45a2a35b8cee942ac",
+      "shortHistory": [],
+      "featureSha256": "22646f6d2f2b3d39775343663ba52a6b79c9eb86a5136e825c8fbf5b6de59133"
+    },
+    {
+      "seriesId": "955857",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "569533fadd26b16638c58934aa0728787f0a30d357ac55f0a62356b0c0575a4f",
+      "shortHistory": [],
+      "featureSha256": "598600e9ac9f57f6c517440248d8d173b90b08e2b1b1fbb8b0e5e7f829d7c0f4"
+    },
+    {
+      "seriesId": "956060",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956061",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "2f3cf175310c9cf0804a586b00b89d1489eed905123e1c7b5129e78e820a9d5c",
+      "shortHistory": [],
+      "featureSha256": "18d910072a34b4654ca437bceb18ac715f0d48c3e362c673fe76476b794e46a6"
+    },
+    {
+      "seriesId": "956092",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "a0da69013ba7941460fcfa6c27b47e0de8a63adae82b942c9a70febbab743178",
+      "shortHistory": [],
+      "featureSha256": "e70b0eb9beb7105dbdf0b9322d0f25f9cabd77b1f7d23f93093d2c8c405be8cd"
+    },
+    {
+      "seriesId": "956134",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "8469dc7b8d99e9836febd72131f7542c973f3e55be5727628b75c5a0a8a75989",
+      "shortHistory": [],
+      "featureSha256": "fb3d93bf1572b92cdd9ad6397a95f484d69069aa668e7966c9562e3979fbd464"
+    },
+    {
+      "seriesId": "956169",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 2
+        },
+        {
+          "account": "155332459",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 3
+        },
+        {
+          "account": "177953305",
+          "maps": 1
+        },
+        {
+          "account": "399920568",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "a84e49b9faf9fc7f4201fb10e4c635efd10086f9ed19d42eeaaa497af3378a17"
+    },
+    {
+      "seriesId": "956212",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "baf877b97d14e514148f4eeba63ff68c33f260008150a108fb640c5a9861f9f5"
+    },
+    {
+      "seriesId": "956250",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "37e69508ec164ec6efa3915e69e4b3d88994cead7af9b552b19a129605a7ddf1"
+    },
+    {
+      "seriesId": "956462",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "8706849ad334f27b32ef613eada0a4e61457fca874561ec4c0f108986c64a9f0",
+      "shortHistory": [],
+      "featureSha256": "551da370c7cfdcc2ec8e96cbfcc138142ebd68ceb5d979a1ab9dc8073e9316b9"
+    },
+    {
+      "seriesId": "956463",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "fe1a8783d9c26353d8ded4b4054c0488049dca9ef1e994946961e12e476288e6",
+      "shortHistory": [],
+      "featureSha256": "967adb0c6e83a5ecfb71533f98ad09373d4af2ea95af5479b331f30cd1a39e58"
+    },
+    {
+      "seriesId": "956472",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "2503f4cb2d1f50dc12a3c67cc7adaa4f06a114e736cbaf5c81c91e9815775182",
+      "shortHistory": [],
+      "featureSha256": "2e34b5a452cb14a192fded09d2b160203869f94e23f109177202a67923a533be"
+    },
+    {
+      "seriesId": "956475",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        },
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "7d034524429e0730163945fb534c62b9c56eeb8ddf468ffc74d6b7831b10d613"
+    },
+    {
+      "seriesId": "956489",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "956504",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 35,
+      "eloDigest": "44a682c4b10dcc729653f6d1dc6aaa6743ac5bf11993a5a88289d9f9229a0001",
+      "shortHistory": [],
+      "featureSha256": "e2599019d8b30795173d1cd50b43d4e301466daa00ae5e105f70e7c6f10ac9fb"
+    },
+    {
+      "seriesId": "956520",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 1,
+      "shortHistory": [
+        {
+          "account": "138177198",
+          "maps": 2
+        },
+        {
+          "account": "155332459",
+          "maps": 1
+        },
+        {
+          "account": "425588742",
+          "maps": 3
+        },
+        {
+          "account": "177953305",
+          "maps": 1
+        },
+        {
+          "account": "399920568",
+          "maps": 1
+        }
+      ],
+      "featureSha256": "7ce1dfed375f76952f72d8f159f19377368ff692d7aa75deb99175b5bcc1fcf9"
+    },
+    {
+      "seriesId": "956686",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "8165b2f7caefe5952ba187b3875bcc8153c7b0feab374422cf60f38fcdc77320"
+    },
+    {
+      "seriesId": "956687",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956694",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "8bed3076189084bbe5d15efc26e8be623505f5c424edd76b538624357b294454",
+      "shortHistory": [],
+      "featureSha256": "6726c2a5c2f5e72904a12dc75d9620c873259c4d04ace4b53b2bbc46c46b3bc5"
+    },
+    {
+      "seriesId": "956701",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "d6146f45477168ddf3410efc7ff9506611fdd987c38c17542b75d9d1d24060cf"
+    },
+    {
+      "seriesId": "956715",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "ef4ba3f6a8d956bb6d764ccc38e594b2ba6505869a10defce63ec1b622b6188d",
+      "shortHistory": [],
+      "featureSha256": "ba0d195c0c874c2567a51bd1b2277643d7294c6a9713672c6d060b5aaedae36b"
+    },
+    {
+      "seriesId": "956737",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "75bbdf36a2fd9f7b639a8fdfd6125323f4f2a04cd602cd31f8db2fb559e37c44",
+      "shortHistory": [],
+      "featureSha256": "d630adc28649b9cbc50cc422fe487f7b45dc74cb22fa91af099a5fe7ee28a1c7"
+    },
+    {
+      "seriesId": "956976",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "3c651899f185d4c65f0cb3688c8b75a0372bf77777539ad472d66c6c55ab7adc",
+      "shortHistory": [],
+      "featureSha256": "5f43a836545a835a2944e5ddd727e95ecfab20fe0a4aff0c486f7503e22ed8d6"
+    },
+    {
+      "seriesId": "957002",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "351ae002d03af7a55e7f38acc772790f0f9bf2720a83b1616fd4df6be7a03b32",
+      "shortHistory": [],
+      "featureSha256": "250f5ff3bb76d9b017b45377a54f7da25c636f1752f00a0e8643c1c26eb09958"
+    },
+    {
+      "seriesId": "957248",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "fd0da3b83c214403cc082a2eab4fcbb6ef13d1977a21d5121a7bbd2a33cd2120"
+    },
+    {
+      "seriesId": "957260",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "8469dc7b8d99e9836febd72131f7542c973f3e55be5727628b75c5a0a8a75989",
+      "shortHistory": [],
+      "featureSha256": "019b90cdcdadb70f93be58442e2efe46f5496e7f08b14b3d0fb0f445a7d7cdcd"
+    },
+    {
+      "seriesId": "957323",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "b11e2b30d0184c443722ae89b5c35b6e88ea3d96188c2ebb7c636f33293f8987",
+      "shortHistory": [],
+      "featureSha256": "711a06dadc41f683f29357c146b5892aea4ed8b9ae54d0cc4849336e0bffc966"
+    },
+    {
+      "seriesId": "957590",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "1dce0f1439ef95fb3afdbd9742ce5c5a91d59faccbce6fefad7faeda0b51de5f"
+    },
+    {
+      "seriesId": "957659",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "d6087f76ffb94a3397a0a3f84d9629c97b42f27c76294255103589bf2b5027f7",
+      "shortHistory": [],
+      "featureSha256": "232f539d6c8c4c1d041b720e1970a69dc151a2a38c351748b451fc7791eaaead"
+    },
+    {
+      "seriesId": "957980",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "54db3cb27d926c6776918b6e402d7d095dcde2fe15cd9331e60569d42a905979",
+      "shortHistory": [],
+      "featureSha256": "07a8392fbcdd8e05c27473c738106e72dccbc9cf477f73de7301274ff1abc99d"
+    },
+    {
+      "seriesId": "958030",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "c8f92e2eb2b65124f148c1cc6142d5ffc0a634849851906eecf339d17e3d8cc3",
+      "shortHistory": [],
+      "featureSha256": "759fd1feb5d8cce91c523e02ca3c62cc12191833c99d42e823e62c172c977d09"
+    },
+    {
+      "seriesId": "958284",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "596c3cb515f3a3b3c7f90a557e5b29527afe89de683efa66e860684b43e9c96f",
+      "shortHistory": [],
+      "featureSha256": "1951f1753162620798065dcf55522b5f6d8cd2397203662f93adc5f309b8f112"
+    },
+    {
+      "seriesId": "968836",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "1e30c5a25bc985c1c0bc4b44a7cf79d2d652026db975bd57e912e89b66e78642",
+      "shortHistory": [],
+      "featureSha256": "d1fc98854f52ba618bd8378876671bc5dbad89a1237dfbad62d704afd6f06f0d"
+    },
+    {
+      "seriesId": "968837",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "5f0c7e85ae58335b4ebd403b448f15494bf9678f64e677fbd014f0918ab07799",
+      "shortHistory": [],
+      "featureSha256": "7d3642b4a50050d8c2253ee8b329a302f6f47da29741a5a3b9e6e08983d62486"
+    },
+    {
+      "seriesId": "968909",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "28728f080ed5c781fc0e8ca336418225692596ccdcd17c4d4d54a70940615ca4"
+    },
+    {
+      "seriesId": "968919",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "0819bf1addd283f03c655f139fb708dd5d193de18a0af41ce64856994d60148a",
+      "shortHistory": [],
+      "featureSha256": "d606219be3027ecc4f5a188e54152ee7dfb9b127bab1c7a59814cc795e6a8a85"
+    },
+    {
+      "seriesId": "969006",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "cd2e740b3b4a6190f4e86ef99eb2bc7de2ba5da67a063bbbaaea58d894b485a5",
+      "shortHistory": [],
+      "featureSha256": "f09ba69a3925846166d3878f4c33eee245a1435e893d6d3c4ec1fea514cb2189"
+    },
+    {
+      "seriesId": "969060",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "a84a20a2facb171647262b5f3a990aac41b3914d538a27d4b14725e290341ccf",
+      "shortHistory": [],
+      "featureSha256": "2476bb70d3a98b9ba134bf24a288adc0c5c7cbdbbbcf06b74a26ba43d741238a"
+    },
+    {
+      "seriesId": "969082",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "56e8c8dad61b04fb074f67f60acaaa4fb4e0302359ff4e5cc138893217be963a",
+      "shortHistory": [],
+      "featureSha256": "61917a8b794bbf67c7f36734f591ceee7da82f40dcdf17ba44c02079ecdd6bf5"
+    },
+    {
+      "seriesId": "969246",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "c8db547a4feaaa3d7efb880ed316fe1ea0ab4b52bffc325cef3a90aaa607d572",
+      "shortHistory": [],
+      "featureSha256": "fca23d19d58f79bd73b8151aaae8a0b39f8dbdcdf1a27a04b7495ab9316b3d7f"
+    },
+    {
+      "seriesId": "969247",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 10,
+      "eloDigest": "2f80acbd7587544cde0c8a6167d603adb69bd62ac367748474955df3dca50b88",
+      "shortHistory": [],
+      "featureSha256": "e70f01b49eef1f6ab868fa47beb1eab036c77f0efd4b118575183456da0e5961"
+    },
+    {
+      "seriesId": "969267",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "10d77fb514e2f2d41194d8c0290b0876d0896cfba884dae56d8a98d18d459402",
+      "shortHistory": [],
+      "featureSha256": "5d914b514ca300b2e03b5d15633cf907e9cc36e0b1ed68edaa5952f5ee9f1176"
+    },
+    {
+      "seriesId": "969315",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "0c49db24c137e3f1767bcf22975468f703b2860b714553e5f62fd324db721ce7",
+      "shortHistory": [],
+      "featureSha256": "41b9a7c80bd5044bee9ab97195684fd0a5615b7adf6339404d762cf80334fb75"
+    },
+    {
+      "seriesId": "969323",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3377c264ad4e452ed8d70e1edd5c43560ba2649fe4ee705cfc58af25725099af",
+      "shortHistory": [],
+      "featureSha256": "527dab8d77df2fde8efd2b8c7e7f7d4a94cce801c02264e29fd2679262760b28"
+    },
+    {
+      "seriesId": "969365",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "eloDigest": "9c5204ff0ac7ac2af1aa16b28016b3f02ae9f68e561bce37a024e94e1d758c13",
+      "shortHistory": [],
+      "featureSha256": "bcb7a89fa0927691d6c3be56c23b0a9467f1ab6577dcebb2182892eceef1e874"
+    },
+    {
+      "seriesId": "969383",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "53e41250004fb115fc99045dcca524b7990bea21e929413835dd36e93dbb7427",
+      "shortHistory": [],
+      "featureSha256": "cbbd36587c0cd89a6a22553d0751f30d0ffd0cb054f8f3c9249cd491a0f8e2a9"
+    },
+    {
+      "seriesId": "969592",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "c058e1be423ff33f6254a3531c3162249877a0150e0a1caf65ba23a321010b2c",
+      "shortHistory": [],
+      "featureSha256": "95a163234c33660a4a5dfcc94d98429977ad5d167197bcf8bba6a0502aa70ce0"
+    },
+    {
+      "seriesId": "969593",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "771d3e80a14db7c96e15a4842aa021efd6f1580038c4b176a59e7882e87d9793"
+    },
+    {
+      "seriesId": "969608",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "2ddf6b24d0683a328a7f249e3dcbc9679aff70a17baff4e03db23a9c32bfdffb",
+      "shortHistory": [],
+      "featureSha256": "230915ebfca347fa265a982587ee42ef869152c53b82c556e6380910cc30865a"
+    },
+    {
+      "seriesId": "969616",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "c1dbdbd5b6bd270c3feb0a1fa83db8be572fad8a751ecd7cfe97ad4052913d69",
+      "shortHistory": [],
+      "featureSha256": "ef3f5990cad180de52b542386c3290fbe58843c62c462b0d0c89382bec5c068e"
+    },
+    {
+      "seriesId": "969621",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "cf5383e78a4f4fd1525b9b3d8727197959e124a55f00ad63164d767c09d7c4fd",
+      "shortHistory": [],
+      "featureSha256": "a01b780c3f8dbaafb2d35293a845a547b310006fb5104329694995fa38d651ba"
+    },
+    {
+      "seriesId": "969646",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "5a5bb8c8c132ef56c617df569afbb654769f1c1fe4211333fd3da668f7efcf10",
+      "shortHistory": [],
+      "featureSha256": "7a1440511778b505155fb1289a6bd3d6599cf73e11405f69a60380161186ffbe"
+    },
+    {
+      "seriesId": "969792",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "dfe18a28ef67e06612d96307de0cd61cb639a45645b48ee1d5f3aab57223b30a",
+      "shortHistory": [],
+      "featureSha256": "0e81ebd7518c0acc320683e7863679e86f82c55fbd83cb803161c5ac856266f4"
+    },
+    {
+      "seriesId": "969793",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "fe17929dedef9bdb14a6b2844e543c346fa1e3646b2005aeb97a2d964d981ffc"
+    },
+    {
+      "seriesId": "969815",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "ea12d068b7460d867c5ae3c34db429692629ac0ac701db5550963d45fed30a69",
+      "shortHistory": [],
+      "featureSha256": "5b81ac205b5a6fa5adbf20b15c2875efae2d125a1bdaba2b35718330b5b654a6"
+    },
+    {
+      "seriesId": "969816",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "304343b8ce0d229e92ce2a9ae6a182427f2ab40362691f02aaa89c3b9e47fd4e",
+      "shortHistory": [],
+      "featureSha256": "ba3570197c9506eaf01788eec83925d011f53cfac3be08a7de7afa516e1c5c54"
+    },
+    {
+      "seriesId": "969829",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "f14928f554558227a7c051b8eb0d155cc48105009ec54706049131dbd8e14fc5",
+      "shortHistory": [],
+      "featureSha256": "f10eaf838070c412311b27d6539f97be4aa3d1fd2c4dd5f10f9555c450a4b83e"
+    },
+    {
+      "seriesId": "969851",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "4a19d59c0330d14a234a971d845ee76ef80f3a5a1089fe4228fba463f8876e23",
+      "shortHistory": [],
+      "featureSha256": "544df03787206a6ea501351a4665d5692ac8b32f1d7430baaad15f56abbc0151"
+    },
+    {
+      "seriesId": "970113",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "4710bdb0b5ead6b3fdbc51fa3f966c88a07f04f4f5462da1876866199f7fbc19"
+    },
+    {
+      "seriesId": "970122",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 10,
+      "eloDigest": "582567a80ce22165af07c4409f04abadb0b8c2e092c432c8f1b712d10286d1db",
+      "shortHistory": [],
+      "featureSha256": "ff837b7497675fc543e7c05b0925ad9ff92539a256f70a337b6ffa0d1ed89d85"
+    },
+    {
+      "seriesId": "970138",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "0a0856c15bab854931a1d9fd6be2276e34290f0c34c5a978d16b39c4e73c1824",
+      "shortHistory": [],
+      "featureSha256": "4b718fd276a71cf03aeb0b87aee46e475eb7fc25b3ad114fdc16b0e9b0fb3f57"
+    },
+    {
+      "seriesId": "970355",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "c187a2992abe16b77e2ba77f9f638cf7aa574020464739cdee80b071b5b0ed05",
+      "shortHistory": [],
+      "featureSha256": "6c55fafa647b6770ba9f95b9dc0337e0db2a7b21d51f7b9068f072ed37b87106"
+    },
+    {
+      "seriesId": "970410",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "3ac924e17c6af31daf2e6e1365ba7264adc55cad31e503f169c9549cebfa20dd"
+    },
+    {
+      "seriesId": "970445",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "6e2266aace4312e0d849ca47348573c15a1a5a8055109d299dc680fbb4d5497d",
+      "shortHistory": [],
+      "featureSha256": "bde131c1fd4cfa57193982e507904e74afb45029e165bbac4b70c44e31429b58"
+    },
+    {
+      "seriesId": "970675",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "174114f3c5a05835bd5d808a838c1175a01f2f8dd6014b272133af7914763ee1",
+      "shortHistory": [],
+      "featureSha256": "2cd56a85867557c975d3bad55cbdcc05157f284d774dd922a65c1ce9a33b9ee1"
+    },
+    {
+      "seriesId": "970689",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "38fe6e20f2806ca4ff1f9d5ef2de5c88f4ccb52c46f558d2f265a3bbe39e95bb"
+    },
+    {
+      "seriesId": "970766",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "903c637eeb1327beeac497eff154cf7027754188941b09012627ddf8a5a8d95f",
+      "shortHistory": [],
+      "featureSha256": "95ad2f5c6de46d7722d199b245421a18eb35e67a5f7a8f649213893175cdac8a"
+    },
+    {
+      "seriesId": "971009",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "a6097abedb5682c5a35bd3efad896785f803ea9e1361bc27b496f6693e8f32df",
+      "shortHistory": [],
+      "featureSha256": "d498c33ccb9f5c43017776ed1952da1bc1e65ed911b9448e7247f0e2f7572343"
+    },
+    {
+      "seriesId": "971121",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "eloDigest": "5462663e037a4fe2267c4f06ad39591dab874ce35ad67fd6a48ec5101aca1fe5",
+      "shortHistory": [],
+      "featureSha256": "88afae76b2cf2cb4d533c79bcfc56ea755d3cead7a23b61c814bf87b9669ca6d"
+    },
+    {
+      "seriesId": "971213",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "68f428af583d2f5449b29c8979dd1a99e8e2c1c1782e40ab6da88ea1ead52bb3"
+    },
+    {
+      "seriesId": "971400",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "b46bcfe02e11f95e5fe3a4e91b1fd49f971c0bb4e9bd371bbab67d3383793608",
+      "shortHistory": [],
+      "featureSha256": "838ce53bcf5ad304fa029227e01df95e02857b21436da06af8936c2d5fd8efe0"
+    },
+    {
+      "seriesId": "987267",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "26deba87342345c38636c8461d8647cb3b046904d47a6fd51d5e14d90e5811e2"
+    },
+    {
+      "seriesId": "987268",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "3e08454f04f21cc838b6f461b7280dd36056f8f4d5c10d176b15eb97997f231c",
+      "shortHistory": [],
+      "featureSha256": "90b0dfa625fc6f993350f950dd62f0c07185aa76b7f977b67ed5f367a384d051"
+    },
+    {
+      "seriesId": "987279",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "5fe9a85e42af0062a7970852edbd0fb7e2a27ce21dd57b05438b61cd07bd37f1",
+      "shortHistory": [],
+      "featureSha256": "b958beeb11bd0d154d488527b818fc274407c79578b465403d63475112907dc9"
+    },
+    {
+      "seriesId": "987281",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "8afee54139106c86202fce4497e41678d603422fc4f6b00b2e66718263230036",
+      "shortHistory": [],
+      "featureSha256": "2fc54118339246f8c90bfee62fcbca1c8540129d3179556b1765c30ffbb3cac2"
+    },
+    {
+      "seriesId": "987320",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 3,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 3
+        }
+      ],
+      "featureSha256": "9275fcdb5721a12b63f392777bb1fff8286d63f1df2ff0c3812cbeb716e6ca71"
+    },
+    {
+      "seriesId": "987323",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "8698cd3576ad2252c7ad5896f0ebcaf6d0cdccf9d29ec8365dc04ea7f4570910",
+      "shortHistory": [],
+      "featureSha256": "1d8f280f40385ca05edc4c92fd9ded16e59f798c9d1ad36e681577ce578da651"
+    },
+    {
+      "seriesId": "987391",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "0051c73fd2da5f2a44556aab33cb678ba0f4ecc48baaa9eda8c4d0762f4a5e01",
+      "shortHistory": [],
+      "featureSha256": "e619fb40ec9a771cf37f8233ad7595df6c7a3985d5fa3a854f23c85ec8f3be1f"
+    },
+    {
+      "seriesId": "987578",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "c077f2bb2627da28163642fa93c51937f04a976b70fde95ce2789c6b498cb113",
+      "shortHistory": [],
+      "featureSha256": "397f0aa7878b4292b92704744679683956a93d4d3b7804ca9edc19b520e8ad5c"
+    },
+    {
+      "seriesId": "987579",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "12229c665860f34f3b22780eb8f434622cf396e4da6253b19eadc4e3625a8e43"
+    },
+    {
+      "seriesId": "987609",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 3,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 3
+        }
+      ],
+      "featureSha256": "c8d5ef8668c67c54a80456429b286569ae035ce59d3ea0e864e9c30bb4b96a63"
+    },
+    {
+      "seriesId": "987620",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "eb7f47ca2b39d3e843d5570f73ed0a2583caaf964ca8434dcd995a5efbfe97d3",
+      "shortHistory": [],
+      "featureSha256": "84195fcc866b7520ad8a555098b23e93b76f4a33475408a0cce14f4d00bb395e"
+    },
+    {
+      "seriesId": "987648",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "7495f48d113e070dd4245b589f442dae17b0b94a563100910613352b3ce60484"
+    },
+    {
+      "seriesId": "987678",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "562da8d6852e1e57c3ac8e30d70c732fa7c56418c9a9fdae676299a0df9ea282",
+      "shortHistory": [],
+      "featureSha256": "5043ea84a504121839491ab184cc329a48c6adf1deacec80b9fbc49eb2762dc6"
+    },
+    {
+      "seriesId": "987722",
+      "edition": "18358",
+      "membershipHeld": true,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2924a90e03e0fb1681609c6ba42e2ae3a938af9648e1b1917a83eb9170ed0122",
+      "shortHistory": [],
+      "featureSha256": "494a1553fd2ac60354adffecaa83ad2a2a96d1e44c246d229c664a1b0cee1f23"
+    },
+    {
+      "seriesId": "987931",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "7accf15de17a38c51d689a27cc67adc92048e5f8c7df5accb93354ec51861b6b",
+      "shortHistory": [],
+      "featureSha256": "84eb1403008a55e0c56f69e72c1c4cd881cc12e8002d2e07c82102fb4be332a1"
+    },
+    {
+      "seriesId": "987932",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "b5bbd8e5b7b8aba5e52f4c3f405ef36f15cd53986526fd81220909afd7193445"
+    },
+    {
+      "seriesId": "987941",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 3,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 3
+        }
+      ],
+      "featureSha256": "8094d28c459ebfc7842d797cd24d42b5aa21832accba8e275278f88e077e2228"
+    },
+    {
+      "seriesId": "987942",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "0678e4919dcc114d6eef16806c9acb30be8ae705f63f42992bf76074c635fe18",
+      "shortHistory": [],
+      "featureSha256": "9d161b5380b8e2da7257db23eba0ef7c036ba0e65795fecfb1da8ab5a9b803eb"
+    },
+    {
+      "seriesId": "987956",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "5a5bb8c8c132ef56c617df569afbb654769f1c1fe4211333fd3da668f7efcf10",
+      "shortHistory": [],
+      "featureSha256": "ecd31bd048aaca95abb9ee9488ffd6a28033e2c01de81b3e80a1299cf6a3e879"
+    },
+    {
+      "seriesId": "987957",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "8f5d1b8631226d2eb1994946591e90d81b31599c33fad7de96eb5701e36a95a2",
+      "shortHistory": [],
+      "featureSha256": "adab697f6a386e108789feb0a4702245bbcb97e41bd2b050c9138d1a35929f9a"
+    },
+    {
+      "seriesId": "987996",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "202be3d7f7b9d7e67dd49bb8c8e457d7bfe55bdd58f75df091990b63edbbfdd1",
+      "shortHistory": [],
+      "featureSha256": "69685d787d47b0b23eaf5a087b9c186cfc84209a06e4765163fa563515189c49"
+    },
+    {
+      "seriesId": "988164",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "0c49db24c137e3f1767bcf22975468f703b2860b714553e5f62fd324db721ce7",
+      "shortHistory": [],
+      "featureSha256": "12889c1582d3f30e104deed3b6924e2160d3d50df6c4ec9ca1fb813b644617ae"
+    },
+    {
+      "seriesId": "988165",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "d9c3e3783193b2b5fbd2bab8408d19a9f91317f98d596d62e93e5fa8c76e87b8"
+    },
+    {
+      "seriesId": "988169",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "707f9d57ee340c87f32885f4e13227521514aa37c7246ce4a5b96c41f6e158d8",
+      "shortHistory": [],
+      "featureSha256": "d3168d7d210c8611abfff2c8634a449d55fdfdc1d6f5ede92b5dd0b70def98d2"
+    },
+    {
+      "seriesId": "988173",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "140288368",
+          "maps": 3
+        },
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "b2716c117efad6c5223e4b1f955e0675c9b39c18fd5da5bf5601c5f4857b1321"
+    },
+    {
+      "seriesId": "988193",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "c9020252069c8298c203bc6623e1fdaf3b56b58dd2c4608cd67664e3fcb61b9b",
+      "shortHistory": [],
+      "featureSha256": "434ab2c42c30c8c547a5fe1e4123fe589048d6e80f530b44e503888d2727f31d"
+    },
+    {
+      "seriesId": "988228",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "7d7983417d9eda936976802035bb300777c8a809f069031487708b9c823b4e68",
+      "shortHistory": [],
+      "featureSha256": "e9840c563e58cd34001b4211b81b17927a6983881929b7b15b46c0196f89072f"
+    },
+    {
+      "seriesId": "988399",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 2,
+      "shortHistory": [
+        {
+          "account": "90423751",
+          "maps": 2
+        },
+        {
+          "account": "154974246",
+          "maps": 2
+        },
+        {
+          "account": "160119017",
+          "maps": 2
+        },
+        {
+          "account": "191362875",
+          "maps": 2
+        },
+        {
+          "account": "81475303",
+          "maps": 2
+        }
+      ],
+      "featureSha256": "3a4fdd46c19301141144a045bbe361c1c39a47e5c4735335a93dfb4ccf3c2074"
+    },
+    {
+      "seriesId": "988413",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "01075b444e94925a030c78431da3efc5336d80e208e3b23f5fd52c668b2a1784",
+      "shortHistory": [],
+      "featureSha256": "f48622a0f6ddce427b4bfe3c9823f2f44821f987af91effbee395268b38a8456"
+    },
+    {
+      "seriesId": "988439",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "INSUFFICIENT_PLAYER_HISTORY"
+      ],
+      "minimumMaps": 0,
+      "shortHistory": [
+        {
+          "account": "111114687",
+          "maps": 0
+        },
+        {
+          "account": "118134220",
+          "maps": 0
+        },
+        {
+          "account": "173978074",
+          "maps": 2
+        },
+        {
+          "account": "150961567",
+          "maps": 0
+        },
+        {
+          "account": "320252024",
+          "maps": 0
+        }
+      ],
+      "featureSha256": "d1c1ab5a60fc12456134e90f7f2d5629d94eb96e73613131e0abe1f575438a5f"
+    },
+    {
+      "seriesId": "988592",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "00e9f7c68565ccbab51dde3befa42f0be3cd23cfe655642c0b99c7d5b37eca0b",
+      "shortHistory": [],
+      "featureSha256": "9bd4723bca1ba096b270b75ef2e5c56f9a54e985279256b3299d2e8e7afdeb78"
+    },
+    {
+      "seriesId": "988606",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "7fd4189063c9af20838fe711dcd325865553ba0ffefdc519505c7491c9f2e24d",
+      "shortHistory": [],
+      "featureSha256": "bde38ddc678ce05f39d728a56c71abfa020240ce63e87fd1689c844e78b367cb"
+    },
+    {
+      "seriesId": "988675",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "84f797b95fe80577ae8c90703343786ff527eed34262e1d9d517094483fa7782",
+      "shortHistory": [],
+      "featureSha256": "edef902d324260111f694374269cc89a6e7fd76f2a8835d6c0a424c3f92864a6"
+    },
+    {
+      "seriesId": "988891",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3e69ca2ab47a173f40505ce085cf848ac54e41098590208304d7114d4a06e04d",
+      "shortHistory": [],
+      "featureSha256": "26935bfaf95b3e7cdaf69c4d237803a170b86eb8352540b6791457f29cc82b39"
+    },
+    {
+      "seriesId": "988911",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "7f8d45412fe70902aef6b763f24bfa541cfedea0aea00521e2419df57320d3cb",
+      "shortHistory": [],
+      "featureSha256": "3b1a8068dbe424c6c86a9c6e1f47ef62b3edc2002c7f1cf51fb367b2a562bd3d"
+    },
+    {
+      "seriesId": "988960",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "eloDigest": "ca3beb77f0ffd741e96bca67a8a4f986661889d95f148855e99c3708cd284962",
+      "shortHistory": [],
+      "featureSha256": "d3b89afdb41e53e9ba49a95f483ee08105c201f8cb9130ed309f8ba74680730f"
+    },
+    {
+      "seriesId": "989150",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "7d7983417d9eda936976802035bb300777c8a809f069031487708b9c823b4e68",
+      "shortHistory": [],
+      "featureSha256": "533e5e320721a27190e29abf05110dd4e75f2151785fa7113cdb7b21621859bb"
+    },
+    {
+      "seriesId": "989168",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "eloDigest": "c448c94df8ca761c2f2fc4db268398ffa28a946f4a0d623b2ec4eabffe9fa3d7",
+      "shortHistory": [],
+      "featureSha256": "e3dd6be06fe98f55a8feba895a90f4e8970bb10457e168130c79516f0fb40976"
+    },
+    {
+      "seriesId": "989471",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "b4f9712f7904648d518453402c5b003b8f005d2314a1693ead921142c4279d0b",
+      "shortHistory": [],
+      "featureSha256": "2c74d9866cf3102e790a0b07579e5a5b88e05733836ef1fcb2e64c4384d746ba"
+    }
+  ],
+  "replay": [
+    {
+      "seriesId": "955788",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "bf7b19a125114c0df7c248cb84744d1d16ecf72241c389ac2352e3edff0256a6",
+      "shortHistory": [],
+      "featureSha256": "2be46e2ab27f841e837213989d9ad9a41dc4ac8e11f92ef74ac6fa7d31e256d5"
+    },
+    {
+      "seriesId": "955790",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "6e2164fe69bdf77eeca10284ade3018451a8831b99e412acd4192dfa5597c26c",
+      "shortHistory": [],
+      "featureSha256": "e51eb780071bd8a50d9dc46c8b7ac68d1945fe141d02639618067ac7fec378ca"
+    },
+    {
+      "seriesId": "955802",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "200573858",
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "955804",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "97897340623b52dc3b2e01ed01f8e49e87a7ea327b63176d913aa3d3dd389f97",
+      "shortHistory": [],
+      "featureSha256": "d7af119561598b93338ab3d35f82aa9d0f8051d262cccb44dd543f817ba6f83c"
+    },
+    {
+      "seriesId": "955820",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "81c6bf2ad2b726a25b53751c63569a3405c40a4f2daaaaf33ee2cc02e990652d",
+      "shortHistory": [],
+      "featureSha256": "5b59c608fdf9252228278e6a69a662cb0bd465044045874899b591d4ca399f41"
+    },
+    {
+      "seriesId": "955841",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "53313399d781577453f8fd7bcdfe27fe73eebba22e64f5b3a3be0c820acf3fbd",
+      "shortHistory": [],
+      "featureSha256": "bf0c06d3b8976c92d02fadbd1759f492844de606f25cfe2a6db88e9ca28f855a"
+    },
+    {
+      "seriesId": "955857",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "7fb8120e192806bacd95f66d61b776b36e1988f0a22848b775de0debf9d282bd",
+      "shortHistory": [],
+      "featureSha256": "16d2dc28e88276c10153312532fccb2a78cd25982990b371d4b026c6df556874"
+    },
+    {
+      "seriesId": "956060",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956061",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "5352a16f519d637e87ce284dc80f1c17577b8f56dee77c0a224ab37b9b49476f",
+      "shortHistory": [],
+      "featureSha256": "c31e002b2e72b84a7cc94bc488b72d5517b7e41decb4c38e79b9aaba46966602"
+    },
+    {
+      "seriesId": "956092",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "00a2debf25d67cf1d99f13c345686c7c64980cba6c95e8bb9fc320c4377c68f9",
+      "shortHistory": [],
+      "featureSha256": "ad3e90ec896e43a6dfc97245900351bec1e948edf04cf2ebf957910454ed6a3e"
+    },
+    {
+      "seriesId": "956134",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6ef7026ce821ca1da6ce85dca6ea8aa219f3294f7335c387872d54e54d02d9fa",
+      "shortHistory": [],
+      "featureSha256": "7e2b7a47981d2b573323e632c604986b299eea8c35ebee943f756bac292374f7"
+    },
+    {
+      "seriesId": "956169",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "ee7179cbd96c9c807964ce982b08465b6d557e799b89e1137ae927cfd6679dcb",
+      "shortHistory": [],
+      "featureSha256": "31ef93e8a17a4bf20506a0202b81b7681d5faca727a5183214a162d9fadc46d7"
+    },
+    {
+      "seriesId": "956212",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "910ab0542b52060522fbfbd7ef552bc061eb3b90a80ff808c8526b749da40360",
+      "shortHistory": [],
+      "featureSha256": "f3d5bca392978ff45dc0d2ff85c62997e15da9e64f3e0c432873d52b0078eb6f"
+    },
+    {
+      "seriesId": "956250",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "fbea3e9c912a89f2af933099cfe37eff1a02f4cebdd9c51e82be0332094d1059",
+      "shortHistory": [],
+      "featureSha256": "0b380d5e4753a917005fadd9afc0c1a6b8fd5d8040cb3e906d4ffb24b8dfa001"
+    },
+    {
+      "seriesId": "956462",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "256096ac3398217223dadead80220365ef65259274ffc831e48b1b367cc70902",
+      "shortHistory": [],
+      "featureSha256": "84cacd86e9631c65012534344bcdc8b23d7c85028c7e5279124678ccebbaaa39"
+    },
+    {
+      "seriesId": "956463",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "863510ca8ec9d0cd5d7495ac1bd86d7023bdb50c0e2b6098e130ffa3f74dc7b9",
+      "shortHistory": [],
+      "featureSha256": "12399431fbc77f78a8f1cf0f8ba1f474a676e1df48883ba0774c26b20fcdcf6e"
+    },
+    {
+      "seriesId": "956472",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "45b1f6c89b2917353d22808c728f0d11a96ef4a487bc6b2204aba41c2fbcc545",
+      "shortHistory": [],
+      "featureSha256": "3d201cd1d80c84303110a88293114aa9b8c77b59279783cb0d7e7fb954c9d257"
+    },
+    {
+      "seriesId": "956475",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "6bcc733a68808498a4564a1c452cb130d22d3a33108c18fe06a6f1a7d0bd1c5f",
+      "shortHistory": [],
+      "featureSha256": "b8430d85002f2ccd94ac523f4a1d5ccddd28c3e076946ca23dd0e3b137f6992e"
+    },
+    {
+      "seriesId": "956489",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "392006194",
+        "439345730"
+      ]
+    },
+    {
+      "seriesId": "956504",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 35,
+      "eloDigest": "4000c7af4a0660549f3736d3a07c1589de448608e92a2a1eea81276db2a75fbf",
+      "shortHistory": [],
+      "featureSha256": "fb1887c9836b1dc559b423a56c6f4c60734e04ffe6d698c56fdbb7aa1edb9fed"
+    },
+    {
+      "seriesId": "956520",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "50c80787da0cbb042de87804c93ef558c0f363e4706a392b76be844daedec839",
+      "shortHistory": [],
+      "featureSha256": "824035392282fd18ea998fb9b533c1e6ba565ab636dbfa32dfca502393786cd2"
+    },
+    {
+      "seriesId": "956686",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2347d218d36f1050b2798afccff2647e5648ecd68406337dddb18c9525dc9cf7",
+      "shortHistory": [],
+      "featureSha256": "2860ef5447303129c78731af24b1196256763f9ef0a379a2739268b8bececfea"
+    },
+    {
+      "seriesId": "956687",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "unavailable",
+      "reasons": [
+        "TEN_VERIFIED_IDENTITIES_REQUIRED"
+      ],
+      "unboundAccounts": [
+        "439345730",
+        "392006194"
+      ]
+    },
+    {
+      "seriesId": "956694",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "83a7707f1f509990fbfe9799be010e0c637ec3aaee0af9297967b8d94d891359",
+      "shortHistory": [],
+      "featureSha256": "a491fc82f022483931715998b80920a3b767b22414b3dc10a9f83415dee44ba8"
+    },
+    {
+      "seriesId": "956701",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "ee6d611e8e23b8c252c125ef3bd04654e546f01848643e5f7df5e27fbefb17fe",
+      "shortHistory": [],
+      "featureSha256": "454801b15f6c868fce41425e666a98e033a8d275ab82bfa62d9742b176ec12a6"
+    },
+    {
+      "seriesId": "956715",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "cd59063b32fb07c2f6e46bc508e3a56dadb3316fb49503a4ef4e03d7bd81884f",
+      "shortHistory": [],
+      "featureSha256": "29b2c435f5221ab86f80453667746c9afcbf76e50d33f9d4e2f53415ffe0b078"
+    },
+    {
+      "seriesId": "956737",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "afa89c70aa1c78a4909d0becdfcc8a91691ef8008199cbd4e5ef3626959d9766",
+      "shortHistory": [],
+      "featureSha256": "a85254b2f6d76833f00306f01862ebca55f8f3e2ca832097d290c80bb6c8dda2"
+    },
+    {
+      "seriesId": "956976",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "8ca34411958bf48d2c500e86bbc510db518a59fb09a3d674fc6a78a2d6c18e66",
+      "shortHistory": [],
+      "featureSha256": "7a645b30fd6fbfd78811b0240e8176fac6f7d2f3672037a2e8fef5ca783533ed"
+    },
+    {
+      "seriesId": "957002",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "f95b17d314f283676ecaf90b562e6d4221bee90849f7a8a693e82cc3faa90ab2",
+      "shortHistory": [],
+      "featureSha256": "6fb57d19d9b5955902bb478f2925abcb13f732c1d8d99d4bba2aa852673e8dcb"
+    },
+    {
+      "seriesId": "957248",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "96abf2441c083065fcbcb3c7f2456168a6669aab5d905ca29ac0fbf497f310e9",
+      "shortHistory": [],
+      "featureSha256": "e0bf437658f23964fb6430be89c30a93f257e2167053ffd7e209f92ee561717c"
+    },
+    {
+      "seriesId": "957260",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6ef7026ce821ca1da6ce85dca6ea8aa219f3294f7335c387872d54e54d02d9fa",
+      "shortHistory": [],
+      "featureSha256": "a88cd052aaf345c5e4845746d3a7b2d05dbae5bbf417c69d8ee8ca2952908abc"
+    },
+    {
+      "seriesId": "957323",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 17,
+      "eloDigest": "d1257c34b5f1c75453e5b368c7d075dd19c1a6dd7119c4373a2354b81d409982",
+      "shortHistory": [],
+      "featureSha256": "52a4f67169b2bb054d3e1caf9ffe13b5af7e9f2d6a1404e2291b9381cc5c158d"
+    },
+    {
+      "seriesId": "957590",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "55d627b2384af79f76b321156284c6d9ad28de45e0847fa6979f956836555176",
+      "shortHistory": [],
+      "featureSha256": "1c30e0847a964f9a684d22531ba153f2f3213762c3a53d881c9cf706acf0d93d"
+    },
+    {
+      "seriesId": "957659",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "a283481e49e3520a0c951f61e4409f659f53660e44da0d5ed46585dc15ae18ef",
+      "shortHistory": [],
+      "featureSha256": "f5053ecc24243d5179d4e4357ca942462f2c714875db7be32c0ef70ac6891269"
+    },
+    {
+      "seriesId": "957980",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "5d57dce4e8f67bf4a65c1d17dbc7df3d19998b980a2e3390fea2f1dd241ac361",
+      "shortHistory": [],
+      "featureSha256": "ff19b86763bae36c06519b54e98a9ccf6cf3c908e7fd89e9a5696a020b1ecae6"
+    },
+    {
+      "seriesId": "958030",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "644a522db5307bed8d524b03c74da8fcb6e66d16e5a844fcab3f4206098a7c93",
+      "shortHistory": [],
+      "featureSha256": "35193a83fff8737fcc82da149a19d464716f2473cbf2453c6677bd876dce767a"
+    },
+    {
+      "seriesId": "958284",
+      "edition": "17891",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "fb76277c3ab31e25635daea21b0819b40ba8c3705ade6f7847164296f2799a80",
+      "shortHistory": [],
+      "featureSha256": "c641d1d26d15ecf46464d116b2aff847904b3c1125b099470fe1f1e83358fec9"
+    },
+    {
+      "seriesId": "968836",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "a9a3892d42ec901e79af5a1c39081d3b21d63b490984f144e670c84ac566165e",
+      "shortHistory": [],
+      "featureSha256": "da970a01f567687508770c6d5c27abb5cbf4b9d96372b7409d8909472a9ca66d"
+    },
+    {
+      "seriesId": "968837",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "dbde420bad0d9886e389982139e5da3705c2e56189e521b4b3df274df2d6c3be",
+      "shortHistory": [],
+      "featureSha256": "8cd36326d9fe434c96df3731296cdec45e6f9180583b9fc2a971bd1797788683"
+    },
+    {
+      "seriesId": "968909",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "a188e9f5d44b74715a1affe8ee6c72955a971908aae01dd6f37c03b6b66be69b",
+      "shortHistory": [],
+      "featureSha256": "f78f044fdf2881c09211a4b874beee81b99f9d8bc8142ede1d512661fcac1a99"
+    },
+    {
+      "seriesId": "968919",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "2cd7c79d64911f66dcebd97de1560317e93adfbe251313df8011839f375f33e9",
+      "shortHistory": [],
+      "featureSha256": "b2a95747cc23421d2c3c1e9f74ec8d697a4ac3f51b05c39e938ab23a13b5af68"
+    },
+    {
+      "seriesId": "969006",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "52f29a128b235155458854b552bd1c009149375b0aa42eb6b63272b2f340aa00",
+      "shortHistory": [],
+      "featureSha256": "20016ea87577328f2766657cb51d0a22eebb2827490d7af599ff107328cac1d7"
+    },
+    {
+      "seriesId": "969060",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "3f976c03cd9f46346092bd2db3f42ae01bd20f4e048f74a5ce168508e14d6aff",
+      "shortHistory": [],
+      "featureSha256": "89ee6d588c4911c1873f0c10b032380e2f2c6cf54fe90a86f5a300946f4741ab"
+    },
+    {
+      "seriesId": "969082",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "f47049dd8bdb4e6ab15268da8a81592bc6bb8eae853831ca611dac20428a26a9",
+      "shortHistory": [],
+      "featureSha256": "56a7cc9f1c8922cecbb32bb6a3049f4895eb05ddd30f8678016c3d32deba6363"
+    },
+    {
+      "seriesId": "969246",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "e7acfb5ef54f290c5fe15dff3e7764b1a3c3846d1ec99f7a564d232d1e1d0fe8",
+      "shortHistory": [],
+      "featureSha256": "32d6b58cab576ad3a3efc3adb6db61f8f6519b552d446ac8930ecc539c36bd78"
+    },
+    {
+      "seriesId": "969247",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 11,
+      "eloDigest": "cac4ea8c21582749fb69acccfae4423804fcec314ff698bd4d75f6715cd7b65d",
+      "shortHistory": [],
+      "featureSha256": "b13f35f4969ad0dbf4cc81800a07c2791ec302f79193b22a516b11e06e8b4af7"
+    },
+    {
+      "seriesId": "969267",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2861c0861aade76b4d9d083089e790dda47fe963da1826b013ba3b0fb711f9b8",
+      "shortHistory": [],
+      "featureSha256": "6d6d84e419d7e1497ef8729b5dd7341fb74989baf537b73eb7e8d258d0ac64a9"
+    },
+    {
+      "seriesId": "969315",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "18a34633f32ae910315c275a390afc5f33d4fe61eb685e5e3973dbbd902ad4d1",
+      "shortHistory": [],
+      "featureSha256": "73e3c4f80614379f1b4a272cd7d44ee091283e97aca52370b8a15024a62387b6"
+    },
+    {
+      "seriesId": "969323",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3162a79654dc9e7f40322d01680f643a587858766d583417fed2bccfcdbfb22d",
+      "shortHistory": [],
+      "featureSha256": "4366f83d3f201163b9ad04af6326da0c89619b83325a627415da2d49352f7bb6"
+    },
+    {
+      "seriesId": "969365",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "eloDigest": "0cac3b86ef4e4c979e7546e77409a6158e74c563594f3ffde1a1689877a1d00b",
+      "shortHistory": [],
+      "featureSha256": "cad7496d6d1327f4a9c47c9229a65afb7539b80425fec5042d7309e9504c689e"
+    },
+    {
+      "seriesId": "969383",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "464b34a1e24c47f0a5a9eb421580ff920c01877d3940e9b3bb6d17b7a1119ce6",
+      "shortHistory": [],
+      "featureSha256": "f857b53b097cee520d76ef190e07c90404d6ac4cc22afa5c74ba9647b66774db"
+    },
+    {
+      "seriesId": "969592",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "01a2a7445c10f9d3d151f3036dad844c0c654860277e34904fe5ae9db65223ea",
+      "shortHistory": [],
+      "featureSha256": "ea308d0a5e76cf51913e5b2a0e0d898797f8e8d83bb322d931a65f5c3bed1c91"
+    },
+    {
+      "seriesId": "969593",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "12584cd38628df5472ab3e07d082607c9bbba5ba7c954cfdfc87e638391ac30f",
+      "shortHistory": [],
+      "featureSha256": "f4b1771b5432a486ac93ae821b031d7d791f030d395422ada4a8acdcc02346c1"
+    },
+    {
+      "seriesId": "969608",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "f6bc4729c4421e9aa42747b7bb1cad3faf6b95c9e2e789a846e7f806fab50b37",
+      "shortHistory": [],
+      "featureSha256": "8d3809e1af8902aed9dfea2cb890b1ebee1c61badd0045ac2b44fc96b6e28a7e"
+    },
+    {
+      "seriesId": "969616",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 18,
+      "eloDigest": "1b5034d2cce2ed729677e448c0e1da357fb078e8b96498fe7f9237a852a148cf",
+      "shortHistory": [],
+      "featureSha256": "835c72cbe76d53112fc8b68379e59a3e50ce6d416654c4c164e41a8923cda4a3"
+    },
+    {
+      "seriesId": "969621",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "b0a412783e5d6292db180a16eaa276697d06dc2a872541aa660d2665423f27cf",
+      "shortHistory": [],
+      "featureSha256": "63a7978249ee8a0a42bc0f040c10328a1d5a280c2f53502a753a3d4084a9b270"
+    },
+    {
+      "seriesId": "969646",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "28e50c755daffdc141befa749870b09838055a88e65a7cfdbcc2793f85552313",
+      "shortHistory": [],
+      "featureSha256": "56444d46723e2e269fa3a0609d144062dc3d2c117cf94f81f01a8ba7ad01df5c"
+    },
+    {
+      "seriesId": "969792",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "93b18c535d76d067cb174e0f5d3abc1750c87d68afd5caa735fbc1ff9cc5a2d1",
+      "shortHistory": [],
+      "featureSha256": "1dc85a882a53158650b7d1eaa1f9333870d54ec3476348ad8c57d2323cdb88fa"
+    },
+    {
+      "seriesId": "969793",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "7c5a29568d630b62b11a3b84ebad2873cea757fed8134870cd0e1348535ad038",
+      "shortHistory": [],
+      "featureSha256": "7dda68f531aef17abe7eccb96469a17f0f85346c1a78923b0b5784f9eea2c858"
+    },
+    {
+      "seriesId": "969815",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "1875a49e4fb52173b9f46d4875f4bafd46bd3ccd7865a0f6eb5a1e665e76d434",
+      "shortHistory": [],
+      "featureSha256": "f1e6e648c524be76835a91737e98421fe1a6df0c3e81c01661ba5a139418f8dd"
+    },
+    {
+      "seriesId": "969816",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "6e34cd28a2861414959bd2390fca8ad979a6a3dfa376abd9b0648a138fe71a5d",
+      "shortHistory": [],
+      "featureSha256": "2642660264ea0be9102f2b46e7eccbaf20da970b3c9f267c73fe0b094c0f602f"
+    },
+    {
+      "seriesId": "969829",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3d4e3a9c5d228b8b72c8c4e3b19af03fd1dc72c8c74127722c8267ad2a096c9d",
+      "shortHistory": [],
+      "featureSha256": "9b5670c265b7a5700d6327ce75e30d092d7fe42dd0566a9c64c4c53f4ff0f1a8"
+    },
+    {
+      "seriesId": "969851",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "aef5b8386f85d71a7d44113efa8e0f49f49ed4fead2acf12f84b4f1361dd50c6",
+      "shortHistory": [],
+      "featureSha256": "7905027084103547b8b806ff4b81879dc61793bd80b0c3c727d2458063013185"
+    },
+    {
+      "seriesId": "970113",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "bae8b0fb3d1f9a522d41e31d0490f7cb85aa7e834d02c18e0c3a169c33d026b5",
+      "shortHistory": [],
+      "featureSha256": "dd5f30fdd44ea1937563366f136c40f9ef09f8ad2e8ac2f27f74ee1b8a34c5a3"
+    },
+    {
+      "seriesId": "970122",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 11,
+      "eloDigest": "e10d547123525c9c1273950f8e6c232f3a3675f8703b4d0f59cc731e20eb782c",
+      "shortHistory": [],
+      "featureSha256": "f2220a68cf2cbf524002564d95577b79bb089f340597cfd3ef1ac18d80b1d898"
+    },
+    {
+      "seriesId": "970138",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "13eb77dc8a6a3b128623cd9e90a44c50f5a2dc61d07c3515cf6b3b5d8bb0aeeb",
+      "shortHistory": [],
+      "featureSha256": "162d3b784c3a03a8435dcbc3e5522ce9c6e6fc64c963bb9278208df32b17203a"
+    },
+    {
+      "seriesId": "970355",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "64d2cc262d492b7b43f6d65c5a773c23624330d3cdad2b99f4118e7b926a9d1c",
+      "shortHistory": [],
+      "featureSha256": "feac6d7f046f21d1f0b05c8867e989176d6d5e4a80681b7fe019d214409a497b"
+    },
+    {
+      "seriesId": "970410",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "2af377093dfc7c123dcf844bc7de6ddc53de777665e48831e4dc585a4f4cac65",
+      "shortHistory": [],
+      "featureSha256": "fc0550c0768b66d27c0377423e1a05b7d8ffc6cf2e87f33f2ca2c523cc9c2281"
+    },
+    {
+      "seriesId": "970445",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "e2cb935a0fc7be56e2a77dcac2acf2933388fcabb614bb9f53c85226d47c47d5",
+      "shortHistory": [],
+      "featureSha256": "8a56af40772dcf8c870c329ff38bd4a7764b8d8691ca1039dcfebf5660903ffa"
+    },
+    {
+      "seriesId": "970675",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "c7c29bca51b7383fa4de43d5e8e2a6837da6203c7a9d12939ca64fbd1cc72e05",
+      "shortHistory": [],
+      "featureSha256": "f9228118214d5c64b174afa741983598cd3477c9e3c8d39d6dc1cfdca1e0d00d"
+    },
+    {
+      "seriesId": "970689",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "a188e9f5d44b74715a1affe8ee6c72955a971908aae01dd6f37c03b6b66be69b",
+      "shortHistory": [],
+      "featureSha256": "dd1cd4ee37e774acf2eca5b65276cd6ce8ae2479b4066a5a4340d20a109d62c9"
+    },
+    {
+      "seriesId": "970766",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "4248dec9c93d1eb92e370967bd2851712546094245e44ca5da662fe7806c34c7",
+      "shortHistory": [],
+      "featureSha256": "aa46f72848c9f52c4bbc52c6f2e7e2749db443ae47f45f0f35d3971a136d9ec7"
+    },
+    {
+      "seriesId": "971009",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "6d132d2244b3637d6503f919a906b4fea7bffb6c1bfebb0c64cc2ce009214862",
+      "shortHistory": [],
+      "featureSha256": "689cd497d4fac9dccacb4894e8f7a2db4d590438da2ae0e5fe5370233aa77e93"
+    },
+    {
+      "seriesId": "971121",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "eloDigest": "0b69c070fb0f25de3c42d8220c580e49e1b842347d35389891f41975ea7269ca",
+      "shortHistory": [],
+      "featureSha256": "22b2b022ea063e366f2e63f65d40e540aee4a04c72e1ee0f7811b4a4fa5191c8"
+    },
+    {
+      "seriesId": "971213",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "fc71022069071b0738133038fcd26f3ecc83059de48e66a950189f39729f4849",
+      "shortHistory": [],
+      "featureSha256": "8c0fb37c599f9e920c52ed6d8eac99968db451dcce9c58182cb21aee416bd707"
+    },
+    {
+      "seriesId": "971400",
+      "edition": "18058",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "7fb06d4dc2a6f4572438ea9525455679ac962f5d812784e3a2b39a1237cd27fa",
+      "shortHistory": [],
+      "featureSha256": "1f3fa504b2d10ca8effd7bbbd853bc6344bc0e2d92298b4c4c45035883556487"
+    },
+    {
+      "seriesId": "987267",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "e39e0ebd1a62090c9ba00fb3169331808cb451f874328f77fa5f1f22e725da51",
+      "shortHistory": [],
+      "featureSha256": "f43c39646fe980cf1930061faea3535c094220566e6750f30a09e1dfab1b03c5"
+    },
+    {
+      "seriesId": "987268",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "57940ccf38dadb27ecdeedeb72f5a634914d9562745b642b4ca796c67847df68",
+      "shortHistory": [],
+      "featureSha256": "4263433f9dc54577c8beb0f08809137b45f35e0ee1cfad1e1efb42f77632f881"
+    },
+    {
+      "seriesId": "987279",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "e2f73ac5fe74f6eb4267ed62e1293e971237a3f4a74d9664c9136e890a8d2c6a",
+      "shortHistory": [],
+      "featureSha256": "55d89ddca3c08eac23add0eada42518fdd41dc3a525b02323e9f59796f428cae"
+    },
+    {
+      "seriesId": "987281",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "f4dcf4034ed235d5a82923713eb3a9419603a527435b1e933589bc50f403cceb",
+      "shortHistory": [],
+      "featureSha256": "d79c06a4b9a8d6ca041b26559962a3d750ec14c6ec0430e0c9d61f2b7594d203"
+    },
+    {
+      "seriesId": "987320",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 10,
+      "eloDigest": "054f06ca2a53017441b9ca1928481223db15ffc8835539b871791f2e44f5d519",
+      "shortHistory": [],
+      "featureSha256": "b66021ede82939b09cdb6a46d16c6aa806d754864aa83b361a30016155bf2dc6"
+    },
+    {
+      "seriesId": "987323",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "a20f231920b1cf289fd3628b4d6ea1ecce59643b14d6df5502e575d2a2e8b062",
+      "shortHistory": [],
+      "featureSha256": "ab6890ae3918c1de33a448b3b3bf8cec0a43e53ba648577931a2de9e96a04915"
+    },
+    {
+      "seriesId": "987391",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "fafb3ab89a0c356afe835005bdfb4a181283e3e980a58cb7dab8d6b8933e0cf8",
+      "shortHistory": [],
+      "featureSha256": "3413c5d518b3361dc8de863164c0eaaee28ec2c46efcf98d38f702d29f16b3d6"
+    },
+    {
+      "seriesId": "987578",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "368cdb05e1b65e3fc5beca18a4a0c1f4df89363f4fca2758e57d75da1dae05d2",
+      "shortHistory": [],
+      "featureSha256": "8d71e0bfc551e5087b88c5bd5b0fee67309ce9e1b12dfb49f7df431a019a8a47"
+    },
+    {
+      "seriesId": "987579",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "40ba67e694aebdfdc14c65aec45cd3fcad9b9f74aea84b2cb02d808c6154d3b8",
+      "shortHistory": [],
+      "featureSha256": "9d418885cde1d2a40ed3128162deb5d93c470478b79310e2696c2ac72a4a3c0f"
+    },
+    {
+      "seriesId": "987609",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "2dd7ca9663b58e26851eadbfac0b0b528691b66d39b8f7010c057cc4067f8286",
+      "shortHistory": [],
+      "featureSha256": "0b82d4623078b729fce184c799240c90de454f33bd7b14c1a1951b8cc02fa43e"
+    },
+    {
+      "seriesId": "987620",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "280c3993bf4b5ee8e382164deb72fc8c31a87aaf169f8e6d4325b1e7e510b782",
+      "shortHistory": [],
+      "featureSha256": "9ca52faa1627e838a514f2c5af699e8b50f408066655c9a335a12080e1986972"
+    },
+    {
+      "seriesId": "987648",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "e96363717ec129e5f15324f75981162cd484ff54e62293fcb5ea1032c8048b73",
+      "shortHistory": [],
+      "featureSha256": "e1d806e932381e3bd7db65a21154292dcb888b8b80254f88dca04f777f198b6d"
+    },
+    {
+      "seriesId": "987678",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "78a3717479c86d9adadef99f608f1759dd8250b85cd9da000bfafe0ac4838a10",
+      "shortHistory": [],
+      "featureSha256": "6dea7690a90ddb8d2ce285bca784ac3bb6e55e46da48c303a928e6b0d5931e16"
+    },
+    {
+      "seriesId": "987722",
+      "edition": "18358",
+      "membershipHeld": true,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "5bad486cc81e5a19d04cea4980794ddc58556552649c8a7af10ecb308d61e718",
+      "shortHistory": [],
+      "featureSha256": "0c2ecddaddf5c7840511da3c0d000cf5d1ca22bc5588ad39ee54e0f6ee99c0bf"
+    },
+    {
+      "seriesId": "987931",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "0108efdf6a3f010bfb8689fb948bfbbf87e6e5e67bc15ec1b1ba9f219b185581",
+      "shortHistory": [],
+      "featureSha256": "9ece617d8bcb61b56f009f9a69ccb420512a59d457afe19c288f54cad72f8c55"
+    },
+    {
+      "seriesId": "987932",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "af497696e7d74b0c0e24be311adb95a7ae990f54c8f3a9fb1ac2afe421642ac0",
+      "shortHistory": [],
+      "featureSha256": "e752f0f6aaeeb604af357c91581236062d2005b50624864233bdfb74df1467d7"
+    },
+    {
+      "seriesId": "987941",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "d610283f6bd45a4786ec7da703844137ae423c0bd2bf86da937f1ab0246731ab",
+      "shortHistory": [],
+      "featureSha256": "cf5a1b64461ae60784f31222c80f12b58a63085dfd122f8487981f0125eb424e"
+    },
+    {
+      "seriesId": "987942",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "e8affeb62ab7e036d9134a8b6e6b1fbca3af9488625586b38641b1c5bc9cc1fd",
+      "shortHistory": [],
+      "featureSha256": "605e97e50393b8c3b82f81e19e30fc7ea861e004d2fe65c4cee5f1d82c1865d2"
+    },
+    {
+      "seriesId": "987956",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 8,
+      "eloDigest": "28e50c755daffdc141befa749870b09838055a88e65a7cfdbcc2793f85552313",
+      "shortHistory": [],
+      "featureSha256": "8996a6fdec3f16bf87030f77b10876cad41c73298c66f6778265cfb40e126820"
+    },
+    {
+      "seriesId": "987957",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "7e626998137bdf140f3f829e6c37cfa72b51c4bac0e5b4bd7801b8d08ffe4e6f",
+      "shortHistory": [],
+      "featureSha256": "01578a5c375b66ee00a34ca9fc09e5d59053385a49253ca46b9df61e47b527f0"
+    },
+    {
+      "seriesId": "987996",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "7656e78353a367fde72652916bca20e834a5448672cb4783d8b06cc4321b04a7",
+      "shortHistory": [],
+      "featureSha256": "4e99525dfe610f5daa52732801b40c9f796c921648d075e6078f55335860af99"
+    },
+    {
+      "seriesId": "988164",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "18a34633f32ae910315c275a390afc5f33d4fe61eb685e5e3973dbbd902ad4d1",
+      "shortHistory": [],
+      "featureSha256": "22baaa42bdf0649b916d17566886c0d760b53702f057c4da3bb5dc524a37a56b"
+    },
+    {
+      "seriesId": "988165",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "93381746176d158e7072c745e76685322b8bdb099f3a8317ab1d7c6c68708f89",
+      "shortHistory": [],
+      "featureSha256": "b913931c499dbe54c96b5cbd744c983c2ef521bc4ab350d03446c5899be21341"
+    },
+    {
+      "seriesId": "988169",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "338513030a1e6cc2f3c495c634c59d721d73fc28d4d9f47e7b889a1b4327eef3",
+      "shortHistory": [],
+      "featureSha256": "71bef96e6b69bca3579382419b252221aa3795d158138f9fd2954430917d8d95"
+    },
+    {
+      "seriesId": "988173",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "fd6df40df0d7922af2f32205e067f0cca6d8a3205dfb1372135773aba201f299",
+      "shortHistory": [],
+      "featureSha256": "5bd7d48978ca2c5cae4127955da01a0a89601cbf87e6a2a8b227658c1e977083"
+    },
+    {
+      "seriesId": "988193",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "645a669c0696ec8aac61b026f7c92ef66bf0769e9b707e228bd1564c2b5c2d41",
+      "shortHistory": [],
+      "featureSha256": "a2d84e9c1c6177e4d0e7e08627d06b4987a9193897f6db7fad20cc50cf6be04f"
+    },
+    {
+      "seriesId": "988228",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3158861541a295bb4b1a00e673e25401c295460e13805231d76d64c16b66e5ef",
+      "shortHistory": [],
+      "featureSha256": "99c8bbe2ad4792df8bc56b68c73487bd90ffb455c887c033e10847b43504fe0c"
+    },
+    {
+      "seriesId": "988399",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 9,
+      "eloDigest": "d623016099cb1b84e9849b9313cfd45e85cb8e005a366323fabc917bf0f6347a",
+      "shortHistory": [],
+      "featureSha256": "98af1ea4ef0ea1a264dde4da51f79c31df87912ff947828653ba495d8e8e1017"
+    },
+    {
+      "seriesId": "988413",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "a459df9b11b3fd4d3c2ee7441f36606d4adbd0107e474934b28401b3ea07e1ba",
+      "shortHistory": [],
+      "featureSha256": "2a32275862d0279f5f45bce1d81ce30e153a0dc5dd755c7fd2b837ba7f91b6b4"
+    },
+    {
+      "seriesId": "988439",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "884b700963f1970d52d56f6e55b7c5291669555370849653d43eeb281d331fbf",
+      "shortHistory": [],
+      "featureSha256": "643f2fa4582fdd4fb1e111172df55275161a9be041b38361adad1a11accfd5da"
+    },
+    {
+      "seriesId": "988592",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 12,
+      "eloDigest": "aae142b954a8c67d5d1a81d05cc410b5349371c14a3b9566023d5028bc1302bc",
+      "shortHistory": [],
+      "featureSha256": "f58f01d5ec36c29787345f5b003961a6a09ae831c7f8ba6b34539550b695ad2c"
+    },
+    {
+      "seriesId": "988606",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3f9014e1944d0f88b9b02eda934600eecca914ea228ae1f317ff78d2685eb446",
+      "shortHistory": [],
+      "featureSha256": "3e36473f7f9e63c8441650feec0206394645cf11546c823b7531ea289ee82c0c"
+    },
+    {
+      "seriesId": "988675",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 7,
+      "eloDigest": "74b5d05170ac61102bf0fd62da55c6e47f0bdf71b831d6c04126feb4e79f666d",
+      "shortHistory": [],
+      "featureSha256": "5cb27750811ff66318967ff13f8efcdbec2642da76908e45814ab39754ef719f"
+    },
+    {
+      "seriesId": "988891",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "22d71f8994677b8993fafe0d12589cedf628a738e4ecfd33f0a8c9c36839549b",
+      "shortHistory": [],
+      "featureSha256": "fe31839bfaf8dd34d0005c0b4886dd66004a47102c9249c67b254201d3630452"
+    },
+    {
+      "seriesId": "988911",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 16,
+      "eloDigest": "5a07f6ded76f9f32976569cf55f15334e62fce0661c521beeb8481dd85b782c8",
+      "shortHistory": [],
+      "featureSha256": "a1c5ae8d51e708db6ca75d2345ba2ffdabfc19c391623f99dddbe96043c49786"
+    },
+    {
+      "seriesId": "988960",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 36,
+      "eloDigest": "689d0176f4eee609167ebb133a225e1ecfc199928ab79c6a1a2f55ab5fe3412d",
+      "shortHistory": [],
+      "featureSha256": "45b984ed447c258ca97ffdc4c4b7cdb50bf82f75c68a221d60478e75af0c57ab"
+    },
+    {
+      "seriesId": "989150",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "3158861541a295bb4b1a00e673e25401c295460e13805231d76d64c16b66e5ef",
+      "shortHistory": [],
+      "featureSha256": "bdca38b70f00c605fc61fb4a8af49df6d02ec517c175153d699348e4bb7d5d5c"
+    },
+    {
+      "seriesId": "989168",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 19,
+      "eloDigest": "044a6da0eb29c606a407e7b6f9f189f4dd22cfa726bd5b2b14adf877c32cb7c8",
+      "shortHistory": [],
+      "featureSha256": "ec5ba4fd357fe176005c61232b81490ad6848add818101bf75dbd0b5c429ad04"
+    },
+    {
+      "seriesId": "989471",
+      "edition": "18358",
+      "membershipHeld": false,
+      "status": "ready",
+      "reasons": [],
+      "minimumMaps": 5,
+      "eloDigest": "16ad2146d5c7fc3ee93d86293e5d5ce989fb816bd5b5beb04223d69dd69ccd66",
+      "shortHistory": [],
+      "featureSha256": "2ce8e48c5cb4fbb1e2f059ee74ffa780dd8f7a00ce825bd5f88be1072bbd14c0"
+    }
+  ],
+  "registered": false,
+  "targetSeriesScored": 0
+}
