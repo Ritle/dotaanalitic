@@ -1,0 +1,23 @@
+{
+  "matchId": "9076476183",
+  "mapStartedAt": "2026-11-04T20:07:52.000Z",
+  "capturedAt": "2026-11-19T23:25:26.557992Z",
+  "shadowStatus": "computed_shadow_only",
+  "candidateSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+  "h2Computed": true,
+  "reasons": [],
+  "sameResultOnRetry": true,
+  "receiptObserved": true,
+  "forecastStatus": "unavailable",
+  "teamAWinProbability": null,
+  "primaryEligible": false,
+  "deployable": false,
+  "artifact": "DraftLab-H2-recovered/artifact.json",
+  "goldenCases": 262,
+  "parityComparisons": 1570,
+  "parityMaxAbsoluteError": 1.1102230246251565e-16,
+  "draftTestsPassed": 16,
+  "database": "isolated_copy",
+  "localMapCount": 2285,
+  "requestedHistoricalMapAvailable": false
+}
