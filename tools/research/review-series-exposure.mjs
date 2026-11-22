@@ -5,6 +5,7 @@ import {pathToFileURL} from 'node:url';
 import pg from 'pg';
 import {id,seriesKey,sha} from './exposure-ledger-core.mjs';
 import {parseMetadata} from './series-independent-scope.mjs';
+import {exposureSnapshot,fromKeys,sharedExposure} from './shared-exposure.mjs';
 
 const root=new URL('../../',import.meta.url);
 const sources={
@@ -111,6 +112,14 @@ export function reviewedLeagueDiscovery(report) {
   return {mapIds:[...maps].sort(),seriesKeys:[...series].sort()};
 }
 
+export async function combineSeriesExposure(local,inputDigests,connectionString) {
+  if (!connectionString) return {known:local};
+  const snapshot=await exposureSnapshot('series-review',inputDigests,fromKeys(local.mapIds,local.seriesKeys));
+  const {inventory,revisions}=await sharedExposure(connectionString,snapshot);
+  return {known:{mapIds:inventory.mapIds,seriesKeys:sorted([
+    ...inventory.openDotaSeriesIds.map(openDotaKey),...inventory.pandaScoreMeetingIds.map(pandaKey)])},revisions};
+}
+
 async function main(output) {
   const [reconciliation,development,providerReview,candidates,essenceReview,previousText,discoveryText]=await Promise.all(
     Object.values(sources).map(ref=>checkedSource(ref)));
@@ -138,13 +147,18 @@ async function main(output) {
   const priorMaps=sorted([...previous.mapIds,...db.maps,...(archiveLedger?.maps??[]).map(row=>id(row.matchId))]);
   const priorSeries=sorted([...previous.seriesKeys,...db.openDota,...db.panda,...reportOpenDota,...reportPanda,...archivedKeys]);
   const priorMapSet=new Set(priorMaps), priorSeriesSet=new Set(priorSeries);
-  const known={
+  const local={
     mapIds:sorted([...priorMaps,...discovery.mapIds]),
     seriesKeys:sorted([...priorSeries,...discovery.seriesKeys])
   };
   const databaseSeries=new Set(db.openDota);
+  const inputDigests=Object.fromEntries(Object.entries(sources).map(([key,ref])=>[key,ref[1]]));
+  inputDigests.database=sha(JSON.stringify(db));
+  if(archiveText!==null) inputDigests.archive=archiveRef[1];
+  const {known,revisions}=await combineSeriesExposure(local,inputDigests,process.env.RESEARCH_DATABASE_URL);
   const report={
     format:'series-exposure-review-v1',capturedAt:new Date().toISOString(),
+    ...(revisions ? {sharedRegistry:{revisions}} : {}),
     completeGlobalInventory:false,registrationAllowed:false,
     sources:Object.values(sources).map(([path,sha256])=>({path,sha256})),
     archive:{path:archiveRef[0],sha256:archiveRef[1],available:archiveText!==null},
@@ -166,11 +180,13 @@ async function main(output) {
   await writeFile(output,bytes,{flag:'wx'});
   console.log(JSON.stringify({sha256:sha(bytes),...report.summary,archiveAvailable:report.archive.available,
     database:report.database,fromReports:report.fromReports,leagueDiscovery:report.leagueDiscovery,
-    historicalWallachia:report.historicalWallachia}));
+    historicalWallachia:report.historicalWallachia,...(revisions ? {sharedRevisions:revisions.length} : {})}));
 }
 
 if(process.argv[1] && pathToFileURL(resolve(process.argv[1])).href===import.meta.url) {
   const [output,...extra]=process.argv.slice(2);
-  assert(output && !extra.length,'usage: review-series-exposure.mjs NEW_REPORT.json');
+  assert(output && (!extra.length || (extra.length===1 && extra[0]==='--shared')),
+    'usage: review-series-exposure.mjs NEW_REPORT.json [--shared]');
+  if (extra.length) assert(process.env.RESEARCH_DATABASE_URL,'RESEARCH_DATABASE_URL required');
   await main(output);
 }
