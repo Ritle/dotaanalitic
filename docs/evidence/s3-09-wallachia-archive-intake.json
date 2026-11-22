@@ -1,0 +1,45 @@
+{
+  "archive": {
+    "path": "s3-09-wallachia-old-pc.zip",
+    "sha256": "6c0dfed6299e958c651d690bb2757bc0a437686a5ecb2033122c5070a4d1f834"
+  },
+  "manifest": {
+    "path": ".tools/s309-wallachia-old-pc/wallachia-archive-targets.json",
+    "sha256": "ec9c331975ade2b640667902d0920743e699ec2827fa28e9817e741ff24c9f3b"
+  },
+  "targetIds": {
+    "maps": 276,
+    "openDotaSeries": 114,
+    "pandaScoreMeetings": 138
+  },
+  "cachedCatalogOpenDotaLeagueIds": {
+    "3": "17891",
+    "4": "18058",
+    "5": "18358"
+  },
+  "previouslyReviewed": {
+    "path": ".tools/s304-series-reconciliation-r1.json",
+    "sha256": "ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3",
+    "maps": 0,
+    "openDotaSeries": 0
+  },
+  "localInventory": {
+    "path": ".tools/s309-development-inventory-r1.json",
+    "sha256": "ddb668a0f5f4c6ffaf28db15354de3a237e978ff58c87075f5fbf8209ee86c2b",
+    "maps": 0,
+    "openDotaSeries": 0
+  },
+  "spotCheck": {
+    "roots": [
+      "docs",
+      ".tools"
+    ],
+    "numericCandidateFiles": 22,
+    "scannerSmokeTestPassed": true
+  },
+  "oldPcReportPresent": false,
+  "globalInventoryComplete": false,
+  "scoreEvaluationPerformed": false,
+  "registered": false,
+  "currentPcScreen": null
+}
