@@ -1,0 +1,47 @@
+{
+  "format": "player-hero-swiss-stage-proposal-v1",
+  "status": "proposed_not_registered",
+  "parent": {
+    "path": "tools/research/player-hero-conditional-future-policy.json",
+    "sha256": "77fa352544f4938e8b1cd69a2772894cff6b34df4b954e97677d36ea10ce388f",
+    "overrides": ["proposedRegistration", "evaluation.durationDays"]
+  },
+  "alternativeTo": {
+    "path": "tools/research/player-hero-dl30-window-proposal.json",
+    "sha256": "9f38b8f0af80b905e6fe6d04f0249e320f82dd5fbbd2065141e8288ceb569045",
+    "selection": "choose_one_before_registration_no_second_primary_test_of_overlapping_maps"
+  },
+  "scope": {
+    "edition": "DreamLeague Season 30",
+    "organizer": "ESL",
+    "calendar": "https://pro.eslgaming.com/dreamleague/",
+    "stage": "Swiss Stage",
+    "rounds": [1, 2, 3, 4, 5, 6],
+    "bestOf": 3,
+    "plannedTeams": 24,
+    "fromDate": "2026-12-02",
+    "throughDate": "2026-12-07",
+    "excludedStages": ["qualifiers", "division_2", "tiebreakers_outside_six_regular_rounds", "playoffs"],
+    "excludedLeagueIds": ["20359", "20511"],
+    "confirmedOpenDotaLeagueId": null,
+    "confirmedPandaScoreEditionId": null,
+    "confirmedSwissStageIds": null,
+    "firstSeriesStartLowerBound": null
+  },
+  "window": {
+    "decisionDeadline": "2026-11-30T18:00:00.000Z",
+    "fromInclusive": "2026-12-01T00:00:00.000Z",
+    "untilExclusive": "2026-12-09T00:00:00.000Z",
+    "assessmentAt": "2026-12-16T00:00:00.000Z"
+  },
+  "enrollment": {
+    "membership": "require_verified_edition_and_regular_swiss_round_membership_for_each_series",
+    "denominator": "reconcile_all_official_round_fixtures_with_full_provider_pages_and_all_played_maps_keep_missing_and_forfeits_visible",
+    "boundary": "require_complete_stage_within_window_never_split_series_or_drop_rescheduled_fixtures_to_pass",
+    "unresolvedAtAssessment": "insufficient_when_stage_denominator_or_series_boundaries_remain_unknown"
+  },
+  "registeredAt": null,
+  "collectionAllowed": false,
+  "evaluationAllowed": false,
+  "activationAllowed": false
+}

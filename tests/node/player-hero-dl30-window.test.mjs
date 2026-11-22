@@ -11,6 +11,28 @@ const proposal = JSON.parse(proposalBytes);
 const parentBytes = await read(proposal.parent.path);
 const parent = JSON.parse(parentBytes);
 
+test('the separate Swiss proposal keeps the frozen comparisons and seven days for outcomes', async () => {
+  const swiss = JSON.parse(await read('tools/research/player-hero-dl30-swiss-proposal.json'));
+  assert.equal(swiss.alternativeTo.sha256, sha(await read(swiss.alternativeTo.path)));
+  assert.equal(swiss.alternativeTo.sha256, sha(proposalBytes));
+  assert.equal(swiss.parent.sha256, sha(await read(swiss.parent.path)));
+  assert.equal(swiss.parent.sha256, sha(parentBytes));
+  assert.deepEqual(swiss.parent.overrides, ['proposedRegistration', 'evaluation.durationDays']);
+  assert.deepEqual(swiss.scope.rounds, [1, 2, 3, 4, 5, 6]);
+  assert.equal(swiss.scope.stage, 'Swiss Stage');
+  assert.equal(swiss.scope.bestOf, 3);
+  assert(swiss.scope.excludedStages.includes('playoffs'));
+  assert(swiss.scope.excludedLeagueIds.includes('20359'));
+  const {decisionDeadline, fromInclusive, untilExclusive, assessmentAt} = swiss.window;
+  assert.equal(decisionDeadline, proposal.scope.decisionDeadline);
+  assert(decisionDeadline < fromInclusive && fromInclusive.slice(0, 10) <= swiss.scope.fromDate);
+  assert(swiss.scope.throughDate < untilExclusive.slice(0, 10));
+  assert.equal(Date.parse(assessmentAt) - Date.parse(untilExclusive), parent.evaluation.outcomeGraceDays * 86_400_000);
+  assert.equal(assessmentAt, '2026-12-16T00:00:00.000Z');
+  assert.equal(swiss.registeredAt, null);
+  assert.deepEqual([swiss.collectionAllowed, swiss.evaluationAllowed, swiss.activationAllowed], [false, false, false]);
+});
+
 test('new dates inherit the frozen map criteria and exclude the qualifier and January edition', () => {
   assert.equal(sha(proposalBytes), evidence.db.proposalSha256);
   assert.equal(sha(parentBytes), proposal.parent.sha256);

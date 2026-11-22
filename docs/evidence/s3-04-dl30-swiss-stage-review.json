@@ -1,0 +1,54 @@
+{
+  "status": "unavailable",
+  "reasons": [
+    "MAIN_LEAGUE_UNVERIFIED",
+    "MAIN_EDITION_UNVERIFIED",
+    "SWISS_STAGE_IDS_UNVERIFIED"
+  ],
+  "checkedAt": "2026-11-22T15:15:15.530Z",
+  "counts": {
+    "valveLeagues": 10169,
+    "openDotaLeagues": 10415,
+    "pandaScoreEditions": 12
+  },
+  "firstSeriesStartLowerBound": "2026-12-01T10:00:00.000Z",
+  "startBasis": "earliest_utc_instant_of_esl_local_date",
+  "binding": null,
+  "registrationPerformed": false,
+  "collectionAllowed": false,
+  "activationAllowed": false,
+  "proposalSha256": "5d6015e97563ed366f5ec40ec3c941c3896607b29c1e0b0735431bd5be2b55f0",
+  "packageSha256": "51183190a4710947b1135167fe52dc1c6eb0f30aca21d1c30a0fc97b53c6bd1f",
+  "sources": {
+    "calendar": {
+      "url": "https://pro.eslgaming.com/dreamleague/",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-22T15:15:11.601Z",
+      "sha256": "99ba8b0d0dd880fc0affa9f8807a5f08f9b9bb8c3146e3ecbc1952ee5eedcd98"
+    },
+    "valve": {
+      "url": "https://www.dota2.com/webapi/IDOTA2League/GetLeagueInfoList/v001",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-22T15:15:13.875Z",
+      "sha256": "bc32ebacd8c6947a05e8832a070cae11f23e5b821aa469171a78b976792b784d"
+    },
+    "opendota": {
+      "url": "https://api.opendota.com/api/leagues",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-22T15:15:14.846Z",
+      "sha256": "c4e6b6d21db4c3b03ae801240560d1ad3950c867bb092cb674cfa993fa0e0b5b"
+    },
+    "editions": {
+      "url": "https://api.pandascore.co/leagues/4125/series?filter%5Bseason%5D=30&per_page=100&page=1",
+      "httpStatus": 200,
+      "fetchedAt": "2026-11-22T15:15:15.525Z",
+      "sha256": "bf390ee862f57095b65991e52581b78ec3d25b9ef464c959fa33ff85b5194afa",
+      "page": {
+        "number": "1",
+        "size": "100",
+        "total": "12",
+        "hasNext": false
+      }
+    }
+  }
+}

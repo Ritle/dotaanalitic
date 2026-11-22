@@ -1,0 +1,123 @@
+{
+  "candidateSha256": "9eb1e2c0c7736aab9afefdf15972d539f22173ba9569d01620712371a635167b",
+  "runtimeSha256": "050f1c04a260d2932cbffbe562620924d70e755fe18f3ff3b990d64f67767522",
+  "environment": {
+    "node": "v22.15.0",
+    "pythonEnvironment": {
+      "python": "3.13.18",
+      "implementation": "CPython",
+      "platform": "Windows-11-10.0.26300-SP0",
+      "machine": "AMD64",
+      "threadpools": [
+        {
+          "user_api": "blas",
+          "internal_api": "openblas",
+          "num_threads": 1,
+          "prefix": "libscipy_openblas",
+          "version": "0.3.30",
+          "threading_layer": "pthreads",
+          "architecture": "Haswell"
+        },
+        {
+          "user_api": "blas",
+          "internal_api": "openblas",
+          "num_threads": 1,
+          "prefix": "libscipy_openblas",
+          "version": "0.3.30",
+          "threading_layer": "pthreads",
+          "architecture": "Haswell"
+        },
+        {
+          "user_api": "openmp",
+          "internal_api": "openmp",
+          "num_threads": 1,
+          "prefix": "vcomp",
+          "version": null
+        }
+      ],
+      "executableSha256": "548ceeb16e99eb44a3b786c70f38e7f4132c6768388465709e327badd1aac6b6",
+      "packages": [
+        {
+          "name": "colorama",
+          "version": "0.4.6"
+        },
+        {
+          "name": "iniconfig",
+          "version": "2.3.0"
+        },
+        {
+          "name": "joblib",
+          "version": "1.5.3"
+        },
+        {
+          "name": "numpy",
+          "version": "2.3.5"
+        },
+        {
+          "name": "packaging",
+          "version": "25.0"
+        },
+        {
+          "name": "pluggy",
+          "version": "1.6.0"
+        },
+        {
+          "name": "Pygments",
+          "version": "2.20.0"
+        },
+        {
+          "name": "pytest",
+          "version": "9.0.2"
+        },
+        {
+          "name": "scikit-learn",
+          "version": "1.8.0"
+        },
+        {
+          "name": "scipy",
+          "version": "1.17.0"
+        },
+        {
+          "name": "threadpoolctl",
+          "version": "3.6.0"
+        }
+      ]
+    },
+    "threads": {
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "PYTHONHASHSEED": "42"
+    }
+  },
+  "environmentSha256": "49bea1e355ec0e9b7afae2b0bd0f93503c49902c445b3ff560ad0e5914806879",
+  "referenceEnvironmentSha256": "d5cc387cd29c059b9773b364c360e9d55d4cb2471babb6c35810c43c193b2dcf",
+  "exactEnvironmentMatch": false,
+  "pythonParity": {
+    "vectors": 262,
+    "comparisons": 1570,
+    "maxAbsoluteError": 0
+  },
+  "typescriptParity": {
+    "status": "PASS",
+    "maxAbsoluteError": 1.1102230246251565e-16,
+    "tolerance": 1e-7,
+    "comparisons": 1570,
+    "vectorsPerModel": {
+      "H0": 262,
+      "H1": 262,
+      "H2": 262
+    },
+    "cases": [
+      "calibrator_unavailable",
+      "extreme_logits",
+      "missing_history_annotations",
+      "ordinary",
+      "swapped_A_B",
+      "zero_practice"
+    ]
+  },
+  "registrationPerformed": false,
+  "evaluationPerformedOnTargetMaps": false
+}
