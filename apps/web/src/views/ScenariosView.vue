@@ -51,7 +51,8 @@ const current=useQuery({queryKey:computed(()=>['scenario',id.value]),enabled:com
 const originTargetId=computed(()=>typeof route.query.scheduleTarget==='string'?route.query.scheduleTarget:'');
 const originTarget=useQuery({queryKey:computed(()=>['schedule-target',originTargetId.value]),enabled:computed(()=>isNew.value&&!!originTargetId.value),
   queryFn:({signal})=>readCatalog(`schedule-targets/${encodeURIComponent(originTargetId.value)}`,V1ScheduleTargetSavedSchema,signal)});
-const mapMode=computed(()=>!!originTargetId.value||(!isNew.value&&!!saved.value?.input.scheduledAt));
+const fromLive=computed(()=>route.query.from==='live'&&!isNew.value&&route.path.endsWith('/draft'));
+const mapMode=computed(()=>fromLive.value||!!originTargetId.value||(!isNew.value&&!!saved.value?.input.scheduledAt));
 const initializedTarget=ref(''),importedTarget=ref(''),importedConfirmedAt=ref<number|null>(null);
 const manualTemplateChoice=computed(()=>isNew.value&&!originTargetId.value&&!!form.teamAId&&!!form.teamBId&&
   !draft.value.assignments.length&&!manualRoles.A&&!manualRoles.B&&
@@ -152,8 +153,9 @@ async function save(){
 <template>
   <main class="shell scenario-shell" :class="{'map-workspace':mapMode}">
     <nav class="scenario-topbar" aria-label="Навигация карты"><RouterLink to="/">← Справочники</RouterLink>
+    <RouterLink v-if="fromLive" to="/live">← Live-матчи</RouterLink>
     <RouterLink v-if="originTargetId" :to="{path:`/schedule-targets/${originTargetId}`,query:saved?{scenario:saved.id}:{}}">← Вернуться к назначению карты</RouterLink></nav>
-    <div class="scenario-title"><h1>{{mapMode?'Подготовка карты':'Сценарии'}}</h1><p v-if="mapMode" class="map-name">{{form.title}}</p></div>
+    <div class="scenario-title"><h1>{{fromLive?'Draft Lab':mapMode?'Подготовка карты':'Сценарии'}}</h1><p v-if="mapMode" class="map-name">{{form.title}}</p></div>
     <p v-if="isNew&&originTargetId&&originTarget.isFetching.value" role="status">Загрузка назначения карты…</p>
     <p v-if="isNew&&originTargetId&&originTarget.error.value" role="alert" class="error">{{originTarget.error.value.message}}</p>
     <template v-if="isNew&&originTargetId">
@@ -174,7 +176,7 @@ async function save(){
     </section>
     <section v-if="id" class="panel" aria-label="Редактор сценария">
       <h2>{{isNew?'Новый сценарий':`Сценарий · редакция ${revision??'…'}`}}</h2>
-      <RouterLink v-if="!isNew&&revision" :to="{path:`/scenarios/${id}/draft`,query:originTargetId?{scheduleTarget:originTargetId}:{},hash:'#draftlab'}">Открыть Draft Lab →</RouterLink>
+      <RouterLink v-if="!isNew&&revision&&!fromLive" :to="{path:`/scenarios/${id}/draft`,query:originTargetId?{scheduleTarget:originTargetId}:{},hash:'#draftlab'}">Открыть Draft Lab →</RouterLink>
       <p v-if="!isNew&&current.isPending.value" role="status">Загрузка редакции…</p><p v-else-if="!isNew&&current.error.value" role="alert" class="error">{{current.error.value.message}}</p>
       <form v-if="isNew||revision" @submit.prevent="save" :novalidate="mapMode">
         <fieldset :disabled="busy" class="scenario-fieldset">
@@ -239,9 +241,9 @@ async function save(){
           <p v-if="error" role="alert" class="error">{{error}}</p><button v-if="conflict" type="button" :disabled="busy" @click="reload">Загрузить сохранённую редакцию · заменить мои правки</button>
           <DraftCapture v-if="saved&&hasCompleteDraft(saved)&&accountAccess?.role==='owner'" :key="saved.id+':'+saved.revision" :scenario="saved" :target-id="originTargetId" :requested="captureRequested===saved.id+':'+saved.revision" :dirty="dirty" @reload="reload" />
           <div v-if="mapMode" class="prediction-stage"><strong>Прогноз после драфта</strong><p class="hint">Модель ещё не доступна. Выбранные герои не меняют прогноз до драфта.</p></div>
-          <p v-if="saved && !dirty"><RouterLink :to="originTargetId?{path:`/schedule-targets/${originTargetId}`,query:{scenario:saved.id}}:`/scenarios/${saved.id}/prediction`">Открыть расчёт одной карты</RouterLink></p>
-      <p v-else-if="saved" class="hint">Сохраните изменения, чтобы перейти к расчёту карты.</p>
-          <p v-if="mapMode&&saved&&!dirty" class="hint">Расчёт выше — для карты 1 до драфта.</p>
+          <p v-if="saved && !dirty && !fromLive"><RouterLink :to="originTargetId?{path:`/schedule-targets/${originTargetId}`,query:{scenario:saved.id}}:`/scenarios/${saved.id}/prediction`">Открыть расчёт одной карты</RouterLink></p>
+      <p v-else-if="saved&&!fromLive" class="hint">Сохраните изменения, чтобы перейти к расчёту карты.</p>
+          <p v-if="mapMode&&saved&&!dirty&&!fromLive" class="hint">Расчёт выше — для карты 1 до драфта.</p>
           <DraftAssessment v-if="currentAssessment" :assessment="currentAssessment" :saved="!preview" :compact="mapMode" />
           </aside>
         </fieldset>

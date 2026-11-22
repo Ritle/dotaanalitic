@@ -24,10 +24,22 @@ test.afterEach(async()=>{await api?.close();await database?.close();});
 const expire=async()=>{await sql`UPDATE live_schedule_cache SET expires_at=clock_timestamp()-interval '1 second',retry_at='-infinity'`.execute(database.db);await sql`UPDATE pandascore_request_quota SET next_request_at='-infinity',blocked_until='-infinity'`.execute(database.db);};
 test('live cards show series score, unknown participant and all groups, with no forecast action and no mobile overflow',async({page})=>{
  await expect(page.getByRole('heading',{name:'Матчи сейчас',exact:true})).toBeVisible();await expect(page.getByText('1 : 0',{exact:true})).toBeVisible();await expect(page.getByText('Нет данных',{exact:true})).toBeVisible();
+ const labs=page.getByRole('link',{name:'Открыть Draft Lab'});
+ await expect(labs).toHaveCount(2);
+ await expect(labs.first()).toHaveAttribute('href','/live/70001/draft');
+ await expect(labs.last()).toHaveAttribute('href','/live/70002/draft');
  expect(await page.getByLabel('Турнир',{exact:true}).locator('option').count()).toBe(2);await expect(page.getByRole('button',{name:/Получить прогноз/})).toHaveCount(0);
  expect(calls).toBe(1);await page.getByRole('button',{name:'Обновить Live',exact:true}).click();await expect(page.getByRole('button',{name:'Обновить Live',exact:true})).toBeEnabled();expect(calls).toBe(1);
  await page.setViewportSize({width:360,height:800});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:'.tools/live-20261113/mobile.png',fullPage:true});
  await page.getByRole('checkbox',{name:'Автообновление раз в минуту'}).uncheck();await page.clock.fastForward(75000);await expect(page.getByText('Данные устарели: показан последний известный статус, матчи могли завершиться.')).toBeVisible();expect(calls).toBe(1);
+});
+test('partial Live matchup opens manual roles without assigning the sole team to a side',async({page})=>{
+ await page.locator('.live-card').last().getByRole('link',{name:'Открыть Draft Lab'}).click();
+ await expect(page.getByText(/Участники ещё не определены/)).toBeVisible();
+ const lab=page.getByRole('region',{name:'Драфт Live-карты'});
+ await expect(lab.getByRole('group',{name:'Герои A',exact:true})).toBeVisible();
+ await expect(lab.getByRole('group',{name:'Герои B',exact:true})).toBeVisible();
+ await expect(lab.getByRole('button',{name:'Сохранить карту'})).toBeDisabled();
 });
 test('automatic refresh respects cooldown, retains stale cards on failure, then replaces completed series with empty list',async({page})=>{
  await expire();mode='failed';await page.clock.fastForward(61000);await expect.poll(()=>calls).toBe(2);await expect(page.getByText('Не удалось обновить источник. Сохранённые данные могут быть устаревшими.')).toBeVisible();await expect(page.locator('.live-card')).toHaveCount(2);

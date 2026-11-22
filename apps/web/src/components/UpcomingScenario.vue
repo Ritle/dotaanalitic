@@ -2,7 +2,7 @@
 import {computed,reactive,ref,watch,nextTick,onBeforeUnmount,shallowReactive} from 'vue';
 import {useRouter} from 'vue-router';
 import {useQueryClient} from '@tanstack/vue-query';
-import {ScenarioInputSchema,ScenarioSnapshotSchema,type UpcomingMatch} from '@dota/contracts';
+import {ScenarioInputSchema,ScenarioSnapshotSchema,type DraftInput,type UpcomingMatch} from '@dota/contracts';
 import {readCatalog,dateLabel} from '../catalog';
 import {ownerAuth,accountAccess} from '../auth';
 import CatalogPicker from './CatalogPicker.vue';
@@ -10,12 +10,13 @@ import OwnerLineupTemplate from './OwnerLineupTemplate.vue';
 import UpcomingTeamSummary from './UpcomingTeamSummary.vue';
 import UpcomingForecast from './UpcomingForecast.vue';
 import LiveEstimate from './LiveEstimate.vue';
+import DraftEditor from './DraftEditor.vue';
 import UpcomingLineupCompare from './UpcomingLineupCompare.vue';
 import RoleSuggestions from './RoleSuggestions.vue';
 import RoleProfiles from './RoleProfiles.vue';
 import RoleSelect from './RoleSelect.vue';
 import {roleSortedRows} from '../role-display';
-import {swapLineupRole,lineupForRequest} from '../role-suggestions';
+import {swapLineupRole,lineupForRequest,moveRoleDraft} from '../role-suggestions';
 import {lineupReviewKey,draftReviewRoles,reviewedRoster,reviewedBindingLineup,type ReviewedRoster} from '../lineup-review';
 import type {RoleMember} from '../role-suggestions';
 import PlayerHistory from './PlayerHistory.vue';
@@ -23,7 +24,7 @@ import ExpectedRosterCatalogue from './ExpectedRosterCatalogue.vue';
 import type {RosterCatalogueBinding} from '@dota/contracts';
 import type {PreparedTeamView,RosterPreparationNotice} from '../roster-preparation';
 import {upcomingParticipants,upcomingProviderForSlot,upcomingTeamLabel} from '../upcoming-participants';
-const props=defineProps<{match:UpcomingMatch;rosterVersion?:string;live?:boolean}>(),router=useRouter(),cache=useQueryClient();
+const props=defineProps<{match:UpcomingMatch;rosterVersion?:string;live?:boolean;liveDraft?:boolean}>(),router=useRouter(),cache=useQueryClient();
 const templates=shallowReactive<Partial<Record<'A'|'B',InstanceType<typeof OwnerLineupTemplate>>>>({});
 const canManageLineups=computed(()=>accountAccess.value?.canManageLineups===true);
 const manualOpen=ref(false);let disposed=false;onBeforeUnmount(()=>{disposed=true;});
@@ -38,9 +39,21 @@ function confirmedAccount(player:PreparedTeamView['players'][number]){
  return player.status==='linked'&&!!player.account?.localPlayerId&&player.account.id===candidate?.id&&player.account.localPlayerId===candidate?.localPlayerId;
 }
 const savedAt=reactive<Partial<Record<'A'|'B',string>>>({});
-let savedRead=false;
+const hydratedSlots=new Set<'A'|'B'>();
 const five=()=>Array.from({length:5},(_,i)=>({rolePos:i+1,playerId:'',isStandin:false}));
 const form=reactive({title:(props.match.name??'Сценарий встречи').slice(0,120),teamAId:'',teamBId:'',lineupA:five(),lineupB:five()});
+const draft=ref<DraftInput>({assignments:[],bans:[]});
+const mapNumber=ref<number|null>(null);
+const mapNumbers=computed(()=>Array.from({length:Math.min(props.match.seriesBestOf??5,5)},(_,i)=>i+1));
+const draftLineup=(rows:typeof form.lineupA)=>lineupForRequest(rows).map(p=>({...p,playerId:p.playerId||null}));
+for(const slot of ['A','B'] as const){
+ watch(()=>draftLineup(slot==='A'?form.lineupA:form.lineupB),(after,before)=>{
+  if(!props.liveDraft||!draft.value.assignments.length)return;
+  const players=new Set(before.map(p=>p.playerId));
+  if(players.size===5&&!players.has(null)&&after.every(p=>players.has(p.playerId))&&new Set(after.map(p=>p.playerId)).size===5)
+   draft.value=moveRoleDraft(draft.value,slot,before,after);
+ });
+}
 const manualRoles=reactive({A:false,B:false});
 function changeRole(slot:'A'|'B',from:number,to:number){const rows=swapLineupRole(slot==='A'?form.lineupA:form.lineupB,from,to);if(rows){manualRoles[slot]=true;if(slot==='A')form.lineupA=rows;else form.lineupB=rows;}}
 const confirmed=ref(false),busy=ref(false),error=ref('');
@@ -112,10 +125,13 @@ function useBinding(slot:'A'|'B',binding:RosterCatalogueBinding,openEditor=true)
 }
 function applyTemplate(slot:'A'|'B',rows:RoleMember[]){if(busy.value||confirmed.value||manualRoles[slot])return;manualRoles[slot]=true;if(slot==='A')form.lineupA=rows.map(p=>({...p,playerId:p.playerId??''}));else form.lineupB=rows.map(p=>({...p,playerId:p.playerId??''}));}
 function useSaved(bindings:(RosterCatalogueBinding|null)[]){
- // Hydrate once, only into an untouched editor. Refetches must never replace manual choices.
- if(savedRead)return;savedRead=true;
- if(manualOpen.value||form.teamAId||form.teamBId||[...form.lineupA,...form.lineupB].some(p=>p.playerId))return;
- for(const [i,binding] of bindings.entries())if(i<2&&binding?.usable)useBinding(i===0?'A':'B',binding,false);
+ // A roster refresh may arrive after the first empty catalogue. Fill each untouched side once.
+ if(manualOpen.value||!participants.value.complete)return;
+ for(const slot of ['A','B'] as const){
+  if(hydratedSlots.has(slot)||(slot==='A'?form.teamAId:form.teamBId)||(slot==='A'?form.lineupA:form.lineupB).some(p=>p.playerId))continue;
+  const binding=bindings.find(b=>b?.usable&&b.providerTeamId===upcomingProviderForSlot(props.match,slot));
+  if(binding){useBinding(slot,binding,false);hydratedSlots.add(slot);}
+ }
 }
 const complete=computed(()=>!!form.teamAId&&!!form.teamBId&&form.teamAId!==form.teamBId&&
  [...form.lineupA,...form.lineupB].every(p=>p.playerId)&&new Set([...form.lineupA,...form.lineupB].map(p=>p.playerId)).size===10);
@@ -133,23 +149,46 @@ const comparisonInput=computed(()=>{const q=input.value;return q.success?{
   teamAId:q.data.teamAId,teamBId:q.data.teamBId,lineupA:q.data.lineupA,lineupB:q.data.lineupB}:null;});
 async function create(){
   error.value='';
-  if(props.match.scheduledAt&&props.match.scheduledAt<=new Date().toISOString()){
+  if(busy.value||!canManageLineups.value||props.live&&!props.liveDraft)return;
+  if(!props.live&&props.match.scheduledAt&&props.match.scheduledAt<=new Date().toISOString()){
     error.value='Плановое начало уже наступило. Обновите расписание и уточните контекст карты.';return;
   }
   if(!input.value.success){error.value='Выберите две разные организации, десять разных игроков и подтвердите роли.';return;}
+  let scenario={...input.value.data,cutoffAt:new Date().toISOString()};
+  if(props.liveDraft){
+    if(!confirmed.value||!complete.value)return;
+    const teamNames=participants.value.complete?participants.value.label:[form.teamAId,form.teamBId].map(id=>preparedLabels['team:'+id]??('Команда #'+id)).join(' — ');
+    const title=[teamNames,mapNumber.value?'Карта '+mapNumber.value:null].filter(Boolean).join(' · ').slice(0,120);
+    const parsed=ScenarioInputSchema.safeParse({...scenario,title,draft:draft.value,context:{...scenario.context,mapNumber:mapNumber.value}});
+    if(!parsed.success){error.value='Проверьте драфт: герой может быть выбран или забанен только один раз.';return;}
+    scenario=parsed.data;
+  }
   busy.value=true;
   try{
     const s=await readCatalog('scenarios',ScenarioSnapshotSchema,new AbortController().signal,{method:'POST',
       headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},
-      body:JSON.stringify({...input.value.data,cutoffAt:new Date().toISOString()})});
-    cache.setQueryData(['scenario',s.id],s);await cache.invalidateQueries({queryKey:['scenarios']});await router.push(`/scenarios/${s.id}`);
+      body:JSON.stringify(scenario)});
+    cache.setQueryData(['scenario',s.id],s);await cache.invalidateQueries({queryKey:['scenarios']});
+    if(disposed)return;
+    await router.push(props.liveDraft?{path:`/scenarios/${s.id}/draft`,query:{from:'live'}}:`/scenarios/${s.id}`);
   }catch(e){error.value=e instanceof Error?e.message:'Не удалось создать сценарий.';}finally{busy.value=false;}
 }
 </script>
 <template>
+  <section v-if="liveDraft" aria-label="Драфт Live-карты" class="live-draft">
+    <label>Номер карты <select v-model="mapNumber" :disabled="busy"><option :value="null">Не указан</option><option v-for="n in mapNumbers" :key="n" :value="n">Карта {{n}}</option></select></label>
+    <DraftEditor v-model="draft" :lineup-a="draftLineup(form.lineupA)" :lineup-b="draftLineup(form.lineupB)" :player-labels="preparedLabels"
+      :team-a-id="form.teamAId||undefined" :team-b-id="form.teamBId||undefined" :team-a-label="participants.complete&&match.opponents[0]?upcomingTeamLabel(match.opponents[0]):undefined" :team-b-label="participants.complete&&match.opponents[1]?upcomingTeamLabel(match.opponents[1]):undefined" :disabled="busy" />
+    <template v-if="canManageLineups"><button type="button" :disabled="busy||!confirmed||!complete" @click="create">Сохранить карту</button>
+      <p v-if="!confirmed" class="hint">Героев уже можно выбирать. Для сохранения проверьте обе пятёрки и роли ниже.</p>
+      <p v-if="error" role="alert" class="error">{{error}}</p>
+    </template>
+    <p v-else class="hint">Сохранение карты доступно владельцу.</p>
+  </section>
   <section aria-label="Составы для сравнения" class="comparison-start">
-    <h3>Составы и прогноз</h3>
-    <p v-if="live" class="hint">Проверьте пятёрки и получите условную оценку их силы без учёта текущей игры.</p>
+    <h3>{{liveDraft?'Составы карты':'Составы и прогноз'}}</h3>
+    <p v-if="liveDraft" class="hint">Используйте сохранённые пятёрки или уточните участников этой карты.</p>
+    <p v-else-if="live" class="hint">Проверьте пятёрки и получите условную оценку их силы без учёта текущей игры.</p>
     <p v-else class="hint">Проверьте составы и роли, затем получите прогноз первой карты или сравните историю игроков. Карта для прогноза подготовится автоматически.</p>
     <div class="manual-columns"><article v-for="slot in (['A','B'] as const)" :key="slot" :aria-label="`Выбранный состав ${slot}`">
       <h4>{{preparedLabels['team:'+(slot==='A'?form.teamAId:form.teamBId)]??(participants.complete?upcomingTeamLabel(match.opponents[slot==='A'?0:1]!):`Команда ${slot}`)}}</h4>
@@ -184,9 +223,9 @@ async function create(){
     <button v-if="canManageLineups" type="button" :disabled="busy" @click="editLineups">Изменить игроков и роли</button>
     <button v-if="canManageLineups" type="button" :disabled="!canConfirm||confirmed" :aria-pressed="confirmed" @click="confirmLineups">{{busy?'Подтверждаем…':'Подтвердить пятёрки и роли'}}</button>
     <p v-if="confirmed" role="status">Используются сохранённые пятёрки и роли. Повторное подтверждение не требуется.</p>
-    <p v-if="error" role="alert" class="error">{{error}}</p>
-    <component :is="live?LiveEstimate:UpcomingForecast" v-if="participants.complete" :key="match.providerMatchId" :match="match" :input="input.success?input.data:null" :confirmed="confirmed" :disabled="busy" @busy="busy=$event" />
-    <UpcomingLineupCompare :input="busy?null:comparisonInput" :player-labels="preparedLabels" />
+    <p v-if="error&&!liveDraft" role="alert" class="error">{{error}}</p>
+    <component :is="live?LiveEstimate:UpcomingForecast" v-if="participants.complete&&!liveDraft" :key="match.providerMatchId" :match="match" :input="input.success?input.data:null" :confirmed="confirmed" :disabled="busy" @busy="busy=$event" />
+    <UpcomingLineupCompare v-if="!liveDraft" :input="busy?null:comparisonInput" :player-labels="preparedLabels" />
   </section>
   <fieldset class="catalogue-lock" :disabled="busy||!canManageLineups"><ExpectedRosterCatalogue v-if="participants.complete" ref="catalogue" :match-id="match.providerMatchId" :roster-version="rosterVersion" :automatic-allowed="automaticAllowed" @apply="useBinding" @saved="useSaved" @preparation="preparation=$event" /></fieldset>
   <details v-if="canManageLineups" ref="manualEditor" class="manual-scenario" :open="manualOpen" @toggle="manualOpen=($event.target as HTMLDetailsElement).open"><summary>Выбрать игроков для анализа одной карты</summary>
@@ -194,7 +233,7 @@ async function create(){
     <p class="hint">Выбор занятой роли меняет назначения ролей у двух игроков, сохраняя порядок карточек. В пятёрке всегда по одной роли 1–5; после изменения подтвердите состав заново.</p>
     <p class="hint">Найдите запись по имени или ID и выберите её из списка. Если записи нет в локальной базе, состав остаётся неполным.</p>
     <p v-if="!participants.complete" class="warning">Это гипотетический сценарий с выбранными вами командами. Он не подтверждает участников этой встречи и не привязывает к ней реальный прогноз.</p>
-    <form @submit.prevent="create"><fieldset :disabled="busy" class="scenario-fields">
+    <form @submit.prevent="!live && create()"><fieldset :disabled="busy" class="scenario-fields">
       <label>Название сценария<input v-model="form.title" maxlength="120" required /></label>
       <div class="manual-columns"><fieldset v-for="slot in (['A','B'] as const)" :key="slot">
         <legend>Команда {{slot}} · {{participants.complete?upcomingTeamLabel(match.opponents[slot==='A'?0:1]!):'выберите вручную'}}</legend>

@@ -7,7 +7,7 @@ import ReportEntityLabel from './ReportEntityLabel.vue';
 import {readCatalog} from '../catalog';
 import {roleName} from '../role-suggestions';
 import {heroOptionLabel} from '../hero-display';
-const props=defineProps<{modelValue:DraftInput;lineupA:ScenarioInput['lineupA'];lineupB:ScenarioInput['lineupB'];playerLabels?:Record<string,string>;teamAId?:string;teamBId?:string}>();
+const props=defineProps<{modelValue:DraftInput;lineupA:ScenarioInput['lineupA'];lineupB:ScenarioInput['lineupB'];playerLabels?:Record<string,string>;teamAId?:string;teamBId?:string;teamALabel?:string;teamBLabel?:string;disabled?:boolean}>();
 const playerIds=computed(()=>[...props.lineupA,...props.lineupB].map(p=>p.playerId));
 const selectedNames=computed(()=>!props.teamAId&&!props.teamBId&&playerIds.value.every(id=>id===null||Object.prototype.hasOwnProperty.call(props.playerLabels??{},'player:'+id))?props.playerLabels??{}:undefined);
 const emit=defineEmits<{'update:modelValue':[value:DraftInput]}>();
@@ -30,13 +30,13 @@ function addBan(){
 }
 </script>
 <template>
-  <fieldset id="draftlab"><legend>Draft Lab · герои по игрокам и ролям</legend>
+  <fieldset id="draftlab" :disabled="disabled"><legend>Draft Lab · герои по игрокам и ролям</legend>
 
     <label>Поиск героев в локальном каталоге<input v-model="search" type="search" maxlength="80" /></label>
     <p v-if="heroes.isPending.value" role="status">Загрузка героев…</p><p v-else-if="heroes.error.value" class="error" role="alert">{{heroes.error.value.message}} <button type="button" @click="heroes.refetch()">Повторить загрузку героев</button></p>
     <p v-else-if="!heroes.data.value?.items.length">Герои по запросу не найдены. Измените поиск или синхронизируйте каталог.</p>
     <p v-if="heroes.data.value?.hasMore" class="hint">Показаны первые100 героев. Уточните поиск по имени или ID.</p>
-    <DraftDisplayLabels :provided-labels="selectedNames" :player-ids="playerIds" :team-ids="[teamAId??null,teamBId??null]" compact v-slot="{labels}"><div class="draft-grid"><fieldset v-for="slot in (['A','B'] as const)" :key="slot"><legend>Герои {{slot}}<template v-if="slot==='A'?teamAId:teamBId"> · <ReportEntityLabel kind="teams" :id="(slot==='A'?teamAId:teamBId)??null" :name="labels['team:'+(slot==='A'?teamAId:teamBId)]" compact /></template></legend>
+    <DraftDisplayLabels :provided-labels="selectedNames" :player-ids="playerIds" :team-ids="[teamAId??null,teamBId??null]" compact v-slot="{labels}"><div class="draft-grid"><fieldset v-for="slot in (['A','B'] as const)" :key="slot"><legend>Герои {{slot}}<template v-if="slot==='A'?teamALabel:teamBLabel"> · {{slot==='A'?teamALabel:teamBLabel}}</template><template v-else-if="slot==='A'?teamAId:teamBId"> · <ReportEntityLabel kind="teams" :id="(slot==='A'?teamAId:teamBId)??null" :name="labels['team:'+(slot==='A'?teamAId:teamBId)]" compact /></template></legend>
       <div v-for="p in (slot==='A'?lineupA:lineupB)" :key="p.rolePos" class="draft-player-row"><div class="draft-player"><strong>{{roleName(p.rolePos)}}</strong><ReportEntityLabel kind="players" :id="p.playerId" :name="labels['player:'+p.playerId]" compact /></div><div class="draft-pick"><label><span class="pick-label">{{slot}}: герой роли {{p.rolePos}}</span>
         <select :aria-label="`${slot}: герой роли ${p.rolePos}`" :value="picked(slot,p.rolePos)??''" @change="assign(slot,p.rolePos,$event)">
           <option value="">Не назначен</option><option v-if="picked(slot,p.rolePos)!==null&&!listed.has(picked(slot,p.rolePos)!)" :value="picked(slot,p.rolePos)">{{heroOptionLabel(picked(slot,p.rolePos)!,names.get(picked(slot,p.rolePos)!))}}</option>

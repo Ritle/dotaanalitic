@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import {computed,onBeforeUnmount,onMounted,ref,watch} from 'vue';
+import {useRoute} from 'vue-router';
 import {useQuery,useQueryClient} from '@tanstack/vue-query';
 import {LiveResponseSchema,LiveMatchSchema,type LiveMatch} from '../../../api/src/modules/live/contract';
 import {UpcomingRostersResponseSchema} from '@dota/contracts';
@@ -12,18 +13,32 @@ const cache=useQueryClient(),busy=ref(false),error=ref(''),automatic=ref(true),t
 const owner=computed(()=>accountAccess.value?.role==='owner');
 const now=ref(Date.now());
 const selected=ref<LiveMatch|null>(null);
+const route=useRoute();
+const draftMatchId=computed(()=>route.name==='live-draft'?String(route.params.matchId):'');
 const rosterVersion=ref(''),rosterBusy=ref(false),rosterError=ref('');
-async function selectMatch(match:LiveMatch){selected.value=LiveMatchSchema.parse(match);await refreshRosters();}
+let rosterRequest:AbortController|undefined;
+function clearSelection(){rosterRequest?.abort();rosterRequest=undefined;selected.value=null;rosterBusy.value=false;rosterError.value='';rosterVersion.value='';}
+async function selectMatch(match:LiveMatch){
+ clearSelection();selected.value=LiveMatchSchema.parse(match);
+ if(upcomingParticipants(match).complete)await refreshRosters();
+}
 async function refreshRosters(){
  const match=selected.value;if(!match||rosterBusy.value)return;rosterBusy.value=true;rosterError.value='';
- try{const data=await readCatalog(`upcoming/tournaments/${match.tournament.providerTournamentId}${owner.value?'/refresh':''}`,UpcomingRostersResponseSchema,new AbortController().signal,
+ const request=new AbortController();rosterRequest=request;
+ try{const data=await readCatalog(`upcoming/tournaments/${match.tournament.providerTournamentId}${owner.value?'/refresh':''}`,UpcomingRostersResponseSchema,request.signal,
   owner.value?{method:'POST',headers:{'content-type':'application/json','x-csrf-token':ownerAuth.value?.csrfToken??''},body:'{}'}:undefined);
-  if(selected.value?.providerMatchId===match.providerMatchId)rosterVersion.value=data.snapshot?.source.fetchedAt??'';
- }catch(e){rosterError.value=e instanceof Error?e.message:'Не удалось обновить заявку турнира. Можно выбрать игроков вручную.';}finally{rosterBusy.value=false;}
+  if(rosterRequest===request&&!request.signal.aborted)rosterVersion.value=data.snapshot?.source.fetchedAt??'';
+ }catch(e){if(!request.signal.aborted)rosterError.value=e instanceof Error?e.message:'Не удалось обновить заявку турнира. Можно выбрать игроков вручную.';}finally{if(rosterRequest===request)rosterBusy.value=false;}
 }
 const query=useQuery({queryKey:['live-matches'],queryFn:({signal})=>readCatalog('live',LiveResponseSchema,signal),staleTime:30000,refetchOnWindowFocus:false,refetchOnReconnect:false});
 let disposed=false,controller:AbortController|undefined,timer:ReturnType<typeof setInterval>|undefined,lastAttemptAt=0,lastReadAt=0;
 const running=computed(()=>(query.data.value?.snapshot?.data??[]).filter(m=>m.status==='running'));
+watch(draftMatchId,clearSelection,{flush:'sync'});
+watch([draftMatchId,running],([id,items])=>{
+ if(!id||selected.value?.providerMatchId===id)return;
+ const match=items.find(item=>item.providerMatchId===id);
+ if(match)void selectMatch(match);
+},{immediate:true});
 const stale=computed(()=>query.data.value?.status==='stale'||!!(query.data.value?.expiresAt&&Date.parse(query.data.value.computedAt)+Math.max(0,now.value-query.dataUpdatedAt.value)>=Date.parse(query.data.value.expiresAt)));
 const eventKey=(m:(typeof running.value)[number])=>m.league.providerLeagueId+':'+(m.eventSeries?.providerEventSeriesId??'');
 const events=computed(()=>[...new Map(running.value.map(m=>[eventKey(m),[m.league.name,m.eventSeries?.name].filter(Boolean).join(' · ')||'Турнир без названия'])).entries()]);
@@ -40,16 +55,31 @@ async function refresh(){
  }catch(e){if(!disposed)error.value=e instanceof Error?e.message:'Не удалось обновить список.';}finally{busy.value=false;}
 }
 async function tick(){if(disposed)return;now.value=Date.now();
+ if(draftMatchId.value&&selected.value)return;
  const action=liveRefreshAction({data:query.data.value,now:Date.now(),receivedAt:query.dataUpdatedAt.value||Date.now(),owner:owner.value,lastAttemptAt,lastReadAt,
   paused:!automatic.value||busy.value||query.isFetching.value||document.visibilityState!=='visible'||!navigator.onLine});
  if(action==='refresh')await refresh();else if(action==='read'){lastReadAt=Date.now();await query.refetch();}
 }
 watch([()=>query.data.value,query.isFetching,busy,automatic,owner],()=>void tick(),{flush:'post'});
 onMounted(()=>{document.addEventListener('visibilitychange',tick);window.addEventListener('online',tick);timer=setInterval(()=>void tick(),15000);void tick();});
-onBeforeUnmount(()=>{disposed=true;controller?.abort();if(timer)clearInterval(timer);document.removeEventListener('visibilitychange',tick);window.removeEventListener('online',tick);});
+onBeforeUnmount(()=>{disposed=true;controller?.abort();rosterRequest?.abort();if(timer)clearInterval(timer);document.removeEventListener('visibilitychange',tick);window.removeEventListener('online',tick);});
 </script>
 <template>
- <section class="shell live-page">
+ <section v-if="draftMatchId" class="shell live-draft-page">
+  <RouterLink to="/live">← Live-матчи</RouterLink>
+  <h1>Draft Lab</h1>
+  <template v-if="selected">
+   <h2>{{upcomingParticipants(selected).label}}</h2>
+   <p v-if="!upcomingParticipants(selected).complete" class="hint">Участники ещё не определены. Для ручной карты выберите команды A и B в составах ниже.</p>
+   <p v-if="stale" class="hint">Список Live устарел. Уточните, какая карта сейчас идёт.</p>
+   <p v-if="rosterError" role="alert">{{rosterError}} <button @click="refreshRosters">Повторить загрузку составов</button></p>
+   <UpcomingScenario :key="selected.providerMatchId" :match="selected" :roster-version="rosterVersion" live live-draft />
+  </template>
+  <p v-else-if="query.isPending.value||busy" role="status">Загрузка Live-матча…</p>
+  <p v-else-if="query.error.value" role="alert">{{query.error.value.message}} <button @click="query.refetch()">Повторить</button></p>
+  <p v-else role="status">{{reason||'Этой встречи уже нет в списке Live.'}}</p>
+ </section>
+ <section v-else class="shell live-page">
   <nav class="live-nav" aria-label="Разделы матчей"><RouterLink to="/">← Личный кабинет</RouterLink><RouterLink to="/upcoming">Предстоящие матчи</RouterLink><RouterLink to="/forecast-journal">Журнал прогнозов</RouterLink></nav>
   <p class="eyebrow">DOTA 2 · LIVE</p><h1>Матчи сейчас</h1>
   <p>Текущие серии: участники, турнир и счёт выигранных карт по данным PandaScore.</p>
@@ -75,10 +105,12 @@ onBeforeUnmount(()=>{disposed=true;controller?.abort();if(timer)clearInterval(ti
     <p class="live-score"><span>Счёт серии</span><strong>{{m.seriesScore?m.seriesScore.map(t=>t.wins).join(' : '):'Нет данных'}}</strong><small>{{m.seriesBestOf?'BO'+m.seriesBestOf:'Формат не объявлен'}}</small></p>
     <p class="hint">{{m.beganAt?'Началась: ':'По расписанию: '}}{{time(m.beganAt??m.scheduledAt)}}</p>
     <p v-if="!upcomingParticipants(m).complete" class="warning">Один из участников ещё не указан источником.</p>
-    <button :disabled="stale||!upcomingParticipants(m).complete" @click="selectMatch(m)">Оценить пятёрки</button>
+    <div class="live-actions"><RouterLink :to="{name:'live-draft',params:{matchId:m.providerMatchId}}">Открыть Draft Lab</RouterLink>
+     <button :disabled="stale||!upcomingParticipants(m).complete" @click="selectMatch(m)">Оценить пятёрки</button></div>
    </article></div>
   </section>
-  <section v-if="selected" class="panel" aria-label="Выбранная Live-встреча"><button @click="selected=null">Закрыть оценку</button><h2>{{upcomingParticipants(selected).label}}</h2>
+  <section v-if="selected" class="panel" aria-label="Выбранная Live-встреча"><button @click="clearSelection">Закрыть оценку</button><h2>{{upcomingParticipants(selected).label}}</h2>
+   <RouterLink :to="{name:'live-draft',params:{matchId:selected.providerMatchId}}">Открыть Draft Lab</RouterLink>
    <p class="warning">Условная оценка силы пятёрок. Счёт, драфт и ход текущей карты не учитываются.</p>
    <button :disabled="rosterBusy" @click="refreshRosters">{{rosterBusy?'Загружаем составы…':'Обновить составы'}}</button><p v-if="rosterError" role="alert">{{rosterError}}</p>
    <UpcomingScenario :key="selected.providerMatchId" :match="selected" :roster-version="rosterVersion" live />
@@ -87,6 +119,7 @@ onBeforeUnmount(()=>{disposed=true;controller?.abort();if(timer)clearInterval(ti
  </section>
 </template>
 <style scoped>
+.live-actions{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.live-draft-page{max-width:none;padding:0}
 .live-auto{display:flex;align-items:center;gap:8px}.live-auto input{width:18px;height:18px;min-height:0;margin:0;flex:0 0 auto}
 .live-nav,.live-toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.live-toolbar{justify-content:space-between;margin-bottom:16px}.live-toolbar select{max-width:100%}.live-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px}.live-card{border:1px solid var(--color-border);border-radius:12px;padding:20px;min-width:0}.live-card h2{font-size:20px;overflow-wrap:anywhere}.live-badge{font-size:12px;color:var(--color-accent);font-weight:700}.live-score{display:flex;align-items:center;gap:16px;flex-wrap:wrap}.live-score strong{font-size:28px}.live-score small{color:var(--color-muted)}.live-filter{min-width:0;max-width:100%}
 </style>

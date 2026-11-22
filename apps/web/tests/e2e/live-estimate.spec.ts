@@ -38,9 +38,11 @@ test.beforeEach(async()=>{
  await post('/api/v1/upcoming/refresh',{});await post('/api/v1/upcoming/tournaments/71001/refresh',{});
 });
 test.afterEach(async({page})=>{await page.goto('about:blank');await api?.close();await database?.close();});
-async function open(page:Page){
+async function open(page:Page,draft=false){
  await page.goto('/live');await page.getByLabel('Логин').fill('synthetic-auto-roster');await page.getByLabel('Пароль').fill(password);await page.getByRole('button',{name:'Войти',exact:true}).click();
- await page.getByRole('link',{name:'Live — матчи сейчас →'}).click();await page.getByRole('button',{name:'Оценить пятёрки',exact:true}).click();
+ await page.getByRole('link',{name:'Live — матчи сейчас →'}).click();
+ if(draft)await page.getByRole('link',{name:'Открыть Draft Lab',exact:true}).click();
+ else await page.getByRole('button',{name:'Оценить пятёрки',exact:true}).click();
 }
 const card=(page:Page,slot:string)=>page.getByRole('article',{name:'Выбранный состав '+slot,exact:true});
 
@@ -54,6 +56,33 @@ const role=(page:Page,slot:string,index=1)=>card(page,slot).getByRole('combobox'
 
 const estimate=(page:Page)=>page.getByRole('region',{name:'Условная оценка по пятёркам',exact:true});
 const calculate=(page:Page)=>estimate(page).getByRole('button',{name:'Рассчитать условную оценку',exact:true});
+test('Live opens the selected map draft in one click and saves its picks without a forecast',async({page})=>{
+ test.setTimeout(120000);
+ await sql`INSERT INTO heroes(id,internal_name,localized_name) VALUES (410,'synthetic_live','Synthetic Live Hero')`.execute(database.db);
+ await open(page,true);
+ await expect(page).toHaveURL(/\/live\/70001\/draft$/);
+ await page.reload();
+ const lab=page.getByRole('region',{name:'Драфт Live-карты'});
+ await expect(lab.getByRole('group',{name:'Герои A · Синтетическая Alpha',exact:true})).toBeVisible();
+ await expect(lab.getByRole('group',{name:'Герои B · Синтетическая Beta',exact:true})).toBeVisible();
+ await expect(estimate(page)).toHaveCount(0);
+ await lab.getByLabel('Номер карты').selectOption({label:'Карта 2'});
+ await lab.getByLabel('A: герой роли 1',{exact:true}).selectOption('410');
+ const save=lab.getByRole('button',{name:'Сохранить карту'});
+ await expect(save).toBeDisabled();
+ expect((await sql`SELECT id FROM scenarios`.execute(database.db)).rows).toHaveLength(0);
+ await expect(card(page,'B')).toContainText('Steam32 1007');
+ for(let i=1;i<=5;i++)await card(page,'A').getByLabel(`Synthetic Player ${String(i).padStart(2,'0')} — в пятёрку A`,{exact:true}).check();
+ await confirm(page).click();
+ await expect(save).toBeEnabled();
+ await save.click();
+ await expect(page).toHaveURL(/\/scenarios\/[a-f0-9-]+\/draft\?from=live$/);
+ await expect(page.getByLabel('A: герой роли 1',{exact:true})).toHaveValue('410');
+ await expect(page.getByText('Синтетическая Alpha — Синтетическая Beta · Карта 2',{exact:true}).first()).toBeVisible();
+ for(const table of ['prediction_runs','live_lineup_estimates','v1_schedule_targets'])expect((await sql`SELECT 1 FROM ${sql.table(table)}`.execute(database.db)).rows).toHaveLength(0);
+ await page.getByRole('link',{name:'← Live-матчи'}).click();
+ await expect(page.getByRole('link',{name:'Открыть Draft Lab'})).toBeVisible();
+});
 test('Live prepares five, checks acknowledgement, saves conditional result and reopens without another write',async({page})=>{
  test.setTimeout(120000);
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));

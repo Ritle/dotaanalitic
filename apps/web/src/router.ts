@@ -18,6 +18,7 @@ export const router = createRouter({
     { path: '/login', component: LoginView },
     { path: '/', component: HomeView, meta: { requiresAuth: true } },
     { path: '/live', component: LiveView, meta: { requiresAuth: true } },
+    { path: '/live/:matchId(\\d+)/draft', name:'live-draft', component: LiveView, meta: { requiresAuth: true } },
     { path: '/upcoming', component: UpcomingView, meta: { requiresAuth: true } },
     { path: '/schedule-targets/:requestId', component: ScheduleTargetView, meta: { requiresAuth: true } },
     { path: '/forecast-journal', component: ForecastJournalView, meta: { requiresAuth: true } },

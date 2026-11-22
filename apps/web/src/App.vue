@@ -3,7 +3,7 @@ import { computed, onMounted, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { ownerAuth } from './auth';
 const router=useRouter(),route=useRoute();
-const workspace=computed(()=>/^\/scenarios\/[^/]+(?:\/draft)?$/.test(route.path)||route.path==='/forecast-journal');
+const workspace=computed(()=>route.name==='live-draft'||/^\/scenarios\/[^/]+(?:\/draft)?$/.test(route.path)||route.path==='/forecast-journal');
 watch(ownerAuth,(owner,previous)=>{if(previous && !owner) void router.replace('/login');});
 const apiState = ref<'loading' | 'online' | 'offline'>('loading');
 onMounted(async () => {
