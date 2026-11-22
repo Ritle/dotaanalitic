@@ -5,6 +5,7 @@ import {sample} from '../../../tests/fixtures/dl30-swiss-stage.mjs';
 import {sha} from '../../../tools/research/exposure-ledger-core.mjs';
 import {endpoints, reviewStage} from '../../../tools/research/review-dl30-swiss-stage.mjs';
 import {reviewSwissReceipt} from '../../../tools/research/review-dl30-swiss-receipt.mjs';
+import {privateSwissInventory,registerSwissOwnerReview,swissReceiptStatus} from '../../../tools/research/register-dl30-swiss.mjs';
 import {sql} from '../dist/index.js';
 
 const proposalBytes = await readFile(new URL('../../../tools/research/player-hero-dl30-swiss-proposal.json',import.meta.url));
@@ -93,4 +94,53 @@ it('rechecks the inventory and database deadline when observing the committed pl
   await clock('2026-11-30T18:00:00.000Z');
   await expect(observe(digest).execute(database.db)).rejects.toThrow('swiss_registration_time_invalid');
   expect((await sql`SELECT * FROM swiss_rehearsal_receipts`.execute(database.db)).rows).toHaveLength(0);
+});
+
+function ownerReview() {
+  const f=fixture(), {evidence:base}=reviewSwissReceipt(f.stage,f);
+  const evidence={...base,privateExposureSha256:sha('private review'),registryRevisions:[sha('registry snapshot')]};
+  return {digest:sha(JSON.stringify(evidence)),evidence};
+}
+
+it('registers the reviewed package with one immutable receipt under concurrent attempts',async () => {
+  await choose();
+  const draft=ownerReview();
+  const run=()=>registerSwissOwnerReview(database.db,owner,draft.digest,async()=>draft);
+  expect(await swissReceiptStatus(database.db)).toMatchObject({status:'not_registered'});
+  const [first,second]=await Promise.all([run(),run()]);
+  expect(first).toEqual(second);
+  expect(first).toMatchObject({status:'registered',receiptSha256:draft.digest,observedAt:at,collectionAllowed:false,activationAllowed:false});
+  await clock('2026-12-01T18:00:00.000Z');
+  expect(await registerSwissOwnerReview(database.db,owner,draft.digest,async()=>{throw Error('already registered');})).toEqual(first);
+  await expect(registerSwissOwnerReview(database.db,owner,sha('other review'),async()=>draft)).rejects.toThrow('receipt_already_observed');
+  await expect(sql`DELETE FROM dl30_swiss_receipts`.execute(database.db)).rejects.toThrow('immutable');
+  await expect(sql`TRUNCATE dl30_swiss_plans,dl30_swiss_receipts`.execute(database.db)).rejects.toThrow('immutable');
+  expect((await sql`SELECT * FROM dl30_registration_receipts`.execute(database.db)).rows).toHaveLength(0);
+});
+
+it('blocks an unreviewed digest and rechecks mutable local and shared inputs before the receipt',async () => {
+  await choose();
+  const draft=ownerReview();
+  await expect(registerSwissOwnerReview(database.db,owner,sha('wrong digest'),async()=>draft)).rejects.toThrow('owner_review_digest_changed');
+  let attempt=0;
+  await expect(registerSwissOwnerReview(database.db,owner,draft.digest,async()=>{
+    if (++attempt===2) return {...draft,digest:sha('new shared registry snapshot')};
+    return draft;
+  })).rejects.toThrow('review_changed_before_receipt');
+  attempt=0;
+  await expect(registerSwissOwnerReview(database.db,owner,draft.digest,async()=>{
+    if (++attempt===2) await sql`INSERT INTO matches(id,started_at) VALUES(987,${at}::timestamptz)`.execute(database.db);
+    return draft;
+  })).rejects.toThrow('dl30_inventory_changed');
+  expect(await swissReceiptStatus(database.db)).toMatchObject({status:'not_registered'});
+});
+
+it('rejects private disclosure with changed bytes, unknown fields, or duplicate accounts', () => {
+  const text=JSON.stringify({format:'dl30-private-exposure-v1',mapIds:['12'],seriesKeys:['["pandascore","12"]']});
+  expect(privateSwissInventory(text,sha(text))).toEqual({mapIds:['12'],openDotaSeriesIds:[],pandaScoreMeetingIds:['12']});
+  expect(()=>privateSwissInventory(text+'\n',sha(text))).toThrow('private_exposure_changed');
+  const extra=text.replace('"mapIds"','"notes":"x","mapIds"');
+  expect(()=>privateSwissInventory(extra,sha(extra))).toThrow('unexpected_private_exposure_fields');
+  const duplicates=text.replace('["12"]','["12","12"]');
+  expect(()=>privateSwissInventory(duplicates,sha(duplicates))).toThrow('duplicate_private_map');
 });

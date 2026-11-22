@@ -14,6 +14,7 @@ const directory = join('.tools','s304-dl30-stage-' + Date.now());
 await mkdir(directory);
 const db = createDatabase(process.env.DATABASE_URL);
 const sources = {};
+const failures = {};
 async function save(key, bytes, fetchedAt, meta = {}) {
   await writeFile(join(directory,key), bytes, {flag:'wx'});
   sources[key] = {url:endpoints[key], httpStatus:200, fetchedAt, sha256:sha(bytes), ...meta};
@@ -38,9 +39,7 @@ async function capture(key, budget) {
     total:headers.get('x-total'), hasNext:/rel\s*=\s*"?next\b/i.test(headers.get('link') ?? '')}} : {};
   await save(key,Buffer.concat(chunks),new Date().toISOString(),meta);
 }
-try {
-  await capture('calendar');
-  await capture('valve');
+async function captureOpenDota() {
   const limits = {rpm:Number(process.env.OPENDOTA_RPM_BUDGET ?? 45), daily:Number(process.env.OPENDOTA_DAILY_BUDGET ?? 2000),
     monthly:Number(process.env.OPENDOTA_MONTHLY_BUDGET ?? 45000)};
   const client = new OpenDotaClient({attempts:1, maxRequests:1, timeoutMs:25000, apiKey:process.env.OPENDOTA_API_KEY},
@@ -48,9 +47,30 @@ try {
   const observation = await client.getLeagues();
   assert.equal(sha(observation.rawBody),observation.source.payloadSha256,'opendota_capture_hash');
   await save('opendota',observation.rawBody,observation.source.fetchedAt);
-  await capture('editions',new DurablePandaScoreBudget(new PandaScoreQuotaRepository(db)));
-  await writeFile(join(directory,'sources.json'),JSON.stringify({format:'dl30-swiss-source-capture-v1',sources},null,2),{flag:'wx'});
-  const report = await replayStage(directory);
-  await writeFile(join(directory,'review.json'),JSON.stringify(report,null,2),{flag:'wx'});
-  console.log(JSON.stringify({directory,...report},null,2));
+}
+
+try {
+  for (const [name,read] of [
+    ['calendar', () => capture('calendar')],
+    ['valve', () => capture('valve')],
+    ['opendota', captureOpenDota],
+    ['editions', () => capture('editions',new DurablePandaScoreBudget(new PandaScoreQuotaRepository(db)))],
+  ]) {
+    try { await read(); }
+    catch (error) {
+      const code = error.code === 'ERR_ASSERTION' ? error.message : error.code ?? error.cause?.code ?? error.name;
+      failures[name] = typeof code === 'string' && /^[a-zA-Z0-9_]{1,80}$/.test(code) ? code : 'source_capture_failed';
+    }
+  }
+  if (Object.keys(failures).length) {
+    const incomplete={directory,status:'unavailable',binding:null,sources,failures};
+    await writeFile(join(directory,'partial.json'),JSON.stringify(incomplete,null,2),{flag:'wx'});
+    console.log(JSON.stringify(incomplete,null,2));
+    process.exitCode=1;
+  } else {
+    await writeFile(join(directory,'sources.json'),JSON.stringify({format:'dl30-swiss-source-capture-v1',sources},null,2),{flag:'wx'});
+    const report = await replayStage(directory);
+    await writeFile(join(directory,'review.json'),JSON.stringify(report,null,2),{flag:'wx'});
+    console.log(JSON.stringify({directory,...report},null,2));
+  }
 } finally { await db.destroy(); }

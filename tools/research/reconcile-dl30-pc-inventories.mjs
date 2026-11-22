@@ -161,6 +161,7 @@ export async function readPcInventories(localPath,localSha,peerPath,peerSha,
     assert.notEqual(peerSha,localSha,'same report supplied for both PCs');
     await include('peer',peerPath,peerSha);
   }
+  if (registry.privateInventory) sources.private = registry.privateInventory;
   const inputDigests={base:packageDigest,...archives};
   if (localSha) inputDigests.local=localSha;
   if (peerSha) inputDigests.peer=peerSha;
