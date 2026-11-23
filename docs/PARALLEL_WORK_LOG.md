@@ -8,8 +8,26 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | [S3-04 / проверка ID DreamLeague 30 Swiss](#пк2-s3-04-dreamleague-30-swiss) | Заблокирована | ПК2, сессия Draft Lab | Проверочный срез `origin/draft-lab/dl30-first-request`, `94f3f85`. | Каталоги Valve, OpenDota и PandaScore | 2026-11-23T13:24:42+03:00 | У поставщиков пока только квалификации. Ожидаются ID основного издания и этапа. |
 | [S3-09 / сверка результатов предматчевого пилота BO3](#пк2-s3-09-blast-slam-ix) | Ожидаются итоговые данные четырёх карт. Строгая сверка 0/2 | ПК2, сессия BO3 | Локальная `main` ПК2 — `0ad9c99`, база в `origin/main` — `afc88fb`. | Две встречи BLAST IX, локальные квитанции и приватный реестр. | 2026-11-23T13:02:30+03:00 | При следующем обновлении двух встреч проверить `games[].complete`. После готовности повторить строгую сверку длительностей. |
+| [Первичный перенос истории Elo из БД ПК2](#пк2-снимок-истории-elo-из-локальной-бд) | Готово к запуску | ПК2, сессия Draft Lab | Экспортёр есть в проверочном срезе `94f3f85`. | Локальный PostgreSQL ПК2, файлы `.tools/research-history-pc2-20261123-*`, приватный реестр. | 2026-11-23T14:19:38+03:00 | Опубликовать первичный снимок по имени и проверить обратное скачивание. |
 
 Добавляйте строку при начале согласованной задачи. Если на одном ПК работают несколько сессий, добавляйте к имени ПК короткий идентификатор сессии. Для закрытых и снятых задач сохраняйте карточку результата в разделе ниже.
+
+### ПК2 снимок истории Elo из локальной БД
+
+ПК2, опубликуй версионированную выгрузку Elo из своего локального PostgreSQL. Запусти из корня проекта с собранными пакетами, запущенной локальной БД и открытым туннелем. Проверь, что `DATABASE_URL` указывает на локальную БД этого ПК. Используй уже проверенную на ПК2 команду пакетов и, если требуется, прежнее значение `RESEARCH_ARTIFACT_CLI` с поддержкой multipart. Все выходные пути должны быть свободны.
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get 713b6dd76b6a40350baa78b7e55e9afa01c06f19a4e0817412fb4c6e7e4b3f93 .tools/shared-research-history.mjs
+node --env-file=.env tools/research/series-development-export.mjs .tools/research-history-pc2-20261123-inventory.json
+node .tools/shared-research-history.mjs prepare .tools/research-history-pc2-20261123-inventory.json
+node --env-file=.env .tools/shared-research-bundle-current.mjs publish .tools/research-history-pc2-20261123-bundle.json
+node --env-file=.env .tools/shared-research-bundle-current.mjs restore research-history-pc2-20261123.json .tools/research-history-pc2-copy
+node .tools/shared-research-history.mjs verify .tools/research-history-pc2-copy/files/.tools/research-history-pc2-20261123-inventory.json
+```
+
+Переиспользуй существующий манифест `*-bundle.json` при повторе публикации после сетевой ошибки. Укажи в журнале имя пакета, SHA-256 манифеста и выгрузки, число исходных и пригодных для Elo карт. ПК1 получит данные из реестра по имени. Полные дампы, данные входа и сессий остаются за пределами пакета. Исходы из снимка не дают права включать карты в независимую проверку.
+
+Пакет ПК1 для чтения обоими ПК — `research-history-pc1-20261123.json`, SHA-256 манифеста `1472d3d55dc0584b156088a8b7a10e3c3e21d00398883665e025fb0a993dac90`.
 
 ### ПК2 S3-09 готовность независимой проверки BO3
 
