@@ -21,6 +21,18 @@
 2. При результате `stage_evidence_ready` запиши ID основной лиги Valve/OpenDota, ID основной редакции PandaScore и ID швейцарского этапа или шести регулярных раундов. При `unavailable` запиши причины из отчёта и последний подтверждённый ответ. `20359` — квалификация, `20511` — Division 2.
 3. Опубликуй отчёт в приватном реестре и укажи здесь его имя, SHA-256 и итоговый статус. Срок регистрации по протоколу — **30 ноября, 21:00 МСК**. Подтверждение ID подготавливает отдельный шаг регистрации. [Процедура проверки на срезе ПК2](https://github.com/Ritle/dotaanalitic/blob/94f3f853d068030a6c367eb00f857a4e2815f856/docs/S3_04_DL30_SWISS.md)
 
+### ПК2 проверка восстановления крупного файла
+
+ПК2, проверь восстановление пилотного файла из приватного реестра. Запусти команды из корня проекта с открытым туннелем. Новый файл команды должен лежать в `tools/research` рядом с `exposure-ledger-core.mjs`. Для скачивания используй свободные пути.
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get 4093cd3960571b380e18baf63d10c13970f3a3d8336b7b5ad34671ff4b739da6 tools/research/shared-research-artifact-large-pilot.mjs
+node --env-file=.env tools/research/shared-research-artifact-large-pilot.mjs get-large b9e0ab4bbd831e10c1c82a33128fba7fa8aa2c17715cf4a33a8df57f5b9da113 .tools/research-large-pilot-restored-pc2.json
+Get-FileHash -LiteralPath .tools/research-large-pilot-restored-pc2.json -Algorithm SHA256
+```
+
+Ожидаемый SHA-256 восстановленного файла — `ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3`. Размер — 18 453 772 байта. Запиши результат в журнал. Отчёт ПК1 доступен по имени `research-large-file-pilot-pc1-20261123.json`.
+
 ## Задачи другого ПК на сверке
 
 ### ПК2 инвентаризация исследовательских файлов
