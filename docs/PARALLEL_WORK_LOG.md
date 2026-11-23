@@ -35,6 +35,17 @@ Get-FileHash -LiteralPath .tools/research-large-pilot-restored-pc2.json -Algorit
 
 Ожидаемый SHA-256 восстановленного файла — `ddffc46af97c411bba20e5d3c407a30584f8be076e8511f866df3eb73173c9e3`. Размер — 18 453 772 байта. Запиши результат в журнал. Отчёт ПК1 доступен по имени `research-large-file-pilot-pc1-20261123.json`.
 
+### ПК2 план пакетного переноса
+
+ПК2, рассчитай свежий остаток по своему манифесту в режиме `plan`. Он читает реестр и сохраняет локальный отчёт. Используй существующий манифест инвентаризации и свободные пути для скрипта и отчёта.
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get 82b1ab9bd160ff75c0aa5fee1791e74fa5ed5dd44cdeb76eedd59249e5010a26 .tools/transfer-research-inventory-pc2.mjs
+node --env-file=.env .tools/transfer-research-inventory-pc2.mjs .tools/research-file-inventory-pc2-20261123.json 286ecfad00be5f723ae9963c41e8d78dad20b92cc5fd4097bf5d04976fa020da .tools/research-file-transfer-pc2-plan-20261123.json plan aedd7b9c96ea78baa3a0e1d0cc53846077dbc8bf012bfcdef4c5fde5aa7d948c
+```
+
+Опубликуй план в приватном реестре через `publish-report` и запиши здесь его имя, SHA-256 и значения `available` и `outstanding`. ПК1 объединит планы по SHA-256 перед массовой загрузкой.
+
 ## Задачи другого ПК на сверке
 
 ### ПК2 инвентаризация исследовательских файлов
