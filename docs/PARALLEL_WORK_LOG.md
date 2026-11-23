@@ -123,6 +123,17 @@ node --env-file=.env .tools/transfer-research-inventory-pc2-bulk.mjs .tools/rese
 
 ## Задачи другого ПК на сверке
 
+### ПК2 разовая настройка автопубликации исследований
+
+ПК2, подключи `run-and-publish` к одному штатному Node-запуску, который выводит JSON-отчёт. После этой настройки отчёт, входы и код проверки будут публиковаться одним пакетом. Инструмент доступен по SHA-256 `3606c8a3f9070d5c2a86fb6e71ec6ea50080f029ad01aa5258e41fb450bc8240`. Запусти из корня проекта с открытым туннелем и свободным путём установки.
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get 3606c8a3f9070d5c2a86fb6e71ec6ea50080f029ad01aa5258e41fb450bc8240 .tools/shared-research-bundle-current.mjs
+node --env-file=.env .tools/shared-research-bundle-current.mjs restore bo3-r10-auto-scope-20261123.json .tools/bo3-r10-auto-restore-pc2
+```
+
+Для своего запуска создай локальную спецификацию `shared-research-run-v1` с `name`, `command`, `inputs` и свободным путём `report` в `.tools`. Затем используй `node --env-file=.env .tools/shared-research-bundle-current.mjs run-and-publish <спецификация.json>`. Укажи в журнале имя автоматически опубликованного пакета и SHA-256. Пилот ПК1 восстановил семь файлов. SHA-256 его манифеста `b928e7981845bfb4d42e31a1266b94b70d9b73d1e516c92d2b85ec36a02f21c9`.
+
 ### ПК2 инвентаризация исследовательских файлов
 
 **Выполнено на ПК2.** Манифест research-file-inventory-pc2-20261123.json опубликован в приватном реестре и проверен скачиванием по имени. SHA-256 286ecfad00be5f723ae9963c41e8d78dad20b92cc5fd4097bf5d04976fa020da. Сканер проверил 1631 путь, найдено 1094 уникальных файла объёмом 690303396 байт. Ошибок сканирования и отсутствующих корней нет. На момент сверки 29 уникальных файлов уже были в реестре. ПК1 может объединить два манифеста по SHA-256.
