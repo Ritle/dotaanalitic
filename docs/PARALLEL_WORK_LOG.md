@@ -48,6 +48,19 @@ node --env-file=.env .tools/transfer-research-inventory-pc2.mjs .tools/research-
 
 Опубликуй план в приватном реестре через `publish-report` и запиши здесь его имя, SHA-256 и значения `available` и `outstanding`. ПК1 объединит планы по SHA-256 перед массовой загрузкой.
 
+### ПК2 пакетная загрузка уникальных файлов
+
+ПК2, загрузи по проверенному манифесту 595 файлов, которых нет на ПК1. Общие файлы загружает ПК1. Команды запускаются из корня проекта с открытым туннелем. Используй свободные пути скачивания и ранее проверенную команду `tools/research/shared-research-artifact-large-pilot.mjs`.
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get 6aeaa6cc2726350a169284df08c2f74505758efb745a509a8543d98be5191f65 .tools/research-file-inventory-pc2-only-20261123.json
+node --env-file=.env tools/research/shared-research-artifact.mjs get d292229a37f2a6f214589e796690184b31fae53f804e2eb72f267695639183da .tools/transfer-research-inventory-pc2-bulk.mjs
+$env:RESEARCH_ARTIFACT_CLI = 'tools/research/shared-research-artifact-large-pilot.mjs'
+node --env-file=.env .tools/transfer-research-inventory-pc2-bulk.mjs .tools/research-file-inventory-pc2-only-20261123.json 6aeaa6cc2726350a169284df08c2f74505758efb745a509a8543d98be5191f65 .tools/research-file-transfer-pc2-bulk-20261123.json 595
+```
+
+При прерывании повтори запуск по тому же манифесту с новым именем отчёта. Опубликуй итоговый отчёт в приватном реестре и запиши сюда имя, SHA-256, количество доступных файлов и остаток либо причины пропущенных файлов. Сводный план ПК1 и ПК2 доступен как `research-file-transfer-allocation-20261123.json`, SHA-256 `82f8b555f59d8fdc5a66159dc193ff2e53ba2c2f00ba63909126102ce908c274`.
+
 ## Задачи другого ПК на сверке
 
 ### ПК2 инвентаризация исследовательских файлов
