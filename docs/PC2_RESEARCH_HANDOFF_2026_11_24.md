@@ -82,3 +82,17 @@ try {
 ```
 
 Ожидаемый итог — 27 героев, 19 изменений полей способностей Alchemist и пустой список изменившихся характеристик на каждой из четырёх карт. Следующий шаг ПК1 по Draft Lab — проверить убийства игроков на двух предыдущих картах EWC и измерить покрытие драфтов данными, доступными до старта.
+
+## Дополнение · убийства героев EWC
+
+Исходные ответы двух карт дали 20 проверенных счётчиков. В серии Nigma — Aurora прошлые карты покрывают 7/10 героев на первой карте и 5/10 на второй. Для июля квитанций с датой получения до начала игры нет. В приватном реестре доступны отчёт, исходные ответы и скрипт. Команды выполняются из рабочей копии ПК2 с настроенным реестром, `$review` — отдельная папка среза `612d4dc` и ранее скачанной историей.
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get c63f8aeb01f1277860efcb93dfd55c0d5736a2402b3221fcb76bd3c7f9cba8ac "$review/docs/evidence/s3-04-h3-ewc-kills.json"
+node --env-file=.env tools/research/shared-research-artifact.mjs get 2c120e4bf0d28070aa1e6b97e2df6ddc90ac7bd2ba87fab359f5f7fd28d2e471 "$review/.tools/h3-ewc-kill-receipts-r1.json"
+node --env-file=.env tools/research/shared-research-artifact.mjs get f0e9d171e5d48aba6f9eef8d33d9bc21168fb182e20d16688f97ed8d625648ae "$review/tools/research/review_h3_ewc_kills.py"
+Push-Location $review
+try { python -B tools/research/review_h3_ewc_kills.py verify } finally { Pop-Location }
+```
+
+Ожидаемое покрытие по сторонам — 4/5 и 3/5 на карте `8886788497`, 2/5 и 3/5 на карте `8886893266`. Следующий шаг — проверить сохранённые ответы остальных карт истории и измерить покрытие четырёх окон разработки.
