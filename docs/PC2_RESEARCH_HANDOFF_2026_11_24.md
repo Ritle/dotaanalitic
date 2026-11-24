@@ -126,3 +126,28 @@ node --env-file=.env tools/research/shared-research-artifact.mjs get 6278e1605d1
 Push-Location $review
 try { python -B tools/research/freeze_h3_kill_rate.py verify } finally { Pop-Location }
 ```
+
+## Результат эксперимента с убийствами героев
+
+H2 верно выбрала победителя на 123 из 184 поздних карт, модель с интенсивностью убийств — на 122. При оценке по 85 целым сериям 95% интервал разницы log loss составил от −0,001683 до +0,006598. Brier вырос на 0,001091. Кандидат получил решение `no_positive_development_signal`. Следующий шаг ПК1 — найти прямую привязку игровых патчей к картам для проверки совместного набора признаков H3.
+
+Для просмотра отчёта из рабочей копии с настроенным общим реестром:
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get 1cc1023c4d5851f978d1bc443312a6840aa716d289477b71d4f6a9f1fb1ff841 .tools/h3-kill-rate-result-pc1.json
+```
+
+Для повтора в отдельной папке скачайте пакет с входами, скриптами, четырьмя снимками и исходным эталоном H2. Архив содержит только файлы исследования. Команды рассчитаны на доступную локально ревизию `612d4dc` из первого раздела и свободные пути. Строгий режим `verify` проверяет в том числе версию Windows, Python, библиотеки BLAS и их архитектуру из поля `environment` в снимке обучения. На ПК1 полный повтор из скачанного архива прошёл на чистой копии базовой ревизии ПК2.
+
+```powershell
+$zip = '.tools/h3-kill-rate-replay-pc1.zip'
+$copy = '.tools/pc1-kill-rate-evaluation-review'
+$pythonExe = (Resolve-Path .venv/Scripts/python.exe).Path
+node --env-file=.env tools/research/shared-research-artifact.mjs get 49cd0c49b1087c775dfd3802ea298490e756198b86a107872a5d5ddeb0e85d6f $zip
+if ($LASTEXITCODE) { throw 'Download failed' }
+git worktree add --detach $copy 612d4dcc646978fdb891e416ed91e0c8d3503698
+if ($LASTEXITCODE) { throw 'New review copy required' }
+Expand-Archive -LiteralPath $zip -DestinationPath $copy -Force -ErrorAction Stop
+Push-Location $copy
+try { & $pythonExe -B tools/research/evaluate_h3_kill_rate.py verify } finally { Pop-Location }
+```
