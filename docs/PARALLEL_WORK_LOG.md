@@ -4,6 +4,41 @@
 
 ## Активные задачи
 
+### ПК2 · Принять проверку патча Birmingham в Draft Lab
+
+**2026-11-24T22:48:21+03:00 · Назначена ПК2 по решению владельца.** Ответственный за `S3-04/H3-birmingham-patch-boundary` теперь ПК2. ПК1 передал материалы и освободил эту задачу. При старте отметь здесь «В работе», свою ветку и базу `e1ef8a3`. Рекомендуемая модель — GPT-6.2 Astra · High.
+
+**Задача.** На карте `8742507954` (серия `1078673`) и карте `8743150103` (серия `1078868`) проверь, соответствует ли версия STRATZ наблюдаемой механике до и после объявления Valve о 7.41. Это ранее просмотренные карты обучающего окна. Возьми одну конкретную механику из официальных изменений 7.41, доступную для проверки в этих драфтах. По каждой карте сохрани метку STRATZ, источник наблюдения, таймкод или поле в реплее, SHA файла при наличии, а также вывод «совпало», «конфликт» или «недостаточно данных». Различай время игры и время получения доказательства. Область правок — скрипт, тесты и отчёт этого пилота. [Объявление Valve](https://steamcommunity.com/games/dota2/announcements/detail/512986184073347349)
+
+**Старт из рабочей копии ПК2 с настроенным реестром.** Имена выходных файлов и путь новой рабочей копии должны быть свободны. При повторе используй уже проверенные файлы. Команда `get` проверяет SHA. Пакет содержит весь срез ПК1 от общей базы `94f3f85`, включая план, код и отчёты. Отдельная рабочая папка позволяет сохранить текущую ветку ПК2.
+
+```powershell
+$cli = 'tools/research/shared-research-artifact.mjs'
+node --env-file=.env $cli get 933d189b4373a0c220ed2c9beebe2480f4c293a9db8c694515831ddd97eb1cfb .tools/pc2-birmingham-task.json
+if ($LASTEXITCODE) { throw 'Task download failed' }
+$task = Get-Content -Raw -Encoding UTF8 .tools/pc2-birmingham-task.json | ConvertFrom-Json
+$bundle = '.tools/pc2-birmingham-base.bundle'
+node --env-file=.env $cli get $task.bundleSha256 $bundle
+if ($LASTEXITCODE) { throw 'Bundle download failed' }
+git fetch origin refs/heads/draft-lab/dl30-first-request
+if ($LASTEXITCODE) { throw 'Base fetch failed' }
+git bundle verify $bundle
+if ($LASTEXITCODE) { throw 'Bundle verification failed' }
+git fetch --no-tags $bundle $task.bundleRef
+if ($LASTEXITCODE) { throw 'Bundle fetch failed' }
+$work = '../pc2-h3-birmingham-boundary'
+git worktree add -b $task.taskBranch $work $task.baseCommit
+if ($LASTEXITCODE) { throw 'Worktree creation failed' }
+New-Item -ItemType Directory -Force "$work/.tools" | Out-Null
+foreach ($map in $task.maps) {
+  $name = 'opendota-' + $map.matchId + '.json'
+  node --env-file=.env $cli get $map.openDotaBodySha256 "$work/.tools/$name"
+  if ($LASTEXITCODE) { throw 'Map receipt download failed' }
+}
+```
+
+Поручение также доступно по имени `pc2-task-h3-birmingham-patch-boundary-20261124.json` в общем приватном реестре. В нём есть ссылки на оба реплея, SHA исходных ответов OpenDota и критерии приёмки. Начни с локальных ответов, затем получи отсутствующие сведения из STRATZ и реплея или записи игры. При передаче результата опубликуй в реестре `s3-04-h3-birmingham-patch-boundary-pc2.json` с нужными для повтора входами. В эту запись добавь итог для каждой карты, SHA отчёта, команду проверки и доступную ветку или пакет с коммитом.
+
 **24 ноября 2026 · ПК1 проверил версии STRATZ по ID 14 карт.** На восьми целевых картах из четырёх целых серий есть предшествующая история на той же версии по данным провайдера. Отчёт, ответы API и скрипт сверены после скачивания из общего реестра. Следующий шаг ПК1 — проверка смены патча во время Birmingham по первичному источнику. [Материалы для ПК2](PC2_RESEARCH_HANDOFF_2026_11_24.md#версии-stratz-для-четырёх-турниров)
 
 **24 ноября 2026 · ПК1 завершил проверку интенсивности убийств в Draft Lab.** H2 дала 123 верных ответа на 184 картах, кандидат — 122. Разница log loss +0,002281, интервал включает ноль. Такой вариант не прошёл критерий улучшения. В приватном реестре доступны отчёт и проверенный пакет воспроизведения. Следующий пункт ПК1 — источники игрового патча для полного набора H3. [Результат и команды для ПК2](PC2_RESEARCH_HANDOFF_2026_11_24.md#результат-эксперимента-с-убийствами-героев)
