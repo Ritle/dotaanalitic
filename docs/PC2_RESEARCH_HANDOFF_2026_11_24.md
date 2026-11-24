@@ -96,3 +96,20 @@ try { python -B tools/research/review_h3_ewc_kills.py verify } finally { Pop-Loc
 ```
 
 Ожидаемое покрытие по сторонам — 4/5 и 3/5 на карте `8886788497`, 2/5 и 3/5 на карте `8886893266`. Следующий шаг — проверить сохранённые ответы остальных карт истории и измерить покрытие четырёх окон разработки.
+
+## Ревизия истории убийств по всему архиву
+
+ПК1 обработал все 2 243 карты замороженной истории. Найдены 21 289 счётчиков, в том числе 1 531 ноль. На 108 картах отсутствует исходник с нужным SHA-256, ещё у 61 слота не подтверждена личность. Ретроспективно обе стороны покрыты во всех 1 657 целевых драфтах, все десять героев — в 1 598. При требовании подтверждённой доступности до старта покрыты 0 драфтов. История пригодна для ретроспективного эксперимента разработки.
+
+Для ПК2 достаточно готового отчёта. Для пересчёта в папке `$review` должны быть прежняя история пар и скрипт предыдущего дополнения об EWC. Скачайте четыре новых файла из рабочей копии с настроенным реестром. Режим `verify` сверяет новую историю побайтно и проверяет покрытие всех окон.
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get d545b4c98f00ad1f2a2262abbf2924c73ec85ed115b03e6a39e586dbe4be6d3c "$review/docs/evidence/s3-04-h3-kill-history-coverage.json"
+node --env-file=.env tools/research/shared-research-artifact.mjs get fc48d72410d41f47a2a2c7675584d9883e11306cd6e49ef05fd7eba90189a1c5 "$review/.tools/h3-kill-receipt-projections-r2.json"
+node --env-file=.env tools/research/shared-research-artifact.mjs get 3f7e05b7f05eae22f605971de1dfe978e7c87f414d4d71426c0e55bcffbd5e1d "$review/.tools/s3-04-h3-kill-history-r2.json"
+node --env-file=.env tools/research/shared-research-artifact.mjs get 9fe5132e2eabb9ca20e90f68ee77c684be30ac5c9d881a5418c2488a2a22e40f "$review/tools/research/review_h3_kill_history.py"
+Push-Location $review
+try { python -B tools/research/review_h3_kill_history.py verify } finally { Pop-Location }
+```
+
+Для обучения, валидации, калибровки и позднего окна ожидаемое покрытие всех десяти героев — 830, 305, 280 и 183 драфта. Следующий шаг ПК1 — закрепить правила парной проверки H2 с добавлением разности убийств за 10 минут. Активация по этому отчёту не проводилась.
