@@ -151,3 +151,17 @@ Expand-Archive -LiteralPath $zip -DestinationPath $copy -Force -ErrorAction Stop
 Push-Location $copy
 try { & $pythonExe -B tools/research/evaluate_h3_kill_rate.py verify } finally { Pop-Location }
 ```
+
+## Версии STRATZ для четырёх турниров
+
+STRATZ по отдельным ID выдал 7.40c для Birmingham, 7.41c для DreamLeague, 7.41d для EWC и 7.41f для Wallachia. В выборке 14 карт. Более ранняя история на той же версии источника покрывает обе стороны восьми целевых драфтов из четырёх полных серий. Эти метки получены после игр, их происхождение внутри STRATZ неизвестно. Строгий H3 по-прежнему имеет 0 пригодных серий. ПК1 продолжит проверку на границе патчей в Birmingham.
+
+Для просмотра достаточно первого файла. Для пересчёта в копии `$review` нужны история убийств r2 и план сравнения интенсивности убийств из предыдущих разделов. Ниже команды восстановления из приватного реестра. ПК1 проверил их повтором на копии базовой ревизии ПК2.
+
+```powershell
+node --env-file=.env tools/research/shared-research-artifact.mjs get 0ef6ab346b34a796a5c2291466b5a8b70703690a86bf694f4ad152f275ee6321 "$review/docs/evidence/s3-04-h3-stratz-pilot-patches.json"
+node --env-file=.env tools/research/shared-research-artifact.mjs get af031bdf42a3a8ed1f41d82b57e1ebbc975e07cd2604162aac0c818b352a445b "$review/.tools/h3-stratz-pilot-patch-receipts-r1.json"
+node --env-file=.env tools/research/shared-research-artifact.mjs get 3f6b955183f155e02a4750633ca26acd149e1d26264fe45581e13b63f11434a1 "$review/tools/research/review_h3_stratz_patches.py"
+Push-Location $review
+try { python -B tools/research/review_h3_stratz_patches.py verify } finally { Pop-Location }
+```
