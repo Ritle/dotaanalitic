@@ -4,7 +4,7 @@
 
 ## Активные задачи
 
-**ПК1 · В работе · 2026-11-27 · S3-09/bo3-provider-observation.** Ветка `series/bo3-provider-observation`, база `b8b0b47`. Сроки получения сведений у четырёх источников в Aurora — PARIVISION на BLAST. Изолированный журнал ПК1.
+**ПК1 · Завершено · 2026-11-27 · S3-09/bo3-provider-observation.** Ветка `series/bo3-provider-observation`, коммиты `9c957b3`, `9a13cee`, `3b591be`. Все три карты Aurora — PARIVISION подтверждены четырьмя источниками. На первых двух OpenDota опередил остальных, на третьей дал результат в одном цикле с Valve. Отчёт в общем реестре `s3-09-bo3-provider-observation-1816499.json`, SHA-256 `7cdcf6dae9c4ab84e464b5013061a2df6a92f569f666a6026e108b91c68da08c`. Следующий пункт ПК1 — догрузка недостающих деталей Team Liquid — LGD Gaming.
 
 **ПК1 · Завершено · 2026-11-27 · S3-09/bo3-archive-binding-import.** Локальный коммит `b8b0b47`, ветка `series/bo3-archive-binding-import`. В тестовой PostgreSQL штатная сверка подтвердила 0:2 для Team Spirit — Froglings. Проверены повторы, параллельная запись и откат при сбое. Следующий шаг ПК1 — получить недостающие детали известных карт Team Liquid — LGD Gaming и проверить импорт BO3 из трёх карт.
 
